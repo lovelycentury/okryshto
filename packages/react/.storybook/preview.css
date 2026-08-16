@@ -1,0 +1,117 @@
+/*
+ * Storybook-only presentation. Nothing here ships in `@okryshto/design-system` —
+ * it exists so stories are read at a realistic size, not so components change.
+ *
+ * Text-entry controls size themselves with `width: fit-content` and a 200px
+ * floor, which is right for an app laying out its own form but leaves a story
+ * canvas full of stubby fields. 280px is the floor here instead.
+ *
+ * Scoped to the canvas on purpose: portaled surfaces (a Select's listbox, a
+ * date picker's popover) render into `<body>`, outside this element, so they
+ * keep taking their width from their anchor rather than inheriting this floor.
+ *
+ * This file is deliberately unlayered. The design system puts its rules in
+ * `@layer okryshto.component`, and unlayered styles outrank every layer, so these
+ * win without a specificity contest.
+ */
+
+/*
+ * Stage wraps scene + canvas so the background is positioned against the
+ * preview box (absolute), not the iframe viewport (fixed). That way Docs
+ * Primary stays edge-to-edge with no letterbox padding.
+ */
+.okryshto-storybook-stage {
+  position: relative;
+  isolation: isolate;
+  box-sizing: border-box;
+  min-height: 100vh;
+  overflow: hidden;
+  background: var(--okryshto-bg-canvas, #0a0a0b);
+}
+
+/*
+ * Docs inline stories: hug content by default; Primary forces 500px via
+ * docs-template.scss. `overflow-y: auto` overrides the base stage's
+ * `overflow: hidden` — content taller than the 500px cap (e.g. a multi-row
+ * example grid) scrolls inside the frame instead of being sliced off flush
+ * with the bottom edge.
+ */
+.okryshto-storybook-stage--docs {
+  min-height: 0;
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.okryshto-storybook-stage--brand-docs {
+  min-height: 0;
+  height: 100%;
+  max-height: none;
+}
+
+.okryshto-storybook-bg {
+  position: absolute;
+  /* Overscan the scene so clipped edges hide the flat black falloff. */
+  inset: -12%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.okryshto-storybook-canvas {
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+  min-height: inherit;
+  height: 100%;
+  /*
+   * Inset the story inside the full-bleed scene — keeps controls off the
+   * noisy/black edges of the animated background.
+   */
+  padding: 2.5rem;
+  background: transparent;
+}
+
+/* Docs Primary: generous inset, content pinned to the top-left. */
+.okryshto-storybook-stage--docs .okryshto-storybook-canvas {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 3rem;
+}
+
+/*
+ * Set on the blocks rather than on the canvas: `field.shell` declares
+ * `--okryshto-<block>-min-width` on the block itself, and a declaration on the
+ * element always beats one inherited from an ancestor.
+ */
+.okryshto-storybook-canvas .okryshto-text-field {
+  --okryshto-text-field-min-width: 17.5rem;
+}
+
+.okryshto-storybook-canvas .okryshto-select {
+  --okryshto-select-min-width: 17.5rem;
+}
+
+.okryshto-storybook-canvas .okryshto-autocomplete {
+  --okryshto-autocomplete-min-width: 17.5rem;
+}
+
+/*
+ * The controls that predate the shared `field.shell` mixin have no min-width
+ * variable to set, so they get the floor directly. `:not(--full-width)` leaves
+ * a field that was asked to fill its container alone.
+ */
+.okryshto-storybook-canvas
+  :is(
+    .okryshto-text-area,
+    .okryshto-number-input,
+    .okryshto-date-field,
+    .okryshto-date-time-field,
+    .okryshto-time-field
+  ):not([class*="--full-width"]) {
+  min-width: 17.5rem;
+}

@@ -1,0 +1,39 @@
+// `.okryshto-required-marker` / `.okryshto-optional-marker` populate a "*" / "(optional)"
+// suffix via ::after. Toggle per-scope with `.okryshto-use-optional` / `.okryshto-use-required`.
+@layer okryshto.utility {
+  :root {
+    // https://lea.verou.me/blog/2020/10/the-var-space-hack-to-toggle-multiple-values-with-one-custom-property/
+    --ON: initial;
+    --OFF: ;
+  }
+
+  :root,
+  .okryshto-use-required {
+    --okryshto-use-required: var(--ON);
+    --okryshto-use-optional: var(--OFF);
+  }
+
+  .okryshto-use-optional {
+    --okryshto-use-required: var(--OFF);
+    --okryshto-use-optional: var(--ON);
+  }
+
+  .okryshto-required-marker::after {
+    font-family: var(--okryshto-use-required, var(--okryshto-font-family-paragraph));
+    content: var(--okryshto-use-required, "*");
+    color: var(--okryshto-use-required, var(--okryshto-color-text-icons-danger-intense));
+    padding-left: var(--okryshto-use-required, var(--okryshto-spacing-5xs));
+  }
+
+  .okryshto-optional-marker::after {
+    font: {
+      family: var(--okryshto-use-optional, var(--okryshto-font-family-paragraph));
+      weight: var(--okryshto-use-optional, 400);
+      style: var(--okryshto-use-optional, normal);
+    }
+    content: var(--okryshto-use-optional, var(--okryshto-global-optional-text, "(optional)"));
+    color: var(--okryshto-use-optional, var(--okryshto-color-text-icons-neutral-soft));
+    padding-left: var(--okryshto-use-optional, var(--okryshto-density-xs));
+    hyphens: var(--okryshto-use-optional, none);
+  }
+}

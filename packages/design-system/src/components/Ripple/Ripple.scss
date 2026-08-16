@@ -1,0 +1,56 @@
+@use "../../styles/mixins/layers.scss";
+
+// Shared ripple overlay for clickable elements (Button, IconButton, ...).
+// The trigger element must be `position: relative; overflow: hidden` and pass
+// its own bounding rect to the ripple's coordinate math — see @okryshto/react's
+// `useRipple` hook for the interaction side.
+@property --okryshto-ripple-radius {
+  syntax: "<percentage>";
+  initial-value: 0%;
+  inherits: false;
+}
+
+.okryshto-ripple {
+  @include layers.component() {
+    --okryshto-ripple-color: currentColor;
+    --okryshto-ripple-opacity: 0.24;
+
+    display: block;
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    border-radius: inherit;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+
+    &__element {
+      display: block;
+      position: absolute;
+      pointer-events: none;
+      width: 100%;
+      height: 100%;
+      opacity: var(--okryshto-ripple-opacity);
+      background: radial-gradient(
+        circle at var(--okryshto-ripple-left) var(--okryshto-ripple-top),
+        transparent var(--okryshto-ripple-radius),
+        var(--okryshto-ripple-color) var(--okryshto-ripple-radius)
+      );
+      animation: okryshto-ripple var(--okryshto-duration-sm) cubic-bezier(0, 0, 0.2, 1) forwards;
+
+      @media (prefers-reduced-motion: reduce) {
+        animation: none;
+        display: none;
+      }
+    }
+
+    @keyframes okryshto-ripple {
+      0% {
+        --okryshto-ripple-radius: 0%;
+      }
+      100% {
+        --okryshto-ripple-radius: 100%;
+      }
+    }
+  }
+}

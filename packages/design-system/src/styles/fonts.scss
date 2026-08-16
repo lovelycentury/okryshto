@@ -1,0 +1,45 @@
+// Woff2 files live in ../fonts — add @font-face blocks here once fonts land there, e.g.:
+//
+// @font-face {
+//   font-family: "Okryshto Sans";
+//   src: url("../fonts/okryshto-sans-regular.woff2") format("woff2");
+//   font-weight: 400;
+//   font-style: normal;
+//   font-display: swap;
+// }
+
+@layer okryshto.utility {
+  .okryshto-text {
+    font-weight: var(--okryshto-font-weight-regular);
+    font-size: var(--okryshto-font-size-md);
+    line-height: var(--okryshto-font-line-height-md);
+    text-wrap: balance;
+
+    &--small {
+      font-size: var(--okryshto-font-size-sm);
+      line-height: var(--okryshto-font-line-height-sm);
+    }
+
+    &--large {
+      font-size: var(--okryshto-font-size-lg);
+      line-height: var(--okryshto-font-line-height-lg);
+    }
+
+    &--monospace {
+      font-family: var(--okryshto-font-family-mono);
+    }
+  }
+
+  .okryshto-truncation {
+    &-ellipsis {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    &-multiline {
+      overflow-wrap: anywhere;
+      hyphens: auto;
+    }
+  }
+}

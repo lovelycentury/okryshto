@@ -1,0 +1,22 @@
+@use "styles/mixins" as m;
+
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.eyebrow {
+  @include m.eyebrow;
+}
+
+.title {
+  margin: 0;
+  @include m.display(h1);
+}
+
+.summary {
+  max-width: 38.75rem; // 620px
+  color: var(--okryshto-text-secondary);
+  @include m.type(body-lg);
+}

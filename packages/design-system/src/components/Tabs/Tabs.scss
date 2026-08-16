@@ -1,0 +1,149 @@
+// https://www.figma.com/design/3YsJJl5QukJZPkjoOOZahx/-okryshto-okryshto?node-id=637-50585
+// API: https://mui.com/material-ui/api/tabs/
+@use "../../styles/mixins/layers.scss";
+
+.okryshto-tabs {
+  @include layers.component() {
+    --okryshto-tabs-tone: var(--okryshto-accent-primary);
+    --okryshto-tabs-indicator-color: var(--okryshto-tabs-tone);
+    --okryshto-tabs-active-text-color: var(--okryshto-text-primary);
+    --okryshto-tabs-inactive-text-color: var(--okryshto-text-muted);
+    --okryshto-tabs-border-color: var(--okryshto-border-subtle);
+    --okryshto-tabs-gap: 1.75rem;
+
+    display: flex;
+    font-family: var(--okryshto-font-family-sans);
+
+    &--color-dante {
+      --okryshto-tabs-tone: var(--okryshto-accent-dante);
+    }
+    &--color-indigo {
+      --okryshto-tabs-tone: var(--okryshto-accent-secondary);
+    }
+    &--color-violet {
+      --okryshto-tabs-tone: var(--okryshto-accent-violet);
+    }
+    &--color-ember {
+      --okryshto-tabs-tone: var(--okryshto-accent-ember);
+    }
+    &--color-ice {
+      --okryshto-tabs-tone: var(--okryshto-accent-ice);
+    }
+
+    &--vertical {
+      flex-direction: column;
+      align-items: stretch;
+
+      .okryshto-tabs__list {
+        flex-direction: column;
+        align-items: stretch;
+        // The horizontal gap separates tabs on one line; stacked, the tabs'
+        // own block padding already does that.
+        gap: 0.125rem;
+        border-block-end: none;
+        border-inline-end: var(--okryshto-1px-in-rem) solid var(--okryshto-tabs-border-color);
+      }
+
+      .okryshto-tabs__tab {
+        // Without this the button is only as wide as its label, so the
+        // indicator floats mid-row instead of sitting on the list edge.
+        width: 100%;
+        justify-content: flex-start;
+        padding-block: 0.75rem;
+        padding-inline: 0 1rem;
+        border-block-end: none;
+        border-inline-end: 0.125rem solid transparent;
+
+        &--active {
+          border-block-end-color: transparent;
+          border-inline-end-color: var(--okryshto-tabs-indicator-color);
+        }
+      }
+    }
+
+    &__scroller {
+      overflow: hidden;
+    }
+
+    &--scrollable &__scroller {
+      overflow-x: auto;
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    &__list {
+      display: flex;
+      align-items: stretch;
+      gap: var(--okryshto-tabs-gap);
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      border-block-end: var(--okryshto-1px-in-rem) solid var(--okryshto-tabs-border-color);
+
+      // The list items are the flex children — without this they shrink and the
+      // labels wrap instead of the strip scrolling.
+      > li {
+        display: flex;
+        flex-shrink: 0;
+      }
+    }
+
+    &__tab {
+      display: inline-flex;
+      flex-shrink: 0;
+      align-items: center;
+      gap: 0.5rem;
+      margin: 0;
+      padding-block: 0 0.75rem;
+      padding-inline: 0;
+      border: none;
+      border-block-end: 0.125rem solid transparent;
+      background: none;
+      color: var(--okryshto-tabs-inactive-text-color);
+      font-family: inherit;
+      font-weight: var(--okryshto-font-weight-medium);
+      font-size: var(--okryshto-font-size-md);
+      line-height: var(--okryshto-font-line-height-md);
+      white-space: nowrap;
+      cursor: pointer;
+      transition:
+        color var(--okryshto-duration-sm) ease,
+        border-color var(--okryshto-duration-sm) ease;
+
+      &:hover:not(:disabled) {
+        color: var(--okryshto-tabs-active-text-color);
+      }
+
+      &:focus-visible {
+        outline: var(--okryshto-1px-in-rem) solid var(--okryshto-tabs-tone);
+        outline-offset: 0.1875rem;
+        border-radius: 0.25rem;
+      }
+
+      &:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+      }
+
+      &--active {
+        color: var(--okryshto-tabs-active-text-color);
+        border-block-end-color: var(--okryshto-tabs-indicator-color);
+      }
+    }
+
+    &__icon {
+      display: inline-flex;
+      flex-shrink: 0;
+      width: 0.9375rem;
+      height: 0.9375rem;
+
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}

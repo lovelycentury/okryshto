@@ -1,0 +1,97 @@
+@use "../../styles/mixins/layers.scss";
+
+.okryshto-logo {
+  @include layers.component() {
+    // 1. full variable API, defaults = layout "horizontal", tone "multi"
+    --okryshto-logo-tone: var(--okryshto-accent-primary);
+    --okryshto-logo-emblem-size: 3rem; // 48px (from Figma design)
+    --okryshto-logo-gap: 1rem; // 16px
+    --okryshto-logo-label-color: var(--okryshto-text-primary);
+    --okryshto-logo-label-font-size: 1rem; // 16px
+
+    // the emblem's two "yin"/"yang" halves are each a light→dark gradient of
+    // the same tone; a light dot sits on the dark half, a dark dot on the
+    // light half — identical geometry across every tone, only these derived
+    // colors change
+    --okryshto-logo-light-start: var(--okryshto-logo-tone);
+    --okryshto-logo-light-end: color-mix(in srgb, var(--okryshto-logo-tone) 60%, black);
+    --okryshto-logo-dark-start: color-mix(in srgb, var(--okryshto-logo-tone) 20%, black);
+    --okryshto-logo-dark-end: color-mix(in srgb, var(--okryshto-logo-tone) 9%, black);
+    --okryshto-logo-dot-on-light: var(--okryshto-logo-dark-end);
+    --okryshto-logo-dot-on-dark: var(--okryshto-logo-tone);
+    --okryshto-logo-ring-color: color-mix(in srgb, var(--okryshto-logo-tone) 18%, transparent);
+
+    display: inline-flex;
+    align-items: center;
+    gap: var(--okryshto-logo-gap);
+    font-family: var(--okryshto-font-family-sans);
+
+    // 2. layout — horizontal (default) needs no modifier
+    &--compact {
+      --okryshto-logo-emblem-size: 1.5rem; // 24px
+      --okryshto-logo-gap: 0.625rem; // 10px
+      --okryshto-logo-label-font-size: 0.875rem; // 14px
+    }
+
+    &--stacked {
+      --okryshto-logo-gap: 0.75rem; // 12px
+      --okryshto-logo-label-font-size: 0.9375rem; // 15px
+      flex-direction: column;
+      text-align: center;
+    }
+
+    // 3. tone — multi (default, combines all brand colors) needs no modifier
+    &--tone-indigo {
+      --okryshto-logo-tone: var(--okryshto-accent-secondary);
+    }
+
+    &--tone-dante {
+      --okryshto-logo-tone: var(--okryshto-accent-dante);
+    }
+
+    &--tone-violet {
+      --okryshto-logo-tone: var(--okryshto-accent-violet);
+    }
+
+    &--tone-ember {
+      --okryshto-logo-tone: var(--okryshto-accent-ember);
+    }
+
+    // monochrome pair — one half is a flat near-extreme, the other a flat
+    // near-opposite; no gradient, no shared --okryshto-logo-tone
+    &--tone-mono-dark {
+      --okryshto-logo-light-start: var(--okryshto-text-primary);
+      --okryshto-logo-light-end: var(--okryshto-text-primary);
+      --okryshto-logo-dark-start: var(--okryshto-bg-surface-raised);
+      --okryshto-logo-dark-end: var(--okryshto-bg-surface-raised);
+      --okryshto-logo-dot-on-light: var(--okryshto-bg-canvas);
+      --okryshto-logo-dot-on-dark: var(--okryshto-text-primary);
+      --okryshto-logo-ring-color: color-mix(in srgb, var(--okryshto-text-primary) 12%, transparent);
+    }
+
+    &--tone-mono-light {
+      --okryshto-logo-light-start: var(--okryshto-bg-canvas);
+      --okryshto-logo-light-end: var(--okryshto-bg-canvas);
+      --okryshto-logo-dark-start: var(--okryshto-text-primary);
+      --okryshto-logo-dark-end: var(--okryshto-text-primary);
+      --okryshto-logo-dot-on-light: var(--okryshto-text-primary);
+      --okryshto-logo-dot-on-dark: var(--okryshto-bg-canvas);
+      --okryshto-logo-ring-color: color-mix(in srgb, var(--okryshto-bg-canvas) 20%, transparent);
+      --okryshto-logo-label-color: var(--okryshto-bg-canvas);
+    }
+
+    // 4. elements
+    &__emblem {
+      flex-shrink: 0;
+      width: var(--okryshto-logo-emblem-size);
+      height: var(--okryshto-logo-emblem-size);
+    }
+
+    &__label {
+      font-weight: var(--okryshto-font-weight-medium);
+      font-size: var(--okryshto-logo-label-font-size);
+      color: var(--okryshto-logo-label-color);
+      white-space: nowrap;
+    }
+  }
+}

@@ -1,0 +1,104 @@
+/*! Based on modern-normalize v2.0.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
+@mixin apply {
+  html:focus-within & {
+    scroll-behavior: smooth;
+  }
+
+  &,
+  * {
+    &,
+    &::before,
+    &::after {
+      margin: 0;
+      box-sizing: border-box;
+      -moz-text-size-adjust: none;
+      -webkit-text-size-adjust: none;
+      text-size-adjust: none;
+    }
+
+    &:is(input, button, textarea, optgroup, select) {
+      font: inherit;
+    }
+    &:is(th) {
+      padding: 0;
+    }
+    &:is(hr) {
+      height: 0;
+      color: inherit;
+    }
+    &:is(abbr[title]) {
+      text-decoration: underline dotted;
+    }
+    &:is(b, strong) {
+      font-weight: bolder;
+    }
+    &:is(small) {
+      font-size: 80%;
+    }
+    &:is(sub, sup) {
+      font-size: 75%;
+      line-height: 0;
+      position: relative;
+      vertical-align: baseline;
+    }
+    &:is(sub) {
+      bottom: -0.25em;
+    }
+    &:is(sup) {
+      top: -0.5em;
+    }
+    &:is(table) {
+      text-indent: 0;
+      border-color: inherit;
+    }
+    &:is(button, select) {
+      text-transform: none;
+    }
+    &:is(button, [type="button"], [type="reset"], [type="submit"]) {
+      -webkit-appearance: button;
+    }
+    &::-moz-focus-inner {
+      border-style: none;
+      padding: 0;
+    }
+    &:-moz-focusring {
+      outline: 1px dotted ButtonText;
+    }
+    &:-moz-ui-invalid {
+      box-shadow: none;
+    }
+    &:is(legend) {
+      padding: 0;
+    }
+    &:is(progress) {
+      vertical-align: baseline;
+    }
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+      height: auto;
+    }
+    &:is([type="search"]) {
+      -webkit-appearance: textfield;
+      outline-offset: -2px;
+    }
+    &::-webkit-search-decoration {
+      -webkit-appearance: none;
+    }
+    &::-webkit-file-upload-button {
+      -webkit-appearance: button;
+      font: inherit;
+    }
+    &:is(summary) {
+      display: list-item;
+    }
+    // An inline svg sits on the text baseline, so its parent's line box is as
+    // tall as the font (~18.5px at our default) even when the glyph is 14px.
+    // The leftover descender space sits entirely below the icon, pushing it
+    // optically high inside any centered box — visible on every circular icon
+    // button. Blockifying removes the line box so the glyph's own box is what
+    // gets centered. (modern-normalize omits this; Tailwind's preflight adds it.)
+    &:is(svg) {
+      display: block;
+    }
+  }
+}

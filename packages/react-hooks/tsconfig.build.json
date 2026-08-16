@@ -1,0 +1,8 @@
+{
+  "extends": "./tsconfig.json",
+  // `.tsx` matters: hook implementations may be .tsx files while the barrels are
+  // .ts. Leaving it out builds a d.ts of re-export stubs pointing at modules the
+  // declaration build never saw, so every exported hook lands in consumers as `any`.
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "exclude": ["src/**/*.spec.ts", "src/**/*.spec.tsx"]
+}

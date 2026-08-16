@@ -1,0 +1,6 @@
+{
+  // VS Code will suggest these when the project is opened.
+  "recommendations": ["esbenp.prettier-vscode", "oxc.oxc-vscode", "editorconfig.editorconfig"],
+  // ESLint is not used here — oxlint is the linter.
+  "unwantedRecommendations": ["dbaeumer.vscode-eslint"]
+}

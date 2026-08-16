@@ -1,0 +1,530 @@
+@use "../../styles/mixins/layers.scss";
+
+.okryshto-brand-docs {
+  @include layers.component() {
+    --okryshto-brand-docs-max-width: 72rem;
+    --okryshto-brand-docs-gap: 3.5rem;
+    --okryshto-brand-docs-card-radius: 0.625rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--okryshto-brand-docs-gap);
+    max-width: var(--okryshto-brand-docs-max-width);
+    padding-bottom: 3rem;
+    color: var(--okryshto-text-primary);
+    font-family: var(--okryshto-font-family-sans);
+  }
+
+  &__eyebrow {
+    margin: 0;
+    color: var(--okryshto-accent-primary);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    line-height: 1rem;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    margin: 0.75rem 0 0;
+    color: var(--okryshto-text-primary);
+    font-size: 2.75rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+  }
+
+  &__lede {
+    margin: 0.75rem 0 0;
+    max-width: 42.5rem;
+    color: var(--okryshto-text-secondary);
+    font-size: 1.125rem;
+    line-height: 1.875rem;
+  }
+
+  &__rule {
+    width: 100%;
+    height: 0.625rem;
+    border: 0;
+    border-radius: 9999px;
+    background: linear-gradient(
+      90deg,
+      var(--okryshto-accent-primary),
+      var(--okryshto-accent-secondary)
+    );
+  }
+
+  &__divider {
+    width: 100%;
+    height: 1px;
+    border: 0;
+    background: var(--okryshto-border-subtle);
+  }
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  &__section-title {
+    margin: 0;
+    color: var(--okryshto-text-primary);
+    font-size: 1.625rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    line-height: 2.125rem;
+  }
+
+  &__section-note {
+    margin: 0;
+    color: var(--okryshto-text-secondary);
+    font-size: 1rem;
+    line-height: 1.625rem;
+  }
+
+  &__grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  // Running prose. Capped well short of the page's own max-width — a 72rem
+  // measure is unreadable, whatever the container allows.
+  &__prose {
+    margin: 0;
+    max-width: 44rem;
+    color: var(--okryshto-text-secondary);
+    font-size: 1rem;
+    line-height: 1.75rem;
+  }
+
+  &__prose + &__prose {
+    margin-top: 0.75rem;
+  }
+
+  // Auto-fitting card rack. `__grid` is a flex wrap for fixed-width tiles;
+  // this is for cards that should share the row evenly instead.
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 1rem;
+  }
+
+  &__toc {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+    gap: 0.75rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__toc-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding: 0.875rem 1rem;
+    border: 1px solid var(--okryshto-border-subtle);
+    border-radius: var(--okryshto-brand-docs-card-radius);
+    background: color-mix(in srgb, var(--okryshto-bg-surface) 72%, transparent);
+  }
+
+  &__toc-name {
+    margin: 0;
+    color: var(--okryshto-text-primary);
+    font-size: 0.9375rem;
+    font-weight: 500;
+  }
+
+  &__toc-desc {
+    margin: 0;
+    color: var(--okryshto-text-muted);
+    font-size: 0.8125rem;
+    line-height: 1.25rem;
+  }
+
+  // Code samples. `__pre` scrolls on its own rather than widening the page —
+  // a long import line must not push the whole document sideways.
+  &__pre {
+    margin: 0;
+    padding: 1rem 1.125rem;
+    overflow-x: auto;
+    border: 1px solid var(--okryshto-border-subtle);
+    border-radius: 0.75rem;
+    background: var(--okryshto-bg-inset);
+    color: var(--okryshto-text-secondary);
+    font-family: var(--okryshto-font-family-mono);
+    font-size: 0.8125rem;
+    line-height: 1.5rem;
+    white-space: pre;
+  }
+
+  &__code {
+    padding: 0.1rem 0.35rem;
+    border-radius: 0.3rem;
+    background: var(--okryshto-bg-inset);
+    color: var(--okryshto-accent-primary);
+    font-family: var(--okryshto-font-family-mono);
+    font-size: 0.875em;
+  }
+
+  &__pill-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  &__pill {
+    padding: 0.25rem 0.625rem;
+    border: 1px solid var(--okryshto-border-subtle);
+    border-radius: 9999px;
+    background: var(--okryshto-bg-inset);
+    color: var(--okryshto-text-secondary);
+    font-family: var(--okryshto-font-family-mono);
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+  }
+
+  &__count {
+    color: var(--okryshto-accent-primary);
+    font-family: var(--okryshto-font-family-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+
+  &__swatch {
+    display: flex;
+    flex-direction: column;
+    width: 13.75rem;
+    overflow: hidden;
+    border: 1px solid var(--okryshto-border-default);
+    border-radius: var(--okryshto-brand-docs-card-radius);
+    background: var(--okryshto-bg-surface);
+  }
+
+  &__swatch-chip {
+    height: 5.25rem;
+    width: 100%;
+  }
+
+  &__swatch-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding: 1rem;
+  }
+
+  &__swatch-name {
+    margin: 0;
+    color: var(--okryshto-text-primary);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    line-height: 1rem;
+  }
+
+  &__swatch-value {
+    margin: 0;
+    color: var(--okryshto-text-muted);
+    font-family: var(--okryshto-font-family-mono);
+    font-size: 0.8125rem;
+    line-height: 1.25rem;
+  }
+
+  &__swatch-note {
+    margin: 0;
+    color: var(--okryshto-text-secondary);
+    font-size: 0.8125rem;
+    line-height: 1.125rem;
+  }
+
+  &__type-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--okryshto-border-subtle);
+  }
+
+  &__type-sample {
+    margin: 0;
+    color: var(--okryshto-text-primary);
+  }
+
+  &__type-meta {
+    margin: 0;
+    color: var(--okryshto-text-muted);
+    font-family: var(--okryshto-font-family-mono);
+    font-size: 0.8125rem;
+    line-height: 1.25rem;
+  }
+
+  &__space-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__space-label {
+    width: 6rem;
+    color: var(--okryshto-text-muted);
+    font-family: var(--okryshto-font-family-mono);
+    font-size: 0.75rem;
+  }
+
+  &__space-bar {
+    height: 0.5rem;
+    border-radius: 9999px;
+    background: var(--okryshto-accent-primary);
+  }
+
+  &__radius-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  &__radius-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  &__radius-box {
+    width: 3.5rem;
+    height: 3.5rem;
+    border: 1px solid var(--okryshto-border-default);
+    background: var(--okryshto-bg-surface-raised);
+  }
+
+  &__radius-label {
+    color: var(--okryshto-text-muted);
+    font-family: var(--okryshto-font-family-mono);
+    font-size: 0.75rem;
+  }
+
+  &__elevation-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  &__elevation-card {
+    width: 10rem;
+    height: 6rem;
+    border-radius: 0.75rem;
+    background: var(--okryshto-bg-surface-raised);
+  }
+
+  &__card {
+    padding: 1.5rem;
+    border: 1px solid var(--okryshto-border-default);
+    border-radius: 1.25rem;
+    background: var(--okryshto-bg-surface);
+  }
+
+  &__card-title {
+    margin: 0 0 1rem;
+    color: var(--okryshto-text-primary);
+    font-size: 1.25rem;
+    font-weight: 500;
+  }
+
+  &__card-subtitle {
+    margin: 0 0 0.75rem;
+    color: var(--okryshto-text-secondary);
+    font-size: 0.9375rem;
+  }
+
+  &__do-dont {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  &__list-item {
+    display: flex;
+    gap: 0.625rem;
+    align-items: flex-start;
+    color: var(--okryshto-text-secondary);
+    font-size: 0.9375rem;
+    line-height: 1.4;
+  }
+
+  &__list-mark {
+    flex-shrink: 0;
+    width: 1.125rem;
+    height: 1.125rem;
+    margin-top: 0.1rem;
+  }
+
+  &__list-mark--do {
+    color: var(--okryshto-feedback-success);
+  }
+
+  &__list-mark--dont {
+    color: var(--okryshto-feedback-danger);
+  }
+
+  &__token-row {
+    display: grid;
+    grid-template-columns: minmax(8rem, 12rem) 1fr;
+    gap: 1rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--okryshto-border-subtle);
+  }
+
+  &__token-name {
+    color: var(--okryshto-accent-primary);
+    font-family: var(--okryshto-font-family-mono);
+    font-size: 0.875rem;
+  }
+
+  &__token-desc {
+    color: var(--okryshto-text-secondary);
+    font-size: 0.9375rem;
+  }
+
+  &__search {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-width: 28rem;
+  }
+
+  &__search-input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--okryshto-border-default);
+    border-radius: 0.75rem;
+    background: var(--okryshto-bg-inset);
+    color: var(--okryshto-text-primary);
+    font: inherit;
+    font-size: 0.9375rem;
+    outline: none;
+  }
+
+  &__search-input:focus {
+    border-color: var(--okryshto-accent-primary);
+    box-shadow: 0 0 0 0.1875rem color-mix(in srgb, var(--okryshto-accent-primary) 25%, transparent);
+  }
+
+  &__search-meta {
+    margin: 0;
+    color: var(--okryshto-text-muted);
+    font-size: 0.8125rem;
+  }
+
+  &__icon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(7.5rem, 1fr));
+    gap: 0.75rem;
+  }
+
+  &__icon-tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 1rem 0.5rem 0.75rem;
+    border: 1px solid var(--okryshto-border-default);
+    border-radius: var(--okryshto-brand-docs-card-radius);
+    background: var(--okryshto-bg-surface);
+    color: var(--okryshto-text-primary);
+  }
+
+  &__icon-glyph {
+    display: grid;
+    place-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    color: var(--okryshto-text-primary);
+  }
+
+  &__icon-glyph svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  &__icon-name {
+    margin: 0;
+    color: var(--okryshto-text-muted);
+    font-family: var(--okryshto-font-family-mono);
+    font-size: 0.6875rem;
+    line-height: 1rem;
+    text-align: center;
+    word-break: break-word;
+  }
+
+  &__category-title {
+    margin: 0 0 0.75rem;
+    color: var(--okryshto-text-secondary);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  &__showcase-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: stretch;
+  }
+
+  &__showcase-tile {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    min-width: 11rem;
+    max-width: 100%;
+    padding: 1rem;
+    border: 1px solid var(--okryshto-border-default);
+    border-radius: var(--okryshto-brand-docs-card-radius);
+    background: color-mix(in srgb, var(--okryshto-bg-surface) 72%, transparent);
+    backdrop-filter: blur(0.5rem);
+  }
+
+  &__showcase-tile--wide {
+    flex: 1 1 100%;
+    min-width: min(100%, 28rem);
+  }
+
+  &__showcase-tile--grow {
+    flex: 1 1 16rem;
+  }
+
+  &__showcase-label {
+    margin: 0;
+    color: var(--okryshto-text-muted);
+    font-family: var(--okryshto-font-family-mono);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    line-height: 1rem;
+    text-transform: uppercase;
+  }
+
+  &__showcase-body {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  &__showcase-body--stack {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

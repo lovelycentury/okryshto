@@ -1,0 +1,165 @@
+@use "../../styles/mixins/layers.scss";
+
+.okryshto-badge {
+  @include layers.component() {
+    // 1. full variable API, defaults = neutral count pill, top-right anchor, circular overlap
+    --okryshto-badge-tone: var(--okryshto-accent-primary);
+    --okryshto-badge-background-color: var(--okryshto-bg-surface-raised);
+    --okryshto-badge-text-color: var(--okryshto-text-secondary);
+    --okryshto-badge-border-color: var(--okryshto-border-subtle);
+    --okryshto-badge-ring-color: var(--okryshto-bg-inset);
+    --okryshto-badge-font-size: var(--okryshto-font-size-sm);
+    --okryshto-badge-line-height: var(--okryshto-font-line-height-sm);
+    --okryshto-badge-padding-block: 0.0625rem;
+    --okryshto-badge-padding-inline: 0.3125rem;
+    --okryshto-badge-dot-size: 0.5rem;
+    // Insets measured from the anchor's box. A circle's corner is empty space,
+    // so the badge has to move inwards to land on the rim; a square anchor
+    // already reaches its corner, so it sits at 0.
+    --okryshto-badge-offset-x: 14%;
+    --okryshto-badge-offset-y: 14%;
+    --okryshto-badge-min-width: 1.125rem;
+
+    position: relative;
+    display: inline-flex;
+    vertical-align: middle;
+    flex-shrink: 0;
+
+    // 2. color modifiers — filled tone pills
+    &--color-primary {
+      --okryshto-badge-background-color: var(--okryshto-accent-primary);
+      --okryshto-badge-text-color: var(--okryshto-accent-contrast);
+      --okryshto-badge-border-color: transparent;
+    }
+
+    &--color-dante {
+      --okryshto-badge-tone: var(--okryshto-accent-dante);
+      --okryshto-badge-background-color: var(--okryshto-accent-dante);
+      --okryshto-badge-text-color: var(--okryshto-accent-contrast);
+      --okryshto-badge-border-color: transparent;
+    }
+
+    &--color-indigo {
+      --okryshto-badge-tone: var(--okryshto-accent-secondary);
+      --okryshto-badge-background-color: var(--okryshto-accent-secondary);
+      --okryshto-badge-text-color: var(--okryshto-accent-contrast);
+      --okryshto-badge-border-color: transparent;
+    }
+
+    &--color-violet {
+      --okryshto-badge-tone: var(--okryshto-accent-violet);
+      --okryshto-badge-background-color: var(--okryshto-accent-violet);
+      --okryshto-badge-text-color: var(--okryshto-accent-contrast);
+      --okryshto-badge-border-color: transparent;
+    }
+
+    &--color-ember {
+      --okryshto-badge-tone: var(--okryshto-accent-ember);
+      --okryshto-badge-background-color: var(--okryshto-accent-ember);
+      --okryshto-badge-text-color: var(--okryshto-accent-contrast);
+      --okryshto-badge-border-color: transparent;
+    }
+
+    &--color-ice {
+      --okryshto-badge-tone: var(--okryshto-accent-ice);
+      --okryshto-badge-background-color: var(--okryshto-accent-ice);
+      --okryshto-badge-text-color: var(--okryshto-accent-contrast);
+      --okryshto-badge-border-color: transparent;
+    }
+
+    &--color-success {
+      --okryshto-badge-tone: var(--okryshto-feedback-success);
+      --okryshto-badge-background-color: var(--okryshto-feedback-success);
+      --okryshto-badge-text-color: var(--okryshto-accent-contrast);
+      --okryshto-badge-border-color: transparent;
+    }
+
+    &--color-warning {
+      --okryshto-badge-tone: var(--okryshto-feedback-warning);
+      --okryshto-badge-background-color: var(--okryshto-feedback-warning);
+      --okryshto-badge-text-color: var(--okryshto-accent-contrast);
+      --okryshto-badge-border-color: transparent;
+    }
+
+    &--color-danger {
+      --okryshto-badge-tone: var(--okryshto-feedback-danger);
+      --okryshto-badge-background-color: var(--okryshto-feedback-danger);
+      --okryshto-badge-text-color: var(--okryshto-accent-contrast);
+      --okryshto-badge-border-color: transparent;
+    }
+
+    // 3. overlap — circular (default) tucks the badge onto the rim
+    &--overlap-rectangular {
+      --okryshto-badge-offset-x: 0%;
+      --okryshto-badge-offset-y: 0%;
+    }
+
+    &--standalone {
+      display: inline-flex;
+    }
+
+    // 4. elements
+    &__anchor {
+      display: inline-flex;
+    }
+
+    &__content {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      min-width: var(--okryshto-badge-min-width);
+      padding: var(--okryshto-badge-padding-block) var(--okryshto-badge-padding-inline);
+      border: var(--okryshto-1px-in-rem) solid var(--okryshto-badge-border-color);
+      border-radius: 9999px;
+      background: var(--okryshto-badge-background-color);
+      color: var(--okryshto-badge-text-color);
+      font-family: var(--okryshto-font-family-sans);
+      font-weight: var(--okryshto-font-weight-medium);
+      font-size: var(--okryshto-badge-font-size);
+      line-height: var(--okryshto-badge-line-height);
+      white-space: nowrap;
+      box-shadow: 0 0 0 0.125rem var(--okryshto-badge-ring-color);
+    }
+
+    &__content--dot {
+      min-width: 0;
+      width: var(--okryshto-badge-dot-size);
+      height: var(--okryshto-badge-dot-size);
+      padding: 0;
+      border-radius: 50%;
+    }
+
+    &__content--invisible {
+      display: none;
+    }
+
+    &__content--top.okryshto-badge__content--right {
+      position: absolute;
+      top: var(--okryshto-badge-offset-y);
+      right: var(--okryshto-badge-offset-x);
+      transform: translate(50%, -50%);
+    }
+
+    &__content--top.okryshto-badge__content--left {
+      position: absolute;
+      top: var(--okryshto-badge-offset-y);
+      left: var(--okryshto-badge-offset-x);
+      transform: translate(-50%, -50%);
+    }
+
+    &__content--bottom.okryshto-badge__content--right {
+      position: absolute;
+      bottom: var(--okryshto-badge-offset-y);
+      right: var(--okryshto-badge-offset-x);
+      transform: translate(50%, 50%);
+    }
+
+    &__content--bottom.okryshto-badge__content--left {
+      position: absolute;
+      bottom: var(--okryshto-badge-offset-y);
+      left: var(--okryshto-badge-offset-x);
+      transform: translate(-50%, 50%);
+    }
+  }
+}

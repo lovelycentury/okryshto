@@ -1,0 +1,1 @@
+export { getAutoHeightDuration } from "./getAutoHeightDuration";

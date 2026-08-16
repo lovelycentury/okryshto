@@ -1,0 +1,225 @@
+{
+  "Metadata": {
+    "title": "Олексій Криштопа — Senior Frontend Engineer",
+    "description": "Senior Frontend Engineer з 5 роками повного володіння SaaS-платформами — дизайн-системи, платіжно-критичні флоу та таблиці, розраховані на 500K+ учасників.",
+    "skipToContent": "Перейти до вмісту"
+  },
+  "Hero": {
+    "availability": "Відкритий до обраних співпраць",
+    "title": "Я будую платформи, що витримують масштаб.",
+    "summary": "Senior Frontend Engineer з 5 роками повного володіння SaaS-платформами — дизайн-системи, платіжно-критичні флоу та таблиці, розраховані на 500K+ учасників.",
+    "role": "Senior Frontend Engineer · Дизайн-системи",
+    "location": "Гайльбронн, Німеччина",
+    "primaryCta": "Переглянути роботи",
+    "secondaryCta": "Написати мені",
+    "portraitAlt": "Портрет Олексія Криштопи",
+    "portraitPlaceholder": "Додайте фото"
+  },
+  "Intro": {
+    "eyebrow": "Senior Frontend Engineer",
+    "title": "Про мене",
+    "body": "5 років повного володіння SaaS-платформами — від дизайн-систем і платіжно-критичних флоу реєстрації до таблиць даних на 500K+ учасників. Лідерство тут ніколи не означало посаду; воно означало бути тим, на кого покладаються, коли система горить.",
+    "orbit": "Orbit",
+    "privateStorybook": "okryshto.dev"
+  },
+  "Projects": {
+    "eyebrow": "Побічні квести",
+    "title": "Пет-проєкти.",
+    "previous": "Попередній проєкт",
+    "next": "Наступний проєкт",
+    "goToSlide": "Перейти до проєкту {number}",
+    "items": {
+      "uni-donate": {
+        "title": "uni-donate",
+        "description": "Блокчейн-платформа для донатів. Вивчив Svelte з нуля за тиждень, щоб її випустити — перемога принесла запрошення до офісу ООН у Катарі.",
+        "tags": ["Svelte", "ICP", "Блокчейн"]
+      },
+      "privateStorybook": {
+        "title": "Private Storybook",
+        "description": "Dark-first дизайн-система, що генерується з TypeScript одразу у Figma: компоненти, варіанти, іконки, токени та шаблони сторінок з одного джерела правди.",
+        "tags": ["TypeScript", "Figma Plugin API"]
+      },
+      "orbit": {
+        "title": "Orbit",
+        "description": "Публічна мапа з доступом через самопрезентацію: подай запит, представся, отримай схвалення, завантаж матеріали.",
+        "tags": ["Web", "Мапи", "Доступ"]
+      },
+      "omm": {
+        "title": "Omm",
+        "description": "Внутрішня панель за власним SSO — огляд, CRUD над точками та розгляд запитів на доступ, що приходять з Orbit.",
+        "tags": ["Дашборд", "Keycloak SSO"]
+      },
+      "ai-tooling-security": {
+        "title": "AI Tooling Security",
+        "description": "Дослідження інструментів AI-агентів і їхніх вразливостей — моделювання загроз, коли скомпрометований агент дістається docker.sock, і прототип проксі-шару, що фільтрує вивід агента.",
+        "tags": ["Безпека", "MCP", "Моделювання загроз"]
+      }
+    }
+  },
+  "Experience": {
+    "eyebrow": "Досвід",
+    "title": "Де платформи реально виходили.",
+    "items": {
+      "sporTechCompany": {
+        "company": "Провайдер спортивного сервісу",
+        "role": "Frontend Lead — Senior Frontend Engineer",
+        "period": "Червень 2023 — дотепер",
+        "place": "Remote, Німеччина",
+        "summary": "SaaS для спортивних івентів на 500K+ учасників — динамічна реєстрація, платежі та embeddable B2B-віджет.",
+        "bullets": [
+          "Прийняв платформу після проваленої CRM-поставки на €2M: перезібрав продукт і знизив вартість delivery з ~€38K/міс до ~€12K/міс, зберігши ключових клієнтів.",
+          "Зібрав participant management і публічну реєстрацію end-to-end, потім упакував флоу в embeddable-віджет, який привів нового B2B-клієнта.",
+          "Коли пішов backend lead, сам написав тікети й вимоги до компонентів і провів перезбірку API."
+        ],
+        "tags": ["React", "Payments", "CRM"]
+      },
+      "addTechCompany": {
+        "company": "Рекласний агрегатор медіа-планів",
+        "role": "Senior Frontend Developer",
+        "period": "Листопад 2021 — травень 2023",
+        "place": "через Devico Solutions · Remote",
+        "summary": "Media-planning SaaS з віртуалізованою reference-сіткою та drag-and-drop workflows.",
+        "bullets": [
+          "Перший інженер від вендора, який пройшов Senior-інтерв’ю Mint — після цього акаунт виріс до 30+ інженерів.",
+          "Відповідав за якість коду й архітектуру media-planning платформи; зробив media-plan table еталонною сіткою продукту.",
+          "Свідомо лишився hands-on: відхилив management-track підвищення, щоб продовжувати будувати."
+        ],
+        "tags": ["React", "Virtualization", "Design systems"]
+      }
+    }
+  },
+  "Skills": {
+    "eyebrow": "Інструменти",
+    "title": "З чим я будую.",
+    "groups": {
+      "core": "Основні технології",
+      "architecture": "Frontend-архітектура",
+      "operations": "Розробка та операції",
+      "languages": "Мови"
+    },
+    "items": {
+      "typescript": "TypeScript",
+      "react": "React",
+      "vue": "Vue 3",
+      "next": "Next.js",
+      "node": "Node.js",
+      "svelte": "Svelte",
+      "postgresql": "PostgreSQL",
+      "mongodb": "MongoDB",
+      "rest": "REST API",
+      "design-systems": "Дизайн-системи",
+      "headless": "Headless-компоненти",
+      "wai-aria": "WAI-ARIA",
+      "tanstack-query": "TanStack Query",
+      "redux": "Redux (+Saga)",
+      "react-hook-form": "react-hook-form",
+      "fsd": "FSD",
+      "virtualization": "Віртуалізація",
+      "jest": "Jest",
+      "playwright": "Playwright",
+      "storybook": "Storybook",
+      "rollup": "Rollup",
+      "docker": "Docker",
+      "github-actions": "GitHub Actions",
+      "jenkins": "Jenkins",
+      "aws": "AWS",
+      "vault": "Vault",
+      "tdd": "TDD",
+      "english": "Англійська (вільно)",
+      "german": "Німецька (A2)",
+      "ukrainian": "Українська (рідна)",
+      "russian": "Російська (вільно)"
+    }
+  },
+  "Credibility": {
+    "stats": {
+      "years": {
+        "label": "Років ведучим фронтендером"
+      },
+      "participants": {
+        "label": "Учасників у масштабі"
+      },
+      "hackathon": {
+        "suffix": " місце",
+        "label": "Переможець хакатону"
+      }
+    },
+    "quote": "«Величезна подяка за цей чудовий внесок — ми справді цінуємо, що ви витратили час на вивчення принципів onyx і дотримання їх.»",
+    "quoteAuthor": "Тімлід, SchwarzIT/onyx",
+    "awardTitle": "1 місце — South Africa Blockchain in Education Hackathon",
+    "awardMeta": "Стелленбоський університет · лютий 2024 · грант розробника Internet Computer на $10 000, разом з Денисом Кушнаровим та Едуардом Перетокіним",
+    "awardLink": "immersiveeducation.org"
+  },
+  "BeyondCode": {
+    "eyebrow": "Поза кодом",
+    "title": "Частина, що пояснює решту.",
+    "items": {
+      "music": {
+        "title": "Музика, 15 років",
+        "body": "Блокфлейта з чотирьох років — ноти вивчив раніше за літери — і труба з 11 до 19. Гендель, Альбіноні, П'яццолла; лише оригінали. Музика навчила точності: дрібні деталі складаються або в шедеври, або в баги."
+      },
+      "boxing": {
+        "title": "Бокс",
+        "body": "Півтора року. Дисципліна і вміння лишатися спокійним, коли прилітає."
+      },
+      "books": {
+        "title": "Книги",
+        "body": "Том Сойєр, Біблія, а у списку на перечитування: «Фауст» Ґете, Данте, «Данко» Горького — той, хто ніс усе сам. Нести все самотужки було моєю найбільшою вадою; делегування — ліки."
+      },
+      "pattern-matching": {
+        "title": "Розпізнавання патернів",
+        "body": "Уважний від природи — запам'ятовую ключові факти й вибудовую причинно-наслідкові ланцюжки, наче детектив. Саме це знаходило вразливості; через це ж мене називають параноїком. І те, й інше — ціна одного вміння."
+      }
+    }
+  },
+  "Links": {
+    "eyebrow": "Обрані посилання",
+    "title": "Кілька дверей, які варто відчинити.",
+    "summary": "Короткий список — робота, слова і де мене знайти. Решта може зачекати.",
+    "items": {
+      "github": {
+        "title": "GitHub",
+        "subtitle": "Open-source та особисті проєкти"
+      },
+      "onyx": {
+        "title": "Дизайн-система onyx",
+        "subtitle": "Відзначений контриб'ютор — SchwarzIT"
+      },
+      "linkedin": {
+        "title": "LinkedIn",
+        "subtitle": "Досвід, команди та зони росту"
+      },
+      "email": {
+        "title": "Email",
+        "subtitle": "Поговорімо"
+      }
+    }
+  },
+  "Contact": {
+    "eyebrow": "Поговорімо",
+    "title": "Якщо ви робите щось, що має значення.",
+    "copyEmail": "Скопіювати email",
+    "copied": "Скопійовано",
+    "availability": "GMT+1 · відповідаю протягом дня",
+    "links": {
+      "email": "Email",
+      "linkedin": "LinkedIn",
+      "github": "GitHub",
+      "onyx": "onyx"
+    }
+  },
+  "Footer": {
+    "copyright": "© {year} Олексій Криштопа",
+    "credit": "Створено та згенеровано у Figma"
+  },
+  "LocaleFab": {
+    "open": "Обрати мову",
+    "close": "Закрити меню мов",
+    "languages": {
+      "en": "Англійська",
+      "uk": "Українська",
+      "ru": "Російська",
+      "de": "Німецька"
+    }
+  }
+}

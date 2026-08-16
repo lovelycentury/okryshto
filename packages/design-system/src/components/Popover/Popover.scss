@@ -1,0 +1,47 @@
+@use "../../styles/mixins/layers.scss";
+
+.okryshto-popover {
+  @include layers.component() {
+    --okryshto-popover-z-index: 1200;
+    --okryshto-popover-background-color: var(--okryshto-bg-surface);
+    --okryshto-popover-border-color: var(--okryshto-border-default);
+    --okryshto-popover-border-width: var(--okryshto-1px-in-rem);
+    --okryshto-popover-border-radius: 1.75rem;
+    --okryshto-popover-padding: 1rem;
+    --okryshto-popover-shadow: var(--okryshto-shadow-medium-bottom);
+    --okryshto-popover-max-width: 20rem;
+
+    z-index: var(--okryshto-popover-z-index);
+  }
+
+  // Opt-in, via `hideBackdrop={false}`. Invisible but hit-testable: it exists
+  // to catch the click, not to dim anything. Sits one step below the paper so
+  // the popover's own content stays interactive.
+  &__backdrop {
+    @include layers.component() {
+      position: fixed;
+      inset: 0;
+      z-index: calc(var(--okryshto-popover-z-index, 1200) - 1);
+      background: transparent;
+      border: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+  }
+
+  &__paper {
+    @include layers.component() {
+      min-width: 10rem;
+      max-width: var(--okryshto-popover-max-width, 20rem);
+      padding: var(--okryshto-popover-padding, 1rem);
+      border: var(--okryshto-popover-border-width, var(--okryshto-1px-in-rem)) solid
+        var(--okryshto-popover-border-color, var(--okryshto-border-default));
+      border-radius: var(--okryshto-popover-border-radius, 1.75rem);
+      background: var(--okryshto-popover-background-color, var(--okryshto-bg-surface));
+      box-shadow: var(--okryshto-popover-shadow, var(--okryshto-shadow-medium-bottom));
+      color: var(--okryshto-text-primary);
+      font-family: var(--okryshto-font-family-sans);
+      outline: 0;
+      overflow: auto;
+    }
+  }
+}

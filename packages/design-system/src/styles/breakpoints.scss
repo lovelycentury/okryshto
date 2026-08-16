@@ -1,0 +1,35 @@
+@use "sass:map";
+
+$breakpoints: (
+  "2xs": 320px,
+  xs: 577px,
+  sm: 769px,
+  md: 993px,
+  lg: 1441px,
+  xl: 1921px,
+);
+
+/// Applies CSS only if the screen width satisfies the given breakpoint.
+/// @example screen(min, sm)
+/// @example screen(max, sm)
+@mixin screen($min-max, $name) {
+  $offset: 0;
+  @if ($min-max == "max") {
+    $offset: 1;
+  }
+
+  @media screen and (#{$min-max}-width: #{map.get($breakpoints, $name) - $offset}) {
+    @content;
+  }
+}
+
+/// Applies CSS only if the container width satisfies the given breakpoint.
+/// Prefer this over `screen()` for components — containers stay correct when
+/// embedded inside a narrower layout region than the viewport.
+/// @example container(min, md)
+/// @example container(max, md)
+@mixin container($min-max, $name, $offset: 0, $breaks: $breakpoints) {
+  @container (#{$min-max}-width: #{map.get($breaks, $name) + $offset}) {
+    @content;
+  }
+}

@@ -1,0 +1,11 @@
+@use "../../styles/mixins/layers.scss";
+
+.okryshto-zoom {
+  @include layers.component() {
+    transform-origin: center center;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition-duration: 0.01ms !important;
+  }
+}

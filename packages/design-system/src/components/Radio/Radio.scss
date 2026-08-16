@@ -1,0 +1,114 @@
+@use "../../styles/mixins/layers.scss";
+
+.okryshto-radio {
+  @include layers.component() {
+    // 1. full variable API, defaults = color "primary" (mint), size "medium"
+    --okryshto-radio-tone: var(--okryshto-accent-primary);
+    --okryshto-radio-size: 1.25rem; // 20px
+    --okryshto-radio-dot-size: 0.5625rem; // 9px
+
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    width: fit-content;
+    cursor: pointer;
+
+    &:has(.okryshto-radio__input:disabled) {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    // 2. elements
+    &__control {
+      position: relative;
+      display: inline-flex;
+      flex-shrink: 0;
+      width: var(--okryshto-radio-size);
+      height: var(--okryshto-radio-size);
+    }
+
+    &__input {
+      position: absolute;
+      inset: 0;
+      margin: 0;
+      opacity: 0;
+      cursor: pointer;
+
+      &:disabled {
+        cursor: not-allowed;
+      }
+    }
+
+    &__circle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      // border-width never changes (only border-color + the dot's opacity do) —
+      // same reasoning as TextField's focus ring: a width change reflows the box.
+      border: 0.09375rem solid var(--okryshto-border-strong); // 1.5px
+      border-radius: 9999px;
+      pointer-events: none; // clicks always land on __input
+      transition: border-color var(--okryshto-duration-sm) ease;
+
+      &::after {
+        content: "";
+        width: var(--okryshto-radio-dot-size);
+        height: var(--okryshto-radio-dot-size);
+        border-radius: 9999px;
+        background: var(--okryshto-radio-tone);
+        opacity: 0;
+        transition: opacity var(--okryshto-duration-sm) ease;
+      }
+    }
+
+    &__input:checked + &__circle {
+      border-color: var(--okryshto-radio-tone);
+    }
+
+    &__input:checked + &__circle::after {
+      opacity: 1;
+    }
+
+    &__input:focus-visible + &__circle {
+      outline: var(--okryshto-1px-in-rem) solid var(--okryshto-radio-tone);
+      outline-offset: 0.125rem;
+    }
+
+    &__label {
+      font-family: var(--okryshto-font-family-sans);
+      font-size: 0.875rem; // 14px
+      line-height: 1.375rem; // 22px
+      color: var(--okryshto-text-secondary);
+    }
+
+    // 3. color modifiers — only remap the tone; every state consumes it
+    &--color-dante {
+      --okryshto-radio-tone: var(--okryshto-accent-dante);
+    }
+    &--color-indigo {
+      --okryshto-radio-tone: var(--okryshto-accent-secondary);
+    }
+    &--color-violet {
+      --okryshto-radio-tone: var(--okryshto-accent-violet);
+    }
+    &--color-ember {
+      --okryshto-radio-tone: var(--okryshto-accent-ember);
+    }
+    &--color-ice {
+      --okryshto-radio-tone: var(--okryshto-accent-ice);
+    }
+
+    // 4. size
+    &--small {
+      --okryshto-radio-size: 1rem; // 16px
+      --okryshto-radio-dot-size: 0.4375rem; // 7px
+    }
+
+    &--large {
+      --okryshto-radio-size: 1.5rem; // 24px
+      --okryshto-radio-dot-size: 0.6875rem; // 11px
+    }
+  }
+}

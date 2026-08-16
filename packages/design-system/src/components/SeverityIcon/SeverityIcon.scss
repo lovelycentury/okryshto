@@ -1,0 +1,83 @@
+@use "../../styles/mixins/layers.scss";
+
+.okryshto-severity-icon {
+  @include layers.component() {
+    // 1. full variable API, defaults = severity "info", size "medium", shape "circle"
+    // Indigo, matching `Alert severity="info"` — the two would otherwise disagree
+    // about what informational looks like, and `info` would be a duplicate of
+    // `primary`.
+    --okryshto-severity-icon-tone: var(--okryshto-accent-secondary);
+    --okryshto-severity-icon-background-color: color-mix(
+      in srgb,
+      var(--okryshto-severity-icon-tone) 15%,
+      transparent
+    );
+    --okryshto-severity-icon-icon-color: var(--okryshto-severity-icon-tone);
+    --okryshto-severity-icon-size: 2.75rem;
+    --okryshto-severity-icon-icon-size: 1.375rem;
+    --okryshto-severity-icon-border-radius: 9999px;
+
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: var(--okryshto-severity-icon-size);
+    height: var(--okryshto-severity-icon-size);
+    border-radius: var(--okryshto-severity-icon-border-radius);
+    background: var(--okryshto-severity-icon-background-color);
+    color: var(--okryshto-severity-icon-icon-color);
+
+    // 2. severity modifiers
+    &--success {
+      --okryshto-severity-icon-tone: var(--okryshto-feedback-success);
+    }
+
+    &--warning {
+      --okryshto-severity-icon-tone: var(--okryshto-feedback-warning);
+    }
+
+    &--danger {
+      --okryshto-severity-icon-tone: var(--okryshto-feedback-danger);
+    }
+
+    &--primary {
+      --okryshto-severity-icon-tone: var(--okryshto-accent-primary);
+    }
+
+    &--neutral {
+      --okryshto-severity-icon-tone: var(--okryshto-text-muted);
+      --okryshto-severity-icon-background-color: var(--okryshto-bg-surface-raised);
+      --okryshto-severity-icon-icon-color: var(--okryshto-text-secondary);
+    }
+
+    // info is the default — no modifier needed
+
+    // 3. size — medium (default) needs no modifier
+    &--small {
+      --okryshto-severity-icon-size: 2rem;
+      --okryshto-severity-icon-icon-size: 1rem;
+    }
+
+    &--large {
+      --okryshto-severity-icon-size: 3.5rem;
+      --okryshto-severity-icon-icon-size: 1.75rem;
+    }
+
+    // 4. shape — circle (default) needs no modifier
+    &--rounded {
+      --okryshto-severity-icon-border-radius: 0.875rem;
+    }
+
+    // 5. elements
+    &__icon {
+      display: inline-flex;
+      width: var(--okryshto-severity-icon-icon-size);
+      height: var(--okryshto-severity-icon-icon-size);
+
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}

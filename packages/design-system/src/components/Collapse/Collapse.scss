@@ -1,0 +1,51 @@
+@use "../../styles/mixins/layers.scss";
+
+.okryshto-collapse {
+  @include layers.component() {
+    height: 0;
+    overflow: hidden;
+    transition: height var(--okryshto-duration-standard, 300ms) cubic-bezier(0.4, 0, 0.2, 1);
+
+    &--horizontal {
+      height: auto;
+      width: 0;
+      transition: width var(--okryshto-duration-standard, 300ms) cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    &--entered {
+      height: auto;
+      overflow: visible;
+
+      &.okryshto-collapse--horizontal {
+        width: auto;
+      }
+    }
+
+    &--hidden {
+      visibility: hidden;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    width: 100%;
+
+    .okryshto-collapse--horizontal & {
+      width: auto;
+      height: 100%;
+    }
+  }
+
+  &__wrapper-inner {
+    width: 100%;
+
+    .okryshto-collapse--horizontal & {
+      width: auto;
+      height: 100%;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition-duration: 0.01ms !important;
+  }
+}

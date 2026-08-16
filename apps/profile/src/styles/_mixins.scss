@@ -1,0 +1,99 @@
+// Shared SCSS helpers for the profile's CSS Modules.
+//
+// Emits no CSS on its own, so every component module can `@use` it without
+// duplicating declarations into the bundle. The custom properties these mixins
+// read are declared once, globally, in `tokens.scss`.
+
+@forward "@okryshto/design-system/styles/breakpoints.scss";
+@use "@okryshto/design-system/styles/breakpoints.scss" as bp;
+
+/// Body/label steps of the Figma "Vizitka" scale.
+@mixin type($step) {
+  font-size: var(--profile-#{$step}-size);
+  line-height: var(--profile-#{$step}-line);
+}
+
+/// Display/heading steps — these also carry the design's percentage tracking.
+@mixin display($step) {
+  font-weight: 600;
+  font-size: var(--profile-#{$step}-size);
+  line-height: var(--profile-#{$step}-line);
+  letter-spacing: var(--profile-#{$step}-tracking);
+  text-wrap: balance;
+}
+
+/// Uppercase accent label every section opens with.
+@mixin eyebrow {
+  color: var(--okryshto-accent-primary);
+  font-size: var(--profile-eyebrow-size);
+  font-weight: 500;
+  letter-spacing: var(--profile-eyebrow-tracking);
+  line-height: 1.33;
+  text-transform: uppercase;
+}
+
+/// Translucent surface — header, hero badge, quote card, contact panel.
+@mixin glass($radius: var(--profile-radius-md)) {
+  border: 1px solid var(--okryshto-glass-border);
+  border-radius: $radius;
+  background: var(--okryshto-glass-fill);
+}
+
+/// Opaque panel — skill groups, stat tiles, non-featured link cards.
+@mixin surface($radius: var(--profile-radius-md)) {
+  border: 1px solid var(--okryshto-border-subtle);
+  border-radius: $radius;
+  background: var(--okryshto-bg-surface);
+}
+
+/// The 1120px content column with the design's page gutters.
+@mixin content-column {
+  width: 100%;
+  max-width: calc(var(--profile-content-width) + 2 * var(--profile-gutter));
+  margin-inline: auto;
+  padding-inline: var(--profile-gutter);
+}
+
+/// A page section: content column plus the vertical rhythm from Figma.
+@mixin section($gap: 2rem) {
+  display: flex;
+  flex-direction: column;
+  gap: $gap;
+  padding-block: var(--profile-section-gap);
+  @include content-column;
+}
+
+/// One column by default; two equal tracks from `sm` up — mobile-first match
+/// for every Figma "Columns" frame on the 390px board.
+@mixin two-columns($gap: 1.5rem) {
+  display: grid;
+  gap: $gap;
+  grid-template-columns: minmax(0, 1fr);
+
+  @include bp.screen(min, sm) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/// The 7px accent dot used on the hero badge and the contact availability chip.
+@mixin status-dot {
+  width: 0.4375rem;
+  height: 0.4375rem;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--okryshto-accent-primary);
+  box-shadow: 0 0 0.5rem rgba(94, 230, 193, 0.8);
+}
+
+/// Small square glass control — burger, close, carousel arrows.
+@mixin icon-button($size: 2.5rem, $radius: var(--profile-radius-sm)) {
+  display: inline-flex;
+  width: $size;
+  height: $size;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  color: var(--okryshto-text-primary);
+  cursor: pointer;
+  @include glass($radius);
+}

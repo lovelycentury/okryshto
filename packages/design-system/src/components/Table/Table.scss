@@ -1,0 +1,88 @@
+@use "../../styles/mixins/layers.scss";
+
+.okryshto-table-container {
+  @include layers.component() {
+    --okryshto-table-container-border-color: var(--okryshto-border-subtle);
+    --okryshto-table-container-border-radius: 1rem;
+    --okryshto-table-container-background-color: var(--okryshto-bg-surface);
+    // Only bites once `stickyHeader` is on — a sticky header with nothing to
+    // scroll is just a header, so the cap is what makes the prop mean anything.
+    --okryshto-table-container-max-height: 24rem;
+
+    width: 100%;
+    overflow: auto;
+    border: var(--okryshto-1px-in-rem) solid var(--okryshto-table-container-border-color);
+    border-radius: var(--okryshto-table-container-border-radius);
+    background: var(--okryshto-table-container-background-color);
+
+    &--sticky {
+      max-height: var(--okryshto-table-container-max-height);
+    }
+  }
+}
+
+.okryshto-table {
+  @include layers.component() {
+    --okryshto-table-cell-padding-block: 0.75rem;
+    --okryshto-table-cell-padding-inline: 1.125rem;
+    --okryshto-table-header-background: var(--okryshto-bg-inset);
+    --okryshto-table-border-color: var(--okryshto-border-subtle);
+
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-family: var(--okryshto-font-family-sans);
+    font-size: var(--okryshto-font-size-sm);
+    line-height: var(--okryshto-font-line-height-sm);
+    color: var(--okryshto-text-primary);
+
+    &--dense {
+      --okryshto-table-cell-padding-block: 0.5rem;
+      --okryshto-table-cell-padding-inline: 0.875rem;
+    }
+
+    &__head {
+      background: var(--okryshto-table-header-background);
+
+      .okryshto-table-container--sticky & {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+      }
+    }
+
+    &__body {
+      background: var(--okryshto-bg-surface);
+    }
+
+    &__row {
+      border-bottom: var(--okryshto-1px-in-rem) solid var(--okryshto-table-border-color);
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      &--hover:hover {
+        background: var(--okryshto-bg-surface-raised);
+      }
+    }
+
+    &__cell {
+      padding: var(--okryshto-table-cell-padding-block) var(--okryshto-table-cell-padding-inline);
+      text-align: start;
+      vertical-align: middle;
+
+      &--head {
+        font-weight: var(--okryshto-font-weight-medium);
+        font-size: var(--okryshto-font-size-sm);
+        color: var(--okryshto-text-secondary);
+        white-space: nowrap;
+      }
+
+      &--numeric {
+        text-align: end;
+        font-variant-numeric: tabular-nums;
+      }
+    }
+  }
+}

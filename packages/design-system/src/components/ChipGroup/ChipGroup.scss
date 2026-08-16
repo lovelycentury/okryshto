@@ -1,0 +1,53 @@
+@use "../../styles/mixins/layers.scss";
+
+.okryshto-chip-group {
+  @include layers.component() {
+    // 1. full variable API, defaults = tone "primary" (mint)
+    --okryshto-chip-group-tone: var(--okryshto-accent-primary);
+    --okryshto-chip-group-gap: 0.5rem;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--okryshto-chip-group-gap);
+    align-items: center;
+
+    // 2. color modifiers — only remap the tone; selected chips pick it up
+    &--color-dante {
+      --okryshto-chip-group-tone: var(--okryshto-accent-dante);
+    }
+
+    &--color-indigo {
+      --okryshto-chip-group-tone: var(--okryshto-accent-secondary);
+    }
+
+    &--color-violet {
+      --okryshto-chip-group-tone: var(--okryshto-accent-violet);
+    }
+
+    &--color-ember {
+      --okryshto-chip-group-tone: var(--okryshto-accent-ember);
+    }
+
+    &--color-ice {
+      --okryshto-chip-group-tone: var(--okryshto-accent-ice);
+    }
+
+    &--disabled {
+      opacity: 0.4;
+      pointer-events: none;
+    }
+
+    // 3. selected chips inherit the group's tone instead of the global primary
+    .okryshto-chip--selected {
+      --okryshto-chip-tone: var(--okryshto-chip-group-tone);
+      --okryshto-chip-background-color: color-mix(
+        in srgb,
+        var(--okryshto-chip-group-tone) 16%,
+        transparent
+      );
+      --okryshto-chip-border-color: var(--okryshto-chip-group-tone);
+      --okryshto-chip-text-color: var(--okryshto-chip-group-tone);
+      --okryshto-chip-border-width: 0.09375rem;
+    }
+  }
+}

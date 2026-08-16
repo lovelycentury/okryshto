@@ -1,0 +1,76 @@
+// Figma "Vizitka" type scale + layout rhythm, declared once for the whole app.
+//
+// Letter-spacing in Figma is a percentage of the font size (display/2xl is
+// -2.5% → -1.8px at 72px), so it is stored here in `em` and stays correct when
+// the size clamps down on narrow viewports.
+//
+// Sizes clamp between the mobile (390px) and desktop (1440px) frames of the
+// design instead of switching at a breakpoint — the two frames only ever differ
+// in scale, never in structure.
+
+:root {
+  // Page frame — a 1120px content column inside a 1440px canvas.
+  // Mobile floors are tighter than the desktop Figma frame so 390px boards
+  // keep readable margins without feeling edge-to-edge cramped.
+  --profile-content-width: 1120px;
+  --profile-gutter: clamp(1rem, 4.5vw, 2.5rem); // 16 → 40
+  --profile-section-gap: clamp(3rem, 7vw, 6rem); // 48 → 96
+  --profile-section-gap-lg: clamp(3.5rem, 9vw, 7.5rem); // 56 → 120
+
+  // Type scale — mobile floors pulled down so display type fits a 390 board.
+  --profile-display-2xl-size: clamp(2.25rem, 5vw + 0.75rem, 4.5rem); // 36 → 72
+  --profile-display-2xl-line: 1.06;
+  --profile-display-2xl-tracking: -0.025em;
+
+  --profile-display-xl-size: clamp(1.875rem, 4vw + 0.5rem, 3.5rem); // 30 → 56
+  --profile-display-xl-line: 1.07;
+  --profile-display-xl-tracking: -0.02em;
+
+  --profile-display-lg-size: clamp(1.75rem, 2vw + 1rem, 2.75rem); // 28 → 44
+  --profile-display-lg-line: 1.14;
+  --profile-display-lg-tracking: -0.015em;
+
+  --profile-h1-size: clamp(1.5rem, 1.2vw + 1.2rem, 2.125rem); // 24 → 34
+  --profile-h1-line: 1.24;
+  --profile-h1-tracking: -0.01em;
+
+  --profile-h2-size: clamp(1.25rem, 1vw + 1rem, 1.625rem); // 20 → 26
+  --profile-h2-line: 1.31;
+  --profile-h2-tracking: -0.005em;
+
+  --profile-h4-size: 1.0625rem; // 17
+  --profile-h4-line: 1.41;
+
+  --profile-body-lg-size: clamp(1rem, 0.4vw + 0.9rem, 1.125rem); // 16 → 18
+  --profile-body-lg-line: 1.67;
+
+  --profile-body-sm-size: 0.875rem; // 14
+  --profile-body-sm-line: 1.57;
+
+  --profile-label-md-size: 0.9375rem; // 15
+  --profile-label-md-line: 1.33;
+
+  --profile-label-sm-size: 0.8125rem; // 13
+  --profile-label-sm-line: 1.23;
+
+  --profile-caption-size: 0.8125rem; // 13
+  --profile-caption-line: 1.38;
+  --profile-caption-tracking: 0.001em;
+
+  --profile-eyebrow-size: 0.75rem; // 12
+  --profile-eyebrow-tracking: 0.08em; // 0.96px at 12px
+
+  --profile-mono-size: 0.8125rem; // 13
+  --profile-mono-line: 1.54;
+
+  // Radii and glows lifted from the Figma effect styles.
+  --profile-radius-sm: 0.625rem; // 10
+  --profile-radius-md: 0.875rem; // 14
+  --profile-radius-lg: 1.25rem; // 20
+  --profile-radius-xl: 1.75rem; // 28
+  --profile-radius-2xl: 2.25rem; // 36
+
+  --profile-glow-accent: 0 0 5rem rgba(94, 230, 193, 0.24);
+  --profile-glow-indigo: 0 0 6rem rgba(129, 140, 248, 0.2);
+  --profile-shadow-header: 0 0.5rem 1.5rem -0.5rem rgba(0, 0, 0, 0.3);
+}

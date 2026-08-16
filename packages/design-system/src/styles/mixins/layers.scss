@@ -1,0 +1,23 @@
+@mixin component() {
+  @layer okryshto.component {
+    @content;
+  }
+}
+
+@mixin override() {
+  @layer okryshto.override {
+    @content;
+  }
+}
+
+@mixin utility() {
+  @layer okryshto.utility {
+    @content;
+  }
+}
+
+@mixin reset() {
+  @layer okryshto.reset {
+    @content;
+  }
+}

@@ -1,0 +1,182 @@
+@use "../../styles/mixins/layers.scss";
+@use "../../styles/mixins/visibility.scss";
+
+.okryshto-number-input {
+  @include layers.component() {
+    --okryshto-number-input-border-color: var(--okryshto-border-default);
+    --okryshto-number-input-focus-border-color: var(--okryshto-accent-primary);
+    --okryshto-number-input-glow: drop-shadow(0 0 2.5rem rgba(94, 230, 193, 0.24));
+    --okryshto-number-input-padding-inline: 0.875rem;
+    --okryshto-number-input-padding-block: 0.75rem;
+    --okryshto-number-input-font-size: 1rem;
+    --okryshto-number-input-line-height: 1.625rem;
+    --okryshto-number-input-control-size: 2.25rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.4375rem;
+    width: fit-content;
+
+    &--full-width {
+      width: 100%;
+    }
+
+    &:has(.okryshto-number-input__input:disabled) {
+      opacity: 0.4;
+    }
+
+    &__label {
+      font-family: var(--okryshto-font-family-sans);
+      font-weight: var(--okryshto-font-weight-medium);
+      font-size: var(--okryshto-font-size-sm);
+      line-height: 1rem;
+      color: var(--okryshto-text-secondary);
+
+      &--hidden {
+        @include visibility.visually-hidden;
+      }
+    }
+
+    &__control {
+      display: flex;
+      align-items: stretch;
+      box-sizing: border-box;
+      width: 100%;
+      overflow: hidden;
+      border: var(--okryshto-1px-in-rem) solid var(--okryshto-number-input-border-color);
+      border-radius: 0.625rem;
+      background: var(--okryshto-bg-surface);
+      box-shadow: 0 0 0 0 transparent;
+      transition:
+        border-color var(--okryshto-duration-sm) ease,
+        box-shadow var(--okryshto-duration-sm) ease,
+        filter var(--okryshto-duration-sm) ease;
+
+      &:focus-within {
+        border-color: var(--okryshto-number-input-focus-border-color);
+        box-shadow: 0 0 0 0.03125rem var(--okryshto-number-input-focus-border-color);
+        filter: var(--okryshto-number-input-glow);
+      }
+    }
+
+    &--error &__control {
+      border-color: var(--okryshto-feedback-danger);
+      box-shadow: 0 0 0 0.03125rem var(--okryshto-feedback-danger);
+    }
+
+    &--error &__control:focus-within {
+      filter: none;
+    }
+
+    &__input {
+      flex: 1;
+      min-width: 0;
+      border: none;
+      outline: none;
+      background: transparent;
+      padding: var(--okryshto-number-input-padding-block)
+        var(--okryshto-number-input-padding-inline);
+      font-family: var(--okryshto-font-family-sans);
+      font-weight: var(--okryshto-font-weight-regular);
+      font-size: var(--okryshto-number-input-font-size);
+      line-height: var(--okryshto-number-input-line-height);
+      color: var(--okryshto-text-primary);
+
+      &::placeholder {
+        color: var(--okryshto-text-muted);
+      }
+
+      &:disabled {
+        cursor: not-allowed;
+      }
+    }
+
+    &__controls {
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      border-inline-start: var(--okryshto-1px-in-rem) solid var(--okryshto-border-subtle);
+    }
+
+    &__step {
+      display: flex;
+      flex: 1;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      min-height: 0;
+      min-width: var(--okryshto-number-input-control-size);
+      padding: 0;
+      border: none;
+      background: transparent;
+      color: var(--okryshto-text-secondary);
+      cursor: pointer;
+      transition:
+        background-color var(--okryshto-duration-sm) ease,
+        color var(--okryshto-duration-sm) ease;
+
+      &:not(:first-child) {
+        border-block-start: var(--okryshto-1px-in-rem) solid var(--okryshto-border-subtle);
+      }
+
+      &:hover:not(:disabled) {
+        background: var(--okryshto-glass-fill);
+        color: var(--okryshto-text-primary);
+      }
+
+      &:active:not(:disabled) {
+        background: var(--okryshto-glass-fill-strong);
+      }
+
+      &:disabled {
+        color: var(--okryshto-text-muted);
+        cursor: not-allowed;
+      }
+
+      svg {
+        display: block;
+        width: 0.9375rem;
+        height: 0.9375rem;
+      }
+    }
+
+    &__controls--chevrons &__step svg {
+      width: 0.75rem;
+      height: 0.75rem;
+    }
+
+    &__helper {
+      font-family: var(--okryshto-font-family-sans);
+      font-size: var(--okryshto-font-size-sm);
+      line-height: 1.125rem;
+      letter-spacing: 0.013px;
+      color: var(--okryshto-text-muted);
+    }
+
+    &--error &__helper {
+      color: var(--okryshto-feedback-danger);
+    }
+
+    &--color-dante &__control:focus-within {
+      border-color: var(--okryshto-accent-dante);
+      box-shadow: 0 0 0 0.03125rem var(--okryshto-accent-dante);
+      filter: drop-shadow(0 0 0.4375rem rgba(255, 61, 139, 0.35));
+    }
+
+    &--small {
+      --okryshto-number-input-padding-inline: 0.75rem;
+      --okryshto-number-input-padding-block: 0.5625rem;
+      --okryshto-number-input-font-size: 0.875rem;
+      --okryshto-number-input-line-height: 1.375rem;
+      --okryshto-number-input-control-size: 1.875rem;
+    }
+
+    &--large {
+      --okryshto-number-input-padding-inline: 1rem;
+      --okryshto-number-input-padding-block: 0.9375rem;
+      --okryshto-number-input-font-size: 1.125rem;
+      --okryshto-number-input-line-height: 1.875rem;
+      --okryshto-number-input-control-size: 2.625rem;
+    }
+  }
+}

@@ -1,0 +1,172 @@
+@use "../../styles/mixins/layers.scss";
+
+.okryshto-card {
+  @include layers.component() {
+    --okryshto-card-tone: var(--okryshto-accent-primary);
+    --okryshto-card-background-color: var(--okryshto-bg-surface);
+    // Mixed into the base rather than named as a fixed surface token: `glass` and
+    // `outline` have no solid colour to step up from, and a literal token would
+    // step *down* on `raised`, which is already the lighter surface.
+    --okryshto-card-background-color-hover: color-mix(
+      in srgb,
+      var(--okryshto-text-primary) 5%,
+      var(--okryshto-card-background-color)
+    );
+    --okryshto-card-border-color: var(--okryshto-border-subtle);
+    --okryshto-card-border-color-hover: var(--okryshto-border-strong);
+    --okryshto-card-border-radius: 1.25rem;
+    --okryshto-card-padding: 1rem;
+    --okryshto-card-glow: none;
+    --okryshto-card-shadow: none;
+    // Not `--okryshto-shadow-soft-bottom`: the shared shadow tokens are 10% black,
+    // which is calibrated for a light surface and disappears entirely on this
+    // canvas. A lifted card on a dark theme needs a shadow dark enough to read
+    // against near-black.
+    --okryshto-card-shadow-raised: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.5);
+
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: var(--okryshto-1px-in-rem) solid var(--okryshto-card-border-color);
+    border-radius: var(--okryshto-card-border-radius);
+    background: var(--okryshto-card-background-color);
+    box-shadow: var(--okryshto-card-shadow);
+    filter: var(--okryshto-card-glow);
+    transition:
+      border-color var(--okryshto-duration-sm) ease,
+      background-color var(--okryshto-duration-sm) ease,
+      filter var(--okryshto-duration-sm) ease,
+      transform var(--okryshto-duration-sm) ease,
+      box-shadow var(--okryshto-duration-sm) ease;
+
+    @media (prefers-reduced-motion: reduce) {
+      transition-duration: 0.01ms !important;
+    }
+
+    &--raised {
+      --okryshto-card-background-color: var(--okryshto-bg-surface-raised);
+      --okryshto-card-shadow: var(--okryshto-card-shadow-raised);
+    }
+
+    &--glass {
+      --okryshto-card-background-color: var(--okryshto-glass-fill);
+      --okryshto-card-border-color: var(--okryshto-glass-border);
+    }
+
+    &--outline {
+      --okryshto-card-background-color: transparent;
+      --okryshto-card-border-color: var(--okryshto-border-default);
+    }
+
+    &--aura {
+      --okryshto-card-glow: drop-shadow(
+        0 0 0.75rem color-mix(in srgb, var(--okryshto-card-tone) 30%, transparent)
+      );
+      border-color: color-mix(
+        in srgb,
+        var(--okryshto-card-tone) 40%,
+        var(--okryshto-border-subtle)
+      );
+    }
+
+    &--color-dante {
+      --okryshto-card-tone: var(--okryshto-accent-dante);
+    }
+
+    &--color-indigo {
+      --okryshto-card-tone: var(--okryshto-accent-secondary);
+    }
+
+    // The lift is what tells the user the whole card is the target — the border
+    // change alone is too quiet to read as an affordance on a dark surface.
+    &--interactive {
+      cursor: pointer;
+
+      &:hover {
+        --okryshto-card-shadow: var(--okryshto-card-shadow-raised);
+
+        transform: translateY(-0.125rem);
+        background: var(--okryshto-card-background-color-hover);
+        border-color: var(--okryshto-card-border-color-hover);
+      }
+    }
+
+    &--padding-none {
+      --okryshto-card-padding: 0;
+    }
+
+    &--padding-sm {
+      --okryshto-card-padding: 0.75rem;
+    }
+
+    &--padding-lg {
+      --okryshto-card-padding: 1.5rem;
+    }
+
+    &__header {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.625rem;
+      padding: var(--okryshto-card-padding);
+      padding-block-end: 0;
+    }
+
+    &__avatar {
+      flex-shrink: 0;
+    }
+
+    &__heading {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      gap: 0.125rem;
+      min-width: 0;
+    }
+
+    &__title {
+      margin: 0;
+      font-family: var(--okryshto-font-family-sans);
+      font-weight: var(--okryshto-font-weight-medium);
+      font-size: var(--okryshto-font-size-md);
+      line-height: var(--okryshto-font-line-height-md);
+      color: var(--okryshto-text-primary);
+    }
+
+    &__subheader {
+      margin: 0;
+      font-family: var(--okryshto-font-family-sans);
+      font-size: var(--okryshto-font-size-sm);
+      line-height: var(--okryshto-font-line-height-sm);
+      color: var(--okryshto-text-muted);
+    }
+
+    &__action {
+      flex-shrink: 0;
+      margin-inline-start: auto;
+    }
+
+    &__media {
+      display: block;
+      width: 100%;
+      object-fit: cover;
+      background: var(--okryshto-bg-inset);
+    }
+
+    &__content {
+      padding: var(--okryshto-card-padding);
+      font-family: var(--okryshto-font-family-sans);
+      font-size: var(--okryshto-font-size-sm);
+      line-height: var(--okryshto-font-line-height-sm);
+      color: var(--okryshto-text-secondary);
+    }
+
+    &__actions {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.625rem;
+      padding: 0.75rem var(--okryshto-card-padding) var(--okryshto-card-padding);
+      border-top: var(--okryshto-1px-in-rem) solid var(--okryshto-border-subtle);
+    }
+  }
+}

@@ -1,0 +1,199 @@
+@use "../../styles/mixins/layers.scss";
+
+.okryshto-project-card {
+  @include layers.component() {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    aspect-ratio: 476 / 290;
+    container-type: inline-size;
+    padding: 1.25rem; // 20px — tighter on narrow cards
+
+    @container (min-width: 360px) {
+      padding: 1.625rem; // 26px
+    }
+    overflow: hidden;
+    border-radius: 1.75rem; // 28px
+    background-image: linear-gradient(148.65deg, rgb(46, 74, 87) 14.286%, rgb(58, 46, 82) 85.714%);
+    color: var(--okryshto-text-primary);
+    text-decoration: none;
+
+    &:focus-visible {
+      outline: var(--okryshto-1px-in-rem) solid var(--okryshto-accent-primary);
+      outline-offset: 0.125rem;
+    }
+
+    // 2. elements
+    &__background {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    &__scrim {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(10, 10, 11, 0) 28%, rgba(10, 10, 11, 0.94) 100%);
+      pointer-events: none;
+    }
+
+    // Sized in cqw (of the card's own inline size, via `container-type:
+    // inline-size` above) instead of a fixed px/rem box. The card's height is
+    // always `width * 290/476` (locked `aspect-ratio`), so a single cqw unit
+    // maps to a constant fraction of both axes — the whole mockup scales
+    // together with the card at any grid-column width instead of keeping a
+    // fixed pixel size while the card around it shrinks. It also fits inside
+    // the card's own height (top 10.92cqw + height 46.22cqw = 57.14cqw,
+    // under the card's 60.92cqw height) instead of running 62px past the
+    // bottom at the design's native 476px width, which `overflow: hidden`
+    // was silently chopping off.
+    &__device {
+      position: absolute;
+      top: 10.92cqw; // 52px at the 476px reference width
+      right: -6.72cqw; // bleeds off the card edge, cropped by overflow: hidden
+      width: 23.11cqw; // 110px
+      height: 46.22cqw; // 220px
+      border-radius: 4.62cqw; // 22px
+      background: var(--okryshto-bg-surface-raised);
+      border: var(--okryshto-1px-in-rem) solid var(--okryshto-border-default);
+      pointer-events: none;
+
+      &-screen {
+        position: absolute;
+        inset: 1.23cqw; // 5.87px
+        border-radius: 3.39cqw; // 16.13px
+        background: var(--okryshto-bg-inset);
+      }
+
+      &-notch {
+        position: absolute;
+        top: 2.46cqw; // 11.73px
+        left: 8.01cqw; // 38.13px
+        width: 7.09cqw; // 33.73px
+        height: 1.23cqw; // 5.87px
+        border-radius: 0.62cqw;
+        background: var(--okryshto-bg-canvas);
+      }
+
+      &-line {
+        position: absolute;
+        left: 3.08cqw; // 14.67px
+        height: 1.23cqw; // 5.87px
+        border-radius: 0.62cqw;
+        background: var(--okryshto-border-strong);
+
+        &--1 {
+          top: 6.78cqw; // 32.27px
+          width: 13.87cqw; // 66px
+        }
+        &--2 {
+          top: 9.86cqw; // 46.93px
+          width: 12.63cqw; // 60.13px
+        }
+        &--3 {
+          top: 12.94cqw; // 61.6px
+          width: 11.4cqw; // 54.27px
+        }
+        &--4 {
+          top: 16.02cqw; // 76.27px
+          width: 10.17cqw; // 48.4px
+        }
+      }
+    }
+
+    // Positioned so it paints above the scrim and the device mockup, both of
+    // which are absolute and would otherwise cover the logo and the arrow.
+    &__header {
+      position: relative;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    &__logo {
+      display: flex;
+      width: 2rem; // 32px
+      height: 2rem;
+      border-radius: 9999px;
+      overflow: hidden;
+    }
+
+    &__action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      width: 2.75rem; // 44px
+      height: 2.75rem;
+      border-radius: 0.8125rem; // 13px
+      background: var(--okryshto-glass-fill);
+      border: var(--okryshto-1px-in-rem) solid var(--okryshto-glass-border);
+
+      svg {
+        width: 1.25rem; // 20px
+        height: 1.25rem;
+      }
+    }
+
+    &__body {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem; // 12px
+    }
+
+    &__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem; // 8px
+    }
+
+    &__tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.25rem 0.625rem; // 4px 10px
+      border-radius: 9999px;
+      background: var(--okryshto-glass-fill);
+      border: var(--okryshto-1px-in-rem) solid var(--okryshto-glass-border);
+      font-family: var(--okryshto-font-family-sans);
+      font-weight: var(--okryshto-font-weight-medium);
+      font-size: var(--okryshto-font-size-sm);
+      line-height: 1rem;
+      color: var(--okryshto-text-primary);
+    }
+
+    &__title {
+      margin: 0;
+      font-family: var(--okryshto-font-family-sans);
+      font-weight: var(--okryshto-font-weight-medium);
+      font-size: 1.25rem; // 20px — mobile-first; scales up with the card
+      line-height: 1.625rem;
+      letter-spacing: -0.03125rem;
+      color: var(--okryshto-text-primary);
+
+      @container (min-width: 360px) {
+        font-size: 1.625rem; // 26px
+        line-height: 2.125rem; // 34px
+      }
+    }
+
+    &__description {
+      margin: 0;
+      max-width: 21.5rem; // 344px
+      font-family: var(--okryshto-font-family-sans);
+      font-size: 0.8125rem; // 13px
+      line-height: 1.25rem;
+      color: var(--okryshto-text-secondary);
+
+      @container (min-width: 360px) {
+        font-size: 0.875rem; // 14px
+        line-height: 1.375rem; // 22px
+      }
+    }
+  }
+}

@@ -1,0 +1,185 @@
+@use "../../styles/mixins/layers.scss";
+
+.okryshto-list {
+  @include layers.component() {
+    --okryshto-list-background-color: var(--okryshto-bg-surface);
+    --okryshto-list-border-color: var(--okryshto-border-subtle);
+    --okryshto-list-border-radius: 1.25rem;
+    --okryshto-list-padding-block: 0.375rem;
+    --okryshto-list-padding-inline: 0.375rem;
+    --okryshto-list-gap: 0.125rem;
+    --okryshto-list-subheader-color: var(--okryshto-text-muted);
+    --okryshto-list-subheader-font-size: var(--okryshto-font-size-sm);
+    --okryshto-list-subheader-padding-block: 0.625rem;
+    --okryshto-list-subheader-padding-inline: 0.75rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--okryshto-list-gap);
+    margin: 0;
+    padding: var(--okryshto-list-padding-block) var(--okryshto-list-padding-inline);
+    list-style: none;
+    border: var(--okryshto-1px-in-rem) solid var(--okryshto-list-border-color);
+    border-radius: var(--okryshto-list-border-radius);
+    background: var(--okryshto-list-background-color);
+
+    &--dense {
+      --okryshto-list-gap: 0;
+      --okryshto-list-padding-block: 0;
+      --okryshto-list-padding-inline: 0;
+    }
+
+    &--disable-padding {
+      --okryshto-list-padding-block: 0;
+      --okryshto-list-padding-inline: 0;
+    }
+
+    &__subheader {
+      padding: var(--okryshto-list-subheader-padding-block)
+        var(--okryshto-list-subheader-padding-inline);
+      font-family: var(--okryshto-font-family-sans);
+      font-weight: var(--okryshto-font-weight-medium);
+      font-size: var(--okryshto-list-subheader-font-size);
+      line-height: var(--okryshto-font-line-height-sm);
+      color: var(--okryshto-list-subheader-color);
+    }
+  }
+}
+
+.okryshto-list-item {
+  @include layers.component() {
+    --okryshto-list-item-background-color: transparent;
+    --okryshto-list-item-background-color-hover: var(--okryshto-bg-surface-raised);
+    --okryshto-list-item-background-color-selected: color-mix(
+      in srgb,
+      var(--okryshto-accent-primary) 10%,
+      transparent
+    );
+    --okryshto-list-item-text-color: var(--okryshto-text-primary);
+    --okryshto-list-item-text-color-selected: var(--okryshto-accent-primary);
+    --okryshto-list-item-padding-block: 0.625rem;
+    --okryshto-list-item-padding-inline: 0.75rem;
+    --okryshto-list-item-gap: 0.75rem;
+    --okryshto-list-item-border-radius: 0.875rem;
+
+    display: flex;
+    align-items: center;
+    gap: var(--okryshto-list-item-gap);
+    padding: var(--okryshto-list-item-padding-block) var(--okryshto-list-item-padding-inline);
+    border-radius: var(--okryshto-list-item-border-radius);
+    background: var(--okryshto-list-item-background-color);
+    color: var(--okryshto-list-item-text-color);
+    list-style: none;
+
+    &--container {
+      position: relative;
+      gap: 0;
+      padding: 0;
+      background: transparent;
+    }
+
+    &--dense {
+      --okryshto-list-item-padding-block: 0.4375rem;
+      --okryshto-list-item-padding-inline: 0.75rem;
+    }
+
+    &--button {
+      display: flex;
+      align-items: center;
+      gap: var(--okryshto-list-item-gap);
+      cursor: pointer;
+      border: none;
+      flex: 1;
+      min-width: 0;
+      text-align: start;
+      font: inherit;
+      color: inherit;
+      background: var(--okryshto-list-item-background-color);
+
+      &:hover:not(:disabled) {
+        background: var(--okryshto-list-item-background-color-hover);
+      }
+
+      &:focus-visible {
+        outline: var(--okryshto-1px-in-rem) solid var(--okryshto-accent-primary);
+        outline-offset: 0.125rem;
+      }
+    }
+
+    &--container > &--button {
+      padding: var(--okryshto-list-item-padding-block) var(--okryshto-list-item-padding-inline);
+      border-radius: var(--okryshto-list-item-border-radius);
+    }
+
+    &--selected,
+    &--container > &--button.okryshto-list-item--selected {
+      background: var(--okryshto-list-item-background-color-selected);
+      color: var(--okryshto-list-item-text-color-selected);
+    }
+
+    &--disabled {
+      opacity: 0.45;
+      pointer-events: none;
+    }
+
+    &__leading,
+    &__trailing {
+      display: inline-flex;
+      flex-shrink: 0;
+      align-items: center;
+    }
+
+    // The container variant zeroes its own gap and padding — the button inside it
+    // owns those — so the trailing slot, which sits outside the button, has to
+    // space itself off the row's right edge.
+    &--container > &__trailing {
+      padding-inline-end: var(--okryshto-list-item-padding-inline);
+    }
+
+    &__content,
+    &__text {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      gap: 0.125rem;
+      min-width: 0;
+    }
+
+    &__primary {
+      display: block;
+      margin: 0;
+      font-family: var(--okryshto-font-family-sans);
+      font-weight: var(--okryshto-font-weight-medium);
+      font-size: var(--okryshto-font-size-md);
+      line-height: var(--okryshto-font-line-height-md);
+      color: inherit;
+    }
+
+    &__secondary {
+      display: block;
+      margin: 0;
+      font-family: var(--okryshto-font-family-sans);
+      font-size: var(--okryshto-font-size-sm);
+      line-height: var(--okryshto-font-line-height-sm);
+      color: var(--okryshto-text-muted);
+    }
+
+    &--selected &__secondary {
+      color: color-mix(in srgb, var(--okryshto-accent-primary) 70%, var(--okryshto-text-muted));
+    }
+
+    &__icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      height: 2rem;
+      color: var(--okryshto-text-secondary);
+
+      svg {
+        width: 1.125rem;
+        height: 1.125rem;
+      }
+    }
+  }
+}

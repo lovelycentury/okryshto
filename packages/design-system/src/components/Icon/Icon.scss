@@ -1,0 +1,81 @@
+@use "../../styles/mixins/layers.scss";
+
+.okryshto-icon {
+  @include layers.component() {
+    --okryshto-icon-tone: currentColor;
+    // Matches IconButton's glyph scale so an Icon dropped next to one lines up.
+    --okryshto-icon-size: 1.375rem; // 22px
+
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: var(--okryshto-icon-size);
+    height: var(--okryshto-icon-size);
+    color: var(--okryshto-icon-tone);
+    // Sits on the text baseline rather than the line box bottom, so an icon
+    // inline with a label does not push the line height around.
+    vertical-align: -0.125em;
+
+    // The assets ship with width/height 24 and stroke="currentColor"; the
+    // wrapper is what actually sizes them.
+    svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    &--small {
+      --okryshto-icon-size: 1.125rem; // 18px
+    }
+
+    &--large {
+      --okryshto-icon-size: 1.625rem; // 26px
+    }
+
+    // fontSize="inherit": track the surrounding text instead of the size scale.
+    &--inherit {
+      --okryshto-icon-size: 1em;
+    }
+
+    &--color-primary {
+      --okryshto-icon-tone: var(--okryshto-accent-primary);
+    }
+
+    &--color-dante {
+      --okryshto-icon-tone: var(--okryshto-accent-dante);
+    }
+
+    &--color-indigo {
+      --okryshto-icon-tone: var(--okryshto-accent-secondary);
+    }
+
+    &--color-violet {
+      --okryshto-icon-tone: var(--okryshto-accent-violet);
+    }
+
+    &--color-ember {
+      --okryshto-icon-tone: var(--okryshto-accent-ember);
+    }
+
+    &--color-ice {
+      --okryshto-icon-tone: var(--okryshto-accent-ice);
+    }
+
+    &--color-success {
+      --okryshto-icon-tone: var(--okryshto-feedback-success);
+    }
+
+    &--color-warning {
+      --okryshto-icon-tone: var(--okryshto-feedback-warning);
+    }
+
+    &--color-danger {
+      --okryshto-icon-tone: var(--okryshto-feedback-danger);
+    }
+
+    &--color-muted {
+      --okryshto-icon-tone: var(--okryshto-text-muted);
+    }
+  }
+}

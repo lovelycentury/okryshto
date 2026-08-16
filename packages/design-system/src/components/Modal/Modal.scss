@@ -1,0 +1,26 @@
+@use "../../styles/mixins/layers.scss";
+
+.okryshto-modal {
+  @include layers.component() {
+    --okryshto-modal-z-index: 1300;
+    --okryshto-modal-backdrop-color: color-mix(in srgb, var(--okryshto-bg-canvas) 55%, transparent);
+
+    position: fixed;
+    inset: 0;
+    z-index: var(--okryshto-modal-z-index);
+
+    // `keepMounted` leaves the subtree in the DOM so its children keep their
+    // state (and stay indexable by SEO) between openings. `visibility` rather
+    // than `display: none` so a child mid-transition can still finish it.
+    &--hidden {
+      visibility: hidden;
+    }
+
+    &__backdrop {
+      position: fixed;
+      inset: 0;
+      background: var(--okryshto-modal-backdrop-color);
+      -webkit-tap-highlight-color: transparent;
+    }
+  }
+}

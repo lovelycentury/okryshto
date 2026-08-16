@@ -1,0 +1,74 @@
+{
+  "name": "@okryshto/react",
+  "version": "0.0.0",
+  "description": "Okryshto design system — React component library",
+  "license": "MIT",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./style.css": "./dist/okryshto-react.css",
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite build --watch",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "lint": "oxlint --config ../oxlint-config/index.json .",
+    "storybook": "storybook dev -p 6006 --no-open",
+    "storybook:build": "storybook build"
+  },
+  "dependencies": {
+    "@okryshto/design-system": "workspace:*",
+    "@okryshto/helpers": "workspace:*",
+    "@okryshto/icons": "workspace:*",
+    "@okryshto/react-hooks": "workspace:*",
+    "@maskito/core": "^5.3.1",
+    "@maskito/kit": "^5.3.1",
+    "@maskito/react": "^5.3.1",
+    "@popperjs/core": "^2.11.8",
+    "@tiptap/extension-link": "^3.29.2",
+    "@tiptap/extension-placeholder": "^3.29.2",
+    "@tiptap/extension-underline": "^3.29.2",
+    "@tiptap/pm": "^3.29.2",
+    "@tiptap/react": "^3.29.2",
+    "@tiptap/starter-kit": "^3.29.2",
+    "react-transition-group": "^4.4.5"
+  },
+  "devDependencies": {
+    "@storybook/addon-docs": "^8.6.14",
+    "@storybook/addon-essentials": "^8.4.7",
+    "@storybook/react": "^8.4.7",
+    "@storybook/react-vite": "^8.4.7",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.1.0",
+    "@types/react": "^19.0.2",
+    "@types/react-dom": "^19.0.2",
+    "@types/react-transition-group": "^4.4.12",
+    "@vitejs/plugin-react": "^4.3.4",
+    "jsdom": "^25.0.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "sass-embedded": "catalog:",
+    "storybook": "^8.4.7",
+    "typescript": "catalog:",
+    "vite": "catalog:",
+    "vite-plugin-dts": "catalog:",
+    "vitest": "catalog:"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

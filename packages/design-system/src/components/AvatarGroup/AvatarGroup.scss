@@ -1,0 +1,83 @@
+@use "../../styles/mixins/layers.scss";
+
+.okryshto-avatar-group {
+  @include layers.component() {
+    // 1. full variable API, defaults = size "sm", spacing "default", ring on
+    --okryshto-avatar-group-size: 2.25rem; // 36px
+    --okryshto-avatar-group-overlap-fraction: 0.333;
+    --okryshto-avatar-group-ring-width: 0.1875rem; // 3px
+    --okryshto-avatar-group-ring-color: var(--okryshto-bg-canvas);
+    --okryshto-avatar-group-overflow-background-color: var(--okryshto-bg-surface-raised);
+    --okryshto-avatar-group-overflow-text-color: var(--okryshto-text-secondary);
+    --okryshto-avatar-group-overflow-font-size: var(--okryshto-font-size-sm);
+    --okryshto-avatar-group-overflow-line-height: var(--okryshto-font-line-height-sm);
+
+    display: inline-flex;
+    align-items: center;
+
+    // 2. size — sm (default) needs no modifier
+    &--md {
+      --okryshto-avatar-group-size: 3rem; // 48px
+    }
+
+    &--lg {
+      --okryshto-avatar-group-size: 4rem; // 64px
+      --okryshto-avatar-group-overflow-font-size: var(--okryshto-font-size-md);
+      --okryshto-avatar-group-overflow-line-height: var(--okryshto-font-line-height-md);
+    }
+
+    // 3. spacing — default needs no modifier
+    &--dense {
+      --okryshto-avatar-group-overlap-fraction: 0.444;
+    }
+
+    &--loose {
+      --okryshto-avatar-group-overlap-fraction: 0.139;
+    }
+
+    // 4. ring — on (default) needs no modifier
+    &--no-ring {
+      --okryshto-avatar-group-ring-width: 0px;
+    }
+
+    // 5. elements
+    &__item {
+      position: relative;
+      display: inline-flex;
+      flex-shrink: 0;
+
+      &:not(:first-child) {
+        margin-left: calc(
+          var(--okryshto-avatar-group-size) * -1 * var(--okryshto-avatar-group-overlap-fraction)
+        );
+      }
+    }
+
+    // The ring rides on the member itself rather than on its wrapper. A
+    // box-shadow follows the element's own border-radius, so a `shape="rounded"`
+    // avatar now gets a rounded ring instead of the circle the wrapper drew
+    // around it regardless of shape.
+    &__item > .okryshto-avatar,
+    &__overflow {
+      box-shadow: 0 0 0 var(--okryshto-avatar-group-ring-width)
+        var(--okryshto-avatar-group-ring-color);
+    }
+
+    &__overflow {
+      display: inline-flex;
+      flex-shrink: 0;
+      align-items: center;
+      justify-content: center;
+      width: var(--okryshto-avatar-group-size);
+      height: var(--okryshto-avatar-group-size);
+      border-radius: 9999px;
+      background: var(--okryshto-avatar-group-overflow-background-color);
+      color: var(--okryshto-avatar-group-overflow-text-color);
+      font-family: var(--okryshto-font-family-sans);
+      font-weight: var(--okryshto-font-weight-medium);
+      font-size: var(--okryshto-avatar-group-overflow-font-size);
+      line-height: var(--okryshto-avatar-group-overflow-line-height);
+      white-space: nowrap;
+    }
+  }
+}

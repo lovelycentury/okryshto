@@ -1,0 +1,61 @@
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+  rel="stylesheet"
+/>
+<style>
+  /* Fallback under the animated scene until React mounts. */
+  html,
+  body {
+    background: var(--okryshto-bg-canvas, #0a0a0b) !important;
+  }
+
+  #storybook-root {
+    position: relative;
+    isolation: isolate;
+  }
+
+  /*
+   * The Introduction pages are tall fullscreen brand docs.
+   * Lock the iframe document height and scroll inside the canvas decorator only —
+   * other stories keep normal document flow.
+   */
+  html:has(.okryshto-storybook-canvas--brand-docs),
+  html:has(.okryshto-storybook-canvas--brand-docs) body,
+  html:has(.okryshto-storybook-canvas--brand-docs) #storybook-root {
+    height: 100%;
+    max-height: 100%;
+    overflow: hidden;
+  }
+
+  html:has(.okryshto-storybook-stage--brand-docs),
+  html:has(.okryshto-storybook-stage--brand-docs) body,
+  html:has(.okryshto-storybook-stage--brand-docs) #storybook-root {
+    height: 100%;
+    max-height: 100%;
+    overflow: hidden;
+  }
+
+  .okryshto-storybook-canvas--brand-docs,
+  .okryshto-storybook-stage--brand-docs {
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  /* Docs inline stories: root fills the capped preview frame. */
+  html:has(.okryshto-storybook-stage--docs),
+  html:has(.okryshto-storybook-stage--docs) body,
+  html:has(.okryshto-storybook-stage--docs) #storybook-root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* TOC title — sibling of .toc-wrapper; beat Emotion theme.textColor miss. */
+  #storybook-docs :has(> .toc-wrapper) > p {
+    color: #ffffff !important;
+  }
+</style>

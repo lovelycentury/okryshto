@@ -1,0 +1,224 @@
+{
+  "Metadata": {
+    "title": "Oleksii Kryshtopa — Senior Frontend Engineer",
+    "description": "Senior Frontend Engineer with 5 years owning SaaS platforms end-to-end — design systems, payment-critical flows, and grids built for 500K+ participants.",
+    "skipToContent": "Skip to content"
+  },
+  "Hero": {
+    "availability": "Open to select collaborations",
+    "title": "I build platforms that ship at scale.",
+    "summary": "Senior Frontend Engineer with 5 years owning SaaS platforms end-to-end — design systems, payment-critical flows, and grids built for 500K+ participants.",
+    "role": "Senior Frontend Engineer · Design Systems",
+    "location": "Heilbronn, Germany",
+    "primaryCta": "See my work",
+    "secondaryCta": "Get in touch",
+    "portraitAlt": "Portrait of Oleksii Kryshtopa",
+    "portraitPlaceholder": "Drop your photo"
+  },
+  "Intro": {
+    "eyebrow": "Senior Frontend Engineer",
+    "title": "About",
+    "body": "5 years owning SaaS platforms end-to-end — from design systems and payment-critical registration flows to data grids built for 500K+ participants. Leadership here has never meant a title; it meant being the person others rely on when the system is on fire.",
+    "orbit": "Orbit",
+    "privateStorybook": "okryshto.dev"
+  },
+  "Projects": {
+    "eyebrow": "Side quests",
+    "title": "Pet projects.",
+    "previous": "Previous project",
+    "next": "Next project",
+    "goToSlide": "Go to project {number}",
+    "items": {
+      "uni-donate": {
+        "title": "uni-donate",
+        "description": "Blockchain donation platform. Learned Svelte from zero in one week to ship it — the win earned an invitation to the United Nations office in Qatar.",
+        "tags": ["Svelte", "ICP", "Blockchain"]
+      },
+      "privateStorybook": {
+        "title": "Private Storybook",
+        "description": "A dark-first design system generated from TypeScript straight into Figma: components, variants, icons, tokens and page templates from one source of truth.",
+        "tags": ["TypeScript", "Figma Plugin API"]
+      },
+      "orbit": {
+        "title": "Orbit",
+        "description": "A public map with self-intro access: request access, introduce yourself, get approved, download the payload.",
+        "tags": ["Web", "Maps", "Access flow"]
+      },
+      "omm": {
+        "title": "Omm",
+        "description": "Internal dashboard behind custom SSO — overview, CRUD over points, and reviewing the intro requests coming in from Orbit.",
+        "tags": ["Dashboard", "Keycloak SSO"]
+      },
+      "ai-tooling-security": {
+        "title": "AI Tooling Security",
+        "description": "Investigating AI-agent tooling and where the holes are — threat-modelling what happens when a compromised agent reaches docker.sock, and prototyping a proxy layer that filters agent output.",
+        "tags": ["Security", "MCP", "Threat modelling"]
+      }
+    }
+  },
+  "Experience": {
+    "eyebrow": "Experience",
+    "title": "Where the platforms shipped.",
+    "items": {
+      "sporTechCompany": {
+        "company": "Sport service provider",
+        "role": "Frontend Lead — Senior Frontend Engineer",
+        "period": "June 2023 — Present",
+        "place": "Remote, Germany",
+        "summary": "Sports-event SaaS for 500K+ participants — dynamic registration, payments, and an embeddable B2B widget.",
+        "bullets": [
+          "Took over after a failed €2M CRM delivery: rebuilt the platform and cut delivery cost from ~€38K/month to ~€12K/month while retaining key clients.",
+          "Shipped participant management and public registration end-to-end, then packaged the flow as an embeddable widget that landed a new B2B client.",
+          "After the backend lead left, wrote the tickets and component requirements and guided the rebuild of the API."
+        ],
+        "tags": ["React", "Payments", "CRM"]
+      },
+      "addTechCompany": {
+        "company": "Ads Platform",
+        "role": "Senior Frontend Developer",
+        "period": "Nov 2021 — May 2023",
+        "place": "Italy · Remote",
+        "summary": "Media-planning SaaS with a virtualized reference grid and drag-and-drop workflows.",
+        "bullets": [
+          "Owned code quality and architecture on the media-planning platform; turned the media-plan table into the product’s reference grid.",
+          "Stayed hands-on by choice: declined a management-track promotion to keep building."
+        ],
+        "tags": ["React", "Virtualization", "Design systems"]
+      }
+    }
+  },
+  "Skills": {
+    "eyebrow": "Toolkit",
+    "title": "What I build with.",
+    "groups": {
+      "core": "Core Technologies",
+      "architecture": "Frontend Architecture",
+      "operations": "Development & Operations",
+      "languages": "Languages"
+    },
+    "items": {
+      "typescript": "TypeScript",
+      "react": "React",
+      "vue": "Vue 3",
+      "next": "Next.js",
+      "node": "Node.js",
+      "svelte": "Svelte",
+      "postgresql": "PostgreSQL",
+      "mongodb": "MongoDB",
+      "rest": "REST APIs",
+      "design-systems": "Design systems",
+      "headless": "Headless components",
+      "wai-aria": "WAI-ARIA",
+      "tanstack-query": "TanStack Query",
+      "redux": "Redux (+Saga)",
+      "react-hook-form": "react-hook-form",
+      "fsd": "FSD",
+      "virtualization": "Virtualization",
+      "jest": "Jest",
+      "playwright": "Playwright",
+      "storybook": "Storybook",
+      "rollup": "Rollup",
+      "docker": "Docker",
+      "github-actions": "GitHub Actions",
+      "jenkins": "Jenkins",
+      "aws": "AWS",
+      "vault": "Vault",
+      "tdd": "TDD",
+      "english": "English (fluent)",
+      "german": "German (A2)",
+      "ukrainian": "Ukrainian (native)",
+      "russian": "Russian (fluent)"
+    }
+  },
+  "Credibility": {
+    "stats": {
+      "years": {
+        "label": "Years Frontend Lead"
+      },
+      "participants": {
+        "label": "Participants scaled"
+      },
+      "hackathon": {
+        "suffix": "st Place",
+        "label": "Hackathon winner"
+      }
+    },
+    "quote": "\"Huge thanks for this amazing contribution — we really appreciate that you invested time learning and aligning to onyx principles.\"",
+    "quoteAuthor": "SchwarzIT/onyx",
+    "awardTitle": "1st Place — South Africa Blockchain in Education Hackathon",
+    "awardMeta": "Stellenbosch University · Feb 2024 · $10,000 Internet Computer developer grant, with Denys K. & Eduard P.",
+    "awardLink": "immersiveeducation.org"
+  },
+  "BeyondCode": {
+    "eyebrow": "More than just code",
+    "title": "The part that explains the rest.",
+    "items": {
+      "music": {
+        "title": "Music, 15 years",
+        "body": "Recorder from age four — learned notes before letters — and trumpet from 11 to 19. Handel, Albinoni, Piazzolla; originals only. Music taught me precision: small details compound into masterpieces, or into bugs."
+      },
+      "boxing": {
+        "title": "Boxing",
+        "body": "A year and a half of it. Discipline, and staying calm when hit."
+      },
+      "books": {
+        "title": "Books",
+        "body": "Tom Sawyer, the Orthodox Bible, and on the reread list: Goethe's Faust, Dante, Gorky's Danko — the man who carried everything alone. Carrying everything solo was my biggest flaw; delegation is the fix."
+      },
+      "pattern-matching": {
+        "title": "Pattern-matching",
+        "body": "Attentive by nature — I remember key facts and build cause-and-effect chains like a detective. It found the vulnerabilities; it also gets me called paranoid. Both are true costs of the same skill."
+      }
+    }
+  },
+  "Links": {
+    "eyebrow": "Selected links",
+    "title": "A few doors worth opening.",
+    "summary": "The short list — work, words, and where to find me. Everything else can wait.",
+    "items": {
+      "github": {
+        "title": "GitHub",
+        "subtitle": "Open-source & personal projects"
+      },
+      "onyx": {
+        "title": "onyx design system",
+        "subtitle": "Featured contributor — SchwarzIT"
+      },
+      "linkedin": {
+        "title": "LinkedIn",
+        "subtitle": "Experience, teams, and growth edges"
+      },
+      "email": {
+        "title": "Email",
+        "subtitle": "Let's talk"
+      }
+    }
+  },
+  "Contact": {
+    "eyebrow": "Let's talk",
+    "title": "If you are shipping something that matters.",
+    "copyEmail": "Copy email address",
+    "copied": "Copied",
+    "availability": "GMT+1 · replies in a day",
+    "links": {
+      "email": "Email",
+      "linkedin": "LinkedIn",
+      "github": "GitHub",
+      "onyx": "onyx"
+    }
+  },
+  "Footer": {
+    "copyright": "© {year} Oleksii Kryshtopa",
+    "credit": "Designed & generated in Figma"
+  },
+  "LocaleFab": {
+    "open": "Choose language",
+    "close": "Close language menu",
+    "languages": {
+      "en": "English",
+      "uk": "Ukrainian",
+      "ru": "Russian",
+      "de": "German"
+    }
+  }
+}

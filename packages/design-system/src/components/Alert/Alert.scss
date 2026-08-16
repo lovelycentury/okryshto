@@ -1,0 +1,174 @@
+@use "../../styles/mixins/layers.scss";
+
+.okryshto-alert {
+  @include layers.component() {
+    --okryshto-alert-tone: var(--okryshto-accent-secondary);
+    --okryshto-alert-background-color: var(--okryshto-bg-surface);
+    --okryshto-alert-text-color: var(--okryshto-text-primary);
+    --okryshto-alert-title-color: var(--okryshto-alert-tone);
+    --okryshto-alert-border-color: var(--okryshto-border-subtle);
+    --okryshto-alert-border-width: var(--okryshto-1px-in-rem);
+    --okryshto-alert-border-radius: 0.875rem;
+    --okryshto-alert-padding-block: 0.875rem;
+    --okryshto-alert-padding-inline: 1rem;
+    --okryshto-alert-gap: 0.75rem;
+    --okryshto-alert-message-color: var(--okryshto-text-secondary);
+    --okryshto-alert-title-font-size: var(--okryshto-font-size-md);
+    --okryshto-alert-title-line-height: var(--okryshto-font-line-height-md);
+    --okryshto-alert-message-font-size: var(--okryshto-font-size-sm);
+    --okryshto-alert-message-line-height: var(--okryshto-font-line-height-sm);
+
+    display: flex;
+    align-items: flex-start;
+    gap: var(--okryshto-alert-gap);
+    padding: var(--okryshto-alert-padding-block) var(--okryshto-alert-padding-inline);
+    border: var(--okryshto-alert-border-width) solid var(--okryshto-alert-border-color);
+    border-radius: var(--okryshto-alert-border-radius);
+    background: var(--okryshto-alert-background-color);
+    color: var(--okryshto-alert-text-color);
+    font-family: var(--okryshto-font-family-sans);
+
+    &--success {
+      --okryshto-alert-tone: var(--okryshto-feedback-success);
+    }
+
+    &--warning {
+      --okryshto-alert-tone: var(--okryshto-feedback-warning);
+    }
+
+    &--danger {
+      --okryshto-alert-tone: var(--okryshto-feedback-danger);
+    }
+
+    &--dante {
+      --okryshto-alert-tone: var(--okryshto-accent-dante);
+    }
+
+    &--outlined {
+      --okryshto-alert-background-color: transparent;
+      --okryshto-alert-border-color: var(--okryshto-alert-tone);
+    }
+
+    // The tone itself carries the message here, so everything on top of it
+    // switches to the dark contrast ink — a tint would be indistinguishable
+    // from `standard`, which is the whole point of this variant.
+    &--filled {
+      --okryshto-alert-background-color: var(--okryshto-alert-tone);
+      --okryshto-alert-border-color: transparent;
+      --okryshto-alert-text-color: var(--okryshto-accent-contrast);
+      --okryshto-alert-title-color: var(--okryshto-accent-contrast);
+      --okryshto-alert-message-color: color-mix(
+        in srgb,
+        var(--okryshto-accent-contrast) 78%,
+        transparent
+      );
+    }
+
+    &__icon {
+      flex-shrink: 0;
+
+      .okryshto-severity-icon {
+        --okryshto-severity-icon-tone: var(--okryshto-alert-tone);
+        --okryshto-severity-icon-background-color: color-mix(
+          in srgb,
+          var(--okryshto-alert-tone) 15%,
+          transparent
+        );
+        --okryshto-severity-icon-icon-color: var(--okryshto-alert-tone);
+      }
+
+      .okryshto-alert--filled & .okryshto-severity-icon {
+        --okryshto-severity-icon-background-color: color-mix(
+          in srgb,
+          var(--okryshto-accent-contrast) 16%,
+          transparent
+        );
+        --okryshto-severity-icon-icon-color: var(--okryshto-accent-contrast);
+      }
+    }
+
+    &__content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    &__title {
+      margin: 0;
+      color: var(--okryshto-alert-title-color);
+      font-weight: var(--okryshto-font-weight-medium);
+      font-size: var(--okryshto-alert-title-font-size);
+      line-height: var(--okryshto-alert-title-line-height);
+    }
+
+    &__message {
+      margin: 0;
+      color: var(--okryshto-alert-message-color);
+      font-size: var(--okryshto-alert-message-font-size);
+      line-height: var(--okryshto-alert-message-line-height);
+
+      .okryshto-alert__title + & {
+        margin-top: 0.1875rem;
+      }
+    }
+
+    &__action {
+      flex-shrink: 0;
+      align-self: center;
+      margin-left: auto;
+
+      // Buttons in this slot default to the page's text colours, which vanish on
+      // a solid tone. Hand them the contrast ink the rest of a filled alert uses.
+      .okryshto-alert--filled & .okryshto-button {
+        --okryshto-button-text-color: var(--okryshto-accent-contrast);
+        --okryshto-button-background-color-hover: color-mix(
+          in srgb,
+          var(--okryshto-accent-contrast) 12%,
+          transparent
+        );
+      }
+    }
+
+    &__close {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.25rem;
+      height: 1.25rem;
+      margin: 0;
+      padding: 0;
+      border: none;
+      border-radius: 50%;
+      background: transparent;
+      color: var(--okryshto-text-muted);
+      cursor: pointer;
+      transition: color var(--okryshto-duration-sm) ease;
+
+      svg {
+        width: 0.875rem;
+        height: 0.875rem;
+      }
+
+      &:hover {
+        color: var(--okryshto-text-primary);
+      }
+
+      &:focus-visible {
+        outline: var(--okryshto-1px-in-rem) solid var(--okryshto-alert-tone);
+        outline-offset: 0.125rem;
+      }
+
+      .okryshto-alert--filled & {
+        color: color-mix(in srgb, var(--okryshto-accent-contrast) 70%, transparent);
+
+        &:hover {
+          color: var(--okryshto-accent-contrast);
+        }
+
+        &:focus-visible {
+          outline-color: var(--okryshto-accent-contrast);
+        }
+      }
+    }
+  }
+}

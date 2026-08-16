@@ -1,0 +1,13 @@
+{
+  "name": "Vizitka — Premium DS & Site Generator",
+  "id": "vizitka-premium-generator",
+  "api": "1.0.0",
+  "main": "dist/code.js",
+  "ui": "ui.html",
+  "editorType": ["figma"],
+  "documentAccess": "dynamic-page",
+  "networkAccess": {
+    "allowedDomains": ["none"],
+    "reasoning": "The plugin generates everything locally from token definitions and needs no network access."
+  }
+}

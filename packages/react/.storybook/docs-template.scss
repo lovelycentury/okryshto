@@ -1,0 +1,115 @@
+/* Docs page polish — adapted from sit-onyx docs-template.scss */
+
+#storybook-docs {
+  > .sbdocs {
+    padding: 2rem 1.5rem;
+
+    div:has(> .docblock-argstable) {
+      overflow-x: auto;
+
+      > .docblock-argstable {
+        margin-inline: 0;
+      }
+    }
+  }
+}
+
+/*
+ * Primary story frame only: edge-to-edge scene at a hard 500px.
+ * Example stories below hug their content (still capped at 500px).
+ * Toolbar keeps Storybook's top inset; side/bottom padding is zeroed.
+ *
+ * Two things here are load-bearing and easy to get wrong:
+ *
+ * 1. The height clamp sits on `.docs-story` — the story canvas — and never
+ *    on `.sbdocs-preview`. The preview block is not just the canvas: the
+ *    "Show code" source panel renders as a *sibling* of `.docs-story`
+ *    inside it. Capping the block with `overflow: hidden` therefore clipped
+ *    the expanded snippet away entirely (a ~190px panel inside a 540px box
+ *    already filled by the 500px frame), so every story's code section
+ *    toggled to "Hide code" and then showed nothing.
+ *
+ * 2. Primary is selected by its toolbar (`:has(> .sb-bar)`), not by
+ *    `:first-of-type`. Every preview is wrapped in its own `.sb-anchor`
+ *    div, which makes each one the first element of its parent — so
+ *    `:first-of-type` matched *all* previews and `:not(:first-of-type)`
+ *    matched none, leaking the primary's hard 500px height onto every
+ *    example below it. The toolbar only renders on the primary, so it is
+ *    the honest marker.
+ */
+#storybook-docs {
+  .sbdocs-preview:has(> .sb-bar) {
+    .docs-story {
+      padding: 0 !important;
+      height: 500px;
+      max-height: 500px;
+      overflow: hidden;
+    }
+
+    .innerZoomElementWrapper,
+    .innerZoomElementWrapper > div,
+    [scale] {
+      height: 500px !important;
+      max-height: 500px !important;
+    }
+
+    iframe {
+      height: 500px !important;
+      max-height: 500px;
+    }
+
+    .okryshto-storybook-stage--docs {
+      height: 500px;
+      max-height: 500px;
+    }
+  }
+
+  .sbdocs-preview:not(:has(> .sb-bar)) {
+    .docs-story {
+      padding: 0 !important;
+      max-height: 500px;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+  }
+}
+
+#storybook-docs .sbdocs-wrapper:has(.storybook-hide-toc) > aside {
+  display: none;
+}
+
+/*
+ * TOC heading ("Table of Contents").
+ * Storybook's Heading uses theme.textColor, which often resolves undefined
+ * after ensure() — links correctly use theme.color.defaultText instead.
+ * Target the <p> sibling of .toc-wrapper (not aside — TOC is a fixed div).
+ */
+#storybook-docs :has(> .toc-wrapper) > p {
+  color: #ffffff !important;
+}
+
+.okryshto-storybook-controls:not(:has(.docblock-argstable)) {
+  display: none;
+}
+
+.okryshto-disclaimer {
+  margin: 1rem 0 1.25rem;
+  padding: 0.875rem 1rem;
+  border: 1px solid var(--okryshto-border-default, rgba(255, 255, 255, 0.12));
+  border-radius: 0.75rem;
+  background: color-mix(in srgb, var(--okryshto-bg-surface, #0f0f12) 80%, transparent);
+}
+
+.okryshto-disclaimer__title {
+  margin: 0 0 0.25rem;
+  color: var(--okryshto-text-primary, #f5f5f7);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.okryshto-disclaimer p {
+  margin: 0;
+  color: var(--okryshto-text-secondary, #a9a9b2);
+  font-size: 0.875rem;
+  line-height: 1.45;
+}

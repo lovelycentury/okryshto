@@ -1,0 +1,85 @@
+@use "../../styles/mixins/layers.scss";
+
+@keyframes okryshto-spinner-rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.okryshto-spinner {
+  @include layers.component() {
+    --okryshto-spinner-tone: var(--okryshto-accent-primary);
+    --okryshto-spinner-track-color: color-mix(
+      in srgb,
+      var(--okryshto-spinner-tone) 14%,
+      transparent
+    );
+    --okryshto-spinner-size: 1.75rem;
+
+    display: inline-flex;
+    flex-shrink: 0;
+    width: var(--okryshto-spinner-size);
+    height: var(--okryshto-spinner-size);
+    animation: okryshto-spinner-rotate 0.8s linear infinite;
+
+    // The spin is the only signal that work is in flight, so it is slowed rather
+    // than stopped — a frozen ring reads as a hung request.
+    @media (prefers-reduced-motion: reduce) {
+      animation-duration: 2.4s;
+    }
+
+    &--small {
+      --okryshto-spinner-size: 1.25rem;
+    }
+
+    &--large {
+      --okryshto-spinner-size: 2.5rem;
+    }
+
+    &--dante {
+      --okryshto-spinner-tone: var(--okryshto-accent-dante);
+    }
+
+    &--indigo {
+      --okryshto-spinner-tone: var(--okryshto-accent-secondary);
+    }
+
+    &--violet {
+      --okryshto-spinner-tone: var(--okryshto-accent-violet);
+    }
+
+    &--ember {
+      --okryshto-spinner-tone: var(--okryshto-accent-ember);
+    }
+
+    &--ice {
+      --okryshto-spinner-tone: var(--okryshto-accent-ice);
+    }
+
+    &--success {
+      --okryshto-spinner-tone: var(--okryshto-feedback-success);
+    }
+
+    &--warning {
+      --okryshto-spinner-tone: var(--okryshto-feedback-warning);
+    }
+
+    &--danger {
+      --okryshto-spinner-tone: var(--okryshto-feedback-danger);
+    }
+
+    &__svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    &__track {
+      stroke: var(--okryshto-spinner-track-color);
+    }
+
+    &__arc {
+      stroke: var(--okryshto-spinner-tone);
+      stroke-linecap: round;
+    }
+  }
+}

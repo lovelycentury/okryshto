@@ -1,0 +1,109 @@
+@use "styles/mixins" as m;
+
+.section {
+  @include m.section(2rem);
+  container-type: inline-size;
+  container-name: credibility;
+
+  @include m.screen(min, sm) {
+    gap: 3rem;
+  }
+}
+
+.statRow {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: minmax(0, 1fr);
+
+  @include m.container(min, md) {
+    gap: 1.5rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  padding: 1.25rem;
+  @include m.surface(var(--profile-radius-lg));
+
+  @include m.screen(min, sm) {
+    padding: 1.75rem;
+  }
+}
+
+.statValue {
+  @include m.display(display-lg);
+}
+
+.statNumber {
+  font: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+  font-variant-numeric: tabular-nums;
+}
+
+.statLabel {
+  color: var(--okryshto-text-muted);
+  @include m.type(body-sm);
+}
+
+.quote,
+.award {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem;
+  @include m.glass(var(--profile-radius-xl));
+
+  @include m.screen(min, sm) {
+    padding: 2.5rem;
+  }
+}
+
+.quote {
+  margin: 0;
+  box-shadow: var(--profile-glow-indigo);
+}
+
+.quoteText {
+  max-width: 47.5rem; // 760px
+  margin: 0;
+  font-weight: 500;
+  @include m.display(h2);
+}
+
+.quoteAuthor {
+  color: var(--okryshto-accent-primary);
+  font-weight: 500;
+  @include m.type(label-md);
+}
+
+.award {
+  box-shadow: var(--profile-glow-accent);
+}
+
+.awardTitle {
+  max-width: 47.5rem;
+  margin: 0;
+  font-weight: 500;
+  @include m.display(h2);
+}
+
+.awardMeta {
+  max-width: 43.75rem; // 700px
+  color: var(--okryshto-text-secondary);
+  @include m.type(body-sm);
+}
+
+.awardLink {
+  color: var(--okryshto-accent-primary);
+  font-weight: 500;
+  text-decoration: none;
+  @include m.type(label-md);
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

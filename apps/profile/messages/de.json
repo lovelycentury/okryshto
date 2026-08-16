@@ -1,0 +1,224 @@
+{
+  "Metadata": {
+    "title": "Oleksii Kryshtopa — Senior Frontend Engineer",
+    "description": "Senior-Frontend-Entwickler mit 5 Jahren Erfahrung in der umfassenden Betreuung von SaaS-Plattformen – Design-Systeme, zahlungskritische Abläufe und Rasterlayouts für mehr als 500.000 Teilnehmer.",
+    "skipToContent": "Zum Inhalt springen"
+  },
+  "Hero": {
+    "availability": "Offen für ausgewählte Kooperationen",
+    "title": "Ich entwickle Plattformen, die in großem Maßstab bereitgestellt werden.",
+    "summary": "Senior-Frontend-Entwickler mit 5 Jahren Erfahrung in der umfassenden Betreuung von SaaS-Plattformen – Design-Systeme, zahlungskritische Abläufe und Rasterlayouts für mehr als 500.000 Teilnehmer.",
+    "role": "Senior Frontend Engineer · Design Systems",
+    "location": "Heilbronn, Germany",
+    "primaryCta": "Mein Werk ansehen",
+    "secondaryCta": "Kontakt aufnehmen",
+    "portraitAlt": "Portrait of Oleksii Kryshtopa",
+    "portraitPlaceholder": "Lade dein Foto hoch"
+  },
+  "Intro": {
+    "eyebrow": "Senior Frontend Engineer",
+    "title": "Über",
+    "body": "5 Jahre Erfahrung in der umfassenden Verantwortung für SaaS-Plattformen – von Designsystemen und zahlungsrelevanten Registrierungsabläufen bis hin zu Datentabellen für mehr als 500.000 Teilnehmer. Führung bedeutete hier nie nur einen Titel, sondern vielmehr, die Person zu sein, auf die sich andere verlassen, wenn das System aus den Fugen gerät.",
+    "orbit": "Orbit",
+    "privateStorybook": "okryshto.dev"
+  },
+  "Projects": {
+    "eyebrow": "Side quests",
+    "title": "Pet projects.",
+    "previous": "Previous project",
+    "next": "Next project",
+    "goToSlide": "Go to project {number}",
+    "items": {
+      "uni-donate": {
+        "title": "uni-donate",
+        "description": "Blockchain-Spendenplattform. Ich habe mir Svelte innerhalb einer Woche von Grund auf beigebracht, um das Projekt fertigzustellen – dieser Erfolg brachte mir eine Einladung ins Büro der Vereinten Nationen in Katar ein.",
+        "tags": ["Svelte", "ICP", "Blockchain"]
+      },
+      "privateStorybook": {
+        "title": "Private Storybook",
+        "description": "Ein „Dark-First“-Designsystem, das direkt aus TypeScript in Figma generiert wird: Komponenten, Varianten, Symbole, Tokens und Seitenvorlagen aus einer einzigen Quelle der Wahrheit.",
+        "tags": ["TypeScript", "Figma Plugin API"]
+      },
+      "orbit": {
+        "title": "Orbit",
+        "description": "Eine öffentliche Karte mit Selbst-Einleitungszugang: Zugang beantragen, sich vorstellen, genehmigen lassen, Nutzlast herunterladen.",
+        "tags": ["Web", "Maps", "Access flow"]
+      },
+      "omm": {
+        "title": "Omm",
+        "description": "Interne Dashboard hinter benutzerdefiniertem SSO — Überblick, CRUD über Punkte und Überprüfung der Intro-Anfragen aus Orbit.",
+        "tags": ["Dashboard", "Keycloak SSO"]
+      },
+      "ai-tooling-security": {
+        "title": "AI Tooling Security",
+        "description": "Untersuchung der Tools für KI-Agenten und der darin vorhandenen Schwachstellen – Erstellung eines Bedrohungsmodells, das aufzeigt, was passiert, wenn ein kompromittierter Agent auf „docker.sock“ zugreift, sowie Entwicklung eines Prototyps für eine Proxy-Schicht, die die Ausgabe des Agenten filtert.",
+        "tags": ["Security", "MCP", "Threat modelling"]
+      }
+    }
+  },
+  "Experience": {
+    "eyebrow": "Experience",
+    "title": "Wohin die Plattformen geliefert wurden.",
+    "items": {
+      "sporTechCompany": {
+        "company": "Sport service provider",
+        "role": "Frontend Lead — Senior Frontend Engineer",
+        "period": "June 2023 — Present",
+        "place": "Remote, Germany",
+        "summary": "SaaS-Lösung für Sportveranstaltungen mit über 500.000 Teilnehmern – dynamische Anmeldung, Zahlungsabwicklung und ein einbettbares B2B-Widget.",
+        "bullets": [
+          "Übernahm das Projekt nach einer fehlgeschlagenen CRM-Implementierung im Wert von 2 Mio. Euro: baute die Plattform neu auf und senkte die Betriebskosten von ca. 38.000 Euro pro Monat auf ca. 12.000 Euro pro Monat, wobei wichtige Kunden erhalten blieben.",
+          "Ich habe die Teilnehmerverwaltung und die öffentliche Registrierung von Anfang bis Ende umgesetzt und den Ablauf anschließend als einbettbares Widget aufbereitet, wodurch wir einen neuen B2B-Kunden gewinnen konnten.",
+          "Nachdem der Backend-Leiter das Unternehmen verlassen hatte, habe ich die Tickets und die Anforderungen an die Komponenten verfasst und den Neuaufbau der API geleitet."
+        ],
+        "tags": ["React", "Payments", "CRM"]
+      },
+      "addTechCompany": {
+        "company": "Ads Platform",
+        "role": "Senior Frontend Developer",
+        "period": "Nov 2021 — May 2023",
+        "place": "Italy · Remote",
+        "summary": "SaaS-Lösung für die Medienplanung mit einem virtualisierten Raster und Drag-and-Drop-Workflows.",
+        "bullets": [
+          "War für die Codequalität und Architektur der Medienplanungsplattform verantwortlich; habe die Medienplantabelle zum Referenzraster des Produkts gemacht.",
+          "Ich habe mich bewusst dafür entschieden, weiterhin operativ tätig zu bleiben: Ich habe eine Beförderung in eine Führungsposition abgelehnt, um weiter am Aufbau mitzuwirken."
+        ],
+        "tags": ["React", "Virtualization", "Design systems"]
+      }
+    }
+  },
+  "Skills": {
+    "eyebrow": "Toolkit",
+    "title": "Womit ich arbeite.",
+    "groups": {
+      "core": "Core Technologies",
+      "architecture": "Frontend Architecture",
+      "operations": "Development & Operations",
+      "languages": "Languages"
+    },
+    "items": {
+      "typescript": "TypeScript",
+      "react": "React",
+      "vue": "Vue 3",
+      "next": "Next.js",
+      "node": "Node.js",
+      "svelte": "Svelte",
+      "postgresql": "PostgreSQL",
+      "mongodb": "MongoDB",
+      "rest": "REST APIs",
+      "design-systems": "Design systems",
+      "headless": "Headless components",
+      "wai-aria": "WAI-ARIA",
+      "tanstack-query": "TanStack Query",
+      "redux": "Redux (+Saga)",
+      "react-hook-form": "react-hook-form",
+      "fsd": "FSD",
+      "virtualization": "Virtualization",
+      "jest": "Jest",
+      "playwright": "Playwright",
+      "storybook": "Storybook",
+      "rollup": "Rollup",
+      "docker": "Docker",
+      "github-actions": "GitHub Actions",
+      "jenkins": "Jenkins",
+      "aws": "AWS",
+      "vault": "Vault",
+      "tdd": "TDD",
+      "english": "English (fluent)",
+      "german": "German (A2)",
+      "ukrainian": "Ukrainian (native)",
+      "russian": "Russian (fluent)"
+    }
+  },
+  "Credibility": {
+    "stats": {
+      "years": {
+        "label": "Jahre Frontend Lead"
+      },
+      "participants": {
+        "label": "Skalierte Teilnehmer"
+      },
+      "hackathon": {
+        "suffix": "st Place",
+        "label": "Hackathon winner"
+      }
+    },
+    "quote": "\"Vielen, vielen Dank für diesen großartigen Beitrag – wir wissen es wirklich sehr zu schätzen, dass du dir die Zeit genommen hast, dich mit den Onyx-Prinzipien vertraut zu machen und dich daran auszurichten.\"",
+    "quoteAuthor": "SchwarzIT/onyx",
+    "awardTitle": "1. Platz – Hackathon „Blockchain im Bildungswesen“ in Südafrika",
+    "awardMeta": "Universität Stellenbosch · Februar 2024 · 10.000 $ Fördermittel für Internet-Computer-Entwickler, mit Denys K. und Eduard P.",
+    "awardLink": "immersiveeducation.org"
+  },
+  "BeyondCode": {
+    "eyebrow": "Mehr als nur Code",
+    "title": "Der Teil, der den Rest erklärt.",
+    "items": {
+      "music": {
+        "title": "Musik, 15 Jahre",
+        "body": "Blockflöte seit meinem vierten Lebensjahr – ich habe Noten vor Buchstaben gelernt – und Trompete von 11 bis 19. Händel, Albinoni, Piazzolla; ausschließlich Originalwerke. Die Musik hat mir Präzision beigebracht: Kleine Details summieren sich zu Meisterwerken – oder zu Fehlern."
+      },
+      "boxing": {
+        "title": "Boxen, 1,5 Jahre",
+        "body": "Ein Jahr und ein halbes Jahr damit. Disziplin und Ruhe, wenn man getroffen wird."
+      },
+      "books": {
+        "title": "Bücher",
+        "body": "Tom Sawyer, die orthodoxe Bibel, und auf der Neulese-Liste: Goethes Faust, Dante, Gorkis Danko — der Mann, der alles allein getragen hat. Alles allein zu tragen war meine größte Schwäche; Delegation ist die Lösung."
+      },
+      "pattern-matching": {
+        "title": "Pattern-matching",
+        "body": "Von Natur aus aufmerksam – ich merke mir wichtige Fakten und stelle wie ein Detektiv Zusammenhänge her. Das hat mir Schwachstellen aufgedeckt; dafür werde ich aber auch als paranoid bezeichnet. Beides sind die tatsächlichen Kosten derselben Fähigkeit."
+      }
+    }
+  },
+  "Links": {
+    "eyebrow": "Selected links",
+    "title": "Ein paar Türen, die es sich zu öffnen lohnt.",
+    "summary": "Die kurze Liste — Arbeit, Worte und wo man mich findet. Alles andere kann warten.",
+    "items": {
+      "github": {
+        "title": "GitHub",
+        "subtitle": "Open-source & personal projects"
+      },
+      "onyx": {
+        "title": "onyx design system",
+        "subtitle": "Ausgewählter Autor— SchwarzIT"
+      },
+      "linkedin": {
+        "title": "LinkedIn",
+        "subtitle": "Erfahrung, Teams und Wachstumsvorteile"
+      },
+      "email": {
+        "title": "Email",
+        "subtitle": "Lassen Sie uns sprechen"
+      }
+    }
+  },
+  "Contact": {
+    "eyebrow": "Let's talk",
+    "title": "If you are shipping something that matters.",
+    "copyEmail": "Copy email address",
+    "copied": "Copied",
+    "availability": "GMT+1 · replies in a day",
+    "links": {
+      "email": "Email",
+      "linkedin": "LinkedIn",
+      "github": "GitHub",
+      "onyx": "onyx"
+    }
+  },
+  "Footer": {
+    "copyright": "© {year} Oleksii Kryshtopa",
+    "credit": "Entworfen und erstellt in Figma"
+  },
+  "LocaleFab": {
+    "open": "Sprache wählen",
+    "close": "Sprachmenü schließen",
+    "languages": {
+      "en": "Englisch",
+      "uk": "Ukrainisch",
+      "ru": "Russisch",
+      "de": "Deutsch"
+    }
+  }
+}

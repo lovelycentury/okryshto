@@ -1,0 +1,104 @@
+@use "styles/mixins" as m;
+
+.section {
+  padding-block: var(--profile-section-gap-lg);
+  @include m.content-column;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 1.5rem;
+  box-shadow: var(--profile-glow-accent);
+  @include m.glass(var(--profile-radius-2xl));
+
+  @include m.screen(min, sm) {
+    gap: 1.75rem;
+    padding: 3.5rem;
+  }
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+
+  @include m.screen(min, sm) {
+    gap: 1rem;
+  }
+}
+
+.eyebrow {
+  @include m.eyebrow;
+}
+
+.title {
+  max-width: 45rem; // 720px
+  margin: 0;
+  @include m.display(display-xl);
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.emailChip {
+  display: inline-flex;
+  max-width: 100%;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.75rem 1.125rem;
+  border: 1px solid var(--okryshto-glass-border);
+  border-radius: 9999px;
+  background: var(--okryshto-glass-fill-strong);
+  color: var(--okryshto-text-primary);
+  font-family: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  overflow-wrap: anywhere;
+  @include m.type(label-md);
+}
+
+.copied {
+  color: var(--okryshto-accent-primary);
+}
+
+.availability {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1rem;
+  color: var(--okryshto-text-secondary);
+  font-weight: 500;
+  @include m.type(label-sm);
+  @include m.glass(9999px);
+}
+
+.dot {
+  @include m.status-dot;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.5rem;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  color: var(--okryshto-text-secondary);
+  font-weight: 500;
+  text-decoration: none;
+  @include m.type(label-md);
+
+  &:hover {
+    color: var(--okryshto-text-primary);
+  }
+}

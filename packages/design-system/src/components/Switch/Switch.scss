@@ -1,0 +1,137 @@
+@use "../../styles/mixins/layers.scss";
+
+.okryshto-switch {
+  @include layers.component() {
+    // 1. full variable API, defaults = color "primary", size "medium"
+    --okryshto-switch-tone: var(--okryshto-accent-primary);
+    --okryshto-switch-track-width: 2.75rem; // 44px
+    --okryshto-switch-track-height: 1.625rem; // 26px
+    --okryshto-switch-thumb-size: 1.25rem; // 20px
+    --okryshto-switch-padding: 0.1875rem; // 3px
+    --okryshto-switch-duration: 0.2s;
+    --okryshto-switch-easing: cubic-bezier(0.4, 0, 0.2, 1);
+    --okryshto-switch-thumb-travel: calc(
+      var(--okryshto-switch-track-width) - var(--okryshto-switch-thumb-size) - 2 *
+        var(--okryshto-switch-padding) - 2 * var(--okryshto-1px-in-rem)
+    );
+
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    width: fit-content;
+    cursor: pointer;
+
+    &:has(.okryshto-switch__input:disabled) {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    // 2. elements
+    &__control {
+      position: relative;
+      display: inline-flex;
+      flex-shrink: 0;
+      width: var(--okryshto-switch-track-width);
+      height: var(--okryshto-switch-track-height);
+    }
+
+    &__input {
+      position: absolute;
+      inset: 0;
+      margin: 0;
+      opacity: 0;
+      cursor: pointer;
+
+      &:disabled {
+        cursor: not-allowed;
+      }
+    }
+
+    &__track {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: var(--okryshto-1px-in-rem) solid var(--okryshto-border-strong);
+      border-radius: 9999px;
+      background: var(--okryshto-bg-surface-raised);
+      pointer-events: none;
+      transition:
+        background-color var(--okryshto-switch-duration) var(--okryshto-switch-easing),
+        border-color var(--okryshto-switch-duration) var(--okryshto-switch-easing);
+    }
+
+    &__input:checked + &__track {
+      border-color: transparent;
+      background: var(--okryshto-switch-tone);
+    }
+
+    &__thumb {
+      position: absolute;
+      top: 50%;
+      left: var(--okryshto-switch-padding);
+      width: var(--okryshto-switch-thumb-size);
+      height: var(--okryshto-switch-thumb-size);
+      border-radius: 50%;
+      background: var(--okryshto-text-primary);
+      transform: translate3d(0, -50%, 0);
+      transition:
+        transform var(--okryshto-switch-duration) var(--okryshto-switch-easing),
+        background-color var(--okryshto-switch-duration) var(--okryshto-switch-easing);
+    }
+
+    &__input:checked + &__track &__thumb {
+      background: var(--okryshto-accent-contrast);
+      transform: translate3d(var(--okryshto-switch-thumb-travel), -50%, 0);
+    }
+
+    &__input:focus-visible + &__track {
+      outline: var(--okryshto-1px-in-rem) solid var(--okryshto-switch-tone);
+      outline-offset: 0.125rem;
+    }
+
+    &__label {
+      font-family: var(--okryshto-font-family-sans);
+      font-size: var(--okryshto-font-size-md);
+      line-height: var(--okryshto-font-line-height-md);
+      color: var(--okryshto-text-primary);
+    }
+
+    // 3. color modifiers — only remap the tone
+    &--color-dante {
+      --okryshto-switch-tone: var(--okryshto-accent-dante);
+    }
+    &--color-indigo {
+      --okryshto-switch-tone: var(--okryshto-accent-secondary);
+    }
+    &--color-violet {
+      --okryshto-switch-tone: var(--okryshto-accent-violet);
+    }
+    &--color-ember {
+      --okryshto-switch-tone: var(--okryshto-accent-ember);
+    }
+    &--color-ice {
+      --okryshto-switch-tone: var(--okryshto-accent-ice);
+    }
+
+    // 4. size
+    &--small {
+      --okryshto-switch-track-width: 2.25rem; // 36px
+      --okryshto-switch-track-height: 1.25rem; // 20px
+      --okryshto-switch-thumb-size: 0.875rem; // 14px
+    }
+
+    &--large {
+      --okryshto-switch-track-width: 3.25rem; // 52px
+      --okryshto-switch-track-height: 1.875rem; // 30px
+      --okryshto-switch-thumb-size: 1.5rem; // 24px
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .okryshto-switch__track,
+    .okryshto-switch__thumb {
+      transition-duration: 0.01ms;
+    }
+  }
+}

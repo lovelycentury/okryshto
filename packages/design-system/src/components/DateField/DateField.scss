@@ -1,0 +1,59 @@
+@use "../../styles/mixins/layers.scss";
+@use "../../styles/mixins/field.scss";
+
+// The Calendar is already a finished surface (its own padding, border, radius
+// and background), so the popover contributes nothing but the float: any paper
+// padding or border of its own reads as a second frame around the picker.
+// The radius is kept in sync with the calendar's so the drop shadow traces the
+// same silhouette.
+// `.okryshto-popover` is prefixed deliberately: it declares the same variables in
+// the same layer at the same specificity, so a lone class would only win by
+// stylesheet order.
+.okryshto-popover.okryshto-date-field-popover {
+  @include layers.component() {
+    --okryshto-popover-padding: 0;
+    --okryshto-popover-border-width: 0;
+    --okryshto-popover-border-radius: 1.25rem; // = --okryshto-calendar-border-radius
+    --okryshto-popover-background-color: transparent;
+    --okryshto-popover-max-width: none;
+    --okryshto-popover-shadow: var(--okryshto-shadow-medium-bottom);
+  }
+}
+
+.okryshto-date-field {
+  @include layers.component() {
+    // Label, control box, adornments, helper text and the error/size/color
+    // modifiers are shared with TextField, Select and Autocomplete — see
+    // `styles/mixins/field.scss` for the `--okryshto-date-field-*` variable API.
+    @include field.shell("date-field");
+
+    // The calendar opener. It sits inside the control box, so it carries no
+    // padding of its own — the box's padding is what spaces it, and that is what
+    // keeps the field exactly as tall as a TextField of the same size.
+    &__trigger {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      border: none;
+      border-radius: 0.25rem;
+      background: transparent;
+      color: inherit;
+      cursor: pointer;
+      transition: color var(--okryshto-duration-sm) ease;
+
+      &:hover:not(:disabled) {
+        color: var(--okryshto-text-primary);
+      }
+
+      &:focus-visible {
+        outline: var(--okryshto-1px-in-rem) solid var(--okryshto-date-field-focus-border-color);
+        outline-offset: 0.125rem;
+      }
+
+      &:disabled {
+        cursor: not-allowed;
+      }
+    }
+  }
+}

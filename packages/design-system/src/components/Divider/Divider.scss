@@ -1,0 +1,112 @@
+@use "../../styles/mixins/layers.scss";
+
+.okryshto-divider {
+  @include layers.component() {
+    --okryshto-divider-color: var(--okryshto-border-strong);
+    --okryshto-divider-thickness: var(--okryshto-1px-in-rem);
+    --okryshto-divider-inset: 0;
+    --okryshto-divider-label-gap: 0.875rem;
+    --okryshto-divider-label-color: var(--okryshto-text-secondary);
+    --okryshto-divider-label-font-size: var(--okryshto-font-size-sm);
+    --okryshto-divider-label-line-height: var(--okryshto-font-line-height-sm);
+
+    display: flex;
+    align-items: center;
+    // `<hr>` is normalized to `height: 0` (modern-normalize), which would collapse
+    // the rule drawn by the ::before/::after segments — take the height back.
+    height: auto;
+    border: none;
+    margin: 0;
+    padding: 0;
+    font-family: var(--okryshto-font-family-sans);
+
+    &--horizontal {
+      width: 100%;
+
+      &::before,
+      &::after {
+        content: "";
+        flex: 1;
+        height: var(--okryshto-divider-thickness);
+        background: var(--okryshto-divider-color);
+      }
+
+      &:not(.okryshto-divider--with-label)::before {
+        flex: 1;
+      }
+
+      &:not(.okryshto-divider--with-label)::after {
+        display: none;
+      }
+
+      // `inset` pulls the leading edge in (list rows with a leading avatar),
+      // `middle` pulls both ends in.
+      &.okryshto-divider--inset::before,
+      &.okryshto-divider--middle::before {
+        margin-inline-start: var(--okryshto-divider-inset);
+      }
+
+      &.okryshto-divider--middle::after,
+      &.okryshto-divider--middle:not(.okryshto-divider--with-label)::before {
+        margin-inline-end: var(--okryshto-divider-inset);
+      }
+    }
+
+    &--vertical {
+      flex-direction: column;
+      align-self: stretch;
+      width: var(--okryshto-divider-thickness);
+      min-height: 1rem;
+
+      &::before {
+        content: "";
+        flex: 1;
+        width: var(--okryshto-divider-thickness);
+        background: var(--okryshto-divider-color);
+      }
+    }
+
+    &--inset {
+      --okryshto-divider-inset: 4.5rem;
+    }
+
+    &--middle {
+      --okryshto-divider-inset: 1rem;
+    }
+
+    &--flex-item {
+      align-self: stretch;
+    }
+
+    // The dropped segment takes its label gap with it, so the label sits flush
+    // with the edge it aligns to.
+    &--align-left {
+      &::before {
+        display: none;
+      }
+
+      .okryshto-divider__label {
+        padding-inline-start: 0;
+      }
+    }
+
+    &--align-right {
+      &::after {
+        display: none;
+      }
+
+      .okryshto-divider__label {
+        padding-inline-end: 0;
+      }
+    }
+
+    &__label {
+      flex-shrink: 0;
+      padding-inline: var(--okryshto-divider-label-gap);
+      color: var(--okryshto-divider-label-color);
+      font-size: var(--okryshto-divider-label-font-size);
+      line-height: var(--okryshto-divider-label-line-height);
+      white-space: nowrap;
+    }
+  }
+}

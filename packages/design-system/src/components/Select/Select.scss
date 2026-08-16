@@ -1,0 +1,112 @@
+@use "../../styles/mixins/layers.scss";
+@use "../../styles/mixins/field.scss";
+
+.okryshto-select {
+  @include layers.component() {
+    // Label, control box, adornments, helper text and the error/size/color
+    // modifiers are shared with TextField and Autocomplete — see
+    // `styles/mixins/field.scss` for the `--okryshto-select-*` variable API.
+    @include field.shell("select");
+
+    // The trigger is a `div[role="combobox"]`, not a `<button>`: removable
+    // chips live inside it, and interactive elements cannot nest in a button.
+    // That means the focus ring has to be asked for explicitly — a div gets no
+    // `:focus-within` on the control for free unless it is focusable.
+    // The whole box is one target — clicking its padding or the chevron opens
+    // the popup — so the pointer has to say so everywhere, not just on the
+    // trigger. The clear button and chip × keep their own cursors.
+    &__control {
+      cursor: pointer;
+    }
+
+    &--disabled &__control {
+      cursor: not-allowed;
+    }
+
+    &__trigger {
+      display: flex;
+      flex: 1;
+      align-items: center;
+      gap: 0.375rem;
+      min-width: 0;
+      outline: none;
+      cursor: pointer;
+    }
+
+    &--disabled &__trigger {
+      cursor: not-allowed;
+    }
+
+    &__value {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-family: var(--okryshto-font-family-sans);
+      font-size: var(--okryshto-select-font-size);
+      line-height: var(--okryshto-select-line-height);
+      color: var(--okryshto-text-primary);
+
+      &--placeholder {
+        color: var(--okryshto-text-muted);
+      }
+    }
+
+    &__chips {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.3125rem;
+      min-width: 0;
+    }
+
+    &__overflow {
+      flex-shrink: 0;
+      color: var(--okryshto-text-muted);
+      font-family: var(--okryshto-font-family-sans);
+      font-size: var(--okryshto-font-size-sm);
+    }
+
+    &__clear {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      border: none;
+      background: transparent;
+      color: var(--okryshto-text-muted);
+      cursor: pointer;
+      transition: color var(--okryshto-duration-sm) ease;
+
+      &:hover:not(:disabled) {
+        color: var(--okryshto-text-primary);
+      }
+
+      svg {
+        width: 0.875rem;
+        height: 0.875rem;
+      }
+    }
+
+    &__chevron {
+      display: flex;
+      transition: transform var(--okryshto-duration-sm) ease;
+
+      svg {
+        width: 1rem;
+        height: 1rem;
+      }
+    }
+
+    // `:has` on the trigger rather than a modifier class: the open state lives
+    // in the trigger's aria-expanded, so there is nothing to keep in sync.
+    &__control:has([aria-expanded="true"]) &__chevron {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.okryshto-select-popover {
+  @include layers.component() {
+    @include field.listbox("okryshto-select", "select");
+  }
+}

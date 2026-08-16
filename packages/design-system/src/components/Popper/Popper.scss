@@ -1,0 +1,9 @@
+@use "../../styles/mixins/layers.scss";
+
+.okryshto-popper {
+  @include layers.component() {
+    --okryshto-popper-z-index: 1300;
+
+    z-index: var(--okryshto-popper-z-index);
+  }
+}

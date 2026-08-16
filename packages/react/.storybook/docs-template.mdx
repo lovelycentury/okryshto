@@ -1,0 +1,30 @@
+import { Controls, Description, Meta, Primary, Stories, Title } from "@storybook/addon-docs/blocks";
+
+{/* Docs page layout — mirrors sit-onyx docs-template.mdx */}
+
+<Meta isTemplate />
+
+<Title />
+
+<Description />
+
+<Primary />
+
+<section className="okryshto-storybook-controls">
+### Properties and events
+
+Below you can find all available properties and events of the component.
+
+<div className="okryshto-disclaimer">
+  <p className="okryshto-disclaimer__title">Interactive configurator</p>
+  <p>Change any property below and check how the component behaves in the preview above.</p>
+</div>
+
+<Controls />
+
+<div style={{ marginTop: "3rem" }} />
+</section>
+
+## Examples
+
+<Stories includePrimary={false} />

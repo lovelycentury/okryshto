@@ -1,0 +1,176 @@
+<!-- Vizitka Generator — control panel. Self-contained, dark-first to match the system. -->
+<style>
+  :root {
+    --bg: #0a0a0b;
+    --surface: #131317;
+    --border: rgba(255, 255, 255, 0.1);
+    --text: #f5f5f7;
+    --muted: #8a8a94;
+    --accent: #5ee6c1;
+    --accent2: #818cf8;
+  }
+  * {
+    box-sizing: border-box;
+  }
+  html,
+  body {
+    margin: 0;
+    height: 100%;
+  }
+  body {
+    background:
+      radial-gradient(120% 90% at 100% 0%, rgba(94, 230, 193, 0.12), transparent 55%),
+      radial-gradient(120% 90% at 0% 100%, rgba(129, 140, 248, 0.12), transparent 55%), var(--bg);
+    color: var(--text);
+    font-family:
+      Inter,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      Roboto,
+      sans-serif;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+  }
+  h1 {
+    font-size: 20px;
+    margin: 4px 0 2px;
+    letter-spacing: -0.02em;
+  }
+  p.lede {
+    margin: 0;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  button {
+    appearance: none;
+    border: none;
+    cursor: pointer;
+    font: inherit;
+    font-weight: 600;
+    border-radius: 999px;
+    padding: 12px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition:
+      transform 0.12s ease,
+      opacity 0.2s;
+  }
+  button:active {
+    transform: translateY(1px);
+  }
+  button.primary {
+    background: linear-gradient(120deg, var(--accent), var(--accent2));
+    color: #04140f;
+    box-shadow: 0 8px 32px -12px rgba(94, 230, 193, 0.7);
+  }
+  button.primary:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+  button.ghost {
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+  .log {
+    flex: 1;
+    min-height: 120px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 12px 14px;
+    font-size: 12px;
+    color: var(--muted);
+    overflow-y: auto;
+    font-family: "SFMono-Regular", ui-monospace, Menlo, monospace;
+    line-height: 1.7;
+  }
+  .log .step {
+    color: var(--text);
+  }
+  .log .ok {
+    color: var(--accent);
+  }
+  .log .err {
+    color: #fb7185;
+  }
+  .row {
+    display: flex;
+    gap: 10px;
+  }
+  .row button {
+    flex: 1;
+  }
+  .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 10px var(--accent);
+  }
+</style>
+
+<div>
+  <div class="eyebrow">Digital business card</div>
+  <h1>Vizitka Generator</h1>
+  <p class="lede">
+    Generates a premium dark-first design system and a full personal business-card site across
+    Foundations, Components, Templates and Screens.
+  </p>
+</div>
+
+<div class="row">
+  <button class="primary" id="run"><span class="dot"></span> Generate</button>
+  <button class="ghost" id="close">Close</button>
+</div>
+
+<div class="log" id="log"><span class="step">Ready. Click Generate to build the file.</span></div>
+
+<script>
+  const logEl = document.getElementById("log");
+  const runBtn = document.getElementById("run");
+
+  function line(text, cls) {
+    const div = document.createElement("div");
+    div.className = cls || "";
+    div.textContent = text;
+    logEl.appendChild(div);
+    logEl.scrollTop = logEl.scrollHeight;
+  }
+
+  runBtn.onclick = () => {
+    logEl.innerHTML = "";
+    runBtn.disabled = true;
+    line("Starting generation…", "step");
+    parent.postMessage({ pluginMessage: { type: "generate" } }, "*");
+  };
+  document.getElementById("close").onclick = () => {
+    parent.postMessage({ pluginMessage: { type: "close" } }, "*");
+  };
+
+  onmessage = (event) => {
+    const msg = event.data.pluginMessage;
+    if (!msg) return;
+    if (msg.type === "progress") line("› " + msg.step, "step");
+    else if (msg.type === "done") {
+      line("✓ Completed in " + msg.secs + "s", "ok");
+      runBtn.disabled = false;
+    } else if (msg.type === "error") {
+      line("✕ " + msg.message, "err");
+      runBtn.disabled = false;
+    }
+  };
+</script>

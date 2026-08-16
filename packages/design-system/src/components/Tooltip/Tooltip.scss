@@ -1,0 +1,138 @@
+@use "../../styles/mixins/layers.scss";
+
+// The tooltip rides on Popper, so this file does no positioning: Popper.js owns
+// where the bubble goes and where the arrow sits along its edge. What is left
+// here is the surface, and rotating the arrow to face the right way.
+//
+// `data-popper-placement` is written by Popper.js on every update, so it always
+// names the side the tooltip *ended up* on — after any flip — which is why the
+// arrow rules key off it rather than off the requested placement.
+
+.okryshto-tooltip {
+  @include layers.component() {
+    --okryshto-tooltip-background-color: var(--okryshto-bg-surface-raised);
+    --okryshto-tooltip-text-color: var(--okryshto-text-primary);
+    --okryshto-tooltip-border-color: var(--okryshto-border-default);
+    --okryshto-tooltip-border-width: var(--okryshto-1px-in-rem);
+    --okryshto-tooltip-border-radius: 0.875rem;
+    --okryshto-tooltip-padding-block: 0.5625rem;
+    --okryshto-tooltip-padding-inline: 0.75rem;
+    --okryshto-tooltip-font-size: var(--okryshto-font-size-sm);
+    --okryshto-tooltip-line-height: var(--okryshto-font-line-height-sm);
+    --okryshto-tooltip-arrow-size: 0.5rem;
+    --okryshto-tooltip-max-width: 18rem;
+    --okryshto-tooltip-z-index: 1500;
+    --okryshto-tooltip-shadow: var(--okryshto-shadow-medium-bottom);
+
+    z-index: var(--okryshto-tooltip-z-index);
+    // A plain tooltip is a label, not a target: it must not eat clicks meant
+    // for what is underneath, and it must not steal hover from the trigger.
+    pointer-events: none;
+  }
+
+  // An interactive tooltip has to be reachable, so it takes pointer events
+  // back. The trade is deliberate: while one is open it covers what is beneath.
+  &--interactive {
+    @include layers.component() {
+      pointer-events: auto;
+    }
+  }
+
+  &__popup {
+    @include layers.component() {
+      position: relative;
+    }
+  }
+
+  &__bubble {
+    @include layers.component() {
+      display: block;
+      max-width: var(--okryshto-tooltip-max-width);
+      padding: var(--okryshto-tooltip-padding-block) var(--okryshto-tooltip-padding-inline);
+      border: var(--okryshto-tooltip-border-width) solid var(--okryshto-tooltip-border-color);
+      border-radius: var(--okryshto-tooltip-border-radius);
+      background: var(--okryshto-tooltip-background-color);
+      color: var(--okryshto-tooltip-text-color);
+      font-size: var(--okryshto-tooltip-font-size);
+      line-height: var(--okryshto-tooltip-line-height);
+      font-weight: 500;
+      box-shadow: var(--okryshto-tooltip-shadow);
+      // Short labels stay on one line; long ones wrap at max-width instead of
+      // being squeezed into a column one word wide.
+      overflow-wrap: break-word;
+      text-align: left;
+    }
+  }
+
+  // A rotated square, half-tucked behind the bubble so only its point shows.
+  // Popper.js positions it along the edge; the rules below only decide which
+  // edge it is tucked against and which two borders stay visible.
+  &__arrow {
+    @include layers.component() {
+      position: absolute;
+      width: calc(var(--okryshto-tooltip-arrow-size) * 2);
+      height: calc(var(--okryshto-tooltip-arrow-size) * 2);
+      pointer-events: none;
+
+      &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        margin: auto;
+        width: var(--okryshto-tooltip-arrow-size);
+        height: var(--okryshto-tooltip-arrow-size);
+        background: var(--okryshto-tooltip-background-color);
+        border: var(--okryshto-tooltip-border-width) solid var(--okryshto-tooltip-border-color);
+        transform: rotate(45deg);
+      }
+    }
+  }
+
+  &__popup--no-arrow &__arrow {
+    display: none;
+  }
+
+  // Tuck the arrow against the bubble on whichever side Popper settled on, and
+  // clip the two borders that would otherwise cross the bubble's own edge.
+  &__popup[data-popper-placement^="top"] &__arrow {
+    bottom: calc(var(--okryshto-tooltip-arrow-size) * -1);
+
+    &::before {
+      border-top: 0;
+      border-left: 0;
+    }
+  }
+
+  &__popup[data-popper-placement^="bottom"] &__arrow {
+    top: calc(var(--okryshto-tooltip-arrow-size) * -1);
+
+    &::before {
+      border-bottom: 0;
+      border-right: 0;
+    }
+  }
+
+  &__popup[data-popper-placement^="left"] &__arrow {
+    right: calc(var(--okryshto-tooltip-arrow-size) * -1);
+
+    &::before {
+      border-bottom: 0;
+      border-left: 0;
+    }
+  }
+
+  &__popup[data-popper-placement^="right"] &__arrow {
+    left: calc(var(--okryshto-tooltip-arrow-size) * -1);
+
+    &::before {
+      border-top: 0;
+      border-right: 0;
+    }
+  }
+}
+
+.okryshto-tooltip__trigger {
+  @include layers.component() {
+    display: inline-flex;
+  }
+}

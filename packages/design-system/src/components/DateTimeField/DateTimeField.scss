@@ -1,0 +1,66 @@
+@use "../../styles/mixins/layers.scss";
+@use "../../styles/mixins/field.scss";
+
+// The DateTimePicker is a finished surface on its own (padding, border, radius,
+// background), so the popover contributes only the float — paper chrome of its
+// own would read as a second frame. The radius matches the picker's so the
+// shadow traces its silhouette.
+// `.okryshto-popover` is prefixed deliberately: it declares the same variables in
+// the same layer at the same specificity, so a lone class would only win by
+// stylesheet order.
+.okryshto-popover.okryshto-date-time-field-popover {
+  @include layers.component() {
+    --okryshto-popover-padding: 0;
+    --okryshto-popover-border-width: 0;
+    --okryshto-popover-border-radius: 1.75rem; // = --okryshto-date-time-picker-border-radius
+    --okryshto-popover-background-color: transparent;
+    --okryshto-popover-max-width: none;
+    --okryshto-popover-shadow: var(--okryshto-shadow-medium-bottom);
+  }
+}
+
+.okryshto-date-time-field {
+  @include layers.component() {
+    // Shared field shell — see `styles/mixins/field.scss` for the
+    // `--okryshto-date-time-field-*` variable API.
+    @include field.shell("date-time-field");
+
+    // The value is "dd.mm.yyyy, HH:mm", so it needs more room than the shell's
+    // 200px floor before it starts eliding. Declared after the include so it
+    // overrides the default the mixin sets.
+    --okryshto-date-time-field-min-width: 16rem;
+
+    // The picker opener, carrying both glyphs. No padding of its own: the
+    // control box's padding is what spaces it, which keeps the field as tall as
+    // a TextField of the same size.
+    &__trigger {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0;
+      border: none;
+      border-radius: 0.25rem;
+      background: transparent;
+      color: inherit;
+      cursor: pointer;
+      transition: color var(--okryshto-duration-sm) ease;
+
+      &:hover:not(:disabled) {
+        color: var(--okryshto-text-primary);
+      }
+
+      &:focus-visible {
+        outline: var(--okryshto-1px-in-rem) solid var(--okryshto-date-time-field-focus-border-color);
+        outline-offset: 0.125rem;
+      }
+
+      &:disabled {
+        cursor: not-allowed;
+      }
+
+      span {
+        display: flex;
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+# Inner Caddy: HTTP only, no host ports.
+# 80/443 are held by ~/vps-infra (container `caddy`). It reverse_proxies here
+# at okryshto-caddy:80; Host stays profile/storybook.okryshto.dev.
+
+{
+	auto_https off
+}
+
+(common) {
+	encode zstd gzip
+
+	header {
+		X-Content-Type-Options "nosniff"
+		X-Frame-Options "SAMEORIGIN"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		-Server
+	}
+
+	log {
+		output stdout
+		format console
+	}
+}
+
+http://profile.okryshto.dev {
+	import common
+	reverse_proxy profile:5200
+}
+
+http://storybook.okryshto.dev {
+	import common
+	reverse_proxy storybook:80
+}

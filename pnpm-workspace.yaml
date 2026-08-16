@@ -1,0 +1,46 @@
+packages:
+  - packages/*
+  - apps/*
+  - tools/*
+
+# Next's sass-loader `require('sass-embedded')` from inside the isolated
+# `next` store. Hoist + peer so Turbopack can resolve it.
+publicHoistPattern:
+  - "*sass-embedded*"
+packageExtensions:
+  next:
+    peerDependencies:
+      sass-embedded: "*"
+
+catalog:
+  "@types/node": ^22.10.2
+  sass-embedded: ^1.83.0
+  typescript: ^5.7.2
+  vite: ^6.0.5
+  vite-plugin-dts: ^4.4.0
+  vitest: ^3.0.5
+
+# Supply-chain security (https://pnpm.io/supply-chain-security).
+# Wait 2 days after a release before it is installable: long enough for a
+# compromised publish to be caught and yanked.
+minimumReleaseAge: 2880
+# Only these packages may run install/build lifecycle scripts. Everything else is
+# blocked by default, so a malicious transitive dep cannot run code on install.
+allowBuilds:
+  # The prebuilt binaries cover macOS/Linux, so nothing needs its node-gyp fallback here.
+  "@parcel/watcher": false
+  # Platform-specific prebuilt binaries are published separately; no local build needed.
+  "@swc/core": false
+  esbuild: true
+  sass-embedded: true
+
+# Forced patches for transitive devDependencies flagged by an OSV scan.
+# All are dev-only and never reach a runtime image, but a compromised dev dep
+# still runs on a laptop and in CI. Drop an entry once the parent resolves it.
+overrides:
+  # GHSA-2v37-7h3g-55p8 — infinite loop in customAlphabet/customRandom(size: 0).
+  "nanoid@<3.3.17": "^3.3.17"
+  # GHSA-w5hq-g745-h8pq — v3/v5/v6 skip bounds checks on a caller-supplied buf.
+  "uuid@<11.1.1": "^11.1.1"
+  # GHSA-67mh-4wv8-2f99 — dev server sends Access-Control-Allow-Origin: *.
+  "esbuild@<0.25.0": "^0.25.0"

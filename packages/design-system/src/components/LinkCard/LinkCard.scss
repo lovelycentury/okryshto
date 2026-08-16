@@ -1,0 +1,166 @@
+@use "../../styles/mixins/layers.scss";
+
+.okryshto-link-card {
+  @include layers.component() {
+    // 1. full variable API, defaults = size "medium", color "primary" (mint)
+    --okryshto-link-card-tone: var(--okryshto-accent-primary);
+    --okryshto-link-card-background-color: var(--okryshto-bg-surface);
+    --okryshto-link-card-background-color-hover: var(--okryshto-bg-surface-raised);
+    --okryshto-link-card-border-color: var(--okryshto-border-subtle);
+    --okryshto-link-card-glow: none;
+    --okryshto-link-card-arrow-color: var(--okryshto-text-secondary);
+    --okryshto-link-card-padding-block: 1.375rem; // 22px
+    --okryshto-link-card-padding-inline: 1.625rem; // 26px
+    --okryshto-link-card-title-size: 1.0625rem; // 17px
+    --okryshto-link-card-title-line-height: 1.5rem; // 24px
+
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
+    padding: var(--okryshto-link-card-padding-block) var(--okryshto-link-card-padding-inline);
+    border: var(--okryshto-1px-in-rem) solid var(--okryshto-link-card-border-color);
+    border-radius: 0.875rem; // 14px
+    background: var(--okryshto-link-card-background-color);
+    color: var(--okryshto-text-primary);
+    text-decoration: none;
+    transition:
+      background-color var(--okryshto-duration-sm) ease,
+      border-color var(--okryshto-duration-sm) ease,
+      filter var(--okryshto-duration-sm) ease;
+
+    &:hover {
+      background: var(--okryshto-link-card-background-color-hover);
+      filter: var(--okryshto-link-card-glow);
+    }
+
+    &:focus-visible {
+      outline: var(--okryshto-1px-in-rem) solid var(--okryshto-accent-primary);
+      outline-offset: 0.125rem;
+    }
+
+    // 2. color modifiers — only remap the tone; featured consumes it
+    &--color-dante {
+      --okryshto-link-card-tone: var(--okryshto-accent-dante);
+    }
+    &--color-indigo {
+      --okryshto-link-card-tone: var(--okryshto-accent-secondary);
+    }
+    &--color-violet {
+      --okryshto-link-card-tone: var(--okryshto-accent-violet);
+    }
+    &--color-ember {
+      --okryshto-link-card-tone: var(--okryshto-accent-ember);
+    }
+    &--color-ice {
+      --okryshto-link-card-tone: var(--okryshto-accent-ice);
+    }
+
+    // 3. featured — glass surface + accent glow; dot & arrow pick up the tone
+    &--featured {
+      --okryshto-link-card-background-color: var(--okryshto-glass-fill);
+      --okryshto-link-card-background-color-hover: var(--okryshto-link-card-background-color);
+      --okryshto-link-card-border-color: var(--okryshto-glass-border);
+      --okryshto-link-card-glow: drop-shadow(
+        0 0 0.75rem color-mix(in srgb, var(--okryshto-link-card-tone) 30%, transparent)
+      );
+      --okryshto-link-card-arrow-color: var(--okryshto-link-card-tone);
+    }
+
+    // 4. size — medium (default) needs no modifier
+    &--small {
+      --okryshto-link-card-padding-block: 1rem; // 16px
+      --okryshto-link-card-padding-inline: 1.375rem; // 22px
+      --okryshto-link-card-title-size: 0.9375rem; // 15px
+      --okryshto-link-card-title-line-height: 1.25rem; // 20px
+    }
+
+    &--large {
+      --okryshto-link-card-padding-block: 1.75rem; // 28px
+      --okryshto-link-card-padding-inline: 1.875rem; // 30px
+      --okryshto-link-card-title-size: 1.25rem; // 20px
+      --okryshto-link-card-title-line-height: 1.75rem; // 28px
+    }
+
+    // 5. interactive — a div acting as a link (onClick, no href) needs the affordance;
+    // an <a> already looks and behaves like one without this modifier
+    &--interactive {
+      cursor: pointer;
+    }
+
+    // 6. elements
+    &__main {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3125rem; // 5px
+      min-width: 0;
+    }
+
+    // `min-width: 0` on both the row and the title, or the ellipsis never fires:
+    // a `nowrap` heading has an intrinsic minimum as wide as its text, and a flex
+    // item refuses to shrink past that by default — so the card grew instead of
+    // the title being cut.
+    &__title-row {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem; // 8px
+      min-width: 0;
+    }
+
+    &__dot {
+      flex-shrink: 0;
+      width: 0.4375rem; // 7px
+      height: 0.4375rem;
+      border-radius: 50%;
+      background: var(--okryshto-link-card-tone);
+    }
+
+    &__title {
+      min-width: 0;
+      margin: 0;
+      font-family: var(--okryshto-font-family-sans);
+      font-weight: var(--okryshto-font-weight-medium);
+      font-size: var(--okryshto-link-card-title-size);
+      line-height: var(--okryshto-link-card-title-line-height);
+      color: var(--okryshto-text-primary);
+    }
+
+    &__subtitle {
+      margin: 0;
+      font-family: var(--okryshto-font-family-sans);
+      font-size: 0.875rem; // 14px
+      line-height: 1.375rem; // 22px
+      color: var(--okryshto-text-muted);
+    }
+
+    &__aside {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+      gap: 0.75rem; // 12px
+    }
+
+    &__meta {
+      font-family: var(--okryshto-font-family-mono);
+      font-size: var(--okryshto-font-size-sm);
+      line-height: 1.25rem; // 20px
+      color: var(--okryshto-text-muted);
+      white-space: nowrap;
+    }
+
+    &__arrow {
+      display: inline-flex;
+      flex-shrink: 0;
+      width: 1.125rem; // 18px
+      height: 1.125rem;
+      color: var(--okryshto-link-card-arrow-color);
+
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}

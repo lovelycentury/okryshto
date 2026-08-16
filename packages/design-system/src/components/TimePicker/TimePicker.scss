@@ -1,0 +1,130 @@
+@use "../../styles/mixins/layers.scss";
+
+.okryshto-time-picker {
+  @include layers.component() {
+    // 1. full variable API, default color "primary" (mint)
+    --okryshto-time-picker-tone: var(--okryshto-accent-primary);
+    --okryshto-time-picker-background-color: var(--okryshto-bg-surface);
+    --okryshto-time-picker-border-color: var(--okryshto-border-subtle);
+    --okryshto-time-picker-text-color: var(--okryshto-text-primary);
+    --okryshto-time-picker-selected-background-color: color-mix(
+      in srgb,
+      var(--okryshto-time-picker-tone) 16%,
+      transparent
+    );
+    --okryshto-time-picker-selected-text-color: var(--okryshto-time-picker-tone);
+    --okryshto-time-picker-padding: 0.5rem; // 8px
+    --okryshto-time-picker-border-radius: 1.25rem; // 20px
+    --okryshto-time-picker-row-height: 2.5rem; // 40px
+    --okryshto-time-picker-rows-visible: 6;
+    --okryshto-time-picker-viewport-height: calc(
+      var(--okryshto-time-picker-row-height) * var(--okryshto-time-picker-rows-visible)
+    );
+    --okryshto-time-picker-column-width: 4.75rem; // 76px
+    --okryshto-time-picker-value-font-size: 1rem; // 16px
+    --okryshto-time-picker-value-line-height: 1.5rem; // 24px
+
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    padding: var(--okryshto-time-picker-padding);
+    border: var(--okryshto-1px-in-rem) solid var(--okryshto-time-picker-border-color);
+    border-radius: var(--okryshto-time-picker-border-radius);
+    background: var(--okryshto-time-picker-background-color);
+    color: var(--okryshto-time-picker-text-color);
+    font-family: var(--okryshto-font-family-sans);
+
+    // 2. color modifiers — only remap the tone; the focus outline and
+    // selected pill both pick it up
+    &--color-dante {
+      --okryshto-time-picker-tone: var(--okryshto-accent-dante);
+    }
+    &--color-indigo {
+      --okryshto-time-picker-tone: var(--okryshto-accent-secondary);
+    }
+    &--color-violet {
+      --okryshto-time-picker-tone: var(--okryshto-accent-violet);
+    }
+    &--color-ember {
+      --okryshto-time-picker-tone: var(--okryshto-accent-ember);
+    }
+    &--color-ice {
+      --okryshto-time-picker-tone: var(--okryshto-accent-ice);
+    }
+
+    // 3. column — one per unit (hours / minutes / meridiem), separated by a
+    // hairline rather than a gap, like adjacent columns in a plain list
+    &__column {
+      position: relative;
+      flex-shrink: 0;
+      width: var(--okryshto-time-picker-column-width);
+      height: var(--okryshto-time-picker-viewport-height);
+      outline: none;
+
+      &:not(:last-child) {
+        border-right: var(--okryshto-1px-in-rem) solid var(--okryshto-time-picker-border-color);
+      }
+
+      &:focus-visible &-viewport {
+        outline: var(--okryshto-1px-in-rem) solid var(--okryshto-time-picker-tone);
+        outline-offset: -0.125rem;
+      }
+    }
+
+    &__column-viewport {
+      // Plain native scroll + snap — no drag library. This is what gives the
+      // list real OS-level touch/trackpad momentum ("inertia") for free, and
+      // settles exactly on a row via `scroll-snap-type` instead of any
+      // hand-rolled physics.
+      overflow-y: auto;
+      overflow-x: hidden;
+      height: 100%;
+      scroll-snap-type: y mandatory;
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    &__column-container {
+      display: flex;
+      flex-direction: column;
+      // Half a viewport of empty space at each end, so every row — including
+      // the first and the last — can actually reach the middle of the column.
+      // Without it the ends are unreachable by scroll and the snap positions
+      // disagree with the centre the selected pill is drawn at.
+      // It also makes the scroll maths exact: centring row `i` is `i * row-height`.
+      padding-block: calc(
+        (var(--okryshto-time-picker-viewport-height) - var(--okryshto-time-picker-row-height)) / 2
+      );
+    }
+
+    // 4. slide — a plain, uniform list row (no wheel/fisheye scaling); the
+    // selected one is picked out with a filled pill, matching MUI's digital
+    // clock rather than an iOS-style carousel
+    &__slide {
+      box-sizing: border-box;
+      display: flex;
+      flex-shrink: 0;
+      align-items: center;
+      justify-content: center;
+      height: var(--okryshto-time-picker-row-height);
+      margin: 0 0.375rem; // 6px, keeps the selected pill from touching the divider
+      border-radius: 0.75rem; // 12px
+      scroll-snap-align: center;
+      color: var(--okryshto-time-picker-text-color);
+      font-weight: var(--okryshto-font-weight-regular);
+      font-size: var(--okryshto-time-picker-value-font-size);
+      line-height: var(--okryshto-time-picker-value-line-height);
+      cursor: pointer;
+      user-select: none;
+    }
+
+    &__slide--selected {
+      background: var(--okryshto-time-picker-selected-background-color);
+      color: var(--okryshto-time-picker-selected-text-color);
+      font-weight: var(--okryshto-font-weight-medium);
+    }
+  }
+}

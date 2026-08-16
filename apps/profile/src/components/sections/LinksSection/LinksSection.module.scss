@@ -1,0 +1,19 @@
+@use "styles/mixins" as m;
+
+.section {
+  @include m.section(2.5rem);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+// The card's handle column is monospaced in the design; LinkCard renders it
+// verbatim, so the face is applied here rather than forked into the library.
+.meta {
+  color: var(--okryshto-text-muted);
+  font-family: var(--profile-font-mono), var(--okryshto-font-family-mono);
+  @include m.type(mono);
+}

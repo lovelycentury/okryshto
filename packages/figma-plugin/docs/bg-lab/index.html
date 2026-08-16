@@ -1,0 +1,589 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Backgrounds — live page (PixiJS)</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --fg: #ecedef;
+        --muted: #9a9ca3;
+        --dim: #6e7075;
+        --teal: #5ee6c1;
+        --dante: #ff3d8b;
+        --line: rgba(255, 255, 255, 0.09);
+        --col: 720px;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        background: #0a0a0b;
+        color: var(--fg);
+        font:
+          400 17px/1.75 ui-sans-serif,
+          -apple-system,
+          "Segoe UI",
+          Inter,
+          sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* --- background stack ---------------------------------------------------- */
+      #bg {
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+      }
+      #bg canvas {
+        display: block;
+        width: 100% !important;
+        height: 100% !important;
+      }
+      #scrim {
+        position: fixed;
+        inset: 0;
+        z-index: 1;
+        pointer-events: none;
+        background:
+          radial-gradient(120% 80% at 50% 0%, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.35) 100%),
+          linear-gradient(
+            90deg,
+            rgba(6, 6, 8, 0.62) 0%,
+            rgba(6, 6, 8, 0.42) 45%,
+            rgba(6, 6, 8, 0.18) 100%
+          );
+      }
+      main,
+      header,
+      footer {
+        position: relative;
+        z-index: 2;
+      }
+
+      /* --- theme switcher ------------------------------------------------------ */
+      .switcher {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 5px;
+        border-radius: 999px;
+        background: rgba(16, 16, 20, 0.62);
+        border: 1px solid var(--line);
+        backdrop-filter: blur(14px) saturate(140%);
+        -webkit-backdrop-filter: blur(14px) saturate(140%);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45);
+      }
+      .switcher button {
+        appearance: none;
+        border: 0;
+        cursor: pointer;
+        padding: 7px 14px;
+        border-radius: 999px;
+        background: transparent;
+        color: var(--muted);
+        font:
+          500 11px/1 ui-monospace,
+          monospace;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        transition:
+          color 0.18s ease,
+          background 0.18s ease;
+      }
+      .switcher button:hover {
+        color: var(--fg);
+      }
+      .switcher button[aria-pressed="true"] {
+        background: rgba(255, 255, 255, 0.1);
+        color: var(--fg);
+      }
+      .switcher .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        margin-left: 4px;
+      }
+
+      /* --- content ------------------------------------------------------------- */
+      .col {
+        width: min(100% - 48px, var(--col));
+        margin: 0 auto;
+      }
+      .wide {
+        width: min(100% - 48px, 1080px);
+        margin: 0 auto;
+      }
+
+      header {
+        padding: 26vh 0 14vh;
+      }
+      .eyebrow {
+        font:
+          500 11px/1 ui-monospace,
+          monospace;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--teal);
+        margin: 0 0 22px;
+      }
+      h1 {
+        font-size: clamp(38px, 6.5vw, 76px);
+        line-height: 1.02;
+        letter-spacing: -0.035em;
+        font-weight: 700;
+        margin: 0 0 24px;
+        color: #fff;
+      }
+      .lede {
+        font-size: clamp(18px, 2.1vw, 22px);
+        line-height: 1.6;
+        color: #c9cbd1;
+        margin: 0 0 32px;
+        max-width: 60ch;
+      }
+      .byline {
+        font:
+          500 11px/1 ui-monospace,
+          monospace;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--dim);
+      }
+
+      section {
+        padding: 6vh 0;
+      }
+      h2 {
+        font-size: clamp(24px, 3.2vw, 36px);
+        line-height: 1.2;
+        letter-spacing: -0.025em;
+        font-weight: 650;
+        margin: 0 0 18px;
+        color: #fff;
+      }
+      h3 {
+        font-size: 19px;
+        letter-spacing: -0.01em;
+        margin: 40px 0 12px;
+        color: #fff;
+        font-weight: 600;
+      }
+      p {
+        margin: 0 0 22px;
+        color: #c6c8ce;
+      }
+      p.small {
+        font-size: 15px;
+        color: var(--muted);
+      }
+      a {
+        color: var(--teal);
+        text-decoration-color: rgba(94, 230, 193, 0.35);
+        text-underline-offset: 3px;
+      }
+
+      blockquote {
+        margin: 36px 0;
+        padding: 4px 0 4px 24px;
+        border-left: 2px solid var(--dante);
+        font-size: 20px;
+        line-height: 1.6;
+        color: #dcdee3;
+        font-style: italic;
+      }
+      blockquote footer {
+        margin-top: 10px;
+        font:
+          500 11px/1 ui-monospace,
+          monospace;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--dim);
+        font-style: normal;
+      }
+
+      ul {
+        margin: 0 0 22px;
+        padding-left: 20px;
+        color: #c6c8ce;
+      }
+      li {
+        margin: 0 0 10px;
+      }
+      li::marker {
+        color: var(--dante);
+      }
+
+      hr {
+        border: 0;
+        border-top: 1px solid var(--line);
+        margin: 8vh 0;
+      }
+
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 16px;
+        margin: 34px 0;
+      }
+      .card {
+        padding: 22px;
+        border-radius: 12px;
+        background: rgba(18, 18, 22, 0.5);
+        border: 1px solid var(--line);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+      }
+      .card h4 {
+        margin: 0 0 8px;
+        font-size: 14px;
+        letter-spacing: -0.01em;
+        color: #fff;
+      }
+      .card p {
+        margin: 0;
+        font-size: 14px;
+        line-height: 1.6;
+        color: var(--muted);
+      }
+
+      figure.plate {
+        margin: 40px 0;
+      }
+      figure.plate .plate-box {
+        height: 220px;
+        border-radius: 12px;
+        border: 1px solid var(--line);
+        background: rgba(12, 12, 15, 0.35);
+        backdrop-filter: blur(4px);
+        display: grid;
+        place-content: center;
+        font:
+          500 10px/1 ui-monospace,
+          monospace;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--dim);
+      }
+      figure.plate figcaption {
+        margin-top: 10px;
+        font-size: 13px;
+        color: var(--dim);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 30px 0;
+        font-size: 14px;
+      }
+      th,
+      td {
+        text-align: left;
+        padding: 12px 10px;
+        border-bottom: 1px solid var(--line);
+        color: #c6c8ce;
+      }
+      th {
+        font:
+          500 10px/1 ui-monospace,
+          monospace;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--dim);
+      }
+
+      footer {
+        padding: 12vh 0 16vh;
+        color: var(--dim);
+        font-size: 14px;
+      }
+
+      #err {
+        position: fixed;
+        left: 50%;
+        top: 24px;
+        transform: translateX(-50%);
+        z-index: 20;
+        display: none;
+        padding: 12px 18px;
+        border-radius: 8px;
+        border: 1px solid #4a2230;
+        background: #1d1216;
+        color: #ffb3cd;
+        font-size: 13px;
+      }
+      #err code {
+        color: var(--dante);
+        font-family: ui-monospace, monospace;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="bg"><canvas></canvas></div>
+    <div id="scrim"></div>
+
+    <nav class="switcher" id="switcher" aria-label="Background theme">
+      <button data-preset="aurora" aria-pressed="true">Aurora</button>
+      <button data-preset="midnight" aria-pressed="false">Midnight</button>
+      <button data-preset="neon" aria-pressed="false">Neon</button>
+      <button data-preset="void" aria-pressed="false">Void</button>
+    </nav>
+
+    <div id="err">
+      PixiJS failed to load — <code>docs/bg-lab/vendor/pixi.min.js</code> or CDN access is required.
+    </div>
+
+    <header>
+      <div class="col">
+        <p class="eyebrow">07 · Backgrounds — live page</p>
+        <h1>Lorem ipsum dolor sit amet, consectetur elit</h1>
+        <p class="lede">
+          Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+          veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
+        <p class="byline">Oleksii Kryshtopa · Product Engineer · Design Systems · Motion</p>
+      </div>
+    </header>
+
+    <main>
+      <section class="col">
+        <h2>Duis aute irure dolor in reprehenderit</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+          ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+          ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        </p>
+        <p>
+          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+          anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+          accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
+          veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+        </p>
+        <p>
+          Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
+          consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam
+          est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non
+          numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+        </p>
+
+        <blockquote>
+          Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam,
+          nisi ut aliquid ex ea commodi consequatur.
+          <footer>Quis autem vel eum</footer>
+        </blockquote>
+
+        <h3>Nam libero tempore, cum soluta nobis</h3>
+        <p>
+          At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
+          voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati
+          cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id
+          est laborum et dolorum fuga.
+        </p>
+        <ul>
+          <li>Et harum quidem rerum facilis est et expedita distinctio.</li>
+          <li>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit.</li>
+          <li>Quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est.</li>
+          <li>Omnis dolor repellendus, temporibus autem quibusdam et aut officiis debitis.</li>
+        </ul>
+      </section>
+
+      <div class="wide"><hr /></div>
+
+      <section class="wide">
+        <h2>Temporibus autem quibusdam</h2>
+        <p class="small">
+          Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores
+          alias consequatur aut perferendis doloribus asperiores repellat.
+        </p>
+        <div class="cards">
+          <div class="card">
+            <h4>Consectetur</h4>
+            <p>
+              Adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+              enim.
+            </p>
+          </div>
+          <div class="card">
+            <h4>Exercitation</h4>
+            <p>Ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor.</p>
+          </div>
+          <div class="card">
+            <h4>Voluptate</h4>
+            <p>
+              Velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat.
+            </p>
+          </div>
+          <div class="card">
+            <h4>Laborum</h4>
+            <p>
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolore.
+            </p>
+          </div>
+        </div>
+
+        <figure class="plate">
+          <div class="plate-box">content plate — check background legibility behind glass</div>
+          <figcaption>
+            Fig. 1 — Sed quia consequuntur magni dolores eos qui ratione sequi nesciunt.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="col">
+        <h2>Sed ut perspiciatis unde omnis</h2>
+        <p>
+          Iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam,
+          eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
+          explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.
+        </p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Layer</th>
+              <th>Blend</th>
+              <th>Depth</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>nebula · far</td>
+              <td>screen</td>
+              <td>0.10</td>
+            </tr>
+            <tr>
+              <td>nebula · near</td>
+              <td>add + displacement</td>
+              <td>0.18</td>
+            </tr>
+            <tr>
+              <td>stars · far</td>
+              <td>add</td>
+              <td>0.15</td>
+            </tr>
+            <tr>
+              <td>stars · near</td>
+              <td>add</td>
+              <td>0.45</td>
+            </tr>
+            <tr>
+              <td>dante spark</td>
+              <td>add</td>
+              <td>0.60</td>
+            </tr>
+            <tr>
+              <td>grain</td>
+              <td>overlay</td>
+              <td>—</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>
+          Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae
+          consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur. At vero eos et
+          accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti
+          atque corrupti.
+        </p>
+        <p>
+          Quos dolores et quas molestias excepturi sint occaecati cupiditate non provident,
+          similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum
+          fuga. Et harum quidem rerum facilis est et expedita distinctio nam libero tempore.
+        </p>
+
+        <h3>Cum soluta nobis est eligendi</h3>
+        <p>
+          Optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis
+          voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut
+          officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint
+          et molestiae non recusandae.
+        </p>
+        <p>
+          Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores
+          alias consequatur aut perferendis doloribus asperiores repellat. Lorem ipsum dolor sit
+          amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.
+        </p>
+        <p>
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+          commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+          dolore eu fugiat nulla pariatur excepteur sint occaecat.
+        </p>
+      </section>
+
+      <div class="wide"><hr /></div>
+
+      <section class="col">
+        <h2>Neque porro quisquam est</h2>
+        <p>
+          Qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam
+          eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim
+          ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.
+        </p>
+        <p>
+          Nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea
+          voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat
+          quo voluptas nulla pariatur. Sed ut perspiciatis unde omnis iste natus error.
+        </p>
+        <p>
+          Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae
+          vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
+          odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi
+          nesciunt.
+        </p>
+        <p>
+          Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
+          velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam
+          quaerat voluptatem.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <div class="col">
+        <p class="small">
+          Backgrounds lab · nebula / stars / dante spark / fireworks / grain as independent layers ·
+          switch themes top-right · press 1–4 · press F to fire a firework.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      function loadScript(src) {
+        return new Promise((res, rej) => {
+          const s = document.createElement("script");
+          s.src = src;
+          s.onload = res;
+          s.onerror = () => rej(new Error(src));
+          document.head.appendChild(s);
+        });
+      }
+      (async () => {
+        try {
+          try {
+            await loadScript("vendor/pixi.min.js");
+          } catch {
+            await loadScript("https://cdn.jsdelivr.net/npm/pixi.js@8.6.6/dist/pixi.min.js");
+          }
+        } catch {
+          document.getElementById("err").style.display = "block";
+          return;
+        }
+        await loadScript("fireworks.js"); // standalone layer — scene.js picks it up if present
+        await loadScript("scene.js");
+        window.initBackground();
+      })();
+    </script>
+  </body>
+</html>

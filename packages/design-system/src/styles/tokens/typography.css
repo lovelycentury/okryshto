@@ -1,0 +1,19 @@
+/* Hand-authored typography tokens — same provenance note as colors.css. */
+@layer okryshto.utility {
+  :root {
+    --okryshto-font-family-sans: "Inter", sans-serif;
+    --okryshto-font-family-mono: "JetBrains Mono", monospace;
+
+    --okryshto-font-weight-regular: 400;
+    --okryshto-font-weight-medium: 500;
+    /* Display/heading weight in the editorial type scale (Typography.scss). */
+    --okryshto-font-weight-semibold: 600;
+
+    --okryshto-font-size-sm: 0.8125rem; /* 13px */
+    --okryshto-font-line-height-sm: 1rem; /* 16px */
+    --okryshto-font-size-md: 0.9375rem; /* 15px */
+    --okryshto-font-line-height-md: 1.25rem; /* 20px */
+    --okryshto-font-size-lg: 1rem; /* 16px */
+    --okryshto-font-line-height-lg: 1.625rem; /* 26px */
+  }
+}

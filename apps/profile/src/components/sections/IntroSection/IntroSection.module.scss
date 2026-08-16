@@ -1,0 +1,37 @@
+@use "styles/mixins" as m;
+
+.section {
+  position: relative;
+  @include m.section;
+}
+
+.body {
+  max-width: 32.5rem; // 520px
+  color: var(--okryshto-text-secondary);
+  font-weight: 500;
+  @include m.display(h2);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+}
+
+// The soft accent orb in the section's top-right corner.
+.orb {
+  position: absolute;
+  top: var(--profile-section-gap);
+  right: var(--profile-gutter);
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  background: var(--okryshto-accent-primary);
+  opacity: 0.25;
+  pointer-events: none;
+
+  @include m.screen(min, sm) {
+    width: 5.5rem;
+    height: 5.5rem;
+  }
+}

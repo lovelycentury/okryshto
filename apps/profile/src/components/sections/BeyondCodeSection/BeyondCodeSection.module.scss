@@ -1,0 +1,64 @@
+@use "styles/mixins" as m;
+
+.section {
+  @include m.section;
+  container-type: inline-size;
+  container-name: beyond-code;
+}
+
+// Adapts to the section's own width (not the viewport), so the grid stays
+// correct inside the content column. One column by default; two equal tracks
+// once the section clears the `sm` container breakpoint.
+.grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: stretch;
+
+  @include m.container(min, sm) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.card {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.25rem;
+  @include m.glass(var(--profile-radius-md));
+
+  @include m.screen(min, sm) {
+    padding: 1.5rem;
+  }
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  border-radius: var(--profile-radius-sm);
+  background: var(--okryshto-bg-surface);
+}
+
+.title {
+  margin: 0;
+  font-size: var(--profile-h4-size);
+  font-weight: 600;
+  line-height: var(--profile-h4-line);
+  text-wrap: balance;
+}
+
+.body {
+  margin: 0;
+  color: var(--okryshto-text-secondary);
+  @include m.type(body-sm);
+}

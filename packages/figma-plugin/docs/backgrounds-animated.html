@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>07 · Backgrounds — animated</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #16161a;
+        --fg: #e8e8ea;
+        --muted: #6e7075;
+        --dante: #ff3d8b;
+        --teal: #5ee6c1;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        background: var(--bg);
+      }
+      body {
+        font:
+          400 13px/1.5 ui-sans-serif,
+          -apple-system,
+          "Segoe UI",
+          sans-serif;
+        color: var(--fg);
+        padding: 40px 20px 80px;
+      }
+      .wrap {
+        max-width: 1180px;
+        margin: 0 auto;
+      }
+      .board-label {
+        font:
+          500 10px/1 ui-monospace,
+          monospace;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--teal);
+        margin: 0 0 28px;
+      }
+      .cover {
+        margin: 0 0 40px;
+      }
+      .cover > figcaption {
+        font:
+          500 10px/1 ui-monospace,
+          monospace;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin: 0 0 8px;
+      }
+      .frame {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        border-radius: 4px;
+      }
+      .frame canvas {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+      .frame .content {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 11.6%; /* matches the exported covers */
+        pointer-events: none;
+      }
+      .frame .content h2 {
+        margin: 0 0 0.35em;
+        font-size: clamp(18px, 2.35vw, 34px);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        color: #fff;
+      }
+      .frame .content p {
+        margin: 0;
+        font-size: clamp(10px, 1.05vw, 15px);
+        color: #b6b8bd;
+        letter-spacing: 0.01em;
+      }
+      .note {
+        margin: 48px 0 0;
+        padding-top: 20px;
+        border-top: 1px solid #26262b;
+        color: var(--muted);
+        font-size: 12px;
+        max-width: 60ch;
+      }
+      .note code {
+        color: var(--teal);
+        font-family: ui-monospace, monospace;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <p class="board-label">07 · Backgrounds — animated (aurora drift + twinkle + dante meteor)</p>
+
+      <figure class="cover">
+        <figcaption>LinkedIn · Aurora + name (1584 × 396)</figcaption>
+        <div class="frame" data-preset="aurora" data-ratio="1584/396">
+          <canvas></canvas>
+          <div class="content">
+            <h2>Oleksii Kryshtopa</h2>
+            <p>Product Engineer · Design Systems · Motion</p>
+          </div>
+        </div>
+      </figure>
+
+      <figure class="cover">
+        <figcaption>LinkedIn · Aurora (clean)</figcaption>
+        <div class="frame" data-preset="aurora" data-ratio="1584/396"><canvas></canvas></div>
+      </figure>
+
+      <figure class="cover">
+        <figcaption>LinkedIn · Midnight</figcaption>
+        <div class="frame" data-preset="midnight" data-ratio="1584/396"><canvas></canvas></div>
+      </figure>
+
+      <figure class="cover">
+        <figcaption>LinkedIn · Neon</figcaption>
+        <div class="frame" data-preset="neon" data-ratio="1584/396"><canvas></canvas></div>
+      </figure>
+
+      <figure class="cover">
+        <figcaption>X / Twitter · Aurora (1500 × 500)</figcaption>
+        <div class="frame" data-preset="aurora" data-ratio="1500/500">
+          <canvas></canvas>
+          <div class="content">
+            <h2>Oleksii Kryshtopa</h2>
+            <p>Design Systems · Interfaces · Motion</p>
+          </div>
+        </div>
+      </figure>
+
+      <p class="note">
+        Palettes are the same values as <code>COVER_AURORA / COVER_MIDNIGHT / COVER_NEON</code> in
+        <code>src/pages/catalog.ts</code>; the meteor uses <code>accent/dante · #FF3D8B</code>.
+        Rendered at 0.7× and paused when off-screen or when the tab is hidden;
+        <code>prefers-reduced-motion</code> freezes every frame.
+      </p>
+    </div>
+
+    <script type="x-shader/x-vertex" id="vs">
+      attribute vec2 a_pos;
+      void main() { gl_Position = vec4(a_pos, 0.0, 1.0); }
+    </script>
+
+    <script type="x-shader/x-fragment" id="fs">
+      #ifdef GL_FRAGMENT_PRECISION_HIGH
+      precision highp float;
+      #else
+      precision mediump float;
+      #endif
+
+      uniform vec2  u_res;        // canvas size in device px
+      uniform float u_time;       // seconds
+      uniform vec3  u_base;       // frame base colour
+      uniform vec4  u_blobCol[4]; // rgb + opacity   (opacity 0 = slot unused)
+      uniform vec4  u_blobPos[4]; // fx, fy, radius (fraction of width), phase
+      uniform float u_starAmt;
+      uniform vec3  u_meteorCol;
+      uniform vec4  u_meteor;     // head.x, head.y (frame space), life 0..1, angle
+      uniform float u_grain;
+
+      float hash(vec2 p) {
+        return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453123);
+      }
+
+      // Twinkle stars: hash grid, at most one star per cell, each with its own phase.
+      float stars(vec2 q, float aspect, float t) {
+        float acc = 0.0;
+        for (int layer = 0; layer < 2; layer++) {
+          float fl = float(layer);
+          float scale = 34.0 + fl * 26.0;
+          vec2 sp = q * scale + vec2(fl * 41.3);
+          vec2 id = floor(sp);
+          vec2 gv = fract(sp) - 0.5;
+          float r = hash(id + fl * 19.0);
+          if (r > 0.955) {
+            vec2 off = (vec2(hash(id + 3.1), hash(id + 7.7)) - 0.5) * 0.55;
+            float d = length(gv - off);
+            // shine → fade → out: never fully symmetric, so it reads as breathing
+            float ph = r * 62.83;
+            float tw = pow(0.5 + 0.5 * sin(t * 1.15 + ph), 2.4);
+            float core = smoothstep(0.10, 0.0, d);
+            float halo = smoothstep(0.34, 0.0, d) * 0.22;
+            acc += (core + halo) * tw * (1.0 - fl * 0.35);
+          }
+        }
+        return acc;
+      }
+
+      void main() {
+        vec2 p = gl_FragCoord.xy / u_res;          // 0..1, y up
+        p.y = 1.0 - p.y;                            // y down, like design space
+        float aspect = u_res.x / u_res.y;
+        vec2 q = vec2(p.x * aspect, p.y);           // x in 0..aspect, y in 0..1
+        float t = u_time;
+
+        vec3 col = u_base;
+
+        // ---- aurora blobs -------------------------------------------------------
+        for (int i = 0; i < 4; i++) {
+          float op = u_blobCol[i].w;
+          if (op <= 0.0) continue;
+          float ph = u_blobPos[i].w;
+          // slow drift + gentle breathing — 40–70 s per cycle, deliberately lazy
+          vec2 drift = vec2(sin(t * 0.055 + ph), cos(t * 0.041 + ph * 1.7)) * 0.045;
+          vec2 c = vec2((u_blobPos[i].x + drift.x) * aspect, u_blobPos[i].y + drift.y * 0.6);
+          float r = u_blobPos[i].z * aspect;
+          float breathe = 0.86 + 0.14 * sin(t * 0.07 + ph * 2.3);
+          float d = length(q - c);
+          float f = exp(-2.4 * (d / (r * breathe)) * (d / (r * breathe)));
+          col += u_blobCol[i].rgb * f * op;
+        }
+
+        // ---- stars --------------------------------------------------------------
+        col += stars(q, aspect, t) * vec3(0.80, 0.86, 0.98) * u_starAmt;
+
+        // ---- dante spark: micro-organism swimming left → right into nothing -----
+        if (u_meteor.z > 0.0) {
+          vec2 head = u_meteor.xy;
+          float a = u_meteor.w;                     // near-horizontal, slight drift
+          vec2 dir = vec2(cos(a), sin(a));
+          vec2 nrm = vec2(-dir.y, dir.x);
+          vec2 pa = q - head;
+          float s = dot(pa, dir);                   // negative = behind the head
+          float n = dot(pa, nrm);                   // lateral offset
+
+          float L = 0.60;                           // long, whip-thin tail
+          float ts = clamp(-s / L, 0.0, 1.0);       // 0 at head, 1 at tail tip
+          // flagellum: lash amplitude grows toward the tip, travels backwards
+          float lash = 0.0085 * sin(ts * 19.0 - u_time * 24.0) * pow(ts, 1.3);
+          float w = mix(0.0022, 0.00022, pow(ts, 0.55));
+          float behind = smoothstep(0.004, -0.002, s);   // nothing ahead of the head
+          float tail = smoothstep(w, 0.0, abs(n - lash)) * pow(1.0 - ts, 1.35) * behind;
+
+          float core = exp(-dot(pa, pa) / 0.000075);     // tight bright head
+          float halo = exp(-dot(pa, pa) / 0.0009) * 0.35;
+
+          col += u_meteorCol * (tail * 0.95 + halo) * u_meteor.z;
+          col += mix(u_meteorCol, vec3(1.0), 0.55) * core * u_meteor.z;
+        }
+
+        // ---- finish -------------------------------------------------------------
+        col *= 1.0 - 0.30 * pow(length((p - 0.5) * vec2(0.75, 1.0)) * 1.35, 2.0);
+        col += (hash(gl_FragCoord.xy + fract(u_time)) - 0.5) * u_grain; // kills banding
+
+        gl_FragColor = vec4(col, 1.0);
+      }
+    </script>
+
+    <script>
+      "use strict";
+
+      // Palettes mirror src/pages/catalog.ts (COVER_AURORA / COVER_MIDNIGHT / COVER_NEON).
+      // `size` is the design-space diameter on a 1584px-wide frame.
+      const DESIGN_W = 1584;
+      const PRESETS = {
+        aurora: {
+          base: "#0A0A0B",
+          starAmt: 1.0,
+          blobs: [
+            { hex: "#5EE6C1", size: 920, fx: 0.72, fy: 0.3, op: 0.24 },
+            { hex: "#FF3D8B", size: 820, fx: 0.9, fy: 0.75, op: 0.16 },
+            { hex: "#818CF8", size: 720, fx: 0.52, fy: 0.95, op: 0.15 },
+            { hex: "#FFFFFF", size: 420, fx: 0.62, fy: 0.18, op: 0.07 },
+          ],
+        },
+        midnight: {
+          base: "#0B1020",
+          starAmt: 0.85,
+          blobs: [
+            { hex: "#4457A0", size: 940, fx: 0.62, fy: 0.4, op: 0.3 },
+            { hex: "#2E5E8C", size: 720, fx: 0.88, fy: 0.7, op: 0.22 },
+            { hex: "#5EE6C1", size: 520, fx: 0.3, fy: 0.85, op: 0.1 },
+          ],
+        },
+        neon: {
+          base: "#0A0A14",
+          starAmt: 0.75,
+          blobs: [
+            { hex: "#B84BFF", size: 920, fx: 0.7, fy: 0.35, op: 0.26 },
+            { hex: "#FF3D8B", size: 700, fx: 0.4, fy: 0.75, op: 0.18 },
+            { hex: "#5EE6C1", size: 520, fx: 0.9, fy: 0.55, op: 0.12 },
+          ],
+        },
+      };
+      const DANTE = "#FF3D8B";
+
+      const RENDER_SCALE = 0.7; // noise is soft — nobody sees the difference
+      const REDUCED = matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const FROZEN_T = 9.5; // pleasant still frame for reduced motion
+
+      function rgb(hex) {
+        const n = parseInt(hex.slice(1), 16);
+        return [((n >> 16) & 255) / 255, ((n >> 8) & 255) / 255, (n & 255) / 255];
+      }
+
+      const VS = document.getElementById("vs").textContent;
+      const FS = document.getElementById("fs").textContent;
+
+      function makeCover(frame) {
+        const canvas = frame.querySelector("canvas");
+        const preset = PRESETS[frame.dataset.preset];
+        const [rw, rh] = frame.dataset.ratio.split("/").map(Number);
+        frame.style.aspectRatio = `${rw} / ${rh}`;
+
+        const gl = canvas.getContext("webgl", {
+          antialias: false,
+          alpha: false,
+          powerPreference: "low-power",
+        });
+        if (!gl) {
+          frame.style.background = preset.base;
+          return null;
+        }
+
+        const compile = (type, src) => {
+          const s = gl.createShader(type);
+          gl.shaderSource(s, src);
+          gl.compileShader(s);
+          if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(s));
+          return s;
+        };
+        const prog = gl.createProgram();
+        gl.attachShader(prog, compile(gl.VERTEX_SHADER, VS));
+        gl.attachShader(prog, compile(gl.FRAGMENT_SHADER, FS));
+        gl.linkProgram(prog);
+        if (!gl.getProgramParameter(prog, gl.LINK_STATUS))
+          throw new Error(gl.getProgramInfoLog(prog));
+        gl.useProgram(prog);
+
+        const buf = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
+        const aPos = gl.getAttribLocation(prog, "a_pos");
+        gl.enableVertexAttribArray(aPos);
+        gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0);
+
+        const U = (n) => gl.getUniformLocation(prog, n);
+        const u = {
+          res: U("u_res"),
+          time: U("u_time"),
+          base: U("u_base"),
+          starAmt: U("u_starAmt"),
+          meteorCol: U("u_meteorCol"),
+          meteor: U("u_meteor"),
+          grain: U("u_grain"),
+          blobCol: U("u_blobCol[0]"),
+          blobPos: U("u_blobPos[0]"),
+        };
+
+        // pack blobs into fixed-size arrays; unused slots keep opacity 0
+        const colArr = new Float32Array(16);
+        const posArr = new Float32Array(16);
+        preset.blobs.slice(0, 4).forEach((b, i) => {
+          const [r, g, bl] = rgb(b.hex);
+          colArr.set([r, g, bl, b.op], i * 4);
+          posArr.set([b.fx, b.fy, (b.size / DESIGN_W) * 0.5, i * 2.1 + 0.7], i * 4);
+        });
+
+        gl.uniform3fv(u.base, rgb(preset.base));
+        gl.uniform3fv(u.meteorCol, rgb(DANTE));
+        gl.uniform4fv(u.blobCol, colArr);
+        gl.uniform4fv(u.blobPos, posArr);
+        gl.uniform1f(u.starAmt, preset.starAmt);
+        gl.uniform1f(u.grain, 0.02);
+
+        // --- spark scheduler: rare, fast, left → right, dissolves mid-flight -----
+        const ASPECT = rw / rh;
+        const meteor = {
+          next: 3 + Math.random() * 6,
+          t0: 0,
+          dur: 1.4,
+          y0: 0.4,
+          angle: 0,
+          live: false,
+        };
+        function scheduleMeteor(t) {
+          meteor.live = true;
+          meteor.t0 = t;
+          meteor.dur = 1.25 + Math.random() * 0.55;
+          meteor.y0 = 0.14 + Math.random() * 0.66; // enters at a random height
+          meteor.angle = 0.05 + Math.random() * 0.16; // radians below horizontal
+          meteor.next = t + meteor.dur + 6 + Math.random() * 9; // long gaps: it must feel rare
+        }
+        function meteorUniform(t) {
+          if (!meteor.live) {
+            if (t >= meteor.next) scheduleMeteor(t);
+            else return [0, 0, 0, 0];
+          }
+          const k = (t - meteor.t0) / meteor.dur;
+          if (k >= 1) {
+            meteor.live = false;
+            return [0, 0, 0, 0];
+          }
+          const e = Math.pow(k, 1.3); // accelerating away
+          const dir = [Math.cos(meteor.angle), Math.sin(meteor.angle)];
+          const travel = ASPECT * 1.05;
+          const head = [-0.35 + dir[0] * e * travel, meteor.y0 + dir[1] * e * travel];
+          // snaps in, then thins out into nothing well before the right edge
+          const life = Math.min(1, k / 0.07) * Math.pow(1 - k, 1.45);
+          return [head[0], head[1], life, meteor.angle];
+        }
+
+        function resize() {
+          const dpr = Math.min(window.devicePixelRatio || 1, 2) * RENDER_SCALE;
+          const w = Math.max(1, Math.round(canvas.clientWidth * dpr));
+          const h = Math.max(1, Math.round(canvas.clientHeight * dpr));
+          if (canvas.width !== w || canvas.height !== h) {
+            canvas.width = w;
+            canvas.height = h;
+            gl.viewport(0, 0, w, h);
+          }
+        }
+
+        function render(t) {
+          resize();
+          gl.uniform2f(u.res, canvas.width, canvas.height);
+          gl.uniform1f(u.time, t);
+          gl.uniform4fv(u.meteor, REDUCED ? [0, 0, 0, 0] : meteorUniform(t));
+          gl.drawArrays(gl.TRIANGLES, 0, 3);
+        }
+
+        return { render, resize, frame, visible: false };
+      }
+
+      const covers = Array.from(document.querySelectorAll(".frame")).map(makeCover).filter(Boolean);
+
+      // pause off-screen covers — five live shaders at once is needless heat
+      if ("IntersectionObserver" in window) {
+        const io = new IntersectionObserver(
+          (entries) => {
+            for (const e of entries) {
+              const c = covers.find((c) => c.frame === e.target);
+              if (c) c.visible = e.isIntersecting;
+            }
+          },
+          { rootMargin: "80px" },
+        );
+        covers.forEach((c) => io.observe(c.frame));
+      } else {
+        covers.forEach((c) => {
+          c.visible = true;
+        });
+      }
+
+      if (REDUCED) {
+        const paint = () => covers.forEach((c) => c.render(FROZEN_T));
+        requestAnimationFrame(paint);
+        window.addEventListener("resize", () => requestAnimationFrame(paint));
+      } else {
+        const t0 = performance.now();
+        let raf = 0;
+        const loop = (now) => {
+          const t = (now - t0) / 1000;
+          for (const c of covers) if (c.visible) c.render(t);
+          raf = requestAnimationFrame(loop);
+        };
+        raf = requestAnimationFrame(loop);
+        document.addEventListener("visibilitychange", () => {
+          if (document.hidden) cancelAnimationFrame(raf);
+          else raf = requestAnimationFrame(loop);
+        });
+      }
+    </script>
+  </body>
+</html>

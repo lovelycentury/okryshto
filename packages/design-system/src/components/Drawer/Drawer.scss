@@ -1,0 +1,98 @@
+@use "../../styles/mixins/layers.scss";
+
+// The class sits on the `Modal` root, which already owns `position: fixed`, the
+// inset and the stacking context. Nothing here re-declares those: two classes on
+// one element with equal specificity would be decided by stylesheet order, which
+// is not a thing to depend on. The drawer only styles what Modal leaves alone —
+// the backdrop's timing and the paper.
+.okryshto-drawer {
+  @include layers.component() {
+    --okryshto-drawer-background-color: var(--okryshto-bg-surface);
+    --okryshto-drawer-border-color: var(--okryshto-border-subtle);
+    --okryshto-drawer-border-width: var(--okryshto-1px-in-rem);
+    --okryshto-drawer-width: 20rem;
+    --okryshto-drawer-height: 50vh;
+    // Not `--okryshto-shadow-medium-left`: the shared shadow tokens are 10% black,
+    // calibrated for a light surface and invisible against this canvas. A panel
+    // lifted off a near-black page needs a shadow darker than the page.
+    --okryshto-drawer-shadow: -0.75rem 0 2rem rgba(0, 0, 0, 0.55);
+    --okryshto-drawer-duration: var(--okryshto-duration-sm);
+
+    // Modal paints the backdrop; the drawer only decides when it is opaque, so the
+    // scrim arrives with the paper rather than a frame before it.
+    > .okryshto-modal__backdrop {
+      visibility: visible;
+      opacity: 0;
+      transition: opacity var(--okryshto-drawer-duration) ease;
+    }
+
+    &--open > .okryshto-modal__backdrop {
+      opacity: 1;
+    }
+
+    &__paper {
+      // Modal turns itself `visibility: hidden` the moment `open` flips false. The
+      // paper opts back in, or the slide-out is replaced by a disappearance.
+      visibility: visible;
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      overflow: auto;
+      background: var(--okryshto-drawer-background-color);
+      box-shadow: var(--okryshto-drawer-shadow);
+      transition: transform var(--okryshto-drawer-duration) ease;
+
+      @media (prefers-reduced-motion: reduce) {
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    &--anchor-left &__paper {
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: var(--okryshto-drawer-width);
+      border-right: var(--okryshto-drawer-border-width) solid var(--okryshto-drawer-border-color);
+      box-shadow: 0.75rem 0 2rem rgba(0, 0, 0, 0.55);
+      transform: translateX(-100%);
+    }
+
+    &--anchor-right &__paper {
+      top: 0;
+      bottom: 0;
+      right: 0;
+      width: var(--okryshto-drawer-width);
+      border-left: var(--okryshto-drawer-border-width) solid var(--okryshto-drawer-border-color);
+      transform: translateX(100%);
+    }
+
+    &--anchor-top &__paper {
+      top: 0;
+      left: 0;
+      right: 0;
+      height: var(--okryshto-drawer-height);
+      border-bottom: var(--okryshto-drawer-border-width) solid var(--okryshto-drawer-border-color);
+      box-shadow: 0 0.75rem 2rem rgba(0, 0, 0, 0.55);
+      transform: translateY(-100%);
+    }
+
+    &--anchor-bottom &__paper {
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: var(--okryshto-drawer-height);
+      border-top: var(--okryshto-drawer-border-width) solid var(--okryshto-drawer-border-color);
+      border-top-left-radius: 1.75rem;
+      border-top-right-radius: 1.75rem;
+      box-shadow: 0 -0.75rem 2rem rgba(0, 0, 0, 0.55);
+      transform: translateY(100%);
+    }
+
+    &--open.okryshto-drawer--anchor-left &__paper,
+    &--open.okryshto-drawer--anchor-right &__paper,
+    &--open.okryshto-drawer--anchor-top &__paper,
+    &--open.okryshto-drawer--anchor-bottom &__paper {
+      transform: translate(0, 0);
+    }
+  }
+}

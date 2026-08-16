@@ -1,0 +1,21 @@
+{
+  "name": "vizitka-figma-generator",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Figma plugin that generates a premium dark-first design system and a personal business-card (vizitka) website design.",
+  "license": "MIT",
+  "scripts": {
+    "build": "node esbuild.config.mjs",
+    "watch": "node esbuild.config.mjs --watch",
+    "typecheck": "tsc --noEmit",
+    "lint": "oxlint --config ../oxlint-config/index.json ."
+  },
+  "dependencies": {
+    "@okryshto/icons": "workspace:^"
+  },
+  "devDependencies": {
+    "@figma/plugin-typings": "^1.100.0",
+    "esbuild": "^0.24.0",
+    "typescript": "^5.6.3"
+  }
+}

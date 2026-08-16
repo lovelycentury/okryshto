@@ -1,0 +1,138 @@
+// https://www.figma.com/design/3YsJJl5QukJZPkjoOOZahx/-okryshto-okryshto?node-id=668-13588
+// API: https://mui.com/material-ui/api/pagination/
+@use "../../styles/mixins/layers.scss";
+
+.okryshto-pagination {
+  @include layers.component() {
+    --okryshto-pagination-tone: var(--okryshto-accent-primary);
+    --okryshto-pagination-active-background-color: var(--okryshto-pagination-tone);
+    --okryshto-pagination-active-text-color: var(--okryshto-accent-contrast);
+    --okryshto-pagination-button-size: 2.25rem;
+    --okryshto-pagination-button-border-radius: 0.625rem;
+    --okryshto-pagination-icon-size: 1rem;
+    --okryshto-pagination-gap: 0.375rem;
+
+    display: inline-flex;
+    align-items: center;
+    gap: var(--okryshto-pagination-gap);
+    font-family: var(--okryshto-font-family-sans);
+
+    &--color-dante {
+      --okryshto-pagination-tone: var(--okryshto-accent-dante);
+    }
+    &--color-indigo {
+      --okryshto-pagination-tone: var(--okryshto-accent-secondary);
+    }
+    &--color-violet {
+      --okryshto-pagination-tone: var(--okryshto-accent-violet);
+    }
+    &--color-ember {
+      --okryshto-pagination-tone: var(--okryshto-accent-ember);
+    }
+    &--color-ice {
+      --okryshto-pagination-tone: var(--okryshto-accent-ice);
+    }
+
+    &--size-small {
+      --okryshto-pagination-button-size: 1.875rem;
+      --okryshto-pagination-icon-size: 0.875rem;
+    }
+
+    &--size-large {
+      --okryshto-pagination-button-size: 2.75rem;
+      --okryshto-pagination-icon-size: 1.125rem;
+    }
+
+    &--shape-circular {
+      --okryshto-pagination-button-border-radius: 9999px;
+    }
+
+    &--disabled {
+      opacity: 0.4;
+      pointer-events: none;
+    }
+
+    &__list {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--okryshto-pagination-gap);
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    &__item {
+      display: inline-flex;
+    }
+
+    &__button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: var(--okryshto-pagination-button-size);
+      height: var(--okryshto-pagination-button-size);
+      border: var(--okryshto-1px-in-rem) solid var(--okryshto-border-subtle);
+      border-radius: var(--okryshto-pagination-button-border-radius);
+      background: var(--okryshto-bg-surface);
+      color: var(--okryshto-text-secondary);
+      font-family: inherit;
+      font-weight: var(--okryshto-font-weight-medium);
+      font-size: var(--okryshto-font-size-md);
+      line-height: 1;
+      cursor: pointer;
+      transition:
+        background-color var(--okryshto-duration-sm) ease,
+        border-color var(--okryshto-duration-sm) ease,
+        color var(--okryshto-duration-sm) ease;
+
+      &:hover:not(:disabled) {
+        color: var(--okryshto-text-primary);
+        border-color: var(--okryshto-border-default);
+      }
+
+      &:focus-visible {
+        outline: var(--okryshto-1px-in-rem) solid var(--okryshto-pagination-tone);
+        outline-offset: 0.1875rem;
+      }
+
+      &:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+      }
+
+      &--active {
+        border-color: var(--okryshto-pagination-active-background-color);
+        background: var(--okryshto-pagination-active-background-color);
+        color: var(--okryshto-pagination-active-text-color);
+
+        &:hover:not(:disabled) {
+          color: var(--okryshto-pagination-active-text-color);
+          border-color: var(--okryshto-pagination-active-background-color);
+        }
+      }
+    }
+
+    &__icon {
+      display: inline-flex;
+      width: var(--okryshto-pagination-icon-size);
+      height: var(--okryshto-pagination-icon-size);
+
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    &__ellipsis {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 1.75rem;
+      height: var(--okryshto-pagination-button-size);
+      color: var(--okryshto-text-muted);
+      font-weight: var(--okryshto-font-weight-medium);
+      font-size: var(--okryshto-font-size-md);
+      user-select: none;
+    }
+  }
+}

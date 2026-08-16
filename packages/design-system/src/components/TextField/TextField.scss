@@ -1,0 +1,13 @@
+@use "../../styles/mixins/layers.scss";
+@use "../../styles/mixins/field.scss";
+
+.okryshto-text-field {
+  @include layers.component() {
+    // The whole shell — label, control box, adornments, helper text, and the
+    // error/size/color modifiers — comes from the shared `field.shell` mixin,
+    // which Select and Autocomplete include too. Everything this file used to
+    // spell out by hand now lives there; see `styles/mixins/field.scss` for the
+    // `--okryshto-text-field-*` variable API, which is unchanged.
+    @include field.shell("text-field");
+  }
+}

@@ -1,0 +1,25 @@
+# Build context is the monorepo root (images need workspace packages).
+# Drop everything else: otherwise Docker sends hundreds of MB to the daemon
+# and busts layer cache on any node_modules change.
+**/node_modules
+**/dist
+**/build
+**/.next
+**/out
+**/coverage
+**/storybook-static
+**/.turbo
+.pnpm-store
+.git
+.github
+.remember
+.playwright-mcp
+.vscode
+.claude
+**/*.log
+**/.DS_Store
+
+# Secrets never enter the image.
+**/.env
+**/.env.*
+!**/.env.example

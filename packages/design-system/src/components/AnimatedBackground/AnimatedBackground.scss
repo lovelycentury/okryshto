@@ -1,0 +1,472 @@
+@use "../../styles/mixins/layers.scss";
+
+// Layered deep-space background, in SVG and CSS only.
+//
+// Ported down from the PixiJS scene in packages/figma-plugin/docs/bg-lab —
+// same six layers, none of the runtime:
+//
+//   L0  base      — vertical wash from `glow` down to `base`
+//   L1  clouds    — wide soft colour fields, as GPU-composited HTML elements
+//   L2  stars     — two depths, each twinkling on its own phase
+//   L3  beacon    — a far-off sun that swells and gutters out
+//   L4  spark     — the dante streak, falling slowly across the frame
+//   L5  fireworks — rare micro-bursts of tadpole sparks
+//   L6  grain     — a static feTurbulence noise overlay
+//
+// Every palette is a set of custom properties on a preset modifier, so
+// recolouring costs nothing at runtime. Positions and timings are authored
+// as inline custom properties by the component (seeded, so they never
+// change between renders) — this file only says what those numbers mean.
+//
+// Motion budget: everything animates `transform` and `opacity` only, so the
+// whole scene stays on the compositor. Nothing here forces layout.
+
+// ------------------------------------------------------------- keyframes ---
+// Nebulae drift on a long lissajous, breathing as they go.
+@keyframes okryshto-animated-background-drift {
+  0% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+    opacity: var(--okryshto-animated-background-nebula-alpha);
+  }
+
+  33% {
+    transform: translate(
+        var(--okryshto-animated-background-drift-x),
+        calc(var(--okryshto-animated-background-drift-y) * -1)
+      )
+      scale(1.09) rotate(4deg);
+    opacity: calc(var(--okryshto-animated-background-nebula-alpha) * 1.25);
+  }
+
+  66% {
+    transform: translate(
+        calc(var(--okryshto-animated-background-drift-x) * -1),
+        var(--okryshto-animated-background-drift-y)
+      )
+      scale(0.94) rotate(-3deg);
+    opacity: calc(var(--okryshto-animated-background-nebula-alpha) * 0.8);
+  }
+
+  100% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+    opacity: var(--okryshto-animated-background-nebula-alpha);
+  }
+}
+
+// Iridescence: the dante veils drift between two hues as they breathe.
+@keyframes okryshto-animated-background-shimmer {
+  0%,
+  100% {
+    opacity: calc(var(--okryshto-animated-background-nebula-alpha) * 0.7);
+  }
+
+  50% {
+    opacity: calc(var(--okryshto-animated-background-nebula-alpha) * 1.35);
+  }
+}
+
+// Springy twinkle — snaps open, contracts back, so the light has a pulse.
+@keyframes okryshto-animated-background-twinkle {
+  0%,
+  100% {
+    opacity: var(--okryshto-animated-background-twinkle-min);
+    transform: scale(0.7);
+  }
+
+  50% {
+    opacity: var(--okryshto-animated-background-twinkle-max);
+    transform: scale(1.25);
+  }
+}
+
+// A little sun. The quarter turn is what sells it: a four-point glint that
+// only pulses reads as a blinking dot, but one that rotates as it brightens
+// reads as light catching an edge.
+@keyframes okryshto-animated-background-sparkle {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(0.7) rotate(0deg);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.15) rotate(45deg);
+  }
+}
+
+// A distant sun: slow swell, a long plateau, then it gutters out. The long
+// tail of dead time is what makes flares feel occasional.
+//
+// The Pixi scene flickered this on a 5 Hz sine at ±10%, which is cheap to do
+// per-frame but has no honest keyframe equivalent: expressing it as discrete
+// stops turns a smooth wobble into a hard ramp between them. An earlier pass
+// here did exactly that — stops 2% apart on a ~30 s cycle, swinging 0.55 to
+// 0.95 — which works out to a ~0.9 Hz pulse at 0.67 opacity/s across a large
+// soft glow. Short of the 3 Hz photosensitivity threshold, but plainly a
+// blinking light rather than a distant sun.
+//
+// So the flicker is gone. This is one smooth envelope: measured at 0.28
+// opacity/s with no direction reversals, against 0.67/s and ~0.9 Hz before.
+// The only variation left is a 6% drift over six seconds.
+@keyframes okryshto-animated-background-beacon {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+
+  6% {
+    opacity: 0.85;
+    transform: scale(1);
+  }
+
+  12% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+
+  20% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+// The dante streak crosses the whole frame once, then waits out the cycle.
+@keyframes okryshto-animated-background-spark {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) scaleX(0.65);
+  }
+
+  3% {
+    opacity: 1;
+  }
+
+  22% {
+    opacity: 0;
+    transform: translate(
+        var(--okryshto-animated-background-spark-x),
+        var(--okryshto-animated-background-spark-y)
+      )
+      scaleX(1.35);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(
+        var(--okryshto-animated-background-spark-x),
+        var(--okryshto-animated-background-spark-y)
+      )
+      scaleX(1.35);
+  }
+}
+
+// One firework spoke: leaves the core, decelerates into the rim, burns out.
+@keyframes okryshto-animated-background-spoke {
+  0% {
+    opacity: 0;
+    transform: translateX(0) scaleX(0.2);
+  }
+
+  2% {
+    opacity: 1;
+  }
+
+  11% {
+    opacity: 0;
+    transform: translateX(var(--okryshto-animated-background-spoke-r)) scaleX(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(var(--okryshto-animated-background-spoke-r)) scaleX(1);
+  }
+}
+
+.okryshto-animated-background {
+  @include layers.component() {
+    // -------------------------------------------------------- aurora ---
+    // Default palette. `--n1…--n5` are the nebula hue slots; the component
+    // assigns each blob a slot, so a preset only has to name five colours.
+    --okryshto-animated-background-base: #0a0a0b;
+    --okryshto-animated-background-glow: #141821;
+    --okryshto-animated-background-n1: #5ee6c1;
+    --okryshto-animated-background-n2: #818cf8;
+    --okryshto-animated-background-n3: #ff3d8b;
+    --okryshto-animated-background-n4: #b84bff;
+    --okryshto-animated-background-n5: #5ee6c1;
+    --okryshto-animated-background-star: #dfe6ff;
+    --okryshto-animated-background-star-alpha: 1;
+    --okryshto-animated-background-spark: #ff3d8b;
+    --okryshto-animated-background-beacon: #fff0d2;
+    --okryshto-animated-background-fw1: #5ee6c1;
+    --okryshto-animated-background-fw2: #ff3d8b;
+    --okryshto-animated-background-fw3: #818cf8;
+    --okryshto-animated-background-nebula-alpha: 0.55;
+    --okryshto-animated-background-grain-alpha: 0.05;
+    --okryshto-animated-background-bloom-alpha: 0.07;
+
+    // A background fills its box rather than sizing to its content: the
+    // scene's own children are absolutely positioned and would otherwise
+    // collapse the wrapper to the height of whatever is layered on top.
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    isolation: isolate;
+    background: linear-gradient(
+      to bottom,
+      var(--okryshto-animated-background-glow) 0%,
+      var(--okryshto-animated-background-base) 55%,
+      var(--okryshto-animated-background-base) 100%
+    );
+
+    &--midnight {
+      --okryshto-animated-background-base: #0b1020;
+      --okryshto-animated-background-glow: #141b33;
+      --okryshto-animated-background-n1: #4457a0;
+      --okryshto-animated-background-n2: #2e5e8c;
+      --okryshto-animated-background-n3: #5ee6c1;
+      --okryshto-animated-background-n4: #818cf8;
+      --okryshto-animated-background-n5: #ff3d8b;
+      --okryshto-animated-background-star-alpha: 0.85;
+      --okryshto-animated-background-fw1: #818cf8;
+      --okryshto-animated-background-fw2: #5ee6c1;
+      --okryshto-animated-background-fw3: #ffffff;
+      --okryshto-animated-background-nebula-alpha: 0.38;
+    }
+
+    &--neon {
+      --okryshto-animated-background-base: #0a0a14;
+      --okryshto-animated-background-glow: #161028;
+      --okryshto-animated-background-n1: #b84bff;
+      --okryshto-animated-background-n2: #ff3d8b;
+      --okryshto-animated-background-n3: #5ee6c1;
+      --okryshto-animated-background-n4: #b84bff;
+      --okryshto-animated-background-n5: #ff8a5c;
+      --okryshto-animated-background-star-alpha: 0.75;
+      --okryshto-animated-background-fw1: #ff3d8b;
+      --okryshto-animated-background-fw2: #b84bff;
+      --okryshto-animated-background-fw3: #5ee6c1;
+      --okryshto-animated-background-nebula-alpha: 0.36;
+    }
+
+    // Deep space: dust, a couple of cold washes, one faint dante breath —
+    // the legibility baseline.
+    &--void {
+      --okryshto-animated-background-base: #08080a;
+      --okryshto-animated-background-glow: #101014;
+      --okryshto-animated-background-n1: #2a2f3a;
+      --okryshto-animated-background-n2: #232833;
+      --okryshto-animated-background-n3: #2a2f3a;
+      --okryshto-animated-background-n4: #ff3d8b;
+      --okryshto-animated-background-n5: #232833;
+      --okryshto-animated-background-star-alpha: 0.9;
+      --okryshto-animated-background-fw1: #ffffff;
+      --okryshto-animated-background-fw2: #c9d2e4;
+      --okryshto-animated-background-fw3: #ff3d8b;
+      --okryshto-animated-background-nebula-alpha: 0.3;
+    }
+
+    // ---------------------------------------------------------- stage ---
+    &__svg {
+      position: absolute;
+      inset: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      // Pointer parallax, written by the component as it tracks the cursor.
+      // Zero unless the parallax prop is on, so the transform is a no-op.
+      transform: translate3d(
+        calc(var(--okryshto-animated-background-px, 0) * 18px),
+        calc(var(--okryshto-animated-background-py, 0) * 10px),
+        0
+      );
+      transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    // ---------------------------------------------------------- clouds ---
+    &__clouds {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    // One wide, soft wash. The gradient reaches zero alpha well before the
+    // element's edge, so the circle itself is never visible — what shows is
+    // only the light. `will-change` is what buys the cheap drift: it pins the
+    // blob to its own compositor layer, so the transform is a GPU move rather
+    // than a repaint of half the viewport.
+    &__cloud {
+      position: absolute;
+      left: var(--okryshto-animated-background-x);
+      top: var(--okryshto-animated-background-y);
+      width: var(--okryshto-animated-background-w);
+      aspect-ratio: var(--okryshto-animated-background-ar);
+      // Separate property from `transform`, so the drift keyframes are free
+      // to own `transform` outright without losing the centring.
+      translate: -50% -50%;
+      border-radius: 50%;
+      // Ends on a 0%-strength mix of the hue itself rather than the `transparent`
+      // keyword: `transparent` is transparent *black*, so interpolating to it
+      // drags a grey cast through the middle of the fade.
+      background: radial-gradient(
+        closest-side,
+        color-mix(in srgb, var(--okryshto-animated-background-hue) 62%, transparent) 0%,
+        color-mix(in srgb, var(--okryshto-animated-background-hue) 26%, transparent) 32%,
+        color-mix(in srgb, var(--okryshto-animated-background-hue) 6%, transparent) 62%,
+        color-mix(in srgb, var(--okryshto-animated-background-hue) 0%, transparent) 100%
+      );
+      opacity: var(--okryshto-animated-background-nebula-alpha);
+      mix-blend-mode: screen;
+      will-change: transform, opacity;
+      animation: okryshto-animated-background-drift var(--okryshto-animated-background-dur)
+        ease-in-out var(--okryshto-animated-background-delay) infinite;
+    }
+
+    // The dante veils sit on a second, faster opacity cycle so their light
+    // never lines up with the drift — that mismatch is what reads as
+    // iridescence rather than a pulse.
+    &__cloud--veil {
+      animation:
+        okryshto-animated-background-drift var(--okryshto-animated-background-dur) ease-in-out
+          var(--okryshto-animated-background-delay) infinite,
+        okryshto-animated-background-shimmer calc(var(--okryshto-animated-background-dur) * 0.37)
+          ease-in-out var(--okryshto-animated-background-delay) infinite;
+    }
+
+    // ----------------------------------------------------------- stars ---
+    &__stars {
+      opacity: var(--okryshto-animated-background-star-alpha);
+    }
+
+    &__star {
+      fill: var(--okryshto-animated-background-star);
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: okryshto-animated-background-twinkle var(--okryshto-animated-background-dur)
+        ease-in-out var(--okryshto-animated-background-delay) infinite;
+      --okryshto-animated-background-twinkle-min: 0.22;
+      --okryshto-animated-background-twinkle-max: 0.8;
+    }
+
+    &__star--near {
+      --okryshto-animated-background-twinkle-min: 0.1;
+      --okryshto-animated-background-twinkle-max: 1;
+    }
+
+    // ---------------------------------------------------------- beacon ---
+    &__beacon {
+      transform-box: fill-box;
+      transform-origin: center;
+      opacity: 0;
+      animation: okryshto-animated-background-beacon var(--okryshto-animated-background-dur)
+        ease-in-out var(--okryshto-animated-background-delay) infinite;
+      mix-blend-mode: screen;
+    }
+
+    // --------------------------------------------------------- sparkle ---
+    &__sparkle {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: okryshto-animated-background-sparkle var(--okryshto-animated-background-dur)
+        ease-in-out var(--okryshto-animated-background-delay) infinite;
+      mix-blend-mode: screen;
+    }
+
+    // ----------------------------------------------------------- spark ---
+    &__spark {
+      transform-box: fill-box;
+      transform-origin: left center;
+      opacity: 0;
+      animation: okryshto-animated-background-spark var(--okryshto-animated-background-dur) linear
+        var(--okryshto-animated-background-delay) infinite;
+      mix-blend-mode: screen;
+    }
+
+    // ------------------------------------------------------- fireworks ---
+    // No ignition flash: a wash that size takes its colour from one hue slot,
+    // so it read as a coloured haze hanging around the burst rather than as
+    // light. The sparks carry the whole effect.
+    //
+    // The spoke's own rotation is a static inline transform; the CSS
+    // animation runs inside it, so `translateX` always means "outward".
+    &__spoke {
+      transform-origin: 0 0;
+    }
+
+    // No blend mode here on purpose: screening a bright spark against a
+    // near-black sky is indistinguishable from drawing it normally, and there
+    // are dozens of these — each one would be its own compositing pass.
+    &__spoke-body {
+      transform-origin: 0 0;
+      opacity: 0;
+      animation: okryshto-animated-background-spoke var(--okryshto-animated-background-dur)
+        cubic-bezier(0.12, 0.78, 0.28, 1) var(--okryshto-animated-background-delay) infinite;
+    }
+
+    // ----------------------------------------------------------- grain ---
+    // Static, for a reason that is about looks rather than cost: the drift
+    // used to run on `steps()`, which on a full-frame overlay is not grain but
+    // the whole screen jumping every couple of seconds. Animating it smoothly
+    // instead measures as free now that the layer beneath it is cheap — but a
+    // 5% noise wash reads no differently moving than still, so it stays still.
+    &__grain {
+      opacity: var(--okryshto-animated-background-grain-alpha);
+      mix-blend-mode: overlay;
+      pointer-events: none;
+    }
+
+    // ----------------------------------------------------------- bloom ---
+    // A breath of white over the finished scene — the haze a bright sky
+    // leaves on a lens. Kept low and weighted toward the top so it lifts the
+    // black without eating the contrast the scrim is there to protect.
+    &__bloom {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      mix-blend-mode: plus-lighter;
+      opacity: var(--okryshto-animated-background-bloom-alpha);
+      background:
+        radial-gradient(80% 55% at 62% 18%, rgb(255 255 255 / 100%) 0%, rgb(255 255 255 / 0%) 70%),
+        radial-gradient(60% 45% at 22% 88%, rgb(255 255 255 / 55%) 0%, rgb(255 255 255 / 0%) 72%);
+    }
+
+    // ----------------------------------------------------------- scrim ---
+    // The content-legibility wash: a radial fade at the top and a
+    // horizontal fade from the left, so copy set against the left column
+    // keeps its contrast wherever the nebulae happen to drift.
+    &__scrim {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(120% 80% at 50% 0%, rgb(0 0 0 / 0%) 40%, rgb(0 0 0 / 35%) 100%),
+        linear-gradient(90deg, rgb(6 6 8 / 62%) 0%, rgb(6 6 8 / 42%) 45%, rgb(6 6 8 / 18%) 100%);
+    }
+  }
+}
+
+// Freeze the scene on its resting frame. Fireworks, the spark and the beacon
+// all sit at zero opacity at 0%, so what is left is the calm layers: the
+// wash, the nebulae and the stars.
+@media (prefers-reduced-motion: reduce) {
+  .okryshto-animated-background:not(.okryshto-animated-background--force-motion) {
+    .okryshto-animated-background__svg {
+      transition: none;
+      transform: none;
+    }
+
+    :is(
+      .okryshto-animated-background__cloud,
+      .okryshto-animated-background__star,
+      .okryshto-animated-background__beacon,
+      .okryshto-animated-background__sparkle,
+      .okryshto-animated-background__spark,
+      .okryshto-animated-background__spoke-body
+    ) {
+      animation: none;
+    }
+  }
+}

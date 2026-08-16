@@ -1,0 +1,13 @@
+node_modules
+dist
+build
+coverage
+.turbo
+pnpm-lock.yaml
+*.min.js
+*.min.css
+
+# Generated output — keep byte-identical to what the generators emit
+*.generated.*
+packages/icons/src/generated.ts
+packages/design-system/src/fonts

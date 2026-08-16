@@ -1,0 +1,46 @@
+/// Common rem sizes, keyed by their px equivalent (used for icons, avatars, etc).
+/// @content is called once per size with ($px, $rem).
+@mixin define-rem-sizes() {
+  $sizes:
+    12px 0.75rem,
+    16px 1rem,
+    24px 1.5rem,
+    32px 2rem,
+    48px 3rem,
+    64px 4rem,
+    96px 6rem;
+
+  @each $px, $rem in $sizes {
+    @content ($px, $rem);
+  }
+}
+
+/// h1-h6 font-size/line-height/font-family modifiers, nested under a headline
+/// component's root block (`&--h1` etc).
+@mixin define-headline-sizes() {
+  &--h1 {
+    font-size: var(--okryshto-font-size-xl);
+    line-height: var(--okryshto-font-line-height-xl);
+    font-family: var(--okryshto-font-family-h1);
+  }
+
+  &--h2 {
+    font-size: var(--okryshto-font-size-lg);
+    line-height: var(--okryshto-font-line-height-lg);
+    font-family: var(--okryshto-font-family-h2);
+  }
+
+  &--h3 {
+    font-size: var(--okryshto-font-size-md);
+    line-height: var(--okryshto-font-line-height-md);
+    font-family: var(--okryshto-font-family-h3);
+  }
+
+  &--h4,
+  &--h5,
+  &--h6 {
+    font-size: var(--okryshto-font-size-sm);
+    line-height: var(--okryshto-font-line-height-sm);
+    font-family: var(--okryshto-font-family-h4);
+  }
+}

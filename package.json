@@ -1,0 +1,33 @@
+{
+  "name": "okryshto-monorepo",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build": "pnpm -r --if-present run build",
+    "build:libs": "pnpm --filter \"@okryshto/react...\" --if-present run build",
+    "test": "pnpm -r --if-present run test",
+    "typecheck": "pnpm run build:libs && pnpm -r --if-present run typecheck",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
+    "lint:ws": "pnpm -r --if-present run lint",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "check": "pnpm run lint && pnpm run format:check && pnpm run typecheck",
+    "fix": "pnpm run lint:fix && pnpm run format",
+    "storybook": "node tools/storybook.mjs",
+    "preinstall": "npx only-allow pnpm"
+  },
+  "devDependencies": {
+    "@okryshto/oxlint-config": "workspace:*",
+    "@types/node": "catalog:",
+    "oxlint": "1.77.0",
+    "prettier": "^3.4.2",
+    "typescript": "catalog:"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "packageManager": "pnpm@11.21.0"
+}

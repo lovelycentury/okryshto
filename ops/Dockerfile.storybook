@@ -1,0 +1,36 @@
+# syntax=docker/dockerfile:1.7
+#
+# @okryshto/react Storybook — static build of the design system.
+#
+# BUILD CONTEXT IS THE MONOREPO ROOT:
+#   docker build -f ops/Dockerfile.storybook -t storybook .
+#
+# Storybook lives in packages/react; workspace deps
+# (@okryshto/design-system, /icons, /helpers, /react-hooks) are built first
+# via the "..." filter. Runtime is spa.Caddyfile.
+
+FROM node:22-slim AS base
+ENV PNPM_HOME="/pnpm" \
+    PATH="/pnpm:$PATH" \
+    CI="true"
+RUN corepack enable
+WORKDIR /repo
+
+FROM base AS deps
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+RUN --mount=type=cache,id=pnpm-store,target=/pnpm/store \
+    pnpm fetch
+
+FROM deps AS build
+COPY . .
+RUN --mount=type=cache,id=pnpm-store,target=/pnpm/store \
+    pnpm install --frozen-lockfile --prefer-offline
+# Workspace package dist first (Storybook resolves them from packages/*/dist),
+# then the static Storybook build → packages/react/storybook-static.
+RUN pnpm --filter "@okryshto/react..." --if-present run build
+RUN pnpm --filter "@okryshto/react" run storybook:build
+
+FROM caddy:2-alpine AS runtime
+COPY ops/spa.Caddyfile /etc/caddy/Caddyfile
+COPY --from=build /repo/packages/react/storybook-static /srv
+EXPOSE 80

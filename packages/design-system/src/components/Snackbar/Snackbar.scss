@@ -1,0 +1,102 @@
+@use "../../styles/mixins/layers.scss";
+
+.okryshto-snackbar {
+  @include layers.component() {
+    --okryshto-snackbar-z-index: 1400;
+    --okryshto-snackbar-offset: 1.5rem;
+    --okryshto-snackbar-max-width: 27.5rem;
+    --okryshto-snackbar-gap: 0.75rem;
+    --okryshto-snackbar-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.55);
+
+    position: fixed;
+    z-index: var(--okryshto-snackbar-z-index);
+    display: flex;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(1rem);
+    transition:
+      opacity var(--okryshto-duration-sm) ease,
+      transform var(--okryshto-duration-sm) ease,
+      visibility var(--okryshto-duration-sm) ease;
+
+    &--open {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    &--anchor-top-left {
+      top: var(--okryshto-snackbar-offset);
+      left: var(--okryshto-snackbar-offset);
+    }
+
+    &--anchor-top-center {
+      top: var(--okryshto-snackbar-offset);
+      left: 50%;
+      transform: translateX(-50%) translateY(1rem);
+
+      &.okryshto-snackbar--open {
+        transform: translateX(-50%) translateY(0);
+      }
+    }
+
+    &--anchor-top-right {
+      top: var(--okryshto-snackbar-offset);
+      right: var(--okryshto-snackbar-offset);
+    }
+
+    &--anchor-bottom-left {
+      bottom: var(--okryshto-snackbar-offset);
+      left: var(--okryshto-snackbar-offset);
+    }
+
+    &--anchor-bottom-center {
+      bottom: var(--okryshto-snackbar-offset);
+      left: 50%;
+      transform: translateX(-50%) translateY(1rem);
+
+      &.okryshto-snackbar--open {
+        transform: translateX(-50%) translateY(0);
+      }
+    }
+
+    &--anchor-bottom-right {
+      bottom: var(--okryshto-snackbar-offset);
+      right: var(--okryshto-snackbar-offset);
+    }
+
+    &__surface {
+      display: flex;
+      align-items: center;
+      gap: var(--okryshto-snackbar-gap);
+      max-width: var(--okryshto-snackbar-max-width);
+      width: max-content;
+      // Follows the rounded outline of whatever is inside, including custom
+      // content — a box-shadow here would draw a rectangle around it.
+      filter: drop-shadow(var(--okryshto-snackbar-shadow));
+
+      .okryshto-alert {
+        --okryshto-alert-border-radius: 1.125rem;
+        width: 100%;
+      }
+
+      // Nothing sits behind a snackbar, so the default alert surface — the same
+      // colour as the page — leaves it floating with no edge at all. Lift it.
+      // `filled` and `outlined` carry their own treatment and are left alone.
+      .okryshto-alert:not(.okryshto-alert--filled):not(.okryshto-alert--outlined) {
+        --okryshto-alert-background-color: var(--okryshto-bg-surface-raised);
+        --okryshto-alert-border-color: var(--okryshto-border-default);
+      }
+    }
+
+    &__message {
+      margin: 0;
+      color: var(--okryshto-text-primary);
+      font-family: var(--okryshto-font-family-sans);
+      font-size: var(--okryshto-font-size-sm);
+      line-height: var(--okryshto-font-line-height-sm);
+    }
+  }
+}

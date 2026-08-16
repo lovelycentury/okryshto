@@ -1,0 +1,74 @@
+# Production stack: profile.okryshto.dev + storybook.okryshto.dev
+#
+# Ports 80/443 are NOT published — Caddy in ~/vps-infra owns them.
+# This Caddy sits on the internal network and receives traffic from it
+# (see vps-infra/Caddyfile → reverse_proxy okryshto-caddy:80).
+#
+#   docker compose up -d --pull never --remove-orphans
+#   docker compose logs -f
+
+name: okryshto
+
+networks:
+  edge:
+  vps-infra:
+    external: true
+    name: vps-infra_default
+
+volumes:
+  caddy_data:
+  caddy_config:
+
+x-logging: &logging
+  logging:
+    driver: json-file
+    options:
+      max-size: "10m"
+      max-file: "3"
+
+services:
+  caddy:
+    image: caddy:2-alpine
+    container_name: okryshto-caddy
+    restart: unless-stopped
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    networks: [edge, vps-infra]
+    depends_on: [profile, storybook]
+    <<: *logging
+
+  profile:
+    image: ghcr.io/lovelycentury/okryshto/profile:latest
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      PORT: "5200"
+      HOSTNAME: 0.0.0.0
+    networks: [edge]
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "node",
+          "-e",
+          "fetch('http://127.0.0.1:5200/').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))",
+        ]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
+    <<: *logging
+
+  storybook:
+    image: ghcr.io/lovelycentury/okryshto/storybook:latest
+    restart: unless-stopped
+    networks: [edge]
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost/healthz"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 5s
+    <<: *logging

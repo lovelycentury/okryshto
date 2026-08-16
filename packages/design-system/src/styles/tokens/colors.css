@@ -1,0 +1,36 @@
+/* Hand-authored color tokens — sourced from Figma variables until Enterprise
+   plan access lands `sync:tokens` here. Names mirror the Figma variable paths
+   (accent/primary, text/secondary, ...) so a future sync overwrites cleanly. */
+@layer okryshto.utility {
+  :root {
+    /* accent tones — dante-ready: swap the whole palette per theme */
+    --okryshto-accent-primary: #5ee6c1; /* mint, default */
+    --okryshto-accent-secondary: #818cf8; /* indigo */
+    --okryshto-accent-dante: #ff3d8b;
+    --okryshto-accent-violet: #b84bff;
+    --okryshto-accent-ember: #ff8a5c;
+    --okryshto-accent-ice: #22d3ee;
+    --okryshto-accent-contrast: #04140f;
+
+    --okryshto-text-primary: #f5f5f7;
+    --okryshto-text-secondary: #a9a9b2;
+    --okryshto-text-muted: #6e6e78;
+
+    --okryshto-bg-surface: #0f0f12;
+    --okryshto-bg-surface-raised: #16161a;
+    --okryshto-bg-inset: #080809;
+    --okryshto-bg-canvas: #0a0a0b;
+
+    --okryshto-border-subtle: rgba(255, 255, 255, 0.08);
+    --okryshto-border-default: rgba(255, 255, 255, 0.12);
+    --okryshto-border-strong: rgba(255, 255, 255, 0.2);
+
+    --okryshto-feedback-success: #4ade80;
+    --okryshto-feedback-warning: #fbbf24;
+    --okryshto-feedback-danger: #fb7185;
+
+    --okryshto-glass-fill: rgba(255, 255, 255, 0.08);
+    --okryshto-glass-fill-strong: rgba(255, 255, 255, 0.12);
+    --okryshto-glass-border: rgba(255, 255, 255, 0.14);
+  }
+}

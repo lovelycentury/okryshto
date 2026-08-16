@@ -1,0 +1,355 @@
+@use "visibility.scss";
+
+/// The shared shell every text-entry-shaped control wears: label row, bordered
+/// control box, adornments, helper text, plus the error/size/color modifiers.
+///
+/// TextField, Select and Autocomplete all render the same DOM shape via the
+/// internal `Field` component, so the styling lives here once instead of being
+/// re-typed (and drifting) in three SCSS files. Before this existed the three
+/// disagreed on focus-ring thickness and helper-text colour.
+///
+/// `$var` is the CSS-variable infix — pass `"text-field"` to get
+/// `--okryshto-text-field-border-color`, and so on. Every consumer keeps its own
+/// BEM block, because `&` resolves at the include site.
+///
+/// Call it inside `.okryshto-<block> { @include layers.component() { … } }`.
+@mixin shell($var) {
+  // 1. full variable API, defaults = color "primary" (mint focus ring), size "medium"
+  --okryshto-#{$var}-border-color: var(--okryshto-border-default);
+  --okryshto-#{$var}-focus-border-color: var(--okryshto-accent-primary);
+  --okryshto-#{$var}-glow: drop-shadow(0 0 2.5rem rgba(94, 230, 193, 0.24));
+  --okryshto-#{$var}-padding-inline: 0.875rem;
+  --okryshto-#{$var}-padding-block: 0.75rem;
+  --okryshto-#{$var}-font-size: 1rem;
+  --okryshto-#{$var}-line-height: 1.625rem;
+  --okryshto-#{$var}-gap: 0.5rem;
+  // A field sized purely by `fit-content` collapses to its placeholder, which
+  // reads as a broken control next to its neighbours. 200px is the floor; wider
+  // is up to the content, `fullWidth`, or an override of this variable.
+  --okryshto-#{$var}-min-width: 12.5rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.4375rem;
+  width: fit-content;
+  min-width: var(--okryshto-#{$var}-min-width);
+
+  &--full-width {
+    width: 100%;
+  }
+
+  &--disabled {
+    opacity: 0.4;
+  }
+
+  // 2. elements
+  &__label {
+    font-family: var(--okryshto-font-family-sans);
+    font-weight: var(--okryshto-font-weight-medium);
+    font-size: var(--okryshto-font-size-sm);
+    line-height: 1rem;
+    color: var(--okryshto-text-secondary);
+
+    &--hidden {
+      @include visibility.visually-hidden;
+    }
+  }
+
+  &__required {
+    margin-left: 0.125rem;
+    color: var(--okryshto-feedback-danger);
+  }
+
+  &__control {
+    display: flex;
+    align-items: center;
+    gap: var(--okryshto-#{$var}-gap);
+    box-sizing: border-box;
+    width: 100%;
+    padding: var(--okryshto-#{$var}-padding-block) var(--okryshto-#{$var}-padding-inline);
+    // border-width never changes (only border-color + box-shadow do) — a width
+    // change reflows the content box even under border-box, which reads as a jump.
+    // The extra 0.5px of focus/error "thickness" is a box-shadow ring instead: it
+    // never affects layout and clips cleanly to border-radius.
+    border: var(--okryshto-1px-in-rem) solid var(--okryshto-#{$var}-border-color);
+    border-radius: 0.625rem;
+    background: var(--okryshto-bg-surface);
+    box-shadow: 0 0 0 0 transparent;
+    transition:
+      border-color var(--okryshto-duration-sm) ease,
+      box-shadow var(--okryshto-duration-sm) ease,
+      filter var(--okryshto-duration-sm) ease;
+
+    &:focus-within {
+      border-color: var(--okryshto-#{$var}-focus-border-color);
+      box-shadow: 0 0 0 0.03125rem var(--okryshto-#{$var}-focus-border-color); // +0.5px ring
+      filter: var(--okryshto-#{$var}-glow);
+    }
+  }
+
+  &--error &__control {
+    border-color: var(--okryshto-feedback-danger);
+    box-shadow: 0 0 0 0.03125rem var(--okryshto-feedback-danger);
+  }
+
+  &--error &__control:focus-within {
+    filter: none;
+  }
+
+  // Icons and buttons that sit inside the border, beside the control itself.
+  // `flex-shrink: 0` keeps them from being squeezed by a long value; the
+  // control between them is what gives.
+  &__adornment {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: 0.25rem;
+    color: var(--okryshto-text-muted);
+
+    svg {
+      width: 1rem;
+      height: 1rem;
+    }
+  }
+
+  &__input {
+    flex: 1;
+    min-width: 0;
+    // Browsers give `<input>` a UA `padding: 1px 2px` that the reset does not
+    // clear, which made the field 2px taller than its own tokens describe
+    // (12px + 26px + 12px + 2 borders = 52px, not 54px). Harmless while
+    // TextField was alone; once Select — whose trigger is a div, and so has no
+    // such padding — sat beside it, the two disagreed by exactly those 2px.
+    padding: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: var(--okryshto-font-family-sans);
+    font-weight: var(--okryshto-font-weight-regular);
+    font-size: var(--okryshto-#{$var}-font-size);
+    line-height: var(--okryshto-#{$var}-line-height);
+    color: var(--okryshto-text-primary);
+
+    &::placeholder {
+      color: var(--okryshto-text-muted);
+    }
+  }
+
+  &__helper {
+    font-family: var(--okryshto-font-family-sans);
+    font-size: var(--okryshto-font-size-sm);
+    line-height: 1.125rem;
+    letter-spacing: 0.013px;
+    color: var(--okryshto-text-muted);
+  }
+
+  &--error &__helper {
+    color: var(--okryshto-feedback-danger);
+  }
+
+  // 3. color modifier — rare, tints the focus ring/glow (e.g. Dante theme moments)
+  &--color-dante &__control:focus-within {
+    border-color: var(--okryshto-accent-dante);
+    box-shadow: 0 0 0 0.03125rem var(--okryshto-accent-dante);
+    filter: drop-shadow(0 0 0.4375rem rgba(255, 61, 139, 0.35));
+  }
+
+  // 4. size
+  &--small {
+    --okryshto-#{$var}-padding-inline: 0.75rem;
+    --okryshto-#{$var}-padding-block: 0.5625rem;
+    --okryshto-#{$var}-font-size: 0.875rem;
+    --okryshto-#{$var}-line-height: 1.375rem;
+  }
+
+  &--large {
+    --okryshto-#{$var}-padding-inline: 1rem;
+    --okryshto-#{$var}-padding-block: 0.9375rem;
+    --okryshto-#{$var}-font-size: 1.125rem;
+    --okryshto-#{$var}-line-height: 1.875rem;
+  }
+}
+
+/// The dropdown surface shared by Select and Autocomplete: the panel, its
+/// option rows, group headers and the loading/empty states. Both popups are
+/// positioned by `Popper`, so this styles only what is inside the panel.
+///
+/// The panel lives at `.okryshto-<block>-popover`, outside the field's own BEM
+/// block, while the rows inside it keep the block's namespace — so `$block` is
+/// passed explicitly rather than being derived from `&`.
+@mixin listbox($block, $var) {
+  --okryshto-#{$var}-popover-max-height: 17.5rem;
+  // The panel is portaled to `<body>`, so it inherits nothing from the field —
+  // its size comes from a `--small`/`--large` modifier the component copies
+  // onto it, not from the `--okryshto-#{$var}-font-size` the trigger uses.
+  //
+  // The font sizes deliberately mirror that trigger scale (14/16/18): an option
+  // and the value it becomes once picked should read at the same size. The
+  // roomier padding is what makes the list scannable, not larger type.
+  --okryshto-#{$var}-option-font-size: 1rem;
+  --okryshto-#{$var}-option-line-height: 1.5rem;
+  --okryshto-#{$var}-option-padding-block: 0.625rem;
+  --okryshto-#{$var}-option-padding-inline: 0.8125rem;
+  // The row the keyboard and the pointer are on. A plain surface step was too
+  // faint against the raised panel to say "this is where Enter lands", so the
+  // tint is the accent instead — the panel is portaled and inherits no colour
+  // modifier, which is why this is the primary accent rather than the field's.
+  --okryshto-#{$var}-option-highlight-background: color-mix(
+    in srgb,
+    var(--okryshto-accent-primary) 14%,
+    transparent
+  );
+
+  &--small {
+    --okryshto-#{$var}-option-font-size: 0.875rem;
+    --okryshto-#{$var}-option-line-height: 1.375rem;
+    --okryshto-#{$var}-option-padding-block: 0.5rem;
+    --okryshto-#{$var}-option-padding-inline: 0.6875rem;
+  }
+
+  &--large {
+    --okryshto-#{$var}-option-font-size: 1.125rem;
+    --okryshto-#{$var}-option-line-height: 1.625rem;
+    --okryshto-#{$var}-option-padding-block: 0.75rem;
+    --okryshto-#{$var}-option-padding-inline: 0.9375rem;
+  }
+
+  box-sizing: border-box;
+  max-height: var(--okryshto-#{$var}-popover-max-height);
+  overflow-y: auto;
+  padding: 0.3125rem;
+  border: var(--okryshto-1px-in-rem) solid var(--okryshto-border-subtle);
+  border-radius: 0.75rem;
+  background: var(--okryshto-bg-surface-raised);
+  box-shadow: var(--okryshto-shadow-medium-bottom);
+
+  .#{$block}__listbox {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .#{$block}__option {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: var(--okryshto-#{$var}-option-padding-block)
+      var(--okryshto-#{$var}-option-padding-inline);
+    border-radius: 0.5rem;
+    color: var(--okryshto-text-primary);
+    font-family: var(--okryshto-font-family-sans);
+    font-size: var(--okryshto-#{$var}-option-font-size);
+    line-height: var(--okryshto-#{$var}-option-line-height);
+    cursor: pointer;
+    // Hover is deliberately not styled: the highlighted modifier is driven by
+    // pointer *and* keyboard, so styling both would show two active rows at once.
+    transition: background-color var(--okryshto-duration-sm) ease;
+
+    &--highlighted {
+      background: var(--okryshto-#{$var}-option-highlight-background);
+    }
+
+    &--selected {
+      color: var(--okryshto-accent-primary);
+    }
+
+    &--disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+  }
+
+  .#{$block}__option-label {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .#{$block}__option-meta {
+    flex-shrink: 0;
+    color: var(--okryshto-text-muted);
+    font-size: var(--okryshto-font-size-sm);
+  }
+
+  .#{$block}__option-check {
+    display: flex;
+    flex-shrink: 0;
+    color: var(--okryshto-accent-primary);
+
+    svg {
+      width: 0.875rem;
+      height: 0.875rem;
+    }
+  }
+
+  // Two-line rows: the row itself is a centred flex line, so a label and its
+  // description need their own column to stack instead of sitting side by side.
+  // It takes the free space the label would otherwise claim, and the label
+  // inside it stops stretching — the description below decides the width.
+  .#{$block}__option-body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 0.125rem;
+    min-width: 0;
+
+    .#{$block}__option-meta {
+      flex-shrink: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+  // The run of an option that matches what was typed. `<mark>`'s UA style is a
+  // yellow block that ignores the theme, so both colours are set here; weight
+  // rather than background does the emphasising, which keeps the highlighted
+  // and selected row states readable underneath.
+  .#{$block}__option-mark {
+    background: none;
+    color: inherit;
+    font-weight: var(--okryshto-font-weight-semibold);
+  }
+
+  // Sticky so the group a long list is currently scrolled into stays named.
+  // `z-index` is needed because option rows paint a background on hover and
+  // would otherwise slide over the header.
+  .#{$block}__group-label {
+    display: block;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    padding: 0.4375rem 0.625rem 0.25rem;
+    background: var(--okryshto-bg-surface-raised);
+    color: var(--okryshto-text-muted);
+    font-family: var(--okryshto-font-family-sans);
+    font-weight: var(--okryshto-font-weight-medium);
+    font-size: var(--okryshto-font-size-sm);
+    line-height: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .#{$block}__group-options {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  // Sized off the option variables so an empty or loading list occupies the
+  // same row as the options it stands in for.
+  .#{$block}__loading,
+  .#{$block}__empty {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: var(--okryshto-#{$var}-option-padding-block)
+      var(--okryshto-#{$var}-option-padding-inline);
+    color: var(--okryshto-text-muted);
+    font-family: var(--okryshto-font-family-sans);
+    font-size: var(--okryshto-#{$var}-option-font-size);
+    line-height: var(--okryshto-#{$var}-option-line-height);
+  }
+}

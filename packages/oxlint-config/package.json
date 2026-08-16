@@ -1,0 +1,20 @@
+{
+  "name": "@okryshto/oxlint-config",
+  "version": "0.0.0",
+  "description": "Shared oxlint rules for the Okryshto design system monorepo",
+  "license": "MIT",
+  "type": "module",
+  "files": [
+    "index.json"
+  ],
+  "exports": {
+    "./index.json": "./index.json",
+    "./package.json": "./package.json"
+  },
+  "peerDependencies": {
+    "oxlint": ">=1"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

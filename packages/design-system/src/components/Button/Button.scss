@@ -1,0 +1,211 @@
+@use "../../styles/mixins/layers.scss";
+
+.okryshto-button {
+  @include layers.component() {
+    // 1. full variable API, defaults = variant "primary", color "primary" (mint), shape "pill", size "medium"
+    --okryshto-button-tone: var(--okryshto-accent-primary);
+    --okryshto-button-background-color: var(--okryshto-button-tone);
+    --okryshto-button-background-color-hover: var(--okryshto-button-background-color);
+    --okryshto-button-text-color: var(--okryshto-accent-contrast);
+    --okryshto-button-border-color: transparent;
+    --okryshto-button-border-color-focus: transparent;
+    --okryshto-button-border-width: var(--okryshto-1px-in-rem);
+    --okryshto-button-border-width-focus: var(--okryshto-button-border-width);
+    --okryshto-button-border-radius: 9999px;
+    --okryshto-button-glow: drop-shadow(
+      0 0 0.8125rem color-mix(in srgb, var(--okryshto-button-tone) 60%, transparent)
+    );
+    --okryshto-button-glow-focus: var(--okryshto-button-glow);
+    --okryshto-button-padding-inline: 1.25rem;
+    --okryshto-button-padding-block: 0.75rem;
+    --okryshto-button-gap: 0.5rem;
+    --okryshto-button-font-size: var(--okryshto-font-size-md);
+    --okryshto-button-line-height: var(--okryshto-font-line-height-md);
+    --okryshto-button-icon-size: 1rem;
+
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--okryshto-button-gap);
+    padding: var(--okryshto-button-padding-block) var(--okryshto-button-padding-inline);
+    border: var(--okryshto-button-border-width) solid var(--okryshto-button-border-color);
+    border-radius: var(--okryshto-button-border-radius);
+    overflow: hidden;
+    background: var(--okryshto-button-background-color);
+    color: var(--okryshto-button-text-color);
+    text-decoration: none;
+    font-family: var(--okryshto-font-family-sans);
+    font-weight: var(--okryshto-font-weight-medium);
+    font-size: var(--okryshto-button-font-size);
+    line-height: var(--okryshto-button-line-height);
+    cursor: pointer;
+    transition:
+      background-color var(--okryshto-duration-sm) ease,
+      border-color var(--okryshto-duration-sm) ease,
+      box-shadow var(--okryshto-duration-sm) ease,
+      filter var(--okryshto-duration-sm) ease;
+
+    &:hover:not(:disabled) {
+      background: var(--okryshto-button-background-color-hover);
+      filter: var(--okryshto-button-glow);
+    }
+
+    &:focus-visible {
+      outline: none;
+      border-color: var(--okryshto-button-border-color-focus);
+      // The focus ring's extra thickness is painted *inside* the box rather
+      // than added to the border, so focus never changes the button's size.
+      // Growing `border-width` here instead made every bordered variant jump
+      // 2px taller on focus, nudging whatever sat beside it. Resolves to 0 for
+      // variants whose focus width equals their base width (they use glow).
+      box-shadow: inset 0 0 0
+        calc(var(--okryshto-button-border-width-focus) - var(--okryshto-button-border-width))
+        var(--okryshto-button-border-color-focus);
+      filter: var(--okryshto-button-glow-focus);
+    }
+
+    &:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    // 2. color modifiers — only remap the accent; every variant/state consumes it
+    &--color-dante {
+      --okryshto-button-tone: var(--okryshto-accent-dante);
+    }
+    &--color-indigo {
+      --okryshto-button-tone: var(--okryshto-accent-secondary);
+    }
+    &--color-violet {
+      --okryshto-button-tone: var(--okryshto-accent-violet);
+    }
+    &--color-ember {
+      --okryshto-button-tone: var(--okryshto-accent-ember);
+    }
+    &--color-ice {
+      --okryshto-button-tone: var(--okryshto-accent-ice);
+    }
+
+    // 3. variant modifiers
+    &--gradient {
+      --okryshto-button-background-color: linear-gradient(
+        158deg,
+        var(--okryshto-accent-primary) 14%,
+        var(--okryshto-accent-secondary) 86%
+      );
+      --okryshto-button-background-color-hover: var(--okryshto-button-background-color);
+      --okryshto-button-glow: drop-shadow(
+        0 0 1.625rem color-mix(in srgb, var(--okryshto-button-tone) 80%, transparent)
+      );
+    }
+
+    &--secondary {
+      --okryshto-button-background-color: var(--okryshto-bg-surface-raised);
+      --okryshto-button-background-color-hover: var(--okryshto-bg-surface);
+      --okryshto-button-text-color: var(--okryshto-text-primary);
+      --okryshto-button-border-color: var(--okryshto-border-subtle);
+      --okryshto-button-glow: drop-shadow(
+        0 0 0.5rem color-mix(in srgb, var(--okryshto-button-tone) 25%, transparent)
+      );
+      --okryshto-button-glow-focus: none;
+      --okryshto-button-border-color-focus: var(--okryshto-button-tone);
+      --okryshto-button-border-width-focus: calc(var(--okryshto-button-border-width) * 2);
+    }
+
+    &--soft {
+      --okryshto-button-background-color: var(--okryshto-bg-surface-raised);
+      --okryshto-button-background-color-hover: var(--okryshto-bg-surface);
+      --okryshto-button-text-color: var(--okryshto-text-primary);
+      --okryshto-button-glow: drop-shadow(
+        0 0 0.5rem color-mix(in srgb, var(--okryshto-button-tone) 25%, transparent)
+      );
+      --okryshto-button-glow-focus: none;
+      --okryshto-button-border-color-focus: var(--okryshto-button-tone);
+      --okryshto-button-border-width-focus: calc(var(--okryshto-button-border-width) * 2);
+    }
+
+    &--ghost {
+      --okryshto-button-background-color: transparent;
+      --okryshto-button-background-color-hover: var(--okryshto-bg-surface-raised);
+      --okryshto-button-text-color: var(--okryshto-text-secondary);
+      --okryshto-button-glow: drop-shadow(
+        0 0 0.5rem color-mix(in srgb, var(--okryshto-button-tone) 25%, transparent)
+      );
+      --okryshto-button-glow-focus: none;
+      --okryshto-button-border-color-focus: var(--okryshto-button-tone);
+      --okryshto-button-border-width-focus: calc(var(--okryshto-button-border-width) * 2);
+    }
+
+    &--glass {
+      --okryshto-button-background-color: var(--okryshto-glass-fill);
+      --okryshto-button-background-color-hover: var(--okryshto-button-background-color);
+      --okryshto-button-text-color: var(--okryshto-text-primary);
+      --okryshto-button-border-color: var(--okryshto-glass-border);
+      --okryshto-button-glow: drop-shadow(
+        0 0 0.5rem color-mix(in srgb, var(--okryshto-button-tone) 25%, transparent)
+      );
+      --okryshto-button-glow-focus: none;
+      --okryshto-button-border-color-focus: var(--okryshto-button-tone);
+      --okryshto-button-border-width-focus: calc(var(--okryshto-button-border-width) * 2);
+    }
+
+    // 4. shape — pill (default) needs no modifier
+    &--rounded {
+      --okryshto-button-border-radius: 0.875rem; // 14px
+    }
+
+    // 5. size — medium (default) needs no modifier
+    &--small {
+      --okryshto-button-padding-inline: 1rem;
+      --okryshto-button-padding-block: 0.5625rem;
+      --okryshto-button-gap: 0.4375rem;
+      --okryshto-button-font-size: var(--okryshto-font-size-sm);
+      --okryshto-button-line-height: var(--okryshto-font-line-height-sm);
+      --okryshto-button-icon-size: 0.875rem;
+    }
+
+    &--large {
+      --okryshto-button-padding-inline: 1.75rem;
+      --okryshto-button-padding-block: 1rem;
+      --okryshto-button-gap: 0.625rem;
+      --okryshto-button-font-size: var(--okryshto-font-size-lg);
+      --okryshto-button-line-height: var(--okryshto-font-line-height-lg);
+      --okryshto-button-icon-size: 1.125rem;
+    }
+
+    // 6. layout modifiers
+    &--full-width {
+      display: flex;
+      width: 100%;
+    }
+
+    // 7. elements
+    &__icon,
+    &__spinner {
+      display: inline-flex;
+      flex-shrink: 0;
+      width: var(--okryshto-button-icon-size);
+      height: var(--okryshto-button-icon-size);
+
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    &__spinner svg {
+      animation: okryshto-button-spin 0.75s linear infinite;
+    }
+
+    &__label--hidden {
+      opacity: 0;
+    }
+
+    @keyframes okryshto-button-spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  }
+}

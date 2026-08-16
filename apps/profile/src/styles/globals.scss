@@ -1,0 +1,75 @@
+// The only global stylesheet: design tokens plus the page shell.
+// Everything else lives in a `*.module.scss` next to the component it styles.
+@use "./tokens";
+
+// Design-system normalize only scopes to `.okryshto-component`. Profile
+// sections need their own border-box reset so `width: 100%` + gutters don't
+// expand past the viewport (classic content-box overflow).
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.app-shell {
+  position: relative;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  overflow-x: clip;
+  background: var(--okryshto-bg-canvas);
+  color: var(--okryshto-text-primary);
+  font-family: var(--profile-font-sans), var(--okryshto-font-family-sans);
+
+  &__skip-link {
+    position: absolute;
+    top: 0.5rem;
+    left: 50%;
+    z-index: 30;
+    translate: -50% -200%;
+    padding: 0.75rem 1.25rem;
+    border-radius: var(--profile-radius-sm);
+    background: var(--okryshto-accent-primary);
+    color: var(--okryshto-accent-contrast);
+    text-decoration: none;
+
+    &:focus-visible {
+      translate: -50% 0;
+    }
+  }
+
+  // Fixed behind the content: the aurora field drifts while the page scrolls
+  // over it, which is what the Figma frame shows across its full height.
+  &__background {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  &__main {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+  }
+}
+
+// Anchored sections get a little breathing room when jumped to.
+:target {
+  scroll-margin-top: 1.5rem;
+}
+
+html {
+  overflow-x: clip;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

@@ -1,0 +1,602 @@
+{
+  "activity": {
+    "category": "Data & dev",
+    "aliases": []
+  },
+  "alert-triangle": {
+    "category": "Files & Status",
+    "aliases": []
+  },
+  "anchor": {
+    "category": "Objects",
+    "aliases": []
+  },
+  "aperture": {
+    "category": "Media",
+    "aliases": []
+  },
+  "archive": {
+    "category": "Chat & AI",
+    "aliases": []
+  },
+  "arrow-down": {
+    "category": "Arrows",
+    "aliases": []
+  },
+  "arrow-left": {
+    "category": "Arrows",
+    "aliases": []
+  },
+  "arrow-right": {
+    "category": "Arrows",
+    "aliases": []
+  },
+  "arrow-up": {
+    "category": "Arrows",
+    "aliases": []
+  },
+  "arrow-up-right": {
+    "category": "Arrows",
+    "aliases": []
+  },
+  "at-sign": {
+    "category": "Editing",
+    "aliases": []
+  },
+  "audio-lines": {
+    "category": "Chat & AI",
+    "aliases": []
+  },
+  "award": {
+    "category": "Fun & special",
+    "aliases": []
+  },
+  "battery": {
+    "category": "Data & dev",
+    "aliases": []
+  },
+  "bell": {
+    "category": "Objects",
+    "aliases": []
+  },
+  "bike": {
+    "category": "Maps",
+    "aliases": []
+  },
+  "bluetooth": {
+    "category": "Data & dev",
+    "aliases": []
+  },
+  "bold": {
+    "category": "Actions",
+    "aliases": []
+  },
+  "book-open": {
+    "category": "Chat & AI",
+    "aliases": []
+  },
+  "bookmark": {
+    "category": "Objects",
+    "aliases": []
+  },
+  "brand": {
+    "category": "Brand",
+    "aliases": ["logo", "mark", "okryshto"]
+  },
+  "briefcase": {
+    "category": "Objects",
+    "aliases": []
+  },
+  "bus": {
+    "category": "Maps",
+    "aliases": []
+  },
+  "calendar": {
+    "category": "Objects",
+    "aliases": []
+  },
+  "camera": {
+    "category": "Media",
+    "aliases": []
+  },
+  "car": {
+    "category": "Maps",
+    "aliases": []
+  },
+  "check": {
+    "category": "Core UI",
+    "aliases": []
+  },
+  "chevron-down": {
+    "category": "Chevrons",
+    "aliases": []
+  },
+  "chevron-left": {
+    "category": "Chevrons",
+    "aliases": []
+  },
+  "chevron-right": {
+    "category": "Chevrons",
+    "aliases": []
+  },
+  "chevron-up": {
+    "category": "Chevrons",
+    "aliases": []
+  },
+  "clock": {
+    "category": "Objects",
+    "aliases": []
+  },
+  "cloud": {
+    "category": "Nature & weather",
+    "aliases": []
+  },
+  "cloud-rain": {
+    "category": "Nature & weather",
+    "aliases": []
+  },
+  "code": {
+    "category": "Data & dev",
+    "aliases": []
+  },
+  "coffee": {
+    "category": "Maps",
+    "aliases": []
+  },
+  "compass": {
+    "category": "Fun & special",
+    "aliases": []
+  },
+  "copy": {
+    "category": "Actions",
+    "aliases": []
+  },
+  "cpu": {
+    "category": "Data & dev",
+    "aliases": []
+  },
+  "credit-card": {
+    "category": "Commerce & security",
+    "aliases": []
+  },
+  "crosshair": {
+    "category": "Maps",
+    "aliases": []
+  },
+  "crown": {
+    "category": "Fun & special",
+    "aliases": []
+  },
+  "database": {
+    "category": "Data & dev",
+    "aliases": []
+  },
+  "disc": {
+    "category": "Media",
+    "aliases": []
+  },
+  "download": {
+    "category": "Actions",
+    "aliases": []
+  },
+  "droplet": {
+    "category": "Nature & weather",
+    "aliases": []
+  },
+  "external-link": {
+    "category": "Chat & AI",
+    "aliases": []
+  },
+  "eye": {
+    "category": "Core UI",
+    "aliases": []
+  },
+  "eye-off": {
+    "category": "Core UI",
+    "aliases": []
+  },
+  "feather": {
+    "category": "Objects",
+    "aliases": []
+  },
+  "file": {
+    "category": "Files & Status",
+    "aliases": []
+  },
+  "film": {
+    "category": "Media",
+    "aliases": []
+  },
+  "filter": {
+    "category": "Core UI",
+    "aliases": []
+  },
+  "flame": {
+    "category": "Nature & weather",
+    "aliases": []
+  },
+  "folder": {
+    "category": "Objects",
+    "aliases": []
+  },
+  "footprints": {
+    "category": "Maps",
+    "aliases": []
+  },
+  "gamepad-2": {
+    "category": "Fun & special",
+    "aliases": []
+  },
+  "gem": {
+    "category": "Fun & special",
+    "aliases": []
+  },
+  "ghost": {
+    "category": "Fun & special",
+    "aliases": []
+  },
+  "gift": {
+    "category": "Objects",
+    "aliases": []
+  },
+  "git-branch": {
+    "category": "Data & dev",
+    "aliases": []
+  },
+  "github": {
+    "category": "Social",
+    "aliases": []
+  },
+  "globe": {
+    "category": "Objects",
+    "aliases": []
+  },
+  "grid": {
+    "category": "Actions",
+    "aliases": []
+  },
+  "hash": {
+    "category": "Editing",
+    "aliases": []
+  },
+  "headphones": {
+    "category": "Media",
+    "aliases": []
+  },
+  "heart": {
+    "category": "Objects",
+    "aliases": []
+  },
+  "home": {
+    "category": "Files & Status",
+    "aliases": []
+  },
+  "image": {
+    "category": "Maps",
+    "aliases": []
+  },
+  "inbox": {
+    "category": "Objects",
+    "aliases": []
+  },
+  "infinity": {
+    "category": "Fun & special",
+    "aliases": []
+  },
+  "info": {
+    "category": "Files & Status",
+    "aliases": []
+  },
+  "italic": {
+    "category": "Actions",
+    "aliases": []
+  },
+  "key": {
+    "category": "Commerce & security",
+    "aliases": []
+  },
+  "languages": {
+    "category": "Editing",
+    "aliases": []
+  },
+  "layers": {
+    "category": "Maps",
+    "aliases": []
+  },
+  "link": {
+    "category": "Chat & AI",
+    "aliases": []
+  },
+  "list": {
+    "category": "Actions",
+    "aliases": []
+  },
+  "lock": {
+    "category": "Maps",
+    "aliases": []
+  },
+  "log-out": {
+    "category": "Actions",
+    "aliases": []
+  },
+  "mail": {
+    "category": "Objects",
+    "aliases": []
+  },
+  "map-pin": {
+    "category": "Maps",
+    "aliases": []
+  },
+  "maximize": {
+    "category": "Maps",
+    "aliases": []
+  },
+  "menu": {
+    "category": "Core UI",
+    "aliases": []
+  },
+  "message-circle": {
+    "category": "Chat & AI",
+    "aliases": []
+  },
+  "message-square": {
+    "category": "Chat & AI",
+    "aliases": []
+  },
+  "mic": {
+    "category": "Chat & AI",
+    "aliases": []
+  },
+  "minus": {
+    "category": "Core UI",
+    "aliases": []
+  },
+  "monitor": {
+    "category": "Data & dev",
+    "aliases": []
+  },
+  "moon": {
+    "category": "Nature & weather",
+    "aliases": []
+  },
+  "more-horizontal": {
+    "category": "Media",
+    "aliases": []
+  },
+  "mouse": {
+    "category": "Editing",
+    "aliases": []
+  },
+  "music": {
+    "category": "Media",
+    "aliases": []
+  },
+  "navigation": {
+    "category": "Maps",
+    "aliases": []
+  },
+  "package": {
+    "category": "Objects",
+    "aliases": []
+  },
+  "palette": {
+    "category": "Fun & special",
+    "aliases": []
+  },
+  "paperclip": {
+    "category": "Files & Status",
+    "aliases": []
+  },
+  "pause": {
+    "category": "Media",
+    "aliases": []
+  },
+  "pen-tool": {
+    "category": "Actions",
+    "aliases": []
+  },
+  "pencil": {
+    "category": "Editing",
+    "aliases": []
+  },
+  "phone": {
+    "category": "Chat & AI",
+    "aliases": []
+  },
+  "play": {
+    "category": "Chat & AI",
+    "aliases": []
+  },
+  "plus": {
+    "category": "Core UI",
+    "aliases": []
+  },
+  "plus-circle": {
+    "category": "Editing",
+    "aliases": []
+  },
+  "qr-code": {
+    "category": "Core UI",
+    "aliases": []
+  },
+  "radio": {
+    "category": "Chat & AI",
+    "aliases": []
+  },
+  "refresh-cw": {
+    "category": "Chat & AI",
+    "aliases": []
+  },
+  "repeat": {
+    "category": "Actions",
+    "aliases": []
+  },
+  "rocket": {
+    "category": "Fun & special",
+    "aliases": []
+  },
+  "rotate-ccw": {
+    "category": "Actions",
+    "aliases": []
+  },
+  "scan": {
+    "category": "Core UI",
+    "aliases": []
+  },
+  "search": {
+    "category": "Core UI",
+    "aliases": []
+  },
+  "send": {
+    "category": "Actions",
+    "aliases": []
+  },
+  "server": {
+    "category": "Data & dev",
+    "aliases": []
+  },
+  "settings": {
+    "category": "Core UI",
+    "aliases": []
+  },
+  "share": {
+    "category": "Chat & AI",
+    "aliases": []
+  },
+  "shield": {
+    "category": "Commerce & security",
+    "aliases": []
+  },
+  "shopping-cart": {
+    "category": "Commerce & security",
+    "aliases": []
+  },
+  "shuffle": {
+    "category": "Actions",
+    "aliases": []
+  },
+  "skip-back": {
+    "category": "Media",
+    "aliases": []
+  },
+  "skip-forward": {
+    "category": "Media",
+    "aliases": []
+  },
+  "skull": {
+    "category": "Fun & special",
+    "aliases": []
+  },
+  "sliders": {
+    "category": "Core UI",
+    "aliases": []
+  },
+  "smartphone": {
+    "category": "Data & dev",
+    "aliases": []
+  },
+  "smile": {
+    "category": "Chat & AI",
+    "aliases": []
+  },
+  "sparkles": {
+    "category": "Chat & AI",
+    "aliases": []
+  },
+  "star": {
+    "category": "Objects",
+    "aliases": []
+  },
+  "sun": {
+    "category": "Nature & weather",
+    "aliases": []
+  },
+  "tag": {
+    "category": "Objects",
+    "aliases": []
+  },
+  "target": {
+    "category": "Data & dev",
+    "aliases": []
+  },
+  "terminal": {
+    "category": "Data & dev",
+    "aliases": []
+  },
+  "thermometer": {
+    "category": "Nature & weather",
+    "aliases": []
+  },
+  "thumbs-down": {
+    "category": "Chat & AI",
+    "aliases": []
+  },
+  "thumbs-up": {
+    "category": "Chat & AI",
+    "aliases": []
+  },
+  "trash": {
+    "category": "Editing",
+    "aliases": []
+  },
+  "trending-up": {
+    "category": "Data & dev",
+    "aliases": []
+  },
+  "trophy": {
+    "category": "Fun & special",
+    "aliases": []
+  },
+  "type": {
+    "category": "Editing",
+    "aliases": []
+  },
+  "umbrella": {
+    "category": "Objects",
+    "aliases": []
+  },
+  "underline": {
+    "category": "Actions",
+    "aliases": []
+  },
+  "unlock": {
+    "category": "Commerce & security",
+    "aliases": []
+  },
+  "upload": {
+    "category": "Actions",
+    "aliases": []
+  },
+  "user": {
+    "category": "Objects",
+    "aliases": []
+  },
+  "users": {
+    "category": "Chat & AI",
+    "aliases": []
+  },
+  "video": {
+    "category": "Chat & AI",
+    "aliases": []
+  },
+  "volume-2": {
+    "category": "Media",
+    "aliases": []
+  },
+  "wifi": {
+    "category": "Data & dev",
+    "aliases": []
+  },
+  "wind": {
+    "category": "Nature & weather",
+    "aliases": []
+  },
+  "x": {
+    "category": "Core UI",
+    "aliases": []
+  },
+  "zap": {
+    "category": "Nature & weather",
+    "aliases": []
+  }
+}

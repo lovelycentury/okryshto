@@ -1,0 +1,41 @@
+{
+  "name": "@okryshto/icons",
+  "version": "0.0.0",
+  "description": "Okryshto design system — SVG icon set",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./utils": {
+      "types": "./dist/utils.d.ts",
+      "default": "./dist/utils.js"
+    },
+    "./metadata.json": "./dist/metadata.json",
+    "./package.json": "./package.json",
+    "./*": "./dist/assets/*"
+  },
+  "scripts": {
+    "generate": "node scripts/generate.mjs",
+    "build": "pnpm generate && vite build",
+    "dev": "pnpm generate && vite build --watch",
+    "typecheck": "tsc --noEmit",
+    "lint": "oxlint --config ../oxlint-config/index.json ."
+  },
+  "devDependencies": {
+    "typescript": "catalog:",
+    "vite": "catalog:",
+    "vite-plugin-dts": "catalog:"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

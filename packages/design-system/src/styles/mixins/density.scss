@@ -1,0 +1,31 @@
+// Density mixins emit the `okryshto.density` layer (see layers.scss), which wins
+// over `okryshto.component`. Always used OUTSIDE `layers.component()` in a
+// component style block — nesting them inside is a bug (see okryshto-styling skill).
+
+@mixin compact {
+  @layer okryshto.density {
+    .okryshto-density-compact &,
+    :is(&).okryshto-density-compact {
+      @content;
+    }
+  }
+}
+
+@mixin default {
+  @layer okryshto.density {
+    &,
+    .okryshto-density-default &,
+    :is(&).okryshto-density-default {
+      @content;
+    }
+  }
+}
+
+@mixin cozy {
+  @layer okryshto.density {
+    .okryshto-density-cozy &,
+    :is(&).okryshto-density-cozy {
+      @content;
+    }
+  }
+}

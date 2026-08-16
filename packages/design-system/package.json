@@ -1,0 +1,29 @@
+{
+  "name": "@okryshto/design-system",
+  "version": "0.0.0",
+  "description": "Okryshto design system — CSS tokens, fonts, and base component styles (SCSS/BEM)",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": true,
+  "files": [
+    "src/styles",
+    "src/fonts",
+    "src/components"
+  ],
+  "exports": {
+    "./styles/*": "./src/styles/*",
+    "./fonts/*": "./src/fonts/*",
+    "./components/*": "./src/components/*",
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "sync:tokens": "node ../../tools/figma/sync-tokens.mjs",
+    "sync:icons": "node ../../tools/figma/sync-icons.mjs"
+  },
+  "devDependencies": {
+    "sass-embedded": "catalog:"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "name": "@okryshto/profile",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Personal profile site — Next.js App Router, server-side rendered, i18n via next-intl",
+  "scripts": {
+    "dev": "next dev --port 5200",
+    "build": "next build",
+    "start": "next start --port 5200",
+    "typecheck": "tsc --noEmit",
+    "lint": "oxlint --config ../../packages/oxlint-config/index.json ."
+  },
+  "dependencies": {
+    "@number-flow/react": "^0.6.2",
+    "@okryshto/design-system": "workspace:*",
+    "@okryshto/react": "workspace:*",
+    "next": "^16.3.0",
+    "next-intl": "^4.13.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:",
+    "@types/react": "^19.0.2",
+    "@types/react-dom": "^19.0.2",
+    "sass-embedded": "catalog:",
+    "typescript": "catalog:"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
