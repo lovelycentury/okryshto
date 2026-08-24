@@ -5,8 +5,10 @@ import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import { AnimatedBackground } from "@okryshto/react";
 import LocaleFab from "@/components/LocaleFab/LocaleFab";
+import ThemeFab from "@/components/ThemeFab/ThemeFab";
 import SiteFooter from "@/components/SiteFooter/SiteFooter";
 import { routing } from "@/i18n/routing";
+import { THEME_BOOTSTRAP_SCRIPT } from "@/lib/theme";
 import "@okryshto/design-system/styles/index.scss";
 import "@okryshto/react/style.css";
 import "@/styles/globals.scss";
@@ -64,7 +66,14 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
   const t = await getTranslations({ locale, namespace: "Metadata" });
 
   return (
-    <html lang={locale} className={`${inter.variable} ${jetBrainsMono.variable}`}>
+    <html
+      lang={locale}
+      className={`${inter.variable} ${jetBrainsMono.variable}`}
+      suppressHydrationWarning
+    >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: THEME_BOOTSTRAP_SCRIPT }} />
+      </head>
       <body>
         <NextIntlClientProvider>
           <div className="app-shell">
@@ -81,6 +90,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
               {children}
             </main>
             <SiteFooter />
+            <ThemeFab />
             <LocaleFab />
           </div>
         </NextIntlClientProvider>

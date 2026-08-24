@@ -34,16 +34,23 @@ export const PROJECTS: readonly {
   id: string;
   href: string;
   gradient: string;
+  gradientLight: string;
 }[] = [
   {
     id: "uni-donate",
     href: "https://etrr2-daaaa-aaaap-qcbha-cai.icp0.io/",
-    gradient: "linear-gradient(145.75deg, rgb(90, 58, 30) 14.286%, rgb(42, 22, 8) 85.714%)",
+    gradient:
+      "linear-gradient(152deg, rgb(186, 112, 52) 0%, rgb(92, 42, 16) 58%, rgb(38, 18, 8) 100%)",
+    gradientLight:
+      "linear-gradient(152deg, rgb(232, 164, 96) 0%, rgb(255, 226, 192) 52%, rgb(255, 246, 236) 100%)",
   },
   {
     id: "privateStorybook",
     href: CONTACT.storybook,
-    gradient: "linear-gradient(145.75deg, rgb(14, 75, 60) 14.286%, rgb(94, 230, 193) 85.714%)",
+    gradient:
+      "linear-gradient(152deg, rgb(36, 118, 96) 0%, rgb(18, 72, 60) 48%, rgb(72, 210, 176) 100%)",
+    gradientLight:
+      "linear-gradient(152deg, rgb(86, 196, 168) 0%, rgb(186, 238, 220) 52%, rgb(236, 252, 246) 100%)",
   },
   // {
   //   id: "orbit",
@@ -58,7 +65,10 @@ export const PROJECTS: readonly {
   {
     id: "ai-tooling-security",
     href: "https://github.com/lovelycentury/ai-tooling-security",
-    gradient: "linear-gradient(145.75deg, rgb(58, 31, 82) 14.286%, rgb(22, 14, 51) 85.714%)",
+    gradient:
+      "linear-gradient(152deg, rgb(118, 64, 158) 0%, rgb(58, 28, 96) 52%, rgb(28, 16, 58) 100%)",
+    gradientLight:
+      "linear-gradient(152deg, rgb(168, 122, 216) 0%, rgb(220, 204, 246) 52%, rgb(246, 240, 255) 100%)",
   },
 ];
 

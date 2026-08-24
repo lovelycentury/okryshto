@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import { getTranslations } from "next-intl/server";
 import { Logo, ProjectCard } from "@okryshto/react";
 import SectionHeading from "@/components/SectionHeading/SectionHeading";
@@ -12,7 +13,7 @@ export default async function ProjectsSection() {
       <SectionHeading eyebrow={t("eyebrow")} title={t("title")} />
 
       <div className={styles.grid}>
-        {PROJECTS.map(({ id, href, gradient }) => (
+        {PROJECTS.map(({ id, href, gradient, gradientLight }) => (
           <div className={styles.cell} key={id}>
             <ProjectCard
               className={styles.card}
@@ -20,7 +21,12 @@ export default async function ProjectsSection() {
               // @ts-ignore
               target="_blank"
               rel="noopener noreferrer"
-              style={{ backgroundImage: gradient }}
+              style={
+                {
+                  "--okryshto-project-card-fill": gradient,
+                  "--okryshto-project-card-fill-light": gradientLight,
+                } as CSSProperties
+              }
               logo={<Logo layout="compact" size={32} showLabel={false} />}
               title={t(`items.${id}.title`)}
               description={t(`items.${id}.description`)}

@@ -127,12 +127,14 @@
       left: 0.9375rem;
       bottom: 0.875rem;
       right: 0.9375rem;
+      z-index: 1;
       margin: 0;
       font-family: var(--okryshto-font-family-sans);
       font-weight: 600;
       font-size: var(--okryshto-font-size-md);
       line-height: 1.4;
-      color: var(--okryshto-text-primary);
+      // Sits on the dark scrim, not on the page — stays white in every theme.
+      color: #ffffff;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;

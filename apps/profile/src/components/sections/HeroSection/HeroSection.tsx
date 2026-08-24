@@ -40,10 +40,19 @@ export default async function HeroSection() {
         <div className={styles.portrait}>
           <div className={styles.plate}>
             <Photo
+              className={styles.photoDark}
               alt={t("portraitAlt")}
               variant="scrim"
               size="lg"
               image="/images/me.jpg"
+              caption="Oleksii K."
+            />
+            <Photo
+              className={styles.photoLight}
+              alt={t("portraitAlt")}
+              variant="scrim"
+              size="lg"
+              image="/images/me-light.jpg"
               caption="Oleksii K."
             />
             {/* <Icon name="iconUser" fontSize="large" className={styles.glyph} />

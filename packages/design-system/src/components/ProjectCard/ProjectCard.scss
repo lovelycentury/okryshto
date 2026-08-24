@@ -17,7 +17,9 @@
     overflow: hidden;
     border-radius: 1.75rem; // 28px
     background-image: linear-gradient(148.65deg, rgb(46, 74, 87) 14.286%, rgb(58, 46, 82) 85.714%);
-    color: var(--okryshto-text-primary);
+    // The card is a dark canvas of its own — ink stays light even when the
+    // host page is in a light theme.
+    color: #f5f5f7;
     text-decoration: none;
 
     &:focus-visible {
@@ -58,15 +60,15 @@
       width: 23.11cqw; // 110px
       height: 46.22cqw; // 220px
       border-radius: 4.62cqw; // 22px
-      background: var(--okryshto-bg-surface-raised);
-      border: var(--okryshto-1px-in-rem) solid var(--okryshto-border-default);
+      background: #16161a;
+      border: var(--okryshto-1px-in-rem) solid rgba(255, 255, 255, 0.12);
       pointer-events: none;
 
       &-screen {
         position: absolute;
         inset: 1.23cqw; // 5.87px
         border-radius: 3.39cqw; // 16.13px
-        background: var(--okryshto-bg-inset);
+        background: #080809;
       }
 
       &-notch {
@@ -76,7 +78,7 @@
         width: 7.09cqw; // 33.73px
         height: 1.23cqw; // 5.87px
         border-radius: 0.62cqw;
-        background: var(--okryshto-bg-canvas);
+        background: #0a0a0b;
       }
 
       &-line {
@@ -84,7 +86,7 @@
         left: 3.08cqw; // 14.67px
         height: 1.23cqw; // 5.87px
         border-radius: 0.62cqw;
-        background: var(--okryshto-border-strong);
+        background: rgba(255, 255, 255, 0.2);
 
         &--1 {
           top: 6.78cqw; // 32.27px
@@ -131,8 +133,9 @@
       width: 2.75rem; // 44px
       height: 2.75rem;
       border-radius: 0.8125rem; // 13px
-      background: var(--okryshto-glass-fill);
-      border: var(--okryshto-1px-in-rem) solid var(--okryshto-glass-border);
+      background: rgba(255, 255, 255, 0.12);
+      border: var(--okryshto-1px-in-rem) solid rgba(255, 255, 255, 0.18);
+      color: #f5f5f7;
 
       svg {
         width: 1.25rem; // 20px
@@ -158,13 +161,13 @@
       align-items: center;
       padding: 0.25rem 0.625rem; // 4px 10px
       border-radius: 9999px;
-      background: var(--okryshto-glass-fill);
-      border: var(--okryshto-1px-in-rem) solid var(--okryshto-glass-border);
+      background: rgba(255, 255, 255, 0.12);
+      border: var(--okryshto-1px-in-rem) solid rgba(255, 255, 255, 0.18);
       font-family: var(--okryshto-font-family-sans);
       font-weight: var(--okryshto-font-weight-medium);
       font-size: var(--okryshto-font-size-sm);
       line-height: 1rem;
-      color: var(--okryshto-text-primary);
+      color: #f5f5f7;
     }
 
     &__title {
@@ -174,7 +177,7 @@
       font-size: 1.25rem; // 20px — mobile-first; scales up with the card
       line-height: 1.625rem;
       letter-spacing: -0.03125rem;
-      color: var(--okryshto-text-primary);
+      color: #f5f5f7;
 
       @container (min-width: 360px) {
         font-size: 1.625rem; // 26px
@@ -188,7 +191,7 @@
       font-family: var(--okryshto-font-family-sans);
       font-size: 0.8125rem; // 13px
       line-height: 1.25rem;
-      color: var(--okryshto-text-secondary);
+      color: #c9c9d1;
 
       @container (min-width: 360px) {
         font-size: 0.875rem; // 14px

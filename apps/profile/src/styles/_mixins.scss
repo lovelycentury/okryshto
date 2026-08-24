@@ -82,7 +82,7 @@
   flex-shrink: 0;
   border-radius: 50%;
   background: var(--okryshto-accent-primary);
-  box-shadow: 0 0 0.5rem rgba(94, 230, 193, 0.8);
+  box-shadow: 0 0 0.5rem color-mix(in srgb, var(--okryshto-accent-primary) 80%, transparent);
 }
 
 /// Small square glass control — burger, close, carousel arrows.
