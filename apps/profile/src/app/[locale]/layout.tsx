@@ -90,8 +90,10 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
               {children}
             </main>
             <SiteFooter />
-            <ThemeFab />
-            <LocaleFab />
+            <div className="app-shell__fabs">
+              <ThemeFab />
+              <LocaleFab />
+            </div>
           </div>
         </NextIntlClientProvider>
       </body>
