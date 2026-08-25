@@ -61,7 +61,7 @@
     "title": "Where the platforms shipped.",
     "items": {
       "sporTechCompany": {
-        "company": "Sport service provider",
+        "company": "Datasport Germany GmbH",
         "role": "Frontend Lead — Senior Frontend Engineer",
         "period": "June 2023 — Present",
         "place": "Remote, Germany",
@@ -74,7 +74,7 @@
         "tags": ["React", "Payments", "CRM"]
       },
       "addTechCompany": {
-        "company": "Ads Platform",
+        "company": "MINT",
         "role": "Senior Frontend Developer",
         "period": "Nov 2021 — May 2023",
         "place": "Italy · Remote",
@@ -124,10 +124,10 @@
       "aws": "AWS",
       "vault": "Vault",
       "tdd": "TDD",
-      "english": "English (fluent)",
-      "german": "German (A2)",
-      "ukrainian": "Ukrainian (native)",
-      "russian": "Russian (fluent)"
+      "english": "English",
+      "german": "German",
+      "ukrainian": "Ukrainian",
+      "russian": "Russian"
     }
   },
   "Credibility": {

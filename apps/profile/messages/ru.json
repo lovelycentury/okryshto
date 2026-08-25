@@ -61,7 +61,7 @@
     "title": "Где платформы реально выходили.",
     "items": {
       "sporTechCompany": {
-        "company": "Провайдер спортивного сервиса",
+        "company": "Datasport Germany GmbH",
         "role": "Frontend Lead — Senior Frontend Engineer",
         "period": "Июнь 2023 — настоящее время",
         "place": "Remote, Германия",
@@ -74,7 +74,7 @@
         "tags": ["React", "Payments", "CRM"]
       },
       "addTechCompany": {
-        "company": "Рекласный агрегатор медиа-планов",
+        "company": "MINT",
         "role": "Senior Frontend Developer",
         "period": "Ноябрь 2021 — май 2023",
         "place": "через Devico Solutions · Remote",
@@ -125,10 +125,10 @@
       "aws": "AWS",
       "vault": "Vault",
       "tdd": "TDD",
-      "english": "Английский (свободно)",
-      "german": "Немецкий (A2)",
-      "ukrainian": "Украинский (родной)",
-      "russian": "Русский (свободно)"
+      "english": "Английский",
+      "german": "Немецкий",
+      "ukrainian": "Украинский",
+      "russian": "Русский"
     }
   },
   "Credibility": {
