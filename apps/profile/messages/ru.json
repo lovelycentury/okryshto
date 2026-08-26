@@ -13,7 +13,8 @@
     "primaryCta": "Смотреть работы",
     "secondaryCta": "Написать мне",
     "portraitAlt": "Портрет Алексея Крыштопы",
-    "portraitPlaceholder": "Добавьте фото"
+    "portraitPlaceholder": "Добавьте фото",
+    "fullName": "Алексей Криштопа"
   },
   "Intro": {
     "eyebrow": "Senior Frontend Engineer",

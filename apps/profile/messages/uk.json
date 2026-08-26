@@ -13,7 +13,8 @@
     "primaryCta": "Переглянути роботи",
     "secondaryCta": "Написати мені",
     "portraitAlt": "Портрет Олексія Криштопи",
-    "portraitPlaceholder": "Додайте фото"
+    "portraitPlaceholder": "Додайте фото",
+    "fullName": "Олексій Криштопа"
   },
   "Intro": {
     "eyebrow": "Senior Frontend Engineer",

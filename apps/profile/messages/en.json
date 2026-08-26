@@ -13,7 +13,8 @@
     "primaryCta": "See my work",
     "secondaryCta": "Get in touch",
     "portraitAlt": "Portrait of Oleksii Kryshtopa",
-    "portraitPlaceholder": "Drop your photo"
+    "portraitPlaceholder": "Drop your photo",
+    "fullName": "Oleksii Kryshtopa"
   },
   "Intro": {
     "eyebrow": "Senior Frontend Engineer",
