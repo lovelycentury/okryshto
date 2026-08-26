@@ -44,7 +44,7 @@ export default async function HeroSection() {
               alt={t("portraitAlt")}
               variant="scrim"
               size="lg"
-              image="/images/me.jpg"
+              image="/images/me-light.jpg"
               caption="Oleksii K."
             />
             <Photo
