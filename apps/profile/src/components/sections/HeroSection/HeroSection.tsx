@@ -45,7 +45,7 @@ export default async function HeroSection() {
               variant="scrim"
               size="lg"
               image="/images/me-light.jpg"
-              caption="Oleksii K."
+              caption="Oleksii Kryshtopa"
             />
             <Photo
               className={styles.photoLight}
@@ -53,7 +53,7 @@ export default async function HeroSection() {
               variant="scrim"
               size="lg"
               image="/images/me-light.jpg"
-              caption="Oleksii K."
+              caption="Oleksii Kryshtopa"
             />
             {/* <Icon name="iconUser" fontSize="large" className={styles.glyph} />
             <p className={styles.caption}>{t("portraitPlaceholder")}</p> */}
