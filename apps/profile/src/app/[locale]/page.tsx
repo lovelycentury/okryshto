@@ -19,10 +19,10 @@ export default function HomePage() {
         <IntroSection />
       </RevealOnView>
       <RevealOnView>
-        <ProjectsSection />
+        <ExperienceSection />
       </RevealOnView>
       <RevealOnView>
-        <ExperienceSection />
+        <ProjectsSection />
       </RevealOnView>
       <RevealOnView>
         <SkillsSection />

@@ -5,11 +5,26 @@
   @include m.section;
 }
 
-.body {
-  max-width: 32.5rem; // 520px
-  color: var(--okryshto-text-secondary);
+.copy {
+  display: flex;
+  width: 100%;
+  max-width: 40rem;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.lead {
+  margin: 0;
+  color: var(--okryshto-text-primary);
   font-weight: 500;
   @include m.display(h2);
+}
+
+.body {
+  margin: 0;
+  color: var(--okryshto-text-secondary);
+  font-weight: 500;
+  @include m.type(body-lg);
 }
 
 .actions {

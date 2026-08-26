@@ -1,14 +1,14 @@
 {
   "Metadata": {
     "title": "Oleksii Kryshtopa — Senior Frontend Engineer",
-    "description": "Senior-Frontend-Entwickler mit 5 Jahren Erfahrung in der umfassenden Betreuung von SaaS-Plattformen – Design-Systeme, zahlungskritische Abläufe und Rasterlayouts für mehr als 500.000 Teilnehmer.",
+    "description": "Senior Frontend Engineer mit 5 Jahren Erfahrung, aktuell leite ich das Frontend bei Datasport Germany. Ich kläre Anforderungen, bevor ich baue, entwerfe Systeme, die skalieren, und mentor Engineers nebenbei.",
     "skipToContent": "Zum Inhalt springen"
   },
   "Hero": {
     "availability": "Offen für ausgewählte Kooperationen",
-    "title": "Ich entwickle Plattformen, die in großem Maßstab bereitgestellt werden.",
-    "summary": "Senior-Frontend-Entwickler mit 5 Jahren Erfahrung in der umfassenden Betreuung von SaaS-Plattformen – Design-Systeme, zahlungskritische Abläufe und Rasterlayouts für mehr als 500.000 Teilnehmer.",
-    "role": "Senior Frontend Engineer · Design Systems",
+    "title": "Ich baue kaputte Systeme neu auf — und solche, die nicht kaputtgehen.",
+    "summary": "Senior Frontend Engineer mit 5 Jahren Erfahrung, aktuell leite ich das Frontend bei Datasport Germany. Ich kläre Anforderungen, bevor ich baue, entwerfe Systeme, die skalieren, und mentor Engineers nebenbei.",
+    "role": "Frontend Lead · Senior React Developer",
     "location": "Heilbronn, Germany",
     "primaryCta": "Mein Werk ansehen",
     "secondaryCta": "Kontakt aufnehmen",
@@ -18,8 +18,12 @@
   },
   "Intro": {
     "eyebrow": "Senior Frontend Engineer",
-    "title": "Über",
-    "body": "5 Jahre Erfahrung in der umfassenden Verantwortung für SaaS-Plattformen – von Designsystemen und zahlungsrelevanten Registrierungsabläufen bis hin zu Datentabellen für mehr als 500.000 Teilnehmer. Führung bedeutete hier nie nur einen Titel, sondern vielmehr, die Person zu sein, auf die sich andere verlassen, wenn das System aus den Fugen gerät.",
+    "title": "Über mich",
+    "lead": "Ich bin Senior Frontend Engineer mit 5 Jahren Erfahrung und leite aktuell das Frontend bei Datasport Germany. Ich halte es gerne kurz und klar — also auch hier.",
+    "drive": "Was mich antreibt: Systeme end-to-end verstehen — nicht nur das Spezifizierte bauen, sondern Anforderungen mit Product Ownern und Designern so lange klären, bis die Details wirklich klar sind.",
+    "scale": "Mir liegt daran, Dinge zu bauen, die über ein Feature hinaus skalieren — Designsysteme, wiederverwendbare Komponenten, Code, auf dem andere Engineers ohne Rätselraten aufbauen können.",
+    "mentoring": "Ich mentor gerne — Code Reviews, Pairing, Engineers zu eigenständigen Contributors entwickeln.",
+    "communication": "Und ich schätze direkte Kommunikation — lieber ein Problem früh markieren, als es spät auftauchen zu lassen. So bleibt das ganze Team in Bewegung.",
     "orbit": "Orbit",
     "privateStorybook": "okryshto.dev"
   },
@@ -63,28 +67,34 @@
     "items": {
       "sporTechCompany": {
         "company": "Datasport Germany GmbH",
-        "role": "Frontend Lead — Senior Frontend Engineer",
-        "period": "June 2023 — Present",
-        "place": "Remote, Germany",
-        "summary": "SaaS-Lösung für Sportveranstaltungen mit über 500.000 Teilnehmern – dynamische Anmeldung, Zahlungsabwicklung und ein einbettbares B2B-Widget.",
+        "role": "Frontend Lead / Senior React Developer",
+        "period": "Feb. 2023 — heute",
+        "place": "Deutschland · Remote",
+        "summary": "SaaS für Sportveranstaltungen mit 500K+ Teilnehmern — CRM, Registrierung, Zahlungen, einbettbares B2B-Widget und Athleten-Accounts.",
         "bullets": [
-          "Übernahm das Projekt nach einer fehlgeschlagenen CRM-Implementierung im Wert von 2 Mio. Euro: baute die Plattform neu auf und senkte die Betriebskosten von ca. 38.000 Euro pro Monat auf ca. 12.000 Euro pro Monat, wobei wichtige Kunden erhalten blieben.",
-          "Ich habe die Teilnehmerverwaltung und die öffentliche Registrierung von Anfang bis Ende umgesetzt und den Ablauf anschließend als einbettbares Widget aufbereitet, wodurch wir einen neuen B2B-Kunden gewinnen konnten.",
-          "Nachdem der Backend-Leiter das Unternehmen verlassen hatte, habe ich die Tickets und die Anforderungen an die Komponenten verfasst und den Neuaufbau der API geleitet."
+          "Leitete die Frontend-Architektur für ein Teilnehmer-CRM und eine Registrierungsplattform: Neuaufbau nach einem vorherigen Vendor-Engagement und schlankere Delivery bei Bindung aller Schlüsselkunden.",
+          "Baute das zentrale Teilnehmerformular neu auf (40K+ LOC, 40+ abhängige Felder, DSL-gesteuerte Konditionallogik) plus ein virtualisiertes Grid mit Tausenden von Zeilen.",
+          "Lieferte einen öffentlichen mehrstufigen Registrierungs-Wizard mit SEPA/PayPal/Payrexx-Zahlungen für High-Profile-Kundenlaunches.",
+          "Baute ein einbettbares, thembares Registrierungs-Widget (Web Components + MUI CSS-in-JS), das eine neue B2B-Integration ermöglichte.",
+          "Entwarf die Unternehmens-Gruppenregistrierung für Großveranstaltungen (500K+ Teilnehmer).",
+          "Baute ein privates, testgedecktes React/TypeScript-UI-Kit, das in mehreren internen Produkten wiederverwendet wird.",
+          "Baute eine Athleten-Account-Plattform.",
+          "Baute ein KI-Coaching-Produkt end-to-end, anfangs allein: Next.js/PWA-Frontend, NestJS-Backend und Anbindung an einen Python-basierten KI-Service — dessen Contracts habe ich direkt geprüft, um sie ins Frontend zu verdrahten. Später kam ein Backend-Engineer dazu, um die Delivery zu skalieren."
         ],
-        "tags": ["React", "Payments", "CRM"]
+        "tags": ["React", "Payments", "CRM", "Web Components"]
       },
       "addTechCompany": {
         "company": "MINT",
-        "role": "Senior Frontend Developer",
-        "period": "Nov 2021 — May 2023",
-        "place": "Italy · Remote",
-        "summary": "SaaS-Lösung für die Medienplanung mit einem virtualisierten Raster und Drag-and-Drop-Workflows.",
+        "role": "Senior Frontend Developer / Senior React Developer",
+        "period": "Nov. 2021 — März 2023",
+        "place": "Charkiw, Ukraine · Remote",
+        "summary": "SaaS für Medienplanung: Micro-Frontends, virtualisiertes Referenz-Grid und Drag-and-Drop-Workflows.",
         "bullets": [
-          "War für die Codequalität und Architektur der Medienplanungsplattform verantwortlich; habe die Medienplantabelle zum Referenzraster des Produkts gemacht.",
-          "Ich habe mich bewusst dafür entschieden, weiterhin operativ tätig zu bleiben: Ich habe eine Beförderung in eine Führungsposition abgelehnt, um weiter am Aufbau mitzuwirken."
+          "Verantwortlich für Micro-Frontends auf einer Medienplanungsplattform inkl. CI/CD (Jenkins, Bitbucket); Cross-Team-Code-Reviews und TDD.",
+          "Baute die Media-Plan-Tabelle neu auf (Spaltenbreite, Drag-and-Drop) — sie wurde zur Referenzimplementierung der Plattform.",
+          "Trug zum Launch eines zweiten Produkts bei und half, neue Engineering-Practices im Team zu etablieren."
         ],
-        "tags": ["React", "Virtualization", "Design systems"]
+        "tags": ["React", "Micro-frontends", "TDD"]
       }
     }
   },
@@ -196,13 +206,13 @@
     }
   },
   "Contact": {
-    "eyebrow": "Let's talk",
-    "title": "If you are shipping something that matters.",
-    "copyEmail": "Copy email address",
-    "copied": "Copied",
-    "availability": "GMT+1 · replies in a day",
+    "eyebrow": "Lass uns sprechen",
+    "title": "Wenn du etwas baust, das wirklich zählt.",
+    "copyEmail": "E-Mail-Adresse kopieren",
+    "copied": "Kopiert",
+    "availability": "GMT+1 · Antwort innerhalb eines Tages",
     "links": {
-      "email": "Email",
+      "email": "E-Mail",
       "linkedin": "LinkedIn",
       "github": "GitHub",
       "onyx": "onyx"
