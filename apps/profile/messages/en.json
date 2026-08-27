@@ -1,13 +1,13 @@
 {
   "Metadata": {
     "title": "Oleksii Kryshtopa — Senior Frontend Engineer",
-    "description": "Senior Frontend Engineer with 5 years of experience, currently leading frontend at Datasport Germany. I dig into requirements before I build, design systems that scale, and mentor engineers as I go.",
+    "description": "Senior Frontend Engineer with 5 years of experience, currently leading frontend at Datasport Germany.",
     "skipToContent": "Skip to content"
   },
   "Hero": {
     "availability": "Open to select collaborations",
     "title": "I rebuild systems that broke, and build ones that won't.",
-    "summary": "Senior Frontend Engineer with 5 years of experience, currently leading frontend at Datasport Germany. I dig into requirements before I build, design systems that scale, and mentor engineers as I go.",
+    "summary": "Senior Frontend Engineer with 5 years of experience, currently leading frontend at Datasport Germany.",
     "role": "Frontend Lead · Senior React Developer",
     "location": "Heilbronn, Germany",
     "primaryCta": "See my work",
@@ -36,7 +36,7 @@
     "items": {
       "uni-donate": {
         "title": "uni-donate",
-        "description": "Blockchain donation platform. Learned Svelte from zero in one week to ship it — the win earned an invitation to the United Nations office in Qatar.",
+        "description": "A blockchain donation platform on the Internet Computer — on-chain giving for universities, without the usual payment rails. Built in Svelte after learning it from zero in one week.",
         "tags": ["Svelte", "ICP", "Blockchain"]
       },
       "privateStorybook": {
@@ -70,16 +70,12 @@
         "role": "Frontend Lead / Senior React Developer",
         "period": "Feb 2023 — Present",
         "place": "Germany · Remote",
-        "summary": "Sports-event SaaS for 500K+ participants — CRM, registration, payments, an embeddable B2B widget, and athlete accounts.",
+        "summary": "Took over a platform after a high-value CRM project had failed. Restructured the team. Cut monthly costs by over 70%. All key clients stayed.",
         "bullets": [
-          "Led frontend architecture for a participant-management CRM and registration platform, rebuilding it after a prior vendor engagement and restructuring delivery for a leaner cost base while retaining all key clients.",
-          "Rebuilt the core participant form (40K+ LOC, 40+ interdependent fields, DSL-driven conditional logic) plus a virtualized grid handling thousands of rows.",
-          "Shipped a public multi-step registration wizard with SEPA/PayPal/Payrexx payments, supporting high-profile client launches.",
-          "Built an embeddable, themeable registration widget (web components + MUI CSS-in-JS) that enabled a new B2B integration.",
-          "Designed corporate group registration for large-scale events (500K+ participants).",
-          "Built a private, test-covered React/TypeScript UI kit reused across multiple internal products.",
-          "Built an athlete account platform.",
-          "Built an AI coaching product end-to-end, solo at the start — Next.js/PWA frontend, NestJS backend, and integration with a Python-based AI service, reviewing its contracts directly to wire them into the frontend. A backend engineer later joined to help scale delivery."
+          "Rewrote the mission-critical components that caused the failure.",
+          "Rebuilt the core participant-management CRM from scratch. 40+ interdependent fields with DSL-driven logic. A virtualized grid. Multi-step registration with SEPA, PayPal, and Payrexx for high-profile launches.",
+          "Built an embeddable, themeable registration widget (web components + MUI). Enabled new B2B integrations. Group registration for 500K+ participants.",
+          "Built a shared UI kit. Built an AI coaching product (Next.js PWA, NestJS, Python)."
         ],
         "tags": ["React", "Payments", "CRM", "Web Components"]
       },
@@ -88,11 +84,11 @@
         "role": "Senior Frontend Developer / Senior React Developer",
         "period": "Nov 2021 — Mar 2023",
         "place": "Kharkiv, Ukraine · Remote",
-        "summary": "Media-planning SaaS: micro-frontends, a virtualized reference grid, and drag-and-drop workflows.",
+        "summary": "Owned code quality and TDD culture on a media-planning platform.",
         "bullets": [
-          "Owned micro-frontends on a media-planning platform with CI/CD (Jenkins, Bitbucket); took part in cross-team code reviews and TDD.",
-          "Rebuilt the platform's media-plan data table (column resizing, drag-and-drop), which became the reference implementation across the platform.",
-          "Contributed to launching a second product and piloted new engineering practices for the team."
+          "Rebuilt the data table into a reference implementation during a micro-frontend migration.",
+          "Built a shared UI kit adopted by 8 teams.",
+          "Clarified requirements with business owners. Mentored junior engineers."
         ],
         "tags": ["React", "Micro-frontends", "TDD"]
       }
@@ -112,7 +108,7 @@
       "react": "React",
       "vue": "Vue 3",
       "next": "Next.js",
-      "node": "Node.js",
+      "node": "Node.js (NestJS)",
       "svelte": "Svelte",
       "postgresql": "PostgreSQL",
       "mongodb": "MongoDB",
@@ -135,10 +131,10 @@
       "aws": "AWS",
       "vault": "Vault",
       "tdd": "TDD",
-      "english": "English",
-      "german": "German",
-      "ukrainian": "Ukrainian",
-      "russian": "Russian"
+      "english": "English (fluent)",
+      "german": "German (B1+)",
+      "ukrainian": "Ukrainian (native)",
+      "russian": "Russian (native)"
     }
   },
   "Credibility": {
@@ -157,7 +153,7 @@
     "quote": "\"Huge thanks for this amazing contribution — we really appreciate that you invested time learning and aligning to onyx principles.\"",
     "quoteAuthor": "SchwarzIT/onyx",
     "awardTitle": "1st Place — South Africa Blockchain in Education Hackathon",
-    "awardMeta": "Stellenbosch University · Feb 2024 · $10,000 Internet Computer developer grant, with Denys K. & Eduard P.",
+    "awardMeta": "Stellenbosch University · Feb 2024. Prize: a $10,000 Internet Computer developer grant and an invitation to the United Nations office in Qatar.",
     "awardLink": "immersiveeducation.org"
   },
   "BeyondCode": {

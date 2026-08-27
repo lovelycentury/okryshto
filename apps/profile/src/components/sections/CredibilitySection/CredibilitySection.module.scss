@@ -80,6 +80,16 @@
   @include m.type(label-md);
 }
 
+.quoteAuthorLink {
+  color: inherit;
+  font: inherit;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 .award {
   box-shadow: var(--profile-glow-accent);
 }

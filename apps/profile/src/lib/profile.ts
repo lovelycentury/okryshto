@@ -20,6 +20,7 @@ export const CONTACT = {
   linkedinHandle: "oleksii-k",
   onyx: "https://onyx.schwarz/about/team.html",
   onyxHandle: "onyx.schwarz",
+  onyxPrs: "https://github.com/SchwarzIT/onyx/pulls?q=is%3Apr+author%3Alovelycentury+is%3Aclosed",
   orbit: "https://orbit.okryshto.dev",
   site: "https://profile.okryshto.dev",
   storybook: "https://storybook.okryshto.dev",

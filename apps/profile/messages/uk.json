@@ -1,13 +1,13 @@
 {
   "Metadata": {
     "title": "Олексій Криштопа — Senior Frontend Engineer",
-    "description": "Senior Frontend Engineer з 5 роками досвіду, зараз веду frontend у Datasport Germany. Спочатку розбираю вимоги, потім будую; проєктую системи, що масштабуються, і менторю інженерів по ходу.",
+    "description": "Senior Frontend Engineer з 5 роками досвіду. Зараз веду frontend у Datasport Germany.",
     "skipToContent": "Перейти до вмісту"
   },
   "Hero": {
     "availability": "Відкритий до обраних співпраць",
     "title": "Я перезбираю системи, що зламались, і будую такі, що не зламаються.",
-    "summary": "Senior Frontend Engineer з 5 роками досвіду, зараз веду frontend у Datasport Germany. Спочатку розбираю вимоги, потім будую; проєктую системи, що масштабуються, і менторю інженерів по ходу.",
+    "summary": "Senior Frontend Engineer з 5 роками досвіду. Зараз веду frontend у Datasport Germany.",
     "role": "Frontend Lead · Senior React Developer",
     "location": "Гайльбронн, Німеччина",
     "primaryCta": "Переглянути роботи",
@@ -36,7 +36,7 @@
     "items": {
       "uni-donate": {
         "title": "uni-donate",
-        "description": "Блокчейн-платформа для донатів. Вивчив Svelte з нуля за тиждень, щоб її випустити — перемога принесла запрошення до офісу ООН у Катарі.",
+        "description": "Блокчейн-платформа для донатів на Internet Computer: університети отримують кошти on-chain, без звичних платіжних рейок. Зібрана на Svelte — вивчив з нуля за тиждень, щоб випустити.",
         "tags": ["Svelte", "ICP", "Блокчейн"]
       },
       "privateStorybook": {
@@ -70,16 +70,12 @@
         "role": "Frontend Lead / Senior React Developer",
         "period": "Лютий 2023 — дотепер",
         "place": "Німеччина · Remote",
-        "summary": "SaaS для спортивних івентів на 500K+ учасників — CRM, реєстрація, платежі, embeddable B2B-віджет і акаунти атлетів.",
+        "summary": "Прийняв платформу після проваленого CRM-проєкту. Перезібрав команду. Місячні витрати впали більш ніж на 70%. Усі ключові клієнти лишились.",
         "bullets": [
-          "Очолив frontend-архітектуру CRM для управління учасниками та платформи реєстрації: перезібрав її після попереднього вендора й перебудував delivery під меншу вартість, зберігши всіх ключових клієнтів.",
-          "Перезібрав основну форму учасника (40K+ LOC, 40+ взаємозалежних полів, DSL для умовної логіки) і віртуалізовану сітку на тисячі рядків.",
-          "Запустив публічний багатокроковий wizard реєстрації з платежами SEPA/PayPal/Payrexx — під high-profile запуски клієнтів.",
-          "Зібрав embeddable, themeable віджет реєстрації (web components + MUI CSS-in-JS), який відкрив нову B2B-інтеграцію.",
-          "Спроєктував корпоративну групову реєстрацію для великих івентів (500K+ учасників).",
-          "Зібрав приватний React/TypeScript UI-kit з покриттям тестами, який перевикористовується в кількох внутрішніх продуктах.",
-          "Зібрав платформу акаунтів атлетів.",
-          "Зібрав AI coaching продукт end-to-end, спочатку сам: Next.js/PWA frontend, NestJS backend і інтеграція з Python AI-сервісом — контракти розбирав сам, щоб підключити їх у фронт. Пізніше підключився backend-інженер, щоб масштабувати delivery."
+          "Переписав критичні компоненти, через які провалилась попередня поставка.",
+          "Перезібрав CRM учасників з нуля. 40+ взаємозалежних полів з DSL-логікою. Віртуалізована сітка. Багатокрокова реєстрація з SEPA, PayPal і Payrexx.",
+          "Зібрав embeddable віджет реєстрації з темами (web components + MUI). Нові B2B-інтеграції. Групова реєстрація на 500K+ учасників.",
+          "Зібрав спільний UI-kit. Зібрав AI coaching продукт (Next.js PWA, NestJS, Python)."
         ],
         "tags": ["React", "Payments", "CRM", "Web Components"]
       },
@@ -88,11 +84,11 @@
         "role": "Senior Frontend Developer / Senior React Developer",
         "period": "Листопад 2021 — березень 2023",
         "place": "Харків, Україна · Remote",
-        "summary": "Media-planning SaaS: micro-frontends, віртуалізована reference-сітка та drag-and-drop workflows.",
+        "summary": "Відповідав за якість коду і культуру TDD на media-planning платформі.",
         "bullets": [
-          "Відповідав за micro-frontends на media-planning платформі з CI/CD (Jenkins, Bitbucket); брав участь у крос-командних код-рев’ю та TDD.",
-          "Перезібрав таблицю media-plan (ресайз колонок, drag-and-drop) — вона стала еталонною реалізацією по всій платформі.",
-          "Допоміг запустити другий продукт і пілотувати нові інженерні практики в команді."
+          "Перезібрав таблицю даних у еталонну реалізацію під час міграції на micro-frontends.",
+          "Зібрав спільний UI-kit. Його взяли 8 команд.",
+          "Узгоджував вимоги з бізнесом. Менторив джунів."
         ],
         "tags": ["React", "Micro-frontends", "TDD"]
       }
@@ -112,7 +108,7 @@
       "react": "React",
       "vue": "Vue 3",
       "next": "Next.js",
-      "node": "Node.js",
+      "node": "Node.js (NestJS)",
       "svelte": "Svelte",
       "postgresql": "PostgreSQL",
       "mongodb": "MongoDB",
@@ -135,10 +131,10 @@
       "aws": "AWS",
       "vault": "Vault",
       "tdd": "TDD",
-      "english": "Англійська",
-      "german": "Німецька",
-      "ukrainian": "Українська",
-      "russian": "Російська"
+      "english": "Англійська (вільно)",
+      "german": "Німецька (B1+)",
+      "ukrainian": "Українська (рідна)",
+      "russian": "Російська (рідна)"
     }
   },
   "Credibility": {
@@ -157,7 +153,7 @@
     "quote": "«Величезна подяка за цей чудовий внесок — ми справді цінуємо, що ви витратили час на вивчення принципів onyx і дотримання їх.»",
     "quoteAuthor": "Тімлід, SchwarzIT/onyx",
     "awardTitle": "1 місце — South Africa Blockchain in Education Hackathon",
-    "awardMeta": "Стелленбоський університет · лютий 2024 · грант розробника Internet Computer на $10 000, разом з Денисом Кушнаровим та Едуардом Перетокіним",
+    "awardMeta": "Стелленбоський університет · лютий 2024. Приз: грант розробника Internet Computer на $10 000 і запрошення до офісу ООН у Катарі.",
     "awardLink": "immersiveeducation.org"
   },
   "BeyondCode": {

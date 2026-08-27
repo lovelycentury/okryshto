@@ -1,13 +1,13 @@
 {
   "Metadata": {
     "title": "Алексей Крыштопа — Senior Frontend Engineer",
-    "description": "Senior Frontend Engineer с 5 годами опыта, сейчас веду frontend в Datasport Germany. Сначала разбираю требования, потом строю; проектирую системы, которые масштабируются, и менторю инженеров по ходу.",
+    "description": "Senior Frontend Engineer с 5 годами опыта. Сейчас веду frontend в Datasport Germany.",
     "skipToContent": "Перейти к содержимому"
   },
   "Hero": {
     "availability": "Открыт к избранным сотрудничествам",
     "title": "Я пересобираю сломанные системы и строю такие, которые не сломаются.",
-    "summary": "Senior Frontend Engineer с 5 годами опыта, сейчас веду frontend в Datasport Germany. Сначала разбираю требования, потом строю; проектирую системы, которые масштабируются, и менторю инженеров по ходу.",
+    "summary": "Senior Frontend Engineer с 5 годами опыта. Сейчас веду frontend в Datasport Germany.",
     "role": "Frontend Lead · Senior React Developer",
     "location": "Хайльбронн, Германия",
     "primaryCta": "Смотреть работы",
@@ -36,7 +36,7 @@
     "items": {
       "uni-donate": {
         "title": "uni-donate",
-        "description": "Блокчейн-платформа для донатов. Выучил Svelte с нуля за неделю, чтобы её выпустить — победа принесла приглашение в офис ООН в Катаре.",
+        "description": "Блокчейн-платформа для донатов на Internet Computer: университеты получают средства on-chain, без привычных платёжных рельс. Собрана на Svelte — выучил с нуля за неделю, чтобы выпустить.",
         "tags": ["Svelte", "ICP", "Блокчейн"]
       },
       "privateStorybook": {
@@ -70,16 +70,12 @@
         "role": "Frontend Lead / Senior React Developer",
         "period": "Февраль 2023 — настоящее время",
         "place": "Германия · Remote",
-        "summary": "SaaS для спортивных ивентов на 500K+ участников — CRM, регистрация, платежи, embeddable B2B-виджет и аккаунты атлетов.",
+        "summary": "Принял платформу после проваленного CRM-проекта. Пересобрал команду. Месячные расходы упали более чем на 70%. Все ключевые клиенты остались.",
         "bullets": [
-          "Возглавил frontend-архитектуру CRM для управления участниками и платформы регистрации: пересобрал её после предыдущего вендора и перестроил delivery под меньшую стоимость, сохранив всех ключевых клиентов.",
-          "Пересобрал основную форму участника (40K+ LOC, 40+ взаимозависимых полей, DSL для условной логики) и виртуализированную сетку на тысячи строк.",
-          "Запустил публичный многошаговый wizard регистрации с платежами SEPA/PayPal/Payrexx — под high-profile запуски клиентов.",
-          "Собрал embeddable, themeable виджет регистрации (web components + MUI CSS-in-JS), который открыл новую B2B-интеграцию.",
-          "Спроектировал корпоративную групповую регистрацию для крупных ивентов (500K+ участников).",
-          "Собрал приватный React/TypeScript UI-kit с покрытием тестами, который переиспользуется в нескольких внутренних продуктах.",
-          "Собрал платформу аккаунтов атлетов.",
-          "Собрал AI coaching продукт end-to-end, сначала сам: Next.js/PWA frontend, NestJS backend и интеграция с Python AI-сервисом — контракты разбирал сам, чтобы подключить их во фронт. Позже подключился backend-инженер, чтобы масштабировать delivery."
+          "Переписал критические компоненты, из-за которых провалилась предыдущая поставка.",
+          "Пересобрал CRM участников с нуля. 40+ взаимозависимых полей с DSL-логикой. Виртуализированная сетка. Многошаговая регистрация с SEPA, PayPal и Payrexx.",
+          "Собрал embeddable виджет регистрации с темами (web components + MUI). Новые B2B-интеграции. Групповая регистрация на 500K+ участников.",
+          "Собрал общий UI-kit. Собрал AI coaching продукт (Next.js PWA, NestJS, Python)."
         ],
         "tags": ["React", "Payments", "CRM", "Web Components"]
       },
@@ -88,11 +84,11 @@
         "role": "Senior Frontend Developer / Senior React Developer",
         "period": "Ноябрь 2021 — март 2023",
         "place": "Харьков, Украина · Remote",
-        "summary": "Media-planning SaaS: micro-frontends, виртуализированная reference-сетка и drag-and-drop workflows.",
+        "summary": "Отвечал за качество кода и культуру TDD на media-planning платформе.",
         "bullets": [
-          "Отвечал за micro-frontends на media-planning платформе с CI/CD (Jenkins, Bitbucket); участвовал в кросс-командных код-ревью и TDD.",
-          "Пересобрал таблицу media-plan (ресайз колонок, drag-and-drop) — она стала эталонной реализацией по всей платформе.",
-          "Помог запустить второй продукт и пилотировать новые инженерные практики в команде."
+          "Пересобрал таблицу данных в эталонную реализацию во время миграции на micro-frontends.",
+          "Собрал общий UI-kit. Его взяли 8 команд.",
+          "Согласовывал требования с бизнесом. Менторил джунов."
         ],
         "tags": ["React", "Micro-frontends", "TDD"]
       }
@@ -112,7 +108,7 @@
       "react": "React",
       "vue": "Vue 3",
       "next": "Next.js",
-      "node": "Node.js",
+      "node": "Node.js (NestJS)",
       "svelte": "Svelte",
       "postgresql": "PostgreSQL",
       "mongodb": "MongoDB",
@@ -135,10 +131,10 @@
       "aws": "AWS",
       "vault": "Vault",
       "tdd": "TDD",
-      "english": "Английский",
-      "german": "Немецкий",
-      "ukrainian": "Украинский",
-      "russian": "Русский"
+      "english": "Английский (свободно)",
+      "german": "Немецкий (B1+)",
+      "ukrainian": "Украинский (родной)",
+      "russian": "Русский (родной)"
     }
   },
   "Credibility": {
@@ -157,7 +153,7 @@
     "quote": "«Огромная благодарность за этот замечательный вклад — мы действительно ценим, что вы потратили время на изучение принципов onyx и следование им.»",
     "quoteAuthor": "Тимлид, SchwarzIT/onyx",
     "awardTitle": "1 место — South Africa Blockchain in Education Hackathon",
-    "awardMeta": "Стелленбосский университет · февраль 2024 · грант разработчика Internet Computer на $10 000, вместе с Денисом Кушнарёвым и Эдуардом Перетокиным",
+    "awardMeta": "Стелленбосский университет · февраль 2024. Приз: грант разработчика Internet Computer на $10 000 и приглашение в офис ООН в Катаре.",
     "awardLink": "immersiveeducation.org"
   },
   "BeyondCode": {

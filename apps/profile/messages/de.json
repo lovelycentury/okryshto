@@ -1,13 +1,13 @@
 {
   "Metadata": {
     "title": "Oleksii Kryshtopa — Senior Frontend Engineer",
-    "description": "Senior Frontend Engineer mit 5 Jahren Erfahrung, aktuell leite ich das Frontend bei Datasport Germany. Ich kläre Anforderungen, bevor ich baue, entwerfe Systeme, die skalieren, und mentor Engineers nebenbei.",
+    "description": "Ich bin Senior Frontend Engineer. Ich habe 5 Jahre Erfahrung. Ich leite das Frontend bei Datasport Germany.",
     "skipToContent": "Zum Inhalt springen"
   },
   "Hero": {
-    "availability": "Offen für ausgewählte Kooperationen",
-    "title": "Ich baue kaputte Systeme neu auf — und solche, die nicht kaputtgehen.",
-    "summary": "Senior Frontend Engineer mit 5 Jahren Erfahrung, aktuell leite ich das Frontend bei Datasport Germany. Ich kläre Anforderungen, bevor ich baue, entwerfe Systeme, die skalieren, und mentor Engineers nebenbei.",
+    "availability": "Offen für ausgewählte Projekte.",
+    "title": "Ich baue kaputte Systeme neu auf. Neue Systeme sollen nicht kaputtgehen.",
+    "summary": "Ich bin Senior Frontend Engineer. Ich habe 5 Jahre Erfahrung. Ich leite das Frontend bei Datasport Germany.",
     "role": "Frontend Lead · Senior React Developer",
     "location": "Heilbronn, Germany",
     "primaryCta": "Mein Werk ansehen",
@@ -19,50 +19,50 @@
   "Intro": {
     "eyebrow": "Senior Frontend Engineer",
     "title": "Über mich",
-    "lead": "Ich bin Senior Frontend Engineer mit 5 Jahren Erfahrung und leite aktuell das Frontend bei Datasport Germany. Ich halte es gerne kurz und klar — also auch hier.",
-    "drive": "Was mich antreibt: Systeme end-to-end verstehen — nicht nur das Spezifizierte bauen, sondern Anforderungen mit Product Ownern und Designern so lange klären, bis die Details wirklich klar sind.",
-    "scale": "Mir liegt daran, Dinge zu bauen, die über ein Feature hinaus skalieren — Designsysteme, wiederverwendbare Komponenten, Code, auf dem andere Engineers ohne Rätselraten aufbauen können.",
-    "mentoring": "Ich mentor gerne — Code Reviews, Pairing, Engineers zu eigenständigen Contributors entwickeln.",
-    "communication": "Und ich schätze direkte Kommunikation — lieber ein Problem früh markieren, als es spät auftauchen zu lassen. So bleibt das ganze Team in Bewegung.",
+    "lead": "Ich bin Senior Frontend Engineer mit 5 Jahren Erfahrung. Ich leite das Frontend bei Datasport Germany. Ich schreibe kurz und klar. Das mache ich auch hier.",
+    "drive": "Was mich antreibt: Ich will Systeme ganz verstehen. Ich baue nicht nur nach der Spec. Ich kläre Anforderungen mit Product Ownern und Designern. Die Details müssen klar sein.",
+    "scale": "Ich baue mehr als nur ein Feature. Ich baue Design Systems. Ich baue wiederverwendbare Komponenten. Andere Engineers nutzen den Code ohne Raten.",
+    "mentoring": "Ich mag Mentoring. Ich mache Code Review und Pairing. Ich helfe Engineers, selbstständig zu werden.",
+    "communication": "Ich mag direkte Kommunikation. Ich zeige ein Problem früh. Nicht erst spät. So bleibt das Team in Bewegung.",
     "orbit": "Orbit",
     "privateStorybook": "okryshto.dev"
   },
   "Projects": {
-    "eyebrow": "Side quests",
-    "title": "Pet projects.",
-    "previous": "Previous project",
-    "next": "Next project",
-    "goToSlide": "Go to project {number}",
+    "eyebrow": "Nebenquests",
+    "title": "Privatprojekte.",
+    "previous": "Vorheriges Projekt",
+    "next": "Nächstes Projekt",
+    "goToSlide": "Zum Projekt {number}",
     "items": {
       "uni-donate": {
         "title": "uni-donate",
-        "description": "Blockchain-Spendenplattform. Ich habe mir Svelte innerhalb einer Woche von Grund auf beigebracht, um das Projekt fertigzustellen – dieser Erfolg brachte mir eine Einladung ins Büro der Vereinten Nationen in Katar ein.",
+        "description": "Eine Blockchain-Spendenplattform auf dem Internet Computer: Universitäten erhalten Mittel on-chain, ohne die üblichen Zahlungswege. Gebaut mit Svelte — in einer Woche von null gelernt, um zu liefern.",
         "tags": ["Svelte", "ICP", "Blockchain"]
       },
       "privateStorybook": {
         "title": "Private Storybook",
-        "description": "Ein „Dark-First“-Designsystem, das direkt aus TypeScript in Figma generiert wird: Komponenten, Varianten, Symbole, Tokens und Seitenvorlagen aus einer einzigen Quelle der Wahrheit.",
+        "description": "Ein „Dark-First“-Designsystem. Es generiert direkt aus TypeScript in Figma: Komponenten, Varianten, Symbole, Tokens und Seitenvorlagen — alles aus einer einzigen Quelle.",
         "tags": ["TypeScript", "Figma Plugin API"]
       },
       "orbit": {
         "title": "Orbit",
-        "description": "Eine öffentliche Karte mit Selbst-Einleitungszugang: Zugang beantragen, sich vorstellen, genehmigen lassen, Nutzlast herunterladen.",
+        "description": "Eine öffentliche Karte mit eigenem Zugangsprozess: Zugang beantragen, sich vorstellen, genehmigt werden, Nutzlast herunterladen.",
         "tags": ["Web", "Maps", "Access flow"]
       },
       "omm": {
         "title": "Omm",
-        "description": "Interne Dashboard hinter benutzerdefiniertem SSO — Überblick, CRUD über Punkte und Überprüfung der Intro-Anfragen aus Orbit.",
+        "description": "Ein internes Dashboard hinter eigenem SSO. Es gibt einen Überblick, CRUD für Punkte, und prüft die Intro-Anfragen aus Orbit.",
         "tags": ["Dashboard", "Keycloak SSO"]
       },
       "ai-tooling-security": {
         "title": "AI Tooling Security",
-        "description": "Untersuchung der Tools für KI-Agenten und der darin vorhandenen Schwachstellen – Erstellung eines Bedrohungsmodells, das aufzeigt, was passiert, wenn ein kompromittierter Agent auf „docker.sock“ zugreift, sowie Entwicklung eines Prototyps für eine Proxy-Schicht, die die Ausgabe des Agenten filtert.",
+        "description": "Eine Untersuchung von Tools für KI-Agenten und ihren Schwachstellen. Ich habe ein Bedrohungsmodell erstellt: Was passiert, wenn ein kompromittierter Agent Zugriff auf „docker.sock“ bekommt? Dazu habe ich einen Prototyp für eine Proxy-Schicht gebaut, die die Ausgabe des Agenten filtert.",
         "tags": ["Security", "MCP", "Threat modelling"]
       }
     }
   },
   "Experience": {
-    "eyebrow": "Experience",
+    "eyebrow": "Berufserfahrung",
     "title": "Wohin die Plattformen geliefert wurden.",
     "items": {
       "sporTechCompany": {
@@ -70,16 +70,12 @@
         "role": "Frontend Lead / Senior React Developer",
         "period": "Feb. 2023 — heute",
         "place": "Deutschland · Remote",
-        "summary": "SaaS für Sportveranstaltungen mit 500K+ Teilnehmern — CRM, Registrierung, Zahlungen, einbettbares B2B-Widget und Athleten-Accounts.",
+        "summary": "Ich übernahm die Plattform nach einem gescheiterten CRM-Projekt. Ich stellte das Team neu auf. Die Monatskosten sanken um über 70%. Alle wichtigen Kunden blieben.",
         "bullets": [
-          "Leitete die Frontend-Architektur für ein Teilnehmer-CRM und eine Registrierungsplattform: Neuaufbau nach einem vorherigen Vendor-Engagement und schlankere Delivery bei Bindung aller Schlüsselkunden.",
-          "Baute das zentrale Teilnehmerformular neu auf (40K+ LOC, 40+ abhängige Felder, DSL-gesteuerte Konditionallogik) plus ein virtualisiertes Grid mit Tausenden von Zeilen.",
-          "Lieferte einen öffentlichen mehrstufigen Registrierungs-Wizard mit SEPA/PayPal/Payrexx-Zahlungen für High-Profile-Kundenlaunches.",
-          "Baute ein einbettbares, thembares Registrierungs-Widget (Web Components + MUI CSS-in-JS), das eine neue B2B-Integration ermöglichte.",
-          "Entwarf die Unternehmens-Gruppenregistrierung für Großveranstaltungen (500K+ Teilnehmer).",
-          "Baute ein privates, testgedecktes React/TypeScript-UI-Kit, das in mehreren internen Produkten wiederverwendet wird.",
-          "Baute eine Athleten-Account-Plattform.",
-          "Baute ein KI-Coaching-Produkt end-to-end, anfangs allein: Next.js/PWA-Frontend, NestJS-Backend und Anbindung an einen Python-basierten KI-Service — dessen Contracts habe ich direkt geprüft, um sie ins Frontend zu verdrahten. Später kam ein Backend-Engineer dazu, um die Delivery zu skalieren."
+          "Ich schrieb die kritischen Teile neu. Diese Teile hatten den Fehler verursacht.",
+          "Ich baute das CRM für Teilnehmer neu. Es hatte 40+ abhängige Felder. Die Logik kam aus einer DSL. Es gab ein schnelles Grid. Ein Wizard nutzt SEPA, PayPal und Payrexx.",
+          "Ich baute ein einbettbares Registrierungs-Widget. Es hat ein eigenes Theme. Technik: Web Components und MUI. Damit kamen neue B2B-Integrationen. Es gibt Gruppenregistrierung für 500.000+ Teilnehmer.",
+          "Ich baute ein gemeinsames UI-Kit. Ich baute ein KI-Coaching-Produkt. Stack: Next.js PWA, NestJS und Python."
         ],
         "tags": ["React", "Payments", "CRM", "Web Components"]
       },
@@ -88,43 +84,43 @@
         "role": "Senior Frontend Developer / Senior React Developer",
         "period": "Nov. 2021 — März 2023",
         "place": "Charkiw, Ukraine · Remote",
-        "summary": "SaaS für Medienplanung: Micro-Frontends, virtualisiertes Referenz-Grid und Drag-and-Drop-Workflows.",
+        "summary": "Ich war verantwortlich für Code-Qualität und TDD. Das war auf einer Media-Planning-Plattform.",
         "bullets": [
-          "Verantwortlich für Micro-Frontends auf einer Medienplanungsplattform inkl. CI/CD (Jenkins, Bitbucket); Cross-Team-Code-Reviews und TDD.",
-          "Baute die Media-Plan-Tabelle neu auf (Spaltenbreite, Drag-and-Drop) — sie wurde zur Referenzimplementierung der Plattform.",
-          "Trug zum Launch eines zweiten Produkts bei und half, neue Engineering-Practices im Team zu etablieren."
+          "Ich baute die Tabelle neu. Sie wurde zum Vorbild. Das war während einer Micro-Frontend-Migration.",
+          "Ich baute ein gemeinsames UI-Kit. 8 Teams nutzen es.",
+          "Ich klärte Anforderungen mit dem Business. Ich coachte Junior Engineers."
         ],
         "tags": ["React", "Micro-frontends", "TDD"]
       }
     }
   },
   "Skills": {
-    "eyebrow": "Toolkit",
+    "eyebrow": "Werkzeuge",
     "title": "Womit ich arbeite.",
     "groups": {
-      "core": "Core Technologies",
-      "architecture": "Frontend Architecture",
-      "operations": "Development & Operations",
-      "languages": "Languages"
+      "core": "Kerntechnologien",
+      "architecture": "Frontend-Architektur",
+      "operations": "Entwicklung & Betrieb",
+      "languages": "Sprachen"
     },
     "items": {
       "typescript": "TypeScript",
       "react": "React",
       "vue": "Vue 3",
       "next": "Next.js",
-      "node": "Node.js",
+      "node": "Node.js (NestJS)",
       "svelte": "Svelte",
       "postgresql": "PostgreSQL",
       "mongodb": "MongoDB",
-      "rest": "REST APIs",
-      "design-systems": "Design systems",
-      "headless": "Headless components",
+      "rest": "REST-APIs",
+      "design-systems": "Designsysteme",
+      "headless": "Headless-Komponenten",
       "wai-aria": "WAI-ARIA",
       "tanstack-query": "TanStack Query",
       "redux": "Redux (+Saga)",
       "react-hook-form": "react-hook-form",
       "fsd": "FSD",
-      "virtualization": "Virtualization",
+      "virtualization": "Virtualisierung",
       "jest": "Jest",
       "playwright": "Playwright",
       "storybook": "Storybook",
@@ -135,10 +131,10 @@
       "aws": "AWS",
       "vault": "Vault",
       "tdd": "TDD",
-      "english": "English",
-      "german": "German",
-      "ukrainian": "Ukrainian",
-      "russian": "Russian"
+      "english": "Englisch (fließend)",
+      "german": "Deutsch (B1+)",
+      "ukrainian": "Ukrainisch (Muttersprache)",
+      "russian": "Russisch (Muttersprache)"
     }
   },
   "Credibility": {
@@ -154,10 +150,10 @@
         "label": "Hackathon winner"
       }
     },
-    "quote": "\"Vielen, vielen Dank für diesen großartigen Beitrag – wir wissen es wirklich sehr zu schätzen, dass du dir die Zeit genommen hast, dich mit den Onyx-Prinzipien vertraut zu machen und dich daran auszurichten.\"",
+    "quote": "\"Vielen Dank für diesen großartigen Beitrag. Wir schätzen es sehr, dass du dir die Zeit genommen hast, die Onyx-Prinzipien zu verstehen und dich daran zu halten.\"",
     "quoteAuthor": "SchwarzIT/onyx",
     "awardTitle": "1. Platz – Hackathon „Blockchain im Bildungswesen“ in Südafrika",
-    "awardMeta": "Universität Stellenbosch · Februar 2024 · 10.000 $ Fördermittel für Internet-Computer-Entwickler, mit Denys K. und Eduard P.",
+    "awardMeta": "Universität Stellenbosch · Februar 2024. Preis: 10.000 $ Fördermittel für Internet-Computer-Entwickler und eine Einladung zum Büro der Vereinten Nationen in Katar.",
     "awardLink": "immersiveeducation.org"
   },
   "BeyondCode": {
@@ -166,26 +162,26 @@
     "items": {
       "music": {
         "title": "Musik, 15 Jahre",
-        "body": "Blockflöte seit meinem vierten Lebensjahr – ich habe Noten vor Buchstaben gelernt – und Trompete von 11 bis 19. Händel, Albinoni, Piazzolla; ausschließlich Originalwerke. Die Musik hat mir Präzision beigebracht: Kleine Details summieren sich zu Meisterwerken – oder zu Fehlern."
+        "body": "Ich spiele Blockflöte seit meinem vierten Lebensjahr. Ich lernte Noten vor Buchstaben. Trompete spielte ich von 11 bis 19 Jahren: Händel, Albinoni, Piazzolla, immer Originalwerke. Die Musik lehrte mich Präzision: Kleine Details summieren sich zu Meisterwerken — oder zu Fehlern."
       },
       "boxing": {
         "title": "Boxen, 1,5 Jahre",
-        "body": "Ein Jahr und ein halbes Jahr damit. Disziplin und Ruhe, wenn man getroffen wird."
+        "body": "Eineinhalb Jahre Boxen. Es lehrte mich Disziplin und Ruhe, auch wenn man getroffen wird."
       },
       "books": {
         "title": "Bücher",
-        "body": "Tom Sawyer, die orthodoxe Bibel, und auf der Neulese-Liste: Goethes Faust, Dante, Gorkis Danko — der Mann, der alles allein getragen hat. Alles allein zu tragen war meine größte Schwäche; Delegation ist die Lösung."
+        "body": "Tom Sawyer und die orthodoxe Bibel. Als Nächstes will ich lesen: Goethes Faust, Dante, und Gorkis Danko — die Geschichte eines Mannes, der alles allein trägt. Alles allein zu tragen war meine größte Schwäche. Delegation ist die Lösung."
       },
       "pattern-matching": {
         "title": "Pattern-matching",
-        "body": "Von Natur aus aufmerksam – ich merke mir wichtige Fakten und stelle wie ein Detektiv Zusammenhänge her. Das hat mir Schwachstellen aufgedeckt; dafür werde ich aber auch als paranoid bezeichnet. Beides sind die tatsächlichen Kosten derselben Fähigkeit."
+        "body": "Ich bin von Natur aus aufmerksam. Ich merke mir wichtige Fakten und finde Zusammenhänge, wie ein Detektiv. Das hilft mir, Schwachstellen zu erkennen. Manche nennen das paranoid. Beides kommt aus derselben Fähigkeit."
       }
     }
   },
   "Links": {
-    "eyebrow": "Selected links",
+    "eyebrow": "Ausgewählte Links",
     "title": "Ein paar Türen, die es sich zu öffnen lohnt.",
-    "summary": "Die kurze Liste — Arbeit, Worte und wo man mich findet. Alles andere kann warten.",
+    "summary": "Die kurze Liste: Arbeit, Worte, und wo man mich findet. Alles andere kann warten.",
     "items": {
       "github": {
         "title": "GitHub",
@@ -193,7 +189,7 @@
       },
       "onyx": {
         "title": "onyx design system",
-        "subtitle": "Ausgewählter Autor— SchwarzIT"
+        "subtitle": "Ausgewählter Autor — SchwarzIT"
       },
       "linkedin": {
         "title": "LinkedIn",

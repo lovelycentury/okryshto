@@ -20,7 +20,11 @@ export default async function CredibilitySection() {
 
       <figure className={styles.quote}>
         <blockquote className={styles.quoteText}>{t("quote")}</blockquote>
-        <figcaption className={styles.quoteAuthor}>{t("quoteAuthor")}</figcaption>
+        <figcaption className={styles.quoteAuthor}>
+          <a className={styles.quoteAuthorLink} href={CONTACT.onyxPrs}>
+            {t("quoteAuthor")}
+          </a>
+        </figcaption>
       </figure>
 
       <div className={styles.award}>
