@@ -33,7 +33,7 @@ export interface FieldProps {
    */
   hideLabel?: boolean;
   /**
-   * Required.
+   * Marks the field required and shows a dante asterisk after the label.
    *
    * @default false
    * @type {boolean}

@@ -57,4 +57,10 @@ describe("DateField", () => {
     fireEvent.click(screen.getByRole("button", { name: "Open calendar" }));
     expect(document.querySelector(".okryshto-calendar")).toBeInTheDocument();
   });
+
+  it("shows a required asterisk after the label", () => {
+    const { container } = render(<DateField label="Date" required />);
+    expect(container.querySelector(".okryshto-date-field__required")).toHaveTextContent("*");
+    expect(screen.getByRole("textbox")).toBeRequired();
+  });
 });

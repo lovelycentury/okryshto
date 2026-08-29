@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { AnimatedBackground } from "../AnimatedBackground/AnimatedBackground";
+import { StaticBackground } from "../StaticBackground/StaticBackground";
 import { Logo } from "./Logo";
 
 /**
@@ -22,7 +22,7 @@ const meta: Meta<typeof Logo> = {
     },
   },
   render: (args) => (
-    <AnimatedBackground preset="void" style={{ width: "100%", height: "600px" }}>
+    <StaticBackground preset="void" style={{ width: "100%", height: "600px" }}>
       <div
         style={{
           display: "flex",
@@ -34,7 +34,7 @@ const meta: Meta<typeof Logo> = {
       >
         <Logo {...args} />
       </div>
-    </AnimatedBackground>
+    </StaticBackground>
   ),
   parameters: {
     layout: "fullscreen",

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // oxlint-disable no-console
 /**
- * Usage: pnpm storybook <package>   (e.g. `pnpm storybook react` for packages/react)
+ * Usage: pnpm storybook <package>   (e.g. `pnpm storybook react` or `pnpm storybook iam`)
  *
  * Fails if <package> has no "storybook" script. Otherwise, before starting
  * Storybook, it launches `dev` (vite build --watch) in every workspace
@@ -18,13 +18,16 @@ const rootDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..")
 
 const pkgArg = process.argv[2];
 if (!pkgArg) {
-  console.error("Usage: pnpm storybook <package>  (e.g. pnpm storybook react)");
+  console.error("Usage: pnpm storybook <package>  (e.g. pnpm storybook react, pnpm storybook iam)");
   process.exit(1);
 }
 
-const pkgJsonPath = path.join(rootDir, "packages", pkgArg, "package.json");
-if (!existsSync(pkgJsonPath)) {
-  console.error(`error: no package at packages/${pkgArg}`);
+const pkgJsonPath = [
+  path.join(rootDir, "packages", pkgArg, "package.json"),
+  path.join(rootDir, "apps", pkgArg, "package.json"),
+].find((candidate) => existsSync(candidate));
+if (!pkgJsonPath) {
+  console.error(`error: no package at packages/${pkgArg} or apps/${pkgArg}`);
   process.exit(1);
 }
 

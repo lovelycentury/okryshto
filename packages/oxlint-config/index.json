@@ -37,6 +37,7 @@
   },
   "ignorePatterns": [
     "**/dist/**",
+    "**/dist_keycloak/**",
     "**/node_modules/**",
     "**/storybook-static/**",
     "**/.histoire/**",

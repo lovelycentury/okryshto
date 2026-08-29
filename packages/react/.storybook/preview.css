@@ -68,7 +68,7 @@
   height: 100%;
   /*
    * Inset the story inside the full-bleed scene — keeps controls off the
-   * noisy/black edges of the animated background.
+   * noisy/black edges of the static background.
    */
   padding: 2.5rem;
   background: transparent;

@@ -1,4 +1,4 @@
-# Production stack: profile.okryshto.dev + storybook.okryshto.dev
+# Production stack: profile.okryshto.dev + storybook.okryshto.dev + iam.okryshto.dev
 #
 # Ports 80/443 are NOT published — Caddy in ~/vps-infra owns them.
 # This Caddy sits on the internal network and receives traffic from it
@@ -36,7 +36,7 @@ services:
       - caddy_data:/data
       - caddy_config:/config
     networks: [edge, vps-infra]
-    depends_on: [profile, storybook]
+    depends_on: [profile, storybook, iam]
     <<: *logging
 
   profile:
@@ -71,4 +71,27 @@ services:
       timeout: 3s
       retries: 3
       start_period: 5s
+    <<: *logging
+
+  iam:
+    image: ghcr.io/lovelycentury/okryshto/iam:latest
+    restart: unless-stopped
+    environment:
+      KC_HTTP_ENABLED: "true"
+      KC_PROXY_HEADERS: xforwarded
+      KC_HOSTNAME: iam.okryshto.dev
+      KC_HEALTH_ENABLED: "true"
+      KC_BOOTSTRAP_ADMIN_USERNAME: ${KC_BOOTSTRAP_ADMIN_USERNAME:-}
+      KC_BOOTSTRAP_ADMIN_PASSWORD: ${KC_BOOTSTRAP_ADMIN_PASSWORD:-}
+    networks: [edge]
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "bash -c 'exec 3<>/dev/tcp/127.0.0.1/9000; printf \"GET /health/ready HTTP/1.1\\r\\nHost: localhost\\r\\nConnection: close\\r\\n\\r\\n\" >&3; grep -q UP <&3'",
+        ]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+      start_period: 90s
     <<: *logging

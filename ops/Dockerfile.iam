@@ -1,0 +1,45 @@
+# syntax=docker/dockerfile:1.7
+#
+# @okryshto/iam — Keycloakify login theme packaged as a Keycloak provider JAR.
+#
+# BUILD CONTEXT IS THE MONOREPO ROOT:
+#   docker build -f ops/Dockerfile.iam -t ghcr.io/lovelycentury/okryshto/iam:latest .
+#
+# Runtime is Keycloak 26.7.2 with the theme JAR in /opt/keycloak/providers/.
+# First pass uses `start-dev` (embedded DB). Production needs Postgres + `start --optimized`.
+
+FROM node:22-slim AS base
+ENV PNPM_HOME="/pnpm" \
+    PATH="/pnpm:$PATH" \
+    CI="true"
+RUN corepack enable
+WORKDIR /repo
+
+FROM base AS deps
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+RUN --mount=type=cache,id=pnpm-store,target=/pnpm/store \
+    pnpm fetch
+
+FROM deps AS build
+# Keycloakify packages the theme with Maven.
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends default-jdk-headless maven \
+    && rm -rf /var/lib/apt/lists/*
+COPY . .
+RUN --mount=type=cache,id=pnpm-store,target=/pnpm/store \
+    pnpm install --frozen-lockfile --prefer-offline
+# `...` builds workspace libs (@okryshto/react etc.) then the Vite theme bundle.
+# keycloakify then wraps that bundle in the Keycloak provider JAR.
+RUN --mount=type=cache,id=m2,target=/root/.m2 \
+    pnpm --filter "@okryshto/iam..." --if-present run build \
+ && pnpm --filter "@okryshto/iam" exec keycloakify build
+
+FROM quay.io/keycloak/keycloak:26.7.2
+COPY --from=build \
+    /repo/apps/iam/dist_keycloak/keycloak-theme-for-kc-all-other-versions.jar \
+    /opt/keycloak/providers/okryshto-theme.jar
+ENV KC_HEALTH_ENABLED=true \
+    KC_HTTP_ENABLED=true
+EXPOSE 8080 9000
+ENTRYPOINT ["/opt/keycloak/bin/kc.sh"]
+CMD ["start-dev", "--health-enabled=true", "--http-enabled=true"]

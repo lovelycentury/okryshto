@@ -73,6 +73,12 @@ describe("TextField", () => {
     expect(screen.getByLabelText("Email")).toBeDisabled();
   });
 
+  it("shows a required asterisk after the label", () => {
+    const { container } = render(<TextField label="Email" required />);
+    expect(container.querySelector(".okryshto-text-field__required")).toHaveTextContent("*");
+    expect(screen.getByRole("textbox")).toBeRequired();
+  });
+
   it("fires onChange with the typed value", () => {
     const onChange = vi.fn();
     render(<TextField label="Email" onChange={onChange} />);

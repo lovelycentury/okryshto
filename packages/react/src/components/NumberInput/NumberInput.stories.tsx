@@ -19,6 +19,7 @@ const meta: Meta<typeof NumberInput> = {
     disabled: false,
     hideLabel: false,
     fullWidth: false,
+    required: false,
   },
   argTypes: {
     size: { control: "inline-radio", options: ["small", "medium", "large"] },
@@ -35,6 +36,11 @@ type Story = StoryObj<typeof NumberInput>;
  * This example shows the default state.
  */
 export const Default: Story = {};
+
+/**
+ * This example shows required.
+ */
+export const Required: Story = { args: { required: true } };
 
 /**
  * This example shows chevrons.

@@ -17,6 +17,7 @@ const meta: Meta<typeof TextField> = {
     disabled: false,
     hideLabel: false,
     fullWidth: false,
+    required: false,
   },
   argTypes: {
     size: { control: "inline-radio", options: ["small", "medium", "large"] },
@@ -36,6 +37,10 @@ export const Default: Story = {};
  * This example shows filled.
  */
 export const Filled: Story = { args: { defaultValue: "hello@oleksii.dev" } };
+/**
+ * This example shows required.
+ */
+export const Required: Story = { args: { required: true } };
 /**
  * This example shows the error state.
  */

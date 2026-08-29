@@ -6,6 +6,9 @@ coverage
 pnpm-lock.yaml
 *.min.js
 *.min.css
+dist_keycloak
+**/keycloakify-dev-resources/**
+apps/iam/src/kc.gen.tsx
 
 # Generated output — keep byte-identical to what the generators emit
 *.generated.*

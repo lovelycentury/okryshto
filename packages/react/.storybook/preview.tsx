@@ -6,7 +6,7 @@ import "./preview.css";
 import "./docs-template.scss";
 import { okryshtoTheme } from "./theme";
 import docsTemplate from "./docs-template.mdx";
-import { AnimatedBackground } from "../src/components/AnimatedBackground/AnimatedBackground";
+import { StaticBackground } from "../src/components/StaticBackground/StaticBackground";
 
 /**
  * Components consume design tokens as CSS custom properties (`--okryshto-*`),
@@ -14,8 +14,8 @@ import { AnimatedBackground } from "../src/components/AnimatedBackground/Animate
  * globally here; real apps do the same at their entry point.
  *
  * Dark-only: the design system has no light palette yet. Every story sits on
- * `AnimatedBackground` instead of a flat canvas colour (except the
- * AnimatedBackground stories themselves, which demo the scene).
+ * `StaticBackground` instead of a flat canvas colour (except the background
+ * stories themselves, which demo the scene).
  *
  * Docs follow the sit-onyx pattern: global autodocs, expanded controls, and a
  * shared docs page template (Title → Description → Primary → Controls → Stories).
@@ -31,7 +31,7 @@ const preview: Preview = {
       exclude: ["ref", "key", "className", "style"],
     },
     backgrounds: { disable: true },
-    // No Storybook chrome padding — the animated stage must be edge-to-edge.
+    // No Storybook chrome padding — the stage must be edge-to-edge.
     layout: "fullscreen",
     docs: {
       theme: okryshtoTheme,
@@ -74,7 +74,9 @@ const preview: Preview = {
       // `--brand-docs` class makes this canvas the only scrollport.
       const isBrandDocs = Boolean(context.parameters.brandDocs);
       const isDocs = context.viewMode === "docs";
-      const skipScene = context.title === "Media/AnimatedBackground";
+      const skipScene =
+        context.title === "Media/AnimatedBackground" ||
+        context.title === "Media/StaticBackground";
 
       return (
         <div
@@ -88,13 +90,7 @@ const preview: Preview = {
         >
           {!skipScene && (
             <div className="okryshto-storybook-bg" aria-hidden="true">
-              <AnimatedBackground
-                preset="aurora"
-                quality="medium"
-                scrim
-                parallax
-                fireworks={false}
-              />
+              <StaticBackground preset="aurora" quality="medium" scrim />
             </div>
           )}
           <div

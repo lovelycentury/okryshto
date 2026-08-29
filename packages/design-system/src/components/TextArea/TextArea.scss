@@ -1,12 +1,14 @@
 @use "../../styles/mixins/layers.scss";
 @use "../../styles/mixins/visibility.scss";
+@use "../../styles/mixins/field.scss";
 
 .okryshto-text-area {
   @include layers.component() {
     // 1. full variable API, defaults = color "primary" (mint focus ring), size "medium"
     --okryshto-text-area-border-color: var(--okryshto-border-default);
     --okryshto-text-area-focus-border-color: var(--okryshto-accent-primary);
-    --okryshto-text-area-glow: drop-shadow(0 0 2.5rem rgba(94, 230, 193, 0.24));
+    --okryshto-text-area-glow: 0 0 2.5rem rgba(94, 230, 193, 0.24);
+    --okryshto-text-area-glow-dante: 0 0 0.4375rem rgba(255, 61, 139, 0.35);
     --okryshto-text-area-padding-inline: 0.875rem;
     --okryshto-text-area-padding-block: 0.75rem;
     --okryshto-text-area-font-size: 1rem;
@@ -38,6 +40,8 @@
       }
     }
 
+    @include field.required-mark;
+
     &__control {
       display: flex;
       box-sizing: border-box;
@@ -46,26 +50,32 @@
       border: var(--okryshto-1px-in-rem) solid var(--okryshto-text-area-border-color);
       border-radius: 0.625rem;
       background: var(--okryshto-bg-surface);
-      box-shadow: 0 0 0 0 transparent;
+      box-shadow:
+        0 0 0 0 transparent,
+        0 0 2.5rem transparent;
       transition:
-        border-color var(--okryshto-duration-sm) ease,
-        box-shadow var(--okryshto-duration-sm) ease,
-        filter var(--okryshto-duration-sm) ease;
+        border-color var(--okryshto-duration-sm) ease-out,
+        box-shadow var(--okryshto-duration-sm) ease-out;
 
       &:focus-within {
         border-color: var(--okryshto-text-area-focus-border-color);
-        box-shadow: 0 0 0 0.03125rem var(--okryshto-text-area-focus-border-color);
-        filter: var(--okryshto-text-area-glow);
+        box-shadow:
+          0 0 0 0.03125rem var(--okryshto-text-area-focus-border-color),
+          var(--okryshto-text-area-glow);
       }
     }
 
     &--error &__control {
       border-color: var(--okryshto-feedback-danger);
-      box-shadow: 0 0 0 0.03125rem var(--okryshto-feedback-danger);
+      box-shadow:
+        0 0 0 0.03125rem var(--okryshto-feedback-danger),
+        0 0 2.5rem transparent;
     }
 
     &--error &__control:focus-within {
-      filter: none;
+      box-shadow:
+        0 0 0 0.03125rem var(--okryshto-feedback-danger),
+        0 0 2.5rem transparent;
     }
 
     &__textarea {
@@ -134,8 +144,9 @@
     // 3. color modifier — rare, tints the focus ring/glow (e.g. Dante theme moments)
     &--color-dante &__control:focus-within {
       border-color: var(--okryshto-accent-dante);
-      box-shadow: 0 0 0 0.03125rem var(--okryshto-accent-dante);
-      filter: drop-shadow(0 0 0.4375rem rgba(255, 61, 139, 0.35));
+      box-shadow:
+        0 0 0 0.03125rem var(--okryshto-accent-dante),
+        var(--okryshto-text-area-glow-dante);
     }
 
     // 4. size

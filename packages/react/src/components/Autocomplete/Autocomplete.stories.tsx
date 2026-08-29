@@ -46,7 +46,7 @@ const meta: Meta<typeof Autocomplete> = {
     fullWidth: false,
     multiple: false,
     freeSolo: false,
-    openOnFocus: true,
+    openOnFocus: false,
     loading: false,
     required: false,
   },
@@ -98,7 +98,7 @@ export const FreeSolo: Story = {
 /**
  * This example shows the loading state.
  */
-export const Loading: Story = { args: { loading: true, open: true, inputValue: "mik" } };
+export const Loading: Story = { args: { loading: true, inputValue: "mik" } };
 /**
  * This example shows the error state.
  */
@@ -108,14 +108,14 @@ export const Error: Story = { args: { error: true, helperText: "Pick someone fro
  */
 export const AutoHighlight: Story = {
   name: "autoHighlight — Enter commits without arrowing",
-  args: { autoHighlight: true, defaultInputValue: "mik", open: true },
+  args: { autoHighlight: true, defaultInputValue: "mik" },
 };
 /**
  * This example shows filter selected.
  */
 export const FilterSelected: Story = {
   name: "filterSelectedOptions",
-  args: { multiple: true, filterSelectedOptions: true, defaultValue: [people[0]], open: true },
+  args: { multiple: true, filterSelectedOptions: true, defaultValue: [people[0]] },
 };
 
 // `Meta<typeof Autocomplete>` erases the component's generic, so stories whose
@@ -131,7 +131,6 @@ export const Grouped: Story = {
       placeholder="Search cities…"
       options={cities}
       groupBy={(option) => option.region}
-      open
     />
   ),
 };
@@ -184,7 +183,6 @@ export const CustomOption: Story = {
     <Autocomplete
       label="City"
       options={cities}
-      open
       renderOption={(props, option, state) => (
         <OptionRow {...props}>
           <OptionLabel>{option.label}</OptionLabel>
@@ -240,7 +238,6 @@ export const RecipeTwoLineOption: Story = {
     <Autocomplete
       label="People"
       options={people}
-      open
       renderOption={(props, option, state) => (
         <OptionRow {...props}>
           <span
@@ -318,7 +315,6 @@ export const RecipeGroupsAndEmpty: Story = {
       placeholder="Search cities…"
       options={cities}
       groupBy={(option) => option.region}
-      open
       renderGroup={({ key, label, group, children }) => (
         <li key={key} role="presentation">
           <span
@@ -353,7 +349,7 @@ export const RecipeGroupsAndEmpty: Story = {
  */
 export const WiderPopup: Story = {
   name: "popupWidth",
-  args: { popupWidth: 420, open: true, helperText: "Panel is wider than the field" },
+  args: { popupWidth: 420, helperText: "Panel is wider than the field" },
 };
 
 /**

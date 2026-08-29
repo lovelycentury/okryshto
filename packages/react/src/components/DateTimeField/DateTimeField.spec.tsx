@@ -67,4 +67,10 @@ describe("DateTimeField", () => {
     fireEvent.click(screen.getByRole("button", { name: "Open date time picker" }));
     expect(document.querySelector(".okryshto-date-time-picker")).toBeInTheDocument();
   });
+
+  it("shows a required asterisk after the label", () => {
+    const { container } = render(<DateTimeField label="Date & time" required />);
+    expect(container.querySelector(".okryshto-date-time-field__required")).toHaveTextContent("*");
+    expect(screen.getByRole("textbox")).toBeRequired();
+  });
 });

@@ -12,12 +12,22 @@
 /// `--okryshto-text-field-border-color`, and so on. Every consumer keeps its own
 /// BEM block, because `&` resolves at the include site.
 ///
+/// Dante asterisk that `Field` (and NumberInput / TextArea) append after the
+/// label when `required` is set.
+@mixin required-mark {
+  &__required {
+    margin-left: 0.125rem;
+    color: var(--okryshto-accent-dante);
+  }
+}
+
 /// Call it inside `.okryshto-<block> { @include layers.component() { … } }`.
 @mixin shell($var) {
   // 1. full variable API, defaults = color "primary" (mint focus ring), size "medium"
   --okryshto-#{$var}-border-color: var(--okryshto-border-default);
   --okryshto-#{$var}-focus-border-color: var(--okryshto-accent-primary);
-  --okryshto-#{$var}-glow: drop-shadow(0 0 2.5rem rgba(94, 230, 193, 0.24));
+  --okryshto-#{$var}-glow: 0 0 2.5rem rgba(94, 230, 193, 0.24);
+  --okryshto-#{$var}-glow-dante: 0 0 0.4375rem rgba(255, 61, 139, 0.35);
   --okryshto-#{$var}-padding-inline: 0.875rem;
   --okryshto-#{$var}-padding-block: 0.75rem;
   --okryshto-#{$var}-font-size: 1rem;
@@ -55,10 +65,7 @@
     }
   }
 
-  &__required {
-    margin-left: 0.125rem;
-    color: var(--okryshto-feedback-danger);
-  }
+  @include required-mark;
 
   &__control {
     display: flex;
@@ -74,26 +81,34 @@
     border: var(--okryshto-1px-in-rem) solid var(--okryshto-#{$var}-border-color);
     border-radius: 0.625rem;
     background: var(--okryshto-bg-surface);
-    box-shadow: 0 0 0 0 transparent;
+    // Glow is `box-shadow` (border-box), not `filter: drop-shadow` (alpha). Two
+    // layers at rest so focus interpolates instead of snapping at 400ms.
+    box-shadow:
+      0 0 0 0 transparent,
+      0 0 2.5rem transparent;
     transition:
-      border-color var(--okryshto-duration-sm) ease,
-      box-shadow var(--okryshto-duration-sm) ease,
-      filter var(--okryshto-duration-sm) ease;
+      border-color var(--okryshto-duration-sm) ease-out,
+      box-shadow var(--okryshto-duration-sm) ease-out;
 
     &:focus-within {
       border-color: var(--okryshto-#{$var}-focus-border-color);
-      box-shadow: 0 0 0 0.03125rem var(--okryshto-#{$var}-focus-border-color); // +0.5px ring
-      filter: var(--okryshto-#{$var}-glow);
+      box-shadow:
+        0 0 0 0.03125rem var(--okryshto-#{$var}-focus-border-color),
+        var(--okryshto-#{$var}-glow);
     }
   }
 
   &--error &__control {
     border-color: var(--okryshto-feedback-danger);
-    box-shadow: 0 0 0 0.03125rem var(--okryshto-feedback-danger);
+    box-shadow:
+      0 0 0 0.03125rem var(--okryshto-feedback-danger),
+      0 0 2.5rem transparent;
   }
 
   &--error &__control:focus-within {
-    filter: none;
+    box-shadow:
+      0 0 0 0.03125rem var(--okryshto-feedback-danger),
+      0 0 2.5rem transparent;
   }
 
   // Icons and buttons that sit inside the border, beside the control itself.
@@ -105,6 +120,8 @@
     align-items: center;
     gap: 0.25rem;
     color: var(--okryshto-text-muted);
+    max-height: 1rem;
+    max-width: 2rem;
 
     svg {
       width: 1rem;
@@ -150,8 +167,9 @@
   // 3. color modifier — rare, tints the focus ring/glow (e.g. Dante theme moments)
   &--color-dante &__control:focus-within {
     border-color: var(--okryshto-accent-dante);
-    box-shadow: 0 0 0 0.03125rem var(--okryshto-accent-dante);
-    filter: drop-shadow(0 0 0.4375rem rgba(255, 61, 139, 0.35));
+    box-shadow:
+      0 0 0 0.03125rem var(--okryshto-accent-dante),
+      var(--okryshto-#{$var}-glow-dante);
   }
 
   // 4. size

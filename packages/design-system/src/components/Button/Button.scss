@@ -12,9 +12,9 @@
     --okryshto-button-border-width: var(--okryshto-1px-in-rem);
     --okryshto-button-border-width-focus: var(--okryshto-button-border-width);
     --okryshto-button-border-radius: 9999px;
-    --okryshto-button-glow: drop-shadow(
-      0 0 0.8125rem color-mix(in srgb, var(--okryshto-button-tone) 60%, transparent)
-    );
+    --okryshto-button-glow-radius: 0.8125rem;
+    --okryshto-button-glow: 0 0 var(--okryshto-button-glow-radius)
+      color-mix(in srgb, var(--okryshto-button-tone) 60%, transparent);
     --okryshto-button-glow-focus: var(--okryshto-button-glow);
     --okryshto-button-padding-inline: 1.25rem;
     --okryshto-button-padding-block: 0.75rem;
@@ -31,7 +31,6 @@
     padding: var(--okryshto-button-padding-block) var(--okryshto-button-padding-inline);
     border: var(--okryshto-button-border-width) solid var(--okryshto-button-border-color);
     border-radius: var(--okryshto-button-border-radius);
-    overflow: hidden;
     background: var(--okryshto-button-background-color);
     color: var(--okryshto-button-text-color);
     text-decoration: none;
@@ -40,15 +39,21 @@
     font-size: var(--okryshto-button-font-size);
     line-height: var(--okryshto-button-line-height);
     cursor: pointer;
+    // Glow is `box-shadow` (border-box), not `filter: drop-shadow` (alpha). Two
+    // layers at rest so hover/focus interpolate instead of snapping at 400ms.
+    box-shadow:
+      0 0 var(--okryshto-button-glow-radius) transparent,
+      inset 0 0 0 0 transparent;
     transition:
-      background-color var(--okryshto-duration-sm) ease,
-      border-color var(--okryshto-duration-sm) ease,
-      box-shadow var(--okryshto-duration-sm) ease,
-      filter var(--okryshto-duration-sm) ease;
+      background-color var(--okryshto-duration-sm) ease-out,
+      border-color var(--okryshto-duration-sm) ease-out,
+      box-shadow var(--okryshto-duration-sm) ease-out;
 
     &:hover:not(:disabled) {
       background: var(--okryshto-button-background-color-hover);
-      filter: var(--okryshto-button-glow);
+      box-shadow:
+        var(--okryshto-button-glow),
+        inset 0 0 0 0 transparent;
     }
 
     &:focus-visible {
@@ -59,15 +64,19 @@
       // Growing `border-width` here instead made every bordered variant jump
       // 2px taller on focus, nudging whatever sat beside it. Resolves to 0 for
       // variants whose focus width equals their base width (they use glow).
-      box-shadow: inset 0 0 0
-        calc(var(--okryshto-button-border-width-focus) - var(--okryshto-button-border-width))
-        var(--okryshto-button-border-color-focus);
-      filter: var(--okryshto-button-glow-focus);
+      box-shadow:
+        var(--okryshto-button-glow-focus),
+        inset 0 0 0
+          calc(var(--okryshto-button-border-width-focus) - var(--okryshto-button-border-width))
+          var(--okryshto-button-border-color-focus);
     }
 
     &:disabled {
       opacity: 0.4;
       cursor: not-allowed;
+      box-shadow:
+        0 0 var(--okryshto-button-glow-radius) transparent,
+        inset 0 0 0 0 transparent;
     }
 
     // 2. color modifiers — only remap the accent; every variant/state consumes it
@@ -95,9 +104,9 @@
         var(--okryshto-accent-secondary) 86%
       );
       --okryshto-button-background-color-hover: var(--okryshto-button-background-color);
-      --okryshto-button-glow: drop-shadow(
-        0 0 1.625rem color-mix(in srgb, var(--okryshto-button-tone) 80%, transparent)
-      );
+      --okryshto-button-glow-radius: 1.625rem;
+      --okryshto-button-glow: 0 0 var(--okryshto-button-glow-radius)
+        color-mix(in srgb, var(--okryshto-button-tone) 80%, transparent);
     }
 
     &--secondary {
@@ -105,10 +114,10 @@
       --okryshto-button-background-color-hover: var(--okryshto-bg-surface);
       --okryshto-button-text-color: var(--okryshto-text-primary);
       --okryshto-button-border-color: var(--okryshto-border-subtle);
-      --okryshto-button-glow: drop-shadow(
-        0 0 0.5rem color-mix(in srgb, var(--okryshto-button-tone) 25%, transparent)
-      );
-      --okryshto-button-glow-focus: none;
+      --okryshto-button-glow-radius: 0.5rem;
+      --okryshto-button-glow: 0 0 var(--okryshto-button-glow-radius)
+        color-mix(in srgb, var(--okryshto-button-tone) 25%, transparent);
+      --okryshto-button-glow-focus: 0 0 var(--okryshto-button-glow-radius) transparent;
       --okryshto-button-border-color-focus: var(--okryshto-button-tone);
       --okryshto-button-border-width-focus: calc(var(--okryshto-button-border-width) * 2);
     }
@@ -117,10 +126,10 @@
       --okryshto-button-background-color: var(--okryshto-bg-surface-raised);
       --okryshto-button-background-color-hover: var(--okryshto-bg-surface);
       --okryshto-button-text-color: var(--okryshto-text-primary);
-      --okryshto-button-glow: drop-shadow(
-        0 0 0.5rem color-mix(in srgb, var(--okryshto-button-tone) 25%, transparent)
-      );
-      --okryshto-button-glow-focus: none;
+      --okryshto-button-glow-radius: 0.5rem;
+      --okryshto-button-glow: 0 0 var(--okryshto-button-glow-radius)
+        color-mix(in srgb, var(--okryshto-button-tone) 25%, transparent);
+      --okryshto-button-glow-focus: 0 0 var(--okryshto-button-glow-radius) transparent;
       --okryshto-button-border-color-focus: var(--okryshto-button-tone);
       --okryshto-button-border-width-focus: calc(var(--okryshto-button-border-width) * 2);
     }
@@ -129,10 +138,10 @@
       --okryshto-button-background-color: transparent;
       --okryshto-button-background-color-hover: var(--okryshto-bg-surface-raised);
       --okryshto-button-text-color: var(--okryshto-text-secondary);
-      --okryshto-button-glow: drop-shadow(
-        0 0 0.5rem color-mix(in srgb, var(--okryshto-button-tone) 25%, transparent)
-      );
-      --okryshto-button-glow-focus: none;
+      --okryshto-button-glow-radius: 0.5rem;
+      --okryshto-button-glow: 0 0 var(--okryshto-button-glow-radius)
+        color-mix(in srgb, var(--okryshto-button-tone) 25%, transparent);
+      --okryshto-button-glow-focus: 0 0 var(--okryshto-button-glow-radius) transparent;
       --okryshto-button-border-color-focus: var(--okryshto-button-tone);
       --okryshto-button-border-width-focus: calc(var(--okryshto-button-border-width) * 2);
     }
@@ -142,10 +151,10 @@
       --okryshto-button-background-color-hover: var(--okryshto-button-background-color);
       --okryshto-button-text-color: var(--okryshto-text-primary);
       --okryshto-button-border-color: var(--okryshto-glass-border);
-      --okryshto-button-glow: drop-shadow(
-        0 0 0.5rem color-mix(in srgb, var(--okryshto-button-tone) 25%, transparent)
-      );
-      --okryshto-button-glow-focus: none;
+      --okryshto-button-glow-radius: 0.5rem;
+      --okryshto-button-glow: 0 0 var(--okryshto-button-glow-radius)
+        color-mix(in srgb, var(--okryshto-button-tone) 25%, transparent);
+      --okryshto-button-glow-focus: 0 0 var(--okryshto-button-glow-radius) transparent;
       --okryshto-button-border-color-focus: var(--okryshto-button-tone);
       --okryshto-button-border-width-focus: calc(var(--okryshto-button-border-width) * 2);
     }

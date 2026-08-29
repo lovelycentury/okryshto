@@ -6,9 +6,8 @@
     --okryshto-rich-editor-tone: var(--okryshto-accent-primary);
     --okryshto-rich-editor-border-color: var(--okryshto-border-default);
     --okryshto-rich-editor-focus-border-color: var(--okryshto-rich-editor-tone);
-    --okryshto-rich-editor-glow: drop-shadow(
-      0 0 2.5rem color-mix(in srgb, var(--okryshto-rich-editor-tone) 24%, transparent)
-    );
+    --okryshto-rich-editor-glow: 0 0 2.5rem
+      color-mix(in srgb, var(--okryshto-rich-editor-tone) 24%, transparent);
     --okryshto-rich-editor-background: var(--okryshto-bg-surface);
     --okryshto-rich-editor-border-radius: 0.625rem;
     --okryshto-rich-editor-min-height: 12rem;
@@ -60,28 +59,32 @@
       border: var(--okryshto-1px-in-rem) solid var(--okryshto-rich-editor-border-color);
       border-radius: var(--okryshto-rich-editor-border-radius);
       background: var(--okryshto-rich-editor-background);
-      box-shadow: 0 0 0 0 transparent;
-      overflow: hidden;
+      box-shadow:
+        0 0 0 0 transparent,
+        0 0 2.5rem transparent;
       transition:
-        border-color var(--okryshto-duration-sm) ease,
-        box-shadow var(--okryshto-duration-sm) ease,
-        filter var(--okryshto-duration-sm) ease;
+        border-color var(--okryshto-duration-sm) ease-out,
+        box-shadow var(--okryshto-duration-sm) ease-out;
 
       &:focus-within {
         border-color: var(--okryshto-rich-editor-focus-border-color);
-        box-shadow: 0 0 0 0.03125rem var(--okryshto-rich-editor-focus-border-color);
-        filter: var(--okryshto-rich-editor-glow);
+        box-shadow:
+          0 0 0 0.03125rem var(--okryshto-rich-editor-focus-border-color),
+          var(--okryshto-rich-editor-glow);
       }
     }
 
     &--error &__shell {
-      box-shadow: 0 0 0 0.03125rem var(--okryshto-feedback-danger);
+      box-shadow:
+        0 0 0 0.03125rem var(--okryshto-feedback-danger),
+        0 0 2.5rem transparent;
     }
 
     &--error &__shell:focus-within {
       border-color: var(--okryshto-feedback-danger);
-      box-shadow: 0 0 0 0.03125rem var(--okryshto-feedback-danger);
-      filter: none;
+      box-shadow:
+        0 0 0 0.03125rem var(--okryshto-feedback-danger),
+        0 0 2.5rem transparent;
     }
 
     &__toolbar {
@@ -93,6 +96,12 @@
       padding: 0.5rem 0.625rem;
       background: var(--okryshto-bg-surface-raised);
       border-bottom: var(--okryshto-1px-in-rem) solid var(--okryshto-border-subtle);
+      border-start-start-radius: calc(
+        var(--okryshto-rich-editor-border-radius) - var(--okryshto-1px-in-rem)
+      );
+      border-start-end-radius: calc(
+        var(--okryshto-rich-editor-border-radius) - var(--okryshto-1px-in-rem)
+      );
     }
 
     &__toolbar-left,
@@ -344,6 +353,12 @@
       padding: 0.5rem 0.75rem;
       background: var(--okryshto-bg-inset);
       border-top: var(--okryshto-1px-in-rem) solid var(--okryshto-border-subtle);
+      border-end-start-radius: calc(
+        var(--okryshto-rich-editor-border-radius) - var(--okryshto-1px-in-rem)
+      );
+      border-end-end-radius: calc(
+        var(--okryshto-rich-editor-border-radius) - var(--okryshto-1px-in-rem)
+      );
       font-family: var(--okryshto-font-family-sans);
       font-size: 0.75rem;
       line-height: 1rem;

@@ -165,6 +165,13 @@ export interface DateFieldProps {
    * @type {string}
    */
   id?: string;
+  /**
+   * Marks the field required and shows a dante asterisk after the label.
+   *
+   * @default false
+   * @type {boolean}
+   */
+  required?: boolean;
 }
 
 export const DateField = forwardRef<HTMLInputElement, DateFieldProps>(function DateField(
@@ -187,6 +194,7 @@ export const DateField = forwardRef<HTMLInputElement, DateFieldProps>(function D
     placeholder = "dd.mm.yyyy",
     className,
     id,
+    required = false,
   },
   ref,
 ) {
@@ -278,6 +286,7 @@ export const DateField = forwardRef<HTMLInputElement, DateFieldProps>(function D
         error={error}
         helperText={helperText}
         disabled={disabled}
+        required={required}
         fullWidth={fullWidth}
         className={className}
         controlProps={{ ref: controlRef }}
@@ -291,6 +300,7 @@ export const DateField = forwardRef<HTMLInputElement, DateFieldProps>(function D
           className="okryshto-date-field__input"
           value={text}
           disabled={disabled}
+          required={required}
           placeholder={placeholder}
           aria-invalid={error || undefined}
           aria-describedby={helperId}

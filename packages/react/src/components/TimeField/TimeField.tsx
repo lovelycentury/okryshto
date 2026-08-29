@@ -196,6 +196,13 @@ export interface TimeFieldProps {
    * @type {string}
    */
   id?: string;
+  /**
+   * Marks the field required and shows a dante asterisk after the label.
+   *
+   * @default false
+   * @type {boolean}
+   */
+  required?: boolean;
 }
 
 export const TimeField = forwardRef<HTMLInputElement, TimeFieldProps>(function TimeField(
@@ -216,6 +223,7 @@ export const TimeField = forwardRef<HTMLInputElement, TimeFieldProps>(function T
     placeholder = "HH:mm",
     className,
     id,
+    required = false,
   },
   ref,
 ) {
@@ -306,6 +314,7 @@ export const TimeField = forwardRef<HTMLInputElement, TimeFieldProps>(function T
         error={error}
         helperText={helperText}
         disabled={disabled}
+        required={required}
         fullWidth={fullWidth}
         className={className}
         controlProps={{ ref: controlRef }}
@@ -319,6 +328,7 @@ export const TimeField = forwardRef<HTMLInputElement, TimeFieldProps>(function T
           className="okryshto-time-field__input"
           value={text}
           disabled={disabled}
+          required={required}
           placeholder={placeholder}
           aria-invalid={error || undefined}
           aria-describedby={helperId}

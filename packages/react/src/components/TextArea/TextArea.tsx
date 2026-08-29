@@ -111,6 +111,13 @@ export interface TextAreaProps extends Omit<
    * @type {TextAreaResize}
    */
   resize?: TextAreaResize;
+  /**
+   * Marks the field required and shows a dante asterisk after the label.
+   *
+   * @default false
+   * @type {boolean}
+   */
+  required?: boolean;
 }
 
 export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(function TextArea(
@@ -128,6 +135,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(function 
     autosize = false,
     maxLength,
     resize = "vertical",
+    required = false,
     className,
     id,
     value,
@@ -229,6 +237,11 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(function 
           className={`okryshto-text-area__label${hideLabel ? " okryshto-text-area__label--hidden" : ""}`}
         >
           {label}
+          {required && (
+            <span className="okryshto-text-area__required" aria-hidden="true">
+              *
+            </span>
+          )}
         </label>
       )}
       <div className="okryshto-text-area__control">
@@ -238,6 +251,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(function 
           className="okryshto-text-area__textarea"
           rows={rows}
           disabled={disabled}
+          required={required}
           value={isControlled ? value : undefined}
           defaultValue={isControlled ? undefined : defaultValue}
           maxLength={maxLength}

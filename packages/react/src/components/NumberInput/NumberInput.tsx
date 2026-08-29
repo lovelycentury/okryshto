@@ -125,6 +125,13 @@ export interface NumberInputProps extends Omit<
    * @type {number}
    */
   step?: number;
+  /**
+   * Marks the field required and shows a dante asterisk after the label.
+   *
+   * @default false
+   * @type {boolean}
+   */
+  required?: boolean;
 }
 
 function formatDisplayValue(value: number | null | undefined): string {
@@ -179,6 +186,7 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(functi
     min,
     max,
     step = 1,
+    required = false,
     className,
     id,
     onBlur,
@@ -286,6 +294,11 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(functi
           className={`okryshto-number-input__label${hideLabel ? " okryshto-number-input__label--hidden" : ""}`}
         >
           {label}
+          {required && (
+            <span className="okryshto-number-input__required" aria-hidden="true">
+              *
+            </span>
+          )}
         </label>
       )}
       <div className="okryshto-number-input__control">
@@ -297,6 +310,7 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(functi
           className="okryshto-number-input__input"
           value={displayValue}
           disabled={disabled}
+          required={required}
           aria-invalid={error || undefined}
           aria-describedby={[helperId, ariaDescribedBy].filter(Boolean).join(" ") || undefined}
           onChange={handleInputChange}

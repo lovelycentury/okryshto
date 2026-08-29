@@ -81,7 +81,7 @@ export const Disabled: Story = { args: { disabled: true, defaultValue: "engineer
 /**
  * This example shows the loading state.
  */
-export const Loading: Story = { args: { loading: true, open: true } };
+export const Loading: Story = { args: { loading: true } };
 
 /**
  * This example shows multiple.
@@ -115,7 +115,6 @@ export const Grouped: Story = {
       placeholder="Choose a city…"
       options={cityOptions}
       groupBy={(option) => (option as City).region}
-      open
     />
   ),
 };
@@ -170,7 +169,6 @@ export const CustomOption: Story = {
     <Select
       label="City"
       options={cityOptions}
-      open
       renderOption={(props, option, state) => (
         <OptionRow {...props}>
           <span
@@ -258,7 +256,6 @@ export const RecipeGroupsAndEmpty: Story = {
         label="City"
         options={cityOptions}
         groupBy={(option) => (option as City).region}
-        open
         renderGroup={({ key, label, group, children }) => (
           <li key={key} role="presentation">
             <span
@@ -287,7 +284,6 @@ export const RecipeGroupsAndEmpty: Story = {
       <Select
         label="Archived teams"
         options={[]}
-        open
         renderNoOptions={() => (
           <li style={{ padding: "10px 13px", color: "var(--okryshto-text-muted)" }}>
             Nothing archived yet

@@ -12,9 +12,8 @@
     --okryshto-icon-button-border-color: transparent;
     --okryshto-icon-button-border-width: var(--okryshto-1px-in-rem);
     --okryshto-icon-button-border-radius: 0.625rem; // 10px
-    --okryshto-icon-button-glow: drop-shadow(
-      0 0 0.5rem color-mix(in srgb, var(--okryshto-icon-button-tone) 25%, transparent)
-    );
+    --okryshto-icon-button-glow: 0 0 0.5rem
+      color-mix(in srgb, var(--okryshto-icon-button-tone) 25%, transparent);
     --okryshto-icon-button-size: 2.75rem; // 44px
     --okryshto-icon-button-icon-size: 1.375rem; // 22px
 
@@ -27,34 +26,41 @@
     height: var(--okryshto-icon-button-size);
     border: var(--okryshto-icon-button-border-width) solid var(--okryshto-icon-button-border-color);
     border-radius: var(--okryshto-icon-button-border-radius);
-    overflow: hidden;
     background: var(--okryshto-icon-button-background-color);
     color: var(--okryshto-icon-button-text-color);
     text-decoration: none;
     cursor: pointer;
+    // Glow is `box-shadow` (border-box), not `filter: drop-shadow` (alpha). Two
+    // layers at rest so hover/focus interpolate instead of snapping at 400ms.
+    box-shadow:
+      0 0 0.5rem transparent,
+      0 0 0 0.1875rem transparent;
     transition:
-      background-color var(--okryshto-duration-sm) ease,
-      border-color var(--okryshto-duration-sm) ease,
-      filter var(--okryshto-duration-sm) ease;
+      background-color var(--okryshto-duration-sm) ease-out,
+      border-color var(--okryshto-duration-sm) ease-out,
+      box-shadow var(--okryshto-duration-sm) ease-out;
 
     &:hover:not(:disabled):not([aria-disabled="true"]) {
       background: var(--okryshto-icon-button-background-color-hover);
-      filter: var(--okryshto-icon-button-glow);
+      box-shadow:
+        var(--okryshto-icon-button-glow),
+        0 0 0 0.1875rem transparent;
     }
 
     &:focus-visible {
       outline: none;
-      filter: var(--okryshto-icon-button-glow)
-        drop-shadow(
-          0 0 0 0.1875rem color-mix(in srgb, var(--okryshto-icon-button-tone) 60%, transparent)
-        );
+      box-shadow:
+        var(--okryshto-icon-button-glow),
+        0 0 0 0.1875rem color-mix(in srgb, var(--okryshto-icon-button-tone) 60%, transparent);
     }
 
     &:disabled,
     &[aria-disabled="true"] {
       opacity: 0.4;
       cursor: not-allowed;
-      filter: none;
+      box-shadow:
+        0 0 0.5rem transparent,
+        0 0 0 0.1875rem transparent;
     }
 
     // 2. color modifiers — remap the accent; tints the icon and drives the glow
@@ -101,6 +107,8 @@
     &__icon {
       display: inline-flex;
       flex-shrink: 0;
+      align-items: center;
+      justify-content: center;
       width: var(--okryshto-icon-button-icon-size);
       height: var(--okryshto-icon-button-icon-size);
 

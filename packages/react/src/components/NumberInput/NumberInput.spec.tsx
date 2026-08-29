@@ -92,4 +92,10 @@ describe("NumberInput", () => {
     render(<NumberInput label="Quantity" ref={ref} />);
     expect(ref.current).toBeInstanceOf(HTMLInputElement);
   });
+
+  it("shows a required asterisk after the label", () => {
+    const { container } = render(<NumberInput label="Quantity" required />);
+    expect(container.querySelector(".okryshto-number-input__required")).toHaveTextContent("*");
+    expect(screen.getByRole("textbox")).toBeRequired();
+  });
 });

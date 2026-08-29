@@ -30,6 +30,12 @@ describe("Autocomplete", () => {
     expect(screen.getByRole("combobox")).toHaveAttribute("placeholder", "Search…");
   });
 
+  it("shows a required asterisk after the label", () => {
+    const { container } = render(<Autocomplete label="People" options={options} required />);
+    expect(container.querySelector(".okryshto-autocomplete__required")).toHaveTextContent("*");
+    expect(screen.getByRole("combobox")).toBeRequired();
+  });
+
   it("applies non-default modifiers only when set", () => {
     const { container, rerender } = render(
       <Autocomplete label="People" options={options} size="large" color="dante" error />,

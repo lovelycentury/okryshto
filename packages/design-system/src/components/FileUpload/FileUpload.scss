@@ -22,9 +22,8 @@
     --okryshto-file-upload-title-size: var(--okryshto-font-size-md);
     --okryshto-file-upload-illustration-size: 3.25rem;
     --okryshto-file-upload-illustration-glyph-size: 1.5rem;
-    --okryshto-file-upload-glow: drop-shadow(
-      0 0 0.5rem color-mix(in srgb, var(--okryshto-file-upload-tone) 25%, transparent)
-    );
+    --okryshto-file-upload-glow: 0 0 0.5rem
+      color-mix(in srgb, var(--okryshto-file-upload-tone) 25%, transparent);
     // list geometry — how many file rows fit before `listType="maxHeight"` scrolls
     --okryshto-file-upload-max-files: 3;
     --okryshto-file-upload-list-gap: 0.5rem;
@@ -94,10 +93,11 @@
       font-size: var(--okryshto-file-upload-title-size);
       text-align: center;
       cursor: pointer;
+      box-shadow: 0 0 0.5rem transparent;
       transition:
-        border-color var(--okryshto-duration-sm) ease,
-        background-color var(--okryshto-duration-sm) ease,
-        filter var(--okryshto-duration-sm) ease;
+        border-color var(--okryshto-duration-sm) ease-out,
+        background-color var(--okryshto-duration-sm) ease-out,
+        box-shadow var(--okryshto-duration-sm) ease-out;
 
       &:enabled:hover {
         border-color: var(--okryshto-file-upload-active-border-color);
@@ -117,7 +117,7 @@
     &--dragging &__dropzone {
       border-color: var(--okryshto-file-upload-active-border-color);
       background: var(--okryshto-file-upload-active-background);
-      filter: var(--okryshto-file-upload-glow);
+      box-shadow: var(--okryshto-file-upload-glow);
 
       // children must not swallow the drag events of the drop zone
       * {

@@ -229,7 +229,7 @@ export interface SelectProps<T = string> {
    */
   disabled?: boolean;
   /**
-   * Required.
+   * Marks the field required and shows a dante asterisk after the label.
    *
    * @default false
    * @type {boolean}

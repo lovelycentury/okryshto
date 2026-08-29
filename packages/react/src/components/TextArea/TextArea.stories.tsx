@@ -20,6 +20,7 @@ const meta: Meta<typeof TextArea> = {
     rows: 3,
     autosize: false,
     resize: "vertical",
+    required: false,
   },
   argTypes: {
     size: { control: "inline-radio", options: ["small", "medium", "large"] },
@@ -36,6 +37,11 @@ type Story = StoryObj<typeof TextArea>;
  * This example shows the default state.
  */
 export const Default: Story = {};
+
+/**
+ * This example shows required.
+ */
+export const Required: Story = { args: { required: true } };
 
 /**
  * This example shows filled.

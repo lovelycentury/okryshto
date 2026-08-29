@@ -7,7 +7,8 @@
     --okryshto-link-card-background-color: var(--okryshto-bg-surface);
     --okryshto-link-card-background-color-hover: var(--okryshto-bg-surface-raised);
     --okryshto-link-card-border-color: var(--okryshto-border-subtle);
-    --okryshto-link-card-glow: none;
+    --okryshto-link-card-glow: 0 0 0.75rem transparent;
+    --okryshto-link-card-glow-hover: 0 0 0.75rem transparent;
     --okryshto-link-card-arrow-color: var(--okryshto-text-secondary);
     --okryshto-link-card-padding-block: 1.375rem; // 22px
     --okryshto-link-card-padding-inline: 1.625rem; // 26px
@@ -26,14 +27,15 @@
     background: var(--okryshto-link-card-background-color);
     color: var(--okryshto-text-primary);
     text-decoration: none;
+    box-shadow: var(--okryshto-link-card-glow);
     transition:
-      background-color var(--okryshto-duration-sm) ease,
-      border-color var(--okryshto-duration-sm) ease,
-      filter var(--okryshto-duration-sm) ease;
+      background-color var(--okryshto-duration-sm) ease-out,
+      border-color var(--okryshto-duration-sm) ease-out,
+      box-shadow var(--okryshto-duration-sm) ease-out;
 
     &:hover {
       background: var(--okryshto-link-card-background-color-hover);
-      filter: var(--okryshto-link-card-glow);
+      box-shadow: var(--okryshto-link-card-glow-hover);
     }
 
     &:focus-visible {
@@ -63,9 +65,8 @@
       --okryshto-link-card-background-color: var(--okryshto-glass-fill);
       --okryshto-link-card-background-color-hover: var(--okryshto-link-card-background-color);
       --okryshto-link-card-border-color: var(--okryshto-glass-border);
-      --okryshto-link-card-glow: drop-shadow(
-        0 0 0.75rem color-mix(in srgb, var(--okryshto-link-card-tone) 30%, transparent)
-      );
+      --okryshto-link-card-glow-hover: 0 0 0.75rem
+        color-mix(in srgb, var(--okryshto-link-card-tone) 30%, transparent);
       --okryshto-link-card-arrow-color: var(--okryshto-link-card-tone);
     }
 

@@ -317,7 +317,7 @@ export interface AutocompleteProps<T = AutocompleteOption> {
    */
   disabled?: boolean;
   /**
-   * Required. Whether the autocomplete is required.
+   * Marks the field required and shows a dante asterisk after the label.
    *
    * @default false
    * @type {boolean}

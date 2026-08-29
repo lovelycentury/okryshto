@@ -223,8 +223,9 @@ describe("Select", () => {
   });
 
   it("marks the field required", () => {
-    render(<Select label="Team" options={options} required />);
+    const { container } = render(<Select label="Team" options={options} required />);
     expect(screen.getByRole("combobox")).toHaveAttribute("aria-required", "true");
+    expect(container.querySelector(".okryshto-select__required")).toHaveTextContent("*");
   });
 
   it("supports renderValue", () => {

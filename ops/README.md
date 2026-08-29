@@ -1,9 +1,10 @@
 # ops — VPS deploy
 
-Two sites on one server:
+Three sites on one server:
 
 - https://profile.okryshto.dev — Next.js SSR
 - https://storybook.okryshto.dev — static `@okryshto/react`
+- https://iam.okryshto.dev — Keycloak (login theme from `@okryshto/iam`)
 
 ```
                     internet
@@ -17,21 +18,22 @@ Two sites on one server:
                  │ okryshto-  │   this compose, no host ports
                  │   caddy    │
                  └─────┬──────┘
-            ┌──────────┴──────────┐
-            │                     │
-       ┌────┴────┐          ┌─────┴─────┐
-       │ profile │          │ storybook │
-       │  :5200  │          │    :80    │
-       └─────────┘          └───────────┘
+      ┌──────────┬───────────┴──────────┐
+      │          │                      │
+ ┌────┴────┐ ┌───┴──────┐         ┌─────┴─────┐
+ │ profile │ │    iam   │         │ storybook │
+ │  :5200  │ │   :8080  │         │    :80    │
+ └─────────┘ └──────────┘         └───────────┘
 ```
 
-| File                   | Role                                                       |
-| ---------------------- | ---------------------------------------------------------- |
-| `Caddyfile`            | inner proxy: Host → profile / storybook (HTTP)             |
-| `docker-compose.yml`   | stack: caddy + profile + storybook                         |
-| `Dockerfile.profile`   | Next.js `output: "standalone"`                             |
-| `Dockerfile.storybook` | Vite Storybook → static files inside `caddy:alpine`        |
-| `spa.Caddyfile`        | Caddy inside the storybook image: SPA fallback, cache      |
+| File                   | Role                                                     |
+| ---------------------- | -------------------------------------------------------- |
+| `Caddyfile`            | inner proxy: Host → profile / storybook / iam (HTTP)     |
+| `docker-compose.yml`   | stack: caddy + profile + storybook + iam                 |
+| `Dockerfile.profile`   | Next.js `output: "standalone"`                           |
+| `Dockerfile.storybook` | Vite Storybook → static files inside `caddy:alpine`      |
+| `Dockerfile.iam`       | Keycloakify theme JAR inside `quay.io/keycloak/keycloak` |
+| `spa.Caddyfile`        | Caddy inside the storybook image: SPA fallback, cache    |
 
 Edge TLS is Caddy from `~/vps-infra`. This stack joins the same Docker
 network `vps-infra_default` and listens only inside it (`okryshto-caddy:80`).
@@ -52,12 +54,13 @@ A records with the **orange cloud** (Proxied):
 
 - `profile.okryshto.dev` → VPS IP
 - `storybook.okryshto.dev` → VPS IP
+- `iam.okryshto.dev` → VPS IP
 
 SSL/TLS → Overview → **Full** (same as the other `*.okryshto.dev` hosts).
 Not Flexible, not Full (strict).
 
-`~/vps-infra/Caddyfile` must have `profile.okryshto.dev` and
-`storybook.okryshto.dev` → `reverse_proxy okryshto-caddy:80`. After editing:
+`~/vps-infra/Caddyfile` must have `profile.okryshto.dev`,
+`storybook.okryshto.dev`, and `iam.okryshto.dev` → `reverse_proxy okryshto-caddy:80`. After editing:
 
 ```bash
 cd ~/vps-infra && docker compose restart caddy
@@ -133,3 +136,10 @@ docker run --rm -p 5200:5200 profile:local
 ```
 
 Same for `ops/Dockerfile.storybook`.
+
+Keycloak theme (set bootstrap admin before `compose up`):
+
+```bash
+docker build -f ops/Dockerfile.iam -t ghcr.io/lovelycentury/okryshto/iam:latest .
+# KC_BOOTSTRAP_ADMIN_USERNAME / KC_BOOTSTRAP_ADMIN_PASSWORD in the compose env
+```

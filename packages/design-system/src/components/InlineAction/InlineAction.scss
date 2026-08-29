@@ -40,26 +40,26 @@
       background: var(--okryshto-bg-inset);
       // border-width never changes (only color + box-shadow do) — see TextField for why.
       border: var(--okryshto-1px-in-rem) solid var(--okryshto-border-default);
-      box-shadow: 0 0 0 0 transparent;
+      box-shadow:
+        0 0 0 0 transparent,
+        0 0 2.5rem transparent;
       transition:
-        border-color var(--okryshto-duration-sm) ease,
-        box-shadow var(--okryshto-duration-sm) ease,
-        background-color var(--okryshto-duration-sm) ease,
-        filter var(--okryshto-duration-sm) ease;
+        border-color var(--okryshto-duration-sm) ease-out,
+        box-shadow var(--okryshto-duration-sm) ease-out,
+        background-color var(--okryshto-duration-sm) ease-out;
 
       &:hover {
         border-color: var(--okryshto-border-strong);
-        filter: drop-shadow(
-          0 0 0.5rem color-mix(in srgb, var(--okryshto-inline-action-tone) 25%, transparent)
-        );
+        box-shadow:
+          0 0 0 0 transparent,
+          0 0 0.5rem color-mix(in srgb, var(--okryshto-inline-action-tone) 25%, transparent);
       }
 
       &:focus-within {
         border-color: var(--okryshto-inline-action-tone);
-        box-shadow: 0 0 0 0.03125rem var(--okryshto-inline-action-tone); // +0.5px ring
-        filter: drop-shadow(
-          0 0 2.5rem color-mix(in srgb, var(--okryshto-inline-action-tone) 24%, transparent)
-        );
+        box-shadow:
+          0 0 0 0.03125rem var(--okryshto-inline-action-tone),
+          0 0 2.5rem color-mix(in srgb, var(--okryshto-inline-action-tone) 24%, transparent);
       }
     }
 
@@ -67,29 +67,30 @@
     // Storybook's `state` control can force them without real mouse/keyboard input
     &--state-hover &__control {
       border-color: var(--okryshto-border-strong);
-      filter: drop-shadow(
-        0 0 0.5rem color-mix(in srgb, var(--okryshto-inline-action-tone) 25%, transparent)
-      );
+      box-shadow:
+        0 0 0 0 transparent,
+        0 0 0.5rem color-mix(in srgb, var(--okryshto-inline-action-tone) 25%, transparent);
     }
 
     &--state-focus &__control {
       border-color: var(--okryshto-inline-action-tone);
-      box-shadow: 0 0 0 0.03125rem var(--okryshto-inline-action-tone);
-      filter: drop-shadow(
-        0 0 2.5rem color-mix(in srgb, var(--okryshto-inline-action-tone) 24%, transparent)
-      );
+      box-shadow:
+        0 0 0 0.03125rem var(--okryshto-inline-action-tone),
+        0 0 2.5rem color-mix(in srgb, var(--okryshto-inline-action-tone) 24%, transparent);
     }
 
     &--state-success &__control {
       border-color: var(--okryshto-feedback-success);
-      box-shadow: 0 0 0 0.03125rem var(--okryshto-feedback-success);
-      filter: none;
+      box-shadow:
+        0 0 0 0.03125rem var(--okryshto-feedback-success),
+        0 0 2.5rem transparent;
     }
 
     &--state-error &__control {
       border-color: var(--okryshto-feedback-danger);
-      box-shadow: 0 0 0 0.03125rem var(--okryshto-feedback-danger);
-      filter: none;
+      box-shadow:
+        0 0 0 0.03125rem var(--okryshto-feedback-danger),
+        0 0 2.5rem transparent;
     }
 
     &--state-readonly &__control {
@@ -132,8 +133,8 @@
       line-height: var(--okryshto-inline-action-btn-line-height);
       cursor: pointer;
       transition:
-        background-color var(--okryshto-duration-sm) ease,
-        filter var(--okryshto-duration-sm) ease;
+        background-color var(--okryshto-duration-sm) ease-out,
+        filter var(--okryshto-duration-sm) ease-out;
 
       &:disabled {
         cursor: not-allowed;

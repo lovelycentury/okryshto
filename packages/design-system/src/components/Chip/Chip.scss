@@ -8,9 +8,8 @@
     --okryshto-chip-text-color: var(--okryshto-text-primary);
     --okryshto-chip-border-color: var(--okryshto-glass-border);
     --okryshto-chip-border-width: var(--okryshto-1px-in-rem);
-    --okryshto-chip-glow: drop-shadow(
-      0 0 0.5rem color-mix(in srgb, var(--okryshto-chip-tone) 25%, transparent)
-    );
+    --okryshto-chip-glow: 0 0 0.5rem
+      color-mix(in srgb, var(--okryshto-chip-tone) 25%, transparent);
     --okryshto-chip-padding-inline: 0.875rem;
     --okryshto-chip-padding-block: 0.4375rem;
     --okryshto-chip-gap: 0.375rem;
@@ -36,9 +35,9 @@
     line-height: var(--okryshto-chip-line-height);
     white-space: nowrap;
     transition:
-      background-color var(--okryshto-duration-sm) ease,
-      border-color var(--okryshto-duration-sm) ease,
-      filter var(--okryshto-duration-sm) ease;
+      background-color var(--okryshto-duration-sm) ease-out,
+      border-color var(--okryshto-duration-sm) ease-out,
+      box-shadow var(--okryshto-duration-sm) ease-out;
 
     // 2. variant modifiers — glass (default) needs no modifier
     &--solid {
@@ -98,15 +97,21 @@
     // 5. interactive — only chips with an onClick (filter/toggle usage) get affordance
     &--interactive {
       cursor: pointer;
+      box-shadow:
+        0 0 0.5rem transparent,
+        0 0 0 0 transparent;
 
       &:hover {
-        filter: var(--okryshto-chip-glow);
+        box-shadow:
+          var(--okryshto-chip-glow),
+          0 0 0 0 transparent;
       }
 
       &:focus-visible {
         outline: none;
-        filter: var(--okryshto-chip-glow);
-        box-shadow: 0 0 0 var(--okryshto-1px-in-rem) var(--okryshto-chip-tone);
+        box-shadow:
+          var(--okryshto-chip-glow),
+          0 0 0 var(--okryshto-1px-in-rem) var(--okryshto-chip-tone);
       }
     }
 

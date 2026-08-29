@@ -70,6 +70,13 @@ export interface TextFieldProps extends Omit<
    */
   fullWidth?: boolean;
   /**
+   * Marks the field required and shows a dante asterisk after the label.
+   *
+   * @default false
+   * @type {boolean}
+   */
+  required?: boolean;
+  /**
    * Content rendered inside the border, before the input.
    *
    * @default undefined

@@ -58,4 +58,10 @@ describe("TimeField", () => {
     fireEvent.click(screen.getByRole("button", { name: "Open time picker" }));
     expect(document.querySelector(".okryshto-time-picker")).toBeInTheDocument();
   });
+
+  it("shows a required asterisk after the label", () => {
+    const { container } = render(<TimeField label="Time" required />);
+    expect(container.querySelector(".okryshto-time-field__required")).toHaveTextContent("*");
+    expect(screen.getByRole("textbox")).toBeRequired();
+  });
 });

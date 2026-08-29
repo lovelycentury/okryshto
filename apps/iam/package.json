@@ -1,0 +1,40 @@
+{
+  "name": "@okryshto/iam",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Keycloak login theme — Keycloakify + React + @okryshto/react",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "build-keycloak-theme": "pnpm run build && keycloakify build",
+    "start-keycloak": "keycloakify start-keycloak",
+    "storybook": "storybook dev -p 6007 --no-open",
+    "storybook:build": "storybook build",
+    "typecheck": "tsc --noEmit",
+    "lint": "oxlint --config ../../packages/oxlint-config/index.json ."
+  },
+  "dependencies": {
+    "@okryshto/design-system": "workspace:*",
+    "@okryshto/icons": "workspace:*",
+    "@okryshto/react": "workspace:*",
+    "keycloakify": "^11.15.13",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@storybook/addon-essentials": "^8.4.7",
+    "@storybook/react": "^8.4.7",
+    "@storybook/react-vite": "^8.4.7",
+    "@types/react": "^19.0.2",
+    "@types/react-dom": "^19.0.2",
+    "@vitejs/plugin-react": "^4.3.4",
+    "sass-embedded": "catalog:",
+    "storybook": "^8.4.7",
+    "typescript": "catalog:",
+    "vite": "catalog:"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

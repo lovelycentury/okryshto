@@ -1370,7 +1370,7 @@ function Showcase() {
             </Button>
             <Dialog open={dialogOpen} onClose={() => setDialogOpen(false)}>
               <DialogTitle>Welcome</DialogTitle>
-              <DialogContent>Dialog content over the animated canvas.</DialogContent>
+              <DialogContent>Dialog content over the static canvas.</DialogContent>
               <DialogActions>
                 <Button variant="ghost" onClick={() => setDialogOpen(false)}>
                   Cancel

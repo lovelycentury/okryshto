@@ -75,4 +75,10 @@ describe("TextArea", () => {
     render(<TextArea label="Message" disabled />);
     expect(screen.getByLabelText("Message")).toBeDisabled();
   });
+
+  it("shows a required asterisk after the label", () => {
+    const { container } = render(<TextArea label="Message" required />);
+    expect(container.querySelector(".okryshto-text-area__required")).toHaveTextContent("*");
+    expect(screen.getByRole("textbox")).toBeRequired();
+  });
 });
