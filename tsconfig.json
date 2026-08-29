@@ -11,14 +11,6 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "declaration": true,
-    "sourceMap": true,
-    "baseUrl": ".",
-    "paths": {
-      "@okryshto/react": ["packages/react/src"],
-      "@okryshto/design-system": ["packages/design-system/src"],
-      "@okryshto/helpers": ["packages/helpers/src"],
-      "@okryshto/icons": ["packages/icons/src"],
-      "@okryshto/react-hooks": ["packages/react-hooks/src"]
-    }
+    "sourceMap": true
   }
 }
