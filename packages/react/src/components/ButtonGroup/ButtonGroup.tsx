@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useRef, useState, type KeyboardEvent, type ReactNode } from "react";
 import "@okryshto/design-system/components/ButtonGroup/ButtonGroup.scss";
 

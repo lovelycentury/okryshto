@@ -1,3 +1,5 @@
+"use client";
+
 import { forwardRef, type HTMLAttributes } from "react";
 import "@okryshto/design-system/components/Progress/Progress.scss";
 

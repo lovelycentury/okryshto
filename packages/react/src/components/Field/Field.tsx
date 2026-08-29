@@ -1,3 +1,5 @@
+"use client";
+
 import type { HTMLAttributes, Ref, ReactNode } from "react";
 
 export type FieldSize = "small" | "medium" | "large";

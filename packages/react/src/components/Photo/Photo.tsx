@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, type HTMLAttributes, type ReactNode } from "react";
 import "@okryshto/design-system/components/Photo/Photo.scss";
 import { Skeleton } from "../Skeleton/Skeleton";

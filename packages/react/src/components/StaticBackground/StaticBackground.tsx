@@ -1,3 +1,5 @@
+"use client";
+
 import { forwardRef, useId, type CSSProperties, type HTMLAttributes, type ReactNode } from "react";
 import "@okryshto/design-system/components/StaticBackground/StaticBackground.scss";
 

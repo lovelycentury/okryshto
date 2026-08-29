@@ -4,7 +4,7 @@ import react from "@vitejs/plugin-react";
 import dts from "vite-plugin-dts";
 
 export default defineConfig({
-  plugins: [react(), dts({ rollupTypes: true, tsconfigPath: "./tsconfig.build.json" })],
+  plugins: [react(), dts({ tsconfigPath: "./tsconfig.build.json" })],
   build: {
     lib: {
       entry: fileURLToPath(new URL("./src/index.ts", import.meta.url)),

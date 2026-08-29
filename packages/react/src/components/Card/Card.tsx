@@ -1,3 +1,5 @@
+"use client";
+
 import type { HTMLAttributes, ImgHTMLAttributes, ReactNode } from "react";
 import "@okryshto/design-system/components/Card/Card.scss";
 

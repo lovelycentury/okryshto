@@ -1,3 +1,5 @@
+"use client";
+
 import { useCallback, useEffect, type ReactNode } from "react";
 import { createPortal } from "react-dom";
 import "@okryshto/design-system/components/Snackbar/Snackbar.scss";

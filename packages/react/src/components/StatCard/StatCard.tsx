@@ -1,3 +1,5 @@
+"use client";
+
 import type { HTMLAttributes, ReactNode } from "react";
 import "@okryshto/design-system/components/StatCard/StatCard.scss";
 

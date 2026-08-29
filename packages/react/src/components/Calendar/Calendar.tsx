@@ -1,3 +1,5 @@
+"use client";
+
 import { forwardRef, useMemo, useState, type CSSProperties } from "react";
 import { iconChevronDown, iconChevronLeft, iconChevronRight } from "@okryshto/icons";
 import "@okryshto/design-system/components/Calendar/Calendar.scss";

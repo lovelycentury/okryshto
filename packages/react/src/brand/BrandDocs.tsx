@@ -1,3 +1,5 @@
+"use client";
+
 import type { CSSProperties, ReactNode } from "react";
 import { iconCheck, iconX } from "@okryshto/icons";
 import "@okryshto/design-system/components/BrandDocs/BrandDocs.scss";

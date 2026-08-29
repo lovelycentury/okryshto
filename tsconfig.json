@@ -12,6 +12,7 @@
     "isolatedModules": true,
     "declaration": true,
     "sourceMap": true,
+    "baseUrl": ".",
     "paths": {
       "@okryshto/react": ["packages/react/src"],
       "@okryshto/design-system": ["packages/design-system/src"],

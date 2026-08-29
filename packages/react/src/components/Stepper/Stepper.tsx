@@ -1,3 +1,5 @@
+"use client";
+
 import { type HTMLAttributes, type ReactNode } from "react";
 import "@okryshto/design-system/components/Stepper/Stepper.scss";
 

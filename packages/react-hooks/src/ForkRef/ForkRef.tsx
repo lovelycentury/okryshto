@@ -1,3 +1,5 @@
+"use client";
+
 import { useMemo, type Ref, type RefCallback } from "react";
 
 function setRef<T>(ref: Ref<T> | undefined | null, value: T | null): void {

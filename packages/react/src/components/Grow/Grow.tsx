@@ -1,3 +1,5 @@
+"use client";
+
 import { cloneElement, forwardRef, useRef, type CSSProperties } from "react";
 import { Transition } from "react-transition-group";
 import "@okryshto/design-system/components/Grow/Grow.scss";

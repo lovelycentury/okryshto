@@ -1,3 +1,5 @@
+"use client";
+
 import { type ReactNode } from "react";
 import "@okryshto/design-system/components/Badge/Badge.scss";
 

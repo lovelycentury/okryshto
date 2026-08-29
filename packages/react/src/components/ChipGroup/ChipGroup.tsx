@@ -1,3 +1,5 @@
+"use client";
+
 import { type KeyboardEvent, type MouseEvent, type ReactNode } from "react";
 import "@okryshto/design-system/components/ChipGroup/ChipGroup.scss";
 import { Chip } from "../Chip/Chip";

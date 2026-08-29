@@ -1,3 +1,5 @@
+"use client";
+
 import type { HTMLAttributes, KeyboardEvent, MouseEvent, ReactNode } from "react";
 import "@okryshto/design-system/components/LinkCard/LinkCard.scss";
 

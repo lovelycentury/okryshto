@@ -1,3 +1,5 @@
+"use client";
+
 import { useCallback, useEffect, useId, useMemo, useRef, useState, type ReactNode } from "react";
 import { EditorContent, useEditor, useEditorState, type JSONContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";

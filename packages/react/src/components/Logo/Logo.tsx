@@ -1,3 +1,5 @@
+"use client";
+
 import { forwardRef, useId, type HTMLAttributes, type CSSProperties } from "react";
 import "@okryshto/design-system/components/Logo/Logo.scss";
 

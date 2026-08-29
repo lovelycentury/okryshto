@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useId, useMemo, useRef, useState, type ReactNode, type Ref } from "react";
 import {
   iconAlertTriangle,

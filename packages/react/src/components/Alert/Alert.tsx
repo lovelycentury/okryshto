@@ -1,3 +1,5 @@
+"use client";
+
 import { forwardRef, type HTMLAttributes, type ReactNode } from "react";
 import { iconX } from "@okryshto/icons";
 import "@okryshto/design-system/components/Alert/Alert.scss";

@@ -1,3 +1,5 @@
+"use client";
+
 import { forwardRef, useRef, type CSSProperties, type ReactNode } from "react";
 import { Transition } from "react-transition-group";
 import "@okryshto/design-system/components/Collapse/Collapse.scss";

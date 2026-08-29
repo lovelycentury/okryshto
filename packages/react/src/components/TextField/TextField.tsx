@@ -1,3 +1,5 @@
+"use client";
+
 import { forwardRef, useId, type InputHTMLAttributes, type ReactNode } from "react";
 import "@okryshto/design-system/components/TextField/TextField.scss";
 import { Field, getFieldIds, type FieldColor, type FieldSize } from "../Field/Field";

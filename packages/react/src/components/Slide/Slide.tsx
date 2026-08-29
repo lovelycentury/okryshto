@@ -1,3 +1,5 @@
+"use client";
+
 import { cloneElement, forwardRef, useCallback, useEffect, useRef } from "react";
 import { Transition } from "react-transition-group";
 import "@okryshto/design-system/components/Slide/Slide.scss";

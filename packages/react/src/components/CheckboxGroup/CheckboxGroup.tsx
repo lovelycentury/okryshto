@@ -1,3 +1,5 @@
+"use client";
+
 import { useId, useState, type ReactNode } from "react";
 import "@okryshto/design-system/components/CheckboxGroup/CheckboxGroup.scss";
 import type { CheckboxColor, CheckboxSize } from "../Checkbox/Checkbox";

@@ -1,3 +1,5 @@
+"use client";
+
 import { forwardRef, useMemo, useRef, type HTMLAttributes, type ReactNode } from "react";
 import { createPortal } from "react-dom";
 import type { VirtualElement } from "@popperjs/core";

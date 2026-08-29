@@ -1,3 +1,5 @@
+"use client";
+
 import { forwardRef, type ComponentPropsWithoutRef, type ElementType, type Ref } from "react";
 import "@okryshto/design-system/components/Typography/Typography.scss";
 

@@ -1,3 +1,5 @@
+"use client";
+
 import { forwardRef, type HTMLAttributes, type ReactNode, type Ref } from "react";
 import "@okryshto/design-system/components/Divider/Divider.scss";
 

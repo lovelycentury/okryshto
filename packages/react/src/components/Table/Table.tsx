@@ -1,3 +1,5 @@
+"use client";
+
 import { forwardRef, type HTMLAttributes, type ReactNode, type TdHTMLAttributes } from "react";
 import "@okryshto/design-system/components/Table/Table.scss";
 

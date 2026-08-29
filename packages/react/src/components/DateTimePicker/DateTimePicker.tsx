@@ -1,3 +1,5 @@
+"use client";
+
 import { useLayoutEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import { iconArrowRight, iconGlobe } from "@okryshto/icons";
 import "@okryshto/design-system/components/DateTimePicker/DateTimePicker.scss";

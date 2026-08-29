@@ -1,3 +1,5 @@
+"use client";
+
 import { type HTMLAttributes, type MouseEvent, type ReactNode } from "react";
 import "@okryshto/design-system/components/Pagination/Pagination.scss";
 

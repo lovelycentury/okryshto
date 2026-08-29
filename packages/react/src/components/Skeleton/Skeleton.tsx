@@ -1,3 +1,5 @@
+"use client";
+
 import { forwardRef, type CSSProperties, type HTMLAttributes } from "react";
 import "@okryshto/design-system/components/Skeleton/Skeleton.scss";
 

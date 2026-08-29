@@ -1,3 +1,5 @@
+"use client";
+
 import { useId, useState, type ReactNode } from "react";
 import "@okryshto/design-system/components/RadioGroup/RadioGroup.scss";
 import type { RadioColor, RadioSize } from "../Radio/Radio";
