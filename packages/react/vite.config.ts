@@ -4,7 +4,10 @@ import react from "@vitejs/plugin-react";
 import dts from "vite-plugin-dts";
 
 export default defineConfig({
-  plugins: [react(), dts({ tsconfigPath: "./tsconfig.build.json" })],
+  // `entryRoot` is explicit: the build also type-checks the workspace sources
+  // reached through the `@okryshto/*` path aliases, so the inferred root would
+  // climb to `packages/` and emit `dist/react/src/index.d.ts` instead.
+  plugins: [react(), dts({ tsconfigPath: "./tsconfig.build.json", entryRoot: "src" })],
   build: {
     lib: {
       entry: fileURLToPath(new URL("./src/index.ts", import.meta.url)),
