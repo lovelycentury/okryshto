@@ -15,6 +15,7 @@
     // Names here are resolved *relative to* typeRoots, so the entry is the
     // directory name inside ./node_modules/@figma — not the full package name.
     "types": ["plugin-typings"],
+    "rootDir": "./src",
     "outDir": "dist"
   },
   "include": ["src/**/*.ts"],
