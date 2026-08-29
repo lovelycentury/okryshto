@@ -22,7 +22,7 @@ export const CONTACT = {
   onyxHandle: "onyx.schwarz",
   onyxPrs: "https://github.com/SchwarzIT/onyx/pulls?q=is%3Apr+author%3Alovelycentury+is%3Aclosed",
   orbit: "https://orbit.okryshto.dev",
-  site: "https://profile.okryshto.dev",
+  site: "https://okryshto.dev",
   storybook: "https://storybook.okryshto.dev",
   award: "https://immersiveeducation.org/news/Winners-of-2024-South-Africa-Hackathon-Announced",
 } as const;
