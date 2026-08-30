@@ -1,13 +1,16 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import { AnimatedBackground } from "@okryshto/react";
+import ConsentProvider from "@/components/ConsentProvider/ConsentProvider";
 import LocaleFab from "@/components/LocaleFab/LocaleFab";
 import ThemeFab from "@/components/ThemeFab/ThemeFab";
 import SiteFooter from "@/components/SiteFooter/SiteFooter";
 import { routing } from "@/i18n/routing";
+import { CONSENT_BOOTSTRAP_SCRIPT, GA_MEASUREMENT_ID, isAnalyticsEnabled } from "@/lib/analytics";
 import { THEME_BOOTSTRAP_SCRIPT } from "@/lib/theme";
 import "@okryshto/design-system/styles/index.scss";
 import "@okryshto/react/style.css";
@@ -73,30 +76,38 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: THEME_BOOTSTRAP_SCRIPT }} />
+        {/* Consent Mode v2 defaults. Must land in dataLayer before gtag.js
+            fires, which rules out an effect — see components/CookieConsent. */}
+        {isAnalyticsEnabled && (
+          <script dangerouslySetInnerHTML={{ __html: CONSENT_BOOTSTRAP_SCRIPT }} />
+        )}
       </head>
       <body>
         <NextIntlClientProvider>
-          <div className="app-shell">
-            <a className="app-shell__skip-link" href="#main">
-              {t("skipToContent")}
-            </a>
-            <AnimatedBackground
-              className="app-shell__background"
-              preset="aurora"
-              quality="medium"
-              scrim
-            />
-            <main className="app-shell__main" id="main">
-              {children}
-            </main>
-            <SiteFooter />
-            <div className="app-shell__fabs">
-              <ThemeFab />
-              <LocaleFab />
+          <ConsentProvider>
+            <div className="app-shell">
+              <a className="app-shell__skip-link" href="#main">
+                {t("skipToContent")}
+              </a>
+              <AnimatedBackground
+                className="app-shell__background"
+                preset="aurora"
+                quality="medium"
+                scrim
+              />
+              <main className="app-shell__main" id="main">
+                {children}
+              </main>
+              <SiteFooter />
+              <div className="app-shell__fabs">
+                <ThemeFab />
+                <LocaleFab />
+              </div>
             </div>
-          </div>
+          </ConsentProvider>
         </NextIntlClientProvider>
       </body>
+      {isAnalyticsEnabled && <GoogleAnalytics gaId={GA_MEASUREMENT_ID} />}
     </html>
   );
 }

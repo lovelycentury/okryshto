@@ -231,5 +231,38 @@
   "ThemeFab": {
     "switchToLight": "Zum hellen Erscheinungsbild wechseln",
     "switchToDark": "Zum dunklen Erscheinungsbild wechseln"
+  },
+  "CookieConsent": {
+    "banner": {
+      "title": "Cookies",
+      "description": "Diese Seite nutzt Analyse-Cookies, um Besuche zu zählen und zu sehen, welche Seiten gelesen werden. Gespeichert wird erst, wenn Sie zustimmen.",
+      "learnMore": "Mehr erfahren"
+    },
+    "settings": {
+      "title": "Cookie-Einstellungen",
+      "description": "Wählen Sie, was gemessen werden darf. Sie können das jederzeit ändern.",
+      "required": "Erforderlich",
+      "privacyPolicy": "Datenschutzerklärung"
+    },
+    "categories": {
+      "necessary": {
+        "title": "Erforderlich",
+        "description": "Merkt sich Sprache und Theme. Bleibt nur in Ihrem Browser und wird nirgendwohin gesendet."
+      },
+      "analytics": {
+        "title": "Analyse",
+        "description": "Google Analytics: Seitenaufrufe und ungefähre Besucherzahlen. Aus, bis Sie es einschalten."
+      }
+    },
+    "actions": {
+      "acceptAll": "Akzeptieren",
+      "rejectAll": "Ablehnen",
+      "customize": "Anpassen",
+      "save": "Speichern",
+      "close": "Schließen"
+    },
+    "trigger": {
+      "label": "Cookie-Einstellungen"
+    }
   }
 }

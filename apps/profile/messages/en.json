@@ -231,5 +231,38 @@
   "ThemeFab": {
     "switchToLight": "Switch to light theme",
     "switchToDark": "Switch to dark theme"
+  },
+  "CookieConsent": {
+    "banner": {
+      "title": "Cookies",
+      "description": "This site uses analytics cookies to count visits and see which pages get read. Nothing is stored until you agree.",
+      "learnMore": "Learn more"
+    },
+    "settings": {
+      "title": "Cookie settings",
+      "description": "Choose what may be measured. You can change this at any time.",
+      "required": "Required",
+      "privacyPolicy": "Privacy policy"
+    },
+    "categories": {
+      "necessary": {
+        "title": "Necessary",
+        "description": "Keeps your language and theme choice. Stored in your browser only, never sent anywhere."
+      },
+      "analytics": {
+        "title": "Analytics",
+        "description": "Google Analytics: page views and rough visitor counts. Off until you turn it on."
+      }
+    },
+    "actions": {
+      "acceptAll": "Accept",
+      "rejectAll": "Reject",
+      "customize": "Customize",
+      "save": "Save",
+      "close": "Close"
+    },
+    "trigger": {
+      "label": "Cookie settings"
+    }
   }
 }
