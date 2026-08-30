@@ -79,7 +79,10 @@ services:
     environment:
       KC_HTTP_ENABLED: "true"
       KC_PROXY_HEADERS: xforwarded
-      KC_HOSTNAME: iam.okryshto.dev
+      # Full URL, not a bare host: it pins the scheme of every issued URL
+      # (issuer, authorization_endpoint, the admin console's own iframes) to
+      # https, whatever the proxy chain forwards.
+      KC_HOSTNAME: https://iam.okryshto.dev
       KC_HEALTH_ENABLED: "true"
       KC_BOOTSTRAP_ADMIN_USERNAME: ${KC_BOOTSTRAP_ADMIN_USERNAME:-}
       KC_BOOTSTRAP_ADMIN_PASSWORD: ${KC_BOOTSTRAP_ADMIN_PASSWORD:-}

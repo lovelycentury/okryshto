@@ -52,3 +52,7 @@ jobs:
             cd ${{ secrets.DEPLOY_PATH }}
             docker compose pull
             docker compose up -d --remove-orphans
+            # The Caddyfile is a bind mount, so its content is invisible to
+            # compose's change detection — the container keeps the old config
+            # until it is recreated explicitly.
+            docker compose up -d --force-recreate caddy

@@ -2,6 +2,14 @@
 
 {
 	auto_https off
+
+	# TLS is terminated one hop up (~/vps-infra Caddy). Without this, Caddy
+	# rewrites X-Forwarded-Proto to the scheme it sees itself — plain `http` —
+	# and Keycloak (KC_PROXY_HEADERS=xforwarded) then advertises http:// URLs
+	# on an https:// page. Trusting the upstream keeps the original `https`.
+	servers {
+		trusted_proxies static private_ranges
+	}
 }
 
 (common) {
