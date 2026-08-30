@@ -12,31 +12,31 @@ import RevealOnView from "@/components/RevealOnView/RevealOnView";
 export default function HomePage() {
   return (
     <>
-      <RevealOnView>
+      <RevealOnView section="hero">
         <HeroSection />
       </RevealOnView>
-      <RevealOnView>
+      <RevealOnView section="intro">
         <IntroSection />
       </RevealOnView>
-      <RevealOnView>
+      <RevealOnView section="experience">
         <ExperienceSection />
       </RevealOnView>
-      <RevealOnView>
+      <RevealOnView section="projects">
         <ProjectsSection />
       </RevealOnView>
-      <RevealOnView>
+      <RevealOnView section="skills">
         <SkillsSection />
       </RevealOnView>
-      <RevealOnView>
+      <RevealOnView section="credibility">
         <CredibilitySection />
       </RevealOnView>
-      <RevealOnView>
+      <RevealOnView section="beyond-code">
         <BeyondCodeSection />
       </RevealOnView>
-      <RevealOnView>
+      <RevealOnView section="links">
         <LinksSection />
       </RevealOnView>
-      <RevealOnView>
+      <RevealOnView section="contact">
         <ContactSection />
       </RevealOnView>
     </>

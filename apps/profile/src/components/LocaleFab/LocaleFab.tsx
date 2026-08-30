@@ -3,6 +3,7 @@
 import { useEffect, useId, useRef, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Fab, Icon, type FabColor } from "@okryshto/react";
+import { trackLocaleSwitch } from "@/lib/analyticsEvents";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { routing, type Locale } from "@/i18n/routing";
 import styles from "./LocaleFab.module.scss";
@@ -56,6 +57,7 @@ export default function LocaleFab() {
   const selectLocale = (next: Locale) => {
     setOpen(false);
     if (next === locale || !routing.locales.includes(next)) return;
+    trackLocaleSwitch(locale, next);
     router.replace(pathname, { locale: next });
   };
 

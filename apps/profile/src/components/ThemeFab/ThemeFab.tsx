@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Fab, Icon } from "@okryshto/react";
+import { trackThemeSwitch } from "@/lib/analyticsEvents";
 import {
   applyProfileTheme,
   readDocumentTheme,
@@ -50,6 +51,7 @@ export default function ThemeFab() {
           const next: ProfileTheme = isLight ? "dark" : "light";
           applyProfileTheme(next);
           setTheme(next);
+          trackThemeSwitch(next);
         }}
       />
     </div>
