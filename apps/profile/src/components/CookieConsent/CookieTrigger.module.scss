@@ -1,0 +1,32 @@
+@use "styles/mixins" as m;
+
+.text {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--okryshto-text-muted);
+  cursor: pointer;
+  // Buttons do not inherit type from their container; taking it explicitly
+  // lets the trigger sit inside the footer's caption row without standing out.
+  font: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+  transition: color 160ms ease;
+
+  &:hover {
+    color: var(--okryshto-text-primary);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}
+
+.icon {
+  color: var(--okryshto-text-muted);
+  @include m.icon-button(2rem, var(--profile-radius-sm));
+
+  &:hover {
+    color: var(--okryshto-text-primary);
+  }
+}

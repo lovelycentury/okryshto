@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { Logo } from "@okryshto/react";
+import { CookieTrigger } from "@/components/CookieConsent";
 import { CONTACT_LINKS } from "@/lib/profile";
 import styles from "./SiteFooter.module.scss";
 
@@ -25,6 +26,9 @@ export default async function SiteFooter() {
           {/* Passed as a string so ICU renders "2026", not the grouped "2,026". */}
           <p>{t("copyright", { year: String(new Date().getFullYear()) })}</p>
           <p>{t("credit")}</p>
+          {/* Withdrawing consent has to be as easy as giving it, so the
+              settings modal keeps a permanent entry point here. */}
+          <CookieTrigger />
         </div>
       </div>
     </footer>
