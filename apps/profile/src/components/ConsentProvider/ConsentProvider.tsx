@@ -10,6 +10,7 @@ import {
   type CookieConsentConfig,
 } from "@/components/CookieConsent";
 import { CONSENT_EXPIRATION_DAYS, CONSENT_VERSION, GOOGLE_CONSENT_MODE } from "@/lib/analytics";
+import { trackConsentChoice } from "@/lib/analyticsEvents";
 
 /**
  * App-side wiring for the vendored Open Cookie Consent kit: the config the kit
@@ -46,6 +47,10 @@ export default function ConsentProvider({ children }: { children: ReactNode }) {
       position: "bottom",
       googleConsentMode: GOOGLE_CONSENT_MODE,
       categories,
+      // Fires right after the kit has pushed `consent update`, so a hit that
+      // reports "accepted" is itself sent under the granted state.
+      onConsentChange: (event) =>
+        trackConsentChoice(event.action, event.currentCategories.analytics),
     };
   }, [t]);
 

@@ -1,6 +1,6 @@
 import { getTranslations } from "next-intl/server";
-import { Button, Icon, Photo } from "@okryshto/react";
-import { SECTION_ID } from "@/lib/profile";
+import { Photo } from "@okryshto/react";
+import HeroActions from "./HeroActions";
 import styles from "./HeroSection.module.scss";
 
 export default async function HeroSection() {
@@ -21,20 +21,11 @@ export default async function HeroSection() {
             <span aria-hidden="true">·</span>
             <span>{t("location")}</span>
           </p>
-          <div className={styles.actions}>
-            <Button
-              variant="primary"
-              shape="pill"
-              size="large"
-              href={`#${SECTION_ID.work}`}
-              endIcon={<Icon name="iconArrowRight" fontSize="small" />}
-            >
-              {t("primaryCta")}
-            </Button>
-            <Button variant="glass" shape="pill" size="large" href={`#${SECTION_ID.contact}`}>
-              {t("secondaryCta")}
-            </Button>
-          </div>
+          <HeroActions
+            className={styles.actions}
+            primaryLabel={t("primaryCta")}
+            secondaryLabel={t("secondaryCta")}
+          />
         </div>
 
         <div className={styles.portrait}>

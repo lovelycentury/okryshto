@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import { AnimatedBackground } from "@okryshto/react";
+import Analytics from "@/components/Analytics/Analytics";
 import ConsentProvider from "@/components/ConsentProvider/ConsentProvider";
 import LocaleFab from "@/components/LocaleFab/LocaleFab";
 import ThemeFab from "@/components/ThemeFab/ThemeFab";
@@ -107,7 +108,12 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
           </ConsentProvider>
         </NextIntlClientProvider>
       </body>
-      {isAnalyticsEnabled && <GoogleAnalytics gaId={GA_MEASUREMENT_ID} />}
+      {isAnalyticsEnabled && (
+        <>
+          <GoogleAnalytics gaId={GA_MEASUREMENT_ID} />
+          <Analytics />
+        </>
+      )}
     </html>
   );
 }

@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Icon } from "@okryshto/react";
+import { trackContactIntent, type ContactMethod } from "@/lib/analyticsEvents";
 import { CONTACT, CONTACT_LINKS, SECTION_ID } from "@/lib/profile";
 import styles from "./ContactSection.module.scss";
 
@@ -21,6 +22,9 @@ export default function ContactSection() {
     try {
       await navigator.clipboard.writeText(CONTACT.email);
       setCopied(true);
+      // Reported only on success: a denied clipboard is not an intent to reach
+      // out, and counting it would inflate the one metric that matters most.
+      trackContactIntent("copy_email");
     } catch {
       // Clipboard access can be denied (insecure context, permissions); the
       // address stays visible on the chip, so there is nothing to recover from.
@@ -62,7 +66,12 @@ export default function ContactSection() {
 
         <nav className={styles.links}>
           {CONTACT_LINKS.map(({ id, href }) => (
-            <a key={id} className={styles.link} href={href}>
+            <a
+              key={id}
+              className={styles.link}
+              href={href}
+              onClick={() => trackContactIntent(id as ContactMethod)}
+            >
               {t(`links.${id}`)}
               <Icon name="iconArrowUpRight" fontSize="small" />
             </a>
