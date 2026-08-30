@@ -24,15 +24,6 @@ import {
   paintBackgrounds,
 } from "./pages/catalog";
 import { paintIcons } from "./pages/iconsPage";
-import { paintScreens } from "./pages/screens";
-import { paintCookieConsent } from "./pages/cookieConsent";
-import { paintTemplateVizitka } from "./pages/templateVizitka";
-import { paintTemplateOrbit } from "./pages/templateOrbit";
-import { paintTemplateOmm } from "./pages/templateOmm";
-import { paintTemplateHeaders } from "./pages/templateHeaders";
-import { paintTemplateFooters } from "./pages/templateFooters";
-import { paintTemplateLogin } from "./pages/templateLogin";
-import { paintTemplateEmails } from "./pages/templateEmails";
 
 export type ProgressFn = (step: string) => void;
 
@@ -72,20 +63,11 @@ export async function generate(onProgress: ProgressFn): Promise<void> {
   const chatPage = await createPage("05 · Chat");
   const aiPage = await createPage("06 · AI");
   const backgroundsPage = await createPage("07 · Backgrounds");
-  const screensPage = await createPage("09 · Templates (Profile)");
-  const cookiesPage = await createPage("10 · Templates (Cookie consent)");
-  const vizitkaPage = await createPage("11 · Template (Vizitka)");
-  const orbitPage = await createPage("12 · Template (Orbit)");
-  const ommPage = await createPage("13 · Template (Omm)");
-  const headersPage = await createPage("14 · Template (Headers)");
-  const footersPage = await createPage("15 · Template (Footers)");
-  const loginPage = await createPage("16 · Template (Login)");
-  const emailsPage = await createPage("17 · Template (Emails)");
 
   // Component sets must be combined on a real page (combineAsVariants parent).
   // The dedicated Components page was removed — park the library off-canvas on
-  // Vizitka so Template/Screen instances stay valid but nothing shows.
-  await figma.setCurrentPageAsync(vizitkaPage);
+  // Foundations so it stays in the file but nothing shows.
+  await figma.setCurrentPageAsync(foundationsPage);
   onProgress("Building component library…");
   const lib = await buildComponents(t);
   for (const raw of Object.values(lib as unknown as Record<string, unknown>)) {
@@ -115,33 +97,6 @@ export async function generate(onProgress: ProgressFn): Promise<void> {
   onProgress("Painting Backgrounds…");
   await paintBackgrounds(t, backgroundsPage);
 
-  onProgress("Painting Templates (Profile)…");
-  await paintScreens(t, screensPage, lib);
-
-  onProgress("Painting Templates (Cookie consent)…");
-  await paintCookieConsent(t, cookiesPage);
-
-  onProgress("Painting Template (Vizitka)…");
-  await paintTemplateVizitka(t, vizitkaPage);
-
-  onProgress("Painting Template (Orbit)…");
-  await paintTemplateOrbit(t, orbitPage);
-
-  onProgress("Painting Template (Omm)…");
-  await paintTemplateOmm(t, ommPage);
-
-  onProgress("Painting Template (Headers)…");
-  await paintTemplateHeaders(t, headersPage);
-
-  onProgress("Painting Template (Footers)…");
-  await paintTemplateFooters(t, footersPage);
-
-  onProgress("Painting Template (Login)…");
-  await paintTemplateLogin(t, loginPage);
-
-  onProgress("Painting Template (Emails)…");
-  await paintTemplateEmails(t, emailsPage);
-
-  await figma.setCurrentPageAsync(screensPage);
+  await figma.setCurrentPageAsync(foundationsPage);
   onProgress("Done");
 }
