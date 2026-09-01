@@ -53,11 +53,7 @@ export const resumeSearchTool = createTool({
   execute: async ({ query, topK }) => {
     const queryVector = await embedQuery(query);
 
-    const matches = await vectorStore.query({
-      indexName: RESUME_INDEX,
-      queryVector,
-      topK,
-    });
+    const matches = await vectorStore.query({ indexName: RESUME_INDEX, queryVector, topK });
 
     const results = matches.flatMap((match) => {
       if (match.score < MIN_SCORE) return [];

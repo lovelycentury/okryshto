@@ -1,0 +1,10 @@
+.root {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--okryshto-glass-fill);
+  border: 1px solid var(--okryshto-border-subtle);
+  width: fit-content;
+}

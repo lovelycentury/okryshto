@@ -9,6 +9,7 @@
 **/coverage
 **/storybook-static
 **/.turbo
+**/.mastra
 .pnpm-store
 .git
 .github

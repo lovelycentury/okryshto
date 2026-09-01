@@ -10,6 +10,48 @@ import { vectorStore } from "../../rag/vector-store.js";
  */
 export const healthRoute = registerApiRoute("/status", {
   method: "GET",
+  openapi: {
+    summary: "Knowledge-base readiness",
+    description:
+      "`200` when the vector index exists and holds vectors. `503` (with a `hint`) when " +
+      "it is missing or empty — run `pnpm ingest` — or when the vector store is unreachable.",
+    tags: ["resume"],
+    responses: {
+      200: {
+        description: "Index is populated; the agent can answer.",
+        content: {
+          "application/json": {
+            schema: {
+              type: "object",
+              required: ["status", "knowledgeBase", "vectors"],
+              properties: {
+                status: { type: "string", enum: ["ok"] },
+                knowledgeBase: { type: "string", enum: ["ready"] },
+                vectors: { type: "integer" },
+              },
+            },
+          },
+        },
+      },
+      503: {
+        description: "Index missing, empty, or unreachable.",
+        content: {
+          "application/json": {
+            schema: {
+              type: "object",
+              required: ["status"],
+              properties: {
+                status: { type: "string", enum: ["degraded", "error"] },
+                knowledgeBase: { type: "string", enum: ["missing", "empty"] },
+                hint: { type: "string" },
+                message: { type: "string" },
+              },
+            },
+          },
+        },
+      },
+    },
+  },
   handler: async (c) => {
     try {
       const indexes = await vectorStore.listIndexes();

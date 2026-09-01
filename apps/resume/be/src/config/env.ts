@@ -1,9 +1,20 @@
 import { z } from "zod";
 
 /**
+ * A `KEY=` line in a `.env` (common when copying `.env.example` and filling in only
+ * some values) parses as `""`, not `undefined` — so `.optional()` and `.default()`
+ * would not kick in. Coerce blank/whitespace to `undefined` first.
+ */
+const blankAsUndefined = <T extends z.ZodTypeAny>(schema: T) =>
+  z.preprocess((value) => {
+    if (typeof value === "string" && value.trim() === "") return undefined;
+    return value;
+  }, schema);
+
+/**
  * Provider keys are optional individually: you only need the key for the providers
- * whose models you actually intend to serve. `assertProviderConfigured` turns a
- * missing key into a clear 4xx at request time instead of a cryptic provider 401.
+ * whose models you actually intend to serve. `resolveLanguageModel` turns a missing
+ * key into a clear 4xx/503 at request time instead of a cryptic provider 401.
  *
  * The Google key is the one exception — it also powers embeddings, so both
  * ingestion and retrieval fail without it.
@@ -15,20 +26,20 @@ const envSchema = z.object({
   /** Required: used for chat *and* for the embedding model backing the vector store. */
   GOOGLE_GENERATIVE_AI_API_KEY: z.string().min(1, "required — it also powers embeddings"),
 
-  GROQ_API_KEY: z.string().min(1).optional(),
-  OPENROUTER_API_KEY: z.string().min(1).optional(),
-  /** Ollama Cloud API key. Omit when pointing OLLAMA_BASE_URL at a local daemon. */
-  OLLAMA_API_KEY: z.string().min(1).optional(),
-  OLLAMA_BASE_URL: z.url().default("https://ollama.com/api"),
+  GROQ_API_KEY: blankAsUndefined(z.string().min(1).optional()),
+  OPENROUTER_API_KEY: blankAsUndefined(z.string().min(1).optional()),
+  /** Ollama Cloud API key, for the hosted `ollama` provider. */
+  OLLAMA_API_KEY: blankAsUndefined(z.string().min(1).optional()),
+  OLLAMA_BASE_URL: blankAsUndefined(z.url().default("https://ollama.com/api")),
 
   /** libSQL/Turso connection. `file:` URLs keep everything on local disk. */
-  VECTOR_DB_URL: z.string().min(1).default("file:./.mastra/resume-vector.db"),
-  VECTOR_DB_AUTH_TOKEN: z.string().min(1).optional(),
-  STORAGE_DB_URL: z.string().min(1).default("file:./.mastra/resume-storage.db"),
-  STORAGE_DB_AUTH_TOKEN: z.string().min(1).optional(),
+  VECTOR_DB_URL: blankAsUndefined(z.string().min(1).default("file:./.mastra/resume-vector.db")),
+  VECTOR_DB_AUTH_TOKEN: blankAsUndefined(z.string().min(1).optional()),
+  STORAGE_DB_URL: blankAsUndefined(z.string().min(1).default("file:./.mastra/resume-storage.db")),
+  STORAGE_DB_AUTH_TOKEN: blankAsUndefined(z.string().min(1).optional()),
 
   /** Default model id served when a request does not pick one. Validated against MODELS. */
-  DEFAULT_MODEL_ID: z.string().default("gemini-3.6-flash"),
+  DEFAULT_MODEL_ID: blankAsUndefined(z.string().default("gpt-oss-120b")),
 
   /** Comma-separated allowlist of browser origins for the `fe` app. */
   CORS_ORIGINS: z

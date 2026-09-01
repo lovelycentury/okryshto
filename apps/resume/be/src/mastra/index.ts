@@ -31,5 +31,8 @@ export const mastra = new Mastra({
       allowMethods: ["GET", "POST", "OPTIONS"],
       allowHeaders: ["Content-Type"],
     },
+    // Spec at GET /api/openapi.json, Swagger UI at GET /swagger-ui. Both list the
+    // custom routes above (via their `openapi` blocks) plus Mastra's built-ins.
+    build: { openAPIDocs: true, swaggerUI: true },
   },
 });

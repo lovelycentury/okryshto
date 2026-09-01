@@ -43,6 +43,10 @@ than guess — for a CV, an invented job title or metric is worse than a non-ans
 Custom routes live at the root, because Mastra reserves `/api/*` for its own built-in
 agent endpoints (and serves its playground at `/`).
 
+Interactive docs: **Swagger UI at `GET /swagger-ui`**, spec at `GET /api/openapi.json`
+(enabled via `server.build` in `src/mastra/index.ts`). The three routes below are tagged
+`resume`; everything else in the spec is Mastra's built-in surface.
+
 ### `GET /models`
 
 Lists the model registry. `available` is false when the provider's API key is not set,
@@ -50,7 +54,7 @@ so the picker can disable it instead of failing on send.
 
 ```json
 {
-  "defaultModelId": "gemini-3.6-flash",
+  "defaultModelId": "gpt-oss-120b",
   "models": [
     {
       "id": "gemini-3.6-flash",
@@ -67,12 +71,20 @@ so the picker can disable it instead of failing on send.
 ### `POST /chat`
 
 ```json
-{ "message": "Where did he work in 2023?", "threadId": "abc123", "modelId": "gpt-oss-120b" }
+{
+  "messages": [
+    { "role": "user", "content": "Where did he work in 2023?" },
+    { "role": "assistant", "content": "Oleksii was Frontend Lead at Datasport…" },
+    { "role": "user", "content": "And before that?" }
+  ],
+  "modelId": "gpt-oss-120b"
+}
 ```
 
-`modelId` is optional and must be one of the registry ids; it defaults to
-`DEFAULT_MODEL_ID`. `threadId` groups messages into a conversation — generate it on the
-client and reuse it for follow-ups.
+The endpoint is **stateless** — send the whole transcript so far, oldest first, with the
+user's new question last (2000 chars max, 60 messages max). The frontend keeps this
+history in `sessionStorage`; the backend stores nothing per conversation. `modelId` is
+optional, must be a registry id, and defaults to `DEFAULT_MODEL_ID`.
 
 Responds with `text/event-stream`. Each frame is one JSON object matching
 `chatEventSchema` in `src/server/sse.ts`:
@@ -133,29 +145,44 @@ Queries are embedded with `taskType: RETRIEVAL_QUERY` and documents with
 `RETRIEVAL_DOCUMENT`. That asymmetry matters: without it, short questions and long CV
 paragraphs land in noticeably different regions of the embedding space.
 
-## Docker Compose
+## Docker
 
-`../docker-compose.yml` runs this backend against a real **libSQL server** container
-instead of the embedded `file:` database — the vector store becomes an actual service
-with its own volume, no code change (just `VECTOR_DB_URL=http://libsql:8080`).
+Two compose files in `apps/resume/`, both with a real **libSQL server** container for the
+vector store (no code change — just `VECTOR_DB_URL=http://libsql:8080`).
+
+### Dev — `docker-compose.dev.yml` (one command, hot reload)
 
 ```bash
 cd ..                                             # apps/resume
 cp be/.env.example be/.env                        # fill GOOGLE_GENERATIVE_AI_API_KEY
 cp be/knowledge/cv.example.md       be/knowledge/cv.md         # your real content,
 cp be/knowledge/personal.example.md be/knowledge/personal.md   # both gitignored
-docker compose up -d --build
-docker compose --profile ingest run --rm ingest   # embed knowledge/*.md
-curl localhost:5300/status
+docker compose -f docker-compose.dev.yml up --build
+docker compose -f docker-compose.dev.yml --profile ingest run --rm ingest
 ```
+
+`be` runs `mastra dev`, `fe` runs Vite. `apps/resume/{be,fe}/src` is bind-mounted, so
+edits there hot-reload — Vite in ~seconds, `mastra dev` in ~30–50s (its own rebundle +
+restart). Polling is on (`CHOKIDAR_USEPOLLING` / `VITE_DEV_CONTAINER`) because Docker
+Desktop doesn't forward file events across a bind mount. `node_modules` live in the image;
+adding a dependency means re-running with `--build`.
+
+### Prod-shaped — `docker-compose.yml`
+
+```bash
+docker compose up -d --build
+docker compose --profile ingest run --rm ingest
+```
+
+`Dockerfile`'s `runtime` stage is the slim server image; its `build` stage doubles as the
+`ingest` service.
+
+### Why storage isn't on the libSQL server
 
 Conversation state (`STORAGE_DB_URL`) stays on the embedded driver on a separate volume:
 `@mastra/libsql` runs its schema init in parallel, which the libSQL server's hrana
-protocol rejects with `SQLITE_SCHEMA` on first boot. Only the storage path does that —
-the vector store's single `CREATE TABLE` is fine against the server.
-
-`Dockerfile`'s `build` stage doubles as the `ingest` service (it keeps the sources and
-`tsx`); the `runtime` stage is the slim server image.
+protocol rejects with `SQLITE_SCHEMA` on first boot. Only the storage path does that — the
+vector store's single `CREATE TABLE` is fine against the server.
 
 ## Deployment
 

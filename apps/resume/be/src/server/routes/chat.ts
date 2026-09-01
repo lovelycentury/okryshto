@@ -10,13 +10,30 @@ import { RESUME_SEARCH_TOOL_ID } from "../../tools/resume-search.js";
 import { type ChatEvent, encodeSse } from "../sse.js";
 
 /**
- * A visitor-facing endpoint, so the limits are deliberately tight: long inputs cost
- * tokens and are never a genuine question about a CV.
+ * The frontend owns conversation history (it lives in the visitor's `sessionStorage`)
+ * and replays the whole transcript here on every turn — so the backend is stateless.
+ *
+ * Limits are deliberately tight: this is a visitor-facing endpoint, long inputs cost
+ * tokens, and a real CV question is never a wall of text.
  */
+const chatMessageSchema = z.object({
+  role: z.enum(["user", "assistant"]),
+  content: z.string().min(1).max(4000),
+});
+
 const chatRequestSchema = z.object({
-  message: z.string().trim().min(1, "Message cannot be empty.").max(2000),
-  /** Groups messages into a conversation. The client generates and persists it. */
-  threadId: z.string().min(1).max(128),
+  messages: z
+    .array(chatMessageSchema)
+    .min(1, "At least one message is required.")
+    .max(60, "Conversation is too long — start a new one.")
+    .refine(
+      (messages) => messages.at(-1)?.role === "user",
+      "The last message must be from the user.",
+    )
+    .refine(
+      (messages) => (messages.at(-1)?.content.length ?? 0) <= 2000,
+      "The latest message is too long (2000 characters max).",
+    ),
   modelId: modelIdSchema.optional(),
 });
 
@@ -24,6 +41,93 @@ export type ChatRequest = z.infer<typeof chatRequestSchema>;
 
 export const chatRoute = registerApiRoute("/chat", {
   method: "POST",
+  openapi: {
+    summary: "Ask the resume agent",
+    description:
+      "Streams the answer as Server-Sent Events. Each frame is one JSON object matching " +
+      "`chatEventSchema` (`src/server/sse.ts`): `delta` | `searching` | `sources` | `done` | " +
+      "`error`. Failures detectable before the stream starts — invalid body, unknown or " +
+      "unconfigured model, provider unreachable — return JSON with a 4xx/5xx instead.",
+    tags: ["resume"],
+    requestBody: {
+      required: true,
+      content: {
+        "application/json": {
+          schema: {
+            type: "object",
+            required: ["messages"],
+            properties: {
+              messages: {
+                type: "array",
+                minItems: 1,
+                maxItems: 60,
+                description:
+                  "The whole transcript so far, oldest first. The last entry must be the " +
+                  "user's new question (2000 chars max).",
+                items: {
+                  type: "object",
+                  required: ["role", "content"],
+                  properties: {
+                    role: { type: "string", enum: ["user", "assistant"] },
+                    content: { type: "string", minLength: 1, maxLength: 4000 },
+                  },
+                },
+              },
+              modelId: {
+                type: "string",
+                description: "One of the `/models` ids. Defaults to `DEFAULT_MODEL_ID`.",
+              },
+            },
+          },
+        },
+      },
+    },
+    responses: {
+      200: {
+        description: "SSE stream of chat events.",
+        content: {
+          "text/event-stream": {
+            schema: {
+              type: "string",
+              description:
+                'Frames like `data: {"type":"delta","text":"…"}`, terminated by ' +
+                '`data: {"type":"done"}` or `data: {"type":"error","message":"…"}`.',
+            },
+          },
+        },
+      },
+      400: {
+        description: "Request body failed validation.",
+        content: {
+          "application/json": {
+            schema: {
+              type: "object",
+              properties: { error: { type: "string" }, issues: { type: "object" } },
+            },
+          },
+        },
+      },
+      502: {
+        description: "The model could not be reached.",
+        content: {
+          "application/json": {
+            schema: { type: "object", properties: { error: { type: "string" } } },
+          },
+        },
+      },
+      503: {
+        description: "The chosen model's provider key is not configured.",
+        content: {
+          "application/json": {
+            schema: {
+              type: "object",
+              properties: { error: { type: "string" }, modelId: { type: "string" } },
+            },
+          },
+        },
+      },
+    },
+  },
   handler: async (c) => {
     const body = await c.req.json().catch(() => null);
     const parsed = chatRequestSchema.safeParse(body);
@@ -32,7 +136,7 @@ export const chatRoute = registerApiRoute("/chat", {
       return c.json({ error: "Invalid request", issues: z.treeifyError(parsed.error) }, 400);
     }
 
-    const { message, threadId, modelId } = parsed.data;
+    const { messages, modelId } = parsed.data;
     const mastra = c.get("mastra");
     const logger = mastra.getLogger();
     const agent = mastra.getAgent("resume");
@@ -41,13 +145,18 @@ export const chatRoute = registerApiRoute("/chat", {
     const requestContext = new RequestContext();
     requestContext.set(MODEL_ID_KEY, modelId ?? env.DEFAULT_MODEL_ID);
 
+    // Discriminated per item so each narrows to CoreUserMessage / CoreAssistantMessage
+    // rather than a `{ role: "user" | "assistant" }` union the overloads reject.
+    const coreMessages = messages.map((m) =>
+      m.role === "user"
+        ? ({ role: "user", content: m.content } as const)
+        : ({ role: "assistant", content: m.content } as const),
+    );
+
     let stream;
     try {
-      stream = await agent.stream(message, {
-        requestContext,
-        // Single-visitor site: every thread belongs to the same conceptual resource.
-        memory: { thread: threadId, resource: "site-visitor" },
-      });
+      // The whole transcript is passed through; the agent keeps no memory of its own.
+      stream = await agent.stream(coreMessages, { requestContext });
     } catch (error) {
       // Failures available before the first byte are returned as normal JSON, so the
       // client can show a real error instead of an empty stream that just stops.
@@ -55,7 +164,7 @@ export const chatRoute = registerApiRoute("/chat", {
         return c.json({ error: error.message, modelId: error.modelId }, error.status);
       }
 
-      logger?.error("Chat request failed to start", { error, threadId, modelId });
+      logger?.error("Chat request failed to start", { error, modelId });
       return c.json({ error: "The model could not be reached. Try again or pick another." }, 502);
     }
 
@@ -63,8 +172,18 @@ export const chatRoute = registerApiRoute("/chat", {
       async start(controller) {
         const send = (event: ChatEvent) => controller.enqueue(encodeSse(event));
 
+        // `error` and `done` are mutually exclusive terminals — once one is sent, the
+        // stream is closed and nothing else follows.
+        let terminated = false;
+        const finish = (event: ChatEvent) => {
+          if (terminated) return;
+          terminated = true;
+          send(event);
+        };
+
         try {
           for await (const chunk of stream.fullStream) {
+            if (terminated) break;
             switch (chunk.type) {
               case "text-delta":
                 send({ type: "delta", text: chunk.payload.text });
@@ -89,8 +208,8 @@ export const chatRoute = registerApiRoute("/chat", {
               }
 
               case "error":
-                logger?.error("Chat stream errored", { error: chunk.payload.error, threadId });
-                send({ type: "error", message: "The model stopped unexpectedly." });
+                logger?.error("Chat stream errored", { error: chunk.payload.error });
+                finish({ type: "error", message: "The model stopped mid-answer. Try again." });
                 break;
 
               default:
@@ -98,10 +217,10 @@ export const chatRoute = registerApiRoute("/chat", {
             }
           }
 
-          send({ type: "done" });
+          finish({ type: "done" });
         } catch (error) {
-          logger?.error("Chat stream aborted", { error, threadId, modelId });
-          send({ type: "error", message: "The model stopped unexpectedly." });
+          logger?.error("Chat stream aborted", { error, modelId });
+          finish({ type: "error", message: "The model stopped mid-answer. Try again." });
         } finally {
           controller.close();
         }

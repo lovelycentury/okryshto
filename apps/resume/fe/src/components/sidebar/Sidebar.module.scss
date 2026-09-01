@@ -1,0 +1,172 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 24px;
+  height: 100vh;
+  height: 100dvh;
+  position: sticky;
+  top: 0;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+// Only the initials fallback (photo missing or failed to load) shows this: the shared
+// Avatar blends mint into indigo, and the design calls for a flat mint disc, so the
+// gradient's far stop is pulled back to its near one. Local override, not a token change
+// — the gradient is right for avatars elsewhere.
+.avatar {
+  --okryshto-avatar-gradient-end: var(--okryshto-accent-primary);
+}
+
+.identity {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.blurb {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.starters {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  // Takes the slack, which is what pins the footer to the bottom of the panel.
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.startersLabel {
+  margin: 0 0 2px;
+  letter-spacing: 0.14em;
+}
+
+.starterList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+// Reads as a list of questions, not a stack of buttons: no chrome at rest, and the
+// bordered box appears only under the pointer. Five outlined tiles competed with the
+// transcript for attention — the chat is the thing on this screen with something to say.
+.starter {
+  display: block;
+  width: 100%;
+  padding: 9px 12px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  background: transparent;
+  color: var(--okryshto-text-secondary);
+  font: inherit;
+  font-size: 0.875rem;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    border-color 0.15s ease,
+    color 0.15s ease,
+    background 0.15s ease;
+}
+
+.starter:hover:not(:disabled),
+.starter:focus-visible {
+  border-color: var(--okryshto-border-default);
+  color: var(--okryshto-text-primary);
+  background: var(--okryshto-glass-fill);
+}
+
+.starter:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.footer {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-top: 18px;
+  border-top: 1px solid var(--okryshto-border-subtle);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.badge {
+  --okryshto-chip-border-color: color-mix(in srgb, var(--okryshto-accent-primary) 40%, transparent);
+  --okryshto-chip-text-color: var(--okryshto-accent-primary);
+}
+
+.email {
+  color: var(--okryshto-text-secondary);
+  font-size: 0.8125rem;
+  text-decoration: none;
+  word-break: break-all;
+  transition: color 0.15s ease;
+}
+
+.email:hover,
+.email:focus-visible {
+  color: var(--okryshto-text-primary);
+  text-decoration: underline;
+}
+
+// The kit ships its own button styling; here it should read as one more quiet footer
+// line, not as a control competing with the starters.
+.cookieTrigger {
+  align-self: flex-start;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--okryshto-text-muted);
+  font: inherit;
+  font-size: 0.8125rem;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.cookieTrigger:hover,
+.cookieTrigger:focus-visible {
+  color: var(--okryshto-text-primary);
+}
+
+.disclaimer {
+  margin: 0;
+  line-height: 1.5;
+  // Stops the last line becoming a lone word ("…browser / tab."), which is what this
+  // block does at the sidebar's width.
+  text-wrap: pretty;
+}
+
+@media (max-width: 900px) {
+  .root {
+    position: static;
+    height: auto;
+    padding: 16px;
+    gap: 14px;
+  }
+
+  // Stacked, the sidebar is a compact header — only the identity survives; everything
+  // below it would push the chat off the first screen.
+  .blurb,
+  .starters,
+  .footer {
+    display: none;
+  }
+}

@@ -22,7 +22,7 @@ const openrouter = env.OPENROUTER_API_KEY
   ? createOpenRouter({ apiKey: env.OPENROUTER_API_KEY })
   : undefined;
 
-// Ollama needs no key when it points at a local daemon, so it is always constructed.
+// Ollama Cloud. Constructed unconditionally — the key is only an Authorization header.
 const ollama = createOllama({
   baseURL: env.OLLAMA_BASE_URL,
   headers: env.OLLAMA_API_KEY ? { Authorization: `Bearer ${env.OLLAMA_API_KEY}` } : undefined,
