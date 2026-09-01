@@ -5,6 +5,8 @@ build/
 coverage/
 .turbo/
 storybook-static/
+# Mastra build output, local libSQL databases, and the vector index.
+.mastra/
 .next/
 out/
 *.tsbuildinfo

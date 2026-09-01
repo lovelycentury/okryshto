@@ -1,0 +1,60 @@
+import { z } from "zod";
+
+/**
+ * Provider keys are optional individually: you only need the key for the providers
+ * whose models you actually intend to serve. `assertProviderConfigured` turns a
+ * missing key into a clear 4xx at request time instead of a cryptic provider 401.
+ *
+ * The Google key is the one exception — it also powers embeddings, so both
+ * ingestion and retrieval fail without it.
+ */
+const envSchema = z.object({
+  NODE_ENV: z.enum(["development", "test", "production"]).default("development"),
+  PORT: z.coerce.number().int().positive().default(5300),
+
+  /** Required: used for chat *and* for the embedding model backing the vector store. */
+  GOOGLE_GENERATIVE_AI_API_KEY: z.string().min(1, "required — it also powers embeddings"),
+
+  GROQ_API_KEY: z.string().min(1).optional(),
+  OPENROUTER_API_KEY: z.string().min(1).optional(),
+  /** Ollama Cloud API key. Omit when pointing OLLAMA_BASE_URL at a local daemon. */
+  OLLAMA_API_KEY: z.string().min(1).optional(),
+  OLLAMA_BASE_URL: z.url().default("https://ollama.com/api"),
+
+  /** libSQL/Turso connection. `file:` URLs keep everything on local disk. */
+  VECTOR_DB_URL: z.string().min(1).default("file:./.mastra/resume-vector.db"),
+  VECTOR_DB_AUTH_TOKEN: z.string().min(1).optional(),
+  STORAGE_DB_URL: z.string().min(1).default("file:./.mastra/resume-storage.db"),
+  STORAGE_DB_AUTH_TOKEN: z.string().min(1).optional(),
+
+  /** Default model id served when a request does not pick one. Validated against MODELS. */
+  DEFAULT_MODEL_ID: z.string().default("gemini-3.6-flash"),
+
+  /** Comma-separated allowlist of browser origins for the `fe` app. */
+  CORS_ORIGINS: z
+    .string()
+    .default("http://localhost:5173")
+    .transform((value) =>
+      value
+        .split(",")
+        .map((origin) => origin.trim())
+        .filter(Boolean),
+    ),
+});
+
+export type Env = z.infer<typeof envSchema>;
+
+function loadEnv(): Env {
+  const parsed = envSchema.safeParse(process.env);
+
+  if (!parsed.success) {
+    const issues = parsed.error.issues
+      .map((issue) => `  - ${issue.path.join(".") || "(root)"}: ${issue.message}`)
+      .join("\n");
+    throw new Error(`Invalid environment configuration:\n${issues}\n\nSee .env.example.`);
+  }
+
+  return parsed.data;
+}
+
+export const env = loadEnv();
