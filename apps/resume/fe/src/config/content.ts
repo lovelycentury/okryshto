@@ -42,7 +42,6 @@ export const SIDEBAR_FOOTER = {
  */
 export const STARTER_KEYS = [
   "strongest",
-  "notDone",
   "leadership",
   "chaos",
   "craft",
