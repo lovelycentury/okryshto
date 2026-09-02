@@ -42,3 +42,16 @@ http://iam.okryshto.dev {
 	import common
 	reverse_proxy iam:8080
 }
+
+# Split origin: the SPA on one host, its backend on another. The SPA is built
+# with VITE_API_BASE_URL=https://resume-api.okryshto.dev (see deploy.yml /
+# Dockerfile.resume-fe), and resume-be's CORS_ORIGINS lists the SPA host.
+http://resume.okryshto.dev {
+	import common
+	reverse_proxy resume-fe:80
+}
+
+http://resume-api.okryshto.dev {
+	import common
+	reverse_proxy resume-be:5300
+}

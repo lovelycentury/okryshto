@@ -1,0 +1,43 @@
+# syntax=docker/dockerfile:1.7
+#
+# @okryshto/resume-fe — Vite SPA (chat UI for the resume RAG backend).
+#
+# BUILD CONTEXT IS THE MONOREPO ROOT:
+#   docker build -f ops/Dockerfile.resume-fe -t resume-fe .
+#
+# The app lives in apps/resume/fe; workspace deps (@okryshto/react,
+# /design-system, /icons) are built first via the "..." filter. Runtime is the
+# same static caddy:alpine + spa.Caddyfile as the storybook image.
+#
+# Split origin: VITE_API_BASE_URL is baked in at build time and points at the
+# backend's own host (resume-api.okryshto.dev). That host must be listed in
+# resume-be's CORS_ORIGINS. Passed as a build-arg from deploy.yml.
+
+FROM node:22-slim AS base
+ENV PNPM_HOME="/pnpm" \
+    PATH="/pnpm:$PATH" \
+    CI="true"
+RUN corepack enable
+WORKDIR /repo
+
+FROM base AS deps
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+RUN --mount=type=cache,id=pnpm-store,target=/pnpm/store \
+    pnpm fetch
+
+FROM deps AS build
+# Vite inlines VITE_-prefixed vars from the environment at build time.
+ARG VITE_API_BASE_URL
+ENV VITE_API_BASE_URL=${VITE_API_BASE_URL}
+COPY . .
+RUN --mount=type=cache,id=pnpm-store,target=/pnpm/store \
+    pnpm install --frozen-lockfile --prefer-offline
+# Workspace package dist first (the app resolves them from packages/*/dist),
+# then the Vite build → apps/resume/fe/dist.
+RUN pnpm --filter "@okryshto/resume-fe..." --if-present run build
+RUN pnpm --filter "@okryshto/resume-fe" run build
+
+FROM caddy:2-alpine AS runtime
+COPY ops/spa.Caddyfile /etc/caddy/Caddyfile
+COPY --from=build /repo/apps/resume/fe/dist /srv
+EXPOSE 80
