@@ -41,38 +41,50 @@ const MIN_SCORE = 0.4;
 /** Shared so the chat route can recognise this tool's chunks in the agent stream. */
 export const RESUME_SEARCH_TOOL_ID = "search-resume";
 
+/**
+ * Vector search over the CV + personal notes, shared by the agent tool and the chat
+ * route's mandatory pre-answer retrieval. Kept as a plain function so grounding never
+ * depends on the model choosing to call the tool — the smaller free-tier models skip
+ * it often, especially on follow-up turns.
+ */
+export async function searchResume({
+  query,
+  topK = 5,
+}: {
+  query: string;
+  topK?: number;
+}): Promise<ResumeSearchResult[]> {
+  const queryVector = await embedQuery(query);
+
+  const matches = await vectorStore.query({ indexName: RESUME_INDEX, queryVector, topK });
+
+  return matches.flatMap((match) => {
+    if (match.score < MIN_SCORE) return [];
+
+    // Metadata comes back as `Record<string, any>` from the store, so re-validate it
+    // rather than trusting the shape written by a possibly older ingest run.
+    const parsed = chunkMetadataSchema.safeParse(match.metadata);
+    if (!parsed.success) return [];
+
+    return [
+      {
+        text: parsed.data.text,
+        source: parsed.data.source,
+        title: parsed.data.title,
+        score: match.score,
+      },
+    ];
+  });
+}
+
 export const resumeSearchTool = createTool({
   id: RESUME_SEARCH_TOOL_ID,
   description:
     "Search Oleksii Kryshtopa's CV and personal knowledge base for passages relevant to a " +
-    "question. Returns verbatim excerpts with their source file. Call this before answering " +
-    "any question about his experience, skills, projects, or background — and call it more " +
-    "than once with different phrasings when the first result set looks thin.",
+    "question. Returns verbatim excerpts with their source file. Passages for the visitor's " +
+    "latest question are already provided to you; call this only to look again with different " +
+    "wording when those passages look thin or miss the question.",
   inputSchema,
   outputSchema,
-  execute: async ({ query, topK }) => {
-    const queryVector = await embedQuery(query);
-
-    const matches = await vectorStore.query({ indexName: RESUME_INDEX, queryVector, topK });
-
-    const results = matches.flatMap((match) => {
-      if (match.score < MIN_SCORE) return [];
-
-      // Metadata comes back as `Record<string, any>` from the store, so re-validate it
-      // rather than trusting the shape written by a possibly older ingest run.
-      const parsed = chunkMetadataSchema.safeParse(match.metadata);
-      if (!parsed.success) return [];
-
-      return [
-        {
-          text: parsed.data.text,
-          source: parsed.data.source,
-          title: parsed.data.title,
-          score: match.score,
-        },
-      ];
-    });
-
-    return { results };
-  },
+  execute: async ({ query, topK }) => ({ results: await searchResume({ query, topK }) }),
 });

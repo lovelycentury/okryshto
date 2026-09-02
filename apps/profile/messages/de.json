@@ -42,7 +42,7 @@
       "privateStorybook": {
         "title": "Private Storybook",
         "description": "Ein „Dark-First“-Designsystem. Es generiert direkt aus TypeScript in Figma: Komponenten, Varianten, Symbole, Tokens und Seitenvorlagen — alles aus einer einzigen Quelle.",
-        "tags": ["TypeScript", "Figma Plugin API"]
+        "tags": ["TypeScript", "Figma Plugin API", "Claude Code"]
       },
       "orbit": {
         "title": "Orbit",
@@ -57,7 +57,12 @@
       "ai-tooling-security": {
         "title": "AI Tooling Security",
         "description": "Eine Untersuchung von Tools für KI-Agenten und ihren Schwachstellen. Ich habe ein Bedrohungsmodell erstellt: Was passiert, wenn ein kompromittierter Agent Zugriff auf „docker.sock“ bekommt? Dazu habe ich einen Prototyp für eine Proxy-Schicht gebaut, die die Ausgabe des Agenten filtert.",
-        "tags": ["Security", "MCP", "Threat modelling"]
+        "tags": ["Security", "MCP", "Threat modelling", "Claude Code"]
+      },
+      "ai-resume": {
+        "title": "AI Resume",
+        "description": "Ein Chat auf dieser Website, der Fragen zu meiner Erfahrung beantwortet — verankert per Retrieval in meinem Lebenslauf und meinen persönlichen Notizen, ehrlich, wenn etwas nicht darin steht, und in der Sprache, in der man fragt. Austauschbare LLMs hinter einer zustandslosen API.",
+        "tags": ["RAG", "Mastra", "LLM", "Claude Code"]
       }
     }
   },

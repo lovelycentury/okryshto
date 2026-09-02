@@ -9,7 +9,12 @@ import type { LanguageCode } from "../state/types.js";
 export const PROFILE = {
   name: "Oleksii Kryshtopa",
   role: "Senior Frontend Engineer · Design Systems",
-  email: "oleksii.kryshtopa@gmail.com",
+  email: "oleksii.kryshtopa@tutamail.com",
+  /** Personal site — shown in the sidebar footer, labelled by its bare domain. */
+  website: "https://okryshto.dev",
+  /** Profile links — rendered as icon buttons in the sidebar footer. */
+  github: "https://github.com/lovelycentury",
+  linkedin: "https://www.linkedin.com/in/oleksii-k-412625261",
   /**
    * Served from `public/assets/` (copied verbatim into the build), not imported — the
    * file is a 192px square, four times the 48px the avatar renders at, which covers
@@ -38,8 +43,10 @@ export const SIDEBAR_FOOTER = {
 export const STARTER_KEYS = [
   "strongest",
   "notDone",
-  "payments",
   "leadership",
+  "chaos",
+  "craft",
+  "learning",
   "outsideWork",
 ] as const;
 

@@ -125,6 +125,40 @@
   text-decoration: underline;
 }
 
+// Cookie link on the left, profile icons pinned right. `margin-left: auto` on the
+// icon group keeps them right-aligned even before a consent decision exists, when
+// the trigger renders nothing.
+.footerRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.social {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.socialLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border-radius: 8px;
+  color: var(--okryshto-text-muted);
+  transition:
+    color 0.15s ease,
+    background 0.15s ease;
+}
+
+.socialLink:hover,
+.socialLink:focus-visible {
+  color: var(--okryshto-text-primary);
+  background: var(--okryshto-glass-fill);
+}
+
 // The kit ships its own button styling; here it should read as one more quiet footer
 // line, not as a control competing with the starters.
 .cookieTrigger {

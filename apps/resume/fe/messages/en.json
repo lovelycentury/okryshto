@@ -7,8 +7,10 @@
   "Starters": {
     "strongest": "What is he strongest at?",
     "notDone": "What has he NOT done?",
-    "payments": "Tell me about his payments work",
     "leadership": "Can he lead a team?",
+    "chaos": "How does he handle a project in chaos?",
+    "craft": "What does good code mean to him?",
+    "learning": "How does he learn a new technology?",
     "outsideWork": "What's he like outside work?"
   },
   "EmptyState": {

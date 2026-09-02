@@ -71,6 +71,14 @@ export const PROJECTS: readonly {
     gradientLight:
       "linear-gradient(152deg, rgb(168, 122, 216) 0%, rgb(220, 204, 246) 52%, rgb(246, 240, 255) 100%)",
   },
+  {
+    id: "ai-resume",
+    href: "https://resume.okryshto.dev",
+    gradient:
+      "linear-gradient(152deg, rgb(190, 58, 128) 0%, rgb(112, 26, 74) 52%, rgb(56, 14, 40) 100%)",
+    gradientLight:
+      "linear-gradient(152deg, rgb(232, 120, 176) 0%, rgb(248, 206, 228) 52%, rgb(255, 240, 248) 100%)",
+  },
 ];
 
 /** Skill groups, laid out as two columns on wide viewports (Figma "Columns"). */

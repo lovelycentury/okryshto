@@ -42,7 +42,7 @@
       "privateStorybook": {
         "title": "Private Storybook",
         "description": "Dark-first дизайн-система, що генерується з TypeScript одразу у Figma: компоненти, варіанти, іконки, токени та шаблони сторінок з одного джерела правди.",
-        "tags": ["TypeScript", "Figma Plugin API"]
+        "tags": ["TypeScript", "Figma Plugin API", "Claude Code"]
       },
       "orbit": {
         "title": "Orbit",
@@ -57,7 +57,12 @@
       "ai-tooling-security": {
         "title": "AI Tooling Security",
         "description": "Дослідження інструментів AI-агентів і їхніх вразливостей — моделювання загроз, коли скомпрометований агент дістається docker.sock, і прототип проксі-шару, що фільтрує вивід агента.",
-        "tags": ["Безпека", "MCP", "Моделювання загроз"]
+        "tags": ["Безпека", "MCP", "Моделювання загроз", "Claude Code"]
+      },
+      "ai-resume": {
+        "title": "AI Resume",
+        "description": "Чат на цьому сайті, який відповідає на запитання про мій досвід — з опорою на резюме та особисті нотатки через retrieval, чесно каже, коли чогось у них немає, і відповідає мовою запитання. Змінні LLM за одним stateless-API.",
+        "tags": ["RAG", "Mastra", "LLM", "Claude Code"]
       }
     }
   },

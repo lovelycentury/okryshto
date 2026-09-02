@@ -6,7 +6,12 @@ import { MODEL_ID_KEY } from "../../agents/resume-agent.js";
 import { env } from "../../config/env.js";
 import { modelIdSchema } from "../../config/models.js";
 import { ModelUnavailableError } from "../../config/providers.js";
-import { RESUME_SEARCH_TOOL_ID } from "../../tools/resume-search.js";
+import {
+  groundingContextMessage,
+  groundingSources,
+  retrieveGrounding,
+} from "../../rag/grounding.js";
+import { RESUME_SEARCH_TOOL_ID, type ResumeSearchResult } from "../../tools/resume-search.js";
 import { clientKey, consume } from "../rate-limit.js";
 import { type ChatEvent, encodeSse } from "../sse.js";
 
@@ -177,10 +182,25 @@ export const chatRoute = registerApiRoute("/chat", {
         : ({ role: "assistant", content: m.content } as const),
     );
 
+    // Grounding is mandatory and happens here, not left to the model: the smaller
+    // free-tier models routinely skip `search-resume` — especially on follow-up turns,
+    // where the replayed transcript convinces them they already know — and then answer
+    // from imagination. Retrieve on the new question and inject the passages as context.
+    let grounding: ResumeSearchResult[] = [];
+    try {
+      grounding = await retrieveGrounding(messages.at(-1)!.content);
+    } catch (error) {
+      // A retrieval failure (usually the shared Google embedding quota) must not sink
+      // the whole answer — fall back to the agent's own `search-resume` tool.
+      logger?.error("Pre-answer retrieval failed; falling back to tool-only grounding", { error });
+    }
+
+    const context = grounding.length > 0 ? [groundingContextMessage(grounding)] : [];
+
     let stream;
     try {
       // The whole transcript is passed through; the agent keeps no memory of its own.
-      stream = await agent.stream(coreMessages, { requestContext });
+      stream = await agent.stream(coreMessages, { requestContext, context });
     } catch (error) {
       // Failures available before the first byte are returned as normal JSON, so the
       // client can show a real error instead of an empty stream that just stops.
@@ -205,6 +225,22 @@ export const chatRoute = registerApiRoute("/chat", {
           send(event);
         };
 
+        // Citations are accumulated, not replaced: the mandatory pre-retrieval seeds
+        // them, and a fallback `search-resume` call can only add to the list.
+        const citedTitles = new Set<string>();
+        const emitSources = (titles: string[]) => {
+          const before = citedTitles.size;
+          for (const title of titles) citedTitles.add(title);
+          if (citedTitles.size > before) send({ type: "sources", sources: [...citedTitles] });
+        };
+
+        // Reflect the pre-answer retrieval in the UI exactly as a tool call would: a
+        // "searching" affordance, then the sources it pulled.
+        if (grounding.length > 0) {
+          send({ type: "searching" });
+          emitSources(groundingSources(grounding));
+        }
+
         try {
           for await (const chunk of stream.fullStream) {
             if (terminated) break;
@@ -226,8 +262,7 @@ export const chatRoute = registerApiRoute("/chat", {
               case "tool-result": {
                 if (chunk.payload.toolName !== RESUME_SEARCH_TOOL_ID) break;
 
-                const sources = extractSources(chunk.payload.result);
-                if (sources.length > 0) send({ type: "sources", sources });
+                emitSources(extractSources(chunk.payload.result));
                 break;
               }
 

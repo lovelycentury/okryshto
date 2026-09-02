@@ -331,7 +331,7 @@ export const SITE = {
       meta: "onyx.schwarz",
     },
     { title: "LinkedIn", subtitle: "Experience, teams, and growth edges", meta: "oleksii-k" },
-    { title: "Email", subtitle: "Let's talk", meta: "oleksii.kryshtopa@gmail.com" },
+    { title: "Email", subtitle: "Let's talk", meta: "oleksii.kryshtopa@tutamail.com" },
   ] as LinkItem[],
 
   credibility: {
@@ -355,7 +355,7 @@ export const SITE = {
   contact: {
     eyebrow: "Let's talk",
     headline: "If you are shipping something that matters.",
-    email: "oleksii.kryshtopa@gmail.com",
+    email: "oleksii.kryshtopa@tutamail.com",
     replyTime: "GMT+1 · replies in a day",
     socials: ["Email", "LinkedIn", "GitHub", "onyx"],
   },
