@@ -42,7 +42,7 @@
       "privateStorybook": {
         "title": "Private Storybook",
         "description": "Ein „Dark-First“-Designsystem. Es generiert direkt aus TypeScript in Figma: Komponenten, Varianten, Symbole, Tokens und Seitenvorlagen — alles aus einer einzigen Quelle.",
-        "tags": ["TypeScript", "Figma Plugin API"]
+        "tags": ["TypeScript", "Figma Plugin API", "Claude Code"]
       },
       "orbit": {
         "title": "Orbit",
@@ -57,7 +57,12 @@
       "ai-tooling-security": {
         "title": "AI Tooling Security",
         "description": "Eine Untersuchung von Tools für KI-Agenten und ihren Schwachstellen. Ich habe ein Bedrohungsmodell erstellt: Was passiert, wenn ein kompromittierter Agent Zugriff auf „docker.sock“ bekommt? Dazu habe ich einen Prototyp für eine Proxy-Schicht gebaut, die die Ausgabe des Agenten filtert.",
-        "tags": ["Security", "MCP", "Threat modelling"]
+        "tags": ["Security", "MCP", "Threat modelling", "Claude Code"]
+      },
+      "ai-resume": {
+        "title": "AI Resume",
+        "description": "Ein Chat auf dieser Website, der Fragen zu meiner Erfahrung beantwortet — verankert per Retrieval in meinem Lebenslauf und meinen persönlichen Notizen, ehrlich, wenn etwas nicht darin steht, und in der Sprache, in der man fragt. Austauschbare LLMs hinter einer zustandslosen API.",
+        "tags": ["RAG", "Mastra", "LLM", "Claude Code"]
       }
     }
   },
@@ -70,25 +75,25 @@
         "role": "Frontend Lead / Senior React Developer",
         "period": "Feb. 2023 — heute",
         "place": "Deutschland · Remote",
-        "summary": "Ich übernahm die Plattform nach einem gescheiterten CRM-Projekt. Ich stellte das Team neu auf. Die Monatskosten sanken um über 70%. Alle wichtigen Kunden blieben.",
+        "summary": "Ich übernahm die Plattform nach einem gescheiterten CRM-Projekt. Ich stellte das Team neu auf, senkte die Monatskosten deutlich und hielt alle wichtigen Kunden.",
         "bullets": [
-          "Ich schrieb die kritischen Teile neu. Diese Teile hatten den Fehler verursacht.",
-          "Ich baute das CRM für Teilnehmer neu. Es hatte 40+ abhängige Felder. Die Logik kam aus einer DSL. Es gab ein schnelles Grid. Ein Wizard nutzt SEPA, PayPal und Payrexx.",
-          "Ich baute ein einbettbares Registrierungs-Widget. Es hat ein eigenes Theme. Technik: Web Components und MUI. Damit kamen neue B2B-Integrationen. Es gibt Gruppenregistrierung für 500.000+ Teilnehmer.",
-          "Ich baute ein gemeinsames UI-Kit. Ich baute ein KI-Coaching-Produkt. Stack: Next.js PWA, NestJS und Python."
+          "Ich schrieb die kritischen Teile neu, die den Fehler verursacht hatten, und baute dann das Teilnehmer-CRM neu: ein schnelles Grid und ein Formular aus abhängigen Feldern, mit Logik aus einer DSL und Validierung auf dem Server.",
+          "Ich baute eine mehrstufige Registrierung mit SEPA, PayPal und Payrexx für große Kunden-Launches.",
+          "Ich baute ein einbettbares Registrierungs-Widget mit eigenem Theme (Web Components und MUI), das B2B-Partner übernahmen, samt Gruppenregistrierung für große Events.",
+          "Ich baute ein gemeinsames UI-Kit für mehrere Produkte. Ich baute ein KI-Coaching-Produkt end to end (Next.js PWA, NestJS). Ich leitete Sprint-Demos und Refinement und coachte Entwickler zu eigenständigen Engineers."
         ],
         "tags": ["React", "Payments", "CRM", "Web Components"]
       },
       "addTechCompany": {
         "company": "MINT",
-        "role": "Senior Frontend Developer / Senior React Developer",
+        "role": "Middle Frontend Developer",
         "period": "Nov. 2021 — März 2023",
         "place": "Charkiw, Ukraine · Remote",
         "summary": "Ich war verantwortlich für Code-Qualität und TDD. Das war auf einer Media-Planning-Plattform.",
         "bullets": [
-          "Ich baute die Tabelle neu. Sie wurde zum Vorbild. Das war während einer Micro-Frontend-Migration.",
-          "Ich baute ein gemeinsames UI-Kit. 8 Teams nutzen es.",
-          "Ich klärte Anforderungen mit dem Business. Ich coachte Junior Engineers."
+          "Ich baute die Media-Plan-Tabelle neu — tausende editierbare Zellen, Drag-and-drop, Resizing und Zoom. Sie wurde zum Vorbild für die Micro-Frontend-Migration (Webpack 5).",
+          "Ich baute ein gemeinsames MUI-UI-Kit, das mehrere unabhängige Teams übernahmen.",
+          "Ich machte aus vagen Anforderungen klare technische Specs und coachte Junior Engineers zu eigenständigen Entwicklern."
         ],
         "tags": ["React", "Micro-frontends", "TDD"]
       }

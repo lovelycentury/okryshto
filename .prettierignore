@@ -3,6 +3,7 @@ dist
 build
 coverage
 .turbo
+.mastra
 pnpm-lock.yaml
 *.min.js
 *.min.css

@@ -13,7 +13,7 @@ export const SECTION_ID = {
 export type SectionId = (typeof SECTION_ID)[keyof typeof SECTION_ID];
 
 export const CONTACT = {
-  email: "oleksii.kryshtopa@gmail.com",
+  email: "oleksii.kryshtopa@tutamail.com",
   github: "https://github.com/lovelycentury",
   githubHandle: "@lovelycentury",
   linkedin: "https://www.linkedin.com/in/oleksii-k-412625261",
@@ -70,6 +70,14 @@ export const PROJECTS: readonly {
       "linear-gradient(152deg, rgb(118, 64, 158) 0%, rgb(58, 28, 96) 52%, rgb(28, 16, 58) 100%)",
     gradientLight:
       "linear-gradient(152deg, rgb(168, 122, 216) 0%, rgb(220, 204, 246) 52%, rgb(246, 240, 255) 100%)",
+  },
+  {
+    id: "ai-resume",
+    href: "https://resume.okryshto.dev",
+    gradient:
+      "linear-gradient(152deg, rgb(190, 58, 128) 0%, rgb(112, 26, 74) 52%, rgb(56, 14, 40) 100%)",
+    gradientLight:
+      "linear-gradient(152deg, rgb(232, 120, 176) 0%, rgb(248, 206, 228) 52%, rgb(255, 240, 248) 100%)",
   },
 ];
 

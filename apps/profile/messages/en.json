@@ -42,7 +42,7 @@
       "privateStorybook": {
         "title": "Private Storybook",
         "description": "A dark-first design system generated from TypeScript straight into Figma: components, variants, icons, tokens and page templates from one source of truth.",
-        "tags": ["TypeScript", "Figma Plugin API"]
+        "tags": ["TypeScript", "Figma Plugin API", "Claude Code"]
       },
       "orbit": {
         "title": "Orbit",
@@ -57,7 +57,12 @@
       "ai-tooling-security": {
         "title": "AI Tooling Security",
         "description": "Investigating AI-agent tooling and where the holes are — threat-modelling what happens when a compromised agent reaches docker.sock, and prototyping a proxy layer that filters agent output.",
-        "tags": ["Security", "MCP", "Threat modelling"]
+        "tags": ["Security", "MCP", "Threat modelling", "Claude Code"]
+      },
+      "ai-resume": {
+        "title": "AI Resume",
+        "description": "A chat on this site that answers questions about my experience — grounded in my CV and personal notes through retrieval, honest when something isn't there, and replying in whatever language you ask. Swappable LLMs behind one stateless API.",
+        "tags": ["RAG", "Mastra", "LLM", "Claude Code"]
       }
     }
   },
@@ -70,25 +75,25 @@
         "role": "Frontend Lead / Senior React Developer",
         "period": "Feb 2023 — Present",
         "place": "Germany · Remote",
-        "summary": "Took over a platform after a high-value CRM project had failed. Restructured the team. Cut monthly costs by over 70%. All key clients stayed.",
+        "summary": "Took over the platform after a high-value CRM project had failed. Restructured the team, cut monthly running costs sharply, and kept every key client.",
         "bullets": [
-          "Rewrote the mission-critical components that caused the failure.",
-          "Rebuilt the core participant-management CRM from scratch. 40+ interdependent fields with DSL-driven logic. A virtualized grid. Multi-step registration with SEPA, PayPal, and Payrexx for high-profile launches.",
-          "Built an embeddable, themeable registration widget (web components + MUI). Enabled new B2B integrations. Group registration for 500K+ participants.",
-          "Built a shared UI kit. Built an AI coaching product (Next.js PWA, NestJS, Python)."
+          "Rewrote the mission-critical components that had caused the failure, then rebuilt the participant CRM from scratch — a virtualized grid and a form of interdependent fields driven by a custom DSL and validated on the server.",
+          "Shipped a multi-step registration platform with SEPA, PayPal, and Payrexx payments for high-profile client launches.",
+          "Built an embeddable, themeable registration widget (web components + MUI) adopted by B2B partners, and designed group registration for large-scale events.",
+          "Built and owned a private UI kit reused across several products. Built an AI coaching product end to end (Next.js PWA, NestJS). Led sprint demos and refinement, and mentored developers into independent engineers."
         ],
         "tags": ["React", "Payments", "CRM", "Web Components"]
       },
       "addTechCompany": {
         "company": "MINT",
-        "role": "Senior Frontend Developer / Senior React Developer",
+        "role": "Middle Frontend Developer",
         "period": "Nov 2021 — Mar 2023",
         "place": "Kharkiv, Ukraine · Remote",
         "summary": "Owned code quality and TDD culture on a media-planning platform.",
         "bullets": [
-          "Rebuilt the data table into a reference implementation during a micro-frontend migration.",
-          "Built a shared UI kit adopted by 8 teams.",
-          "Clarified requirements with business owners. Mentored junior engineers."
+          "Rebuilt the media-plan table — thousands of editable cells, drag-and-drop, resizing, and zoom — into the reference implementation for the micro-frontend migration (Webpack 5).",
+          "Built a shared MUI-based UI kit adopted by independent teams across the micro-frontend monorepo.",
+          "Turned vague business requests into clear technical specs, and mentored junior engineers into independent contributors."
         ],
         "tags": ["React", "Micro-frontends", "TDD"]
       }

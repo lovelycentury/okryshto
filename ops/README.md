@@ -1,10 +1,14 @@
 # ops — VPS deploy
 
-Three sites on one server:
+Sites on one server:
 
 - https://profile.okryshto.dev — Next.js SSR
 - https://storybook.okryshto.dev — static `@okryshto/react`
 - https://iam.okryshto.dev — Keycloak (login theme from `@okryshto/iam`)
+- https://resume.okryshto.dev — Vite SPA, served static (`apps/resume/fe`)
+- https://resume-api.okryshto.dev — RAG backend (`apps/resume/be`). Split origin:
+  the SPA is built with `VITE_API_BASE_URL=https://resume-api.okryshto.dev` and
+  `resume-be`'s `CORS_ORIGINS` lists the SPA host.
 
 ```
                     internet
@@ -18,22 +22,54 @@ Three sites on one server:
                  │ okryshto-  │   this compose, no host ports
                  │   caddy    │
                  └─────┬──────┘
-      ┌──────────┬───────────┴──────────┐
-      │          │                      │
- ┌────┴────┐ ┌───┴──────┐         ┌─────┴─────┐
- │ profile │ │    iam   │         │ storybook │
- │  :5200  │ │   :8080  │         │    :80    │
- └─────────┘ └──────────┘         └───────────┘
+      ┌──────────┬───────────┼──────────┬─────────────┐
+      │          │           │          │             │
+ ┌────┴────┐ ┌───┴────┐ ┌────┴────┐ ┌───┴─────┐ ┌─────┴──────┐
+ │ profile │ │   iam  │ │storybook│ │resume-fe│ │  resume-be  │
+ │  :5200  │ │  :8080 │ │   :80   │ │   :80   │ │    :5300    │
+ └─────────┘ └────────┘ └─────────┘ └─────────┘ └──────┬──────┘
+                                                       │ resume net
+                                               ┌───────┴───────┐
+                                               │ resume-libsql │  vector index
+                                               │     :8080     │  (no host port)
+                                               └───────────────┘
 ```
 
-| File                   | Role                                                     |
-| ---------------------- | -------------------------------------------------------- |
-| `Caddyfile`            | inner proxy: Host → profile / storybook / iam (HTTP)     |
-| `docker-compose.yml`   | stack: caddy + profile + storybook + iam                 |
-| `Dockerfile.profile`   | Next.js `output: "standalone"`                           |
-| `Dockerfile.storybook` | Vite Storybook → static files inside `caddy:alpine`      |
-| `Dockerfile.iam`       | Keycloakify theme JAR inside `quay.io/keycloak/keycloak` |
-| `spa.Caddyfile`        | Caddy inside the storybook image: SPA fallback, cache    |
+| File                    | Role                                                          |
+| ----------------------- | ------------------------------------------------------------ |
+| `Caddyfile`             | inner proxy: Host → profile / storybook / iam / resume / resume-api (HTTP) |
+| `docker-compose.yml`    | stack: caddy + profile + storybook + iam + resume-{fe,be,libsql} |
+| `Dockerfile.profile`    | Next.js `output: "standalone"`                               |
+| `Dockerfile.storybook`  | Vite Storybook → static files inside `caddy:alpine`          |
+| `Dockerfile.iam`        | Keycloakify theme JAR inside `quay.io/keycloak/keycloak`     |
+| `Dockerfile.resume-fe`  | Vite SPA → static files inside `caddy:alpine`                |
+| `spa.Caddyfile`         | Caddy inside the storybook / resume-fe images: SPA fallback, cache |
+
+`resume-be` and `resume-ingest` build from `apps/resume/be/Dockerfile`
+(stages `runtime` and `build`).
+
+## resume: secrets + first ingest
+
+`resume-be` needs `GOOGLE_GENERATIVE_AI_API_KEY` (chat + embeddings). Compose
+reads it — plus optional `GROQ_API_KEY`, `OPENROUTER_API_KEY`, `OLLAMA_API_KEY`,
+`DEFAULT_MODEL_ID` — from an `.env` beside the compose file:
+
+```bash
+cd /srv/okryshto
+printf 'GOOGLE_GENERATIVE_AI_API_KEY=%s\n' "$KEY" >> .env
+```
+
+The vector index starts empty. The knowledge files (`cv.md`, `personal.md`) are
+private and never committed or baked into an image — copy them to the VPS and
+run the one-shot ingest:
+
+```bash
+mkdir -p /srv/okryshto/resume-knowledge
+scp apps/resume/be/knowledge/{cv,personal}.md  vps:/srv/okryshto/resume-knowledge/
+ssh vps 'cd /srv/okryshto && docker compose --profile ingest run --rm resume-ingest'
+```
+
+Re-run that last command whenever the knowledge files change.
 
 Edge TLS is Caddy from `~/vps-infra`. This stack joins the same Docker
 network `vps-infra_default` and listens only inside it (`okryshto-caddy:80`).
@@ -55,12 +91,15 @@ A records with the **orange cloud** (Proxied):
 - `profile.okryshto.dev` → VPS IP
 - `storybook.okryshto.dev` → VPS IP
 - `iam.okryshto.dev` → VPS IP
+- `resume.okryshto.dev` → VPS IP
+- `resume-api.okryshto.dev` → VPS IP
 
 SSL/TLS → Overview → **Full** (same as the other `*.okryshto.dev` hosts).
 Not Flexible, not Full (strict).
 
 `~/vps-infra/Caddyfile` must have `profile.okryshto.dev`,
-`storybook.okryshto.dev`, and `iam.okryshto.dev` → `reverse_proxy okryshto-caddy:80`. After editing:
+`storybook.okryshto.dev`, `iam.okryshto.dev`, `resume.okryshto.dev`, and
+`resume-api.okryshto.dev` → `reverse_proxy okryshto-caddy:80`. After editing:
 
 ```bash
 cd ~/vps-infra && docker compose restart caddy
@@ -113,7 +152,7 @@ The public `caddy:2-alpine` image must exist locally: `docker pull caddy:2-alpin
 
 ## After that
 
-Push to `main` → `.github/workflows/ci.yml`: check → 2 images to ghcr.io →
+Push to `main` → `.github/workflows/deploy.yml`: build every image to ghcr.io →
 scp compose + Caddyfile → `compose pull && up -d`.
 
 PRs run `check` only.
