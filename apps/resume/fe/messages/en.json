@@ -26,7 +26,7 @@
   },
   "Chat": {
     "searching": "Searching the CV…",
-    "thinking": "Thinking",
+    "thinking": "Thinking…",
     "groundedIn": "Grounded in",
     "noAnswer": "No answer came back. Try rephrasing, or pick another model.",
     "unfinished": "The answer didn't finish.",

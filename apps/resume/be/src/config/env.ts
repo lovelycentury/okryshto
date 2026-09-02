@@ -39,7 +39,23 @@ const envSchema = z.object({
   STORAGE_DB_AUTH_TOKEN: blankAsUndefined(z.string().min(1).optional()),
 
   /** Default model id served when a request does not pick one. Validated against MODELS. */
-  DEFAULT_MODEL_ID: blankAsUndefined(z.string().default("gpt-oss-120b")),
+  DEFAULT_MODEL_ID: blankAsUndefined(z.string().default("minimax-m3")),
+
+  /**
+   * Requests one IP may make to `/chat` per minute. The endpoint is public and every
+   * turn costs an embedding call plus an LLM call against a shared free-tier quota, so
+   * this is what stops one caller from taking the site down for everyone.
+   */
+  CHAT_RATE_LIMIT: z.coerce.number().int().positive().default(40),
+
+  /**
+   * Whether an `X-Forwarded-For` header can be believed — true only when a reverse proxy
+   * in front of this server sets it. Left false, the limiter uses the socket address,
+   * because a caller-supplied header would otherwise be a free bypass.
+   */
+  TRUST_PROXY: blankAsUndefined(z.enum(["true", "false"]).default("false")).transform(
+    (value) => value === "true",
+  ),
 
   /** Comma-separated allowlist of browser origins for the `fe` app. */
   CORS_ORIGINS: z

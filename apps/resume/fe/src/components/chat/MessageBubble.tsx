@@ -2,6 +2,7 @@ import { useTranslations } from "use-intl";
 import { Icon, Typography } from "@okryshto/react";
 
 import { AgentMark } from "../AgentMark.js";
+import { ShimmerText } from "../ShimmerText.js";
 import type { ChatMessage } from "../../state/types.js";
 import { MessageText } from "./MessageText.js";
 import { SearchingRow } from "./SearchingRow.js";
@@ -30,10 +31,8 @@ export function MessageBubble({ message }: { message: ChatMessage }) {
       <div className={styles.assistantBody}>
         {showSearching && <SearchingRow />}
         {showThinking && (
-          <div className={styles.thinking} role="status" aria-label={t("thinking")}>
-            <span />
-            <span />
-            <span />
+          <div className={styles.thinking} role="status">
+            <ShimmerText>{t("thinking")}</ShimmerText>
           </div>
         )}
 

@@ -54,7 +54,7 @@ so the picker can disable it instead of failing on send.
 
 ```json
 {
-  "defaultModelId": "gpt-oss-120b",
+  "defaultModelId": "minimax-m3",
   "models": [
     {
       "id": "gemini-3.6-flash",
@@ -190,3 +190,13 @@ vector store's single `CREATE TABLE` is fine against the server.
 point `VECTOR_DB_URL` at a libSQL server or Turso (`libsql://…` plus auth token), keep
 `STORAGE_DB_URL` on a persistent volume or Turso, and set `CORS_ORIGINS` to the real
 frontend origin.
+
+**Set `TRUST_PROXY=true` if — and only if — a reverse proxy sits in front and sets
+`X-Forwarded-For`.** The per-IP limit on `/chat` (`CHAT_RATE_LIMIT`, 40 requests a minute
+by default) reads that header only under this flag. Behind a proxy without it, every
+visitor shares the proxy's address and the limit throttles them collectively; exposed
+directly with it on, the header is caller-supplied and the limit can be bypassed by
+sending a fresh value per request.
+
+The limiter's counters live in this process's memory, so they are per-instance: running
+two replicas doubles the effective allowance, and a restart forgets the window.

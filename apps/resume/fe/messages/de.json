@@ -26,7 +26,7 @@
   },
   "Chat": {
     "searching": "Durchsucht den Lebenslauf…",
-    "thinking": "Denkt nach",
+    "thinking": "Denkt nach…",
     "groundedIn": "Gestützt auf",
     "noAnswer": "Es kam keine Antwort zurück. Formuliere die Frage um oder wähle ein anderes Modell.",
     "unfinished": "Die Antwort wurde nicht fertig.",

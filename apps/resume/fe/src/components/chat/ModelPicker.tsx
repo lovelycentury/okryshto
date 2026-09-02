@@ -1,8 +1,9 @@
 import { useEffect, useRef } from "react";
 import { useAtom, useAtomValue } from "jotai";
 import { useTranslations } from "use-intl";
-import { Icon, Popover, Spinner, Typography } from "@okryshto/react";
+import { Icon, Popover, Typography } from "@okryshto/react";
 
+import { ShimmerText } from "../ShimmerText.js";
 import { useModels, type ModelInfo } from "../../api/models.js";
 import { isStreamingAtom, modelIdAtom, modelMenuOpenAtom } from "../../state/atoms.js";
 import styles from "./ModelPicker.module.scss";
@@ -55,7 +56,7 @@ export function ModelPicker() {
         <div className={styles.menu} role="listbox" aria-label={t("label")}>
           {isLoading && (
             <div className={styles.loading}>
-              <Spinner size="small" /> <span>{t("loading")}</span>
+              <ShimmerText>{t("loading")}</ShimmerText>
             </div>
           )}
           {models.map((model) => {

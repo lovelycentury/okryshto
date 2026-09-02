@@ -13,7 +13,7 @@ export const SECTION_ID = {
 export type SectionId = (typeof SECTION_ID)[keyof typeof SECTION_ID];
 
 export const CONTACT = {
-  email: "oleksii.kryshtopa@gmail.com",
+  email: "oleksii.kryshtopa@tutamail.com",
   github: "https://github.com/lovelycentury",
   githubHandle: "@lovelycentury",
   linkedin: "https://www.linkedin.com/in/oleksii-k-412625261",

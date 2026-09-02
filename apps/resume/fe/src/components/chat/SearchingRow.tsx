@@ -1,6 +1,6 @@
 import { useTranslations } from "use-intl";
-import { Spinner, Typography } from "@okryshto/react";
 
+import { ShimmerText } from "../ShimmerText.js";
 import styles from "./SearchingRow.module.scss";
 
 export function SearchingRow() {
@@ -8,10 +8,7 @@ export function SearchingRow() {
 
   return (
     <div className={styles.root} role="status">
-      <Spinner size="small" color="primary" />
-      <Typography variant="body-sm" color="secondary">
-        {t("searching")}
-      </Typography>
+      <ShimmerText>{t("searching")}</ShimmerText>
     </div>
   );
 }

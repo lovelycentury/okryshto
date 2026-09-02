@@ -7,6 +7,7 @@ import { env } from "../../config/env.js";
 import { modelIdSchema } from "../../config/models.js";
 import { ModelUnavailableError } from "../../config/providers.js";
 import { RESUME_SEARCH_TOOL_ID } from "../../tools/resume-search.js";
+import { clientKey, consume } from "../rate-limit.js";
 import { type ChatEvent, encodeSse } from "../sse.js";
 
 /**
@@ -14,7 +15,8 @@ import { type ChatEvent, encodeSse } from "../sse.js";
  * and replays the whole transcript here on every turn — so the backend is stateless.
  *
  * Limits are deliberately tight: this is a visitor-facing endpoint, long inputs cost
- * tokens, and a real CV question is never a wall of text.
+ * tokens, and a real CV question is never a wall of text. Request *rate* is capped
+ * separately, per IP — see `server/rate-limit.ts`.
  */
 const chatMessageSchema = z.object({
   role: z.enum(["user", "assistant"]),
@@ -96,6 +98,16 @@ export const chatRoute = registerApiRoute("/chat", {
           },
         },
       },
+      429: {
+        description:
+          "Per-IP rate limit exceeded. Carries `Retry-After` with the seconds until the " +
+          "window frees up.",
+        content: {
+          "application/json": {
+            schema: { type: "object", properties: { error: { type: "string" } } },
+          },
+        },
+      },
       400: {
         description: "Request body failed validation.",
         content: {
@@ -129,6 +141,18 @@ export const chatRoute = registerApiRoute("/chat", {
     },
   },
   handler: async (c) => {
+    // First thing in the handler, before the body is even read: a flood should cost this
+    // process a map lookup, not a parse and a provider call.
+    const limit = consume(clientKey(c));
+
+    if (!limit.allowed) {
+      return c.json(
+        { error: "Too many questions in a row. Give it a minute and try again." },
+        429,
+        { "Retry-After": String(limit.retryAfter) },
+      );
+    }
+
     const body = await c.req.json().catch(() => null);
     const parsed = chatRequestSchema.safeParse(body);
 

@@ -48,8 +48,8 @@ export const MODELS = [
     id: "gpt-oss-120b",
     name: "GPT-OSS 120B",
     description:
-      "OpenAI's open-weight 120B model on Groq's LPUs. The default here — the fastest of the " +
-      "four, and the only free tier that has held up under repeated testing.",
+      "OpenAI's open-weight 120B model on Groq's LPUs — the fastest of the four, and the " +
+      "free tier that has held up best under repeated testing.",
     provider: "groq",
     providerModel: "openai/gpt-oss-120b",
     contextWindow: 131_072,
@@ -61,7 +61,9 @@ export const MODELS = [
   {
     id: "minimax-m3",
     name: "MiniMax M3",
-    description: "Strong general-purpose model with a 1M-token context, free via OpenRouter.",
+    description:
+      "Strong general-purpose model with a 1M-token context. The default here, via " +
+      "OpenRouter's free tier.",
     provider: "openrouter",
     providerModel: "minimax/minimax-m3:free",
     contextWindow: 1_048_576,
