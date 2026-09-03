@@ -46,11 +46,19 @@
 // composer rides off the bottom with it.
 @media (max-width: 900px) {
   :global(.app-shell) {
+    // Pinned to the *visual* viewport, not laid out in flow: iOS overlays the software
+    // keyboard without resizing the page, then scrolls the whole document up so the
+    // focused composer clears it. A shell in normal flow rides off the top of the screen
+    // with that scroll. Fixed + `translateY(offsetTop)` cancels the scroll; the height is
+    // the visible strip above the keyboard. Both vars come from hooks/useViewportHeight
+    // and match `100dvh` / `0` while no keyboard is open.
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     flex-direction: column;
-    // `height`, not `min-height`: the shell fills the viewport and refuses to exceed it.
-    // `--app-viewport-height` is the visual viewport in px (see hooks/useViewportHeight)
-    // and only differs from `100dvh` while a software keyboard is open.
     height: var(--app-viewport-height, 100dvh);
+    transform: translateY(var(--app-viewport-offset-top, 0px));
     min-height: 0;
     overflow: hidden;
   }
