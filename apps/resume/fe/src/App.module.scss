@@ -49,16 +49,16 @@
     // Pinned to the *visual* viewport, not laid out in flow: iOS overlays the software
     // keyboard without resizing the page, then scrolls the whole document up so the
     // focused composer clears it. A shell in normal flow rides off the top of the screen
-    // with that scroll. Fixed + `translateY(offsetTop)` cancels the scroll; the height is
-    // the visible strip above the keyboard. Both vars come from hooks/useViewportHeight
-    // and match `100dvh` / `0` while no keyboard is open.
+    // with that scroll. Fixed + `top: offsetTop` re-seats it over the visible strip; the
+    // height is that strip above the keyboard. `top` rather than `transform` on purpose:
+    // a transformed ancestor sends iOS Safari's text caret to the corner. Both vars come
+    // from hooks/useViewportHeight and match `0` / `100dvh` while no keyboard is open.
     position: fixed;
-    top: 0;
+    top: var(--app-viewport-offset-top, 0px);
     left: 0;
     right: 0;
     flex-direction: column;
     height: var(--app-viewport-height, 100dvh);
-    transform: translateY(var(--app-viewport-offset-top, 0px));
     min-height: 0;
     overflow: hidden;
   }

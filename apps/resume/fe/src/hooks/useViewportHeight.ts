@@ -11,8 +11,8 @@ import { useEffect } from "react";
  * height and rides off the top of the screen with that scroll — the composer "flies away".
  *
  * `visualViewport` is the one API that reports what the visitor can actually see. The
- * shell is sized to `viewport.height` (never overlapping the keyboard) and translated
- * down by `viewport.offsetTop` (cancelling the page scroll), so it sits exactly over the
+ * shell is sized to `viewport.height` (never overlapping the keyboard) and seated at
+ * `top: viewport.offsetTop` (cancelling the page scroll), so it sits exactly over the
  * visible strip whether or not the keyboard is open.
  *
  * Both variables are only *read* under the phone breakpoint (see App.module.scss); wider
