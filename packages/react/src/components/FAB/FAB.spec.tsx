@@ -7,36 +7,36 @@ describe("Fab", () => {
   it("renders as a circular icon button by default", () => {
     render(<Fab icon={<span data-testid="icon" />} aria-label="Add" />);
     const button = screen.getByRole("button", { name: "Add" });
-    expect(button).toHaveClass("okryshto-component", "okryshto-fab");
-    expect(button.className).not.toContain("okryshto-fab--extended");
+    expect(button).toHaveClass("okkly-component", "okkly-fab");
+    expect(button.className).not.toContain("okkly-fab--extended");
     expect(screen.getByTestId("icon")).toBeInTheDocument();
   });
 
   it("applies the color modifier only for non-default colors", () => {
     const { rerender } = render(<Fab icon={<span />} aria-label="Add" color="dante" />);
-    expect(screen.getByRole("button")).toHaveClass("okryshto-fab--color-dante");
+    expect(screen.getByRole("button")).toHaveClass("okkly-fab--color-dante");
 
     rerender(<Fab icon={<span />} aria-label="Add" color="primary" />);
-    expect(screen.getByRole("button").className).not.toMatch(/okryshto-fab--color-/);
+    expect(screen.getByRole("button").className).not.toMatch(/okkly-fab--color-/);
   });
 
   it("applies the soft variant modifier", () => {
     render(<Fab icon={<span />} aria-label="Edit" variant="soft" />);
-    expect(screen.getByRole("button")).toHaveClass("okryshto-fab--soft");
+    expect(screen.getByRole("button")).toHaveClass("okkly-fab--soft");
   });
 
   it("applies a size modifier only for non-medium sizes", () => {
     const { rerender } = render(<Fab icon={<span />} aria-label="Add" size="small" />);
-    expect(screen.getByRole("button")).toHaveClass("okryshto-fab--small");
+    expect(screen.getByRole("button")).toHaveClass("okkly-fab--small");
 
     rerender(<Fab icon={<span />} aria-label="Add" size="medium" />);
-    expect(screen.getByRole("button").className).not.toMatch(/okryshto-fab--(small|large)/);
+    expect(screen.getByRole("button").className).not.toMatch(/okkly-fab--(small|large)/);
   });
 
   it("becomes an extended pill and shows the label once one is set", () => {
     render(<Fab icon={<span />} label="New track" />);
     const button = screen.getByRole("button", { name: "New track" });
-    expect(button).toHaveClass("okryshto-fab--extended");
+    expect(button).toHaveClass("okkly-fab--extended");
     expect(screen.getByText("New track")).toBeInTheDocument();
   });
 
@@ -57,7 +57,7 @@ describe("Fab", () => {
     it("disables the button and skips the ripple overlay", () => {
       const { container } = render(<Fab icon={<span />} aria-label="Add" disabled />);
       expect(screen.getByRole("button")).toBeDisabled();
-      expect(container.querySelector(".okryshto-ripple")).not.toBeInTheDocument();
+      expect(container.querySelector(".okkly-ripple")).not.toBeInTheDocument();
     });
   });
 
@@ -74,7 +74,7 @@ describe("Fab", () => {
       const { container } = render(
         <Fab icon={<span />} aria-label="Add" href="https://okryshto.dev" disabled />,
       );
-      const link = container.querySelector(".okryshto-fab");
+      const link = container.querySelector(".okkly-fab");
       expect(link).not.toHaveAttribute("href");
       expect(link).toHaveAttribute("aria-disabled", "true");
     });

@@ -1,23 +1,23 @@
 @use "../../styles/mixins/layers.scss";
 
-.okryshto-brand-docs {
+.okkly-brand-docs {
   @include layers.component() {
-    --okryshto-brand-docs-max-width: 72rem;
-    --okryshto-brand-docs-gap: 3.5rem;
-    --okryshto-brand-docs-card-radius: 0.625rem;
+    --okkly-brand-docs-max-width: 72rem;
+    --okkly-brand-docs-gap: 3.5rem;
+    --okkly-brand-docs-card-radius: 0.625rem;
 
     display: flex;
     flex-direction: column;
-    gap: var(--okryshto-brand-docs-gap);
-    max-width: var(--okryshto-brand-docs-max-width);
+    gap: var(--okkly-brand-docs-gap);
+    max-width: var(--okkly-brand-docs-max-width);
     padding-bottom: 3rem;
-    color: var(--okryshto-text-primary);
-    font-family: var(--okryshto-font-family-sans);
+    color: var(--okkly-text-primary);
+    font-family: var(--okkly-font-family-sans);
   }
 
   &__eyebrow {
     margin: 0;
-    color: var(--okryshto-accent-primary);
+    color: var(--okkly-accent-primary);
     font-size: 0.75rem;
     font-weight: 500;
     letter-spacing: 0.08em;
@@ -27,7 +27,7 @@
 
   &__title {
     margin: 0.75rem 0 0;
-    color: var(--okryshto-text-primary);
+    color: var(--okkly-text-primary);
     font-size: 2.75rem;
     font-weight: 600;
     letter-spacing: -0.02em;
@@ -37,7 +37,7 @@
   &__lede {
     margin: 0.75rem 0 0;
     max-width: 42.5rem;
-    color: var(--okryshto-text-secondary);
+    color: var(--okkly-text-secondary);
     font-size: 1.125rem;
     line-height: 1.875rem;
   }
@@ -47,18 +47,14 @@
     height: 0.625rem;
     border: 0;
     border-radius: 9999px;
-    background: linear-gradient(
-      90deg,
-      var(--okryshto-accent-primary),
-      var(--okryshto-accent-secondary)
-    );
+    background: linear-gradient(90deg, var(--okkly-accent-primary), var(--okkly-accent-secondary));
   }
 
   &__divider {
     width: 100%;
     height: 1px;
     border: 0;
-    background: var(--okryshto-border-subtle);
+    background: var(--okkly-border-subtle);
   }
 
   &__section {
@@ -69,7 +65,7 @@
 
   &__section-title {
     margin: 0;
-    color: var(--okryshto-text-primary);
+    color: var(--okkly-text-primary);
     font-size: 1.625rem;
     font-weight: 500;
     letter-spacing: -0.01em;
@@ -78,7 +74,7 @@
 
   &__section-note {
     margin: 0;
-    color: var(--okryshto-text-secondary);
+    color: var(--okkly-text-secondary);
     font-size: 1rem;
     line-height: 1.625rem;
   }
@@ -94,7 +90,7 @@
   &__prose {
     margin: 0;
     max-width: 44rem;
-    color: var(--okryshto-text-secondary);
+    color: var(--okkly-text-secondary);
     font-size: 1rem;
     line-height: 1.75rem;
   }
@@ -125,21 +121,21 @@
     flex-direction: column;
     gap: 0.3rem;
     padding: 0.875rem 1rem;
-    border: 1px solid var(--okryshto-border-subtle);
-    border-radius: var(--okryshto-brand-docs-card-radius);
-    background: color-mix(in srgb, var(--okryshto-bg-surface) 72%, transparent);
+    border: 1px solid var(--okkly-border-subtle);
+    border-radius: var(--okkly-brand-docs-card-radius);
+    background: color-mix(in srgb, var(--okkly-bg-surface) 72%, transparent);
   }
 
   &__toc-name {
     margin: 0;
-    color: var(--okryshto-text-primary);
+    color: var(--okkly-text-primary);
     font-size: 0.9375rem;
     font-weight: 500;
   }
 
   &__toc-desc {
     margin: 0;
-    color: var(--okryshto-text-muted);
+    color: var(--okkly-text-muted);
     font-size: 0.8125rem;
     line-height: 1.25rem;
   }
@@ -150,11 +146,11 @@
     margin: 0;
     padding: 1rem 1.125rem;
     overflow-x: auto;
-    border: 1px solid var(--okryshto-border-subtle);
+    border: 1px solid var(--okkly-border-subtle);
     border-radius: 0.75rem;
-    background: var(--okryshto-bg-inset);
-    color: var(--okryshto-text-secondary);
-    font-family: var(--okryshto-font-family-mono);
+    background: var(--okkly-bg-inset);
+    color: var(--okkly-text-secondary);
+    font-family: var(--okkly-font-family-mono);
     font-size: 0.8125rem;
     line-height: 1.5rem;
     white-space: pre;
@@ -163,9 +159,9 @@
   &__code {
     padding: 0.1rem 0.35rem;
     border-radius: 0.3rem;
-    background: var(--okryshto-bg-inset);
-    color: var(--okryshto-accent-primary);
-    font-family: var(--okryshto-font-family-mono);
+    background: var(--okkly-bg-inset);
+    color: var(--okkly-accent-primary);
+    font-family: var(--okkly-font-family-mono);
     font-size: 0.875em;
   }
 
@@ -177,18 +173,18 @@
 
   &__pill {
     padding: 0.25rem 0.625rem;
-    border: 1px solid var(--okryshto-border-subtle);
+    border: 1px solid var(--okkly-border-subtle);
     border-radius: 9999px;
-    background: var(--okryshto-bg-inset);
-    color: var(--okryshto-text-secondary);
-    font-family: var(--okryshto-font-family-mono);
+    background: var(--okkly-bg-inset);
+    color: var(--okkly-text-secondary);
+    font-family: var(--okkly-font-family-mono);
     font-size: 0.75rem;
     line-height: 1.25rem;
   }
 
   &__count {
-    color: var(--okryshto-accent-primary);
-    font-family: var(--okryshto-font-family-mono);
+    color: var(--okkly-accent-primary);
+    font-family: var(--okkly-font-family-mono);
     font-size: 0.75rem;
     font-weight: 500;
   }
@@ -198,9 +194,9 @@
     flex-direction: column;
     width: 13.75rem;
     overflow: hidden;
-    border: 1px solid var(--okryshto-border-default);
-    border-radius: var(--okryshto-brand-docs-card-radius);
-    background: var(--okryshto-bg-surface);
+    border: 1px solid var(--okkly-border-default);
+    border-radius: var(--okkly-brand-docs-card-radius);
+    background: var(--okkly-bg-surface);
   }
 
   &__swatch-chip {
@@ -217,7 +213,7 @@
 
   &__swatch-name {
     margin: 0;
-    color: var(--okryshto-text-primary);
+    color: var(--okkly-text-primary);
     font-size: 0.8125rem;
     font-weight: 500;
     line-height: 1rem;
@@ -225,15 +221,15 @@
 
   &__swatch-value {
     margin: 0;
-    color: var(--okryshto-text-muted);
-    font-family: var(--okryshto-font-family-mono);
+    color: var(--okkly-text-muted);
+    font-family: var(--okkly-font-family-mono);
     font-size: 0.8125rem;
     line-height: 1.25rem;
   }
 
   &__swatch-note {
     margin: 0;
-    color: var(--okryshto-text-secondary);
+    color: var(--okkly-text-secondary);
     font-size: 0.8125rem;
     line-height: 1.125rem;
   }
@@ -243,18 +239,18 @@
     flex-direction: column;
     gap: 0.375rem;
     padding-bottom: 1.25rem;
-    border-bottom: 1px solid var(--okryshto-border-subtle);
+    border-bottom: 1px solid var(--okkly-border-subtle);
   }
 
   &__type-sample {
     margin: 0;
-    color: var(--okryshto-text-primary);
+    color: var(--okkly-text-primary);
   }
 
   &__type-meta {
     margin: 0;
-    color: var(--okryshto-text-muted);
-    font-family: var(--okryshto-font-family-mono);
+    color: var(--okkly-text-muted);
+    font-family: var(--okkly-font-family-mono);
     font-size: 0.8125rem;
     line-height: 1.25rem;
   }
@@ -267,15 +263,15 @@
 
   &__space-label {
     width: 6rem;
-    color: var(--okryshto-text-muted);
-    font-family: var(--okryshto-font-family-mono);
+    color: var(--okkly-text-muted);
+    font-family: var(--okkly-font-family-mono);
     font-size: 0.75rem;
   }
 
   &__space-bar {
     height: 0.5rem;
     border-radius: 9999px;
-    background: var(--okryshto-accent-primary);
+    background: var(--okkly-accent-primary);
   }
 
   &__radius-grid {
@@ -294,13 +290,13 @@
   &__radius-box {
     width: 3.5rem;
     height: 3.5rem;
-    border: 1px solid var(--okryshto-border-default);
-    background: var(--okryshto-bg-surface-raised);
+    border: 1px solid var(--okkly-border-default);
+    background: var(--okkly-bg-surface-raised);
   }
 
   &__radius-label {
-    color: var(--okryshto-text-muted);
-    font-family: var(--okryshto-font-family-mono);
+    color: var(--okkly-text-muted);
+    font-family: var(--okkly-font-family-mono);
     font-size: 0.75rem;
   }
 
@@ -314,26 +310,26 @@
     width: 10rem;
     height: 6rem;
     border-radius: 0.75rem;
-    background: var(--okryshto-bg-surface-raised);
+    background: var(--okkly-bg-surface-raised);
   }
 
   &__card {
     padding: 1.5rem;
-    border: 1px solid var(--okryshto-border-default);
+    border: 1px solid var(--okkly-border-default);
     border-radius: 1.25rem;
-    background: var(--okryshto-bg-surface);
+    background: var(--okkly-bg-surface);
   }
 
   &__card-title {
     margin: 0 0 1rem;
-    color: var(--okryshto-text-primary);
+    color: var(--okkly-text-primary);
     font-size: 1.25rem;
     font-weight: 500;
   }
 
   &__card-subtitle {
     margin: 0 0 0.75rem;
-    color: var(--okryshto-text-secondary);
+    color: var(--okkly-text-secondary);
     font-size: 0.9375rem;
   }
 
@@ -356,7 +352,7 @@
     display: flex;
     gap: 0.625rem;
     align-items: flex-start;
-    color: var(--okryshto-text-secondary);
+    color: var(--okkly-text-secondary);
     font-size: 0.9375rem;
     line-height: 1.4;
   }
@@ -369,11 +365,11 @@
   }
 
   &__list-mark--do {
-    color: var(--okryshto-feedback-success);
+    color: var(--okkly-feedback-success);
   }
 
   &__list-mark--dont {
-    color: var(--okryshto-feedback-danger);
+    color: var(--okkly-feedback-danger);
   }
 
   &__token-row {
@@ -381,17 +377,17 @@
     grid-template-columns: minmax(8rem, 12rem) 1fr;
     gap: 1rem;
     padding: 0.5rem 0;
-    border-bottom: 1px solid var(--okryshto-border-subtle);
+    border-bottom: 1px solid var(--okkly-border-subtle);
   }
 
   &__token-name {
-    color: var(--okryshto-accent-primary);
-    font-family: var(--okryshto-font-family-mono);
+    color: var(--okkly-accent-primary);
+    font-family: var(--okkly-font-family-mono);
     font-size: 0.875rem;
   }
 
   &__token-desc {
-    color: var(--okryshto-text-secondary);
+    color: var(--okkly-text-secondary);
     font-size: 0.9375rem;
   }
 
@@ -406,23 +402,23 @@
     width: 100%;
     box-sizing: border-box;
     padding: 0.75rem 1rem;
-    border: 1px solid var(--okryshto-border-default);
+    border: 1px solid var(--okkly-border-default);
     border-radius: 0.75rem;
-    background: var(--okryshto-bg-inset);
-    color: var(--okryshto-text-primary);
+    background: var(--okkly-bg-inset);
+    color: var(--okkly-text-primary);
     font: inherit;
     font-size: 0.9375rem;
     outline: none;
   }
 
   &__search-input:focus {
-    border-color: var(--okryshto-accent-primary);
-    box-shadow: 0 0 0 0.1875rem color-mix(in srgb, var(--okryshto-accent-primary) 25%, transparent);
+    border-color: var(--okkly-accent-primary);
+    box-shadow: 0 0 0 0.1875rem color-mix(in srgb, var(--okkly-accent-primary) 25%, transparent);
   }
 
   &__search-meta {
     margin: 0;
-    color: var(--okryshto-text-muted);
+    color: var(--okkly-text-muted);
     font-size: 0.8125rem;
   }
 
@@ -438,10 +434,10 @@
     align-items: center;
     gap: 0.625rem;
     padding: 1rem 0.5rem 0.75rem;
-    border: 1px solid var(--okryshto-border-default);
-    border-radius: var(--okryshto-brand-docs-card-radius);
-    background: var(--okryshto-bg-surface);
-    color: var(--okryshto-text-primary);
+    border: 1px solid var(--okkly-border-default);
+    border-radius: var(--okkly-brand-docs-card-radius);
+    background: var(--okkly-bg-surface);
+    color: var(--okkly-text-primary);
   }
 
   &__icon-glyph {
@@ -449,7 +445,7 @@
     place-items: center;
     width: 2.5rem;
     height: 2.5rem;
-    color: var(--okryshto-text-primary);
+    color: var(--okkly-text-primary);
   }
 
   &__icon-glyph svg {
@@ -459,8 +455,8 @@
 
   &__icon-name {
     margin: 0;
-    color: var(--okryshto-text-muted);
-    font-family: var(--okryshto-font-family-mono);
+    color: var(--okkly-text-muted);
+    font-family: var(--okkly-font-family-mono);
     font-size: 0.6875rem;
     line-height: 1rem;
     text-align: center;
@@ -469,7 +465,7 @@
 
   &__category-title {
     margin: 0 0 0.75rem;
-    color: var(--okryshto-text-secondary);
+    color: var(--okkly-text-secondary);
     font-size: 0.8125rem;
     font-weight: 500;
     letter-spacing: 0.04em;
@@ -490,9 +486,9 @@
     min-width: 11rem;
     max-width: 100%;
     padding: 1rem;
-    border: 1px solid var(--okryshto-border-default);
-    border-radius: var(--okryshto-brand-docs-card-radius);
-    background: color-mix(in srgb, var(--okryshto-bg-surface) 72%, transparent);
+    border: 1px solid var(--okkly-border-default);
+    border-radius: var(--okkly-brand-docs-card-radius);
+    background: color-mix(in srgb, var(--okkly-bg-surface) 72%, transparent);
     backdrop-filter: blur(0.5rem);
   }
 
@@ -507,8 +503,8 @@
 
   &__showcase-label {
     margin: 0;
-    color: var(--okryshto-text-muted);
-    font-family: var(--okryshto-font-family-mono);
+    color: var(--okkly-text-muted);
+    font-family: var(--okkly-font-family-mono);
     font-size: 0.6875rem;
     font-weight: 500;
     letter-spacing: 0.04em;

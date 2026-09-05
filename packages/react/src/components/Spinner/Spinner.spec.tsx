@@ -12,27 +12,27 @@ describe("Spinner", () => {
   it("applies default classes without modifiers", () => {
     render(<Spinner />);
     const spinner = screen.getByRole("status");
-    expect(spinner).toHaveClass("okryshto-component", "okryshto-spinner");
-    expect(spinner.className).not.toMatch(/okryshto-spinner--(small|large|dante|indigo)/);
+    expect(spinner).toHaveClass("okkly-component", "okkly-spinner");
+    expect(spinner.className).not.toMatch(/okkly-spinner--(small|large|dante|indigo)/);
   });
 
   it("applies size modifiers only for non-medium sizes", () => {
     const { rerender } = render(<Spinner size="small" />);
-    expect(screen.getByRole("status")).toHaveClass("okryshto-spinner--small");
+    expect(screen.getByRole("status")).toHaveClass("okkly-spinner--small");
 
     rerender(<Spinner size="large" />);
-    expect(screen.getByRole("status")).toHaveClass("okryshto-spinner--large");
+    expect(screen.getByRole("status")).toHaveClass("okkly-spinner--large");
 
     rerender(<Spinner size="medium" />);
-    expect(screen.getByRole("status").className).not.toMatch(/okryshto-spinner--(small|large)/);
+    expect(screen.getByRole("status").className).not.toMatch(/okkly-spinner--(small|large)/);
   });
 
   it("applies color modifiers for non-primary colors", () => {
     const { rerender } = render(<Spinner color="dante" />);
-    expect(screen.getByRole("status")).toHaveClass("okryshto-spinner--dante");
+    expect(screen.getByRole("status")).toHaveClass("okkly-spinner--dante");
 
     rerender(<Spinner color="primary" />);
-    expect(screen.getByRole("status").className).not.toMatch(/okryshto-spinner--dante/);
+    expect(screen.getByRole("status").className).not.toMatch(/okkly-spinner--dante/);
   });
 
   it("forwards a ref to the root element", () => {

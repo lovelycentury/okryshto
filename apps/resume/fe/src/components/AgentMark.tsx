@@ -5,7 +5,7 @@ import styles from "./AgentMark.module.scss";
  * One component so the sidebar's byline and every answer in the transcript cannot drift
  * apart; size is driven by `--agent-mark-size`, set by whoever places it.
  *
- * Drawn inline rather than added to `@okryshto/icons`: the two-star sparkle is this
+ * Drawn inline rather than added to `@okkly/icons`: the two-star sparkle is this
  * app's brand, not a general-purpose glyph, and the set's own `sparkles` is a different
  * shape (a stroked wand). Purely decorative — the row it sits in already says who is
  * speaking, so it stays out of the accessibility tree.

@@ -9,9 +9,9 @@ describe("Card", () => {
         <CardContent>Body</CardContent>
       </Card>,
     );
-    const root = container.querySelector(".okryshto-card") as HTMLElement;
-    expect(root).toHaveClass("okryshto-component", "okryshto-card");
-    expect(root.className).not.toMatch(/okryshto-card--(raised|glass|outline|aura|padding-)/);
+    const root = container.querySelector(".okkly-card") as HTMLElement;
+    expect(root).toHaveClass("okkly-component", "okkly-card");
+    expect(root.className).not.toMatch(/okkly-card--(raised|glass|outline|aura|padding-)/);
   });
 
   it("applies variant and padding modifiers", () => {
@@ -20,14 +20,14 @@ describe("Card", () => {
         <CardContent>Body</CardContent>
       </Card>,
     );
-    expect(container.firstChild).toHaveClass("okryshto-card--raised", "okryshto-card--padding-lg");
+    expect(container.firstChild).toHaveClass("okkly-card--raised", "okkly-card--padding-lg");
 
     rerender(
       <Card variant="glass" padding="none">
         <CardContent>Body</CardContent>
       </Card>,
     );
-    expect(container.firstChild).toHaveClass("okryshto-card--glass", "okryshto-card--padding-none");
+    expect(container.firstChild).toHaveClass("okkly-card--glass", "okkly-card--padding-none");
   });
 
   it("renders compound subcomponents", () => {
@@ -41,12 +41,12 @@ describe("Card", () => {
         </CardActions>
       </Card>,
     );
-    expect(screen.getByText("Title")).toHaveClass("okryshto-card__title");
-    expect(screen.getByText("Sub")).toHaveClass("okryshto-card__subheader");
-    expect(screen.getByRole("img", { name: "Cover" })).toHaveClass("okryshto-card__media");
-    expect(screen.getByText("Content").closest(".okryshto-card__content")).toBeInTheDocument();
+    expect(screen.getByText("Title")).toHaveClass("okkly-card__title");
+    expect(screen.getByText("Sub")).toHaveClass("okkly-card__subheader");
+    expect(screen.getByRole("img", { name: "Cover" })).toHaveClass("okkly-card__media");
+    expect(screen.getByText("Content").closest(".okkly-card__content")).toBeInTheDocument();
     expect(
-      screen.getByRole("button", { name: "Save" }).closest(".okryshto-card__actions"),
+      screen.getByRole("button", { name: "Save" }).closest(".okkly-card__actions"),
     ).toBeInTheDocument();
   });
 });

@@ -13,7 +13,7 @@
 #
 # Only `apps/resume/{be,fe}/src` (+ a few configs + be/knowledge) are bind-mounted.
 # Editing those hot-reloads. Changing a package.json / adding a dep → re-run with
-# `--build`. Editing a workspace package like @okryshto/react is not watched here.
+# `--build`. Editing a workspace package like @okkly/react is not watched here.
 
 name: resume-dev
 
@@ -63,7 +63,7 @@ services:
       context: ../..
       dockerfile: apps/resume/Dockerfile.dev
     working_dir: /repo
-    command: pnpm --filter @okryshto/resume-be dev
+    command: pnpm --filter @okkly/resume-be dev
     env_file:
       - path: ./be/.env
         required: false
@@ -94,7 +94,7 @@ services:
       context: ../..
       dockerfile: apps/resume/Dockerfile.dev
     working_dir: /repo
-    command: pnpm --filter @okryshto/resume-fe dev
+    command: pnpm --filter @okkly/resume-fe dev
     environment:
       # Vite proxies /be/* here; also flips on polling for the bind mount.
       VITE_API_TARGET: http://be:5300
@@ -119,7 +119,7 @@ services:
       context: ../..
       dockerfile: apps/resume/Dockerfile.dev
     working_dir: /repo
-    command: pnpm --filter @okryshto/resume-be ingest
+    command: pnpm --filter @okkly/resume-be ingest
     env_file:
       - path: ./be/.env
         required: false

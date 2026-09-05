@@ -1,5 +1,5 @@
 {
-  "name": "@okryshto/playground",
+  "name": "@okkly/playground",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -10,8 +10,8 @@
     "lint": "oxlint --config ../../packages/oxlint-config/index.json ."
   },
   "dependencies": {
-    "@okryshto/design-system": "workspace:*",
-    "@okryshto/react": "workspace:*",
+    "@okkly/design-system": "workspace:*",
+    "@okkly/react": "workspace:*",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },

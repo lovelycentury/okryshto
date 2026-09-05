@@ -13,8 +13,8 @@ describe("NumberInput", () => {
 
   it("renders with no modifier classes at defaults", () => {
     const { container } = render(<NumberInput label="Quantity" defaultValue={12} />);
-    const root = container.querySelector(".okryshto-number-input");
-    expect(root?.className).toBe("okryshto-component okryshto-number-input");
+    const root = container.querySelector(".okkly-number-input");
+    expect(root?.className).toBe("okkly-component okkly-number-input");
   });
 
   it("steps up and down via control buttons", () => {
@@ -74,9 +74,7 @@ describe("NumberInput", () => {
 
   it("applies the error modifier", () => {
     const { container } = render(<NumberInput label="Quantity" error helperText="Must be 1–99" />);
-    expect(container.querySelector(".okryshto-number-input")).toHaveClass(
-      "okryshto-number-input--error",
-    );
+    expect(container.querySelector(".okkly-number-input")).toHaveClass("okkly-number-input--error");
     expect(screen.getByLabelText("Quantity")).toHaveAttribute("aria-invalid", "true");
   });
 
@@ -95,7 +93,7 @@ describe("NumberInput", () => {
 
   it("shows a required asterisk after the label", () => {
     const { container } = render(<NumberInput label="Quantity" required />);
-    expect(container.querySelector(".okryshto-number-input__required")).toHaveTextContent("*");
+    expect(container.querySelector(".okkly-number-input__required")).toHaveTextContent("*");
     expect(screen.getByRole("textbox")).toBeRequired();
   });
 });

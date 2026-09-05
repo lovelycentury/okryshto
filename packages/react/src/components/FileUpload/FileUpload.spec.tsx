@@ -16,25 +16,21 @@ function selectFiles(container: HTMLElement, files: File[]) {
 describe("FileUpload", () => {
   it("renders the large drop zone by default, with no modifier classes", () => {
     const { container } = render(<FileUpload label="Upload" />);
-    const root = container.querySelector(".okryshto-file-upload")!;
+    const root = container.querySelector(".okkly-file-upload")!;
 
     expect(screen.getByText("Click to upload")).toBeInTheDocument();
-    expect(root.className).not.toMatch(/okryshto-file-upload--/);
+    expect(root.className).not.toMatch(/okkly-file-upload--/);
   });
 
   it("applies the size modifier for medium and small", () => {
     const { container, rerender } = render(<FileUpload size="medium" />);
-    expect(container.querySelector(".okryshto-file-upload")).toHaveClass(
-      "okryshto-file-upload--medium",
-    );
+    expect(container.querySelector(".okkly-file-upload")).toHaveClass("okkly-file-upload--medium");
 
     rerender(<FileUpload size="small" />);
-    expect(container.querySelector(".okryshto-file-upload")).toHaveClass(
-      "okryshto-file-upload--small",
-    );
+    expect(container.querySelector(".okkly-file-upload")).toHaveClass("okkly-file-upload--small");
 
     rerender(<FileUpload size="large" />);
-    expect(container.querySelector(".okryshto-file-upload")!.className).not.toMatch(
+    expect(container.querySelector(".okkly-file-upload")!.className).not.toMatch(
       /--medium|--small/,
     );
   });
@@ -83,11 +79,9 @@ describe("FileUpload", () => {
 
     expect(screen.getByText("notes.txt")).toBeInTheDocument();
     expect(screen.getByText(".txt files are not allowed")).toBeInTheDocument();
-    expect(container.querySelector(".okryshto-file-upload")).toHaveClass(
-      "okryshto-file-upload--error",
-    );
-    expect(container.querySelector(".okryshto-file-upload__file")).toHaveClass(
-      "okryshto-file-upload__file--error",
+    expect(container.querySelector(".okkly-file-upload")).toHaveClass("okkly-file-upload--error");
+    expect(container.querySelector(".okkly-file-upload__file")).toHaveClass(
+      "okkly-file-upload__file--error",
     );
   });
 
@@ -159,7 +153,7 @@ describe("FileUpload", () => {
     const { container } = render(<FileUpload onChange={onChange} />);
     const file = sized("dropped.png", 1024, "image/png");
 
-    fireEvent.drop(container.querySelector(".okryshto-file-upload__dropzone")!, {
+    fireEvent.drop(container.querySelector(".okkly-file-upload__dropzone")!, {
       dataTransfer: { files: [file] },
     });
 
@@ -171,16 +165,16 @@ describe("FileUpload", () => {
     const { container, rerender } = render(
       <FileUpload multiple defaultValue={[file]} listType="hidden" />,
     );
-    expect(container.querySelector(".okryshto-file-upload__list")).toBeNull();
+    expect(container.querySelector(".okkly-file-upload__list")).toBeNull();
 
     rerender(<FileUpload multiple defaultValue={[file]} listType="maxHeight" />);
-    expect(container.querySelector(".okryshto-file-upload__list")).toHaveClass(
-      "okryshto-file-upload__list--max-height",
+    expect(container.querySelector(".okkly-file-upload__list")).toHaveClass(
+      "okkly-file-upload__list--max-height",
     );
 
     rerender(<FileUpload multiple defaultValue={[file]} listType="button" />);
     fireEvent.click(screen.getByRole("button", { name: "Hide files" }));
-    expect(container.querySelector(".okryshto-file-upload__list")).toBeNull();
+    expect(container.querySelector(".okkly-file-upload__list")).toBeNull();
   });
 
   it("renders a custom row via renderFile", () => {
@@ -208,7 +202,7 @@ describe("FileUpload", () => {
     );
 
     expect(screen.getByText("Uploading…")).toBeInTheDocument();
-    expect(container.querySelector(".okryshto-file-upload__progress-bar")).toHaveStyle({
+    expect(container.querySelector(".okkly-file-upload__progress-bar")).toHaveStyle({
       width: "40%",
     });
   });

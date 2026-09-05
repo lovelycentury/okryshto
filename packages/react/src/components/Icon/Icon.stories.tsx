@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { iconHeart, iconSearch, iconStar } from "@okryshto/icons";
+import { iconHeart, iconSearch, iconStar } from "@okkly/icons";
 import { useState } from "react";
 import { Icon, ICON_NAMES, type IconName } from "./Icon";
 
 /**
- * Renders any glyph from `@okryshto/icons`. Pick one by `name` for autocomplete over the
+ * Renders any glyph from `@okkly/icons`. Pick one by `name` for autocomplete over the
  * whole set, or hand it markup you already imported via `icon` — the two are mutually
  * exclusive and TypeScript will say so.
  *

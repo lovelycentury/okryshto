@@ -1,26 +1,22 @@
 @use "../../styles/mixins/layers.scss";
 
-@keyframes okryshto-spinner-rotate {
+@keyframes okkly-spinner-rotate {
   to {
     transform: rotate(360deg);
   }
 }
 
-.okryshto-spinner {
+.okkly-spinner {
   @include layers.component() {
-    --okryshto-spinner-tone: var(--okryshto-accent-primary);
-    --okryshto-spinner-track-color: color-mix(
-      in srgb,
-      var(--okryshto-spinner-tone) 14%,
-      transparent
-    );
-    --okryshto-spinner-size: 1.75rem;
+    --okkly-spinner-tone: var(--okkly-accent-primary);
+    --okkly-spinner-track-color: color-mix(in srgb, var(--okkly-spinner-tone) 14%, transparent);
+    --okkly-spinner-size: 1.75rem;
 
     display: inline-flex;
     flex-shrink: 0;
-    width: var(--okryshto-spinner-size);
-    height: var(--okryshto-spinner-size);
-    animation: okryshto-spinner-rotate 0.8s linear infinite;
+    width: var(--okkly-spinner-size);
+    height: var(--okkly-spinner-size);
+    animation: okkly-spinner-rotate 0.8s linear infinite;
 
     // The spin is the only signal that work is in flight, so it is slowed rather
     // than stopped — a frozen ring reads as a hung request.
@@ -29,43 +25,43 @@
     }
 
     &--small {
-      --okryshto-spinner-size: 1.25rem;
+      --okkly-spinner-size: 1.25rem;
     }
 
     &--large {
-      --okryshto-spinner-size: 2.5rem;
+      --okkly-spinner-size: 2.5rem;
     }
 
     &--dante {
-      --okryshto-spinner-tone: var(--okryshto-accent-dante);
+      --okkly-spinner-tone: var(--okkly-accent-dante);
     }
 
     &--indigo {
-      --okryshto-spinner-tone: var(--okryshto-accent-secondary);
+      --okkly-spinner-tone: var(--okkly-accent-secondary);
     }
 
     &--violet {
-      --okryshto-spinner-tone: var(--okryshto-accent-violet);
+      --okkly-spinner-tone: var(--okkly-accent-violet);
     }
 
     &--ember {
-      --okryshto-spinner-tone: var(--okryshto-accent-ember);
+      --okkly-spinner-tone: var(--okkly-accent-ember);
     }
 
     &--ice {
-      --okryshto-spinner-tone: var(--okryshto-accent-ice);
+      --okkly-spinner-tone: var(--okkly-accent-ice);
     }
 
     &--success {
-      --okryshto-spinner-tone: var(--okryshto-feedback-success);
+      --okkly-spinner-tone: var(--okkly-feedback-success);
     }
 
     &--warning {
-      --okryshto-spinner-tone: var(--okryshto-feedback-warning);
+      --okkly-spinner-tone: var(--okkly-feedback-warning);
     }
 
     &--danger {
-      --okryshto-spinner-tone: var(--okryshto-feedback-danger);
+      --okkly-spinner-tone: var(--okkly-feedback-danger);
     }
 
     &__svg {
@@ -74,11 +70,11 @@
     }
 
     &__track {
-      stroke: var(--okryshto-spinner-track-color);
+      stroke: var(--okkly-spinner-track-color);
     }
 
     &__arc {
-      stroke: var(--okryshto-spinner-tone);
+      stroke: var(--okkly-spinner-tone);
       stroke-linecap: round;
     }
   }

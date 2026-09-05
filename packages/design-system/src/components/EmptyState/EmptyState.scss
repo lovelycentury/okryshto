@@ -1,61 +1,61 @@
 @use "../../styles/mixins/layers.scss";
 
-.okryshto-empty-state {
+.okkly-empty-state {
   @include layers.component() {
-    --okryshto-empty-state-tone: var(--okryshto-accent-primary);
-    --okryshto-empty-state-background-color: var(--okryshto-bg-surface);
-    --okryshto-empty-state-border-color: var(--okryshto-border-subtle);
-    --okryshto-empty-state-border-width: var(--okryshto-1px-in-rem);
-    --okryshto-empty-state-border-radius: 1.125rem;
-    --okryshto-empty-state-padding-block: 1.75rem;
-    --okryshto-empty-state-padding-inline: 1.25rem;
-    --okryshto-empty-state-gap: 0.5rem;
-    --okryshto-empty-state-title-font-size: 1.125rem;
-    --okryshto-empty-state-title-line-height: 1.5rem;
-    --okryshto-empty-state-description-font-size: var(--okryshto-font-size-sm);
-    --okryshto-empty-state-description-line-height: var(--okryshto-font-line-height-sm);
-    --okryshto-empty-state-icon-size: 3.5rem;
-    --okryshto-empty-state-halo-size: 5.25rem;
+    --okkly-empty-state-tone: var(--okkly-accent-primary);
+    --okkly-empty-state-background-color: var(--okkly-bg-surface);
+    --okkly-empty-state-border-color: var(--okkly-border-subtle);
+    --okkly-empty-state-border-width: var(--okkly-1px-in-rem);
+    --okkly-empty-state-border-radius: 1.125rem;
+    --okkly-empty-state-padding-block: 1.75rem;
+    --okkly-empty-state-padding-inline: 1.25rem;
+    --okkly-empty-state-gap: 0.5rem;
+    --okkly-empty-state-title-font-size: 1.125rem;
+    --okkly-empty-state-title-line-height: 1.5rem;
+    --okkly-empty-state-description-font-size: var(--okkly-font-size-sm);
+    --okkly-empty-state-description-line-height: var(--okkly-font-line-height-sm);
+    --okkly-empty-state-icon-size: 3.5rem;
+    --okkly-empty-state-halo-size: 5.25rem;
 
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--okryshto-empty-state-gap);
-    padding: var(--okryshto-empty-state-padding-block) var(--okryshto-empty-state-padding-inline);
-    border: var(--okryshto-empty-state-border-width) solid var(--okryshto-empty-state-border-color);
-    border-radius: var(--okryshto-empty-state-border-radius);
-    background: var(--okryshto-empty-state-background-color);
+    gap: var(--okkly-empty-state-gap);
+    padding: var(--okkly-empty-state-padding-block) var(--okkly-empty-state-padding-inline);
+    border: var(--okkly-empty-state-border-width) solid var(--okkly-empty-state-border-color);
+    border-radius: var(--okkly-empty-state-border-radius);
+    background: var(--okkly-empty-state-background-color);
     text-align: center;
-    font-family: var(--okryshto-font-family-sans);
+    font-family: var(--okkly-font-family-sans);
 
     &--small {
-      --okryshto-empty-state-padding-block: 1.25rem;
-      --okryshto-empty-state-padding-inline: 1rem;
-      --okryshto-empty-state-title-font-size: var(--okryshto-font-size-md);
-      --okryshto-empty-state-title-line-height: var(--okryshto-font-line-height-md);
-      --okryshto-empty-state-icon-size: 2.5rem;
-      --okryshto-empty-state-halo-size: 4rem;
+      --okkly-empty-state-padding-block: 1.25rem;
+      --okkly-empty-state-padding-inline: 1rem;
+      --okkly-empty-state-title-font-size: var(--okkly-font-size-md);
+      --okkly-empty-state-title-line-height: var(--okkly-font-line-height-md);
+      --okkly-empty-state-icon-size: 2.5rem;
+      --okkly-empty-state-halo-size: 4rem;
     }
 
     &--large {
-      --okryshto-empty-state-padding-block: 2.25rem;
-      --okryshto-empty-state-padding-inline: 1.5rem;
-      --okryshto-empty-state-title-font-size: 1.25rem;
-      --okryshto-empty-state-title-line-height: 1.75rem;
-      --okryshto-empty-state-icon-size: 4rem;
-      --okryshto-empty-state-halo-size: 6rem;
+      --okkly-empty-state-padding-block: 2.25rem;
+      --okkly-empty-state-padding-inline: 1.5rem;
+      --okkly-empty-state-title-font-size: 1.25rem;
+      --okkly-empty-state-title-line-height: 1.75rem;
+      --okkly-empty-state-icon-size: 4rem;
+      --okkly-empty-state-halo-size: 6rem;
     }
 
     &--dante {
-      --okryshto-empty-state-tone: var(--okryshto-accent-dante);
+      --okkly-empty-state-tone: var(--okkly-accent-dante);
     }
 
     &--indigo {
-      --okryshto-empty-state-tone: var(--okryshto-accent-secondary);
+      --okkly-empty-state-tone: var(--okkly-accent-secondary);
     }
 
     &--danger {
-      --okryshto-empty-state-tone: var(--okryshto-feedback-danger);
+      --okkly-empty-state-tone: var(--okkly-feedback-danger);
     }
 
     &__visual {
@@ -63,8 +63,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      width: var(--okryshto-empty-state-halo-size);
-      height: calc(var(--okryshto-empty-state-halo-size) * 0.875);
+      width: var(--okkly-empty-state-halo-size);
+      height: calc(var(--okkly-empty-state-halo-size) * 0.875);
       margin-bottom: 0.25rem;
     }
 
@@ -72,7 +72,7 @@
       position: absolute;
       inset: 0;
       border-radius: 9999px;
-      background: color-mix(in srgb, var(--okryshto-empty-state-tone) 8%, transparent);
+      background: color-mix(in srgb, var(--okkly-empty-state-tone) 8%, transparent);
     }
 
     &__icon {
@@ -81,42 +81,42 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      color: var(--okryshto-empty-state-tone);
+      color: var(--okkly-empty-state-tone);
 
       // A custom `icon` skips the severity chip entirely, so a bare glyph would
       // arrive at whatever size its own markup says. Size it here — but only
       // outside the chip, which measures itself.
-      > :not(.okryshto-severity-icon) svg,
+      > :not(.okkly-severity-icon) svg,
       > svg {
-        width: calc(var(--okryshto-empty-state-icon-size) * 0.5);
-        height: calc(var(--okryshto-empty-state-icon-size) * 0.5);
+        width: calc(var(--okkly-empty-state-icon-size) * 0.5);
+        height: calc(var(--okkly-empty-state-icon-size) * 0.5);
       }
 
-      .okryshto-severity-icon {
-        --okryshto-severity-icon-tone: var(--okryshto-empty-state-tone);
-        --okryshto-severity-icon-background-color: color-mix(
+      .okkly-severity-icon {
+        --okkly-severity-icon-tone: var(--okkly-empty-state-tone);
+        --okkly-severity-icon-background-color: color-mix(
           in srgb,
-          var(--okryshto-empty-state-tone) 15%,
+          var(--okkly-empty-state-tone) 15%,
           transparent
         );
-        --okryshto-severity-icon-icon-color: var(--okryshto-empty-state-tone);
+        --okkly-severity-icon-icon-color: var(--okkly-empty-state-tone);
       }
     }
 
     &__title {
       margin: 0;
-      color: var(--okryshto-text-primary);
-      font-weight: var(--okryshto-font-weight-medium);
-      font-size: var(--okryshto-empty-state-title-font-size);
-      line-height: var(--okryshto-empty-state-title-line-height);
+      color: var(--okkly-text-primary);
+      font-weight: var(--okkly-font-weight-medium);
+      font-size: var(--okkly-empty-state-title-font-size);
+      line-height: var(--okkly-empty-state-title-line-height);
     }
 
     &__description {
       margin: 0;
       max-width: 18.75rem;
-      color: var(--okryshto-text-secondary);
-      font-size: var(--okryshto-empty-state-description-font-size);
-      line-height: var(--okryshto-empty-state-description-line-height);
+      color: var(--okkly-text-secondary);
+      font-size: var(--okkly-empty-state-description-font-size);
+      line-height: var(--okkly-empty-state-description-line-height);
     }
 
     &__action {

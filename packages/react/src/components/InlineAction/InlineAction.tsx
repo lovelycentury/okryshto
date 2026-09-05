@@ -7,7 +7,7 @@ import {
   type InputHTMLAttributes,
   type ReactNode,
 } from "react";
-import "@okryshto/design-system/components/InlineAction/InlineAction.scss";
+import "@okkly/design-system/components/InlineAction/InlineAction.scss";
 
 export type InlineActionSize = "small" | "medium" | "large";
 export type InlineActionColor =
@@ -25,7 +25,7 @@ export type InlineActionState =
   | "disabled";
 
 const Spinner = () => (
-  <span className="okryshto-inline-action__spinner" aria-hidden="true">
+  <span className="okkly-inline-action__spinner" aria-hidden="true">
     <svg viewBox="0 0 24 24" fill="none">
       <circle
         cx="12"
@@ -278,17 +278,17 @@ export const InlineAction = forwardRef<HTMLInputElement, InlineActionProps>(func
   const isLocked = disabled || isReadOnly;
 
   const classes = [
-    "okryshto-component",
-    "okryshto-inline-action",
-    color && `okryshto-inline-action--color-${color}`,
-    fill !== "filled" && `okryshto-inline-action--fill-${fill}`,
-    size !== "medium" && `okryshto-inline-action--${size}`,
+    "okkly-component",
+    "okkly-inline-action",
+    color && `okkly-inline-action--color-${color}`,
+    fill !== "filled" && `okkly-inline-action--fill-${fill}`,
+    size !== "medium" && `okkly-inline-action--${size}`,
     (effectiveState === "hover" ||
       effectiveState === "focus" ||
       effectiveState === "success" ||
       effectiveState === "error" ||
       effectiveState === "readonly") &&
-      `okryshto-inline-action--state-${effectiveState}`,
+      `okkly-inline-action--state-${effectiveState}`,
     className,
   ]
     .filter(Boolean)
@@ -298,7 +298,7 @@ export const InlineAction = forwardRef<HTMLInputElement, InlineActionProps>(func
     effectiveState === "loading" ? (
       <Spinner />
     ) : (
-      <span className="okryshto-inline-action__icon" aria-hidden="true">
+      <span className="okkly-inline-action__icon" aria-hidden="true">
         {isReadOnly ? (
           <LockIcon />
         ) : effectiveState === "success" ? (
@@ -321,20 +321,20 @@ export const InlineAction = forwardRef<HTMLInputElement, InlineActionProps>(func
     ) : null;
 
   const messageClasses = [
-    "okryshto-inline-action__message",
-    effectiveState === "success" && "okryshto-inline-action__message--success",
-    effectiveState === "error" && "okryshto-inline-action__message--error",
+    "okkly-inline-action__message",
+    effectiveState === "success" && "okkly-inline-action__message--success",
+    effectiveState === "error" && "okkly-inline-action__message--error",
   ]
     .filter(Boolean)
     .join(" ");
 
   return (
     <div className={classes}>
-      <div className="okryshto-inline-action__control">
+      <div className="okkly-inline-action__control">
         <input
           ref={ref}
           id={inputId}
-          className="okryshto-inline-action__input"
+          className="okkly-inline-action__input"
           value={value}
           placeholder={placeholder}
           disabled={disabled}
@@ -345,7 +345,7 @@ export const InlineAction = forwardRef<HTMLInputElement, InlineActionProps>(func
         />
         <button
           type="button"
-          className="okryshto-inline-action__action"
+          className="okkly-inline-action__action"
           disabled={isLocked}
           onClick={isReadOnly ? undefined : onAction}
           aria-label={isReadOnly ? `${action} (locked)` : undefined}
@@ -357,7 +357,7 @@ export const InlineAction = forwardRef<HTMLInputElement, InlineActionProps>(func
       {message && (
         <span id={messageId} className={messageClasses}>
           {messageIcon && (
-            <span className="okryshto-inline-action__message-icon" aria-hidden="true">
+            <span className="okkly-inline-action__message-icon" aria-hidden="true">
               {messageIcon}
             </span>
           )}

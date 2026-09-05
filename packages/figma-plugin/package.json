@@ -11,7 +11,7 @@
     "lint": "oxlint --config ../oxlint-config/index.json ."
   },
   "dependencies": {
-    "@okryshto/icons": "workspace:^"
+    "@okkly/icons": "workspace:^"
   },
   "devDependencies": {
     "@figma/plugin-typings": "^1.100.0",

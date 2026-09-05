@@ -15,18 +15,18 @@ const nextConfig: NextConfig = {
   // of ~1.5 GB, with no pnpm and no monorepo sources.
   output: "standalone",
   // File tracing starts at apps/profile by default, so pnpm symlinks to
-  // workspace packages (@okryshto/react etc.) would fall outside the trace.
+  // workspace packages (@okkly/react etc.) would fall outside the trace.
   // The monorepo root makes the standalone layout predictable:
   //   .next/standalone/apps/profile/server.js + .next/standalone/node_modules
   outputFileTracingRoot: monorepoRoot,
   // Workspace packages ship untranspiled-for-Next ESM; let Next compile them.
-  transpilePackages: ["@okryshto/react", "@okryshto/design-system"],
+  transpilePackages: ["@okkly/react", "@okkly/design-system"],
   sassOptions: {
     implementation: "sass-embedded",
     // sass-embedded uses the modern Sass API, which reads `loadPaths`
     // (legacy `includePaths` is ignored). Both roots are on the load path so
     // `@use "styles/mixins"` and
-    // `@use "@okryshto/design-system/styles/breakpoints.scss"` resolve the same
+    // `@use "@okkly/design-system/styles/breakpoints.scss"` resolve the same
     // way from any *.module.scss, however deep it is nested.
     loadPaths: [
       path.join(appRoot, "src"),

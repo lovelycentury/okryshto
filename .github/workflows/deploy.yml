@@ -16,7 +16,11 @@ jobs:
           - { name: profile, dockerfile: ops/Dockerfile.profile }
           - { name: storybook, dockerfile: ops/Dockerfile.storybook }
           - { name: iam, dockerfile: ops/Dockerfile.iam }
-          - { name: resume-fe, dockerfile: ops/Dockerfile.resume-fe, build_args: "VITE_API_BASE_URL=https://resume-api.okryshto.dev" }
+          - {
+              name: resume-fe,
+              dockerfile: ops/Dockerfile.resume-fe,
+              build_args: "VITE_API_BASE_URL=https://resume-api.okryshto.dev",
+            }
           # be and ingest share apps/resume/be/Dockerfile, different stages:
           # `runtime` is the slim server, `build` keeps sources + tsx for ingest.
           - { name: resume-be, dockerfile: apps/resume/be/Dockerfile, target: runtime }
@@ -35,7 +39,7 @@ jobs:
           target: ${{ matrix.target || '' }}
           build-args: ${{ matrix.build_args || '' }}
           push: true
-          tags: ghcr.io/lovelycentury/okryshto/${{ matrix.name }}:latest
+          tags: ghcr.io/lovelycentury/okkly/${{ matrix.name }}:latest
 
   deploy:
     needs: build

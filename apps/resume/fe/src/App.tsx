@@ -1,4 +1,4 @@
-import { AnimatedBackground } from "@okryshto/react";
+import { AnimatedBackground } from "@okkly/react";
 
 import { ChatProvider } from "./hooks/chat-context.js";
 import { useViewportHeight } from "./hooks/useViewportHeight.js";

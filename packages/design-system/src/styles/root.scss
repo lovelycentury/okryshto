@@ -1,24 +1,24 @@
 @use "./mixins/normalize.scss";
 
-@layer okryshto.utility {
+@layer okkly.utility {
   :root {
-    --okryshto-1px-in-rem: 0.0625rem;
-    --okryshto-outline-width: 0.25rem;
+    --okkly-1px-in-rem: 0.0625rem;
+    --okkly-outline-width: 0.25rem;
 
     // animation/transition durations
-    --okryshto-duration-sm: 400ms;
-    --okryshto-duration-md: 700ms;
-    --okryshto-duration-lg: 1s;
+    --okkly-duration-sm: 400ms;
+    --okkly-duration-md: 700ms;
+    --okkly-duration-lg: 1s;
 
     // shadows (x, y, blur, spread, color)
-    --okryshto-shadow-medium-top: 0 -0.125rem 0.5rem 0 rgba(0, 0, 0, 0.1);
-    --okryshto-shadow-medium-bottom: 0 0.125rem 0.5rem 0 rgba(0, 0, 0, 0.1);
-    --okryshto-shadow-medium-left: -0.125rem 0 0.5rem 0 rgba(0, 0, 0, 0.1);
-    --okryshto-shadow-medium-right: 0.125rem 0 0.5rem 0 rgba(0, 0, 0, 0.1);
-    --okryshto-shadow-soft-top: 0 -0.5rem 1.5rem 0 rgba(0, 0, 0, 0.1);
-    --okryshto-shadow-soft-bottom: 0 0.5rem 1.5rem 0 rgba(0, 0, 0, 0.1);
-    --okryshto-shadow-soft-left: -0.5rem 0 1.5rem 0 rgba(0, 0, 0, 0.1);
-    --okryshto-shadow-soft-right: 0.5rem 0 1.5rem 0 rgba(0, 0, 0, 0.1);
+    --okkly-shadow-medium-top: 0 -0.125rem 0.5rem 0 rgba(0, 0, 0, 0.1);
+    --okkly-shadow-medium-bottom: 0 0.125rem 0.5rem 0 rgba(0, 0, 0, 0.1);
+    --okkly-shadow-medium-left: -0.125rem 0 0.5rem 0 rgba(0, 0, 0, 0.1);
+    --okkly-shadow-medium-right: 0.125rem 0 0.5rem 0 rgba(0, 0, 0, 0.1);
+    --okkly-shadow-soft-top: 0 -0.5rem 1.5rem 0 rgba(0, 0, 0, 0.1);
+    --okkly-shadow-soft-bottom: 0 0.5rem 1.5rem 0 rgba(0, 0, 0, 0.1);
+    --okkly-shadow-soft-left: -0.5rem 0 1.5rem 0 rgba(0, 0, 0, 0.1);
+    --okkly-shadow-soft-right: 0.5rem 0 1.5rem 0 rgba(0, 0, 0, 0.1);
   }
 
   :root {
@@ -27,25 +27,25 @@
   .dark {
     color-scheme: dark;
 
-    --okryshto-shadow-medium-top: none;
-    --okryshto-shadow-medium-bottom: none;
-    --okryshto-shadow-medium-left: none;
-    --okryshto-shadow-medium-right: none;
-    --okryshto-shadow-soft-top: none;
-    --okryshto-shadow-soft-bottom: none;
-    --okryshto-shadow-soft-left: none;
-    --okryshto-shadow-soft-right: none;
+    --okkly-shadow-medium-top: none;
+    --okkly-shadow-medium-bottom: none;
+    --okkly-shadow-medium-left: none;
+    --okkly-shadow-medium-right: none;
+    --okkly-shadow-soft-top: none;
+    --okkly-shadow-soft-bottom: none;
+    --okkly-shadow-soft-left: none;
+    --okkly-shadow-soft-right: none;
   }
 }
 
-:where(html.okryshto-transition-active *) {
+:where(html.okkly-transition-active *) {
   transition-duration: 0.2s;
   transition-property: color, background-color, border-color;
   transition-timing-function: ease-in-out;
 }
 
-@layer okryshto.reset {
-  .okryshto-component {
+@layer okkly.reset {
+  .okkly-component {
     @include normalize.apply;
   }
 }

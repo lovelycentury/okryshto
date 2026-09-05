@@ -1,7 +1,7 @@
 "use client";
 
 import { forwardRef, type HTMLAttributes, type ReactNode, type TdHTMLAttributes } from "react";
-import "@okryshto/design-system/components/Table/Table.scss";
+import "@okkly/design-system/components/Table/Table.scss";
 
 export type TableDensity = "default" | "dense";
 
@@ -31,13 +31,13 @@ export const Table = forwardRef<HTMLTableElement, TableProps>(function Table(
   { density = "default", children, className, ...rest },
   ref,
 ) {
-  // `okryshto-component` here too, not just on the container: the reset that carries
+  // `okkly-component` here too, not just on the container: the reset that carries
   // `box-sizing: border-box` is scoped to that class, and a `Table` is perfectly
   // legal without a `TableContainer` around it.
   const classes = [
-    "okryshto-component",
-    "okryshto-table",
-    density === "dense" && "okryshto-table--dense",
+    "okkly-component",
+    "okkly-table",
+    density === "dense" && "okkly-table--dense",
     className,
   ]
     .filter(Boolean)
@@ -74,9 +74,9 @@ export function TableContainer({
   ...rest
 }: TableContainerProps) {
   const classes = [
-    "okryshto-component",
-    "okryshto-table-container",
-    stickyHeader && "okryshto-table-container--sticky",
+    "okkly-component",
+    "okkly-table-container",
+    stickyHeader && "okkly-table-container--sticky",
     className,
   ]
     .filter(Boolean)
@@ -100,7 +100,7 @@ export interface TableHeadProps extends HTMLAttributes<HTMLTableSectionElement> 
 }
 
 export function TableHead({ children, className, ...rest }: TableHeadProps) {
-  const classes = ["okryshto-table__head", className].filter(Boolean).join(" ");
+  const classes = ["okkly-table__head", className].filter(Boolean).join(" ");
 
   return (
     <thead className={classes} {...rest}>
@@ -120,7 +120,7 @@ export interface TableBodyProps extends HTMLAttributes<HTMLTableSectionElement> 
 }
 
 export function TableBody({ children, className, ...rest }: TableBodyProps) {
-  const classes = ["okryshto-table__body", className].filter(Boolean).join(" ");
+  const classes = ["okkly-table__body", className].filter(Boolean).join(" ");
 
   return (
     <tbody className={classes} {...rest}>
@@ -147,7 +147,7 @@ export interface TableRowProps extends HTMLAttributes<HTMLTableRowElement> {
 }
 
 export function TableRow({ hover = false, children, className, ...rest }: TableRowProps) {
-  const classes = ["okryshto-table__row", hover && "okryshto-table__row--hover", className]
+  const classes = ["okkly-table__row", hover && "okkly-table__row--hover", className]
     .filter(Boolean)
     .join(" ");
 
@@ -184,9 +184,9 @@ export function TableCell({
 }: TableCellProps) {
   const Tag = head ? "th" : "td";
   const classes = [
-    "okryshto-table__cell",
-    head && "okryshto-table__cell--head",
-    numeric && "okryshto-table__cell--numeric",
+    "okkly-table__cell",
+    head && "okkly-table__cell--head",
+    numeric && "okkly-table__cell--numeric",
     className,
   ]
     .filter(Boolean)

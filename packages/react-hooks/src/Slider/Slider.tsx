@@ -156,7 +156,7 @@ const readThumbIndex = (event: Event | { currentTarget: EventTarget | null }) =>
   Number((event.currentTarget as HTMLElement | null)?.dataset.index ?? -1);
 
 /**
- * Headless slider behavior ported from the okryshto Vue reference (ARIA slider pattern).
+ * Headless slider behavior ported from the okkly Vue reference (ARIA slider pattern).
  */
 export function useSlider(options: UseSliderOptions): UseSliderReturn {
   const {

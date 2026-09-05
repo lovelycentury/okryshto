@@ -7,7 +7,7 @@
  * preference about the person's eyes, not something that should reset with a new tab.
  */
 
-export const THEME_STORAGE_KEY = "okryshto-resume-theme";
+export const THEME_STORAGE_KEY = "okkly-resume-theme";
 export const THEME_TRANSITION_MS = 220;
 
 export type Theme = "light" | "dark";
@@ -38,13 +38,13 @@ export function applyTheme(theme: Theme, options?: { persist?: boolean }): void 
   const persist = options?.persist !== false;
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  // `okryshto-transition-active` is the design system's own hook (`styles/root.scss`): it
+  // `okkly-transition-active` is the design system's own hook (`styles/root.scss`): it
   // gives every element a colour transition for the length of the swap, then gets out of
   // the way so nothing carries a permanent transition it never asked for.
   if (!reduceMotion) {
-    root.classList.add("okryshto-transition-active");
+    root.classList.add("okkly-transition-active");
     window.setTimeout(() => {
-      root.classList.remove("okryshto-transition-active");
+      root.classList.remove("okkly-transition-active");
     }, THEME_TRANSITION_MS);
   }
 

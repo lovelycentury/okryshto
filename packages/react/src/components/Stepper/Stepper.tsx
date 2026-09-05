@@ -1,7 +1,7 @@
 "use client";
 
 import { type HTMLAttributes, type ReactNode } from "react";
-import "@okryshto/design-system/components/Stepper/Stepper.scss";
+import "@okkly/design-system/components/Stepper/Stepper.scss";
 
 export type StepperColor = "primary" | "dante" | "indigo" | "violet" | "ember" | "ice";
 export type StepperOrientation = "horizontal" | "vertical";
@@ -32,7 +32,7 @@ const CheckIcon = () => (
  * Props follow MUI's Stepper API (https://mui.com/material-ui/api/stepper/) loosely:
  * `orientation`/`activeStep`/`alternativeLabel` match name-for-name. Deliberate
  * gaps: steps come from an `items`-style `steps` array (not `Step` children),
- * `color` uses okryshto tone names, and there's no `StepButton` / clickable jump in v1.
+ * `color` uses okkly tone names, and there's no `StepButton` / clickable jump in v1.
  */
 export interface StepperProps extends Omit<HTMLAttributes<HTMLDivElement>, "children"> {
   /**
@@ -83,11 +83,11 @@ function getStepState(index: number, activeStep: number): StepState {
 function StepLabel({ step }: { step: StepperStep }) {
   return (
     <>
-      <div className="okryshto-stepper__label">
+      <div className="okkly-stepper__label">
         {step.label}
-        {step.optional && <span className="okryshto-stepper__optional">(optional)</span>}
+        {step.optional && <span className="okkly-stepper__optional">(optional)</span>}
       </div>
-      {step.description && <div className="okryshto-stepper__description">{step.description}</div>}
+      {step.description && <div className="okkly-stepper__description">{step.description}</div>}
     </>
   );
 }
@@ -102,11 +102,11 @@ export function Stepper({
   ...rest
 }: StepperProps) {
   const classes = [
-    "okryshto-component",
-    "okryshto-stepper",
-    `okryshto-stepper--${orientation}`,
-    alternativeLabel && orientation === "horizontal" && "okryshto-stepper--alternative-label",
-    color !== "primary" && `okryshto-stepper--color-${color}`,
+    "okkly-component",
+    "okkly-stepper",
+    `okkly-stepper--${orientation}`,
+    alternativeLabel && orientation === "horizontal" && "okkly-stepper--alternative-label",
+    color !== "primary" && `okkly-stepper--color-${color}`,
     className,
   ]
     .filter(Boolean)
@@ -122,17 +122,17 @@ export function Stepper({
         const dot = (
           <span
             className={[
-              "okryshto-stepper__dot",
-              state === "done" && "okryshto-stepper__dot--done",
-              state === "active" && "okryshto-stepper__dot--active",
-              state === "pending" && "okryshto-stepper__dot--pending",
+              "okkly-stepper__dot",
+              state === "done" && "okkly-stepper__dot--done",
+              state === "active" && "okkly-stepper__dot--active",
+              state === "pending" && "okkly-stepper__dot--pending",
             ]
               .filter(Boolean)
               .join(" ")}
             aria-hidden="true"
           >
             {state === "done" ? (
-              <span className="okryshto-stepper__check-icon">
+              <span className="okkly-stepper__check-icon">
                 <CheckIcon />
               </span>
             ) : (
@@ -145,25 +145,25 @@ export function Stepper({
           <div
             key={index}
             className={[
-              "okryshto-stepper__step",
-              state === "done" && "okryshto-stepper__step--done",
-              state === "active" && "okryshto-stepper__step--active",
+              "okkly-stepper__step",
+              state === "done" && "okkly-stepper__step--done",
+              state === "active" && "okkly-stepper__step--active",
             ]
               .filter(Boolean)
               .join(" ")}
             role="listitem"
             aria-current={state === "active" ? "step" : undefined}
           >
-            <div className="okryshto-stepper__step-inner">
+            <div className="okkly-stepper__step-inner">
               {orientation === "vertical" ? (
                 <>
-                  <div className="okryshto-stepper__track">
+                  <div className="okkly-stepper__track">
                     {dot}
                     {!isLast && (
                       <span
                         className={[
-                          "okryshto-stepper__connector",
-                          connectorActive && "okryshto-stepper__connector--active",
+                          "okkly-stepper__connector",
+                          connectorActive && "okkly-stepper__connector--active",
                         ]
                           .filter(Boolean)
                           .join(" ")}
@@ -171,19 +171,19 @@ export function Stepper({
                       />
                     )}
                   </div>
-                  <div className="okryshto-stepper__content">
+                  <div className="okkly-stepper__content">
                     <StepLabel step={step} />
                   </div>
                 </>
               ) : alternativeLabel ? (
                 <>
-                  <div className="okryshto-stepper__track">
+                  <div className="okkly-stepper__track">
                     {dot}
                     {!isLast && (
                       <span
                         className={[
-                          "okryshto-stepper__connector",
-                          connectorActive && "okryshto-stepper__connector--active",
+                          "okkly-stepper__connector",
+                          connectorActive && "okkly-stepper__connector--active",
                         ]
                           .filter(Boolean)
                           .join(" ")}
@@ -191,21 +191,21 @@ export function Stepper({
                       />
                     )}
                   </div>
-                  <div className="okryshto-stepper__content">
+                  <div className="okkly-stepper__content">
                     <StepLabel step={step} />
                   </div>
                 </>
               ) : (
-                <div className="okryshto-stepper__inline-row">
+                <div className="okkly-stepper__inline-row">
                   {dot}
-                  <div className="okryshto-stepper__content okryshto-stepper__content--inline">
+                  <div className="okkly-stepper__content okkly-stepper__content--inline">
                     <StepLabel step={step} />
                   </div>
                   {!isLast && (
                     <span
                       className={[
-                        "okryshto-stepper__connector",
-                        connectorActive && "okryshto-stepper__connector--active",
+                        "okkly-stepper__connector",
+                        connectorActive && "okkly-stepper__connector--active",
                       ]
                         .filter(Boolean)
                         .join(" ")}

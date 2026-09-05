@@ -1,6 +1,6 @@
 @use "../../styles/mixins/layers.scss";
 
-.okryshto-zoom {
+.okkly-zoom {
   @include layers.component() {
     transform-origin: center center;
   }

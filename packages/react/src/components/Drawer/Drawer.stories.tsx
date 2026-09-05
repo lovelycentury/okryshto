@@ -14,8 +14,8 @@ import { Drawer, type DrawerAnchor } from "./Drawer";
  * mounted for the length of the slide-out, since unmounting on the tick `open`
  * flips would cut the animation short.
  *
- * Size comes from CSS variables rather than props: `--okryshto-drawer-width` for the
- * left and right anchors, `--okryshto-drawer-height` for top and bottom. Set them on
+ * Size comes from CSS variables rather than props: `--okkly-drawer-width` for the
+ * left and right anchors, `--okkly-drawer-height` for top and bottom. Set them on
  * the drawer itself through `style` — they are declared on the component element,
  * so an override on an ancestor will not reach them.
  *
@@ -77,8 +77,8 @@ const surface: CSSProperties = {
   flexWrap: "wrap",
   alignItems: "center",
   gap: "10px",
-  fontFamily: "var(--okryshto-font-family-sans)",
-  color: "var(--okryshto-text-primary)",
+  fontFamily: "var(--okkly-font-family-sans)",
+  color: "var(--okkly-text-primary)",
 };
 
 // The paper is a bare flex column — it brings a background and a border and nothing
@@ -89,16 +89,16 @@ const panel: CSSProperties = {
   alignContent: "start",
   justifyItems: "start",
   padding: "24px",
-  fontFamily: "var(--okryshto-font-family-sans)",
-  fontSize: "var(--okryshto-font-size-sm)",
-  lineHeight: "var(--okryshto-font-line-height-sm)",
-  color: "var(--okryshto-text-secondary)",
+  fontFamily: "var(--okkly-font-family-sans)",
+  fontSize: "var(--okkly-font-size-sm)",
+  lineHeight: "var(--okkly-font-line-height-sm)",
+  color: "var(--okkly-text-secondary)",
 };
 
 const heading: CSSProperties = {
   margin: 0,
-  fontSize: "var(--okryshto-font-size-lg)",
-  color: "var(--okryshto-text-primary)",
+  fontSize: "var(--okkly-font-size-lg)",
+  color: "var(--okkly-text-primary)",
 };
 
 const navItem: CSSProperties = {
@@ -106,15 +106,15 @@ const navItem: CSSProperties = {
   width: "100%",
   padding: "10px 12px",
   borderRadius: "10px",
-  color: "var(--okryshto-text-secondary)",
+  color: "var(--okkly-text-secondary)",
   textDecoration: "none",
 };
 
 const caption: CSSProperties = {
   margin: 0,
   width: "100%",
-  fontSize: "var(--okryshto-font-size-sm)",
-  color: "var(--okryshto-text-muted)",
+  fontSize: "var(--okkly-font-size-sm)",
+  color: "var(--okkly-text-muted)",
 };
 
 /**
@@ -148,11 +148,9 @@ export const ANavigationPanel: Story = {
                 href={`#${item.toLowerCase()}`}
                 style={{
                   ...navItem,
-                  background: page === item ? "var(--okryshto-bg-surface-raised)" : "transparent",
+                  background: page === item ? "var(--okkly-bg-surface-raised)" : "transparent",
                   color:
-                    page === item
-                      ? "var(--okryshto-text-primary)"
-                      : "var(--okryshto-text-secondary)",
+                    page === item ? "var(--okkly-text-primary)" : "var(--okkly-text-secondary)",
                 }}
                 onClick={() => {
                   setPage(item);
@@ -171,8 +169,8 @@ export const ANavigationPanel: Story = {
 };
 
 /**
- * All four edges. `left` and `right` take `--okryshto-drawer-width`, `top` and
- * `bottom` take `--okryshto-drawer-height`; the bottom anchor also rounds its top
+ * All four edges. `left` and `right` take `--okkly-drawer-width`, `top` and
+ * `bottom` take `--okkly-drawer-height`; the bottom anchor also rounds its top
  * corners, which is what makes it read as a sheet rather than a bar.
  */
 export const Anchors: Story = {
@@ -201,7 +199,7 @@ export const Anchors: Story = {
 };
 
 /**
- * A bottom sheet of filters, sized with `--okryshto-drawer-height` rather than a prop.
+ * A bottom sheet of filters, sized with `--okkly-drawer-height` rather than a prop.
  * The variable is declared on the drawer element, so it has to be set there —
  * putting it on a wrapper will not reach it.
  */
@@ -225,7 +223,7 @@ export const ABottomSheet: Story = {
           open={open}
           onClose={handleClose}
           anchor="bottom"
-          style={{ "--okryshto-drawer-height": "18rem" } as CSSProperties}
+          style={{ "--okkly-drawer-height": "18rem" } as CSSProperties}
         >
           <div style={{ ...panel, width: "100%" }}>
             <h2 style={heading}>Filters</h2>
@@ -253,7 +251,7 @@ export const ABottomSheet: Story = {
 };
 
 /**
- * `--okryshto-drawer-width` for the side anchors. There is no `width` prop on purpose:
+ * `--okkly-drawer-width` for the side anchors. There is no `width` prop on purpose:
  * the value belongs to the design, not to the call site, so a theme can set it once
  * for every drawer in the app.
  */
@@ -272,11 +270,11 @@ export const Widths: Story = {
           open={width !== null}
           onClose={handleClose}
           anchor="right"
-          style={{ "--okryshto-drawer-width": width ?? "20rem" } as CSSProperties}
+          style={{ "--okkly-drawer-width": width ?? "20rem" } as CSSProperties}
         >
           <div style={panel}>
             <h2 style={heading}>{width}</h2>
-            <p style={{ margin: 0 }}>Set through `--okryshto-drawer-width` on the drawer itself.</p>
+            <p style={{ margin: 0 }}>Set through `--okkly-drawer-width` on the drawer itself.</p>
             <Button size="small" variant="secondary" onClick={handleClose}>
               Close
             </Button>

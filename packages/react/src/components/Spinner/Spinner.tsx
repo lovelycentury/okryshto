@@ -1,7 +1,7 @@
 "use client";
 
 import { forwardRef, type HTMLAttributes } from "react";
-import "@okryshto/design-system/components/Spinner/Spinner.scss";
+import "@okkly/design-system/components/Spinner/Spinner.scss";
 
 export type SpinnerSize = "small" | "medium" | "large";
 export type SpinnerColor =
@@ -54,10 +54,10 @@ export const Spinner = forwardRef<HTMLSpanElement, SpinnerProps>(function Spinne
   const dashOffset = circumference * 0.75;
 
   const classes = [
-    "okryshto-component",
-    "okryshto-spinner",
-    size !== "medium" && `okryshto-spinner--${size}`,
-    color !== "primary" && `okryshto-spinner--${color}`,
+    "okkly-component",
+    "okkly-spinner",
+    size !== "medium" && `okkly-spinner--${size}`,
+    color !== "primary" && `okkly-spinner--${color}`,
     className,
   ]
     .filter(Boolean)
@@ -65,9 +65,9 @@ export const Spinner = forwardRef<HTMLSpanElement, SpinnerProps>(function Spinne
 
   return (
     <span ref={forwardedRef} role="status" aria-label="Loading" className={classes} {...rest}>
-      <svg className="okryshto-spinner__svg" viewBox={`0 0 ${radius * 2} ${radius * 2}`}>
+      <svg className="okkly-spinner__svg" viewBox={`0 0 ${radius * 2} ${radius * 2}`}>
         <circle
-          className="okryshto-spinner__track"
+          className="okkly-spinner__track"
           cx={radius}
           cy={radius}
           r={normalizedRadius}
@@ -75,7 +75,7 @@ export const Spinner = forwardRef<HTMLSpanElement, SpinnerProps>(function Spinne
           strokeWidth={stroke}
         />
         <circle
-          className="okryshto-spinner__arc"
+          className="okkly-spinner__arc"
           cx={radius}
           cy={radius}
           r={normalizedRadius}

@@ -2,7 +2,7 @@
 
 import type { ReactNode } from "react";
 import { useTranslations } from "next-intl";
-import { Icon } from "@okryshto/react";
+import { Icon } from "@okkly/react";
 import { useCookieConsent } from "./CookieConsentProvider";
 import styles from "./CookieTrigger.module.scss";
 

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { iconPlus, iconX } from "@okryshto/icons";
+import { iconPlus, iconX } from "@okkly/icons";
 import { IconButton, type IconButtonColor } from "./IconButton";
 
 const plusIcon = <span dangerouslySetInnerHTML={{ __html: iconPlus }} />;

@@ -179,8 +179,8 @@ export const CustomOption: Story = {
               height: "8px",
               borderRadius: "50%",
               background: state.selected
-                ? "var(--okryshto-accent-primary)"
-                : "var(--okryshto-border-subtle)",
+                ? "var(--okkly-accent-primary)"
+                : "var(--okkly-border-subtle)",
             }}
           />
           <OptionBody>
@@ -224,7 +224,7 @@ export const RecipeRenderInput: Story = {
               width: "22px",
               height: "22px",
               borderRadius: "6px",
-              background: "var(--okryshto-bg-surface)",
+              background: "var(--okkly-bg-surface)",
               fontSize: "0.75rem",
             }}
           >
@@ -264,8 +264,8 @@ export const RecipeGroupsAndEmpty: Story = {
                 display: "flex",
                 justifyContent: "space-between",
                 padding: "6px 10px 2px",
-                color: "var(--okryshto-text-muted)",
-                fontSize: "var(--okryshto-font-size-sm)",
+                color: "var(--okkly-text-muted)",
+                fontSize: "var(--okkly-font-size-sm)",
               }}
             >
               {label}
@@ -285,7 +285,7 @@ export const RecipeGroupsAndEmpty: Story = {
         label="Archived teams"
         options={[]}
         renderNoOptions={() => (
-          <li style={{ padding: "10px 13px", color: "var(--okryshto-text-muted)" }}>
+          <li style={{ padding: "10px 13px", color: "var(--okkly-text-muted)" }}>
             Nothing archived yet
           </li>
         )}

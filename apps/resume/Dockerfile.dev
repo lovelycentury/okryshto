@@ -22,9 +22,9 @@ COPY . .
 RUN --mount=type=cache,id=pnpm-store,target=/pnpm/store \
     pnpm install --frozen-lockfile
 
-# `@okryshto/react` is consumed from its built `dist/` (see its package.json),
+# `@okkly/react` is consumed from its built `dist/` (see its package.json),
 # so the apps can't resolve it until it and its workspace deps are built.
-RUN pnpm --filter "@okryshto/react..." --if-present run build
+RUN pnpm --filter "@okkly/react..." --if-present run build
 
 # be = 5300, fe = 5173. Vite HMR uses the same 5173.
 EXPOSE 5300 5173

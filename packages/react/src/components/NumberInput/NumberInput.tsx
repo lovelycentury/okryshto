@@ -9,8 +9,8 @@ import {
   type KeyboardEvent,
   type ReactNode,
 } from "react";
-import { iconChevronDown, iconChevronUp, iconMinus, iconPlus } from "@okryshto/icons";
-import "@okryshto/design-system/components/NumberInput/NumberInput.scss";
+import { iconChevronDown, iconChevronUp, iconMinus, iconPlus } from "@okkly/icons";
+import "@okkly/design-system/components/NumberInput/NumberInput.scss";
 
 export type NumberInputSize = "small" | "medium" | "large";
 export type NumberInputColor = "primary" | "dante";
@@ -241,20 +241,20 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(functi
   );
 
   const classes = [
-    "okryshto-component",
-    "okryshto-number-input",
-    color !== "primary" && `okryshto-number-input--color-${color}`,
-    size !== "medium" && `okryshto-number-input--${size}`,
-    error && "okryshto-number-input--error",
-    fullWidth && "okryshto-number-input--full-width",
+    "okkly-component",
+    "okkly-number-input",
+    color !== "primary" && `okkly-number-input--color-${color}`,
+    size !== "medium" && `okkly-number-input--${size}`,
+    error && "okkly-number-input--error",
+    fullWidth && "okkly-number-input--full-width",
     className,
   ]
     .filter(Boolean)
     .join(" ");
 
   const controlsClasses = [
-    "okryshto-number-input__controls",
-    controls !== "stepper" && "okryshto-number-input__controls--chevrons",
+    "okkly-number-input__controls",
+    controls !== "stepper" && "okkly-number-input__controls--chevrons",
   ]
     .filter(Boolean)
     .join(" ");
@@ -293,23 +293,23 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(functi
       {label && (
         <label
           htmlFor={inputId}
-          className={`okryshto-number-input__label${hideLabel ? " okryshto-number-input__label--hidden" : ""}`}
+          className={`okkly-number-input__label${hideLabel ? " okkly-number-input__label--hidden" : ""}`}
         >
           {label}
           {required && (
-            <span className="okryshto-number-input__required" aria-hidden="true">
+            <span className="okkly-number-input__required" aria-hidden="true">
               *
             </span>
           )}
         </label>
       )}
-      <div className="okryshto-number-input__control">
+      <div className="okkly-number-input__control">
         <input
           ref={ref}
           id={inputId}
           type="text"
           inputMode="decimal"
-          className="okryshto-number-input__input"
+          className="okkly-number-input__input"
           value={displayValue}
           disabled={disabled}
           required={required}
@@ -323,7 +323,7 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(functi
         <div className={controlsClasses}>
           <button
             type="button"
-            className="okryshto-number-input__step okryshto-number-input__step--increment"
+            className="okkly-number-input__step okkly-number-input__step--increment"
             aria-label="Increase value"
             disabled={disabled || !canIncrement}
             tabIndex={-1}
@@ -333,7 +333,7 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(functi
           </button>
           <button
             type="button"
-            className="okryshto-number-input__step okryshto-number-input__step--decrement"
+            className="okkly-number-input__step okkly-number-input__step--decrement"
             aria-label="Decrease value"
             disabled={disabled || !canDecrement}
             tabIndex={-1}
@@ -344,7 +344,7 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(functi
         </div>
       </div>
       {helperText && (
-        <span id={helperId} className="okryshto-number-input__helper">
+        <span id={helperId} className="okkly-number-input__helper">
           {helperText}
         </span>
       )}

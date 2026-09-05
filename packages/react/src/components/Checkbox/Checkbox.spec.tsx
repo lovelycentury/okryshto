@@ -22,23 +22,21 @@ describe("Checkbox", () => {
 
   it("applies a size modifier only for non-medium sizes", () => {
     const { container, rerender } = render(<Checkbox label="Remember me" size="small" />);
-    expect(container.querySelector(".okryshto-checkbox")).toHaveClass("okryshto-checkbox--small");
+    expect(container.querySelector(".okkly-checkbox")).toHaveClass("okkly-checkbox--small");
 
     rerender(<Checkbox label="Remember me" size="medium" />);
-    expect(container.querySelector(".okryshto-checkbox")?.className).not.toMatch(
-      /okryshto-checkbox--(small|large)/,
+    expect(container.querySelector(".okkly-checkbox")?.className).not.toMatch(
+      /okkly-checkbox--(small|large)/,
     );
   });
 
   it("applies a color modifier only for non-primary colors", () => {
     const { container, rerender } = render(<Checkbox label="Remember me" color="danger" />);
-    expect(container.querySelector(".okryshto-checkbox")).toHaveClass(
-      "okryshto-checkbox--color-danger",
-    );
+    expect(container.querySelector(".okkly-checkbox")).toHaveClass("okkly-checkbox--color-danger");
 
     rerender(<Checkbox label="Remember me" color="primary" />);
-    expect(container.querySelector(".okryshto-checkbox")?.className).not.toMatch(
-      /okryshto-checkbox--color-/,
+    expect(container.querySelector(".okkly-checkbox")?.className).not.toMatch(
+      /okkly-checkbox--color-/,
     );
   });
 

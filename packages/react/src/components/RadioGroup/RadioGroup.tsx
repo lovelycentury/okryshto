@@ -1,7 +1,7 @@
 "use client";
 
 import { useId, useState, type ReactNode } from "react";
-import "@okryshto/design-system/components/RadioGroup/RadioGroup.scss";
+import "@okkly/design-system/components/RadioGroup/RadioGroup.scss";
 import type { RadioColor, RadioSize } from "../Radio/Radio";
 import { RadioGroupContext } from "./RadioGroupContext";
 
@@ -104,9 +104,7 @@ export function RadioGroup({
     onChange?.(next);
   };
 
-  const classes = ["okryshto-component", "okryshto-radio-group", className]
-    .filter(Boolean)
-    .join(" ");
+  const classes = ["okkly-component", "okkly-radio-group", className].filter(Boolean).join(" ");
 
   return (
     <RadioGroupContext.Provider
@@ -124,7 +122,7 @@ export function RadioGroup({
         aria-label={typeof label === "string" ? label : undefined}
         className={classes}
       >
-        {label && <span className="okryshto-radio-group__label">{label}</span>}
+        {label && <span className="okkly-radio-group__label">{label}</span>}
         {children}
       </div>
     </RadioGroupContext.Provider>

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { iconStar } from "@okryshto/icons";
+import { iconStar } from "@okkly/icons";
 import { Chip } from "./Chip";
 
 const starIcon = <span dangerouslySetInnerHTML={{ __html: iconStar }} />;

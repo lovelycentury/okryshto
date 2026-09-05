@@ -92,7 +92,7 @@ export const Interactive: Story = {
             margin: 0,
             color: "#a9a9b2",
             fontSize: "13px",
-            fontFamily: "var(--okryshto-font-family-mono, monospace)",
+            fontFamily: "var(--okkly-font-family-mono, monospace)",
           }}
         >
           Selected: {formatTime(value)} — drag a wheel, or focus it and use ↑/↓/Home/End.

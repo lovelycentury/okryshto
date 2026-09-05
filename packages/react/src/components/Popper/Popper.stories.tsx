@@ -94,8 +94,8 @@ const surface: CSSProperties = {
   alignItems: "center",
   gap: "12px",
   padding: "48px",
-  fontFamily: "var(--okryshto-font-family-sans)",
-  color: "var(--okryshto-text-primary)",
+  fontFamily: "var(--okkly-font-family-sans)",
+  color: "var(--okkly-text-primary)",
 };
 
 // Popper paints nothing, so every story has to bring a surface — the same bargain
@@ -104,20 +104,20 @@ const surface: CSSProperties = {
 const paper: CSSProperties = {
   maxWidth: "280px",
   padding: "14px 16px",
-  border: "var(--okryshto-1px-in-rem) solid var(--okryshto-border-subtle)",
+  border: "var(--okkly-1px-in-rem) solid var(--okkly-border-subtle)",
   borderRadius: "12px",
-  background: "var(--okryshto-bg-surface-raised)",
-  color: "var(--okryshto-text-secondary)",
-  fontSize: "var(--okryshto-font-size-sm)",
-  lineHeight: "var(--okryshto-font-line-height-sm)",
+  background: "var(--okkly-bg-surface-raised)",
+  color: "var(--okkly-text-secondary)",
+  fontSize: "var(--okkly-font-size-sm)",
+  lineHeight: "var(--okkly-font-line-height-sm)",
   boxShadow: "0 0.75rem 2rem rgba(0, 0, 0, 0.55)",
 };
 
 const caption: CSSProperties = {
   margin: 0,
   width: "100%",
-  fontSize: "var(--okryshto-font-size-sm)",
-  color: "var(--okryshto-text-muted)",
+  fontSize: "var(--okkly-font-size-sm)",
+  color: "var(--okkly-text-muted)",
 };
 
 /**
@@ -144,7 +144,7 @@ export const AHoverCard: Story = {
             onMouseLeave={() => setAnchorEl(null)}
             onFocus={(event) => setAnchorEl(event.currentTarget)}
             onBlur={() => setAnchorEl(null)}
-            style={{ color: "var(--okryshto-accent-primary)" }}
+            style={{ color: "var(--okkly-accent-primary)" }}
           >
             Oleksii Kryshtopa
           </a>{" "}
@@ -152,7 +152,7 @@ export const AHoverCard: Story = {
         </p>
         <Popper open={Boolean(anchorEl)} anchorEl={anchorEl} placement="top-start">
           <div style={{ ...paper, display: "grid", gap: "6px" }}>
-            <strong style={{ color: "var(--okryshto-text-primary)" }}>Oleksii Kryshtopa</strong>
+            <strong style={{ color: "var(--okkly-text-primary)" }}>Oleksii Kryshtopa</strong>
             <span>Design systems, and records nobody asked for.</span>
           </div>
         </Popper>
@@ -371,7 +371,7 @@ export const MountingAndPortals: Story = {
             width: "320px",
             height: "90px",
             padding: "16px",
-            border: "var(--okryshto-1px-in-rem) dashed var(--okryshto-border-default)",
+            border: "var(--okkly-1px-in-rem) dashed var(--okkly-border-default)",
             borderRadius: "12px",
           }}
         >

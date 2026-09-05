@@ -21,11 +21,11 @@ function mockSliderRect(element: HTMLElement, width = 200, height = 40) {
 describe("Slider", () => {
   it("renders a slider with default classes and no size/color modifiers", () => {
     const { container } = render(<Slider defaultValue={30} aria-label="Volume" />);
-    const root = container.querySelector(".okryshto-slider");
+    const root = container.querySelector(".okkly-slider");
     expect(root).toBeInTheDocument();
-    expect(root).not.toHaveClass("okryshto-slider--small");
-    expect(root).not.toHaveClass("okryshto-slider--large");
-    expect(root?.className).not.toMatch(/okryshto-slider--color-/);
+    expect(root).not.toHaveClass("okkly-slider--small");
+    expect(root).not.toHaveClass("okkly-slider--large");
+    expect(root?.className).not.toMatch(/okkly-slider--color-/);
     expect(screen.getByRole("slider", { name: "Volume" })).toBeInTheDocument();
   });
 
@@ -44,7 +44,7 @@ describe("Slider", () => {
     const { container } = render(
       <Slider defaultValue={10} onChange={onChange} aria-label="Volume" />,
     );
-    const root = container.querySelector(".okryshto-slider") as HTMLElement;
+    const root = container.querySelector(".okkly-slider") as HTMLElement;
     mockSliderRect(root);
 
     fireEvent.mouseDown(root, { clientX: 150, clientY: 20, button: 0 });
@@ -59,10 +59,10 @@ describe("Slider", () => {
     const { container } = render(
       <Slider defaultValue={20} discrete step={10} onChange={onChange} aria-label="Volume" />,
     );
-    const root = container.querySelector(".okryshto-slider") as HTMLElement;
+    const root = container.querySelector(".okkly-slider") as HTMLElement;
     mockSliderRect(root);
 
-    expect(container.querySelectorAll(".okryshto-slider__mark").length).toBe(11);
+    expect(container.querySelectorAll(".okkly-slider__mark").length).toBe(11);
 
     fireEvent.mouseDown(root, { clientX: 145, clientY: 20, button: 0 });
     expect(onChange).toHaveBeenCalled();
@@ -90,7 +90,7 @@ describe("Slider", () => {
     const { container } = render(
       <Slider defaultValue={20} discrete marks={marks} onChange={onChange} aria-label="Temp" />,
     );
-    const root = container.querySelector(".okryshto-slider") as HTMLElement;
+    const root = container.querySelector(".okkly-slider") as HTMLElement;
     mockSliderRect(root);
 
     fireEvent.mouseDown(root, { clientX: 80, clientY: 20, button: 0 });
@@ -119,19 +119,19 @@ describe("Slider", () => {
     const { container, rerender } = render(
       <Slider defaultValue={30} size="small" color="dante" aria-label="Volume" />,
     );
-    expect(container.querySelector(".okryshto-slider")).toHaveClass("okryshto-slider--small");
-    expect(container.querySelector(".okryshto-slider")).toHaveClass("okryshto-slider--color-dante");
+    expect(container.querySelector(".okkly-slider")).toHaveClass("okkly-slider--small");
+    expect(container.querySelector(".okkly-slider")).toHaveClass("okkly-slider--color-dante");
 
     rerender(<Slider defaultValue={30} size="medium" color="primary" aria-label="Volume" />);
-    const root = container.querySelector(".okryshto-slider");
-    expect(root?.className).not.toMatch(/okryshto-slider--small|okryshto-slider--large/);
-    expect(root?.className).not.toMatch(/okryshto-slider--color-/);
+    const root = container.querySelector(".okkly-slider");
+    expect(root?.className).not.toMatch(/okkly-slider--small|okkly-slider--large/);
+    expect(root?.className).not.toMatch(/okkly-slider--color-/);
   });
 
   it("forwards a ref to the root element", () => {
     const ref = createRef<HTMLDivElement>();
     render(<Slider ref={ref} defaultValue={30} aria-label="Volume" />);
     expect(ref.current).toBeInstanceOf(HTMLDivElement);
-    expect(ref.current).toHaveClass("okryshto-slider");
+    expect(ref.current).toHaveClass("okkly-slider");
   });
 });

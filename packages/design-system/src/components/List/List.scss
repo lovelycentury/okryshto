@@ -1,74 +1,73 @@
 @use "../../styles/mixins/layers.scss";
 
-.okryshto-list {
+.okkly-list {
   @include layers.component() {
-    --okryshto-list-background-color: var(--okryshto-bg-surface);
-    --okryshto-list-border-color: var(--okryshto-border-subtle);
-    --okryshto-list-border-radius: 1.25rem;
-    --okryshto-list-padding-block: 0.375rem;
-    --okryshto-list-padding-inline: 0.375rem;
-    --okryshto-list-gap: 0.125rem;
-    --okryshto-list-subheader-color: var(--okryshto-text-muted);
-    --okryshto-list-subheader-font-size: var(--okryshto-font-size-sm);
-    --okryshto-list-subheader-padding-block: 0.625rem;
-    --okryshto-list-subheader-padding-inline: 0.75rem;
+    --okkly-list-background-color: var(--okkly-bg-surface);
+    --okkly-list-border-color: var(--okkly-border-subtle);
+    --okkly-list-border-radius: 1.25rem;
+    --okkly-list-padding-block: 0.375rem;
+    --okkly-list-padding-inline: 0.375rem;
+    --okkly-list-gap: 0.125rem;
+    --okkly-list-subheader-color: var(--okkly-text-muted);
+    --okkly-list-subheader-font-size: var(--okkly-font-size-sm);
+    --okkly-list-subheader-padding-block: 0.625rem;
+    --okkly-list-subheader-padding-inline: 0.75rem;
 
     display: flex;
     flex-direction: column;
-    gap: var(--okryshto-list-gap);
+    gap: var(--okkly-list-gap);
     margin: 0;
-    padding: var(--okryshto-list-padding-block) var(--okryshto-list-padding-inline);
+    padding: var(--okkly-list-padding-block) var(--okkly-list-padding-inline);
     list-style: none;
-    border: var(--okryshto-1px-in-rem) solid var(--okryshto-list-border-color);
-    border-radius: var(--okryshto-list-border-radius);
-    background: var(--okryshto-list-background-color);
+    border: var(--okkly-1px-in-rem) solid var(--okkly-list-border-color);
+    border-radius: var(--okkly-list-border-radius);
+    background: var(--okkly-list-background-color);
 
     &--dense {
-      --okryshto-list-gap: 0;
-      --okryshto-list-padding-block: 0;
-      --okryshto-list-padding-inline: 0;
+      --okkly-list-gap: 0;
+      --okkly-list-padding-block: 0;
+      --okkly-list-padding-inline: 0;
     }
 
     &--disable-padding {
-      --okryshto-list-padding-block: 0;
-      --okryshto-list-padding-inline: 0;
+      --okkly-list-padding-block: 0;
+      --okkly-list-padding-inline: 0;
     }
 
     &__subheader {
-      padding: var(--okryshto-list-subheader-padding-block)
-        var(--okryshto-list-subheader-padding-inline);
-      font-family: var(--okryshto-font-family-sans);
-      font-weight: var(--okryshto-font-weight-medium);
-      font-size: var(--okryshto-list-subheader-font-size);
-      line-height: var(--okryshto-font-line-height-sm);
-      color: var(--okryshto-list-subheader-color);
+      padding: var(--okkly-list-subheader-padding-block) var(--okkly-list-subheader-padding-inline);
+      font-family: var(--okkly-font-family-sans);
+      font-weight: var(--okkly-font-weight-medium);
+      font-size: var(--okkly-list-subheader-font-size);
+      line-height: var(--okkly-font-line-height-sm);
+      color: var(--okkly-list-subheader-color);
     }
   }
 }
 
-.okryshto-list-item {
+.okkly-list-item {
   @include layers.component() {
-    --okryshto-list-item-background-color: transparent;
-    --okryshto-list-item-background-color-hover: var(--okryshto-bg-surface-raised);
-    --okryshto-list-item-background-color-selected: color-mix(
+    --okkly-list-item-background-color: transparent;
+    --okkly-list-item-background-color-hover: var(--okkly-bg-surface-raised);
+    --okkly-list-item-background-color-selected: color-mix(
       in srgb,
-      var(--okryshto-accent-primary) 10%,
+      var(--okkly-accent-primary) 10%,
       transparent
     );
-    --okryshto-list-item-text-color: var(--okryshto-text-primary);
-    --okryshto-list-item-text-color-selected: var(--okryshto-accent-primary);
-    --okryshto-list-item-padding-block: 0.625rem;
-    --okryshto-list-item-padding-inline: 0.75rem;
-    --okryshto-list-item-gap: 0.75rem;
-    --okryshto-list-item-border-radius: 0.875rem;
+    --okkly-list-item-text-color: var(--okkly-text-primary);
+    --okkly-list-item-text-color-selected: var(--okkly-accent-primary);
+    --okkly-list-item-padding-block: 0.625rem;
+    --okkly-list-item-padding-inline: 0.75rem;
+    --okkly-list-item-gap: 0.75rem;
+    --okkly-list-item-border-radius: 0.875rem;
 
     display: flex;
     align-items: center;
-    gap: var(--okryshto-list-item-gap);
-    padding: var(--okryshto-list-item-padding-block) var(--okryshto-list-item-padding-inline);
-    border-radius: var(--okryshto-list-item-border-radius);
-    background: var(--okryshto-list-item-background-color);
-    color: var(--okryshto-list-item-text-color);
+    gap: var(--okkly-list-item-gap);
+    padding: var(--okkly-list-item-padding-block) var(--okkly-list-item-padding-inline);
+    border-radius: var(--okkly-list-item-border-radius);
+    background: var(--okkly-list-item-background-color);
+    color: var(--okkly-list-item-text-color);
     list-style: none;
 
     &--container {
@@ -79,14 +78,14 @@
     }
 
     &--dense {
-      --okryshto-list-item-padding-block: 0.4375rem;
-      --okryshto-list-item-padding-inline: 0.75rem;
+      --okkly-list-item-padding-block: 0.4375rem;
+      --okkly-list-item-padding-inline: 0.75rem;
     }
 
     &--button {
       display: flex;
       align-items: center;
-      gap: var(--okryshto-list-item-gap);
+      gap: var(--okkly-list-item-gap);
       cursor: pointer;
       border: none;
       flex: 1;
@@ -94,27 +93,27 @@
       text-align: start;
       font: inherit;
       color: inherit;
-      background: var(--okryshto-list-item-background-color);
+      background: var(--okkly-list-item-background-color);
 
       &:hover:not(:disabled) {
-        background: var(--okryshto-list-item-background-color-hover);
+        background: var(--okkly-list-item-background-color-hover);
       }
 
       &:focus-visible {
-        outline: var(--okryshto-1px-in-rem) solid var(--okryshto-accent-primary);
+        outline: var(--okkly-1px-in-rem) solid var(--okkly-accent-primary);
         outline-offset: 0.125rem;
       }
     }
 
     &--container > &--button {
-      padding: var(--okryshto-list-item-padding-block) var(--okryshto-list-item-padding-inline);
-      border-radius: var(--okryshto-list-item-border-radius);
+      padding: var(--okkly-list-item-padding-block) var(--okkly-list-item-padding-inline);
+      border-radius: var(--okkly-list-item-border-radius);
     }
 
     &--selected,
-    &--container > &--button.okryshto-list-item--selected {
-      background: var(--okryshto-list-item-background-color-selected);
-      color: var(--okryshto-list-item-text-color-selected);
+    &--container > &--button.okkly-list-item--selected {
+      background: var(--okkly-list-item-background-color-selected);
+      color: var(--okkly-list-item-text-color-selected);
     }
 
     &--disabled {
@@ -133,7 +132,7 @@
     // owns those — so the trailing slot, which sits outside the button, has to
     // space itself off the row's right edge.
     &--container > &__trailing {
-      padding-inline-end: var(--okryshto-list-item-padding-inline);
+      padding-inline-end: var(--okkly-list-item-padding-inline);
     }
 
     &__content,
@@ -148,24 +147,24 @@
     &__primary {
       display: block;
       margin: 0;
-      font-family: var(--okryshto-font-family-sans);
-      font-weight: var(--okryshto-font-weight-medium);
-      font-size: var(--okryshto-font-size-md);
-      line-height: var(--okryshto-font-line-height-md);
+      font-family: var(--okkly-font-family-sans);
+      font-weight: var(--okkly-font-weight-medium);
+      font-size: var(--okkly-font-size-md);
+      line-height: var(--okkly-font-line-height-md);
       color: inherit;
     }
 
     &__secondary {
       display: block;
       margin: 0;
-      font-family: var(--okryshto-font-family-sans);
-      font-size: var(--okryshto-font-size-sm);
-      line-height: var(--okryshto-font-line-height-sm);
-      color: var(--okryshto-text-muted);
+      font-family: var(--okkly-font-family-sans);
+      font-size: var(--okkly-font-size-sm);
+      line-height: var(--okkly-font-line-height-sm);
+      color: var(--okkly-text-muted);
     }
 
     &--selected &__secondary {
-      color: color-mix(in srgb, var(--okryshto-accent-primary) 70%, var(--okryshto-text-muted));
+      color: color-mix(in srgb, var(--okkly-accent-primary) 70%, var(--okkly-text-muted));
     }
 
     &__icon {
@@ -174,7 +173,7 @@
       justify-content: center;
       width: 2rem;
       height: 2rem;
-      color: var(--okryshto-text-secondary);
+      color: var(--okkly-text-secondary);
 
       svg {
         width: 1.125rem;

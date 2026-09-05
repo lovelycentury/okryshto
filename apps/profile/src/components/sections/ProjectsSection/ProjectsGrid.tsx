@@ -1,7 +1,7 @@
 "use client";
 
 import type { CSSProperties } from "react";
-import { Logo, ProjectCard } from "@okryshto/react";
+import { Logo, ProjectCard } from "@okkly/react";
 import { trackProjectOpen } from "@/lib/analyticsEvents";
 import styles from "./ProjectsSection.module.scss";
 
@@ -38,8 +38,8 @@ export default function ProjectsGrid({ projects }: ProjectsGridProps) {
             onClick={() => trackProjectOpen(id)}
             style={
               {
-                "--okryshto-project-card-fill": gradient,
-                "--okryshto-project-card-fill-light": gradientLight,
+                "--okkly-project-card-fill": gradient,
+                "--okkly-project-card-fill-light": gradientLight,
               } as CSSProperties
             }
             logo={<Logo layout="compact" size={32} showLabel={false} />}

@@ -45,7 +45,7 @@
 }
 
 .statLabel {
-  color: var(--okryshto-text-muted);
+  color: var(--okkly-text-muted);
   @include m.type(body-sm);
 }
 
@@ -75,7 +75,7 @@
 }
 
 .quoteAuthor {
-  color: var(--okryshto-accent-primary);
+  color: var(--okkly-accent-primary);
   font-weight: 500;
   @include m.type(label-md);
 }
@@ -103,12 +103,12 @@
 
 .awardMeta {
   max-width: 43.75rem; // 700px
-  color: var(--okryshto-text-secondary);
+  color: var(--okkly-text-secondary);
   @include m.type(body-sm);
 }
 
 .awardLink {
-  color: var(--okryshto-accent-primary);
+  color: var(--okkly-accent-primary);
   font-weight: 500;
   text-decoration: none;
   @include m.type(label-md);

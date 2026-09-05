@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, type KeyboardEvent } from "react";
 import { useAtomValue } from "jotai";
 import { useTranslations } from "use-intl";
-import { Icon } from "@okryshto/react";
+import { Icon } from "@okkly/react";
 
 import { MAX_MESSAGE_LENGTH } from "../../config/env.js";
 import { isStreamingAtom, messagesAtom } from "../../state/atoms.js";

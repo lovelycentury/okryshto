@@ -20,7 +20,7 @@
 // gradient's far stop is pulled back to its near one. Local override, not a token change
 // — the gradient is right for avatars elsewhere.
 .avatar {
-  --okryshto-avatar-gradient-end: var(--okryshto-accent-primary);
+  --okkly-avatar-gradient-end: var(--okkly-accent-primary);
 }
 
 .identity {
@@ -68,7 +68,7 @@
   border: 1px solid transparent;
   border-radius: 12px;
   background: transparent;
-  color: var(--okryshto-text-secondary);
+  color: var(--okkly-text-secondary);
   font: inherit;
   font-size: 0.875rem;
   text-align: left;
@@ -81,9 +81,9 @@
 
 .starter:hover:not(:disabled),
 .starter:focus-visible {
-  border-color: var(--okryshto-border-default);
-  color: var(--okryshto-text-primary);
-  background: var(--okryshto-glass-fill);
+  border-color: var(--okkly-border-default);
+  color: var(--okkly-text-primary);
+  background: var(--okkly-glass-fill);
 }
 
 .starter:disabled {
@@ -97,7 +97,7 @@
   flex-direction: column;
   gap: 14px;
   padding-top: 18px;
-  border-top: 1px solid var(--okryshto-border-subtle);
+  border-top: 1px solid var(--okkly-border-subtle);
 }
 
 .brand {
@@ -107,12 +107,12 @@
 }
 
 .badge {
-  --okryshto-chip-border-color: color-mix(in srgb, var(--okryshto-accent-primary) 40%, transparent);
-  --okryshto-chip-text-color: var(--okryshto-accent-primary);
+  --okkly-chip-border-color: color-mix(in srgb, var(--okkly-accent-primary) 40%, transparent);
+  --okkly-chip-text-color: var(--okkly-accent-primary);
 }
 
 .email {
-  color: var(--okryshto-text-secondary);
+  color: var(--okkly-text-secondary);
   font-size: 0.8125rem;
   text-decoration: none;
   word-break: break-all;
@@ -121,7 +121,7 @@
 
 .email:hover,
 .email:focus-visible {
-  color: var(--okryshto-text-primary);
+  color: var(--okkly-text-primary);
   text-decoration: underline;
 }
 
@@ -147,7 +147,7 @@
   justify-content: center;
   padding: 6px;
   border-radius: 8px;
-  color: var(--okryshto-text-muted);
+  color: var(--okkly-text-muted);
   transition:
     color 0.15s ease,
     background 0.15s ease;
@@ -155,8 +155,8 @@
 
 .socialLink:hover,
 .socialLink:focus-visible {
-  color: var(--okryshto-text-primary);
-  background: var(--okryshto-glass-fill);
+  color: var(--okkly-text-primary);
+  background: var(--okkly-glass-fill);
 }
 
 // The kit ships its own button styling; here it should read as one more quiet footer
@@ -166,7 +166,7 @@
   padding: 0;
   border: none;
   background: none;
-  color: var(--okryshto-text-muted);
+  color: var(--okkly-text-muted);
   font: inherit;
   font-size: 0.8125rem;
   text-decoration: underline;
@@ -177,7 +177,7 @@
 
 .cookieTrigger:hover,
 .cookieTrigger:focus-visible {
-  color: var(--okryshto-text-primary);
+  color: var(--okkly-text-primary);
 }
 
 .disclaimer {

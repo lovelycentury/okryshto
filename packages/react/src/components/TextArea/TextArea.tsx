@@ -11,7 +11,7 @@ import {
   type ReactNode,
   type TextareaHTMLAttributes,
 } from "react";
-import "@okryshto/design-system/components/TextArea/TextArea.scss";
+import "@okkly/design-system/components/TextArea/TextArea.scss";
 
 export type TextAreaSize = "small" | "medium" | "large";
 export type TextAreaColor = "primary" | "dante";
@@ -215,14 +215,14 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(function 
   };
 
   const classes = [
-    "okryshto-component",
-    "okryshto-text-area",
-    color !== "primary" && `okryshto-text-area--color-${color}`,
-    size !== "medium" && `okryshto-text-area--${size}`,
-    error && "okryshto-text-area--error",
-    fullWidth && "okryshto-text-area--full-width",
-    autosize && "okryshto-text-area--autosize",
-    resize !== "vertical" && `okryshto-text-area--resize-${resize}`,
+    "okkly-component",
+    "okkly-text-area",
+    color !== "primary" && `okkly-text-area--color-${color}`,
+    size !== "medium" && `okkly-text-area--${size}`,
+    error && "okkly-text-area--error",
+    fullWidth && "okkly-text-area--full-width",
+    autosize && "okkly-text-area--autosize",
+    resize !== "vertical" && `okkly-text-area--resize-${resize}`,
     className,
   ]
     .filter(Boolean)
@@ -236,21 +236,21 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(function 
       {label && (
         <label
           htmlFor={inputId}
-          className={`okryshto-text-area__label${hideLabel ? " okryshto-text-area__label--hidden" : ""}`}
+          className={`okkly-text-area__label${hideLabel ? " okkly-text-area__label--hidden" : ""}`}
         >
           {label}
           {required && (
-            <span className="okryshto-text-area__required" aria-hidden="true">
+            <span className="okkly-text-area__required" aria-hidden="true">
               *
             </span>
           )}
         </label>
       )}
-      <div className="okryshto-text-area__control">
+      <div className="okkly-text-area__control">
         <textarea
           ref={setTextareaRef}
           id={inputId}
-          className="okryshto-text-area__textarea"
+          className="okkly-text-area__textarea"
           rows={rows}
           disabled={disabled}
           required={required}
@@ -264,14 +264,14 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(function 
         />
       </div>
       {showFooter && (
-        <div className="okryshto-text-area__footer">
+        <div className="okkly-text-area__footer">
           {helperText && (
-            <span id={helperId} className="okryshto-text-area__helper">
+            <span id={helperId} className="okkly-text-area__helper">
               {helperText}
             </span>
           )}
           {maxLength != null && (
-            <span id={counterId} className="okryshto-text-area__counter">
+            <span id={counterId} className="okkly-text-area__counter">
               {charCount} / {maxLength}
             </span>
           )}

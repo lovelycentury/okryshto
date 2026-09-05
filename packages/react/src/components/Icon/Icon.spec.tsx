@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { iconStar } from "@okryshto/icons";
+import { iconStar } from "@okkly/icons";
 import { createRef } from "react";
 import { describe, expect, it } from "vitest";
 import { Icon, ICON_NAMES } from "./Icon";
@@ -21,13 +21,13 @@ describe("Icon", () => {
     const icon = container.firstChild as HTMLElement;
 
     expect(icon.tagName).toBe("SPAN");
-    expect(icon).toHaveClass("okryshto-component", "okryshto-icon");
-    expect(icon.className).not.toMatch(/okryshto-icon--/);
+    expect(icon).toHaveClass("okkly-component", "okkly-icon");
+    expect(icon.className).not.toMatch(/okkly-icon--/);
     expect(icon).toHaveAttribute("aria-hidden", "true");
     expect(icon.querySelector("svg")).toBeInTheDocument();
   });
 
-  it("resolves `name` to the markup published by @okryshto/icons", () => {
+  it("resolves `name` to the markup published by @okkly/icons", () => {
     const { container } = render(<Icon name="iconStar" />);
     expect((container.firstChild as HTMLElement).innerHTML).toBe(asParsed(iconStar));
   });
@@ -51,24 +51,24 @@ describe("Icon", () => {
 
   it("applies size modifiers and clears them back to the default", () => {
     const { container, rerender } = render(<Icon name="iconStar" fontSize="small" />);
-    expect(container.firstChild).toHaveClass("okryshto-icon--small");
+    expect(container.firstChild).toHaveClass("okkly-icon--small");
 
     rerender(<Icon name="iconStar" fontSize="large" />);
-    expect(container.firstChild).toHaveClass("okryshto-icon--large");
+    expect(container.firstChild).toHaveClass("okkly-icon--large");
 
     rerender(<Icon name="iconStar" fontSize="inherit" />);
-    expect(container.firstChild).toHaveClass("okryshto-icon--inherit");
+    expect(container.firstChild).toHaveClass("okkly-icon--inherit");
 
     rerender(<Icon name="iconStar" fontSize="medium" />);
-    expect((container.firstChild as HTMLElement).className).not.toMatch(/okryshto-icon--/);
+    expect((container.firstChild as HTMLElement).className).not.toMatch(/okkly-icon--/);
   });
 
   it("applies colour modifiers and clears them back to inherit", () => {
     const { container, rerender } = render(<Icon name="iconStar" color="danger" />);
-    expect(container.firstChild).toHaveClass("okryshto-icon--color-danger");
+    expect(container.firstChild).toHaveClass("okkly-icon--color-danger");
 
     rerender(<Icon name="iconStar" color="inherit" />);
-    expect((container.firstChild as HTMLElement).className).not.toMatch(/okryshto-icon--color-/);
+    expect((container.firstChild as HTMLElement).className).not.toMatch(/okkly-icon--color-/);
   });
 
   it("becomes an image with a name once titleAccess is given", () => {

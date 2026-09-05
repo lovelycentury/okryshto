@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { iconArrowRight } from "@okryshto/icons";
+import { iconArrowRight } from "@okkly/icons";
 import { Button } from "./Button";
 
 const icon = <span dangerouslySetInnerHTML={{ __html: iconArrowRight }} />;

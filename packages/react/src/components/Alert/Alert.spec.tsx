@@ -17,34 +17,34 @@ describe("Alert", () => {
   it("has role=alert and default classes", () => {
     render(<Alert title="Info">Message</Alert>);
     const alert = screen.getByRole("alert");
-    expect(alert).toHaveClass("okryshto-component", "okryshto-alert");
+    expect(alert).toHaveClass("okkly-component", "okkly-alert");
     expect(alert.className).not.toMatch(
-      /okryshto-alert--(success|warning|danger|dante|outlined|filled)/,
+      /okkly-alert--(success|warning|danger|dante|outlined|filled)/,
     );
   });
 
   it("applies severity modifiers only for non-default severities", () => {
     const { rerender } = render(<Alert severity="success">Saved</Alert>);
-    expect(screen.getByRole("alert")).toHaveClass("okryshto-alert--success");
+    expect(screen.getByRole("alert")).toHaveClass("okkly-alert--success");
 
     rerender(<Alert severity="info">Info</Alert>);
-    expect(screen.getByRole("alert").className).not.toMatch(/okryshto-alert--success/);
+    expect(screen.getByRole("alert").className).not.toMatch(/okkly-alert--success/);
   });
 
   it("applies variant modifiers for outlined and filled", () => {
     const { rerender } = render(<Alert variant="outlined">Outline</Alert>);
-    expect(screen.getByRole("alert")).toHaveClass("okryshto-alert--outlined");
+    expect(screen.getByRole("alert")).toHaveClass("okkly-alert--outlined");
 
     rerender(<Alert variant="filled">Filled</Alert>);
-    expect(screen.getByRole("alert")).toHaveClass("okryshto-alert--filled");
+    expect(screen.getByRole("alert")).toHaveClass("okkly-alert--filled");
 
     rerender(<Alert variant="standard">Standard</Alert>);
-    expect(screen.getByRole("alert").className).not.toMatch(/okryshto-alert--(outlined|filled)/);
+    expect(screen.getByRole("alert").className).not.toMatch(/okkly-alert--(outlined|filled)/);
   });
 
   it("hides the icon when icon={false}", () => {
     const { container } = render(<Alert icon={false}>No icon</Alert>);
-    expect(container.querySelector(".okryshto-alert__icon")).not.toBeInTheDocument();
+    expect(container.querySelector(".okkly-alert__icon")).not.toBeInTheDocument();
   });
 
   it("renders action and close controls", () => {

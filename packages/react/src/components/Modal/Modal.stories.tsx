@@ -87,8 +87,8 @@ const surface: CSSProperties = {
   flexWrap: "wrap",
   alignItems: "center",
   gap: "10px",
-  fontFamily: "var(--okryshto-font-family-sans)",
-  color: "var(--okryshto-text-primary)",
+  fontFamily: "var(--okkly-font-family-sans)",
+  color: "var(--okkly-text-primary)",
 };
 
 // Modal fills the viewport and stacks its children on the backdrop; it does not
@@ -108,19 +108,19 @@ const paper: CSSProperties = {
   justifyItems: "start",
   width: "min(420px, 100%)",
   padding: "24px",
-  border: "var(--okryshto-1px-in-rem) solid var(--okryshto-border-subtle)",
+  border: "var(--okkly-1px-in-rem) solid var(--okkly-border-subtle)",
   borderRadius: "18px",
-  background: "var(--okryshto-bg-surface-raised)",
-  color: "var(--okryshto-text-secondary)",
-  fontSize: "var(--okryshto-font-size-sm)",
-  lineHeight: "var(--okryshto-font-line-height-sm)",
+  background: "var(--okkly-bg-surface-raised)",
+  color: "var(--okkly-text-secondary)",
+  fontSize: "var(--okkly-font-size-sm)",
+  lineHeight: "var(--okkly-font-line-height-sm)",
   boxShadow: "0 1.5rem 3rem rgba(0, 0, 0, 0.6)",
 };
 
 const caption: CSSProperties = {
   margin: 0,
-  fontSize: "var(--okryshto-font-size-sm)",
-  color: "var(--okryshto-text-muted)",
+  fontSize: "var(--okkly-font-size-sm)",
+  color: "var(--okkly-text-muted)",
 };
 
 /**
@@ -163,8 +163,8 @@ export const YourOwnDialog: Story = {
                 id="own-dialog-title"
                 style={{
                   margin: 0,
-                  fontSize: "var(--okryshto-font-size-lg)",
-                  color: "var(--okryshto-text-primary)",
+                  fontSize: "var(--okkly-font-size-lg)",
+                  color: "var(--okkly-text-primary)",
                 }}
               >
                 Built by hand
@@ -205,8 +205,8 @@ export const NoSurfaceOfItsOwn: Story = {
         <Modal open={open} onClose={handleClose}>
           <p
             style={{
-              color: "var(--okryshto-text-primary)",
-              fontFamily: "var(--okryshto-font-family-sans)",
+              color: "var(--okkly-text-primary)",
+              fontFamily: "var(--okkly-font-family-sans)",
             }}
           >
             Bare children. Press Escape to close.
@@ -245,9 +245,9 @@ export const ALightbox: Story = {
                 aspectRatio: "16 / 10",
                 borderRadius: "12px",
                 background: "linear-gradient(140deg, #1b2f3a, #3a1b2f)",
-                color: "var(--okryshto-text-muted)",
-                fontFamily: "var(--okryshto-font-family-mono)",
-                fontSize: "var(--okryshto-font-size-sm)",
+                color: "var(--okkly-text-muted)",
+                fontFamily: "var(--okkly-font-family-mono)",
+                fontSize: "var(--okkly-font-size-sm)",
               }}
             >
               the artwork
@@ -289,7 +289,7 @@ export const TheBackdrop: Story = {
             backdrop: {
               style: {
                 background:
-                  "color-mix(in srgb, var(--okryshto-accent-secondary) 30%, rgba(0,0,0,0.7))",
+                  "color-mix(in srgb, var(--okkly-accent-secondary) 30%, rgba(0,0,0,0.7))",
               },
             },
           }}
@@ -436,7 +436,7 @@ export const PortalAndContainer: Story = {
             position: "relative",
             width: "420px",
             height: "220px",
-            border: "var(--okryshto-1px-in-rem) dashed var(--okryshto-border-default)",
+            border: "var(--okkly-1px-in-rem) dashed var(--okkly-border-default)",
             borderRadius: "12px",
           }}
         >

@@ -67,8 +67,8 @@ const surface: CSSProperties = {
   flexDirection: "column",
   gap: "16px",
   width: "460px",
-  fontFamily: "var(--okryshto-font-family-sans)",
-  color: "var(--okryshto-text-primary)",
+  fontFamily: "var(--okkly-font-family-sans)",
+  color: "var(--okkly-text-primary)",
 };
 
 // `overflow: hidden` is not decoration — it is what turns the stage into an edge
@@ -79,26 +79,26 @@ const stage: CSSProperties = {
   display: "flex",
   overflow: "hidden",
   padding: "16px",
-  border: "var(--okryshto-1px-in-rem) solid var(--okryshto-border-subtle)",
+  border: "var(--okkly-1px-in-rem) solid var(--okkly-border-subtle)",
   borderRadius: "16px",
-  background: "var(--okryshto-bg-inset)",
+  background: "var(--okkly-bg-inset)",
 };
 
 const panel: CSSProperties = {
   padding: "20px",
-  border: "var(--okryshto-1px-in-rem) solid var(--okryshto-border-subtle)",
+  border: "var(--okkly-1px-in-rem) solid var(--okkly-border-subtle)",
   borderRadius: "12px",
-  background: "var(--okryshto-bg-surface-raised)",
-  color: "var(--okryshto-text-secondary)",
-  fontSize: "var(--okryshto-font-size-sm)",
-  lineHeight: "var(--okryshto-font-line-height-sm)",
+  background: "var(--okkly-bg-surface-raised)",
+  color: "var(--okkly-text-secondary)",
+  fontSize: "var(--okkly-font-size-sm)",
+  lineHeight: "var(--okkly-font-line-height-sm)",
   boxShadow: "0 0.5rem 1.5rem rgba(0, 0, 0, 0.5)",
 };
 
 const caption: CSSProperties = {
   margin: 0,
-  fontSize: "var(--okryshto-font-size-sm)",
-  color: "var(--okryshto-text-muted)",
+  fontSize: "var(--okkly-font-size-sm)",
+  color: "var(--okkly-text-muted)",
 };
 
 /**
@@ -127,8 +127,8 @@ export const ASheet: Story = {
           <div
             style={{
               padding: "16px",
-              fontSize: "var(--okryshto-font-size-sm)",
-              color: "var(--okryshto-text-muted)",
+              fontSize: "var(--okkly-font-size-sm)",
+              color: "var(--okkly-text-muted)",
             }}
           >
             The page underneath.
@@ -193,7 +193,7 @@ function Stage({
       style={{ ...stage, height: "130px", alignItems: "center", justifyContent: "center" }}
     >
       <Slide in={open} direction={direction} container={() => containerRef.current} timeout={400}>
-        <div style={{ ...panel, fontFamily: "var(--okryshto-font-family-mono)" }}>{direction}</div>
+        <div style={{ ...panel, fontFamily: "var(--okkly-font-family-mono)" }}>{direction}</div>
       </Slide>
     </div>
   );

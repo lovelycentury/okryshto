@@ -1,7 +1,7 @@
 "use client";
 
 import { forwardRef, type HTMLAttributes } from "react";
-import "@okryshto/design-system/components/Progress/Progress.scss";
+import "@okkly/design-system/components/Progress/Progress.scss";
 
 export type ProgressVariant = "determinate" | "indeterminate";
 export type ProgressType = "linear" | "circular";
@@ -82,12 +82,12 @@ export const Progress = forwardRef<HTMLDivElement, ProgressProps>(function Progr
   const isIndeterminate = variant === "indeterminate";
 
   const classes = [
-    "okryshto-component",
-    "okryshto-progress",
-    `okryshto-progress--${type}`,
-    isIndeterminate && "okryshto-progress--indeterminate",
-    size !== "medium" && `okryshto-progress--${size}`,
-    color !== "primary" && `okryshto-progress--${color}`,
+    "okkly-component",
+    "okkly-progress",
+    `okkly-progress--${type}`,
+    isIndeterminate && "okkly-progress--indeterminate",
+    size !== "medium" && `okkly-progress--${size}`,
+    color !== "primary" && `okkly-progress--${color}`,
     className,
   ]
     .filter(Boolean)
@@ -112,10 +112,10 @@ export const Progress = forwardRef<HTMLDivElement, ProgressProps>(function Progr
         className={classes}
         {...rest}
       >
-        <div className="okryshto-progress__circular">
-          <svg className="okryshto-progress__svg" viewBox={`0 0 ${diameter} ${diameter}`}>
+        <div className="okkly-progress__circular">
+          <svg className="okkly-progress__svg" viewBox={`0 0 ${diameter} ${diameter}`}>
             <circle
-              className="okryshto-progress__circle-track"
+              className="okkly-progress__circle-track"
               cx={diameter / 2}
               cy={diameter / 2}
               r={radius}
@@ -123,7 +123,7 @@ export const Progress = forwardRef<HTMLDivElement, ProgressProps>(function Progr
               strokeWidth={stroke}
             />
             <circle
-              className="okryshto-progress__circle-bar"
+              className="okkly-progress__circle-bar"
               cx={diameter / 2}
               cy={diameter / 2}
               r={radius}
@@ -134,7 +134,7 @@ export const Progress = forwardRef<HTMLDivElement, ProgressProps>(function Progr
             />
           </svg>
           {showLabel && !isIndeterminate && (
-            <span className="okryshto-progress__label">{Math.round(clamped)}%</span>
+            <span className="okkly-progress__label">{Math.round(clamped)}%</span>
           )}
         </div>
       </div>
@@ -151,11 +151,11 @@ export const Progress = forwardRef<HTMLDivElement, ProgressProps>(function Progr
       className={classes}
       {...rest}
     >
-      <div className="okryshto-progress__track">
+      <div className="okkly-progress__track">
         {!isIndeterminate && (
-          <div className="okryshto-progress__bar" style={{ width: `${clamped}%` }} />
+          <div className="okkly-progress__bar" style={{ width: `${clamped}%` }} />
         )}
-        {isIndeterminate && <div className="okryshto-progress__bar" />}
+        {isIndeterminate && <div className="okkly-progress__bar" />}
       </div>
     </div>
   );

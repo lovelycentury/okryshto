@@ -1,5 +1,5 @@
 import { useTranslations } from "use-intl";
-import { Icon, Typography } from "@okryshto/react";
+import { Icon, Typography } from "@okkly/react";
 
 import styles from "./Sources.module.scss";
 

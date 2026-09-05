@@ -1,19 +1,19 @@
 @use "../../styles/mixins/layers.scss";
 
-.okryshto-link-card {
+.okkly-link-card {
   @include layers.component() {
     // 1. full variable API, defaults = size "medium", color "primary" (mint)
-    --okryshto-link-card-tone: var(--okryshto-accent-primary);
-    --okryshto-link-card-background-color: var(--okryshto-bg-surface);
-    --okryshto-link-card-background-color-hover: var(--okryshto-bg-surface-raised);
-    --okryshto-link-card-border-color: var(--okryshto-border-subtle);
-    --okryshto-link-card-glow: 0 0 0.75rem transparent;
-    --okryshto-link-card-glow-hover: 0 0 0.75rem transparent;
-    --okryshto-link-card-arrow-color: var(--okryshto-text-secondary);
-    --okryshto-link-card-padding-block: 1.375rem; // 22px
-    --okryshto-link-card-padding-inline: 1.625rem; // 26px
-    --okryshto-link-card-title-size: 1.0625rem; // 17px
-    --okryshto-link-card-title-line-height: 1.5rem; // 24px
+    --okkly-link-card-tone: var(--okkly-accent-primary);
+    --okkly-link-card-background-color: var(--okkly-bg-surface);
+    --okkly-link-card-background-color-hover: var(--okkly-bg-surface-raised);
+    --okkly-link-card-border-color: var(--okkly-border-subtle);
+    --okkly-link-card-glow: 0 0 0.75rem transparent;
+    --okkly-link-card-glow-hover: 0 0 0.75rem transparent;
+    --okkly-link-card-arrow-color: var(--okkly-text-secondary);
+    --okkly-link-card-padding-block: 1.375rem; // 22px
+    --okkly-link-card-padding-inline: 1.625rem; // 26px
+    --okkly-link-card-title-size: 1.0625rem; // 17px
+    --okkly-link-card-title-line-height: 1.5rem; // 24px
 
     position: relative;
     display: flex;
@@ -21,68 +21,68 @@
     justify-content: space-between;
     gap: 1rem;
     width: 100%;
-    padding: var(--okryshto-link-card-padding-block) var(--okryshto-link-card-padding-inline);
-    border: var(--okryshto-1px-in-rem) solid var(--okryshto-link-card-border-color);
+    padding: var(--okkly-link-card-padding-block) var(--okkly-link-card-padding-inline);
+    border: var(--okkly-1px-in-rem) solid var(--okkly-link-card-border-color);
     border-radius: 0.875rem; // 14px
-    background: var(--okryshto-link-card-background-color);
-    color: var(--okryshto-text-primary);
+    background: var(--okkly-link-card-background-color);
+    color: var(--okkly-text-primary);
     text-decoration: none;
-    box-shadow: var(--okryshto-link-card-glow);
+    box-shadow: var(--okkly-link-card-glow);
     transition:
-      background-color var(--okryshto-duration-sm) ease-out,
-      border-color var(--okryshto-duration-sm) ease-out,
-      box-shadow var(--okryshto-duration-sm) ease-out;
+      background-color var(--okkly-duration-sm) ease-out,
+      border-color var(--okkly-duration-sm) ease-out,
+      box-shadow var(--okkly-duration-sm) ease-out;
 
     &:hover {
-      background: var(--okryshto-link-card-background-color-hover);
-      box-shadow: var(--okryshto-link-card-glow-hover);
+      background: var(--okkly-link-card-background-color-hover);
+      box-shadow: var(--okkly-link-card-glow-hover);
     }
 
     &:focus-visible {
-      outline: var(--okryshto-1px-in-rem) solid var(--okryshto-accent-primary);
+      outline: var(--okkly-1px-in-rem) solid var(--okkly-accent-primary);
       outline-offset: 0.125rem;
     }
 
     // 2. color modifiers — only remap the tone; featured consumes it
     &--color-dante {
-      --okryshto-link-card-tone: var(--okryshto-accent-dante);
+      --okkly-link-card-tone: var(--okkly-accent-dante);
     }
     &--color-indigo {
-      --okryshto-link-card-tone: var(--okryshto-accent-secondary);
+      --okkly-link-card-tone: var(--okkly-accent-secondary);
     }
     &--color-violet {
-      --okryshto-link-card-tone: var(--okryshto-accent-violet);
+      --okkly-link-card-tone: var(--okkly-accent-violet);
     }
     &--color-ember {
-      --okryshto-link-card-tone: var(--okryshto-accent-ember);
+      --okkly-link-card-tone: var(--okkly-accent-ember);
     }
     &--color-ice {
-      --okryshto-link-card-tone: var(--okryshto-accent-ice);
+      --okkly-link-card-tone: var(--okkly-accent-ice);
     }
 
     // 3. featured — glass surface + accent glow; dot & arrow pick up the tone
     &--featured {
-      --okryshto-link-card-background-color: var(--okryshto-glass-fill);
-      --okryshto-link-card-background-color-hover: var(--okryshto-link-card-background-color);
-      --okryshto-link-card-border-color: var(--okryshto-glass-border);
-      --okryshto-link-card-glow-hover: 0 0 0.75rem
-        color-mix(in srgb, var(--okryshto-link-card-tone) 30%, transparent);
-      --okryshto-link-card-arrow-color: var(--okryshto-link-card-tone);
+      --okkly-link-card-background-color: var(--okkly-glass-fill);
+      --okkly-link-card-background-color-hover: var(--okkly-link-card-background-color);
+      --okkly-link-card-border-color: var(--okkly-glass-border);
+      --okkly-link-card-glow-hover: 0 0 0.75rem
+        color-mix(in srgb, var(--okkly-link-card-tone) 30%, transparent);
+      --okkly-link-card-arrow-color: var(--okkly-link-card-tone);
     }
 
     // 4. size — medium (default) needs no modifier
     &--small {
-      --okryshto-link-card-padding-block: 1rem; // 16px
-      --okryshto-link-card-padding-inline: 1.375rem; // 22px
-      --okryshto-link-card-title-size: 0.9375rem; // 15px
-      --okryshto-link-card-title-line-height: 1.25rem; // 20px
+      --okkly-link-card-padding-block: 1rem; // 16px
+      --okkly-link-card-padding-inline: 1.375rem; // 22px
+      --okkly-link-card-title-size: 0.9375rem; // 15px
+      --okkly-link-card-title-line-height: 1.25rem; // 20px
     }
 
     &--large {
-      --okryshto-link-card-padding-block: 1.75rem; // 28px
-      --okryshto-link-card-padding-inline: 1.875rem; // 30px
-      --okryshto-link-card-title-size: 1.25rem; // 20px
-      --okryshto-link-card-title-line-height: 1.75rem; // 28px
+      --okkly-link-card-padding-block: 1.75rem; // 28px
+      --okkly-link-card-padding-inline: 1.875rem; // 30px
+      --okkly-link-card-title-size: 1.25rem; // 20px
+      --okkly-link-card-title-line-height: 1.75rem; // 28px
     }
 
     // 5. interactive — a div acting as a link (onClick, no href) needs the affordance;
@@ -115,25 +115,25 @@
       width: 0.4375rem; // 7px
       height: 0.4375rem;
       border-radius: 50%;
-      background: var(--okryshto-link-card-tone);
+      background: var(--okkly-link-card-tone);
     }
 
     &__title {
       min-width: 0;
       margin: 0;
-      font-family: var(--okryshto-font-family-sans);
-      font-weight: var(--okryshto-font-weight-medium);
-      font-size: var(--okryshto-link-card-title-size);
-      line-height: var(--okryshto-link-card-title-line-height);
-      color: var(--okryshto-text-primary);
+      font-family: var(--okkly-font-family-sans);
+      font-weight: var(--okkly-font-weight-medium);
+      font-size: var(--okkly-link-card-title-size);
+      line-height: var(--okkly-link-card-title-line-height);
+      color: var(--okkly-text-primary);
     }
 
     &__subtitle {
       margin: 0;
-      font-family: var(--okryshto-font-family-sans);
+      font-family: var(--okkly-font-family-sans);
       font-size: 0.875rem; // 14px
       line-height: 1.375rem; // 22px
-      color: var(--okryshto-text-muted);
+      color: var(--okkly-text-muted);
     }
 
     &__aside {
@@ -144,10 +144,10 @@
     }
 
     &__meta {
-      font-family: var(--okryshto-font-family-mono);
-      font-size: var(--okryshto-font-size-sm);
+      font-family: var(--okkly-font-family-mono);
+      font-size: var(--okkly-font-size-sm);
       line-height: 1.25rem; // 20px
-      color: var(--okryshto-text-muted);
+      color: var(--okkly-text-muted);
       white-space: nowrap;
     }
 
@@ -156,7 +156,7 @@
       flex-shrink: 0;
       width: 1.125rem; // 18px
       height: 1.125rem;
-      color: var(--okryshto-link-card-arrow-color);
+      color: var(--okkly-link-card-arrow-color);
 
       svg {
         width: 100%;

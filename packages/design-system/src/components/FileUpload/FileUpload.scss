@@ -1,76 +1,76 @@
 @use "../../styles/mixins/layers.scss";
 
-.okryshto-file-upload {
+.okkly-file-upload {
   @include layers.component() {
     // tone drives every accent surface of the component; the error modifier remaps it
-    --okryshto-file-upload-tone: var(--okryshto-accent-primary);
-    --okryshto-file-upload-border-color: var(--okryshto-border-default);
-    --okryshto-file-upload-active-border-color: var(--okryshto-file-upload-tone);
-    --okryshto-file-upload-background: var(--okryshto-bg-inset);
-    --okryshto-file-upload-active-background: color-mix(
+    --okkly-file-upload-tone: var(--okkly-accent-primary);
+    --okkly-file-upload-border-color: var(--okkly-border-default);
+    --okkly-file-upload-active-border-color: var(--okkly-file-upload-tone);
+    --okkly-file-upload-background: var(--okkly-bg-inset);
+    --okkly-file-upload-active-background: color-mix(
       in srgb,
-      var(--okryshto-file-upload-tone) 7%,
+      var(--okkly-file-upload-tone) 7%,
       transparent
     );
-    --okryshto-file-upload-border-style: dashed;
-    --okryshto-file-upload-border-radius: 1rem;
-    --okryshto-file-upload-border-width: 0.09375rem;
-    --okryshto-file-upload-padding-block: 1.875rem;
-    --okryshto-file-upload-padding-inline: 1.5rem;
-    --okryshto-file-upload-gap: 0.625rem;
-    --okryshto-file-upload-min-width: 17.5rem;
-    --okryshto-file-upload-title-size: var(--okryshto-font-size-md);
-    --okryshto-file-upload-illustration-size: 3.25rem;
-    --okryshto-file-upload-illustration-glyph-size: 1.5rem;
-    --okryshto-file-upload-glow: 0 0 0.5rem
-      color-mix(in srgb, var(--okryshto-file-upload-tone) 25%, transparent);
+    --okkly-file-upload-border-style: dashed;
+    --okkly-file-upload-border-radius: 1rem;
+    --okkly-file-upload-border-width: 0.09375rem;
+    --okkly-file-upload-padding-block: 1.875rem;
+    --okkly-file-upload-padding-inline: 1.5rem;
+    --okkly-file-upload-gap: 0.625rem;
+    --okkly-file-upload-min-width: 17.5rem;
+    --okkly-file-upload-title-size: var(--okkly-font-size-md);
+    --okkly-file-upload-illustration-size: 3.25rem;
+    --okkly-file-upload-illustration-glyph-size: 1.5rem;
+    --okkly-file-upload-glow: 0 0 0.5rem
+      color-mix(in srgb, var(--okkly-file-upload-tone) 25%, transparent);
     // list geometry — how many file rows fit before `listType="maxHeight"` scrolls
-    --okryshto-file-upload-max-files: 3;
-    --okryshto-file-upload-list-gap: 0.5rem;
-    --okryshto-file-upload-file-height: 3.25rem;
+    --okkly-file-upload-max-files: 3;
+    --okkly-file-upload-list-gap: 0.5rem;
+    --okkly-file-upload-file-height: 3.25rem;
 
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
     width: fit-content;
     max-width: 100%;
-    font-family: var(--okryshto-font-family-sans);
+    font-family: var(--okkly-font-family-sans);
 
     &--full-width {
       width: 100%;
     }
 
     &--medium {
-      --okryshto-file-upload-padding-block: 0.75rem;
-      --okryshto-file-upload-padding-inline: 1rem;
-      --okryshto-file-upload-gap: 0.375rem;
+      --okkly-file-upload-padding-block: 0.75rem;
+      --okkly-file-upload-padding-inline: 1rem;
+      --okkly-file-upload-gap: 0.375rem;
     }
 
     &--small {
-      --okryshto-file-upload-padding-block: 0.5rem;
-      --okryshto-file-upload-padding-inline: 0.75rem;
-      --okryshto-file-upload-gap: 0.375rem;
-      --okryshto-file-upload-border-style: solid;
-      --okryshto-file-upload-border-width: var(--okryshto-1px-in-rem);
-      --okryshto-file-upload-border-radius: 0.625rem;
-      --okryshto-file-upload-border-color: var(--okryshto-border-subtle);
-      --okryshto-file-upload-active-border-color: var(--okryshto-border-strong);
-      --okryshto-file-upload-background: transparent;
-      --okryshto-file-upload-min-width: 0;
-      --okryshto-file-upload-title-size: var(--okryshto-font-size-sm);
+      --okkly-file-upload-padding-block: 0.5rem;
+      --okkly-file-upload-padding-inline: 0.75rem;
+      --okkly-file-upload-gap: 0.375rem;
+      --okkly-file-upload-border-style: solid;
+      --okkly-file-upload-border-width: var(--okkly-1px-in-rem);
+      --okkly-file-upload-border-radius: 0.625rem;
+      --okkly-file-upload-border-color: var(--okkly-border-subtle);
+      --okkly-file-upload-active-border-color: var(--okkly-border-strong);
+      --okkly-file-upload-background: transparent;
+      --okkly-file-upload-min-width: 0;
+      --okkly-file-upload-title-size: var(--okkly-font-size-sm);
     }
 
     &--error {
-      --okryshto-file-upload-tone: var(--okryshto-feedback-danger);
-      --okryshto-file-upload-border-color: var(--okryshto-feedback-danger);
-      --okryshto-file-upload-active-border-color: var(--okryshto-feedback-danger);
+      --okkly-file-upload-tone: var(--okkly-feedback-danger);
+      --okkly-file-upload-border-color: var(--okkly-feedback-danger);
+      --okkly-file-upload-active-border-color: var(--okkly-feedback-danger);
     }
 
     &__label {
-      font-weight: var(--okryshto-font-weight-medium);
-      font-size: var(--okryshto-font-size-sm);
-      line-height: var(--okryshto-font-line-height-sm);
-      color: var(--okryshto-text-secondary);
+      font-weight: var(--okkly-font-weight-medium);
+      font-size: var(--okkly-font-size-sm);
+      line-height: var(--okkly-font-line-height-sm);
+      color: var(--okkly-text-secondary);
     }
 
     &__dropzone {
@@ -78,33 +78,33 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: var(--okryshto-file-upload-gap);
+      gap: var(--okkly-file-upload-gap);
       box-sizing: border-box;
       width: 100%;
-      min-width: var(--okryshto-file-upload-min-width);
+      min-width: var(--okkly-file-upload-min-width);
       margin: 0;
-      padding: var(--okryshto-file-upload-padding-block) var(--okryshto-file-upload-padding-inline);
-      border: var(--okryshto-file-upload-border-width) var(--okryshto-file-upload-border-style)
-        var(--okryshto-file-upload-border-color);
-      border-radius: var(--okryshto-file-upload-border-radius);
-      background: var(--okryshto-file-upload-background);
-      color: var(--okryshto-text-primary);
+      padding: var(--okkly-file-upload-padding-block) var(--okkly-file-upload-padding-inline);
+      border: var(--okkly-file-upload-border-width) var(--okkly-file-upload-border-style)
+        var(--okkly-file-upload-border-color);
+      border-radius: var(--okkly-file-upload-border-radius);
+      background: var(--okkly-file-upload-background);
+      color: var(--okkly-text-primary);
       font-family: inherit;
-      font-size: var(--okryshto-file-upload-title-size);
+      font-size: var(--okkly-file-upload-title-size);
       text-align: center;
       cursor: pointer;
       box-shadow: 0 0 0.5rem transparent;
       transition:
-        border-color var(--okryshto-duration-sm) ease-out,
-        background-color var(--okryshto-duration-sm) ease-out,
-        box-shadow var(--okryshto-duration-sm) ease-out;
+        border-color var(--okkly-duration-sm) ease-out,
+        background-color var(--okkly-duration-sm) ease-out,
+        box-shadow var(--okkly-duration-sm) ease-out;
 
       &:enabled:hover {
-        border-color: var(--okryshto-file-upload-active-border-color);
+        border-color: var(--okkly-file-upload-active-border-color);
       }
 
       &:focus-visible {
-        outline: var(--okryshto-outline-width) solid var(--okryshto-file-upload-tone);
+        outline: var(--okkly-outline-width) solid var(--okkly-file-upload-tone);
         outline-offset: 0.125rem;
       }
 
@@ -115,9 +115,9 @@
     }
 
     &--dragging &__dropzone {
-      border-color: var(--okryshto-file-upload-active-border-color);
-      background: var(--okryshto-file-upload-active-background);
-      box-shadow: var(--okryshto-file-upload-glow);
+      border-color: var(--okkly-file-upload-active-border-color);
+      background: var(--okkly-file-upload-active-background);
+      box-shadow: var(--okkly-file-upload-glow);
 
       // children must not swallow the drag events of the drop zone
       * {
@@ -127,8 +127,8 @@
 
     &__input {
       position: absolute;
-      width: var(--okryshto-1px-in-rem);
-      height: var(--okryshto-1px-in-rem);
+      width: var(--okkly-1px-in-rem);
+      height: var(--okkly-1px-in-rem);
       padding: 0;
       overflow: hidden;
       clip-path: inset(50%);
@@ -141,18 +141,18 @@
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      width: var(--okryshto-file-upload-illustration-size);
-      height: var(--okryshto-file-upload-illustration-size);
+      width: var(--okkly-file-upload-illustration-size);
+      height: var(--okkly-file-upload-illustration-size);
       border-radius: 9999px;
-      background: color-mix(in srgb, var(--okryshto-file-upload-tone) 12%, transparent);
-      color: var(--okryshto-file-upload-tone);
+      background: color-mix(in srgb, var(--okkly-file-upload-tone) 12%, transparent);
+      color: var(--okkly-file-upload-tone);
       transition:
-        background-color var(--okryshto-duration-sm) ease,
-        color var(--okryshto-duration-sm) ease;
+        background-color var(--okkly-duration-sm) ease,
+        color var(--okkly-duration-sm) ease;
 
       svg {
-        width: var(--okryshto-file-upload-illustration-glyph-size);
-        height: var(--okryshto-file-upload-illustration-glyph-size);
+        width: var(--okkly-file-upload-illustration-glyph-size);
+        height: var(--okkly-file-upload-illustration-glyph-size);
       }
     }
 
@@ -160,8 +160,8 @@
       display: inline-flex;
       align-items: center;
       gap: 0.375rem;
-      font-weight: var(--okryshto-font-weight-medium);
-      line-height: var(--okryshto-font-line-height-md);
+      font-weight: var(--okkly-font-weight-medium);
+      line-height: var(--okkly-font-line-height-md);
 
       svg {
         width: 1rem;
@@ -179,29 +179,29 @@
     }
 
     &__title {
-      font-size: var(--okryshto-font-size-md);
-      line-height: var(--okryshto-font-line-height-md);
-      color: var(--okryshto-text-primary);
+      font-size: var(--okkly-font-size-md);
+      line-height: var(--okkly-font-line-height-md);
+      color: var(--okkly-text-primary);
 
       u {
-        font-weight: var(--okryshto-font-weight-medium);
+        font-weight: var(--okkly-font-weight-medium);
         text-underline-offset: 0.1875rem;
       }
     }
 
     &__hint {
-      font-size: var(--okryshto-font-size-sm);
-      line-height: var(--okryshto-font-line-height-sm);
-      color: var(--okryshto-text-muted);
+      font-size: var(--okkly-font-size-sm);
+      line-height: var(--okkly-font-line-height-sm);
+      color: var(--okkly-text-muted);
     }
 
     &__error {
       display: inline-flex;
       align-items: center;
       gap: 0.25rem;
-      font-size: var(--okryshto-font-size-sm);
-      line-height: var(--okryshto-font-line-height-sm);
-      color: var(--okryshto-feedback-danger);
+      font-size: var(--okkly-font-size-sm);
+      line-height: var(--okkly-font-line-height-sm);
+      color: var(--okkly-feedback-danger);
 
       svg {
         width: 0.875rem;
@@ -214,20 +214,20 @@
       padding: 0;
       border: 0;
       background: transparent;
-      color: var(--okryshto-text-secondary);
+      color: var(--okkly-text-secondary);
       font-family: inherit;
-      font-size: var(--okryshto-font-size-sm);
-      line-height: var(--okryshto-font-line-height-sm);
+      font-size: var(--okkly-font-size-sm);
+      line-height: var(--okkly-font-line-height-sm);
       text-decoration: underline;
       text-underline-offset: 0.1875rem;
       cursor: pointer;
 
       &:hover {
-        color: var(--okryshto-text-primary);
+        color: var(--okkly-text-primary);
       }
 
       &:focus-visible {
-        outline: var(--okryshto-outline-width) solid var(--okryshto-accent-primary);
+        outline: var(--okkly-outline-width) solid var(--okkly-accent-primary);
         outline-offset: 0.125rem;
       }
     }
@@ -235,7 +235,7 @@
     &__list {
       display: flex;
       flex-direction: column;
-      gap: var(--okryshto-file-upload-list-gap);
+      gap: var(--okkly-file-upload-list-gap);
       margin: 0;
       padding: 0;
       list-style: none;
@@ -244,31 +244,31 @@
       &--max-height {
         overflow-y: auto;
         max-height: calc(
-          (var(--okryshto-file-upload-max-files) + 0.5) * var(--okryshto-file-upload-file-height) +
-            var(--okryshto-file-upload-max-files) * var(--okryshto-file-upload-list-gap)
+          (var(--okkly-file-upload-max-files) + 0.5) * var(--okkly-file-upload-file-height) +
+            var(--okkly-file-upload-max-files) * var(--okkly-file-upload-list-gap)
         );
       }
     }
 
     &__file {
-      --okryshto-file-upload-file-tone: var(--okryshto-text-muted);
+      --okkly-file-upload-file-tone: var(--okkly-text-muted);
 
       position: relative;
       display: flex;
       align-items: center;
       gap: 0.625rem;
       box-sizing: border-box;
-      min-height: var(--okryshto-file-upload-file-height);
+      min-height: var(--okkly-file-upload-file-height);
       padding: 0.5rem 0.75rem;
       overflow: hidden;
-      border: var(--okryshto-1px-in-rem) solid var(--okryshto-border-subtle);
+      border: var(--okkly-1px-in-rem) solid var(--okkly-border-subtle);
       border-radius: 0.625rem;
-      background: var(--okryshto-bg-surface);
+      background: var(--okkly-bg-surface);
 
       &--error {
-        --okryshto-file-upload-file-tone: var(--okryshto-feedback-danger);
+        --okkly-file-upload-file-tone: var(--okkly-feedback-danger);
 
-        border-color: color-mix(in srgb, var(--okryshto-feedback-danger) 45%, transparent);
+        border-color: color-mix(in srgb, var(--okkly-feedback-danger) 45%, transparent);
       }
     }
 
@@ -278,10 +278,10 @@
       justify-content: center;
       flex-shrink: 0;
       padding: 0.4375rem;
-      border: var(--okryshto-1px-in-rem) solid var(--okryshto-border-subtle);
+      border: var(--okkly-1px-in-rem) solid var(--okkly-border-subtle);
       border-radius: 0.5rem;
-      background: var(--okryshto-bg-surface-raised);
-      color: var(--okryshto-file-upload-file-tone);
+      background: var(--okkly-bg-surface-raised);
+      color: var(--okkly-file-upload-file-tone);
 
       svg {
         width: 1rem;
@@ -301,10 +301,10 @@
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
-      font-weight: var(--okryshto-font-weight-medium);
-      font-size: var(--okryshto-font-size-sm);
-      line-height: var(--okryshto-font-line-height-sm);
-      color: var(--okryshto-text-primary);
+      font-weight: var(--okkly-font-weight-medium);
+      font-size: var(--okkly-font-size-sm);
+      line-height: var(--okkly-font-line-height-sm);
+      color: var(--okkly-text-primary);
     }
 
     &__file-details {
@@ -312,9 +312,9 @@
       align-items: center;
       gap: 0.5rem;
       min-width: 0;
-      font-size: var(--okryshto-font-size-sm);
-      line-height: var(--okryshto-font-line-height-sm);
-      color: var(--okryshto-text-muted);
+      font-size: var(--okkly-font-size-sm);
+      line-height: var(--okkly-font-line-height-sm);
+      color: var(--okkly-text-muted);
     }
 
     &__file-status {
@@ -323,19 +323,19 @@
       white-space: nowrap;
 
       &--primary {
-        color: var(--okryshto-accent-primary);
+        color: var(--okkly-accent-primary);
       }
       &--danger {
-        color: var(--okryshto-feedback-danger);
+        color: var(--okkly-feedback-danger);
       }
       &--warning {
-        color: var(--okryshto-feedback-warning);
+        color: var(--okkly-feedback-warning);
       }
       &--success {
-        color: var(--okryshto-feedback-success);
+        color: var(--okkly-feedback-success);
       }
       &--info {
-        color: var(--okryshto-accent-ice);
+        color: var(--okkly-accent-ice);
       }
     }
 
@@ -350,28 +350,28 @@
       position: absolute;
       inset: auto 0 0 0;
       height: 0.125rem;
-      background: var(--okryshto-border-subtle);
+      background: var(--okkly-border-subtle);
     }
 
     &__progress-bar {
       height: 100%;
-      background: var(--okryshto-accent-primary);
-      transition: width var(--okryshto-duration-sm) ease;
+      background: var(--okkly-accent-primary);
+      transition: width var(--okkly-duration-sm) ease;
 
       &--danger {
-        background: var(--okryshto-feedback-danger);
+        background: var(--okkly-feedback-danger);
       }
       &--warning {
-        background: var(--okryshto-feedback-warning);
+        background: var(--okkly-feedback-warning);
       }
       &--success {
-        background: var(--okryshto-feedback-success);
+        background: var(--okkly-feedback-success);
       }
       &--info {
-        background: var(--okryshto-accent-ice);
+        background: var(--okkly-accent-ice);
       }
       &--neutral {
-        background: var(--okryshto-text-muted);
+        background: var(--okkly-text-muted);
       }
     }
   }

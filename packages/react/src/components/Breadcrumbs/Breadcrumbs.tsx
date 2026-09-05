@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type HTMLAttributes, type ReactNode } from "react";
-import "@okryshto/design-system/components/Breadcrumbs/Breadcrumbs.scss";
+import "@okkly/design-system/components/Breadcrumbs/Breadcrumbs.scss";
 
 export interface BreadcrumbItem {
   /** Crumb text. */
@@ -90,15 +90,13 @@ export function Breadcrumbs({
 }: BreadcrumbsProps) {
   const [expanded, setExpanded] = useState(false);
 
-  const classes = ["okryshto-component", "okryshto-breadcrumbs", className]
-    .filter(Boolean)
-    .join(" ");
+  const classes = ["okkly-component", "okkly-breadcrumbs", className].filter(Boolean).join(" ");
 
   const renderCrumb = (item: BreadcrumbItem, isLast: boolean) => {
     const inner = (
       <>
         {item.icon && (
-          <span className="okryshto-breadcrumbs__icon" aria-hidden="true">
+          <span className="okkly-breadcrumbs__icon" aria-hidden="true">
             {item.icon}
           </span>
         )}
@@ -108,21 +106,21 @@ export function Breadcrumbs({
 
     if (isLast || !item.href) {
       return (
-        <span className="okryshto-breadcrumbs__current" aria-current={isLast ? "page" : undefined}>
+        <span className="okkly-breadcrumbs__current" aria-current={isLast ? "page" : undefined}>
           {inner}
         </span>
       );
     }
 
     return (
-      <a className="okryshto-breadcrumbs__link" href={item.href}>
+      <a className="okkly-breadcrumbs__link" href={item.href}>
         {inner}
       </a>
     );
   };
 
   const separatorNode = (key: string) => (
-    <li className="okryshto-breadcrumbs__separator" aria-hidden="true" key={key}>
+    <li className="okkly-breadcrumbs__separator" aria-hidden="true" key={key}>
       {separator}
     </li>
   );
@@ -134,7 +132,7 @@ export function Breadcrumbs({
   if (canCollapse) {
     items.slice(0, itemsBeforeCollapse).forEach((item, index) => {
       visible.push(
-        <li className="okryshto-breadcrumbs__item" key={`before-${index}`}>
+        <li className="okkly-breadcrumbs__item" key={`before-${index}`}>
           {renderCrumb(item, false)}
         </li>,
       );
@@ -144,7 +142,7 @@ export function Breadcrumbs({
       <li key="ellipsis">
         <button
           type="button"
-          className="okryshto-breadcrumbs__ellipsis"
+          className="okkly-breadcrumbs__ellipsis"
           aria-label={expandAriaLabel}
           onClick={() => setExpanded(true)}
         >
@@ -156,7 +154,7 @@ export function Breadcrumbs({
     items.slice(items.length - itemsAfterCollapse).forEach((item, index) => {
       const isLast = index === itemsAfterCollapse - 1;
       visible.push(
-        <li className="okryshto-breadcrumbs__item" key={`after-${index}`}>
+        <li className="okkly-breadcrumbs__item" key={`after-${index}`}>
           {renderCrumb(item, isLast)}
         </li>,
       );
@@ -166,7 +164,7 @@ export function Breadcrumbs({
     items.forEach((item, index) => {
       const isLast = index === items.length - 1;
       visible.push(
-        <li className="okryshto-breadcrumbs__item" key={index}>
+        <li className="okkly-breadcrumbs__item" key={index}>
           {renderCrumb(item, isLast)}
         </li>,
       );
@@ -176,7 +174,7 @@ export function Breadcrumbs({
 
   return (
     <nav aria-label="breadcrumb" className={classes} {...rest}>
-      <ol className="okryshto-breadcrumbs__list">{visible}</ol>
+      <ol className="okkly-breadcrumbs__list">{visible}</ol>
     </nav>
   );
 }

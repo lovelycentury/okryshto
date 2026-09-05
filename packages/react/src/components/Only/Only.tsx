@@ -1,7 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { useMediaQuery } from "@okryshto/react-hooks";
+import { useMediaQuery } from "@okkly/react-hooks";
 
 export type OnlyBreakpoint = "2xs" | "xs" | "sm" | "md" | "lg" | "xl";
 

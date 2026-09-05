@@ -2,8 +2,8 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
-import "@okryshto/design-system/styles/index.scss";
-import "@okryshto/react/style.css";
+import "@okkly/design-system/styles/index.scss";
+import "@okkly/react/style.css";
 import "./styles/app.scss";
 
 import { ConsentProvider } from "./components/consent/ConsentProvider.js";

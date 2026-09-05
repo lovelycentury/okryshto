@@ -1,5 +1,5 @@
 import { getTranslations } from "next-intl/server";
-import { Logo } from "@okryshto/react";
+import { Logo } from "@okkly/react";
 import { CookieTrigger } from "@/components/CookieConsent";
 import { CONTACT_LINKS } from "@/lib/profile";
 import styles from "./SiteFooter.module.scss";

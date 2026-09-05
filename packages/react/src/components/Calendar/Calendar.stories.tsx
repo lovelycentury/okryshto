@@ -28,7 +28,7 @@ const demoRange: [Date, Date] = [new Date(2024, 10, 12), new Date(2024, 10, 21)]
  * Note that `Bounds (min / max)` is *not* a mode — `min`/`max` limit what is
  * selectable in either of them.
  *
- * The accent is the CSS variable `--okryshto-calendar-tone`, not a prop;
+ * The accent is the CSS variable `--okkly-calendar-tone`, not a prop;
  * `calendarToneStyle(name)` maps a palette name onto it. Today's date stays
  * dante regardless of the tone, because it marks "you are here" rather than a
  * selection.
@@ -105,7 +105,7 @@ export const SingleInteractive: Story = {
             margin: 0,
             color: "#a9a9b2",
             fontSize: "13px",
-            fontFamily: "var(--okryshto-font-family-mono, monospace)",
+            fontFamily: "var(--okkly-font-family-mono, monospace)",
           }}
         >
           {value
@@ -158,7 +158,7 @@ export const RangeInteractive: Story = {
             margin: 0,
             color: "#a9a9b2",
             fontSize: "13px",
-            fontFamily: "var(--okryshto-font-family-mono, monospace)",
+            fontFamily: "var(--okkly-font-family-mono, monospace)",
           }}
         >
           {range

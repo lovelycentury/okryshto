@@ -13,11 +13,11 @@ describe("ButtonGroup", () => {
 
   it("applies the color modifier only for non-default colors", () => {
     const { rerender, container } = render(<ButtonGroup action={{ label: "A" }} color="dante" />);
-    expect(container.firstChild).toHaveClass("okryshto-button-group--color-dante");
+    expect(container.firstChild).toHaveClass("okkly-button-group--color-dante");
 
     rerender(<ButtonGroup action={{ label: "A" }} color="primary" />);
     expect((container.firstChild as HTMLElement).className).not.toMatch(
-      /okryshto-button-group--color-/,
+      /okkly-button-group--color-/,
     );
   });
 
@@ -81,7 +81,7 @@ describe("ButtonGroup", () => {
     const { container } = render(
       <ButtonGroup variant="secondary" action={{ label: "Export" }} menu={[{ label: "CSV" }]} />,
     );
-    expect(container.firstChild).toHaveClass("okryshto-button-group--secondary");
+    expect(container.firstChild).toHaveClass("okkly-button-group--secondary");
   });
 
   it("omits the chevron when there is no menu", () => {

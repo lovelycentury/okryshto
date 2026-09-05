@@ -11,7 +11,7 @@ import {
   type SyntheticEvent,
 } from "react";
 import { Collapse } from "../Collapse/Collapse";
-import "@okryshto/design-system/components/Accordion/Accordion.scss";
+import "@okkly/design-system/components/Accordion/Accordion.scss";
 
 interface AccordionContextValue {
   expanded: boolean;
@@ -111,10 +111,10 @@ export function Accordion({
   };
 
   const classes = [
-    "okryshto-component",
-    "okryshto-accordion",
-    isExpanded && "okryshto-accordion--expanded",
-    disabled && "okryshto-accordion--disabled",
+    "okkly-component",
+    "okkly-accordion",
+    isExpanded && "okkly-accordion--expanded",
+    disabled && "okkly-accordion--disabled",
     className,
   ]
     .filter(Boolean)
@@ -163,7 +163,7 @@ export function AccordionSummary({
     onClick?.(event);
   };
 
-  const classes = ["okryshto-accordion__summary", className].filter(Boolean).join(" ");
+  const classes = ["okkly-accordion__summary", className].filter(Boolean).join(" ");
 
   return (
     <button
@@ -174,12 +174,9 @@ export function AccordionSummary({
       onClick={handleClick}
       {...rest}
     >
-      <span className="okryshto-accordion__title">{children}</span>
+      <span className="okkly-accordion__title">{children}</span>
       <span
-        className={[
-          "okryshto-accordion__chevron",
-          expanded && "okryshto-accordion__chevron--expanded",
-        ]
+        className={["okkly-accordion__chevron", expanded && "okkly-accordion__chevron--expanded"]
           .filter(Boolean)
           .join(" ")}
         aria-hidden="true"
@@ -203,7 +200,7 @@ export interface AccordionDetailsProps extends HTMLAttributes<HTMLDivElement> {
 export function AccordionDetails({ children, className, ...rest }: AccordionDetailsProps) {
   const { expanded } = useAccordionContext("AccordionDetails");
 
-  const classes = ["okryshto-accordion__details", className].filter(Boolean).join(" ");
+  const classes = ["okkly-accordion__details", className].filter(Boolean).join(" ");
 
   // `Collapse` animates both directions and keeps the panel out of the DOM while
   // closed (`mountOnEnter`/`unmountOnExit`), so collapsed content stays

@@ -1,7 +1,7 @@
 "use client";
 
 import { forwardRef, type ComponentPropsWithoutRef, type ElementType, type Ref } from "react";
-import "@okryshto/design-system/components/Typography/Typography.scss";
+import "@okkly/design-system/components/Typography/Typography.scss";
 
 /**
  * The editorial type scale, and the element each step renders as by default.
@@ -127,13 +127,13 @@ function TypographyImpl<E extends ElementType = TypographyVariantElement<typeof 
   const Component = (as ?? TYPOGRAPHY_VARIANTS[variant]) as ElementType;
 
   const classes = [
-    "okryshto-component",
-    "okryshto-typography",
-    variant !== DEFAULT_VARIANT && `okryshto-typography--${variant}`,
-    color !== "inherit" && `okryshto-typography--color-${color}`,
-    align !== "inherit" && `okryshto-typography--align-${align}`,
-    gutterBottom && "okryshto-typography--gutter-bottom",
-    noWrap && "okryshto-typography--no-wrap",
+    "okkly-component",
+    "okkly-typography",
+    variant !== DEFAULT_VARIANT && `okkly-typography--${variant}`,
+    color !== "inherit" && `okkly-typography--color-${color}`,
+    align !== "inherit" && `okkly-typography--align-${align}`,
+    gutterBottom && "okkly-typography--gutter-bottom",
+    noWrap && "okkly-typography--no-wrap",
     className,
   ]
     .filter(Boolean)

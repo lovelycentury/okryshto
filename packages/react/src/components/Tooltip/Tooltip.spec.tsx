@@ -120,14 +120,14 @@ describe("Tooltip", () => {
       </Tooltip>,
     );
     fireEvent.mouseEnter(screen.getByRole("button", { name: "Hover" }));
-    await waitFor(() => expect(document.querySelector(".okryshto-tooltip__arrow")).toBeTruthy());
+    await waitFor(() => expect(document.querySelector(".okkly-tooltip__arrow")).toBeTruthy());
 
     rerender(
       <Tooltip title="Without" enterDelay={0} arrow={false}>
         <Button>Hover</Button>
       </Tooltip>,
     );
-    await waitFor(() => expect(document.querySelector(".okryshto-tooltip__arrow")).toBeNull());
+    await waitFor(() => expect(document.querySelector(".okkly-tooltip__arrow")).toBeNull());
   });
 
   /** An empty title renders nothing at all, as in MUI. */
@@ -187,7 +187,7 @@ describe("Tooltip", () => {
 
     // leave the trigger, then land in the bubble before the timer fires
     fireEvent.mouseLeave(trigger);
-    fireEvent.mouseEnter(document.querySelector(".okryshto-tooltip")!);
+    fireEvent.mouseEnter(document.querySelector(".okkly-tooltip")!);
 
     await new Promise((resolve) => setTimeout(resolve, 250));
     expect(screen.getByRole("tooltip")).toBeInTheDocument();
@@ -204,7 +204,7 @@ describe("Tooltip", () => {
     fireEvent.mouseEnter(trigger);
     await waitFor(() => expect(screen.getByRole("tooltip")).toBeInTheDocument());
 
-    const popper = document.querySelector(".okryshto-tooltip")!;
+    const popper = document.querySelector(".okkly-tooltip")!;
     fireEvent.mouseLeave(trigger);
     fireEvent.mouseEnter(popper);
     fireEvent.mouseLeave(popper);
@@ -220,9 +220,7 @@ describe("Tooltip", () => {
     );
     fireEvent.mouseEnter(screen.getByRole("button", { name: "Hover" }));
     await waitFor(() =>
-      expect(document.querySelector(".okryshto-tooltip")).toHaveClass(
-        "okryshto-tooltip--interactive",
-      ),
+      expect(document.querySelector(".okkly-tooltip")).toHaveClass("okkly-tooltip--interactive"),
     );
 
     rerender(
@@ -231,8 +229,8 @@ describe("Tooltip", () => {
       </Tooltip>,
     );
     await waitFor(() =>
-      expect(document.querySelector(".okryshto-tooltip")).not.toHaveClass(
-        "okryshto-tooltip--interactive",
+      expect(document.querySelector(".okkly-tooltip")).not.toHaveClass(
+        "okkly-tooltip--interactive",
       ),
     );
   });
@@ -249,7 +247,7 @@ describe("Tooltip", () => {
     await waitFor(() => expect(screen.getByRole("tooltip")).toBeInTheDocument());
 
     fireEvent.mouseLeave(trigger);
-    fireEvent.mouseEnter(document.querySelector(".okryshto-tooltip")!);
+    fireEvent.mouseEnter(document.querySelector(".okkly-tooltip")!);
 
     await waitFor(() => expect(screen.queryByRole("tooltip")).not.toBeInTheDocument());
   });

@@ -1,6 +1,6 @@
 /**
  * Content model for the vizitka (business-card) site.
- * Sourced from okryshto_resume_en_long.tex — the full, personal CV.
+ * Sourced from okkly_resume_en_long.tex — the full, personal CV.
  */
 
 export interface LinkItem {

@@ -7,7 +7,7 @@ export type FieldColor = "primary" | "dante";
 
 export interface FieldProps {
   /**
-   * BEM block the emitted classes are namespaced under, e.g. `"okryshto-select"`. Each consumer keeps its own block so its public class names — the ones apps target in overrides — stay exactly what they were.
+   * BEM block the emitted classes are namespaced under, e.g. `"okkly-select"`. Each consumer keeps its own block so its public class names — the ones apps target in overrides — stay exactly what they were.
    *
    * @default undefined
    * @type {string}
@@ -159,7 +159,7 @@ export function Field({
   const labelId = label ? `${id}-label` : undefined;
 
   const classes = [
-    "okryshto-component",
+    "okkly-component",
     block,
     color !== "primary" && `${block}--color-${color}`,
     size !== "medium" && `${block}--${size}`,

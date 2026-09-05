@@ -1,5 +1,5 @@
 /// Approximated CSS "ch" length that can be used to size an element by
 /// character count. Adds 1px of extra space so low character counts don't clip.
 @function ch($length) {
-  @return calc(#{$length} * 1ch + var(--okryshto-1px-in-rem));
+  @return calc(#{$length} * 1ch + var(--okkly-1px-in-rem));
 }

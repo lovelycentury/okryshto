@@ -5,7 +5,7 @@ import dts from "vite-plugin-dts";
 
 export default defineConfig({
   // `entryRoot` is explicit: the build also type-checks the workspace sources
-  // reached through the `@okryshto/*` path aliases, so the inferred root would
+  // reached through the `@okkly/*` path aliases, so the inferred root would
   // climb to `packages/` and emit `dist/react/src/index.d.ts` instead.
   plugins: [react(), dts({ tsconfigPath: "./tsconfig.build.json", entryRoot: "src" })],
   build: {
@@ -20,7 +20,7 @@ export default defineConfig({
         // Next App Router treats the whole package as a Client Component boundary
         // when the built entry starts with this directive.
         banner: '"use client";',
-        assetFileNames: "okryshto-react.[ext]",
+        assetFileNames: "okkly-react.[ext]",
       },
     },
   },

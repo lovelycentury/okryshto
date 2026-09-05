@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { useTranslations } from "next-intl";
-import { Button, Icon } from "@okryshto/react";
+import { Button, Icon } from "@okkly/react";
 import { useCookieConsent } from "./CookieConsentProvider";
 import styles from "./CookieBanner.module.scss";
 

@@ -10,7 +10,7 @@ import {
   type InputHTMLAttributes,
   type ReactNode,
 } from "react";
-import "@okryshto/design-system/components/Checkbox/Checkbox.scss";
+import "@okkly/design-system/components/Checkbox/Checkbox.scss";
 import { CheckboxGroupContext } from "../CheckboxGroup/CheckboxGroupContext";
 
 export type CheckboxSize = "small" | "medium" | "large";
@@ -139,10 +139,10 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(function Che
   };
 
   const classes = [
-    "okryshto-component",
-    "okryshto-checkbox",
-    finalColor !== "primary" && `okryshto-checkbox--color-${finalColor}`,
-    finalSize !== "medium" && `okryshto-checkbox--${finalSize}`,
+    "okkly-component",
+    "okkly-checkbox",
+    finalColor !== "primary" && `okkly-checkbox--color-${finalColor}`,
+    finalSize !== "medium" && `okkly-checkbox--${finalSize}`,
     className,
   ]
     .filter(Boolean)
@@ -150,12 +150,12 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(function Che
 
   return (
     <label htmlFor={inputId} className={classes}>
-      <span className="okryshto-checkbox__control">
+      <span className="okkly-checkbox__control">
         <input
           ref={setRef}
           id={inputId}
           type="checkbox"
-          className="okryshto-checkbox__input"
+          className="okkly-checkbox__input"
           name={finalName}
           value={value}
           checked={finalChecked}
@@ -166,9 +166,9 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(function Che
           }}
           {...rest}
         />
-        <span className="okryshto-checkbox__box" aria-hidden="true">
+        <span className="okkly-checkbox__box" aria-hidden="true">
           <svg
-            className="okryshto-checkbox__check"
+            className="okkly-checkbox__check"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -179,7 +179,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(function Che
             <path d="M20 6 9 17l-5-5" />
           </svg>
           <svg
-            className="okryshto-checkbox__minus"
+            className="okkly-checkbox__minus"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -191,7 +191,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(function Che
           </svg>
         </span>
       </span>
-      {label && <span className="okryshto-checkbox__label">{label}</span>}
+      {label && <span className="okkly-checkbox__label">{label}</span>}
     </label>
   );
 });

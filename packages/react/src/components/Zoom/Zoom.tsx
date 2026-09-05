@@ -2,9 +2,9 @@
 
 import { cloneElement, forwardRef, useRef, type CSSProperties } from "react";
 import { Transition } from "react-transition-group";
-import "@okryshto/design-system/components/Zoom/Zoom.scss";
+import "@okkly/design-system/components/Zoom/Zoom.scss";
 import type { SharedTransitionProps, TransitionChildren, TransitionTimeout } from "../../types";
-import { useForkRef } from "@okryshto/react-hooks";
+import { useForkRef } from "@okkly/react-hooks";
 import {
   createCssTransition,
   DEFAULT_TIMEOUT,
@@ -117,7 +117,7 @@ export const Zoom = forwardRef<HTMLElement, ZoomProps>(function Zoom(
     >
       {(state) =>
         cloneElement(children, {
-          className: mergeClassNames("okryshto-zoom", className, children.props.className),
+          className: mergeClassNames("okkly-zoom", className, children.props.className),
           style: {
             transform: "scale(0)",
             visibility: state === "exited" && !inProp ? "hidden" : undefined,

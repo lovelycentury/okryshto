@@ -2,7 +2,7 @@ import { useEffect, type ReactNode } from "react";
 import { useSetClassName } from "keycloakify/tools/useSetClassName";
 import { useInitialize } from "keycloakify/login/Template.useInitialize";
 import type { TemplateProps } from "keycloakify/login/TemplateProps";
-import { Button, Typography, type AlertSeverity } from "@okryshto/react";
+import { Button, Typography, type AlertSeverity } from "@okkly/react";
 import type { I18n } from "./i18n";
 import type { KcContext } from "./KcContext";
 import { KcAlert } from "./components/KcAlert";

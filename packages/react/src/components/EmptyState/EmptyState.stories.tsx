@@ -1,6 +1,6 @@
 import type { CSSProperties } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { iconSearch, iconUpload } from "@okryshto/icons";
+import { iconSearch, iconUpload } from "@okkly/icons";
 import { Button } from "../Button/Button";
 import { EmptyState } from "./EmptyState";
 
@@ -45,8 +45,8 @@ type Story = StoryObj<typeof EmptyState>;
 
 const surface: CSSProperties = {
   width: "480px",
-  fontFamily: "var(--okryshto-font-family-sans)",
-  color: "var(--okryshto-text-primary)",
+  fontFamily: "var(--okkly-font-family-sans)",
+  color: "var(--okkly-text-primary)",
 };
 
 const Glyph = ({ svg }: { svg: string }) => <span dangerouslySetInnerHTML={{ __html: svg }} />;

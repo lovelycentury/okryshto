@@ -59,13 +59,13 @@ const surface: CSSProperties = {
   display: "grid",
   gap: "16px",
   width: "420px",
-  fontFamily: "var(--okryshto-font-family-sans)",
-  color: "var(--okryshto-text-primary)",
+  fontFamily: "var(--okkly-font-family-sans)",
+  color: "var(--okkly-text-primary)",
 };
 
 const caption: CSSProperties = {
-  fontSize: "var(--okryshto-font-size-sm)",
-  color: "var(--okryshto-text-secondary)",
+  fontSize: "var(--okkly-font-size-sm)",
+  color: "var(--okkly-text-secondary)",
 };
 
 /**

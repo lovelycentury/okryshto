@@ -1,7 +1,7 @@
 "use client";
 
 import { forwardRef, useId, type CSSProperties, type HTMLAttributes, type ReactNode } from "react";
-import "@okryshto/design-system/components/StaticBackground/StaticBackground.scss";
+import "@okkly/design-system/components/StaticBackground/StaticBackground.scss";
 
 /**
  * SSR-safe sibling of `AnimatedBackground` — the same nebulae, stars, grain
@@ -125,15 +125,15 @@ export const StaticBackground = forwardRef<HTMLDivElement, StaticBackgroundProps
     ref,
   ) {
     const rawId = useId().replace(/:/g, "");
-    const grainId = `okryshto-static-bg-grain-${rawId}`;
-    const starGlowId = `okryshto-static-bg-star-${rawId}`;
+    const grainId = `okkly-static-bg-grain-${rawId}`;
+    const starGlowId = `okkly-static-bg-star-${rawId}`;
 
     const [farCount, nearCount] = BUDGET[quality];
 
     const classes = [
-      "okryshto-component",
-      "okryshto-static-background",
-      preset !== "aurora" && `okryshto-static-background--${preset}`,
+      "okkly-component",
+      "okkly-static-background",
+      preset !== "aurora" && `okkly-static-background--${preset}`,
       className,
     ]
       .filter(Boolean)
@@ -141,24 +141,24 @@ export const StaticBackground = forwardRef<HTMLDivElement, StaticBackgroundProps
 
     return (
       <div ref={ref} className={classes} {...rest}>
-        <div className="okryshto-static-background__clouds" aria-hidden="true">
+        <div className="okkly-static-background__clouds" aria-hidden="true">
           {NEBULAE.map((n, i) => (
             <div
               key={i}
-              className="okryshto-static-background__cloud"
+              className="okkly-static-background__cloud"
               style={cssVars({
-                "--okryshto-static-background-hue": `var(--okryshto-static-background-n${n.hue})`,
-                "--okryshto-static-background-x": `${n.x}%`,
-                "--okryshto-static-background-y": `${n.y}%`,
-                "--okryshto-static-background-w": `${n.w}%`,
-                "--okryshto-static-background-ar": `${n.ar}`,
+                "--okkly-static-background-hue": `var(--okkly-static-background-n${n.hue})`,
+                "--okkly-static-background-x": `${n.x}%`,
+                "--okkly-static-background-y": `${n.y}%`,
+                "--okkly-static-background-w": `${n.w}%`,
+                "--okkly-static-background-ar": `${n.ar}`,
               })}
             />
           ))}
         </div>
 
         <svg
-          className="okryshto-static-background__svg"
+          className="okkly-static-background__svg"
           viewBox="0 0 1000 1000"
           preserveAspectRatio="xMidYMid slice"
           xmlns="http://www.w3.org/2000/svg"
@@ -174,22 +174,18 @@ export const StaticBackground = forwardRef<HTMLDivElement, StaticBackgroundProps
               <stop offset="12%" stopColor="#ffffff" stopOpacity="0.85" />
               <stop
                 offset="30%"
-                stopColor="var(--okryshto-static-background-star)"
+                stopColor="var(--okkly-static-background-star)"
                 stopOpacity="0.28"
               />
-              <stop
-                offset="100%"
-                stopColor="var(--okryshto-static-background-star)"
-                stopOpacity="0"
-              />
+              <stop offset="100%" stopColor="var(--okkly-static-background-star)" stopOpacity="0" />
             </radialGradient>
           </defs>
 
-          <g className="okryshto-static-background__stars">
+          <g className="okkly-static-background__stars">
             {FAR_STARS.slice(0, farCount).map((s, i) => (
               <circle
                 key={`f${i}`}
-                className="okryshto-static-background__star"
+                className="okkly-static-background__star"
                 cx={s.cx}
                 cy={s.cy}
                 r={s.r}
@@ -198,7 +194,7 @@ export const StaticBackground = forwardRef<HTMLDivElement, StaticBackgroundProps
             {NEAR_STARS.slice(0, nearCount).map((s, i) => (
               <circle
                 key={`n${i}`}
-                className="okryshto-static-background__star okryshto-static-background__star--near"
+                className="okkly-static-background__star okkly-static-background__star--near"
                 cx={s.cx}
                 cy={s.cy}
                 r={s.r}
@@ -207,13 +203,13 @@ export const StaticBackground = forwardRef<HTMLDivElement, StaticBackgroundProps
             ))}
           </g>
 
-          <g className="okryshto-static-background__grain">
+          <g className="okkly-static-background__grain">
             <rect x="-5%" y="-5%" width="110%" height="110%" filter={`url(#${grainId})`} />
           </g>
         </svg>
 
-        {scrim && <div className="okryshto-static-background__scrim" aria-hidden="true" />}
-        <div className="okryshto-static-background__bloom" aria-hidden="true" />
+        {scrim && <div className="okkly-static-background__scrim" aria-hidden="true" />}
+        <div className="okkly-static-background__bloom" aria-hidden="true" />
         {children}
       </div>
     );

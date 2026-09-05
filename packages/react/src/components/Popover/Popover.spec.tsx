@@ -10,8 +10,8 @@ describe("Popover", () => {
       </Popover>,
     );
     expect(screen.getByText("Panel content")).toBeInTheDocument();
-    expect(document.querySelector(".okryshto-popover")).toHaveClass("okryshto-popover--open");
-    expect(document.querySelector(".okryshto-popover__paper")).toBeTruthy();
+    expect(document.querySelector(".okkly-popover")).toHaveClass("okkly-popover--open");
+    expect(document.querySelector(".okkly-popover__paper")).toBeTruthy();
   });
 
   it("does not render when closed", () => {
@@ -101,7 +101,7 @@ describe("Popover", () => {
       </Popover>,
     );
 
-    const backdrop = document.querySelector(".okryshto-popover__backdrop");
+    const backdrop = document.querySelector(".okkly-popover__backdrop");
     expect(backdrop).toBeTruthy();
 
     fireEvent.click(backdrop!);
@@ -115,7 +115,7 @@ describe("Popover", () => {
         Panel
       </Popover>,
     );
-    expect(document.querySelector(".okryshto-popover__backdrop")).toBeNull();
+    expect(document.querySelector(".okkly-popover__backdrop")).toBeNull();
   });
 
   it("wraps content in Grow transition root", () => {
@@ -124,6 +124,6 @@ describe("Popover", () => {
         Grown
       </Popover>,
     );
-    expect(document.querySelector(".okryshto-grow")).toBeTruthy();
+    expect(document.querySelector(".okkly-grow")).toBeTruthy();
   });
 });

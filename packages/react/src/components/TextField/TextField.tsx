@@ -1,7 +1,7 @@
 "use client";
 
 import { forwardRef, useId, type InputHTMLAttributes, type ReactNode } from "react";
-import "@okryshto/design-system/components/TextField/TextField.scss";
+import "@okkly/design-system/components/TextField/TextField.scss";
 import { Field, getFieldIds, type FieldColor, type FieldSize } from "../Field/Field";
 
 export type TextFieldSize = FieldSize;
@@ -120,7 +120,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(function T
 
   return (
     <Field
-      block="okryshto-text-field"
+      block="okkly-text-field"
       id={inputId}
       label={label}
       hideLabel={hideLabel}
@@ -138,7 +138,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(function T
       <input
         ref={ref}
         id={inputId}
-        className="okryshto-text-field__input"
+        className="okkly-text-field__input"
         disabled={disabled}
         required={required}
         aria-invalid={error || undefined}

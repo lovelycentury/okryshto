@@ -1,6 +1,6 @@
 @use "../../styles/mixins/layers.scss";
 
-@keyframes okryshto-skeleton-pulse {
+@keyframes okkly-skeleton-pulse {
   0%,
   100% {
     opacity: 1;
@@ -11,7 +11,7 @@
   }
 }
 
-@keyframes okryshto-skeleton-wave {
+@keyframes okkly-skeleton-wave {
   0% {
     transform: translateX(-100%);
   }
@@ -21,48 +21,48 @@
   }
 }
 
-.okryshto-skeleton {
+.okkly-skeleton {
   @include layers.component() {
     // Translucent rather than a surface colour: a placeholder has to stay visible
     // on the raised card it usually sits on, where an opaque surface token would
     // be the same colour as its own background.
-    --okryshto-skeleton-background-color: color-mix(
+    --okkly-skeleton-background-color: color-mix(
       in srgb,
-      var(--okryshto-text-primary) 10%,
+      var(--okkly-text-primary) 10%,
       transparent
     );
-    --okryshto-skeleton-width: 100%;
-    --okryshto-skeleton-height: 0.8125rem;
-    --okryshto-skeleton-border-radius: 0.25rem;
+    --okkly-skeleton-width: 100%;
+    --okkly-skeleton-height: 0.8125rem;
+    --okkly-skeleton-border-radius: 0.25rem;
 
     position: relative;
     display: block;
     overflow: hidden;
-    width: var(--okryshto-skeleton-width);
-    height: var(--okryshto-skeleton-height);
-    border-radius: var(--okryshto-skeleton-border-radius);
-    background: var(--okryshto-skeleton-background-color);
+    width: var(--okkly-skeleton-width);
+    height: var(--okkly-skeleton-height);
+    border-radius: var(--okkly-skeleton-border-radius);
+    background: var(--okkly-skeleton-background-color);
 
     &--circular {
-      --okryshto-skeleton-width: 3rem;
-      --okryshto-skeleton-height: 3rem;
-      --okryshto-skeleton-border-radius: 9999px;
+      --okkly-skeleton-width: 3rem;
+      --okkly-skeleton-height: 3rem;
+      --okkly-skeleton-border-radius: 9999px;
     }
 
     &--rectangular {
-      --okryshto-skeleton-width: 100%;
-      --okryshto-skeleton-height: 5rem;
-      --okryshto-skeleton-border-radius: 0;
+      --okkly-skeleton-width: 100%;
+      --okkly-skeleton-height: 5rem;
+      --okkly-skeleton-border-radius: 0;
     }
 
     &--rounded {
-      --okryshto-skeleton-width: 100%;
-      --okryshto-skeleton-height: 5rem;
-      --okryshto-skeleton-border-radius: 0.875rem;
+      --okkly-skeleton-width: 100%;
+      --okkly-skeleton-height: 5rem;
+      --okkly-skeleton-border-radius: 0.875rem;
     }
 
     &--pulse {
-      animation: okryshto-skeleton-pulse 1.5s ease-in-out infinite;
+      animation: okkly-skeleton-pulse 1.5s ease-in-out infinite;
 
       @media (prefers-reduced-motion: reduce) {
         animation-duration: 3s;
@@ -76,10 +76,10 @@
       background: linear-gradient(
         90deg,
         transparent 0%,
-        color-mix(in srgb, var(--okryshto-text-primary) 14%, transparent) 50%,
+        color-mix(in srgb, var(--okkly-text-primary) 14%, transparent) 50%,
         transparent 100%
       );
-      animation: okryshto-skeleton-wave 1.6s linear infinite;
+      animation: okkly-skeleton-wave 1.6s linear infinite;
 
       // Nothing is lost by parking the sweep — the block itself already reads as
       // a placeholder, and a travelling highlight is exactly the motion this

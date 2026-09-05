@@ -1,11 +1,11 @@
 "use client";
 
 import type { CSSProperties, ReactNode } from "react";
-import { iconCheck, iconX } from "@okryshto/icons";
-import "@okryshto/design-system/components/BrandDocs/BrandDocs.scss";
+import { iconCheck, iconX } from "@okkly/icons";
+import "@okkly/design-system/components/BrandDocs/BrandDocs.scss";
 
 export function BrandDocsPage({ children }: { children: ReactNode }) {
-  return <div className="okryshto-brand-docs">{children}</div>;
+  return <div className="okkly-brand-docs">{children}</div>;
 }
 
 export function BrandDocsHeader({
@@ -22,11 +22,11 @@ export function BrandDocsHeader({
   return (
     <>
       <header>
-        <p className="okryshto-brand-docs__eyebrow">{eyebrow}</p>
-        <h1 className="okryshto-brand-docs__title">{title}</h1>
-        <p className="okryshto-brand-docs__lede">{lede}</p>
+        <p className="okkly-brand-docs__eyebrow">{eyebrow}</p>
+        <h1 className="okkly-brand-docs__title">{title}</h1>
+        <p className="okkly-brand-docs__lede">{lede}</p>
       </header>
-      {showRule ? <hr className="okryshto-brand-docs__rule" /> : null}
+      {showRule ? <hr className="okkly-brand-docs__rule" /> : null}
     </>
   );
 }
@@ -41,10 +41,10 @@ export function BrandDocsSection({
   children: ReactNode;
 }) {
   return (
-    <section className="okryshto-brand-docs__section">
+    <section className="okkly-brand-docs__section">
       <div>
-        <h2 className="okryshto-brand-docs__section-title">{title}</h2>
-        {note ? <p className="okryshto-brand-docs__section-note">{note}</p> : null}
+        <h2 className="okkly-brand-docs__section-title">{title}</h2>
+        {note ? <p className="okkly-brand-docs__section-note">{note}</p> : null}
       </div>
       {children}
     </section>
@@ -55,7 +55,7 @@ export function BrandDocsSection({
 export function Prose({ children }: { children: ReactNode }) {
   return (
     <div>
-      <p className="okryshto-brand-docs__prose">{children}</p>
+      <p className="okkly-brand-docs__prose">{children}</p>
     </div>
   );
 }
@@ -70,9 +70,9 @@ export function Card({
   children: ReactNode;
 }) {
   return (
-    <div className="okryshto-brand-docs__card">
-      {title ? <h3 className="okryshto-brand-docs__card-title">{title}</h3> : null}
-      {subtitle ? <p className="okryshto-brand-docs__card-subtitle">{subtitle}</p> : null}
+    <div className="okkly-brand-docs__card">
+      {title ? <h3 className="okkly-brand-docs__card-title">{title}</h3> : null}
+      {subtitle ? <p className="okkly-brand-docs__card-subtitle">{subtitle}</p> : null}
       {children}
     </div>
   );
@@ -80,22 +80,22 @@ export function Card({
 
 /** Cards that share a row evenly, unlike the fixed-width tiles in `__grid`. */
 export function CardRack({ children }: { children: ReactNode }) {
-  return <div className="okryshto-brand-docs__cards">{children}</div>;
+  return <div className="okkly-brand-docs__cards">{children}</div>;
 }
 
 export function Code({ children }: { children: ReactNode }) {
-  return <code className="okryshto-brand-docs__code">{children}</code>;
+  return <code className="okkly-brand-docs__code">{children}</code>;
 }
 
 export function CodeBlock({ children }: { children: string }) {
-  return <pre className="okryshto-brand-docs__pre">{children}</pre>;
+  return <pre className="okkly-brand-docs__pre">{children}</pre>;
 }
 
 export function PillRow({ items }: { items: string[] }) {
   return (
-    <div className="okryshto-brand-docs__pill-row">
+    <div className="okkly-brand-docs__pill-row">
       {items.map((item) => (
-        <span key={item} className="okryshto-brand-docs__pill">
+        <span key={item} className="okkly-brand-docs__pill">
           {item}
         </span>
       ))}
@@ -110,11 +110,11 @@ export function PillRow({ items }: { items: string[] }) {
  */
 export function Contents({ items }: { items: Array<{ name: string; desc: string }> }) {
   return (
-    <ul className="okryshto-brand-docs__toc">
+    <ul className="okkly-brand-docs__toc">
       {items.map((item) => (
-        <li key={item.name} className="okryshto-brand-docs__toc-item">
-          <p className="okryshto-brand-docs__toc-name">{item.name}</p>
-          <p className="okryshto-brand-docs__toc-desc">{item.desc}</p>
+        <li key={item.name} className="okkly-brand-docs__toc-item">
+          <p className="okkly-brand-docs__toc-name">{item.name}</p>
+          <p className="okkly-brand-docs__toc-desc">{item.desc}</p>
         </li>
       ))}
     </ul>
@@ -126,9 +126,9 @@ export function TokenGuide({ rows }: { rows: Array<{ name: string; desc: string 
   return (
     <div>
       {rows.map((row) => (
-        <div key={row.name} className="okryshto-brand-docs__token-row">
-          <span className="okryshto-brand-docs__token-name">{row.name}</span>
-          <span className="okryshto-brand-docs__token-desc">{row.desc}</span>
+        <div key={row.name} className="okkly-brand-docs__token-row">
+          <span className="okkly-brand-docs__token-name">{row.name}</span>
+          <span className="okkly-brand-docs__token-desc">{row.desc}</span>
         </div>
       ))}
     </div>
@@ -138,7 +138,7 @@ export function TokenGuide({ rows }: { rows: Array<{ name: string; desc: string 
 function Mark({ kind }: { kind: "do" | "dont" }) {
   return (
     <span
-      className={`okryshto-brand-docs__list-mark okryshto-brand-docs__list-mark--${kind}`}
+      className={`okkly-brand-docs__list-mark okkly-brand-docs__list-mark--${kind}`}
       dangerouslySetInnerHTML={{ __html: kind === "do" ? iconCheck : iconX }}
       aria-hidden
     />
@@ -157,15 +157,15 @@ export function DoDontCard({
   donts: string[];
 }) {
   return (
-    <div className="okryshto-brand-docs__card">
-      <h3 className="okryshto-brand-docs__card-title">{title}</h3>
-      <p className="okryshto-brand-docs__card-subtitle">{subtitle}</p>
-      <div className="okryshto-brand-docs__do-dont">
+    <div className="okkly-brand-docs__card">
+      <h3 className="okkly-brand-docs__card-title">{title}</h3>
+      <p className="okkly-brand-docs__card-subtitle">{subtitle}</p>
+      <div className="okkly-brand-docs__do-dont">
         <div>
-          <p className="okryshto-brand-docs__card-subtitle">DO</p>
-          <ul className="okryshto-brand-docs__list">
+          <p className="okkly-brand-docs__card-subtitle">DO</p>
+          <ul className="okkly-brand-docs__list">
             {dos.map((item) => (
-              <li key={item} className="okryshto-brand-docs__list-item">
+              <li key={item} className="okkly-brand-docs__list-item">
                 <Mark kind="do" />
                 <span>{item}</span>
               </li>
@@ -173,10 +173,10 @@ export function DoDontCard({
           </ul>
         </div>
         <div>
-          <p className="okryshto-brand-docs__card-subtitle">DON&apos;T</p>
-          <ul className="okryshto-brand-docs__list">
+          <p className="okkly-brand-docs__card-subtitle">DON&apos;T</p>
+          <ul className="okkly-brand-docs__list">
             {donts.map((item) => (
-              <li key={item} className="okryshto-brand-docs__list-item">
+              <li key={item} className="okkly-brand-docs__list-item">
                 <Mark kind="dont" />
                 <span>{item}</span>
               </li>
@@ -200,12 +200,12 @@ export function ColorSwatch({
   note: string;
 }) {
   return (
-    <article className="okryshto-brand-docs__swatch">
-      <div className="okryshto-brand-docs__swatch-chip" style={{ background: `var(${token})` }} />
-      <div className="okryshto-brand-docs__swatch-body">
-        <p className="okryshto-brand-docs__swatch-name">{name}</p>
-        <p className="okryshto-brand-docs__swatch-value">{value}</p>
-        <p className="okryshto-brand-docs__swatch-note">{note}</p>
+    <article className="okkly-brand-docs__swatch">
+      <div className="okkly-brand-docs__swatch-chip" style={{ background: `var(${token})` }} />
+      <div className="okkly-brand-docs__swatch-body">
+        <p className="okkly-brand-docs__swatch-name">{name}</p>
+        <p className="okkly-brand-docs__swatch-value">{value}</p>
+        <p className="okkly-brand-docs__swatch-note">{note}</p>
       </div>
     </article>
   );
@@ -232,11 +232,11 @@ export function TypeRow({
   };
 
   return (
-    <div className="okryshto-brand-docs__type-row">
-      <p className="okryshto-brand-docs__type-sample" style={style}>
+    <div className="okkly-brand-docs__type-row">
+      <p className="okkly-brand-docs__type-sample" style={style}>
         {sample}
       </p>
-      <p className="okryshto-brand-docs__type-meta">
+      <p className="okkly-brand-docs__type-meta">
         {label} · {size.replace("px", "")}/{lineHeight.replace("px", "")} · {weight}
       </p>
     </div>

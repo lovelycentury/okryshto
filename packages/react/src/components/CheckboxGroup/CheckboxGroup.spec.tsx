@@ -78,9 +78,9 @@ describe("CheckboxGroup (nesting)", () => {
         <Checkbox value="sms" label="SMS" size="small" color="ice" />
       </CheckboxGroup>,
     );
-    const boxes = container.querySelectorAll(".okryshto-checkbox");
-    expect(boxes[0]).toHaveClass("okryshto-checkbox--large", "okryshto-checkbox--color-dante");
-    expect(boxes[1]).toHaveClass("okryshto-checkbox--small", "okryshto-checkbox--color-ice");
+    const boxes = container.querySelectorAll(".okkly-checkbox");
+    expect(boxes[0]).toHaveClass("okkly-checkbox--large", "okkly-checkbox--color-dante");
+    expect(boxes[1]).toHaveClass("okkly-checkbox--small", "okkly-checkbox--color-ice");
   });
 
   it("exposes the group role with the group label as aria-label", () => {

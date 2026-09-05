@@ -1,7 +1,7 @@
 "use client";
 
 import { type KeyboardEvent, type MouseEvent, type ReactNode } from "react";
-import "@okryshto/design-system/components/ChipGroup/ChipGroup.scss";
+import "@okkly/design-system/components/ChipGroup/ChipGroup.scss";
 import { Chip } from "../Chip/Chip";
 
 export type ChipGroupColor = "primary" | "dante" | "indigo" | "violet" | "ember" | "ice";
@@ -115,10 +115,10 @@ export function ChipGroup({
   className,
 }: ChipGroupProps) {
   const classes = [
-    "okryshto-component",
-    "okryshto-chip-group",
-    color !== "primary" && `okryshto-chip-group--color-${color}`,
-    disabled && "okryshto-chip-group--disabled",
+    "okkly-component",
+    "okkly-chip-group",
+    color !== "primary" && `okkly-chip-group--color-${color}`,
+    disabled && "okkly-chip-group--disabled",
     className,
   ]
     .filter(Boolean)

@@ -7,8 +7,8 @@ import {
   type ButtonHTMLAttributes,
   type ReactNode,
 } from "react";
-import "@okryshto/design-system/components/IconButton/IconButton.scss";
-import { useRipple } from "@okryshto/react-hooks";
+import "@okkly/design-system/components/IconButton/IconButton.scss";
+import { useRipple } from "@okkly/react-hooks";
 import { Ripple } from "../Ripple/Ripple";
 
 export type IconButtonVariant = "ghost" | "glass" | "solid";
@@ -103,11 +103,11 @@ export const IconButton = forwardRef<HTMLButtonElement | HTMLAnchorElement, Icon
     const { ripples, events, hideRipple } = useRipple(localRef);
 
     const classes = [
-      "okryshto-component",
-      "okryshto-icon-button",
-      variant !== "ghost" && `okryshto-icon-button--${variant}`,
-      color !== "primary" && `okryshto-icon-button--color-${color}`,
-      size !== "medium" && `okryshto-icon-button--${size}`,
+      "okkly-component",
+      "okkly-icon-button",
+      variant !== "ghost" && `okkly-icon-button--${variant}`,
+      color !== "primary" && `okkly-icon-button--color-${color}`,
+      size !== "medium" && `okkly-icon-button--${size}`,
       className,
     ]
       .filter(Boolean)
@@ -118,7 +118,7 @@ export const IconButton = forwardRef<HTMLButtonElement | HTMLAnchorElement, Icon
     const content = (
       <>
         {showRipple && <Ripple ripples={ripples} onRippleEnd={hideRipple} />}
-        <span className="okryshto-icon-button__icon" aria-hidden="true">
+        <span className="okkly-icon-button__icon" aria-hidden="true">
           {visual}
         </span>
       </>

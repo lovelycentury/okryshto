@@ -1,6 +1,6 @@
 import { useEffect, useId, useRef, useState } from "react";
-import { iconLanguages, iconX } from "@okryshto/icons";
-import { Fab, Icon, type FabColor } from "@okryshto/react";
+import { iconLanguages, iconX } from "@okkly/icons";
+import { Fab, Icon, type FabColor } from "@okkly/react";
 import type { I18n } from "../i18n";
 
 const OPTION_COLORS = [

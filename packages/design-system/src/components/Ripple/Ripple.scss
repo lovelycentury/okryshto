@@ -2,18 +2,18 @@
 
 // Shared ripple overlay for clickable elements (Button, IconButton, ...).
 // The trigger element must be `position: relative; overflow: hidden` and pass
-// its own bounding rect to the ripple's coordinate math — see @okryshto/react's
+// its own bounding rect to the ripple's coordinate math — see @okkly/react's
 // `useRipple` hook for the interaction side.
-@property --okryshto-ripple-radius {
+@property --okkly-ripple-radius {
   syntax: "<percentage>";
   initial-value: 0%;
   inherits: false;
 }
 
-.okryshto-ripple {
+.okkly-ripple {
   @include layers.component() {
-    --okryshto-ripple-color: currentColor;
-    --okryshto-ripple-opacity: 0.24;
+    --okkly-ripple-color: currentColor;
+    --okkly-ripple-opacity: 0.24;
 
     display: block;
     position: absolute;
@@ -30,13 +30,13 @@
       pointer-events: none;
       width: 100%;
       height: 100%;
-      opacity: var(--okryshto-ripple-opacity);
+      opacity: var(--okkly-ripple-opacity);
       background: radial-gradient(
-        circle at var(--okryshto-ripple-left) var(--okryshto-ripple-top),
-        transparent var(--okryshto-ripple-radius),
-        var(--okryshto-ripple-color) var(--okryshto-ripple-radius)
+        circle at var(--okkly-ripple-left) var(--okkly-ripple-top),
+        transparent var(--okkly-ripple-radius),
+        var(--okkly-ripple-color) var(--okkly-ripple-radius)
       );
-      animation: okryshto-ripple var(--okryshto-duration-sm) cubic-bezier(0, 0, 0.2, 1) forwards;
+      animation: okkly-ripple var(--okkly-duration-sm) cubic-bezier(0, 0, 0.2, 1) forwards;
 
       @media (prefers-reduced-motion: reduce) {
         animation: none;
@@ -44,12 +44,12 @@
       }
     }
 
-    @keyframes okryshto-ripple {
+    @keyframes okkly-ripple {
       0% {
-        --okryshto-ripple-radius: 0%;
+        --okkly-ripple-radius: 0%;
       }
       100% {
-        --okryshto-ripple-radius: 100%;
+        --okkly-ripple-radius: 100%;
       }
     }
   }

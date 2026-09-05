@@ -5,31 +5,31 @@ import { DateTimePicker } from "./DateTimePicker";
 describe("DateTimePicker", () => {
   it("renders a Calendar and a TimePicker with no date selected by default", () => {
     const { container } = render(<DateTimePicker defaultValue={null} />);
-    expect(container.querySelector(".okryshto-calendar")).toBeInTheDocument();
-    expect(container.querySelector(".okryshto-time-picker")).toBeInTheDocument();
+    expect(container.querySelector(".okkly-calendar")).toBeInTheDocument();
+    expect(container.querySelector(".okkly-time-picker")).toBeInTheDocument();
     expect(screen.getByText("No date selected")).toBeInTheDocument();
   });
 
   it("applies zero color modifier classes by default", () => {
     const { container } = render(<DateTimePicker />);
-    const root = container.querySelector(".okryshto-date-time-picker");
-    expect(root).toHaveClass("okryshto-component", "okryshto-date-time-picker");
-    expect(container.querySelector(".okryshto-calendar")?.className).not.toMatch(/--color-/);
-    expect(container.querySelector(".okryshto-time-picker")?.className).not.toMatch(/--color-/);
+    const root = container.querySelector(".okkly-date-time-picker");
+    expect(root).toHaveClass("okkly-component", "okkly-date-time-picker");
+    expect(container.querySelector(".okkly-calendar")?.className).not.toMatch(/--color-/);
+    expect(container.querySelector(".okkly-time-picker")?.className).not.toMatch(/--color-/);
   });
 
   it("shares the color prop with the calendar, the wheels, and the Confirm button", () => {
     const { container } = render(<DateTimePicker color="dante" />);
     // The wheels and the button take a modifier class; the calendar has no
     // colour prop, so its share arrives as a tone variable instead.
-    const calendar = container.querySelector<HTMLElement>(".okryshto-calendar");
-    expect(calendar?.style.getPropertyValue("--okryshto-calendar-tone")).toBe(
-      "var(--okryshto-accent-dante)",
+    const calendar = container.querySelector<HTMLElement>(".okkly-calendar");
+    expect(calendar?.style.getPropertyValue("--okkly-calendar-tone")).toBe(
+      "var(--okkly-accent-dante)",
     );
-    expect(container.querySelector(".okryshto-time-picker")).toHaveClass(
-      "okryshto-time-picker--color-dante",
+    expect(container.querySelector(".okkly-time-picker")).toHaveClass(
+      "okkly-time-picker--color-dante",
     );
-    expect(container.querySelector(".okryshto-button")).toHaveClass("okryshto-button--color-dante");
+    expect(container.querySelector(".okkly-button")).toHaveClass("okkly-button--color-dante");
   });
 
   it("shows the formatted summary once a day is selected, combined with the wheel's time", () => {
@@ -156,16 +156,16 @@ describe("DateTimePicker", () => {
 
   it("renders no shortcut chips column", () => {
     const { container } = render(<DateTimePicker defaultValue={new Date(2024, 10, 8, 9, 0)} />);
-    expect(container.querySelector(".okryshto-date-time-picker__chips")).not.toBeInTheDocument();
-    expect(container.querySelector(".okryshto-calendar__chips")).not.toBeInTheDocument();
+    expect(container.querySelector(".okkly-date-time-picker__chips")).not.toBeInTheDocument();
+    expect(container.querySelector(".okkly-calendar__chips")).not.toBeInTheDocument();
   });
 
   it("hands its tone to the calendar as a CSS variable", () => {
     // Calendar has no color prop; the picker's own tone reaches it this way.
     const { container } = render(<DateTimePicker defaultValue={null} color="dante" />);
-    const calendar = container.querySelector<HTMLElement>(".okryshto-calendar");
-    expect(calendar?.style.getPropertyValue("--okryshto-calendar-tone")).toBe(
-      "var(--okryshto-accent-dante)",
+    const calendar = container.querySelector<HTMLElement>(".okkly-calendar");
+    expect(calendar?.style.getPropertyValue("--okkly-calendar-tone")).toBe(
+      "var(--okkly-accent-dante)",
     );
   });
 });

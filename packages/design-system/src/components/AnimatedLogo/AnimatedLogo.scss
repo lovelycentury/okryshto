@@ -25,7 +25,7 @@ $ease-spring: cubic-bezier(0.5, 1.8, 0.5, 0.8);
 $ease-sine: cubic-bezier(0.37, 0, 0.63, 1);
 
 // ------------------------------------------------------------ reveal beats ---
-// fractions of --okryshto-animated-logo-intro (delay, duration)
+// fractions of --okkly-animated-logo-intro (delay, duration)
 $in-backdrop: 0, 0.346;
 $in-ring-outer: 0.077, 0.327;
 $in-ring-dashed: 0.131, 0.346;
@@ -50,7 +50,7 @@ $in-dot-bottom: 0.808, 0.173;
 }
 
 @function beat($phase, $beat, $index) {
-  @return calc(var(--okryshto-animated-logo-#{$phase}) * list.nth($beat, $index));
+  @return calc(var(--okkly-animated-logo-#{$phase}) * list.nth($beat, $index));
 }
 
 // `reveal` plays a beat forwards; `dissolve` plays the same keyframes backwards
@@ -159,76 +159,76 @@ $in-dot-bottom: 0.808, 0.173;
   }
 }
 
-@keyframes okryshto-animated-logo-backdrop-in {
+@keyframes okkly-animated-logo-backdrop-in {
   @include kf-backdrop;
 }
-@keyframes okryshto-animated-logo-backdrop-in-out {
+@keyframes okkly-animated-logo-backdrop-in-out {
   @include kf-backdrop;
 }
 
-@keyframes okryshto-animated-logo-ring-in-cw {
+@keyframes okkly-animated-logo-ring-in-cw {
   @include kf-ring-cw;
 }
-@keyframes okryshto-animated-logo-ring-in-cw-out {
+@keyframes okkly-animated-logo-ring-in-cw-out {
   @include kf-ring-cw;
 }
 
-@keyframes okryshto-animated-logo-ring-in-ccw {
+@keyframes okkly-animated-logo-ring-in-ccw {
   @include kf-ring-ccw;
 }
-@keyframes okryshto-animated-logo-ring-in-ccw-out {
+@keyframes okkly-animated-logo-ring-in-ccw-out {
   @include kf-ring-ccw;
 }
 
-@keyframes okryshto-animated-logo-pop {
+@keyframes okkly-animated-logo-pop {
   @include kf-pop;
 }
-@keyframes okryshto-animated-logo-pop-out {
+@keyframes okkly-animated-logo-pop-out {
   @include kf-pop;
 }
 
-@keyframes okryshto-animated-logo-orb-in {
+@keyframes okkly-animated-logo-orb-in {
   @include kf-orb;
 }
-@keyframes okryshto-animated-logo-orb-in-out {
+@keyframes okkly-animated-logo-orb-in-out {
   @include kf-orb;
 }
 
-@keyframes okryshto-animated-logo-half-in {
+@keyframes okkly-animated-logo-half-in {
   @include kf-half;
 }
-@keyframes okryshto-animated-logo-half-in-out {
+@keyframes okkly-animated-logo-half-in-out {
   @include kf-half;
 }
 
-@keyframes okryshto-animated-logo-crystallize {
+@keyframes okkly-animated-logo-crystallize {
   @include kf-crystallize;
 }
-@keyframes okryshto-animated-logo-crystallize-out {
+@keyframes okkly-animated-logo-crystallize-out {
   @include kf-crystallize;
 }
 
-@keyframes okryshto-animated-logo-fade-in {
+@keyframes okkly-animated-logo-fade-in {
   @include kf-fade;
 }
-@keyframes okryshto-animated-logo-fade-in-out {
+@keyframes okkly-animated-logo-fade-in-out {
   @include kf-fade;
 }
 
 // --------------------------------------------------------------- idle loop ---
-@keyframes okryshto-animated-logo-spin {
+@keyframes okkly-animated-logo-spin {
   to {
     transform: rotate(360deg);
   }
 }
 
-@keyframes okryshto-animated-logo-spin-reverse {
+@keyframes okkly-animated-logo-spin-reverse {
   to {
     transform: rotate(-360deg);
   }
 }
 
-@keyframes okryshto-animated-logo-breathe {
+@keyframes okkly-animated-logo-breathe {
   0%,
   100% {
     opacity: 1;
@@ -240,7 +240,7 @@ $in-dot-bottom: 0.808, 0.173;
   }
 }
 
-@keyframes okryshto-animated-logo-marker-pulse {
+@keyframes okkly-animated-logo-marker-pulse {
   0%,
   100% {
     opacity: 1;
@@ -252,7 +252,7 @@ $in-dot-bottom: 0.808, 0.173;
   }
 }
 
-@keyframes okryshto-animated-logo-heartbeat {
+@keyframes okkly-animated-logo-heartbeat {
   0%,
   60%,
   100% {
@@ -272,7 +272,7 @@ $in-dot-bottom: 0.808, 0.173;
   }
 }
 
-@keyframes okryshto-animated-logo-wire-shimmer {
+@keyframes okkly-animated-logo-wire-shimmer {
   0%,
   100% {
     opacity: 0.2;
@@ -282,7 +282,7 @@ $in-dot-bottom: 0.808, 0.173;
   }
 }
 
-@keyframes okryshto-animated-logo-grid-shimmer {
+@keyframes okkly-animated-logo-grid-shimmer {
   0%,
   100% {
     opacity: 0.25;
@@ -292,7 +292,7 @@ $in-dot-bottom: 0.808, 0.173;
   }
 }
 
-@keyframes okryshto-animated-logo-twinkle {
+@keyframes okkly-animated-logo-twinkle {
   0%,
   100% {
     opacity: 1;
@@ -302,35 +302,35 @@ $in-dot-bottom: 0.808, 0.173;
   }
 }
 
-.okryshto-animated-logo {
+.okkly-animated-logo {
   @include layers.component() {
-    --okryshto-animated-logo-size: 15rem; // 240px
+    --okkly-animated-logo-size: 15rem; // 240px
 
     // sequence
-    --okryshto-animated-logo-intro: 2600ms;
-    --okryshto-animated-logo-outro: 2600ms;
+    --okkly-animated-logo-intro: 2600ms;
+    --okkly-animated-logo-outro: 2600ms;
 
     // idle loops — 0s parks each on its resting frame
-    --okryshto-animated-logo-spin: 40s;
-    --okryshto-animated-logo-orbit: 26s;
-    --okryshto-animated-logo-breathe: 8s;
-    --okryshto-animated-logo-pulse: 3.2s;
-    --okryshto-animated-logo-shimmer: 4.5s;
-    --okryshto-animated-logo-heartbeat: 4s;
+    --okkly-animated-logo-spin: 40s;
+    --okkly-animated-logo-orbit: 26s;
+    --okkly-animated-logo-breathe: 8s;
+    --okkly-animated-logo-pulse: 3.2s;
+    --okkly-animated-logo-shimmer: 4.5s;
+    --okkly-animated-logo-heartbeat: 4s;
 
     // palette — the emblem's own colours, overridable per instance
-    --okryshto-animated-logo-mint: #5ee6c1;
-    --okryshto-animated-logo-rose: #ff3d8b;
-    --okryshto-animated-logo-indigo: #4f46e5;
-    --okryshto-animated-logo-violet: #9063ff;
-    --okryshto-animated-logo-core: #080809;
-    --okryshto-animated-logo-ink: #04140f;
+    --okkly-animated-logo-mint: #5ee6c1;
+    --okkly-animated-logo-rose: #ff3d8b;
+    --okkly-animated-logo-indigo: #4f46e5;
+    --okkly-animated-logo-violet: #9063ff;
+    --okkly-animated-logo-core: #080809;
+    --okkly-animated-logo-ink: #04140f;
 
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: var(--okryshto-animated-logo-size);
-    height: var(--okryshto-animated-logo-size);
+    width: var(--okkly-animated-logo-size);
+    height: var(--okkly-animated-logo-size);
 
     &__svg {
       display: block;
@@ -372,63 +372,56 @@ $in-dot-bottom: 0.808, 0.173;
     // solid rings can't show rotation, so they breathe instead
     &__breathe {
       &--outer {
-        animation: okryshto-animated-logo-breathe
-          calc(var(--okryshto-animated-logo-breathe) * 1.125) $ease-sine
-          var(--okryshto-animated-logo-intro) infinite;
+        animation: okkly-animated-logo-breathe calc(var(--okkly-animated-logo-breathe) * 1.125)
+          $ease-sine var(--okkly-animated-logo-intro) infinite;
       }
 
       &--inner {
-        animation: okryshto-animated-logo-breathe
-          calc(var(--okryshto-animated-logo-breathe) * 0.875) $ease-sine
-          var(--okryshto-animated-logo-intro) infinite;
+        animation: okkly-animated-logo-breathe calc(var(--okkly-animated-logo-breathe) * 0.875)
+          $ease-sine var(--okkly-animated-logo-intro) infinite;
       }
     }
 
     // the dashed ring is the one that reads as turning
     &__ring-spin {
-      animation: okryshto-animated-logo-spin-reverse var(--okryshto-animated-logo-spin) linear
-        infinite;
+      animation: okkly-animated-logo-spin-reverse var(--okkly-animated-logo-spin) linear infinite;
     }
 
     &__orbit {
-      animation: okryshto-animated-logo-spin var(--okryshto-animated-logo-orbit) linear infinite;
+      animation: okkly-animated-logo-spin var(--okkly-animated-logo-orbit) linear infinite;
     }
 
     &__pulse {
       &--mint {
         transform-origin: 121px 31px;
-        animation: okryshto-animated-logo-marker-pulse var(--okryshto-animated-logo-pulse)
-          $ease-sine var(--okryshto-animated-logo-intro) infinite;
+        animation: okkly-animated-logo-marker-pulse var(--okkly-animated-logo-pulse) $ease-sine
+          var(--okkly-animated-logo-intro) infinite;
       }
 
       &--rose {
         transform-origin: 121px 210px;
-        animation: okryshto-animated-logo-marker-pulse var(--okryshto-animated-logo-pulse)
-          $ease-sine
-          calc(var(--okryshto-animated-logo-intro) + var(--okryshto-animated-logo-pulse) * 0.22)
-          infinite;
+        animation: okkly-animated-logo-marker-pulse var(--okkly-animated-logo-pulse) $ease-sine
+          calc(var(--okkly-animated-logo-intro) + var(--okkly-animated-logo-pulse) * 0.22) infinite;
       }
     }
 
     &__twinkle {
-      animation: okryshto-animated-logo-twinkle calc(var(--okryshto-animated-logo-shimmer) * 1.333)
-        $ease-sine var(--okryshto-animated-logo-intro) infinite;
+      animation: okkly-animated-logo-twinkle calc(var(--okkly-animated-logo-shimmer) * 1.333)
+        $ease-sine var(--okkly-animated-logo-intro) infinite;
     }
 
     // resting opacity sits on the wrapper so the reveal inside can run 0 → 1
     &__shimmer {
       &--wire {
         opacity: 0.2;
-        animation: okryshto-animated-logo-wire-shimmer
-          calc(var(--okryshto-animated-logo-shimmer) * 1.111) $ease-sine
-          var(--okryshto-animated-logo-intro) infinite;
+        animation: okkly-animated-logo-wire-shimmer calc(var(--okkly-animated-logo-shimmer) * 1.111)
+          $ease-sine var(--okkly-animated-logo-intro) infinite;
       }
 
       &--grid {
         opacity: 0.25;
-        animation: okryshto-animated-logo-grid-shimmer var(--okryshto-animated-logo-shimmer)
-          $ease-sine
-          calc(var(--okryshto-animated-logo-intro) + var(--okryshto-animated-logo-shimmer) * 0.33)
+        animation: okkly-animated-logo-grid-shimmer var(--okkly-animated-logo-shimmer) $ease-sine
+          calc(var(--okkly-animated-logo-intro) + var(--okkly-animated-logo-shimmer) * 0.33)
           infinite;
       }
     }
@@ -436,106 +429,103 @@ $in-dot-bottom: 0.808, 0.173;
     &__beat {
       &--top {
         transform-origin: 119.5px 86.5px;
-        animation: okryshto-animated-logo-heartbeat var(--okryshto-animated-logo-heartbeat)
-          $ease-sine var(--okryshto-animated-logo-intro) infinite;
+        animation: okkly-animated-logo-heartbeat var(--okkly-animated-logo-heartbeat) $ease-sine
+          var(--okkly-animated-logo-intro) infinite;
       }
 
       &--bottom {
         transform-origin: 119.5px 152.5px;
-        animation: okryshto-animated-logo-heartbeat var(--okryshto-animated-logo-heartbeat)
-          $ease-sine
-          calc(
-            var(--okryshto-animated-logo-intro) + var(--okryshto-animated-logo-heartbeat) * 0.075
-          )
+        animation: okkly-animated-logo-heartbeat var(--okkly-animated-logo-heartbeat) $ease-sine
+          calc(var(--okkly-animated-logo-intro) + var(--okkly-animated-logo-heartbeat) * 0.075)
           infinite;
       }
     }
 
     // --- the reveal, on the shapes -----------------------------------------
     &__backdrop {
-      @include reveal(okryshto-animated-logo-backdrop-in, $in-backdrop, $ease-out-cubic);
+      @include reveal(okkly-animated-logo-backdrop-in, $in-backdrop, $ease-out-cubic);
     }
 
     &__ring {
       &--outer {
-        @include reveal(okryshto-animated-logo-ring-in-cw, $in-ring-outer, $ease-out-cubic);
+        @include reveal(okkly-animated-logo-ring-in-cw, $in-ring-outer, $ease-out-cubic);
       }
 
       &--dashed {
-        @include reveal(okryshto-animated-logo-ring-in-ccw, $in-ring-dashed, $ease-out-cubic);
+        @include reveal(okkly-animated-logo-ring-in-ccw, $in-ring-dashed, $ease-out-cubic);
       }
 
       &--inner {
-        @include reveal(okryshto-animated-logo-ring-in-cw, $in-ring-inner, $ease-out-cubic);
+        @include reveal(okkly-animated-logo-ring-in-cw, $in-ring-inner, $ease-out-cubic);
       }
     }
 
     &__marker {
       &--mint {
         transform-origin: 121px 31px;
-        filter: drop-shadow(0 0 3px var(--okryshto-animated-logo-mint));
-        @include reveal(okryshto-animated-logo-pop, $in-marker-a, $ease-spring);
+        filter: drop-shadow(0 0 3px var(--okkly-animated-logo-mint));
+        @include reveal(okkly-animated-logo-pop, $in-marker-a, $ease-spring);
       }
 
       &--rose {
         transform-origin: 121px 210px;
-        filter: drop-shadow(0 0 3px var(--okryshto-animated-logo-rose));
-        @include reveal(okryshto-animated-logo-pop, $in-marker-b, $ease-spring);
+        filter: drop-shadow(0 0 3px var(--okkly-animated-logo-rose));
+        @include reveal(okkly-animated-logo-pop, $in-marker-b, $ease-spring);
       }
     }
 
     &__glyphs {
-      @include reveal(okryshto-animated-logo-fade-in, $in-glyphs, ease);
+      @include reveal(okkly-animated-logo-fade-in, $in-glyphs, ease);
     }
 
     &__orb {
-      @include reveal(okryshto-animated-logo-orb-in, $in-orb, $ease-out-cubic);
+      @include reveal(okkly-animated-logo-orb-in, $in-orb, $ease-out-cubic);
     }
 
     &__half {
-      @include reveal(okryshto-animated-logo-half-in, $in-half, $ease-out-cubic);
+      @include reveal(okkly-animated-logo-half-in, $in-half, $ease-out-cubic);
     }
 
     &__wire {
-      @include reveal(okryshto-animated-logo-fade-in, $in-wire, ease);
+      @include reveal(okkly-animated-logo-fade-in, $in-wire, ease);
     }
 
     &__grid {
-      @include reveal(okryshto-animated-logo-fade-in, $in-grid, ease);
+      @include reveal(okkly-animated-logo-fade-in, $in-grid, ease);
     }
 
     &__lobe {
       &--top {
         transform-origin: 120px 87px;
-        @include reveal(okryshto-animated-logo-pop, $in-lobe-top, $ease-out-back);
+        @include reveal(okkly-animated-logo-pop, $in-lobe-top, $ease-out-back);
       }
 
       &--bottom {
         transform-origin: 120px 153px;
-        @include reveal(okryshto-animated-logo-pop, $in-lobe-bottom, $ease-out-back);
+        @include reveal(okkly-animated-logo-pop, $in-lobe-bottom, $ease-out-back);
       }
     }
 
     &__lobe-dot {
       &--top {
         transform-origin: 119.5px 86.5px;
-        @include reveal(okryshto-animated-logo-crystallize, $in-dot-top, $ease-out-back);
+        @include reveal(okkly-animated-logo-crystallize, $in-dot-top, $ease-out-back);
       }
 
       &--bottom {
         transform-origin: 119.5px 152.5px;
-        @include reveal(okryshto-animated-logo-crystallize, $in-dot-bottom, $ease-out-back);
+        @include reveal(okkly-animated-logo-crystallize, $in-dot-bottom, $ease-out-back);
       }
     }
 
     // --- reveal once, then settle ------------------------------------------
     &--once {
-      --okryshto-animated-logo-spin: 0s;
-      --okryshto-animated-logo-orbit: 0s;
-      --okryshto-animated-logo-breathe: 0s;
-      --okryshto-animated-logo-pulse: 0s;
-      --okryshto-animated-logo-shimmer: 0s;
-      --okryshto-animated-logo-heartbeat: 0s;
+      --okkly-animated-logo-spin: 0s;
+      --okkly-animated-logo-orbit: 0s;
+      --okkly-animated-logo-breathe: 0s;
+      --okkly-animated-logo-pulse: 0s;
+      --okkly-animated-logo-shimmer: 0s;
+      --okkly-animated-logo-heartbeat: 0s;
     }
 
     // --- the dissolve, and the dark beat after it --------------------------
@@ -544,72 +534,72 @@ $in-dot-bottom: 0.808, 0.173;
     // `--gap` holds these rules so nothing flashes back before the replay.
     &--out,
     &--gap {
-      .okryshto-animated-logo__lobe-dot--bottom {
-        @include dissolve(okryshto-animated-logo-crystallize, $in-dot-bottom, $ease-out-back);
+      .okkly-animated-logo__lobe-dot--bottom {
+        @include dissolve(okkly-animated-logo-crystallize, $in-dot-bottom, $ease-out-back);
       }
 
-      .okryshto-animated-logo__lobe-dot--top {
-        @include dissolve(okryshto-animated-logo-crystallize, $in-dot-top, $ease-out-back);
+      .okkly-animated-logo__lobe-dot--top {
+        @include dissolve(okkly-animated-logo-crystallize, $in-dot-top, $ease-out-back);
       }
 
-      .okryshto-animated-logo__lobe--bottom {
-        @include dissolve(okryshto-animated-logo-pop, $in-lobe-bottom, $ease-out-back);
+      .okkly-animated-logo__lobe--bottom {
+        @include dissolve(okkly-animated-logo-pop, $in-lobe-bottom, $ease-out-back);
       }
 
-      .okryshto-animated-logo__lobe--top {
-        @include dissolve(okryshto-animated-logo-pop, $in-lobe-top, $ease-out-back);
+      .okkly-animated-logo__lobe--top {
+        @include dissolve(okkly-animated-logo-pop, $in-lobe-top, $ease-out-back);
       }
 
-      .okryshto-animated-logo__grid {
-        @include dissolve(okryshto-animated-logo-fade-in, $in-grid, ease);
+      .okkly-animated-logo__grid {
+        @include dissolve(okkly-animated-logo-fade-in, $in-grid, ease);
       }
 
-      .okryshto-animated-logo__wire {
-        @include dissolve(okryshto-animated-logo-fade-in, $in-wire, ease);
+      .okkly-animated-logo__wire {
+        @include dissolve(okkly-animated-logo-fade-in, $in-wire, ease);
       }
 
-      .okryshto-animated-logo__half {
-        @include dissolve(okryshto-animated-logo-half-in, $in-half, $ease-out-cubic);
+      .okkly-animated-logo__half {
+        @include dissolve(okkly-animated-logo-half-in, $in-half, $ease-out-cubic);
       }
 
-      .okryshto-animated-logo__orb {
-        @include dissolve(okryshto-animated-logo-orb-in, $in-orb, $ease-out-cubic);
+      .okkly-animated-logo__orb {
+        @include dissolve(okkly-animated-logo-orb-in, $in-orb, $ease-out-cubic);
       }
 
-      .okryshto-animated-logo__glyphs {
-        @include dissolve(okryshto-animated-logo-fade-in, $in-glyphs, ease);
+      .okkly-animated-logo__glyphs {
+        @include dissolve(okkly-animated-logo-fade-in, $in-glyphs, ease);
       }
 
-      .okryshto-animated-logo__marker--rose {
-        @include dissolve(okryshto-animated-logo-pop, $in-marker-b, $ease-spring);
+      .okkly-animated-logo__marker--rose {
+        @include dissolve(okkly-animated-logo-pop, $in-marker-b, $ease-spring);
       }
 
-      .okryshto-animated-logo__marker--mint {
-        @include dissolve(okryshto-animated-logo-pop, $in-marker-a, $ease-spring);
+      .okkly-animated-logo__marker--mint {
+        @include dissolve(okkly-animated-logo-pop, $in-marker-a, $ease-spring);
       }
 
-      .okryshto-animated-logo__ring--inner {
-        @include dissolve(okryshto-animated-logo-ring-in-cw, $in-ring-inner, $ease-out-cubic);
+      .okkly-animated-logo__ring--inner {
+        @include dissolve(okkly-animated-logo-ring-in-cw, $in-ring-inner, $ease-out-cubic);
       }
 
-      .okryshto-animated-logo__ring--dashed {
-        @include dissolve(okryshto-animated-logo-ring-in-ccw, $in-ring-dashed, $ease-out-cubic);
+      .okkly-animated-logo__ring--dashed {
+        @include dissolve(okkly-animated-logo-ring-in-ccw, $in-ring-dashed, $ease-out-cubic);
       }
 
-      .okryshto-animated-logo__ring--outer {
-        @include dissolve(okryshto-animated-logo-ring-in-cw, $in-ring-outer, $ease-out-cubic);
+      .okkly-animated-logo__ring--outer {
+        @include dissolve(okkly-animated-logo-ring-in-cw, $in-ring-outer, $ease-out-cubic);
       }
 
-      .okryshto-animated-logo__backdrop {
-        @include dissolve(okryshto-animated-logo-backdrop-in, $in-backdrop, $ease-out-cubic);
+      .okkly-animated-logo__backdrop {
+        @include dissolve(okkly-animated-logo-backdrop-in, $in-backdrop, $ease-out-cubic);
       }
     }
 
     // below 64px the fine detail stops reading — drop the micro-motion
     &--quiet {
-      --okryshto-animated-logo-pulse: 0s;
-      --okryshto-animated-logo-shimmer: 0s;
-      --okryshto-animated-logo-heartbeat: 0s;
+      --okkly-animated-logo-pulse: 0s;
+      --okkly-animated-logo-shimmer: 0s;
+      --okkly-animated-logo-heartbeat: 0s;
     }
 
     &--paused * {
@@ -620,12 +610,12 @@ $in-dot-bottom: 0.808, 0.173;
 
 @media (prefers-reduced-motion: reduce) {
   @include layers.component() {
-    .okryshto-animated-logo * {
+    .okkly-animated-logo * {
       animation: none !important;
     }
 
-    .okryshto-animated-logo__svg {
-      animation: okryshto-animated-logo-fade-in 0.4s ease both !important;
+    .okkly-animated-logo__svg {
+      animation: okkly-animated-logo-fade-in 0.4s ease both !important;
     }
   }
 }

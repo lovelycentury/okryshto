@@ -8,7 +8,7 @@ import {
   type InputHTMLAttributes,
   type ReactNode,
 } from "react";
-import "@okryshto/design-system/components/Radio/Radio.scss";
+import "@okkly/design-system/components/Radio/Radio.scss";
 import { RadioGroupContext } from "../RadioGroup/RadioGroupContext";
 
 export type RadioSize = "small" | "medium" | "large";
@@ -101,10 +101,10 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(function Radio(
   const finalColor = color ?? group?.color ?? "primary";
 
   const classes = [
-    "okryshto-component",
-    "okryshto-radio",
-    finalColor !== "primary" && `okryshto-radio--color-${finalColor}`,
-    finalSize !== "medium" && `okryshto-radio--${finalSize}`,
+    "okkly-component",
+    "okkly-radio",
+    finalColor !== "primary" && `okkly-radio--color-${finalColor}`,
+    finalSize !== "medium" && `okkly-radio--${finalSize}`,
     className,
   ]
     .filter(Boolean)
@@ -112,12 +112,12 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(function Radio(
 
   return (
     <label htmlFor={inputId} className={classes}>
-      <span className="okryshto-radio__control">
+      <span className="okkly-radio__control">
         <input
           ref={ref}
           id={inputId}
           type="radio"
-          className="okryshto-radio__input"
+          className="okkly-radio__input"
           name={finalName}
           value={value}
           checked={finalChecked}
@@ -128,9 +128,9 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(function Radio(
           }}
           {...rest}
         />
-        <span className="okryshto-radio__circle" aria-hidden="true" />
+        <span className="okkly-radio__circle" aria-hidden="true" />
       </span>
-      {label && <span className="okryshto-radio__label">{label}</span>}
+      {label && <span className="okkly-radio__label">{label}</span>}
     </label>
   );
 });

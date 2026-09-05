@@ -1,7 +1,7 @@
 # Storybook brand assets
 
 Default mark = **Header lockup** from Figma
-[Static Logo Lockups](https://www.figma.com/design/3YsJJl5QukJZPkjoOOZahx/-okryshto-okryshto?node-id=422-168)
+[Static Logo Lockups](https://www.figma.com/design/3YsJJl5QukJZPkjoOOZahx/-okkly-okkly?node-id=422-168)
 (node `422:179` — compact nav / Storybook chrome).
 
 | File         | Use                                                    |

@@ -2,17 +2,17 @@
 @use "../../styles/mixins/visibility.scss";
 @use "../../styles/mixins/field.scss";
 
-.okryshto-number-input {
+.okkly-number-input {
   @include layers.component() {
-    --okryshto-number-input-border-color: var(--okryshto-border-default);
-    --okryshto-number-input-focus-border-color: var(--okryshto-accent-primary);
-    --okryshto-number-input-glow: 0 0 2.5rem rgba(94, 230, 193, 0.24);
-    --okryshto-number-input-glow-dante: 0 0 0.4375rem rgba(255, 61, 139, 0.35);
-    --okryshto-number-input-padding-inline: 0.875rem;
-    --okryshto-number-input-padding-block: 0.75rem;
-    --okryshto-number-input-font-size: 1rem;
-    --okryshto-number-input-line-height: 1.625rem;
-    --okryshto-number-input-control-size: 2.25rem;
+    --okkly-number-input-border-color: var(--okkly-border-default);
+    --okkly-number-input-focus-border-color: var(--okkly-accent-primary);
+    --okkly-number-input-glow: 0 0 2.5rem rgba(94, 230, 193, 0.24);
+    --okkly-number-input-glow-dante: 0 0 0.4375rem rgba(255, 61, 139, 0.35);
+    --okkly-number-input-padding-inline: 0.875rem;
+    --okkly-number-input-padding-block: 0.75rem;
+    --okkly-number-input-font-size: 1rem;
+    --okkly-number-input-line-height: 1.625rem;
+    --okkly-number-input-control-size: 2.25rem;
 
     display: flex;
     flex-direction: column;
@@ -23,16 +23,16 @@
       width: 100%;
     }
 
-    &:has(.okryshto-number-input__input:disabled) {
+    &:has(.okkly-number-input__input:disabled) {
       opacity: 0.4;
     }
 
     &__label {
-      font-family: var(--okryshto-font-family-sans);
-      font-weight: var(--okryshto-font-weight-medium);
-      font-size: var(--okryshto-font-size-sm);
+      font-family: var(--okkly-font-family-sans);
+      font-weight: var(--okkly-font-weight-medium);
+      font-size: var(--okkly-font-size-sm);
       line-height: 1rem;
-      color: var(--okryshto-text-secondary);
+      color: var(--okkly-text-secondary);
 
       &--hidden {
         @include visibility.visually-hidden;
@@ -46,34 +46,34 @@
       align-items: stretch;
       box-sizing: border-box;
       width: 100%;
-      border: var(--okryshto-1px-in-rem) solid var(--okryshto-number-input-border-color);
+      border: var(--okkly-1px-in-rem) solid var(--okkly-number-input-border-color);
       border-radius: 0.625rem;
-      background: var(--okryshto-bg-surface);
+      background: var(--okkly-bg-surface);
       box-shadow:
         0 0 0 0 transparent,
         0 0 2.5rem transparent;
       transition:
-        border-color var(--okryshto-duration-sm) ease-out,
-        box-shadow var(--okryshto-duration-sm) ease-out;
+        border-color var(--okkly-duration-sm) ease-out,
+        box-shadow var(--okkly-duration-sm) ease-out;
 
       &:focus-within {
-        border-color: var(--okryshto-number-input-focus-border-color);
+        border-color: var(--okkly-number-input-focus-border-color);
         box-shadow:
-          0 0 0 0.03125rem var(--okryshto-number-input-focus-border-color),
-          var(--okryshto-number-input-glow);
+          0 0 0 0.03125rem var(--okkly-number-input-focus-border-color),
+          var(--okkly-number-input-glow);
       }
     }
 
     &--error &__control {
-      border-color: var(--okryshto-feedback-danger);
+      border-color: var(--okkly-feedback-danger);
       box-shadow:
-        0 0 0 0.03125rem var(--okryshto-feedback-danger),
+        0 0 0 0.03125rem var(--okkly-feedback-danger),
         0 0 2.5rem transparent;
     }
 
     &--error &__control:focus-within {
       box-shadow:
-        0 0 0 0.03125rem var(--okryshto-feedback-danger),
+        0 0 0 0.03125rem var(--okkly-feedback-danger),
         0 0 2.5rem transparent;
     }
 
@@ -83,16 +83,15 @@
       border: none;
       outline: none;
       background: transparent;
-      padding: var(--okryshto-number-input-padding-block)
-        var(--okryshto-number-input-padding-inline);
-      font-family: var(--okryshto-font-family-sans);
-      font-weight: var(--okryshto-font-weight-regular);
-      font-size: var(--okryshto-number-input-font-size);
-      line-height: var(--okryshto-number-input-line-height);
-      color: var(--okryshto-text-primary);
+      padding: var(--okkly-number-input-padding-block) var(--okkly-number-input-padding-inline);
+      font-family: var(--okkly-font-family-sans);
+      font-weight: var(--okkly-font-weight-regular);
+      font-size: var(--okkly-number-input-font-size);
+      line-height: var(--okkly-number-input-line-height);
+      color: var(--okkly-text-primary);
 
       &::placeholder {
-        color: var(--okryshto-text-muted);
+        color: var(--okkly-text-muted);
       }
 
       &:disabled {
@@ -105,9 +104,9 @@
       flex-direction: column;
       flex-shrink: 0;
       overflow: hidden;
-      border-inline-start: var(--okryshto-1px-in-rem) solid var(--okryshto-border-subtle);
-      border-start-end-radius: calc(0.625rem - var(--okryshto-1px-in-rem));
-      border-end-end-radius: calc(0.625rem - var(--okryshto-1px-in-rem));
+      border-inline-start: var(--okkly-1px-in-rem) solid var(--okkly-border-subtle);
+      border-start-end-radius: calc(0.625rem - var(--okkly-1px-in-rem));
+      border-end-end-radius: calc(0.625rem - var(--okkly-1px-in-rem));
     }
 
     &__step {
@@ -117,31 +116,31 @@
       justify-content: center;
       box-sizing: border-box;
       min-height: 0;
-      min-width: var(--okryshto-number-input-control-size);
+      min-width: var(--okkly-number-input-control-size);
       padding: 0;
       border: none;
       background: transparent;
-      color: var(--okryshto-text-secondary);
+      color: var(--okkly-text-secondary);
       cursor: pointer;
       transition:
-        background-color var(--okryshto-duration-sm) ease,
-        color var(--okryshto-duration-sm) ease;
+        background-color var(--okkly-duration-sm) ease,
+        color var(--okkly-duration-sm) ease;
 
       &:not(:first-child) {
-        border-block-start: var(--okryshto-1px-in-rem) solid var(--okryshto-border-subtle);
+        border-block-start: var(--okkly-1px-in-rem) solid var(--okkly-border-subtle);
       }
 
       &:hover:not(:disabled) {
-        background: var(--okryshto-glass-fill);
-        color: var(--okryshto-text-primary);
+        background: var(--okkly-glass-fill);
+        color: var(--okkly-text-primary);
       }
 
       &:active:not(:disabled) {
-        background: var(--okryshto-glass-fill-strong);
+        background: var(--okkly-glass-fill-strong);
       }
 
       &:disabled {
-        color: var(--okryshto-text-muted);
+        color: var(--okkly-text-muted);
         cursor: not-allowed;
       }
 
@@ -158,38 +157,38 @@
     }
 
     &__helper {
-      font-family: var(--okryshto-font-family-sans);
-      font-size: var(--okryshto-font-size-sm);
+      font-family: var(--okkly-font-family-sans);
+      font-size: var(--okkly-font-size-sm);
       line-height: 1.125rem;
       letter-spacing: 0.013px;
-      color: var(--okryshto-text-muted);
+      color: var(--okkly-text-muted);
     }
 
     &--error &__helper {
-      color: var(--okryshto-feedback-danger);
+      color: var(--okkly-feedback-danger);
     }
 
     &--color-dante &__control:focus-within {
-      border-color: var(--okryshto-accent-dante);
+      border-color: var(--okkly-accent-dante);
       box-shadow:
-        0 0 0 0.03125rem var(--okryshto-accent-dante),
-        var(--okryshto-number-input-glow-dante);
+        0 0 0 0.03125rem var(--okkly-accent-dante),
+        var(--okkly-number-input-glow-dante);
     }
 
     &--small {
-      --okryshto-number-input-padding-inline: 0.75rem;
-      --okryshto-number-input-padding-block: 0.5625rem;
-      --okryshto-number-input-font-size: 0.875rem;
-      --okryshto-number-input-line-height: 1.375rem;
-      --okryshto-number-input-control-size: 1.875rem;
+      --okkly-number-input-padding-inline: 0.75rem;
+      --okkly-number-input-padding-block: 0.5625rem;
+      --okkly-number-input-font-size: 0.875rem;
+      --okkly-number-input-line-height: 1.375rem;
+      --okkly-number-input-control-size: 1.875rem;
     }
 
     &--large {
-      --okryshto-number-input-padding-inline: 1rem;
-      --okryshto-number-input-padding-block: 0.9375rem;
-      --okryshto-number-input-font-size: 1.125rem;
-      --okryshto-number-input-line-height: 1.875rem;
-      --okryshto-number-input-control-size: 2.625rem;
+      --okkly-number-input-padding-inline: 1rem;
+      --okkly-number-input-padding-block: 0.9375rem;
+      --okkly-number-input-font-size: 1.125rem;
+      --okkly-number-input-line-height: 1.875rem;
+      --okkly-number-input-control-size: 2.625rem;
     }
   }
 }

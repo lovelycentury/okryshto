@@ -1,17 +1,17 @@
 @use "../../styles/mixins/layers.scss";
 
-.okryshto-popover {
+.okkly-popover {
   @include layers.component() {
-    --okryshto-popover-z-index: 1200;
-    --okryshto-popover-background-color: var(--okryshto-bg-surface);
-    --okryshto-popover-border-color: var(--okryshto-border-default);
-    --okryshto-popover-border-width: var(--okryshto-1px-in-rem);
-    --okryshto-popover-border-radius: 1.75rem;
-    --okryshto-popover-padding: 1rem;
-    --okryshto-popover-shadow: var(--okryshto-shadow-medium-bottom);
-    --okryshto-popover-max-width: 20rem;
+    --okkly-popover-z-index: 1200;
+    --okkly-popover-background-color: var(--okkly-bg-surface);
+    --okkly-popover-border-color: var(--okkly-border-default);
+    --okkly-popover-border-width: var(--okkly-1px-in-rem);
+    --okkly-popover-border-radius: 1.75rem;
+    --okkly-popover-padding: 1rem;
+    --okkly-popover-shadow: var(--okkly-shadow-medium-bottom);
+    --okkly-popover-max-width: 20rem;
 
-    z-index: var(--okryshto-popover-z-index);
+    z-index: var(--okkly-popover-z-index);
   }
 
   // Opt-in, via `hideBackdrop={false}`. Invisible but hit-testable: it exists
@@ -21,7 +21,7 @@
     @include layers.component() {
       position: fixed;
       inset: 0;
-      z-index: calc(var(--okryshto-popover-z-index, 1200) - 1);
+      z-index: calc(var(--okkly-popover-z-index, 1200) - 1);
       background: transparent;
       border: 0;
       -webkit-tap-highlight-color: transparent;
@@ -31,15 +31,15 @@
   &__paper {
     @include layers.component() {
       min-width: 10rem;
-      max-width: var(--okryshto-popover-max-width, 20rem);
-      padding: var(--okryshto-popover-padding, 1rem);
-      border: var(--okryshto-popover-border-width, var(--okryshto-1px-in-rem)) solid
-        var(--okryshto-popover-border-color, var(--okryshto-border-default));
-      border-radius: var(--okryshto-popover-border-radius, 1.75rem);
-      background: var(--okryshto-popover-background-color, var(--okryshto-bg-surface));
-      box-shadow: var(--okryshto-popover-shadow, var(--okryshto-shadow-medium-bottom));
-      color: var(--okryshto-text-primary);
-      font-family: var(--okryshto-font-family-sans);
+      max-width: var(--okkly-popover-max-width, 20rem);
+      padding: var(--okkly-popover-padding, 1rem);
+      border: var(--okkly-popover-border-width, var(--okkly-1px-in-rem)) solid
+        var(--okkly-popover-border-color, var(--okkly-border-default));
+      border-radius: var(--okkly-popover-border-radius, 1.75rem);
+      background: var(--okkly-popover-background-color, var(--okkly-bg-surface));
+      box-shadow: var(--okkly-popover-shadow, var(--okkly-shadow-medium-bottom));
+      color: var(--okkly-text-primary);
+      font-family: var(--okkly-font-family-sans);
       outline: 0;
       overflow: auto;
     }

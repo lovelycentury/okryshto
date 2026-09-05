@@ -13,7 +13,7 @@
 // The card's handle column is monospaced in the design; LinkCard renders it
 // verbatim, so the face is applied here rather than forked into the library.
 .meta {
-  color: var(--okryshto-text-muted);
-  font-family: var(--profile-font-mono), var(--okryshto-font-family-mono);
+  color: var(--okkly-text-muted);
+  font-family: var(--profile-font-mono), var(--okkly-font-family-mono);
   @include m.type(mono);
 }

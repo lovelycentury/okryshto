@@ -21,15 +21,15 @@ describe("Table", () => {
         </Table>
       </TableContainer>,
     );
-    expect(screen.getByRole("table")).toHaveClass("okryshto-table", "okryshto-table--dense");
-    expect(document.querySelector(".okryshto-table-container")).toHaveClass(
-      "okryshto-table-container--sticky",
+    expect(screen.getByRole("table")).toHaveClass("okkly-table", "okkly-table--dense");
+    expect(document.querySelector(".okkly-table-container")).toHaveClass(
+      "okkly-table-container--sticky",
     );
     expect(screen.getByRole("columnheader", { name: "Name" })).toHaveClass(
-      "okryshto-table__cell--head",
+      "okkly-table__cell--head",
     );
-    expect(screen.getByRole("cell", { name: "42" })).toHaveClass("okryshto-table__cell--numeric");
-    expect(document.querySelector(".okryshto-table__row--hover")).toBeInTheDocument();
+    expect(screen.getByRole("cell", { name: "42" })).toHaveClass("okkly-table__cell--numeric");
+    expect(document.querySelector(".okkly-table__row--hover")).toBeInTheDocument();
   });
 
   it("forwards ref on Table", () => {
@@ -56,8 +56,6 @@ describe("Table", () => {
         </TableBody>
       </Table>,
     );
-    expect(container.querySelector(".okryshto-table")?.className).not.toMatch(
-      /okryshto-table--dense/,
-    );
+    expect(container.querySelector(".okkly-table")?.className).not.toMatch(/okkly-table--dense/);
   });
 });

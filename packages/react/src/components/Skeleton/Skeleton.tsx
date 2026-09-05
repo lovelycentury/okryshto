@@ -1,7 +1,7 @@
 "use client";
 
 import { forwardRef, type CSSProperties, type HTMLAttributes } from "react";
-import "@okryshto/design-system/components/Skeleton/Skeleton.scss";
+import "@okkly/design-system/components/Skeleton/Skeleton.scss";
 
 export type SkeletonVariant = "text" | "circular" | "rectangular" | "rounded";
 export type SkeletonAnimation = "pulse" | "wave" | false;
@@ -52,19 +52,19 @@ export const Skeleton = forwardRef<HTMLSpanElement, SkeletonProps>(function Skel
   forwardedRef,
 ) {
   const classes = [
-    "okryshto-component",
-    "okryshto-skeleton",
-    variant !== "text" && `okryshto-skeleton--${variant}`,
-    animation === "pulse" && "okryshto-skeleton--pulse",
-    animation === "wave" && "okryshto-skeleton--wave",
+    "okkly-component",
+    "okkly-skeleton",
+    variant !== "text" && `okkly-skeleton--${variant}`,
+    animation === "pulse" && "okkly-skeleton--pulse",
+    animation === "wave" && "okkly-skeleton--wave",
     className,
   ]
     .filter(Boolean)
     .join(" ");
 
   const cssVars: CSSProperties = {
-    ...(width !== undefined && { "--okryshto-skeleton-width": toCssLength(width) }),
-    ...(height !== undefined && { "--okryshto-skeleton-height": toCssLength(height) }),
+    ...(width !== undefined && { "--okkly-skeleton-width": toCssLength(width) }),
+    ...(height !== undefined && { "--okkly-skeleton-height": toCssLength(height) }),
     ...style,
   };
 

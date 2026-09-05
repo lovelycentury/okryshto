@@ -7,7 +7,7 @@ import {
   type MouseEvent,
   type ReactNode,
 } from "react";
-import "@okryshto/design-system/components/List/List.scss";
+import "@okkly/design-system/components/List/List.scss";
 
 /**
  * Props follow MUI's List API (https://mui.com/material-ui/api/list/) where they
@@ -50,10 +50,10 @@ export const List = forwardRef<HTMLUListElement, ListProps>(function List(
   ref,
 ) {
   const classes = [
-    "okryshto-component",
-    "okryshto-list",
-    dense && "okryshto-list--dense",
-    disablePadding && "okryshto-list--disable-padding",
+    "okkly-component",
+    "okkly-list",
+    dense && "okkly-list--dense",
+    disablePadding && "okkly-list--disable-padding",
     className,
   ]
     .filter(Boolean)
@@ -61,7 +61,7 @@ export const List = forwardRef<HTMLUListElement, ListProps>(function List(
 
   return (
     <ul ref={ref} className={classes} {...rest}>
-      {subheader && <li className="okryshto-list__subheader">{subheader}</li>}
+      {subheader && <li className="okkly-list__subheader">{subheader}</li>}
       {children}
     </ul>
   );
@@ -149,14 +149,14 @@ export const ListItem = forwardRef<HTMLLIElement, ListItemProps>(function ListIt
 ) {
   const isInteractive = button || !!onClick;
 
-  const denseClass = dense ? "okryshto-list-item--dense" : "";
-  const selectedClass = selected ? "okryshto-list-item--selected" : "";
-  const disabledClass = disabled ? "okryshto-list-item--disabled" : "";
+  const denseClass = dense ? "okkly-list-item--dense" : "";
+  const selectedClass = selected ? "okkly-list-item--selected" : "";
+  const disabledClass = disabled ? "okkly-list-item--disabled" : "";
 
   if (isInteractive) {
     const containerClasses = [
-      "okryshto-list-item",
-      "okryshto-list-item--container",
+      "okkly-list-item",
+      "okkly-list-item--container",
       denseClass,
       disabledClass,
       className,
@@ -164,12 +164,7 @@ export const ListItem = forwardRef<HTMLLIElement, ListItemProps>(function ListIt
       .filter(Boolean)
       .join(" ");
 
-    const buttonClasses = [
-      "okryshto-list-item",
-      "okryshto-list-item--button",
-      denseClass,
-      selectedClass,
-    ]
+    const buttonClasses = ["okkly-list-item", "okkly-list-item--button", denseClass, selectedClass]
       .filter(Boolean)
       .join(" ");
 
@@ -183,23 +178,23 @@ export const ListItem = forwardRef<HTMLLIElement, ListItemProps>(function ListIt
           disabled={disabled}
           onClick={onClick as (event: MouseEvent<HTMLButtonElement>) => void}
         >
-          {startIcon && <span className="okryshto-list-item__leading">{startIcon}</span>}
-          <span className="okryshto-list-item__content">{children}</span>
+          {startIcon && <span className="okkly-list-item__leading">{startIcon}</span>}
+          <span className="okkly-list-item__content">{children}</span>
         </button>
-        {secondaryAction && <span className="okryshto-list-item__trailing">{secondaryAction}</span>}
+        {secondaryAction && <span className="okkly-list-item__trailing">{secondaryAction}</span>}
       </li>
     );
   }
 
-  const itemClasses = ["okryshto-list-item", denseClass, selectedClass, disabledClass, className]
+  const itemClasses = ["okkly-list-item", denseClass, selectedClass, disabledClass, className]
     .filter(Boolean)
     .join(" ");
 
   return (
     <li ref={ref} className={itemClasses} {...rest}>
-      {startIcon && <span className="okryshto-list-item__leading">{startIcon}</span>}
-      <span className="okryshto-list-item__content">{children}</span>
-      {secondaryAction && <span className="okryshto-list-item__trailing">{secondaryAction}</span>}
+      {startIcon && <span className="okkly-list-item__leading">{startIcon}</span>}
+      <span className="okkly-list-item__content">{children}</span>
+      {secondaryAction && <span className="okkly-list-item__trailing">{secondaryAction}</span>}
     </li>
   );
 });
@@ -230,14 +225,12 @@ export interface ListItemTextProps extends HTMLAttributes<HTMLSpanElement> {
 }
 
 export function ListItemText({ primary, secondary, className, ...rest }: ListItemTextProps) {
-  const classes = ["okryshto-list-item__text", className].filter(Boolean).join(" ");
+  const classes = ["okkly-list-item__text", className].filter(Boolean).join(" ");
 
   return (
     <span className={classes} {...rest}>
-      {primary !== undefined && <span className="okryshto-list-item__primary">{primary}</span>}
-      {secondary !== undefined && (
-        <span className="okryshto-list-item__secondary">{secondary}</span>
-      )}
+      {primary !== undefined && <span className="okkly-list-item__primary">{primary}</span>}
+      {secondary !== undefined && <span className="okkly-list-item__secondary">{secondary}</span>}
     </span>
   );
 }
@@ -254,7 +247,7 @@ export interface ListItemIconProps extends HTMLAttributes<HTMLSpanElement> {
 }
 
 export function ListItemIcon({ children, className, ...rest }: ListItemIconProps) {
-  const classes = ["okryshto-list-item__icon", className].filter(Boolean).join(" ");
+  const classes = ["okkly-list-item__icon", className].filter(Boolean).join(" ");
 
   return (
     <span className={classes} aria-hidden="true" {...rest}>

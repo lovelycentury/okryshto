@@ -1,6 +1,6 @@
 import type { CSSProperties } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { iconChevronRight, iconFolder, iconHome } from "@okryshto/icons";
+import { iconChevronRight, iconFolder, iconHome } from "@okkly/icons";
 import { Breadcrumbs } from "./Breadcrumbs";
 
 const icon = (svg: string) => <span dangerouslySetInnerHTML={{ __html: svg }} />;
@@ -39,13 +39,13 @@ export default meta;
 type Story = StoryObj<typeof Breadcrumbs>;
 
 const surface: CSSProperties = {
-  background: "var(--okryshto-bg-surface-raised)",
-  border: "1px solid var(--okryshto-border-subtle)",
+  background: "var(--okkly-bg-surface-raised)",
+  border: "1px solid var(--okkly-border-subtle)",
   borderRadius: "12px",
   padding: "14px 16px",
   width: "560px",
-  fontFamily: "var(--okryshto-font-family-sans)",
-  color: "var(--okryshto-text-primary)",
+  fontFamily: "var(--okkly-font-family-sans)",
+  color: "var(--okkly-text-primary)",
 };
 
 /**
@@ -121,7 +121,7 @@ export const Collapsed: Story = {
 
 /**
  * A custom separator node — anything renderable works, here the chevron from
- * `@okryshto/icons` at a smaller size.
+ * `@okkly/icons` at a smaller size.
  */
 export const CustomSeparator: Story = {
   render: () => (

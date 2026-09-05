@@ -14,14 +14,14 @@ import {
   type ReactNode,
   type Ref,
 } from "react";
-import { iconCheck, iconChevronDown, iconChevronUp, iconX } from "@okryshto/icons";
+import { iconCheck, iconChevronDown, iconChevronUp, iconX } from "@okkly/icons";
 import {
   useAutocomplete,
   type AutocompleteOption,
   type OptionGroup,
   type SelectionChangeHandler,
-} from "@okryshto/react-hooks";
-import "@okryshto/design-system/components/Autocomplete/Autocomplete.scss";
+} from "@okkly/react-hooks";
+import "@okkly/design-system/components/Autocomplete/Autocomplete.scss";
 import { Popper } from "../Popper/Popper";
 import { Chip } from "../Chip/Chip";
 import { Spinner } from "../Spinner/Spinner";
@@ -727,7 +727,7 @@ function AutocompleteInner<T = AutocompleteOption>(
 
   const { ref: inputRef, ...inputProps } = autocomplete.getInputProps({
     id: fieldId,
-    className: "okryshto-autocomplete__input",
+    className: "okkly-autocomplete__input",
     placeholder: tags.length > 0 ? "Add…" : placeholder,
     required,
     "aria-invalid": error || undefined,
@@ -742,7 +742,7 @@ function AutocompleteInner<T = AutocompleteOption>(
   };
 
   const clearProps = autocomplete.getClearProps({
-    className: "okryshto-autocomplete__clear",
+    className: "okkly-autocomplete__clear",
     "aria-label": clearText,
   });
 
@@ -757,7 +757,7 @@ function AutocompleteInner<T = AutocompleteOption>(
     if (renderTags) return renderTags(tags, getTagProps);
 
     return (
-      <div className="okryshto-autocomplete__tags">
+      <div className="okkly-autocomplete__tags">
         {shownTags.map((tag, index) => {
           const { key, onRemove, ...tagProps } = getTagProps(index);
           return (
@@ -772,7 +772,7 @@ function AutocompleteInner<T = AutocompleteOption>(
             </span>
           );
         })}
-        {tagOverflow > 0 && <span className="okryshto-autocomplete__overflow">+{tagOverflow}</span>}
+        {tagOverflow > 0 && <span className="okkly-autocomplete__overflow">+{tagOverflow}</span>}
       </div>
     );
   }
@@ -783,9 +783,9 @@ function AutocompleteInner<T = AutocompleteOption>(
     const selected = autocomplete.isSelected(option);
     const optionProps = autocomplete.getOptionProps(index, {
       className: [
-        "okryshto-autocomplete__option",
-        highlighted && "okryshto-autocomplete__option--highlighted",
-        selected && "okryshto-autocomplete__option--selected",
+        "okkly-autocomplete__option",
+        highlighted && "okkly-autocomplete__option--highlighted",
+        selected && "okkly-autocomplete__option--selected",
       ]
         .filter(Boolean)
         .join(" "),
@@ -814,11 +814,11 @@ function AutocompleteInner<T = AutocompleteOption>(
 
     return (
       <li key={key} {...optionProps}>
-        <span className="okryshto-autocomplete__option-label">{labelFor(option)}</span>
-        {description && <span className="okryshto-autocomplete__option-meta">{description}</span>}
+        <span className="okkly-autocomplete__option-label">{labelFor(option)}</span>
+        {description && <span className="okkly-autocomplete__option-meta">{description}</span>}
         {selected && (
           <span
-            className="okryshto-autocomplete__option-check"
+            className="okkly-autocomplete__option-check"
             dangerouslySetInnerHTML={{ __html: iconCheck }}
             aria-hidden="true"
           />
@@ -831,7 +831,7 @@ function AutocompleteInner<T = AutocompleteOption>(
     if (loading) {
       if (renderLoading) return renderLoading({ inputValue: autocomplete.inputValue });
       return (
-        <li className="okryshto-autocomplete__loading">
+        <li className="okkly-autocomplete__loading">
           <Spinner size="small" />
           {loadingText}
         </li>
@@ -839,7 +839,7 @@ function AutocompleteInner<T = AutocompleteOption>(
     }
     if (autocomplete.filteredOptions.length === 0) {
       if (renderNoOptions) return renderNoOptions({ inputValue: autocomplete.inputValue });
-      return <li className="okryshto-autocomplete__empty">{noOptionsText}</li>;
+      return <li className="okkly-autocomplete__empty">{noOptionsText}</li>;
     }
     if (autocomplete.groupedOptions) {
       return autocomplete.groupedOptions.map((group) => {
@@ -848,14 +848,10 @@ function AutocompleteInner<T = AutocompleteOption>(
           return renderGroup({ key: group.key, label: group.label, group, children });
         return (
           <li key={group.key} role="presentation">
-            <span className="okryshto-autocomplete__group-label" role="presentation">
+            <span className="okkly-autocomplete__group-label" role="presentation">
               {group.label}
             </span>
-            <ul
-              className="okryshto-autocomplete__group-options"
-              role="group"
-              aria-label={group.label}
-            >
+            <ul className="okkly-autocomplete__group-options" role="group" aria-label={group.label}>
               {children}
             </ul>
           </li>
@@ -874,7 +870,7 @@ function AutocompleteInner<T = AutocompleteOption>(
       )}
       <button
         type="button"
-        className="okryshto-autocomplete__toggle"
+        className="okkly-autocomplete__toggle"
         tabIndex={-1}
         aria-label={autocomplete.isOpen ? closeText : openText}
         onClick={() => autocomplete.setOpen(!autocomplete.isOpen)}
@@ -926,7 +922,7 @@ function AutocompleteInner<T = AutocompleteOption>(
 
   return (
     <Field
-      block="okryshto-autocomplete"
+      block="okkly-autocomplete"
       id={fieldId}
       label={label}
       hideLabel={hideLabel}
@@ -957,7 +953,7 @@ function AutocompleteInner<T = AutocompleteOption>(
         open={autocomplete.isOpen}
         anchorEl={controlNode}
         placement="bottom-start"
-        className="okryshto-autocomplete-popper"
+        className="okkly-autocomplete-popper"
         modifiers={[{ name: "offset", options: { offset: [0, 4] } }]}
         matchAnchorWidth="min"
         style={popupWidth === undefined ? undefined : { width: popupWidth }}
@@ -969,14 +965,14 @@ function AutocompleteInner<T = AutocompleteOption>(
           ref={panelRef}
           className={
             size === "medium"
-              ? "okryshto-autocomplete-popover"
-              : `okryshto-autocomplete-popover okryshto-autocomplete-popover--${size}`
+              ? "okkly-autocomplete-popover"
+              : `okkly-autocomplete-popover okkly-autocomplete-popover--${size}`
           }
         >
           {/* Names the BEM block for the option primitives, so a `renderOption`
               built from them picks up this listbox's styling. */}
-          <OptionScope block="okryshto-autocomplete">
-            <ul {...autocomplete.getListboxProps({ className: "okryshto-autocomplete__listbox" })}>
+          <OptionScope block="okkly-autocomplete">
+            <ul {...autocomplete.getListboxProps({ className: "okkly-autocomplete__listbox" })}>
               {renderListContent()}
             </ul>
           </OptionScope>

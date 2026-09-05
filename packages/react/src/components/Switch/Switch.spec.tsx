@@ -21,22 +21,20 @@ describe("Switch", () => {
 
   it("applies a size modifier only for non-medium sizes", () => {
     const { container, rerender } = render(<Switch label="Enable notifications" size="small" />);
-    expect(container.querySelector(".okryshto-switch")).toHaveClass("okryshto-switch--small");
+    expect(container.querySelector(".okkly-switch")).toHaveClass("okkly-switch--small");
 
     rerender(<Switch label="Enable notifications" size="medium" />);
-    expect(container.querySelector(".okryshto-switch")?.className).not.toMatch(
-      /okryshto-switch--(small|large)/,
+    expect(container.querySelector(".okkly-switch")?.className).not.toMatch(
+      /okkly-switch--(small|large)/,
     );
   });
 
   it("applies a color modifier only for non-primary colors", () => {
     const { container, rerender } = render(<Switch label="Enable notifications" color="dante" />);
-    expect(container.querySelector(".okryshto-switch")).toHaveClass("okryshto-switch--color-dante");
+    expect(container.querySelector(".okkly-switch")).toHaveClass("okkly-switch--color-dante");
 
     rerender(<Switch label="Enable notifications" color="primary" />);
-    expect(container.querySelector(".okryshto-switch")?.className).not.toMatch(
-      /okryshto-switch--color-/,
-    );
+    expect(container.querySelector(".okkly-switch")?.className).not.toMatch(/okkly-switch--color-/);
   });
 
   it("disables the input", () => {

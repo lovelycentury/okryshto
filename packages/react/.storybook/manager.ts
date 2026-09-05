@@ -1,8 +1,8 @@
 import { addons } from "storybook/internal/manager-api";
-import { okryshtoTheme } from "./theme";
+import { okklyTheme } from "./theme";
 
 addons.setConfig({
-  theme: okryshtoTheme,
+  theme: okklyTheme,
   sidebar: {
     showRoots: true,
   },

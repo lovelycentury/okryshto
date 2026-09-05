@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type ReactNode } from "react";
-import "@okryshto/design-system/components/SegmentedToggle/SegmentedToggle.scss";
+import "@okkly/design-system/components/SegmentedToggle/SegmentedToggle.scss";
 
 export type SegmentedToggleColor = "primary" | "dante" | "indigo" | "violet" | "ember" | "ice";
 
@@ -21,7 +21,7 @@ export interface SegmentedToggleItem {
  * `exclusive`/`disabled` match name-for-name (`exclusive` maps to MUI's
  * `exclusive` prop). Deliberate gaps/renames: segments come from an `items`
  * array with explicit `value` keys (not `children` composition), `color`
- * replaces MUI's `color` with okryshto tone names, and there is no `orientation`
+ * replaces MUI's `color` with okkly tone names, and there is no `orientation`
  * / `size` / `fullWidth` in this design.
  */
 export interface SegmentedToggleProps {
@@ -133,10 +133,10 @@ export function SegmentedToggle({
   };
 
   const classes = [
-    "okryshto-component",
-    "okryshto-segmented-toggle",
-    color !== "primary" && `okryshto-segmented-toggle--color-${color}`,
-    disabled && "okryshto-segmented-toggle--disabled",
+    "okkly-component",
+    "okkly-segmented-toggle",
+    color !== "primary" && `okkly-segmented-toggle--color-${color}`,
+    disabled && "okkly-segmented-toggle--disabled",
     className,
   ]
     .filter(Boolean)
@@ -151,8 +151,8 @@ export function SegmentedToggle({
             key={item.value}
             type="button"
             className={[
-              "okryshto-segmented-toggle__segment",
-              active && "okryshto-segmented-toggle__segment--active",
+              "okkly-segmented-toggle__segment",
+              active && "okkly-segmented-toggle__segment--active",
             ]
               .filter(Boolean)
               .join(" ")}
@@ -161,7 +161,7 @@ export function SegmentedToggle({
             onClick={() => handleSegmentClick(item.value)}
           >
             {item.icon && (
-              <span className="okryshto-segmented-toggle__icon" aria-hidden="true">
+              <span className="okkly-segmented-toggle__icon" aria-hidden="true">
                 {item.icon}
               </span>
             )}

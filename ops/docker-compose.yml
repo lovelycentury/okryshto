@@ -54,7 +54,7 @@ services:
     <<: *logging
 
   profile:
-    image: ghcr.io/lovelycentury/okryshto/profile:latest
+    image: ghcr.io/lovelycentury/okkly/profile:latest
     restart: unless-stopped
     environment:
       NODE_ENV: production
@@ -76,7 +76,7 @@ services:
     <<: *logging
 
   storybook:
-    image: ghcr.io/lovelycentury/okryshto/storybook:latest
+    image: ghcr.io/lovelycentury/okkly/storybook:latest
     restart: unless-stopped
     networks: [edge]
     healthcheck:
@@ -88,7 +88,7 @@ services:
     <<: *logging
 
   iam:
-    image: ghcr.io/lovelycentury/okryshto/iam:latest
+    image: ghcr.io/lovelycentury/okkly/iam:latest
     restart: unless-stopped
     environment:
       KC_HTTP_ENABLED: "true"
@@ -116,7 +116,7 @@ services:
   # resume.okryshto.dev — Vite SPA (static). Built with VITE_API_BASE_URL
   # pointing at resume-api.okryshto.dev (see deploy.yml / Dockerfile.resume-fe).
   resume-fe:
-    image: ghcr.io/lovelycentury/okryshto/resume-fe:latest
+    image: ghcr.io/lovelycentury/okkly/resume-fe:latest
     restart: unless-stopped
     networks: [edge]
     healthcheck:
@@ -129,7 +129,7 @@ services:
 
   # RAG backend. Public on its own host, resume-api.okryshto.dev.
   resume-be:
-    image: ghcr.io/lovelycentury/okryshto/resume-be:latest
+    image: ghcr.io/lovelycentury/okkly/resume-be:latest
     restart: unless-stopped
     environment:
       NODE_ENV: production
@@ -199,7 +199,7 @@ services:
   #   docker compose --profile ingest run --rm resume-ingest
   resume-ingest:
     profiles: ["ingest"]
-    image: ghcr.io/lovelycentury/okryshto/resume-ingest:latest
+    image: ghcr.io/lovelycentury/okkly/resume-ingest:latest
     working_dir: /repo/apps/resume/be
     command: ["pnpm", "run", "ingest"]
     environment:

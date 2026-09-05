@@ -1,4 +1,4 @@
-import { Button, TextField, InlineAction } from "@okryshto/react";
+import { Button, TextField, InlineAction } from "@okkly/react";
 
 /**
  * Manual test bench — not a story, not published. Swap the contents below for
@@ -13,8 +13,8 @@ export function App() {
         alignItems: "center",
         justifyContent: "center",
         gap: "1rem",
-        background: "var(--okryshto-bg-canvas)",
-        fontFamily: "var(--okryshto-font-family-sans)",
+        background: "var(--okkly-bg-canvas)",
+        fontFamily: "var(--okkly-font-family-sans)",
       }}
     >
       <Button>Hello, playground</Button>

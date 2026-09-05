@@ -51,14 +51,14 @@ const surface: CSSProperties = {
   flexWrap: "wrap",
   alignItems: "center",
   gap: "16px",
-  fontFamily: "var(--okryshto-font-family-sans)",
-  color: "var(--okryshto-text-primary)",
+  fontFamily: "var(--okkly-font-family-sans)",
+  color: "var(--okkly-text-primary)",
 };
 
 const caption: CSSProperties = {
   margin: 0,
-  fontSize: "var(--okryshto-font-size-sm)",
-  color: "var(--okryshto-text-muted)",
+  fontSize: "var(--okkly-font-size-sm)",
+  color: "var(--okkly-text-muted)",
 };
 
 const TEAM = [
@@ -184,9 +184,9 @@ export const Sizes: Story = {
 };
 
 /**
- * The separator ring is painted in `--okryshto-bg-canvas` to look punched out of the
+ * The separator ring is painted in `--okkly-bg-canvas` to look punched out of the
  * page — which only works while the stack *is* on the canvas. On a raised card,
- * retint `--okryshto-avatar-group-ring-color`, or turn the ring off.
+ * retint `--okkly-avatar-group-ring-color`, or turn the ring off.
  */
 export const RingOnAnotherSurface: Story = {
   name: "Ring on another surface",
@@ -197,7 +197,7 @@ export const RingOnAnotherSurface: Story = {
         {
           label: "ring retinted to the card",
           style: {
-            ["--okryshto-avatar-group-ring-color" as string]: "var(--okryshto-bg-surface-raised)",
+            ["--okkly-avatar-group-ring-color" as string]: "var(--okkly-bg-surface-raised)",
           },
         },
       ].map((row) => (
@@ -209,7 +209,7 @@ export const RingOnAnotherSurface: Story = {
             gap: "12px",
             padding: "14px",
             borderRadius: "14px",
-            background: "var(--okryshto-bg-surface-raised)",
+            background: "var(--okkly-bg-surface-raised)",
           }}
         >
           <AvatarGroup hues={["mint", "dante", "indigo"]} style={row.style as CSSProperties}>

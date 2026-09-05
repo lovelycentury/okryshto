@@ -1,7 +1,7 @@
 "use client";
 
 import { type ReactNode } from "react";
-import "@okryshto/design-system/components/SeverityIcon/SeverityIcon.scss";
+import "@okkly/design-system/components/SeverityIcon/SeverityIcon.scss";
 
 export type SeverityIconSeverity =
   "success" | "info" | "warning" | "danger" | "primary" | "neutral";
@@ -136,11 +136,11 @@ export function SeverityIcon({
   const DefaultIcon = DEFAULT_ICONS[severity];
 
   const classes = [
-    "okryshto-component",
-    "okryshto-severity-icon",
-    severity !== "info" && `okryshto-severity-icon--${severity}`,
-    size !== "medium" && `okryshto-severity-icon--${size}`,
-    shape === "rounded" && "okryshto-severity-icon--rounded",
+    "okkly-component",
+    "okkly-severity-icon",
+    severity !== "info" && `okkly-severity-icon--${severity}`,
+    size !== "medium" && `okkly-severity-icon--${size}`,
+    shape === "rounded" && "okkly-severity-icon--rounded",
     className,
   ]
     .filter(Boolean)
@@ -152,7 +152,7 @@ export function SeverityIcon({
   // graphic.
   return (
     <span className={classes} role="img" aria-label={label} aria-hidden={label ? undefined : true}>
-      <span className="okryshto-severity-icon__icon">{icon ?? <DefaultIcon />}</span>
+      <span className="okkly-severity-icon__icon">{icon ?? <DefaultIcon />}</span>
     </span>
   );
 }

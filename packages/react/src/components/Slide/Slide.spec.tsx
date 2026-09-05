@@ -19,7 +19,7 @@ describe("Slide", () => {
         <div>Slide content</div>
       </Slide>,
     );
-    expect(screen.getByText("Slide content")).toHaveClass("okryshto-slide--left");
+    expect(screen.getByText("Slide content")).toHaveClass("okkly-slide--left");
   });
 
   it("unmounts children when in=false and unmountOnExit", () => {

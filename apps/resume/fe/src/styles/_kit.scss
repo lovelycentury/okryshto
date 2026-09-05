@@ -5,7 +5,7 @@
 
 @use "sass:list";
 @use "sass:map";
-@forward "@okryshto/design-system/styles/breakpoints.scss";
+@forward "@okkly/design-system/styles/breakpoints.scss";
 
 // The four steps the kit asks for. Profile reads these off its Figma type scale
 // (`--profile-*-size`); this app has no such scale, so the values are inlined at the
@@ -42,16 +42,16 @@ $type-steps: (
 
 /// Translucent surface.
 @mixin glass($radius: var(--app-radius-md)) {
-  border: 1px solid var(--okryshto-glass-border);
+  border: 1px solid var(--okkly-glass-border);
   border-radius: $radius;
-  background: var(--okryshto-glass-fill);
+  background: var(--okkly-glass-fill);
 }
 
 /// Opaque panel.
 @mixin surface($radius: var(--app-radius-md)) {
-  border: 1px solid var(--okryshto-border-subtle);
+  border: 1px solid var(--okkly-border-subtle);
   border-radius: $radius;
-  background: var(--okryshto-bg-surface);
+  background: var(--okkly-bg-surface);
 }
 
 /// Small square glass control — the kit's close button.
@@ -62,7 +62,7 @@ $type-steps: (
   align-items: center;
   justify-content: center;
   padding: 0;
-  color: var(--okryshto-text-primary);
+  color: var(--okkly-text-primary);
   cursor: pointer;
 
   @include glass($radius);

@@ -117,8 +117,8 @@ export const HeaderContext: Story = {
         justifyContent: "space-between",
         padding: "12px 24px",
         borderRadius: "12px",
-        background: "var(--okryshto-bg-inset)",
-        border: "1px solid var(--okryshto-border-subtle)",
+        background: "var(--okkly-bg-inset)",
+        border: "1px solid var(--okkly-border-subtle)",
         width: "480px",
       }}
     >
@@ -128,12 +128,12 @@ export const HeaderContext: Story = {
           display: "flex",
           gap: "20px",
           fontSize: "13px",
-          color: "var(--okryshto-text-secondary)",
+          color: "var(--okkly-text-secondary)",
         }}
       >
         <span>Showcase</span>
-        <span style={{ color: "var(--okryshto-text-muted)" }}>Specs</span>
-        <span style={{ color: "var(--okryshto-text-muted)" }}>Guidelines</span>
+        <span style={{ color: "var(--okkly-text-muted)" }}>Specs</span>
+        <span style={{ color: "var(--okkly-text-muted)" }}>Guidelines</span>
       </div>
     </div>
   ),

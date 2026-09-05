@@ -39,7 +39,7 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.4375rem 0.875rem;
-  color: var(--okryshto-text-secondary);
+  color: var(--okkly-text-secondary);
   font-weight: 500;
   @include m.type(label-sm);
   @include m.glass(9999px);
@@ -57,7 +57,7 @@
 
 .summary {
   max-width: 35rem; // 560px
-  color: var(--okryshto-text-secondary);
+  color: var(--okkly-text-secondary);
   @include m.type(body-lg);
 }
 
@@ -66,8 +66,8 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 0.625rem;
-  color: var(--okryshto-text-muted);
-  font-family: var(--profile-font-mono), var(--okryshto-font-family-mono);
+  color: var(--okkly-text-muted);
+  font-family: var(--profile-font-mono), var(--okkly-font-family-mono);
   @include m.type(mono);
 }
 
@@ -103,7 +103,7 @@
   justify-content: center;
   gap: 0.875rem;
   width: 100%;
-  border: 1.5px solid var(--okryshto-glass-border);
+  border: 1.5px solid var(--okkly-glass-border);
   border-radius: var(--profile-radius-2xl);
   background-image: linear-gradient(
     132deg,
@@ -129,7 +129,7 @@
     transition: none;
   }
 
-  :global(.okryshto-photo__caption) {
+  :global(.okkly-photo__caption) {
     color: #ffffff;
   }
 }
@@ -161,11 +161,11 @@
 }
 
 .glyph {
-  color: var(--okryshto-text-muted);
+  color: var(--okkly-text-muted);
   font-size: 5.5rem;
 }
 
 .caption {
-  color: var(--okryshto-text-secondary);
+  color: var(--okkly-text-secondary);
   @include m.type(label-md);
 }

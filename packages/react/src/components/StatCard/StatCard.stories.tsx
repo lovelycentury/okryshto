@@ -1,6 +1,6 @@
 import type { CSSProperties } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { iconActivity, iconCreditCard, iconHeadphones, iconUsers } from "@okryshto/icons";
+import { iconActivity, iconCreditCard, iconHeadphones, iconUsers } from "@okkly/icons";
 import { StatCard } from "./StatCard";
 
 /**
@@ -46,8 +46,8 @@ export default meta;
 type Story = StoryObj<typeof StatCard>;
 
 const surface: CSSProperties = {
-  fontFamily: "var(--okryshto-font-family-sans)",
-  color: "var(--okryshto-text-primary)",
+  fontFamily: "var(--okkly-font-family-sans)",
+  color: "var(--okkly-text-primary)",
 };
 
 // 270px, not less: below that a `md` value plus its trend badge stops fitting on
@@ -214,8 +214,8 @@ export const RichValue: Story = {
             €12,480
             <span
               style={{
-                fontSize: "var(--okryshto-font-size-md)",
-                color: "var(--okryshto-text-muted)",
+                fontSize: "var(--okkly-font-size-md)",
+                color: "var(--okkly-text-muted)",
               }}
             >
               {" "}
@@ -229,8 +229,8 @@ export const RichValue: Story = {
         label="Average session"
         value={
           <>
-            4<span style={{ fontSize: "var(--okryshto-font-size-lg)" }}>m</span> 12
-            <span style={{ fontSize: "var(--okryshto-font-size-lg)" }}>s</span>
+            4<span style={{ fontSize: "var(--okkly-font-size-lg)" }}>m</span> 12
+            <span style={{ fontSize: "var(--okkly-font-size-lg)" }}>s</span>
           </>
         }
         color="violet"

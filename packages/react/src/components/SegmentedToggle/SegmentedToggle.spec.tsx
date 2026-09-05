@@ -20,26 +20,26 @@ describe("SegmentedToggle", () => {
   it("renders with zero modifier classes by default", () => {
     const { container } = render(<SegmentedToggle items={rangeItems} />);
     const root = container.firstChild as HTMLElement;
-    expect(root).toHaveClass("okryshto-component", "okryshto-segmented-toggle");
-    expect(root.className).not.toMatch(/okryshto-segmented-toggle--color-/);
-    expect(root.className).not.toMatch(/okryshto-segmented-toggle--disabled/);
+    expect(root).toHaveClass("okkly-component", "okkly-segmented-toggle");
+    expect(root.className).not.toMatch(/okkly-segmented-toggle--color-/);
+    expect(root.className).not.toMatch(/okkly-segmented-toggle--disabled/);
   });
 
   it("marks the active segment from value", () => {
     render(<SegmentedToggle items={rangeItems} value="week" />);
     const week = screen.getByRole("button", { name: "Week" });
-    expect(week).toHaveClass("okryshto-segmented-toggle__segment--active");
+    expect(week).toHaveClass("okkly-segmented-toggle__segment--active");
     expect(week).toHaveAttribute("aria-pressed", "true");
     expect(screen.getByRole("button", { name: "Day" })).toHaveAttribute("aria-pressed", "false");
   });
 
   it("applies the color modifier only for non-default colors", () => {
     const { rerender, container } = render(<SegmentedToggle items={rangeItems} color="dante" />);
-    expect(container.firstChild).toHaveClass("okryshto-segmented-toggle--color-dante");
+    expect(container.firstChild).toHaveClass("okkly-segmented-toggle--color-dante");
 
     rerender(<SegmentedToggle items={rangeItems} color="primary" />);
     expect((container.firstChild as HTMLElement).className).not.toMatch(
-      /okryshto-segmented-toggle--color-/,
+      /okkly-segmented-toggle--color-/,
     );
   });
 

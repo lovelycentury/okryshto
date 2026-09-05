@@ -11,52 +11,46 @@ describe("Chip", () => {
 
   it("applies the default classes (glass variant, medium size)", () => {
     render(<Chip label="Fintech" />);
-    const chip = screen.getByText("Fintech").closest(".okryshto-chip");
-    expect(chip).toHaveClass("okryshto-component", "okryshto-chip");
-    expect(chip?.className).not.toMatch(/okryshto-chip--(solid|outline|accent|dante)/);
-    expect(chip?.className).not.toMatch(/okryshto-chip--(small|large)/);
+    const chip = screen.getByText("Fintech").closest(".okkly-chip");
+    expect(chip).toHaveClass("okkly-component", "okkly-chip");
+    expect(chip?.className).not.toMatch(/okkly-chip--(solid|outline|accent|dante)/);
+    expect(chip?.className).not.toMatch(/okkly-chip--(small|large)/);
   });
 
   it("applies the variant modifier only for non-default variants", () => {
     const { rerender } = render(<Chip label="Fintech" variant="dante" />);
-    expect(screen.getByText("Fintech").closest(".okryshto-chip")).toHaveClass(
-      "okryshto-chip--dante",
-    );
+    expect(screen.getByText("Fintech").closest(".okkly-chip")).toHaveClass("okkly-chip--dante");
 
     rerender(<Chip label="Fintech" variant="glass" />);
-    expect(screen.getByText("Fintech").closest(".okryshto-chip")?.className).not.toMatch(
-      /okryshto-chip--(solid|outline|accent|dante)/,
+    expect(screen.getByText("Fintech").closest(".okkly-chip")?.className).not.toMatch(
+      /okkly-chip--(solid|outline|accent|dante)/,
     );
   });
 
   it("applies a size modifier only for non-medium sizes", () => {
     const { rerender } = render(<Chip label="Fintech" size="small" />);
-    expect(screen.getByText("Fintech").closest(".okryshto-chip")).toHaveClass(
-      "okryshto-chip--small",
-    );
+    expect(screen.getByText("Fintech").closest(".okkly-chip")).toHaveClass("okkly-chip--small");
 
     rerender(<Chip label="Fintech" size="medium" />);
-    expect(screen.getByText("Fintech").closest(".okryshto-chip")?.className).not.toMatch(
-      /okryshto-chip--(small|large)/,
+    expect(screen.getByText("Fintech").closest(".okkly-chip")?.className).not.toMatch(
+      /okkly-chip--(small|large)/,
     );
   });
 
   it("applies the selected modifier", () => {
     render(<Chip label="Fintech" selected />);
-    expect(screen.getByText("Fintech").closest(".okryshto-chip")).toHaveClass(
-      "okryshto-chip--selected",
-    );
+    expect(screen.getByText("Fintech").closest(".okkly-chip")).toHaveClass("okkly-chip--selected");
   });
 
   it("renders a leading dot", () => {
     const { container } = render(<Chip label="Available" dot />);
-    expect(container.querySelector(".okryshto-chip__dot")).toBeInTheDocument();
+    expect(container.querySelector(".okkly-chip__dot")).toBeInTheDocument();
   });
 
   it("renders a leading icon and suppresses the dot", () => {
     const { container } = render(<Chip label="Starred" dot icon={<span data-testid="icon" />} />);
     expect(screen.getByTestId("icon")).toBeInTheDocument();
-    expect(container.querySelector(".okryshto-chip__dot")).not.toBeInTheDocument();
+    expect(container.querySelector(".okkly-chip__dot")).not.toBeInTheDocument();
   });
 
   describe("interactive", () => {
@@ -69,7 +63,7 @@ describe("Chip", () => {
       const onClick = vi.fn();
       render(<Chip label="Fintech" onClick={onClick} />);
       const chip = screen.getByRole("button", { name: "Fintech" });
-      expect(chip).toHaveClass("okryshto-chip--interactive");
+      expect(chip).toHaveClass("okkly-chip--interactive");
       fireEvent.click(chip);
       expect(onClick).toHaveBeenCalledOnce();
     });
@@ -111,9 +105,9 @@ describe("Chip", () => {
     it("marks the chip aria-disabled and drops button semantics", () => {
       const onClick = vi.fn();
       render(<Chip label="Fintech" onClick={onClick} disabled />);
-      const chip = screen.getByText("Fintech").closest(".okryshto-chip");
+      const chip = screen.getByText("Fintech").closest(".okkly-chip");
       expect(chip).toHaveAttribute("aria-disabled", "true");
-      expect(chip).not.toHaveClass("okryshto-chip--interactive");
+      expect(chip).not.toHaveClass("okkly-chip--interactive");
       fireEvent.click(chip as Element);
       expect(onClick).not.toHaveBeenCalled();
     });

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
-import { Fab, Icon } from "@okryshto/react";
+import { Fab, Icon } from "@okkly/react";
 import { trackThemeSwitch } from "@/lib/analyticsEvents";
 import {
   applyProfileTheme,

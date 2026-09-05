@@ -24,9 +24,9 @@ describe("AvatarGroup", () => {
         <Avatar initials="OK" />
       </AvatarGroup>,
     );
-    const group = container.querySelector(".okryshto-avatar-group");
-    expect(group).toHaveClass("okryshto-component", "okryshto-avatar-group");
-    expect(group?.className).not.toMatch(/okryshto-avatar-group--(md|lg|dense|loose|no-ring)/);
+    const group = container.querySelector(".okkly-avatar-group");
+    expect(group).toHaveClass("okkly-component", "okkly-avatar-group");
+    expect(group?.className).not.toMatch(/okkly-avatar-group--(md|lg|dense|loose|no-ring)/);
   });
 
   it("collapses extra members into a +N chip", () => {
@@ -66,8 +66,8 @@ describe("AvatarGroup", () => {
         <Avatar initials="AB" />
       </AvatarGroup>,
     );
-    expect(screen.getByText("OK").closest(".okryshto-avatar")).toHaveClass("okryshto-avatar--lg");
-    expect(screen.getByText("AB").closest(".okryshto-avatar")).toHaveClass("okryshto-avatar--lg");
+    expect(screen.getByText("OK").closest(".okkly-avatar")).toHaveClass("okkly-avatar--lg");
+    expect(screen.getByText("AB").closest(".okkly-avatar")).toHaveClass("okkly-avatar--lg");
   });
 
   it("cycles hues across members", () => {
@@ -79,17 +79,17 @@ describe("AvatarGroup", () => {
         <Avatar initials="LN" />
       </AvatarGroup>,
     );
-    expect(screen.getByText("OK").closest(".okryshto-avatar")?.className).not.toMatch(
-      /okryshto-avatar--color/,
+    expect(screen.getByText("OK").closest(".okkly-avatar")?.className).not.toMatch(
+      /okkly-avatar--color/,
     );
-    expect(screen.getByText("AB").closest(".okryshto-avatar")).toHaveClass(
-      "okryshto-avatar--color-dante",
+    expect(screen.getByText("AB").closest(".okkly-avatar")).toHaveClass(
+      "okkly-avatar--color-dante",
     );
-    expect(screen.getByText("MK").closest(".okryshto-avatar")).toHaveClass(
-      "okryshto-avatar--color-indigo",
+    expect(screen.getByText("MK").closest(".okkly-avatar")).toHaveClass(
+      "okkly-avatar--color-indigo",
     );
-    expect(screen.getByText("LN").closest(".okryshto-avatar")?.className).not.toMatch(
-      /okryshto-avatar--color/,
+    expect(screen.getByText("LN").closest(".okkly-avatar")?.className).not.toMatch(
+      /okkly-avatar--color/,
     );
   });
 
@@ -99,11 +99,11 @@ describe("AvatarGroup", () => {
         <Avatar initials="OK" />
       </AvatarGroup>,
     );
-    const group = container.querySelector(".okryshto-avatar-group");
+    const group = container.querySelector(".okkly-avatar-group");
     expect(group).toHaveClass(
-      "okryshto-avatar-group--md",
-      "okryshto-avatar-group--loose",
-      "okryshto-avatar-group--no-ring",
+      "okkly-avatar-group--md",
+      "okkly-avatar-group--loose",
+      "okkly-avatar-group--no-ring",
     );
 
     rerender(
@@ -111,8 +111,8 @@ describe("AvatarGroup", () => {
         <Avatar initials="OK" />
       </AvatarGroup>,
     );
-    expect(container.querySelector(".okryshto-avatar-group")?.className).not.toMatch(
-      /okryshto-avatar-group--(md|lg|dense|loose|no-ring)/,
+    expect(container.querySelector(".okkly-avatar-group")?.className).not.toMatch(
+      /okkly-avatar-group--(md|lg|dense|loose|no-ring)/,
     );
   });
 });

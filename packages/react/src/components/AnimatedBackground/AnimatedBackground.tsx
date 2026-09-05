@@ -10,7 +10,7 @@ import {
   type HTMLAttributes,
   type ReactNode,
 } from "react";
-import "@okryshto/design-system/components/AnimatedBackground/AnimatedBackground.scss";
+import "@okkly/design-system/components/AnimatedBackground/AnimatedBackground.scss";
 
 /**
  * Layered deep-space background — nebulae, twinkling stars, a falling dante
@@ -337,14 +337,14 @@ export const AnimatedBackground = forwardRef<HTMLDivElement, AnimatedBackgroundP
     ref,
   ) {
     const rawId = useId().replace(/:/g, "");
-    const grainId = `okryshto-bg-grain-${rawId}`;
-    const starGlowId = `okryshto-bg-star-${rawId}`;
-    const beaconCoreId = `okryshto-bg-beacon-core-${rawId}`;
-    const beaconHaloId = `okryshto-bg-beacon-halo-${rawId}`;
-    const sparkleCoreId = `okryshto-bg-sparkle-core-${rawId}`;
-    const sparkleGlowId = `okryshto-bg-sparkle-glow-${rawId}`;
-    const sparkGradId = `okryshto-bg-spark-${rawId}`;
-    const fwId = (slot: number) => `okryshto-bg-fw${slot}-${rawId}`;
+    const grainId = `okkly-bg-grain-${rawId}`;
+    const starGlowId = `okkly-bg-star-${rawId}`;
+    const beaconCoreId = `okkly-bg-beacon-core-${rawId}`;
+    const beaconHaloId = `okkly-bg-beacon-halo-${rawId}`;
+    const sparkleCoreId = `okkly-bg-sparkle-core-${rawId}`;
+    const sparkleGlowId = `okkly-bg-sparkle-glow-${rawId}`;
+    const sparkGradId = `okkly-bg-spark-${rawId}`;
+    const fwId = (slot: number) => `okkly-bg-fw${slot}-${rawId}`;
 
     // Nothing PixiJS-ish is left, but the scene is still decorative chrome
     // that has no business in server output — and the pointer listener needs
@@ -365,11 +365,11 @@ export const AnimatedBackground = forwardRef<HTMLDivElement, AnimatedBackgroundP
         const svg = svgRef.current;
         if (!svg) return;
         svg.style.setProperty(
-          "--okryshto-animated-background-px",
+          "--okkly-animated-background-px",
           String(round((event.clientX / window.innerWidth - 0.5) * -2)),
         );
         svg.style.setProperty(
-          "--okryshto-animated-background-py",
+          "--okkly-animated-background-py",
           String(round((event.clientY / window.innerHeight - 0.5) * -2)),
         );
       };
@@ -381,10 +381,10 @@ export const AnimatedBackground = forwardRef<HTMLDivElement, AnimatedBackgroundP
     const [farCount, nearCount, beaconCount, burstCount] = BUDGET[quality];
 
     const classes = [
-      "okryshto-component",
-      "okryshto-animated-background",
-      preset !== "aurora" && `okryshto-animated-background--${preset}`,
-      !respectReducedMotion && "okryshto-animated-background--force-motion",
+      "okkly-component",
+      "okkly-animated-background",
+      preset !== "aurora" && `okkly-animated-background--${preset}`,
+      !respectReducedMotion && "okkly-animated-background--force-motion",
       className,
     ]
       .filter(Boolean)
@@ -394,23 +394,23 @@ export const AnimatedBackground = forwardRef<HTMLDivElement, AnimatedBackgroundP
       <div ref={ref} className={classes} {...rest}>
         {/* L1 — the wide soft washes. GPU-composited; see NEBULAE. */}
         {mounted && (
-          <div className="okryshto-animated-background__clouds" aria-hidden="true">
+          <div className="okkly-animated-background__clouds" aria-hidden="true">
             {NEBULAE.map((n, i) => (
               <div
                 key={i}
-                className={`okryshto-animated-background__cloud${
-                  n.veil ? " okryshto-animated-background__cloud--veil" : ""
+                className={`okkly-animated-background__cloud${
+                  n.veil ? " okkly-animated-background__cloud--veil" : ""
                 }`}
                 style={cssVars({
-                  "--okryshto-animated-background-hue": `var(--okryshto-animated-background-n${n.hue})`,
-                  "--okryshto-animated-background-x": `${n.x}%`,
-                  "--okryshto-animated-background-y": `${n.y}%`,
-                  "--okryshto-animated-background-w": `${n.w}%`,
-                  "--okryshto-animated-background-ar": `${n.ar}`,
-                  "--okryshto-animated-background-dur": `${n.dur}s`,
-                  "--okryshto-animated-background-delay": `${n.delay}s`,
-                  "--okryshto-animated-background-drift-x": `${n.driftX}px`,
-                  "--okryshto-animated-background-drift-y": `${n.driftY}px`,
+                  "--okkly-animated-background-hue": `var(--okkly-animated-background-n${n.hue})`,
+                  "--okkly-animated-background-x": `${n.x}%`,
+                  "--okkly-animated-background-y": `${n.y}%`,
+                  "--okkly-animated-background-w": `${n.w}%`,
+                  "--okkly-animated-background-ar": `${n.ar}`,
+                  "--okkly-animated-background-dur": `${n.dur}s`,
+                  "--okkly-animated-background-delay": `${n.delay}s`,
+                  "--okkly-animated-background-drift-x": `${n.driftX}px`,
+                  "--okkly-animated-background-drift-y": `${n.driftY}px`,
                 })}
               />
             ))}
@@ -420,7 +420,7 @@ export const AnimatedBackground = forwardRef<HTMLDivElement, AnimatedBackgroundP
         {mounted && (
           <svg
             ref={svgRef}
-            className="okryshto-animated-background__svg"
+            className="okkly-animated-background__svg"
             viewBox="0 0 1000 1000"
             preserveAspectRatio="xMidYMid slice"
             xmlns="http://www.w3.org/2000/svg"
@@ -441,12 +441,12 @@ export const AnimatedBackground = forwardRef<HTMLDivElement, AnimatedBackgroundP
                 <stop offset="12%" stopColor="#ffffff" stopOpacity="0.85" />
                 <stop
                   offset="30%"
-                  stopColor="var(--okryshto-animated-background-star)"
+                  stopColor="var(--okkly-animated-background-star)"
                   stopOpacity="0.28"
                 />
                 <stop
                   offset="100%"
-                  stopColor="var(--okryshto-animated-background-star)"
+                  stopColor="var(--okkly-animated-background-star)"
                   stopOpacity="0"
                 />
               </radialGradient>
@@ -458,12 +458,12 @@ export const AnimatedBackground = forwardRef<HTMLDivElement, AnimatedBackgroundP
                 <stop offset="0%" stopColor="#ffffff" stopOpacity="1" />
                 <stop
                   offset="35%"
-                  stopColor="var(--okryshto-animated-background-beacon)"
+                  stopColor="var(--okkly-animated-background-beacon)"
                   stopOpacity="0.9"
                 />
                 <stop
                   offset="100%"
-                  stopColor="var(--okryshto-animated-background-beacon)"
+                  stopColor="var(--okkly-animated-background-beacon)"
                   stopOpacity="0"
                 />
               </radialGradient>
@@ -475,7 +475,7 @@ export const AnimatedBackground = forwardRef<HTMLDivElement, AnimatedBackgroundP
                 <stop offset="45%" stopColor="#ffffff" stopOpacity="0.9" />
                 <stop
                   offset="100%"
-                  stopColor="var(--okryshto-animated-background-star)"
+                  stopColor="var(--okkly-animated-background-star)"
                   stopOpacity="0.35"
                 />
               </radialGradient>
@@ -484,12 +484,12 @@ export const AnimatedBackground = forwardRef<HTMLDivElement, AnimatedBackgroundP
                 <stop offset="0%" stopColor="#ffffff" stopOpacity="0.5" />
                 <stop
                   offset="30%"
-                  stopColor="var(--okryshto-animated-background-star)"
+                  stopColor="var(--okkly-animated-background-star)"
                   stopOpacity="0.16"
                 />
                 <stop
                   offset="100%"
-                  stopColor="var(--okryshto-animated-background-star)"
+                  stopColor="var(--okkly-animated-background-star)"
                   stopOpacity="0"
                 />
               </radialGradient>
@@ -497,17 +497,17 @@ export const AnimatedBackground = forwardRef<HTMLDivElement, AnimatedBackgroundP
               <radialGradient id={beaconHaloId}>
                 <stop
                   offset="0%"
-                  stopColor="var(--okryshto-animated-background-beacon)"
+                  stopColor="var(--okkly-animated-background-beacon)"
                   stopOpacity="0.22"
                 />
                 <stop
                   offset="40%"
-                  stopColor="var(--okryshto-animated-background-beacon)"
+                  stopColor="var(--okkly-animated-background-beacon)"
                   stopOpacity="0.07"
                 />
                 <stop
                   offset="100%"
-                  stopColor="var(--okryshto-animated-background-beacon)"
+                  stopColor="var(--okkly-animated-background-beacon)"
                   stopOpacity="0"
                 />
               </radialGradient>
@@ -517,12 +517,12 @@ export const AnimatedBackground = forwardRef<HTMLDivElement, AnimatedBackgroundP
               <linearGradient id={sparkGradId} x1="0" y1="0" x2="1" y2="0">
                 <stop
                   offset="0%"
-                  stopColor="var(--okryshto-animated-background-spark)"
+                  stopColor="var(--okkly-animated-background-spark)"
                   stopOpacity="0"
                 />
                 <stop
                   offset="70%"
-                  stopColor="var(--okryshto-animated-background-spark)"
+                  stopColor="var(--okkly-animated-background-spark)"
                   stopOpacity="0.5"
                 />
                 <stop offset="100%" stopColor="#ffffff" stopOpacity="1" />
@@ -537,12 +537,12 @@ export const AnimatedBackground = forwardRef<HTMLDivElement, AnimatedBackgroundP
                   <stop offset="0%" stopColor="#ffffff" stopOpacity="1" />
                   <stop
                     offset="55%"
-                    stopColor={`var(--okryshto-animated-background-fw${slot})`}
+                    stopColor={`var(--okkly-animated-background-fw${slot})`}
                     stopOpacity="0.95"
                   />
                   <stop
                     offset="100%"
-                    stopColor={`var(--okryshto-animated-background-fw${slot})`}
+                    stopColor={`var(--okkly-animated-background-fw${slot})`}
                     stopOpacity="0"
                   />
                 </radialGradient>
@@ -550,31 +550,31 @@ export const AnimatedBackground = forwardRef<HTMLDivElement, AnimatedBackgroundP
             </defs>
 
             {/* L2 — stars, two depths */}
-            <g className="okryshto-animated-background__stars">
+            <g className="okkly-animated-background__stars">
               {FAR_STARS.slice(0, farCount).map((s, i) => (
                 <circle
                   key={`f${i}`}
-                  className="okryshto-animated-background__star"
+                  className="okkly-animated-background__star"
                   cx={s.cx}
                   cy={s.cy}
                   r={s.r}
                   style={cssVars({
-                    "--okryshto-animated-background-dur": `${s.dur}s`,
-                    "--okryshto-animated-background-delay": `${s.delay}s`,
+                    "--okkly-animated-background-dur": `${s.dur}s`,
+                    "--okkly-animated-background-delay": `${s.delay}s`,
                   })}
                 />
               ))}
               {NEAR_STARS.slice(0, nearCount).map((s, i) => (
                 <circle
                   key={`n${i}`}
-                  className="okryshto-animated-background__star okryshto-animated-background__star--near"
+                  className="okkly-animated-background__star okkly-animated-background__star--near"
                   cx={s.cx}
                   cy={s.cy}
                   r={s.r}
                   fill={`url(#${starGlowId})`}
                   style={cssVars({
-                    "--okryshto-animated-background-dur": `${s.dur}s`,
-                    "--okryshto-animated-background-delay": `${s.delay}s`,
+                    "--okkly-animated-background-dur": `${s.dur}s`,
+                    "--okkly-animated-background-delay": `${s.delay}s`,
                   })}
                 />
               ))}
@@ -585,10 +585,10 @@ export const AnimatedBackground = forwardRef<HTMLDivElement, AnimatedBackgroundP
               {BEACONS.slice(0, beaconCount).map((b, i) => (
                 <g
                   key={i}
-                  className="okryshto-animated-background__beacon"
+                  className="okkly-animated-background__beacon"
                   style={cssVars({
-                    "--okryshto-animated-background-dur": `${b.dur}s`,
-                    "--okryshto-animated-background-delay": `${b.delay}s`,
+                    "--okkly-animated-background-dur": `${b.dur}s`,
+                    "--okkly-animated-background-delay": `${b.delay}s`,
                   })}
                 >
                   <circle cx={b.cx} cy={b.cy} r="46" fill={`url(#${beaconHaloId})`} />
@@ -607,10 +607,10 @@ export const AnimatedBackground = forwardRef<HTMLDivElement, AnimatedBackgroundP
                 // every sparkle at the viewBox origin.
                 <g key={i} transform={`translate(${s.cx} ${s.cy})`}>
                   <g
-                    className="okryshto-animated-background__sparkle"
+                    className="okkly-animated-background__sparkle"
                     style={cssVars({
-                      "--okryshto-animated-background-dur": `${s.dur}s`,
-                      "--okryshto-animated-background-delay": `${s.delay}s`,
+                      "--okkly-animated-background-dur": `${s.dur}s`,
+                      "--okkly-animated-background-delay": `${s.delay}s`,
                     })}
                   >
                     <circle cx="0" cy="0" r={s.size * 1.1} fill={`url(#${sparkleGlowId})`} />
@@ -625,7 +625,7 @@ export const AnimatedBackground = forwardRef<HTMLDivElement, AnimatedBackgroundP
               {SPARKS.map((s, i) => (
                 <g key={i} transform={`translate(${s.x} ${s.y}) rotate(${s.angle})`}>
                   <rect
-                    className="okryshto-animated-background__spark"
+                    className="okkly-animated-background__spark"
                     x="0"
                     y="-0.56"
                     width={s.len}
@@ -633,12 +633,12 @@ export const AnimatedBackground = forwardRef<HTMLDivElement, AnimatedBackgroundP
                     rx="0.56"
                     fill={`url(#${sparkGradId})`}
                     style={cssVars({
-                      "--okryshto-animated-background-dur": `${s.dur}s`,
-                      "--okryshto-animated-background-delay": `${s.delay}s`,
+                      "--okkly-animated-background-dur": `${s.dur}s`,
+                      "--okkly-animated-background-delay": `${s.delay}s`,
                       // Travel far enough past the frame that the streak always
                       // exits rather than fading out mid-flight.
-                      "--okryshto-animated-background-spark-x": "1500px",
-                      "--okryshto-animated-background-spark-y": "0px",
+                      "--okkly-animated-background-spark-x": "1500px",
+                      "--okkly-animated-background-spark-y": "0px",
                     })}
                   />
                 </g>
@@ -653,15 +653,15 @@ export const AnimatedBackground = forwardRef<HTMLDivElement, AnimatedBackgroundP
                     {makeSpokes(b.seed, b.radius).map((sp, j) => (
                       <g
                         key={j}
-                        className="okryshto-animated-background__spoke"
+                        className="okkly-animated-background__spoke"
                         transform={`rotate(${sp.angle})`}
                       >
                         <g
-                          className="okryshto-animated-background__spoke-body"
+                          className="okkly-animated-background__spoke-body"
                           style={cssVars({
-                            "--okryshto-animated-background-dur": `${b.dur}s`,
-                            "--okryshto-animated-background-delay": `${b.delay + sp.delay}s`,
-                            "--okryshto-animated-background-spoke-r": `${sp.len}px`,
+                            "--okkly-animated-background-dur": `${b.dur}s`,
+                            "--okkly-animated-background-delay": `${b.delay + sp.delay}s`,
+                            "--okkly-animated-background-spoke-r": `${sp.len}px`,
                           })}
                         >
                           {/* tail behind the head, pointing back at the core */}
@@ -690,14 +690,14 @@ export const AnimatedBackground = forwardRef<HTMLDivElement, AnimatedBackgroundP
 
             {/* L6 — grain. Same split as the nebulae: the noise is generated
                 once on the static rect, the wrapper does the drifting. */}
-            <g className="okryshto-animated-background__grain">
+            <g className="okkly-animated-background__grain">
               <rect x="-5%" y="-5%" width="110%" height="110%" filter={`url(#${grainId})`} />
             </g>
           </svg>
         )}
 
-        {scrim && <div className="okryshto-animated-background__scrim" aria-hidden="true" />}
-        {mounted && <div className="okryshto-animated-background__bloom" aria-hidden="true" />}
+        {scrim && <div className="okkly-animated-background__scrim" aria-hidden="true" />}
+        {mounted && <div className="okkly-animated-background__bloom" aria-hidden="true" />}
         {children}
       </div>
     );

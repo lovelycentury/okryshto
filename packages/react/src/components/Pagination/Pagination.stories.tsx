@@ -42,20 +42,20 @@ export default meta;
 type Story = StoryObj<typeof Pagination>;
 
 const surface: CSSProperties = {
-  background: "var(--okryshto-bg-surface-raised)",
-  border: "1px solid var(--okryshto-border-subtle)",
+  background: "var(--okkly-bg-surface-raised)",
+  border: "1px solid var(--okkly-border-subtle)",
   borderRadius: "12px",
   padding: "16px",
   width: "fit-content",
-  fontFamily: "var(--okryshto-font-family-sans)",
-  color: "var(--okryshto-text-primary)",
+  fontFamily: "var(--okkly-font-family-sans)",
+  color: "var(--okkly-text-primary)",
 };
 
 const cell: CSSProperties = {
   padding: "10px 12px",
-  fontSize: "var(--okryshto-font-size-sm)",
+  fontSize: "var(--okkly-font-size-sm)",
   textAlign: "left",
-  borderBottom: "1px solid var(--okryshto-border-subtle)",
+  borderBottom: "1px solid var(--okkly-border-subtle)",
 };
 
 /**
@@ -89,11 +89,11 @@ export const Table: Story = {
           <tbody>
             {visible.map((row) => (
               <tr key={row.id}>
-                <td style={{ ...cell, color: "var(--okryshto-text-muted)", width: "72px" }}>
+                <td style={{ ...cell, color: "var(--okkly-text-muted)", width: "72px" }}>
                   #{row.id}
                 </td>
                 <td style={cell}>{row.title}</td>
-                <td style={{ ...cell, color: "var(--okryshto-text-secondary)", width: "96px" }}>
+                <td style={{ ...cell, color: "var(--okkly-text-secondary)", width: "96px" }}>
                   {row.author}
                 </td>
               </tr>
@@ -111,8 +111,8 @@ export const Table: Story = {
         >
           <span
             style={{
-              fontSize: "var(--okryshto-font-size-sm)",
-              color: "var(--okryshto-text-secondary)",
+              fontSize: "var(--okkly-font-size-sm)",
+              color: "var(--okkly-text-secondary)",
             }}
           >
             {(page - 1) * perPage + 1}–{Math.min(page * perPage, rows.length)} of {rows.length}
@@ -148,8 +148,8 @@ export const Windowing: Story = {
         />
         <span
           style={{
-            fontSize: "var(--okryshto-font-size-sm)",
-            color: "var(--okryshto-text-secondary)",
+            fontSize: "var(--okkly-font-size-sm)",
+            color: "var(--okkly-text-secondary)",
           }}
         >
           default · siblingCount=2 · boundaryCount=2 — page {page} of 80

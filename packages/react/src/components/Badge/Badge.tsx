@@ -1,7 +1,7 @@
 "use client";
 
 import { type ReactNode } from "react";
-import "@okryshto/design-system/components/Badge/Badge.scss";
+import "@okkly/design-system/components/Badge/Badge.scss";
 
 export type BadgeColor =
   "primary" | "dante" | "indigo" | "violet" | "ember" | "ice" | "success" | "warning" | "danger";
@@ -120,22 +120,22 @@ export function Badge({
   const standalone = children == null;
 
   const rootClasses = [
-    "okryshto-component",
-    "okryshto-badge",
-    standalone && "okryshto-badge--standalone",
-    overlap === "rectangular" && "okryshto-badge--overlap-rectangular",
-    color && `okryshto-badge--color-${color}`,
+    "okkly-component",
+    "okkly-badge",
+    standalone && "okkly-badge--standalone",
+    overlap === "rectangular" && "okkly-badge--overlap-rectangular",
+    color && `okkly-badge--color-${color}`,
     className,
   ]
     .filter(Boolean)
     .join(" ");
 
   const contentClasses = [
-    "okryshto-badge__content",
-    variant === "dot" && "okryshto-badge__content--dot",
-    hidden && "okryshto-badge__content--invisible",
-    !standalone && `okryshto-badge__content--${anchorOrigin.vertical}`,
-    !standalone && `okryshto-badge__content--${anchorOrigin.horizontal}`,
+    "okkly-badge__content",
+    variant === "dot" && "okkly-badge__content--dot",
+    hidden && "okkly-badge__content--invisible",
+    !standalone && `okkly-badge__content--${anchorOrigin.vertical}`,
+    !standalone && `okkly-badge__content--${anchorOrigin.horizontal}`,
   ]
     .filter(Boolean)
     .join(" ");
@@ -156,7 +156,7 @@ export function Badge({
 
   return (
     <span className={rootClasses}>
-      <span className="okryshto-badge__anchor">{children}</span>
+      <span className="okkly-badge__anchor">{children}</span>
       {badgeNode}
     </span>
   );

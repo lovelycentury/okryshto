@@ -1,9 +1,20 @@
 {
-  "name": "@okryshto/design-system",
+  "name": "@okkly/design-system",
   "version": "0.0.0",
   "description": "Okryshto design system — CSS tokens, fonts, and base component styles (SCSS/BEM)",
   "license": "MIT",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lovelycentury/okkly.git",
+    "directory": "packages/design-system"
+  },
+  "homepage": "https://github.com/lovelycentury/okkly/tree/main/packages/design-system#readme",
+  "bugs": "https://github.com/lovelycentury/okkly/issues",
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
   "sideEffects": true,
   "files": [
     "src/styles",

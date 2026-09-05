@@ -35,7 +35,7 @@ describe("InlineAction", () => {
       const { container } = render(
         <InlineAction defaultValue="a@b.dev" loading action="Sending…" />,
       );
-      expect(container.querySelector(".okryshto-inline-action__spinner")).toBeInTheDocument();
+      expect(container.querySelector(".okkly-inline-action__spinner")).toBeInTheDocument();
       expect(screen.getByRole("button", { name: "Sending…" })).toBeInTheDocument();
     });
 
@@ -55,7 +55,7 @@ describe("InlineAction", () => {
 
   it("shows the message caption only when provided, with state-based color", () => {
     const { container, rerender } = render(<InlineAction defaultValue="a@b.dev" />);
-    expect(container.querySelector(".okryshto-inline-action__message")).not.toBeInTheDocument();
+    expect(container.querySelector(".okkly-inline-action__message")).not.toBeInTheDocument();
 
     rerender(
       <InlineAction
@@ -64,44 +64,44 @@ describe("InlineAction", () => {
         message="That address doesn't look right"
       />,
     );
-    const msg = container.querySelector(".okryshto-inline-action__message");
+    const msg = container.querySelector(".okkly-inline-action__message");
     expect(msg).toHaveTextContent("That address doesn't look right");
-    expect(msg).toHaveClass("okryshto-inline-action__message--error");
+    expect(msg).toHaveClass("okkly-inline-action__message--error");
   });
 
   it("applies a color modifier only when color is explicitly set (default = inherit section tone)", () => {
     const { container, rerender } = render(<InlineAction defaultValue="a@b.dev" />);
-    expect(container.querySelector(".okryshto-inline-action")?.className).not.toMatch(
-      /okryshto-inline-action--color-/,
+    expect(container.querySelector(".okkly-inline-action")?.className).not.toMatch(
+      /okkly-inline-action--color-/,
     );
 
     rerender(<InlineAction defaultValue="a@b.dev" color="dante" />);
-    expect(container.querySelector(".okryshto-inline-action")).toHaveClass(
-      "okryshto-inline-action--color-dante",
+    expect(container.querySelector(".okkly-inline-action")).toHaveClass(
+      "okkly-inline-action--color-dante",
     );
   });
 
   it("applies a fill modifier only for non-filled fills", () => {
     const { container, rerender } = render(<InlineAction defaultValue="a@b.dev" fill="glass" />);
-    expect(container.querySelector(".okryshto-inline-action")).toHaveClass(
-      "okryshto-inline-action--fill-glass",
+    expect(container.querySelector(".okkly-inline-action")).toHaveClass(
+      "okkly-inline-action--fill-glass",
     );
 
     rerender(<InlineAction defaultValue="a@b.dev" fill="filled" />);
-    expect(container.querySelector(".okryshto-inline-action")?.className).not.toMatch(
-      /okryshto-inline-action--fill-/,
+    expect(container.querySelector(".okkly-inline-action")?.className).not.toMatch(
+      /okkly-inline-action--fill-/,
     );
   });
 
   it("applies a size modifier only for non-medium sizes", () => {
     const { container, rerender } = render(<InlineAction defaultValue="a@b.dev" size="small" />);
-    expect(container.querySelector(".okryshto-inline-action")).toHaveClass(
-      "okryshto-inline-action--small",
+    expect(container.querySelector(".okkly-inline-action")).toHaveClass(
+      "okkly-inline-action--small",
     );
 
     rerender(<InlineAction defaultValue="a@b.dev" size="medium" />);
-    expect(container.querySelector(".okryshto-inline-action")?.className).not.toMatch(
-      /okryshto-inline-action--(small|large)/,
+    expect(container.querySelector(".okkly-inline-action")?.className).not.toMatch(
+      /okkly-inline-action--(small|large)/,
     );
   });
 

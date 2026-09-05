@@ -9,8 +9,8 @@ import {
   type ReactNode,
 } from "react";
 import { createPortal } from "react-dom";
-import "@okryshto/design-system/components/Modal/Modal.scss";
-import { useBodyScrollLock, useEscapeKey, useFocusTrap, useForkRef } from "@okryshto/react-hooks";
+import "@okkly/design-system/components/Modal/Modal.scss";
+import { useBodyScrollLock, useEscapeKey, useFocusTrap, useForkRef } from "@okkly/react-hooks";
 import type { OverlayCloseHandler } from "../../types";
 
 export interface ModalSlotProps {
@@ -177,12 +177,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(function Modal(
   useFocusTrap(rootRef, open && !disableEnforceFocus, { autoFocus: !disableAutoFocus });
   useBodyScrollLock(open && !disableScrollLock);
 
-  const classes = [
-    "okryshto-component",
-    "okryshto-modal",
-    !open && "okryshto-modal--hidden",
-    className,
-  ]
+  const classes = ["okkly-component", "okkly-modal", !open && "okkly-modal--hidden", className]
     .filter(Boolean)
     .join(" ");
 
@@ -213,7 +208,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(function Modal(
     >
       {!hideBackdrop && (
         <div
-          className={["okryshto-modal__backdrop", backdropClassName].filter(Boolean).join(" ")}
+          className={["okkly-modal__backdrop", backdropClassName].filter(Boolean).join(" ")}
           aria-hidden="true"
           onClick={handleBackdropClick}
           {...backdropRest}

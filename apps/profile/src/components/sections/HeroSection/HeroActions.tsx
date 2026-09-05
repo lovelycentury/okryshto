@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, Icon } from "@okryshto/react";
+import { Button, Icon } from "@okkly/react";
 import { trackCtaClick } from "@/lib/analyticsEvents";
 import { SECTION_ID } from "@/lib/profile";
 

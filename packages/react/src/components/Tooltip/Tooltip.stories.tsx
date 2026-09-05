@@ -1,6 +1,6 @@
 import { useState, type CSSProperties } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { iconInfo, iconSettings, iconTrash } from "@okryshto/icons";
+import { iconInfo, iconSettings, iconTrash } from "@okkly/icons";
 import { Button } from "../Button/Button";
 import { Tooltip, type TooltipPlacement } from "./Tooltip";
 
@@ -97,15 +97,15 @@ const surface: CSSProperties = {
   alignItems: "center",
   gap: "12px",
   padding: "48px",
-  fontFamily: "var(--okryshto-font-family-sans)",
-  color: "var(--okryshto-text-primary)",
+  fontFamily: "var(--okkly-font-family-sans)",
+  color: "var(--okkly-text-primary)",
 };
 
 const caption: CSSProperties = {
   margin: 0,
   width: "100%",
-  fontSize: "var(--okryshto-font-size-sm)",
-  color: "var(--okryshto-text-muted)",
+  fontSize: "var(--okkly-font-size-sm)",
+  color: "var(--okkly-text-muted)",
 };
 
 const iconButton: CSSProperties = {
@@ -114,10 +114,10 @@ const iconButton: CSSProperties = {
   justifyContent: "center",
   width: "36px",
   height: "36px",
-  border: "var(--okryshto-1px-in-rem) solid var(--okryshto-border-subtle)",
+  border: "var(--okkly-1px-in-rem) solid var(--okkly-border-subtle)",
   borderRadius: "10px",
-  background: "var(--okryshto-bg-surface)",
-  color: "var(--okryshto-text-secondary)",
+  background: "var(--okkly-bg-surface)",
+  color: "var(--okkly-text-secondary)",
   cursor: "pointer",
 };
 
@@ -329,7 +329,7 @@ export const Interactive: Story = {
         title={
           <span>
             Not reachable — try to move onto this{" "}
-            <a href="#nope" style={{ color: "var(--okryshto-accent-primary)" }}>
+            <a href="#nope" style={{ color: "var(--okkly-accent-primary)" }}>
               link
             </a>
           </span>
@@ -345,7 +345,7 @@ export const Interactive: Story = {
         title={
           <span>
             Reachable — this{" "}
-            <a href="#yes" style={{ color: "var(--okryshto-accent-primary)" }}>
+            <a href="#yes" style={{ color: "var(--okkly-accent-primary)" }}>
               link
             </a>{" "}
             can be clicked

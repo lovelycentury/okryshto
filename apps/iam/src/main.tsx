@@ -1,11 +1,11 @@
 import { createRoot } from "react-dom/client";
 import { StrictMode } from "react";
 import { KcPage } from "./kc.gen";
-import "@okryshto/design-system/styles/index.scss";
-import "@okryshto/react/style.css";
+import "@okkly/design-system/styles/index.scss";
+import "@okkly/react/style.css";
 import "./login/iam.scss";
 
-// Uncomment to preview a page with `pnpm --filter @okryshto/iam dev`.
+// Uncomment to preview a page with `pnpm --filter @okkly/iam dev`.
 // Comment it back before `build-keycloak-theme` or the mock ships in the JAR.
 /*
 import { getKcContextMock } from "./login/KcPageStory";

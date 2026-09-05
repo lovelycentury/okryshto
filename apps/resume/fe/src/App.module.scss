@@ -16,14 +16,14 @@
   width: var(--app-sidebar-width);
   // Brighter than `border-subtle`: on a translucent panel the hairline is the
   // edge of the glass, so it catches light rather than dividing two flat fills.
-  border-right: 1px solid var(--okryshto-glass-border);
+  border-right: 1px solid var(--okkly-glass-border);
   // A highlight down the inner edge reads as thickness — the panel sits above
   // the scene instead of being a hole cut into it.
   box-shadow: inset -1px 0 0 var(--app-glass-highlight);
 
   @include glass.material(
-    color-mix(in srgb, var(--okryshto-bg-surface) 42%, transparent),
-    var(--okryshto-bg-surface)
+    color-mix(in srgb, var(--okkly-bg-surface) 42%, transparent),
+    var(--okkly-bg-surface)
   );
 }
 
@@ -68,7 +68,7 @@
     flex: 0 0 auto;
     width: 100%;
     border-right: none;
-    border-bottom: 1px solid var(--okryshto-glass-border);
+    border-bottom: 1px solid var(--okkly-glass-border);
     // Stacked, the panel is a top bar: the light edge moves to its underside.
     box-shadow: inset 0 -1px 0 var(--app-glass-highlight);
   }

@@ -49,14 +49,14 @@ const surface: CSSProperties = {
   gridTemplateColumns: "minmax(0, 1fr)",
   gap: "12px",
   width: "460px",
-  fontFamily: "var(--okryshto-font-family-sans)",
-  color: "var(--okryshto-text-primary)",
+  fontFamily: "var(--okkly-font-family-sans)",
+  color: "var(--okkly-text-primary)",
 };
 
 const caption: CSSProperties = {
   margin: 0,
-  fontSize: "var(--okryshto-font-size-sm)",
-  color: "var(--okryshto-text-muted)",
+  fontSize: "var(--okkly-font-size-sm)",
+  color: "var(--okkly-text-muted)",
 };
 
 /**
@@ -90,7 +90,7 @@ export const ALinksPage: Story = {
         href="#github"
         title="GitHub"
         subtitle="Open source and half-finished experiments"
-        meta="@okryshto"
+        meta="@okkly"
       />
       <LinkCard title="Newsletter" subtitle="Not open yet — soon" meta="soon" />
     </div>

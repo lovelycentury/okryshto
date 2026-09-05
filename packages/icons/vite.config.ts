@@ -12,7 +12,7 @@ const entry = (path: string) => fileURLToPath(new URL(path, import.meta.url));
  */
 function copyAssets(): Plugin {
   return {
-    name: "okryshto-copy-icon-assets",
+    name: "okkly-copy-icon-assets",
     closeBundle() {
       cpSync(entry("./src/assets"), entry("./dist/assets"), { recursive: true });
       cpSync(entry("./src/metadata.json"), entry("./dist/metadata.json"));

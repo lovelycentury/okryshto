@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { iconMic, iconMusic, iconPencil, iconPlus, iconUpload, iconX } from "@okryshto/icons";
+import { iconMic, iconMusic, iconPencil, iconPlus, iconUpload, iconX } from "@okkly/icons";
 import { Fab, type FabColor } from "./FAB";
 
 const plusIcon = <span dangerouslySetInnerHTML={{ __html: iconPlus }} />;
@@ -126,7 +126,7 @@ export const SpeedDial: Story = {
               background: "#16161a",
               color: "#a9a9b2",
               fontSize: "13px",
-              fontFamily: "var(--okryshto-font-family-sans, sans-serif)",
+              fontFamily: "var(--okkly-font-family-sans, sans-serif)",
               whiteSpace: "nowrap",
             }}
           >

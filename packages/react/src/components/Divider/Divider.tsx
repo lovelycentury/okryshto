@@ -1,7 +1,7 @@
 "use client";
 
 import { forwardRef, type HTMLAttributes, type ReactNode, type Ref } from "react";
-import "@okryshto/design-system/components/Divider/Divider.scss";
+import "@okkly/design-system/components/Divider/Divider.scss";
 
 export type DividerOrientation = "horizontal" | "vertical";
 export type DividerVariant = "fullWidth" | "inset" | "middle";
@@ -66,14 +66,14 @@ export const Divider = forwardRef<HTMLElement, DividerProps>(function Divider(
   const hasLabel = Boolean(children) && orientation === "horizontal";
 
   const classes = [
-    "okryshto-component",
-    "okryshto-divider",
-    orientation === "vertical" ? "okryshto-divider--vertical" : "okryshto-divider--horizontal",
-    variant === "inset" && "okryshto-divider--inset",
-    variant === "middle" && "okryshto-divider--middle",
-    hasLabel && "okryshto-divider--with-label",
-    flexItem && "okryshto-divider--flex-item",
-    textAlign !== "center" && `okryshto-divider--align-${textAlign}`,
+    "okkly-component",
+    "okkly-divider",
+    orientation === "vertical" ? "okkly-divider--vertical" : "okkly-divider--horizontal",
+    variant === "inset" && "okkly-divider--inset",
+    variant === "middle" && "okkly-divider--middle",
+    hasLabel && "okkly-divider--with-label",
+    flexItem && "okkly-divider--flex-item",
+    textAlign !== "center" && `okkly-divider--align-${textAlign}`,
     className,
   ]
     .filter(Boolean)
@@ -86,7 +86,7 @@ export const Divider = forwardRef<HTMLElement, DividerProps>(function Divider(
   if (hasLabel) {
     return (
       <div ref={forwardedRef as Ref<HTMLDivElement>} className={classes} role="separator" {...rest}>
-        <span className="okryshto-divider__label">{children}</span>
+        <span className="okkly-divider__label">{children}</span>
       </div>
     );
   }

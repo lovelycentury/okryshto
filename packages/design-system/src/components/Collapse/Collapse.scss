@@ -1,22 +1,22 @@
 @use "../../styles/mixins/layers.scss";
 
-.okryshto-collapse {
+.okkly-collapse {
   @include layers.component() {
     height: 0;
     overflow: hidden;
-    transition: height var(--okryshto-duration-standard, 300ms) cubic-bezier(0.4, 0, 0.2, 1);
+    transition: height var(--okkly-duration-standard, 300ms) cubic-bezier(0.4, 0, 0.2, 1);
 
     &--horizontal {
       height: auto;
       width: 0;
-      transition: width var(--okryshto-duration-standard, 300ms) cubic-bezier(0.4, 0, 0.2, 1);
+      transition: width var(--okkly-duration-standard, 300ms) cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     &--entered {
       height: auto;
       overflow: visible;
 
-      &.okryshto-collapse--horizontal {
+      &.okkly-collapse--horizontal {
         width: auto;
       }
     }
@@ -30,7 +30,7 @@
     display: flex;
     width: 100%;
 
-    .okryshto-collapse--horizontal & {
+    .okkly-collapse--horizontal & {
       width: auto;
       height: 100%;
     }
@@ -39,7 +39,7 @@
   &__wrapper-inner {
     width: 100%;
 
-    .okryshto-collapse--horizontal & {
+    .okkly-collapse--horizontal & {
       width: auto;
       height: 100%;
     }

@@ -1,22 +1,22 @@
-// https://www.figma.com/design/3YsJJl5QukJZPkjoOOZahx/-okryshto-okryshto?node-id=668-10637&t=BhVGvGGJ22hQjOMK-4
+// https://www.figma.com/design/3YsJJl5QukJZPkjoOOZahx/-okkly-okkly?node-id=668-10637&t=BhVGvGGJ22hQjOMK-4
 // https://mui.com/material-ui/api/fab/
 @use "../../styles/mixins/layers.scss";
 
-.okryshto-fab {
+.okkly-fab {
   @include layers.component() {
     // 1. full variable API, defaults = variant "standard", color "primary" (mint), size "medium" (56px)
-    --okryshto-fab-tone: var(--okryshto-accent-primary);
-    --okryshto-fab-background-color: var(--okryshto-fab-tone);
-    --okryshto-fab-text-color: var(--okryshto-accent-contrast);
-    --okryshto-fab-border-color: transparent;
-    --okryshto-fab-border-width: var(--okryshto-1px-in-rem);
-    --okryshto-fab-glow: drop-shadow(
-      0 0 0.6875rem color-mix(in srgb, var(--okryshto-fab-tone) 45%, transparent)
+    --okkly-fab-tone: var(--okkly-accent-primary);
+    --okkly-fab-background-color: var(--okkly-fab-tone);
+    --okkly-fab-text-color: var(--okkly-accent-contrast);
+    --okkly-fab-border-color: transparent;
+    --okkly-fab-border-width: var(--okkly-1px-in-rem);
+    --okkly-fab-glow: drop-shadow(
+      0 0 0.6875rem color-mix(in srgb, var(--okkly-fab-tone) 45%, transparent)
     );
-    --okryshto-fab-shadow: drop-shadow(0 0.75rem 1rem color-mix(in srgb, black 35%, transparent));
-    --okryshto-fab-size: 3.5rem; // 56px
-    --okryshto-fab-icon-size: 1.5rem; // 24px
-    --okryshto-fab-padding-inline: 1.375rem; // 22px, extended shape only
+    --okkly-fab-shadow: drop-shadow(0 0.75rem 1rem color-mix(in srgb, black 35%, transparent));
+    --okkly-fab-size: 3.5rem; // 56px
+    --okkly-fab-icon-size: 1.5rem; // 24px
+    --okkly-fab-padding-inline: 1.375rem; // 22px, extended shape only
 
     position: relative;
     display: inline-flex;
@@ -24,28 +24,28 @@
     align-items: center;
     justify-content: center;
     gap: 0.625rem; // 10px
-    width: var(--okryshto-fab-size);
-    height: var(--okryshto-fab-size);
-    border: var(--okryshto-fab-border-width) solid var(--okryshto-fab-border-color);
+    width: var(--okkly-fab-size);
+    height: var(--okkly-fab-size);
+    border: var(--okkly-fab-border-width) solid var(--okkly-fab-border-color);
     border-radius: 9999px;
     overflow: hidden;
-    background: var(--okryshto-fab-background-color);
-    color: var(--okryshto-fab-text-color);
+    background: var(--okkly-fab-background-color);
+    color: var(--okkly-fab-text-color);
     text-decoration: none;
-    font-family: var(--okryshto-font-family-sans);
-    font-weight: var(--okryshto-font-weight-medium);
-    font-size: var(--okryshto-font-size-md);
-    line-height: var(--okryshto-font-line-height-md);
+    font-family: var(--okkly-font-family-sans);
+    font-weight: var(--okkly-font-weight-medium);
+    font-size: var(--okkly-font-size-md);
+    line-height: var(--okkly-font-line-height-md);
     cursor: pointer;
-    filter: var(--okryshto-fab-glow);
+    filter: var(--okkly-fab-glow);
     transition:
-      background-color var(--okryshto-duration-sm) ease,
-      filter var(--okryshto-duration-sm) ease;
+      background-color var(--okkly-duration-sm) ease,
+      filter var(--okkly-duration-sm) ease;
 
     &:focus-visible {
       outline: none;
-      filter: var(--okryshto-fab-glow)
-        drop-shadow(0 0 0 0.1875rem color-mix(in srgb, var(--okryshto-fab-tone) 60%, transparent));
+      filter: var(--okkly-fab-glow)
+        drop-shadow(0 0 0 0.1875rem color-mix(in srgb, var(--okkly-fab-tone) 60%, transparent));
     }
 
     &:disabled {
@@ -56,46 +56,46 @@
 
     // 2. color modifiers — only remap the tone; fill + glow both consume it
     &--color-dante {
-      --okryshto-fab-tone: var(--okryshto-accent-dante);
+      --okkly-fab-tone: var(--okkly-accent-dante);
     }
     &--color-indigo {
-      --okryshto-fab-tone: var(--okryshto-accent-secondary);
+      --okkly-fab-tone: var(--okkly-accent-secondary);
     }
     &--color-violet {
-      --okryshto-fab-tone: var(--okryshto-accent-violet);
+      --okkly-fab-tone: var(--okkly-accent-violet);
     }
     &--color-ember {
-      --okryshto-fab-tone: var(--okryshto-accent-ember);
+      --okkly-fab-tone: var(--okkly-accent-ember);
     }
     &--color-ice {
-      --okryshto-fab-tone: var(--okryshto-accent-ice);
+      --okkly-fab-tone: var(--okkly-accent-ice);
     }
 
     // 3. variant — "standard" (tone-filled, needs no modifier) vs "soft" (neutral surface, no glow)
     &--soft {
-      --okryshto-fab-background-color: var(--okryshto-bg-surface-raised);
-      --okryshto-fab-text-color: var(--okryshto-text-primary);
-      --okryshto-fab-border-color: var(--okryshto-border-subtle);
-      --okryshto-fab-glow: var(--okryshto-fab-shadow);
+      --okkly-fab-background-color: var(--okkly-bg-surface-raised);
+      --okkly-fab-text-color: var(--okkly-text-primary);
+      --okkly-fab-border-color: var(--okkly-border-subtle);
+      --okkly-fab-glow: var(--okkly-fab-shadow);
     }
 
     // 4. shape — extended (icon + label pill) grows to fit the label instead of staying a circle
     &--extended {
       width: auto;
       border-radius: 9999px;
-      padding-inline: var(--okryshto-fab-padding-inline);
+      padding-inline: var(--okkly-fab-padding-inline);
     }
 
     // 5. size — medium (default) needs no modifier
     &--small {
-      --okryshto-fab-size: 2.75rem; // 44px
-      --okryshto-fab-icon-size: 1.125rem; // 18px
-      --okryshto-fab-padding-inline: 1.125rem;
+      --okkly-fab-size: 2.75rem; // 44px
+      --okkly-fab-icon-size: 1.125rem; // 18px
+      --okkly-fab-padding-inline: 1.125rem;
     }
     &--large {
-      --okryshto-fab-size: 4rem; // 64px
-      --okryshto-fab-icon-size: 1.6875rem; // 27px
-      --okryshto-fab-padding-inline: 1.625rem;
+      --okkly-fab-size: 4rem; // 64px
+      --okkly-fab-icon-size: 1.6875rem; // 27px
+      --okkly-fab-padding-inline: 1.625rem;
     }
 
     // 6. elements
@@ -104,8 +104,8 @@
       flex-shrink: 0;
       align-items: center;
       justify-content: center;
-      width: var(--okryshto-fab-icon-size);
-      height: var(--okryshto-fab-icon-size);
+      width: var(--okkly-fab-icon-size);
+      height: var(--okkly-fab-icon-size);
 
       svg {
         width: 100%;

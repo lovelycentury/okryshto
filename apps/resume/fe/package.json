@@ -1,9 +1,9 @@
 {
-  "name": "@okryshto/resume-fe",
+  "name": "@okkly/resume-fe",
   "version": "0.0.0",
   "private": true,
   "type": "module",
-  "description": "Resume chat UI — Vite SPA, React, jotai, TanStack Query, streams from @okryshto/resume-be",
+  "description": "Resume chat UI — Vite SPA, React, jotai, TanStack Query, streams from @okkly/resume-be",
   "scripts": {
     "dev": "vite --port 5173",
     "build": "vite build",
@@ -12,9 +12,9 @@
     "lint": "oxlint --config ../../../packages/oxlint-config/index.json ."
   },
   "dependencies": {
-    "@okryshto/design-system": "workspace:*",
-    "@okryshto/icons": "workspace:*",
-    "@okryshto/react": "workspace:*",
+    "@okkly/design-system": "workspace:*",
+    "@okkly/icons": "workspace:*",
+    "@okkly/react": "workspace:*",
     "@tanstack/react-query": "^5.102.8",
     "ai": "~7.0.84",
     "jotai": "^2.20.3",

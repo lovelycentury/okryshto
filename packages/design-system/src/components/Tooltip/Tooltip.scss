@@ -8,23 +8,23 @@
 // names the side the tooltip *ended up* on — after any flip — which is why the
 // arrow rules key off it rather than off the requested placement.
 
-.okryshto-tooltip {
+.okkly-tooltip {
   @include layers.component() {
-    --okryshto-tooltip-background-color: var(--okryshto-bg-surface-raised);
-    --okryshto-tooltip-text-color: var(--okryshto-text-primary);
-    --okryshto-tooltip-border-color: var(--okryshto-border-default);
-    --okryshto-tooltip-border-width: var(--okryshto-1px-in-rem);
-    --okryshto-tooltip-border-radius: 0.875rem;
-    --okryshto-tooltip-padding-block: 0.5625rem;
-    --okryshto-tooltip-padding-inline: 0.75rem;
-    --okryshto-tooltip-font-size: var(--okryshto-font-size-sm);
-    --okryshto-tooltip-line-height: var(--okryshto-font-line-height-sm);
-    --okryshto-tooltip-arrow-size: 0.5rem;
-    --okryshto-tooltip-max-width: 18rem;
-    --okryshto-tooltip-z-index: 1500;
-    --okryshto-tooltip-shadow: var(--okryshto-shadow-medium-bottom);
+    --okkly-tooltip-background-color: var(--okkly-bg-surface-raised);
+    --okkly-tooltip-text-color: var(--okkly-text-primary);
+    --okkly-tooltip-border-color: var(--okkly-border-default);
+    --okkly-tooltip-border-width: var(--okkly-1px-in-rem);
+    --okkly-tooltip-border-radius: 0.875rem;
+    --okkly-tooltip-padding-block: 0.5625rem;
+    --okkly-tooltip-padding-inline: 0.75rem;
+    --okkly-tooltip-font-size: var(--okkly-font-size-sm);
+    --okkly-tooltip-line-height: var(--okkly-font-line-height-sm);
+    --okkly-tooltip-arrow-size: 0.5rem;
+    --okkly-tooltip-max-width: 18rem;
+    --okkly-tooltip-z-index: 1500;
+    --okkly-tooltip-shadow: var(--okkly-shadow-medium-bottom);
 
-    z-index: var(--okryshto-tooltip-z-index);
+    z-index: var(--okkly-tooltip-z-index);
     // A plain tooltip is a label, not a target: it must not eat clicks meant
     // for what is underneath, and it must not steal hover from the trigger.
     pointer-events: none;
@@ -47,16 +47,16 @@
   &__bubble {
     @include layers.component() {
       display: block;
-      max-width: var(--okryshto-tooltip-max-width);
-      padding: var(--okryshto-tooltip-padding-block) var(--okryshto-tooltip-padding-inline);
-      border: var(--okryshto-tooltip-border-width) solid var(--okryshto-tooltip-border-color);
-      border-radius: var(--okryshto-tooltip-border-radius);
-      background: var(--okryshto-tooltip-background-color);
-      color: var(--okryshto-tooltip-text-color);
-      font-size: var(--okryshto-tooltip-font-size);
-      line-height: var(--okryshto-tooltip-line-height);
+      max-width: var(--okkly-tooltip-max-width);
+      padding: var(--okkly-tooltip-padding-block) var(--okkly-tooltip-padding-inline);
+      border: var(--okkly-tooltip-border-width) solid var(--okkly-tooltip-border-color);
+      border-radius: var(--okkly-tooltip-border-radius);
+      background: var(--okkly-tooltip-background-color);
+      color: var(--okkly-tooltip-text-color);
+      font-size: var(--okkly-tooltip-font-size);
+      line-height: var(--okkly-tooltip-line-height);
       font-weight: 500;
-      box-shadow: var(--okryshto-tooltip-shadow);
+      box-shadow: var(--okkly-tooltip-shadow);
       // Short labels stay on one line; long ones wrap at max-width instead of
       // being squeezed into a column one word wide.
       overflow-wrap: break-word;
@@ -70,8 +70,8 @@
   &__arrow {
     @include layers.component() {
       position: absolute;
-      width: calc(var(--okryshto-tooltip-arrow-size) * 2);
-      height: calc(var(--okryshto-tooltip-arrow-size) * 2);
+      width: calc(var(--okkly-tooltip-arrow-size) * 2);
+      height: calc(var(--okkly-tooltip-arrow-size) * 2);
       pointer-events: none;
 
       &::before {
@@ -79,10 +79,10 @@
         position: absolute;
         inset: 0;
         margin: auto;
-        width: var(--okryshto-tooltip-arrow-size);
-        height: var(--okryshto-tooltip-arrow-size);
-        background: var(--okryshto-tooltip-background-color);
-        border: var(--okryshto-tooltip-border-width) solid var(--okryshto-tooltip-border-color);
+        width: var(--okkly-tooltip-arrow-size);
+        height: var(--okkly-tooltip-arrow-size);
+        background: var(--okkly-tooltip-background-color);
+        border: var(--okkly-tooltip-border-width) solid var(--okkly-tooltip-border-color);
         transform: rotate(45deg);
       }
     }
@@ -95,7 +95,7 @@
   // Tuck the arrow against the bubble on whichever side Popper settled on, and
   // clip the two borders that would otherwise cross the bubble's own edge.
   &__popup[data-popper-placement^="top"] &__arrow {
-    bottom: calc(var(--okryshto-tooltip-arrow-size) * -1);
+    bottom: calc(var(--okkly-tooltip-arrow-size) * -1);
 
     &::before {
       border-top: 0;
@@ -104,7 +104,7 @@
   }
 
   &__popup[data-popper-placement^="bottom"] &__arrow {
-    top: calc(var(--okryshto-tooltip-arrow-size) * -1);
+    top: calc(var(--okkly-tooltip-arrow-size) * -1);
 
     &::before {
       border-bottom: 0;
@@ -113,7 +113,7 @@
   }
 
   &__popup[data-popper-placement^="left"] &__arrow {
-    right: calc(var(--okryshto-tooltip-arrow-size) * -1);
+    right: calc(var(--okkly-tooltip-arrow-size) * -1);
 
     &::before {
       border-bottom: 0;
@@ -122,7 +122,7 @@
   }
 
   &__popup[data-popper-placement^="right"] &__arrow {
-    left: calc(var(--okryshto-tooltip-arrow-size) * -1);
+    left: calc(var(--okkly-tooltip-arrow-size) * -1);
 
     &::before {
       border-top: 0;
@@ -131,7 +131,7 @@
   }
 }
 
-.okryshto-tooltip__trigger {
+.okkly-tooltip__trigger {
   @include layers.component() {
     display: inline-flex;
   }

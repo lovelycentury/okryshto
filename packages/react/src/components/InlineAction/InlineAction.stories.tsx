@@ -163,17 +163,17 @@ export const Sizes: Story = {
 };
 
 // Demonstrates the CSS-only "section tone" inheritance — no color prop set,
-// each InlineAction picks up --okryshto-section-tone from its wrapper.
+// each InlineAction picks up --okkly-section-tone from its wrapper.
 /**
  * This example shows section tone.
  */
 export const SectionTone: Story = {
   render: () => (
     <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-      <div style={{ ["--okryshto-section-tone" as string]: "var(--okryshto-accent-ice)" }}>
+      <div style={{ ["--okkly-section-tone" as string]: "var(--okkly-accent-ice)" }}>
         <InlineAction value="hello@oleksii.dev" />
       </div>
-      <div style={{ ["--okryshto-section-tone" as string]: "var(--okryshto-accent-dante)" }}>
+      <div style={{ ["--okkly-section-tone" as string]: "var(--okkly-accent-dante)" }}>
         <InlineAction value="hello@oleksii.dev" />
       </div>
     </div>

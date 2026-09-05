@@ -1,8 +1,8 @@
 import { useMemo, useState, type ReactNode } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import * as Icons from "@okryshto/icons";
-import { getIconImportName, ICON_METADATA } from "@okryshto/icons/utils";
-import { iconPlus, iconSearch, iconStar } from "@okryshto/icons";
+import * as Icons from "@okkly/icons";
+import { getIconImportName, ICON_METADATA } from "@okkly/icons/utils";
+import { iconPlus, iconSearch, iconStar } from "@okkly/icons";
 import {
   BrandDocsHeader,
   BrandDocsPage,
@@ -140,7 +140,7 @@ const contents = [
   { name: "Guidelines", desc: "Do and don't for colour, type, spacing, radii and motion." },
   {
     name: "Icon set",
-    desc: "Searchable catalogue of the stroke icons shipped in @okryshto/icons.",
+    desc: "Searchable catalogue of the stroke icons shipped in @okkly/icons.",
   },
   {
     name: "Component showcase",
@@ -150,19 +150,19 @@ const contents = [
 
 const packages = [
   {
-    name: "@okryshto/react",
+    name: "@okkly/react",
     desc: "The React component library — everything in the showcase below",
   },
   {
-    name: "@okryshto/design-system",
+    name: "@okkly/design-system",
     desc: "SCSS: tokens, reset, and one stylesheet per component",
   },
   {
-    name: "@okryshto/react-hooks",
+    name: "@okkly/react-hooks",
     desc: "Headless behaviour — the logic components are built on, usable alone",
   },
   {
-    name: "@okryshto/icons",
+    name: "@okkly/icons",
     desc: "Stroke icons as SVG string constants, plus metadata for search",
   },
 ];
@@ -256,7 +256,7 @@ export const Overview: Story = {
         <Contents items={contents} />
       </BrandDocsSection>
 
-      <hr className="okryshto-brand-docs__divider" />
+      <hr className="okkly-brand-docs__divider" />
 
       <BrandDocsSection title="The idea">
         <Prose>
@@ -277,12 +277,12 @@ export const Overview: Story = {
         title="Install"
         note="The style entry is imported once, at the app's own entry point — not per component."
       >
-        <CodeBlock>{`pnpm add @okryshto/react @okryshto/design-system @okryshto/icons`}</CodeBlock>
+        <CodeBlock>{`pnpm add @okkly/react @okkly/design-system @okkly/icons`}</CodeBlock>
         <CodeBlock>{`// app entry
-import "@okryshto/design-system/styles/index.scss";
+import "@okkly/design-system/styles/index.scss";
 
 // anywhere
-import { Button, TextField } from "@okryshto/react";
+import { Button, TextField } from "@okkly/react";
 
 export function SignIn() {
   return (
@@ -294,31 +294,31 @@ export function SignIn() {
 }`}</CodeBlock>
       </BrandDocsSection>
 
-      <hr className="okryshto-brand-docs__divider" />
+      <hr className="okkly-brand-docs__divider" />
 
       <BrandDocsSection title="Conventions" note="Four rules that hold across every component.">
         <CardRack>
           <Card title="Names" subtitle="Prefixed in CSS, plain in JavaScript.">
             <Prose>
-              Class names carry the <Code>okryshto-</Code> prefix so they never collide in a host
-              app. Exports do not: you import <Code>Button</Code>, not <Code>OkryshtoButton</Code>.
+              Class names carry the <Code>okkly-</Code> prefix so they never collide in a host app.
+              Exports do not: you import <Code>Button</Code>, not <Code>OkryshtoButton</Code>.
             </Prose>
           </Card>
           <Card title="BEM" subtitle="Block, element, modifier — and nothing deeper.">
             <Prose>
-              <Code>.okryshto-select__control--disabled</Code>. Default variants get no modifier at
+              <Code>.okkly-select__control--disabled</Code>. Default variants get no modifier at
               all, so a class list stays short and a diff shows only what was asked for.
             </Prose>
           </Card>
           <Card title="Cascade layers" subtitle="Override without a specificity fight.">
             <Prose>
-              Component rules sit in <Code>@layer okryshto.component</Code>. Any unlayered rule in
-              your app outranks them regardless of specificity — a single class is enough.
+              Component rules sit in <Code>@layer okkly.component</Code>. Any unlayered rule in your
+              app outranks them regardless of specificity — a single class is enough.
             </Prose>
           </Card>
           <Card title="Custom-property API" subtitle="Every component exposes its own knobs.">
             <Prose>
-              Each block declares <Code>--okryshto-&lt;block&gt;-*</Code> variables for the values
+              Each block declares <Code>--okkly-&lt;block&gt;-*</Code> variables for the values
               worth changing. Set one on the element, or on an ancestor to reach a whole region.
             </Prose>
           </Card>
@@ -329,21 +329,21 @@ export function SignIn() {
         title="Cascade layer order"
         note="Later layers win, whatever the selector specificity."
       >
-        <CodeBlock>{`@layer okryshto.reset, okryshto.utility, okryshto.component, okryshto.density, okryshto.override;`}</CodeBlock>
+        <CodeBlock>{`@layer okkly.reset, okkly.utility, okkly.component, okkly.density, okkly.override;`}</CodeBlock>
         <Card>
           <TokenGuide
             rows={[
               {
-                name: "okryshto.reset",
+                name: "okkly.reset",
                 desc: "Scoped normalisation — never touches the host app's body or links",
               },
-              { name: "okryshto.utility", desc: "Global custom properties, durations, shadows" },
-              { name: "okryshto.component", desc: "The components themselves" },
+              { name: "okkly.utility", desc: "Global custom properties, durations, shadows" },
+              { name: "okkly.component", desc: "The components themselves" },
               {
-                name: "okryshto.density",
+                name: "okkly.density",
                 desc: "Size and density modifiers, which must beat component defaults",
               },
-              { name: "okryshto.override", desc: "Reserved for the consuming app's escape hatch" },
+              { name: "okkly.override", desc: "Reserved for the consuming app's escape hatch" },
             ]}
           />
         </Card>
@@ -355,13 +355,13 @@ export function SignIn() {
       >
         <CodeBlock>{`/* global — retune the whole system */
 :root {
-  --okryshto-accent-primary: #5EE6C1;
-  --okryshto-bg-canvas: #0A0A0B;
+  --okkly-accent-primary: #5EE6C1;
+  --okkly-bg-canvas: #0A0A0B;
 }
 
 /* local — one component, one instance */
-.checkout .okryshto-button {
-  --okryshto-button-radius: 9999px;
+.checkout .okkly-button {
+  --okkly-button-radius: 9999px;
 }`}</CodeBlock>
         <Prose>
           A custom property declared on the element always beats the same property inherited from an
@@ -382,11 +382,11 @@ export function SignIn() {
         </Prose>
       </BrandDocsSection>
 
-      <hr className="okryshto-brand-docs__divider" />
+      <hr className="okkly-brand-docs__divider" />
 
       <BrandDocsSection
         title="Headless hooks"
-        note="@okryshto/react-hooks — the behaviour, without any markup."
+        note="@okkly/react-hooks — the behaviour, without any markup."
       >
         <Card>
           <TokenGuide rows={hooks} />
@@ -425,7 +425,7 @@ export function SignIn() {
         </Card>
       </BrandDocsSection>
 
-      <hr className="okryshto-brand-docs__divider" />
+      <hr className="okkly-brand-docs__divider" />
 
       <BrandDocsSection
         title="Component index"
@@ -433,9 +433,8 @@ export function SignIn() {
       >
         {componentIndex.map((group) => (
           <div key={group.category}>
-            <p className="okryshto-brand-docs__category-title">
-              {group.category}{" "}
-              <span className="okryshto-brand-docs__count">{group.items.length}</span>
+            <p className="okkly-brand-docs__category-title">
+              {group.category} <span className="okkly-brand-docs__count">{group.items.length}</span>
             </p>
             <PillRow items={group.items} />
           </div>
@@ -450,47 +449,47 @@ export function SignIn() {
 const backgrounds = [
   {
     name: "bg/canvas",
-    token: "--okryshto-bg-canvas",
+    token: "--okkly-bg-canvas",
     value: "#0A0A0B",
     note: "App background — deepest layer",
   },
   {
     name: "bg/surface",
-    token: "--okryshto-bg-surface",
+    token: "--okkly-bg-surface",
     value: "#0F0F12",
     note: "Cards / raised surfaces",
   },
   {
     name: "bg/surface-raised",
-    token: "--okryshto-bg-surface-raised",
+    token: "--okkly-bg-surface-raised",
     value: "#16161A",
     note: "Elevated / hover surfaces",
   },
-  { name: "bg/inset", token: "--okryshto-bg-inset", value: "#080809", note: "Wells, inputs, code" },
+  { name: "bg/inset", token: "--okkly-bg-inset", value: "#080809", note: "Wells, inputs, code" },
 ];
 
 const textColors = [
   {
     name: "text/primary",
-    token: "--okryshto-text-primary",
+    token: "--okkly-text-primary",
     value: "#F5F5F7",
     note: "Headlines & primary copy",
   },
   {
     name: "text/secondary",
-    token: "--okryshto-text-secondary",
+    token: "--okkly-text-secondary",
     value: "#A9A9B2",
     note: "Body / supporting copy",
   },
   {
     name: "text/muted",
-    token: "--okryshto-text-muted",
+    token: "--okkly-text-muted",
     value: "#6E6E78",
     note: "Captions, metadata",
   },
   {
     name: "text/inverse",
-    token: "--okryshto-bg-canvas",
+    token: "--okkly-bg-canvas",
     value: "#0A0A0B",
     note: "On bright accent fills",
   },
@@ -499,38 +498,38 @@ const textColors = [
 const accents = [
   {
     name: "accent/primary",
-    token: "--okryshto-accent-primary",
+    token: "--okkly-accent-primary",
     value: "#5EE6C1",
     note: "Mint — primary accent",
   },
   {
     name: "accent/secondary",
-    token: "--okryshto-accent-secondary",
+    token: "--okkly-accent-secondary",
     value: "#818CF8",
     note: "Indigo — gradients / secondary",
   },
   {
     name: "accent/dante",
-    token: "--okryshto-accent-dante",
+    token: "--okkly-accent-dante",
     value: "#FF3D8B",
     note: "Dante — digital disco",
   },
   {
     name: "accent/violet",
-    token: "--okryshto-accent-violet",
+    token: "--okkly-accent-violet",
     value: "#B84BFF",
     note: "Violet — nebula",
   },
   {
     name: "accent/ember",
-    token: "--okryshto-accent-ember",
+    token: "--okkly-accent-ember",
     value: "#FF8A5C",
     note: "Ember — sunset",
   },
-  { name: "accent/ice", token: "--okryshto-accent-ice", value: "#22D3EE", note: "Ice — cold cyan" },
+  { name: "accent/ice", token: "--okkly-accent-ice", value: "#22D3EE", note: "Ice — cold cyan" },
   {
     name: "accent/contrast",
-    token: "--okryshto-accent-contrast",
+    token: "--okkly-accent-contrast",
     value: "#04140F",
     note: "On accent fills",
   },
@@ -539,19 +538,19 @@ const accents = [
 const borders = [
   {
     name: "border/subtle",
-    token: "--okryshto-border-subtle",
+    token: "--okkly-border-subtle",
     value: "rgba(255,255,255,0.08)",
     note: "Hairline dividers",
   },
   {
     name: "border/default",
-    token: "--okryshto-border-default",
+    token: "--okkly-border-default",
     value: "rgba(255,255,255,0.12)",
     note: "Default UI borders",
   },
   {
     name: "border/strong",
-    token: "--okryshto-border-strong",
+    token: "--okkly-border-strong",
     value: "rgba(255,255,255,0.2)",
     note: "Emphatic / focus base",
   },
@@ -560,19 +559,19 @@ const borders = [
 const glass = [
   {
     name: "glass/fill",
-    token: "--okryshto-glass-fill",
+    token: "--okkly-glass-fill",
     value: "rgba(255,255,255,0.08)",
     note: "Frosted surface fill",
   },
   {
     name: "glass/fill-strong",
-    token: "--okryshto-glass-fill-strong",
+    token: "--okkly-glass-fill-strong",
     value: "rgba(255,255,255,0.12)",
     note: "Stronger glass fill",
   },
   {
     name: "glass/border",
-    token: "--okryshto-glass-border",
+    token: "--okkly-glass-border",
     value: "rgba(255,255,255,0.14)",
     note: "Glass hairline border",
   },
@@ -581,19 +580,19 @@ const glass = [
 const feedback = [
   {
     name: "feedback/success",
-    token: "--okryshto-feedback-success",
+    token: "--okkly-feedback-success",
     value: "#4ADE80",
     note: "Success states",
   },
   {
     name: "feedback/warning",
-    token: "--okryshto-feedback-warning",
+    token: "--okkly-feedback-warning",
     value: "#FBBF24",
     note: "Warnings",
   },
   {
     name: "feedback/danger",
-    token: "--okryshto-feedback-danger",
+    token: "--okkly-feedback-danger",
     value: "#FB7185",
     note: "Errors / destructive",
   },
@@ -605,7 +604,7 @@ function SwatchGrid({
   items: Array<{ name: string; token: string; value: string; note: string }>;
 }) {
   return (
-    <div className="okryshto-brand-docs__grid">
+    <div className="okkly-brand-docs__grid">
       {items.map((item) => (
         <ColorSwatch key={item.name} {...item} />
       ))}
@@ -631,7 +630,7 @@ export const Color: Story = {
         <SwatchGrid items={backgrounds} />
       </BrandDocsSection>
 
-      <hr className="okryshto-brand-docs__divider" />
+      <hr className="okkly-brand-docs__divider" />
 
       <BrandDocsSection
         title="Text"
@@ -640,7 +639,7 @@ export const Color: Story = {
         <SwatchGrid items={textColors} />
       </BrandDocsSection>
 
-      <hr className="okryshto-brand-docs__divider" />
+      <hr className="okkly-brand-docs__divider" />
 
       <BrandDocsSection
         title="Accent — Aurora"
@@ -649,19 +648,19 @@ export const Color: Story = {
         <SwatchGrid items={accents} />
       </BrandDocsSection>
 
-      <hr className="okryshto-brand-docs__divider" />
+      <hr className="okkly-brand-docs__divider" />
 
       <BrandDocsSection title="Borders" note="Translucent separators for dark UI.">
         <SwatchGrid items={borders} />
       </BrandDocsSection>
 
-      <hr className="okryshto-brand-docs__divider" />
+      <hr className="okkly-brand-docs__divider" />
 
       <BrandDocsSection title="Glass" note="Frosted material fills and borders.">
         <SwatchGrid items={glass} />
       </BrandDocsSection>
 
-      <hr className="okryshto-brand-docs__divider" />
+      <hr className="okkly-brand-docs__divider" />
 
       <BrandDocsSection title="Feedback" note="Strictly for status — success, warning, danger.">
         <SwatchGrid items={feedback} />
@@ -717,16 +716,16 @@ const radii = [
 ];
 
 const elevations = [
-  { label: "elevation/xs", shadow: "var(--okryshto-shadow-medium-bottom)" },
-  { label: "elevation/sm", shadow: "var(--okryshto-shadow-soft-bottom)" },
+  { label: "elevation/xs", shadow: "var(--okkly-shadow-medium-bottom)" },
+  { label: "elevation/sm", shadow: "var(--okkly-shadow-soft-bottom)" },
   { label: "elevation/md", shadow: "0 0.5rem 1.5rem rgba(0,0,0,0.28)" },
   { label: "elevation/lg", shadow: "0 1rem 2.5rem rgba(0,0,0,0.36)" },
 ];
 
 const durations = [
-  { name: "--okryshto-duration-sm", desc: "400ms — hover, focus, chips, small state flips" },
-  { name: "--okryshto-duration-md", desc: "700ms — overlays entering, panels expanding" },
-  { name: "--okryshto-duration-lg", desc: "1s — ambient and decorative motion only" },
+  { name: "--okkly-duration-sm", desc: "400ms — hover, focus, chips, small state flips" },
+  { name: "--okkly-duration-md", desc: "700ms — overlays entering, panels expanding" },
+  { name: "--okkly-duration-lg", desc: "1s — ambient and decorative motion only" },
 ];
 
 export const TypeSpaceElevation: Story = {
@@ -751,29 +750,26 @@ export const TypeSpaceElevation: Story = {
         </div>
       </BrandDocsSection>
 
-      <hr className="okryshto-brand-docs__divider" />
+      <hr className="okkly-brand-docs__divider" />
 
       <BrandDocsSection title="Font families" note="Three faces, three jobs.">
         <CardRack>
-          <Card title="Inter" subtitle="--okryshto-font-family-sans">
-            <p
-              className="okryshto-brand-docs__token-desc"
-              style={{ fontFamily: "Inter, sans-serif" }}
-            >
+          <Card title="Inter" subtitle="--okkly-font-family-sans">
+            <p className="okkly-brand-docs__token-desc" style={{ fontFamily: "Inter, sans-serif" }}>
               Primary UI sans — body, labels, most chrome.
             </p>
           </Card>
           <Card title="Inter Tight" subtitle="display fallback → Inter">
             <p
-              className="okryshto-brand-docs__token-desc"
+              className="okkly-brand-docs__token-desc"
               style={{ fontFamily: "Inter Tight, Inter, sans-serif" }}
             >
               Tighter display moments when available.
             </p>
           </Card>
-          <Card title="JetBrains Mono" subtitle="--okryshto-font-family-mono">
+          <Card title="JetBrains Mono" subtitle="--okkly-font-family-mono">
             <p
-              className="okryshto-brand-docs__token-desc"
+              className="okkly-brand-docs__token-desc"
               style={{ fontFamily: "JetBrains Mono, monospace" }}
             >
               Code, tokens, hex, tabular metadata.
@@ -782,7 +778,7 @@ export const TypeSpaceElevation: Story = {
         </CardRack>
       </BrandDocsSection>
 
-      <hr className="okryshto-brand-docs__divider" />
+      <hr className="okkly-brand-docs__divider" />
 
       <BrandDocsSection
         title="Spacing"
@@ -790,51 +786,51 @@ export const TypeSpaceElevation: Story = {
       >
         <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
           {spaces.map((space) => (
-            <div key={space.label} className="okryshto-brand-docs__space-row">
-              <span className="okryshto-brand-docs__space-label">{space.label}</span>
-              <div className="okryshto-brand-docs__space-bar" style={{ width: `${space.px}px` }} />
-              <span className="okryshto-brand-docs__space-label">{space.px}px</span>
+            <div key={space.label} className="okkly-brand-docs__space-row">
+              <span className="okkly-brand-docs__space-label">{space.label}</span>
+              <div className="okkly-brand-docs__space-bar" style={{ width: `${space.px}px` }} />
+              <span className="okkly-brand-docs__space-label">{space.px}px</span>
             </div>
           ))}
         </div>
       </BrandDocsSection>
 
-      <hr className="okryshto-brand-docs__divider" />
+      <hr className="okkly-brand-docs__divider" />
 
       <BrandDocsSection title="Radii" note="Corner radii from sharp to pill.">
-        <div className="okryshto-brand-docs__radius-grid">
+        <div className="okkly-brand-docs__radius-grid">
           {radii.map((radius) => (
-            <div key={radius.label} className="okryshto-brand-docs__radius-item">
+            <div key={radius.label} className="okkly-brand-docs__radius-item">
               <div
-                className="okryshto-brand-docs__radius-box"
+                className="okkly-brand-docs__radius-box"
                 style={{ borderRadius: radius.value }}
               />
-              <span className="okryshto-brand-docs__radius-label">{radius.label}</span>
+              <span className="okkly-brand-docs__radius-label">{radius.label}</span>
             </div>
           ))}
         </div>
       </BrandDocsSection>
 
-      <hr className="okryshto-brand-docs__divider" />
+      <hr className="okkly-brand-docs__divider" />
 
       <BrandDocsSection title="Elevation" note="Depth via soft shadows on raised surfaces.">
-        <div className="okryshto-brand-docs__elevation-grid">
+        <div className="okkly-brand-docs__elevation-grid">
           {elevations.map((item) => (
             <div
               key={item.label}
               style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}
             >
               <div
-                className="okryshto-brand-docs__elevation-card"
+                className="okkly-brand-docs__elevation-card"
                 style={{ boxShadow: item.shadow }}
               />
-              <span className="okryshto-brand-docs__radius-label">{item.label}</span>
+              <span className="okkly-brand-docs__radius-label">{item.label}</span>
             </div>
           ))}
         </div>
       </BrandDocsSection>
 
-      <hr className="okryshto-brand-docs__divider" />
+      <hr className="okkly-brand-docs__divider" />
 
       <BrandDocsSection title="Motion" note="Three durations, and a rule about turning them off.">
         <Card>
@@ -930,9 +926,9 @@ export const Guidelines: Story = {
       <BrandDocsSection title="Overriding a component">
         <DoDontCard
           title="Customisation — reach for the variable first"
-          subtitle="Every block exposes --okryshto-<block>-* properties. Redeclaring rules is the last resort, not the first."
+          subtitle="Every block exposes --okkly-<block>-* properties. Redeclaring rules is the last resort, not the first."
           dos={[
-            "Set --okryshto-<block>-* on the element or a wrapper",
+            "Set --okkly-<block>-* on the element or a wrapper",
             "Scope overrides to a region rather than :root when only that region changes",
             "Use the size and variant props before writing any CSS",
           ]}
@@ -977,7 +973,7 @@ export const Guidelines: Story = {
           ]}
           donts={[
             "Don't nest interactive elements inside a button or an option",
-            "Don't remove focus rings — retune --okryshto-outline-width instead",
+            "Don't remove focus rings — retune --okkly-outline-width instead",
             "Don't convey status by color alone; pair it with an icon or text",
           ]}
         />
@@ -1053,7 +1049,7 @@ function IconsExplorer() {
         title="Usage"
         note="Icons ship as SVG strings, so they inline without a component boundary and inherit currentColor."
       >
-        <CodeBlock>{`import { iconSearch } from "@okryshto/icons";
+        <CodeBlock>{`import { iconSearch } from "@okkly/icons";
 
 <IconButton aria-label="Search">
   <span dangerouslySetInnerHTML={{ __html: iconSearch }} />
@@ -1061,16 +1057,16 @@ function IconsExplorer() {
       </BrandDocsSection>
 
       <BrandDocsSection title="Search">
-        <div className="okryshto-brand-docs__search">
+        <div className="okkly-brand-docs__search">
           <input
-            className="okryshto-brand-docs__search-input"
+            className="okkly-brand-docs__search-input"
             type="search"
             value={query}
             onChange={(event) => setQuery(event.target.value)}
             placeholder="Search by name, alias, or category…"
             aria-label="Search icons"
           />
-          <p className="okryshto-brand-docs__search-meta">
+          <p className="okkly-brand-docs__search-meta">
             {filtered.length} of {CATALOG.length} icons
             {query.trim() ? ` matching “${query.trim()}”` : ""}
           </p>
@@ -1078,22 +1074,22 @@ function IconsExplorer() {
       </BrandDocsSection>
 
       {grouped.length === 0 ? (
-        <p className="okryshto-brand-docs__section-note">No icons match that query.</p>
+        <p className="okkly-brand-docs__section-note">No icons match that query.</p>
       ) : (
         grouped.map(({ category, icons }) => (
           <BrandDocsSection key={category} title={category}>
-            <div className="okryshto-brand-docs__icon-grid">
+            <div className="okkly-brand-docs__icon-grid">
               {icons.map((entry) => (
                 <article
                   key={entry.name}
-                  className="okryshto-brand-docs__icon-tile"
+                  className="okkly-brand-docs__icon-tile"
                   title={entry.importName}
                 >
                   <div
-                    className="okryshto-brand-docs__icon-glyph"
+                    className="okkly-brand-docs__icon-glyph"
                     dangerouslySetInnerHTML={{ __html: entry.svg }}
                   />
-                  <p className="okryshto-brand-docs__icon-name">{entry.name}</p>
+                  <p className="okkly-brand-docs__icon-name">{entry.name}</p>
                 </article>
               ))}
             </div>
@@ -1127,18 +1123,18 @@ function Tile({
   return (
     <article
       className={[
-        "okryshto-brand-docs__showcase-tile",
-        wide && "okryshto-brand-docs__showcase-tile--wide",
-        grow && "okryshto-brand-docs__showcase-tile--grow",
+        "okkly-brand-docs__showcase-tile",
+        wide && "okkly-brand-docs__showcase-tile--wide",
+        grow && "okkly-brand-docs__showcase-tile--grow",
       ]
         .filter(Boolean)
         .join(" ")}
     >
-      <p className="okryshto-brand-docs__showcase-label">{label}</p>
+      <p className="okkly-brand-docs__showcase-label">{label}</p>
       <div
         className={[
-          "okryshto-brand-docs__showcase-body",
-          stack && "okryshto-brand-docs__showcase-body--stack",
+          "okkly-brand-docs__showcase-body",
+          stack && "okkly-brand-docs__showcase-body--stack",
         ]
           .filter(Boolean)
           .join(" ")}
@@ -1150,7 +1146,7 @@ function Tile({
 }
 
 function Grid({ children }: { children: ReactNode }) {
-  return <div className="okryshto-brand-docs__showcase-grid">{children}</div>;
+  return <div className="okkly-brand-docs__showcase-grid">{children}</div>;
 }
 
 function Showcase() {
@@ -1174,7 +1170,7 @@ function Showcase() {
       <BrandDocsSection title="Brand" note="Identity marks used across surfaces.">
         <Grid>
           <Tile label="Logo" grow>
-            <Logo layout="horizontal" tone="multi" label="okryshto" />
+            <Logo layout="horizontal" tone="multi" label="okkly" />
           </Tile>
           <Tile label="AnimatedLogo" grow>
             <AnimatedLogo size={72} mode="loop" />
@@ -1499,7 +1495,7 @@ function Showcase() {
                 style={{
                   padding: "0.5rem 0.75rem",
                   borderRadius: "0.5rem",
-                  background: "var(--okryshto-bg-surface-raised)",
+                  background: "var(--okkly-bg-surface-raised)",
                 }}
               >
                 Fade in
@@ -1512,7 +1508,7 @@ function Showcase() {
                 style={{
                   padding: "0.5rem 0.75rem",
                   borderRadius: "0.5rem",
-                  background: "var(--okryshto-bg-surface-raised)",
+                  background: "var(--okkly-bg-surface-raised)",
                 }}
               >
                 Grow in

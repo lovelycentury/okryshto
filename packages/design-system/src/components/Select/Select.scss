@@ -1,11 +1,11 @@
 @use "../../styles/mixins/layers.scss";
 @use "../../styles/mixins/field.scss";
 
-.okryshto-select {
+.okkly-select {
   @include layers.component() {
     // Label, control box, adornments, helper text and the error/size/color
     // modifiers are shared with TextField and Autocomplete — see
-    // `styles/mixins/field.scss` for the `--okryshto-select-*` variable API.
+    // `styles/mixins/field.scss` for the `--okkly-select-*` variable API.
     @include field.shell("select");
 
     // The trigger is a `div[role="combobox"]`, not a `<button>`: removable
@@ -41,13 +41,13 @@
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
-      font-family: var(--okryshto-font-family-sans);
-      font-size: var(--okryshto-select-font-size);
-      line-height: var(--okryshto-select-line-height);
-      color: var(--okryshto-text-primary);
+      font-family: var(--okkly-font-family-sans);
+      font-size: var(--okkly-select-font-size);
+      line-height: var(--okkly-select-line-height);
+      color: var(--okkly-text-primary);
 
       &--placeholder {
-        color: var(--okryshto-text-muted);
+        color: var(--okkly-text-muted);
       }
     }
 
@@ -61,9 +61,9 @@
 
     &__overflow {
       flex-shrink: 0;
-      color: var(--okryshto-text-muted);
-      font-family: var(--okryshto-font-family-sans);
-      font-size: var(--okryshto-font-size-sm);
+      color: var(--okkly-text-muted);
+      font-family: var(--okkly-font-family-sans);
+      font-size: var(--okkly-font-size-sm);
     }
 
     &__clear {
@@ -73,12 +73,12 @@
       padding: 0;
       border: none;
       background: transparent;
-      color: var(--okryshto-text-muted);
+      color: var(--okkly-text-muted);
       cursor: pointer;
-      transition: color var(--okryshto-duration-sm) ease;
+      transition: color var(--okkly-duration-sm) ease;
 
       &:hover:not(:disabled) {
-        color: var(--okryshto-text-primary);
+        color: var(--okkly-text-primary);
       }
 
       svg {
@@ -89,7 +89,7 @@
 
     &__chevron {
       display: flex;
-      transition: transform var(--okryshto-duration-sm) ease;
+      transition: transform var(--okkly-duration-sm) ease;
 
       svg {
         width: 1rem;
@@ -105,8 +105,8 @@
   }
 }
 
-.okryshto-select-popover {
+.okkly-select-popover {
   @include layers.component() {
-    @include field.listbox("okryshto-select", "select");
+    @include field.listbox("okkly-select", "select");
   }
 }

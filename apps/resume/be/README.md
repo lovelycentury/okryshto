@@ -1,4 +1,4 @@
-# @okryshto/resume-be
+# @okkly/resume-be
 
 RAG agent that answers questions about Oleksii, grounded in his CV and personal notes.
 Built on Mastra, with a libSQL vector store and a multi-provider model registry.

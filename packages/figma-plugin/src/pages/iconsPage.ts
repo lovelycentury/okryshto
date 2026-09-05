@@ -249,7 +249,7 @@ async function brandBlock(t: ThemeContext): Promise<FrameNode> {
   card.appendChild(brandMark(t, 104));
   // description
   const txt = autoFrame({ direction: "VERTICAL", gap: 6 });
-  txt.appendChild(await makeText(t, "heading/h3", "okryshto", "text/primary"));
+  txt.appendChild(await makeText(t, "heading/h3", "okkly", "text/primary"));
   txt.appendChild(
     await makeText(
       t,

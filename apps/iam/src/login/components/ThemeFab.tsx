@@ -1,6 +1,6 @@
 import { useLayoutEffect, useState } from "react";
-import { iconMoon, iconSun } from "@okryshto/icons";
-import { Fab, Icon } from "@okryshto/react";
+import { iconMoon, iconSun } from "@okkly/icons";
+import { Fab, Icon } from "@okkly/react";
 import { applyIamTheme, readDocumentTheme, type IamTheme } from "../theme";
 import type { I18n } from "../i18n";
 

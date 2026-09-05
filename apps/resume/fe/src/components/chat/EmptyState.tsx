@@ -1,6 +1,6 @@
 import { useAtomValue } from "jotai";
 import { useTranslations } from "use-intl";
-import { Icon, Typography } from "@okryshto/react";
+import { Icon, Typography } from "@okkly/react";
 
 import { STARTER_KEYS } from "../../config/content.js";
 import { isStreamingAtom } from "../../state/atoms.js";

@@ -1,7 +1,7 @@
 "use client";
 
 import type { HTMLAttributes, ReactNode } from "react";
-import "@okryshto/design-system/components/StatCard/StatCard.scss";
+import "@okkly/design-system/components/StatCard/StatCard.scss";
 
 export type StatCardSize = "sm" | "md" | "lg";
 export type StatCardColor = "primary" | "dante" | "indigo" | "violet" | "ember" | "ice";
@@ -117,11 +117,11 @@ export function StatCard({
   ...rest
 }: StatCardProps) {
   const classes = [
-    "okryshto-component",
-    "okryshto-stat-card",
-    size !== "md" && `okryshto-stat-card--${size}`,
-    accent && "okryshto-stat-card--accent",
-    color !== "primary" && `okryshto-stat-card--color-${color}`,
+    "okkly-component",
+    "okkly-stat-card",
+    size !== "md" && `okkly-stat-card--${size}`,
+    accent && "okkly-stat-card--accent",
+    color !== "primary" && `okkly-stat-card--color-${color}`,
     className,
   ]
     .filter(Boolean)
@@ -130,12 +130,12 @@ export function StatCard({
   return (
     <div className={classes} {...rest}>
       {icon && (
-        <div className="okryshto-stat-card__header">
-          <span className="okryshto-stat-card__icon">{icon}</span>
+        <div className="okkly-stat-card__header">
+          <span className="okkly-stat-card__icon">{icon}</span>
         </div>
       )}
-      <div className="okryshto-stat-card__value-row">
-        <p className="okryshto-stat-card__value">{value}</p>
+      <div className="okkly-stat-card__value-row">
+        <p className="okkly-stat-card__value">{value}</p>
         {trend && (
           // The direction lives in an arrow and a colour, and neither survives
           // being read aloud — so the badge carries the word itself. `role="img"`
@@ -145,8 +145,8 @@ export function StatCard({
             role="img"
             aria-label={`${trend.up ? "Up" : "Down"} ${trend.value}`}
             className={[
-              "okryshto-stat-card__trend",
-              trend.up ? "okryshto-stat-card__trend--up" : "okryshto-stat-card__trend--down",
+              "okkly-stat-card__trend",
+              trend.up ? "okkly-stat-card__trend--up" : "okkly-stat-card__trend--down",
             ].join(" ")}
           >
             {trend.up ? <TrendUpIcon /> : <TrendDownIcon />}
@@ -154,8 +154,8 @@ export function StatCard({
           </span>
         )}
       </div>
-      <p className="okryshto-stat-card__label">{label}</p>
-      {description && <p className="okryshto-stat-card__description">{description}</p>}
+      <p className="okkly-stat-card__label">{label}</p>
+      {description && <p className="okkly-stat-card__description">{description}</p>}
     </div>
   );
 }

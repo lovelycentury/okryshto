@@ -8,7 +8,7 @@ import {
   iconPalette,
   iconTrash,
   iconUser,
-} from "@okryshto/icons";
+} from "@okkly/icons";
 import { Avatar } from "../Avatar/Avatar";
 import { Badge } from "../Badge/Badge";
 import { Switch } from "../Switch/Switch";
@@ -58,8 +58,8 @@ type Story = StoryObj<typeof List>;
 
 const surface: CSSProperties = {
   width: "380px",
-  fontFamily: "var(--okryshto-font-family-sans)",
-  color: "var(--okryshto-text-primary)",
+  fontFamily: "var(--okkly-font-family-sans)",
+  color: "var(--okkly-text-primary)",
 };
 
 const Glyph = ({ svg }: { svg: string }) => (

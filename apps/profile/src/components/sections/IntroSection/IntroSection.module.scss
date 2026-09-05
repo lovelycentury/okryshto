@@ -15,14 +15,14 @@
 
 .lead {
   margin: 0;
-  color: var(--okryshto-text-primary);
+  color: var(--okkly-text-primary);
   font-weight: 500;
   @include m.display(h2);
 }
 
 .body {
   margin: 0;
-  color: var(--okryshto-text-secondary);
+  color: var(--okkly-text-secondary);
   font-weight: 500;
   @include m.type(body-lg);
 }
@@ -41,7 +41,7 @@
   width: 3.5rem;
   height: 3.5rem;
   border-radius: 50%;
-  background: var(--okryshto-accent-primary);
+  background: var(--okkly-accent-primary);
   opacity: 0.25;
   pointer-events: none;
 

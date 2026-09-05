@@ -1,17 +1,17 @@
 "use client";
 
 import { forwardRef, type HTMLAttributes } from "react";
-import "@okryshto/design-system/components/Icon/Icon.scss";
-import * as okryshtoIcons from "@okryshto/icons";
+import "@okkly/design-system/components/Icon/Icon.scss";
+import * as okklyIcons from "@okkly/icons";
 
 /**
- * Every icon export in `@okryshto/icons`, inferred from the package itself —
- * `"iconStar" | "iconSearch" | …`. Adding an SVG to `@okryshto/icons` and running
+ * Every icon export in `@okkly/icons`, inferred from the package itself —
+ * `"iconStar" | "iconSearch" | …`. Adding an SVG to `@okkly/icons` and running
  * its `generate` script widens this union with no edit here.
  */
-export type IconName = keyof typeof okryshtoIcons;
+export type IconName = keyof typeof okklyIcons;
 
-/** Raw SVG markup, as every `@okryshto/icons` export is. */
+/** Raw SVG markup, as every `@okkly/icons` export is. */
 export type IconSource = string;
 
 export type IconSize = "small" | "medium" | "large" | "inherit";
@@ -29,7 +29,7 @@ export type IconColor =
   | "muted";
 
 /** Name → markup, so `name` can be resolved at runtime. */
-const ICONS = okryshtoIcons as Record<IconName, IconSource>;
+const ICONS = okklyIcons as Record<IconName, IconSource>;
 
 /** Sorted list of every available icon name — handy for pickers and stories. */
 export const ICON_NAMES = Object.keys(ICONS).sort() as IconName[];
@@ -85,7 +85,7 @@ type IconSourceProps =
     }
   | {
       /**
-       * Pre-imported SVG markup — `import { iconStar } from "@okryshto/icons"`.
+       * Pre-imported SVG markup — `import { iconStar } from "@okkly/icons"`.
        * Use this for icons outside the package, or to keep a bundle lean.
        *
        * Injected as HTML, so it must be markup you control at build time.
@@ -101,7 +101,7 @@ type IconSourceProps =
 /**
  * Props follow MUI's SvgIcon API (https://mui.com/material-ui/api/svg-icon/) where the
  * shapes line up: `color`/`fontSize`/`titleAccess` match name-for-name. Deliberate gaps:
- * the glyph arrives as SVG markup from `@okryshto/icons` rather than as React children, so
+ * the glyph arrives as SVG markup from `@okkly/icons` rather than as React children, so
  * there is no `viewBox`/`inheritViewBox`/`htmlColor` — the assets already declare their
  * own viewBox and paint with `currentColor`, which `color` drives.
  *
@@ -120,16 +120,16 @@ export const Icon = forwardRef<HTMLSpanElement, IconProps>(function Icon(
   const markup = icon ?? (name ? ICONS[name] : undefined);
 
   const classes = [
-    "okryshto-component",
-    "okryshto-icon",
-    fontSize !== "medium" && `okryshto-icon--${fontSize}`,
-    color !== "inherit" && `okryshto-icon--color-${color}`,
+    "okkly-component",
+    "okkly-icon",
+    fontSize !== "medium" && `okkly-icon--${fontSize}`,
+    color !== "inherit" && `okkly-icon--color-${color}`,
     className,
   ]
     .filter(Boolean)
     .join(" ");
 
-  // The markup is first-party: it comes from @okryshto/icons at build time, or
+  // The markup is first-party: it comes from @okkly/icons at build time, or
   // from an `icon` prop the caller imported the same way. It is never user input.
   return (
     <span

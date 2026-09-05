@@ -8,7 +8,7 @@ import {
   type CSSProperties,
   type HTMLAttributes,
 } from "react";
-import "@okryshto/design-system/components/AnimatedLogo/AnimatedLogo.scss";
+import "@okkly/design-system/components/AnimatedLogo/AnimatedLogo.scss";
 
 /**
  * The Celestial Yin-Yang emblem in motion — the brand's loading / hero mark.
@@ -227,12 +227,12 @@ export const AnimatedLogo = forwardRef<HTMLDivElement, AnimatedLogoProps>(functi
   ref,
 ) {
   const rawId = useId().replace(/:/g, "");
-  const yinId = `okryshto-emblem-yin-${rawId}`;
-  const yangId = `okryshto-emblem-yang-${rawId}`;
-  const topLobeId = `okryshto-emblem-lobe-top-${rawId}`;
-  const bottomLobeId = `okryshto-emblem-lobe-bottom-${rawId}`;
-  const clipId = `okryshto-emblem-clip-${rawId}`;
-  const titleId = `okryshto-emblem-title-${rawId}`;
+  const yinId = `okkly-emblem-yin-${rawId}`;
+  const yangId = `okkly-emblem-yang-${rawId}`;
+  const topLobeId = `okkly-emblem-lobe-top-${rawId}`;
+  const bottomLobeId = `okkly-emblem-lobe-bottom-${rawId}`;
+  const clipId = `okkly-emblem-clip-${rawId}`;
+  const titleId = `okkly-emblem-title-${rawId}`;
 
   const [started, setStarted] = useState(startDelay <= 0);
   const [phase, setPhase] = useState<CyclePhase>("in");
@@ -285,28 +285,28 @@ export const AnimatedLogo = forwardRef<HTMLDivElement, AnimatedLogoProps>(functi
 
   const cycling = mode === "cycle";
   const classes = [
-    "okryshto-component",
-    "okryshto-animated-logo",
-    mode === "once" && "okryshto-animated-logo--once",
-    cycling && phase === "out" && "okryshto-animated-logo--out",
-    cycling && phase === "gap" && "okryshto-animated-logo--gap",
-    paused && "okryshto-animated-logo--paused",
-    typeof size === "number" && size < QUIET_BELOW_PX && "okryshto-animated-logo--quiet",
+    "okkly-component",
+    "okkly-animated-logo",
+    mode === "once" && "okkly-animated-logo--once",
+    cycling && phase === "out" && "okkly-animated-logo--out",
+    cycling && phase === "gap" && "okkly-animated-logo--gap",
+    paused && "okkly-animated-logo--paused",
+    typeof size === "number" && size < QUIET_BELOW_PX && "okkly-animated-logo--quiet",
     className,
   ]
     .filter(Boolean)
     .join(" ");
 
   const mergedStyle = {
-    "--okryshto-animated-logo-size": typeof size === "number" ? `${size}px` : size,
-    "--okryshto-animated-logo-intro": ms(introDuration),
-    "--okryshto-animated-logo-outro": ms(outroDuration ?? introDuration),
-    "--okryshto-animated-logo-spin": ms(spinDuration),
-    "--okryshto-animated-logo-orbit": ms(orbitDuration),
-    "--okryshto-animated-logo-breathe": ms(breatheDuration),
-    "--okryshto-animated-logo-pulse": ms(pulseDuration),
-    "--okryshto-animated-logo-shimmer": ms(shimmerDuration),
-    "--okryshto-animated-logo-heartbeat": ms(heartbeatDuration),
+    "--okkly-animated-logo-size": typeof size === "number" ? `${size}px` : size,
+    "--okkly-animated-logo-intro": ms(introDuration),
+    "--okkly-animated-logo-outro": ms(outroDuration ?? introDuration),
+    "--okkly-animated-logo-spin": ms(spinDuration),
+    "--okkly-animated-logo-orbit": ms(orbitDuration),
+    "--okkly-animated-logo-breathe": ms(breatheDuration),
+    "--okkly-animated-logo-pulse": ms(pulseDuration),
+    "--okkly-animated-logo-shimmer": ms(shimmerDuration),
+    "--okkly-animated-logo-heartbeat": ms(heartbeatDuration),
     ...style,
   } as CSSProperties;
 
@@ -315,7 +315,7 @@ export const AnimatedLogo = forwardRef<HTMLDivElement, AnimatedLogoProps>(functi
       {started && (
         <svg
           key={run}
-          className="okryshto-animated-logo__svg"
+          className="okkly-animated-logo__svg"
           viewBox="0 0 240 240"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -334,12 +334,12 @@ export const AnimatedLogo = forwardRef<HTMLDivElement, AnimatedLogoProps>(functi
               y2="25.4312"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stopColor="var(--okryshto-animated-logo-mint)" />
-              <stop offset="1" stopColor="var(--okryshto-animated-logo-rose)" />
+              <stop stopColor="var(--okkly-animated-logo-mint)" />
+              <stop offset="1" stopColor="var(--okkly-animated-logo-rose)" />
             </linearGradient>
             <linearGradient id={yangId} x1="0" y1="0" x2="66" y2="0" gradientUnits="userSpaceOnUse">
-              <stop stopColor="var(--okryshto-animated-logo-indigo)" />
-              <stop offset="1" stopColor="var(--okryshto-animated-logo-violet)" />
+              <stop stopColor="var(--okkly-animated-logo-indigo)" />
+              <stop offset="1" stopColor="var(--okkly-animated-logo-violet)" />
             </linearGradient>
             <linearGradient
               id={topLobeId}
@@ -349,8 +349,8 @@ export const AnimatedLogo = forwardRef<HTMLDivElement, AnimatedLogoProps>(functi
               y2="76.7586"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stopColor="var(--okryshto-animated-logo-mint)" />
-              <stop offset="1" stopColor="var(--okryshto-animated-logo-rose)" />
+              <stop stopColor="var(--okkly-animated-logo-mint)" />
+              <stop offset="1" stopColor="var(--okkly-animated-logo-rose)" />
             </linearGradient>
             <linearGradient
               id={bottomLobeId}
@@ -360,8 +360,8 @@ export const AnimatedLogo = forwardRef<HTMLDivElement, AnimatedLogoProps>(functi
               y2="120"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stopColor="var(--okryshto-animated-logo-indigo)" />
-              <stop offset="1" stopColor="var(--okryshto-animated-logo-violet)" />
+              <stop stopColor="var(--okkly-animated-logo-indigo)" />
+              <stop offset="1" stopColor="var(--okkly-animated-logo-violet)" />
             </linearGradient>
             <clipPath id={clipId}>
               <rect x="54" y="54" width="132" height="132" rx="66" fill="white" />
@@ -369,7 +369,7 @@ export const AnimatedLogo = forwardRef<HTMLDivElement, AnimatedLogoProps>(functi
           </defs>
 
           {showBackdrop && (
-            <g className="okryshto-animated-logo__backdrop">
+            <g className="okkly-animated-logo__backdrop">
               <rect width="240" height="240" rx="120" fill="black" fillOpacity="0.188235" />
               <rect
                 x="0.5"
@@ -385,9 +385,9 @@ export const AnimatedLogo = forwardRef<HTMLDivElement, AnimatedLogoProps>(functi
 
           {showRings && (
             <>
-              <g className="okryshto-animated-logo__breathe okryshto-animated-logo__breathe--outer">
+              <g className="okkly-animated-logo__breathe okkly-animated-logo__breathe--outer">
                 <circle
-                  className="okryshto-animated-logo__ring okryshto-animated-logo__ring--outer"
+                  className="okkly-animated-logo__ring okkly-animated-logo__ring--outer"
                   cx="120.5"
                   cy="120.5"
                   r="93"
@@ -395,9 +395,9 @@ export const AnimatedLogo = forwardRef<HTMLDivElement, AnimatedLogoProps>(functi
                   strokeOpacity="0.0784314"
                 />
               </g>
-              <g className="okryshto-animated-logo__ring-spin">
+              <g className="okkly-animated-logo__ring-spin">
                 <circle
-                  className="okryshto-animated-logo__ring okryshto-animated-logo__ring--dashed"
+                  className="okkly-animated-logo__ring okkly-animated-logo__ring--dashed"
                   cx="120"
                   cy="120"
                   r="85.5"
@@ -406,9 +406,9 @@ export const AnimatedLogo = forwardRef<HTMLDivElement, AnimatedLogoProps>(functi
                   strokeDasharray="4 6"
                 />
               </g>
-              <g className="okryshto-animated-logo__breathe okryshto-animated-logo__breathe--inner">
+              <g className="okkly-animated-logo__breathe okkly-animated-logo__breathe--inner">
                 <circle
-                  className="okryshto-animated-logo__ring okryshto-animated-logo__ring--inner"
+                  className="okkly-animated-logo__ring okkly-animated-logo__ring--inner"
                   cx="120.5"
                   cy="120.5"
                   r="72"
@@ -420,54 +420,54 @@ export const AnimatedLogo = forwardRef<HTMLDivElement, AnimatedLogoProps>(functi
           )}
 
           {showMarkers && (
-            <g className="okryshto-animated-logo__orbit">
-              <g className="okryshto-animated-logo__pulse okryshto-animated-logo__pulse--mint">
+            <g className="okkly-animated-logo__orbit">
+              <g className="okkly-animated-logo__pulse okkly-animated-logo__pulse--mint">
                 <circle
-                  className="okryshto-animated-logo__marker okryshto-animated-logo__marker--mint"
+                  className="okkly-animated-logo__marker okkly-animated-logo__marker--mint"
                   cx="121"
                   cy="31"
                   r="2"
-                  fill="var(--okryshto-animated-logo-mint)"
+                  fill="var(--okkly-animated-logo-mint)"
                 />
               </g>
-              <g className="okryshto-animated-logo__pulse okryshto-animated-logo__pulse--rose">
+              <g className="okkly-animated-logo__pulse okkly-animated-logo__pulse--rose">
                 <circle
-                  className="okryshto-animated-logo__marker okryshto-animated-logo__marker--rose"
+                  className="okkly-animated-logo__marker okkly-animated-logo__marker--rose"
                   cx="121"
                   cy="210"
                   r="2"
-                  fill="var(--okryshto-animated-logo-rose)"
+                  fill="var(--okkly-animated-logo-rose)"
                 />
               </g>
             </g>
           )}
 
           {showGlyphs && (
-            <g className="okryshto-animated-logo__twinkle">
-              <g className="okryshto-animated-logo__glyphs" fill="#6E6E78">
+            <g className="okkly-animated-logo__twinkle">
+              <g className="okkly-animated-logo__glyphs" fill="#6E6E78">
                 <path d="M92.612 47.532L92.972 46.74C93.332 46.836 93.656 46.896 93.944 46.896C94.628 46.896 95.132 46.56 95.516 45.54C95.744 44.928 95.936 44.124 96.104 43.224C95.156 42.96 94.352 42.24 94.352 41.064C94.352 39.576 95.648 38.82 96.896 38.772C97.088 37.848 97.292 36.984 97.556 36.3C98.084 34.908 98.996 34.284 100.04 34.284C100.484 34.284 100.952 34.404 101.42 34.608L101.06 35.4C100.7 35.304 100.376 35.244 100.088 35.244C99.404 35.244 98.9 35.58 98.516 36.612C98.276 37.224 98.084 38.016 97.916 38.892C98.864 39.168 99.668 39.888 99.668 41.064C99.668 42.564 98.384 43.32 97.112 43.356C96.932 44.28 96.728 45.144 96.476 45.828C95.948 47.22 95.036 47.856 93.992 47.856C93.548 47.856 93.08 47.736 92.612 47.532ZM95.204 41.064C95.204 41.784 95.66 42.24 96.248 42.444C96.332 42 96.404 41.532 96.488 41.064C96.572 40.56 96.656 40.056 96.752 39.564C95.936 39.66 95.204 40.152 95.204 41.064ZM97.496 41.208C97.424 41.664 97.34 42.12 97.268 42.564C98.072 42.48 98.816 41.976 98.816 41.064C98.816 40.344 98.36 39.876 97.76 39.672C97.676 40.176 97.58 40.692 97.496 41.208Z" />
                 <path d="M173.917 128.3V120.992H174.361V128.18L174.265 127.94C174.401 127.964 174.569 127.94 174.769 127.868C174.969 127.796 175.169 127.684 175.369 127.532C175.577 127.38 175.749 127.204 175.885 127.004C175.981 126.868 176.053 126.72 176.101 126.56C176.149 126.392 176.173 126.212 176.173 126.02C176.173 125.804 176.137 125.636 176.065 125.516C176.001 125.396 175.881 125.336 175.705 125.336C175.457 125.336 175.201 125.444 174.937 125.66C174.681 125.876 174.465 126.128 174.289 126.416L174.277 125.972C174.517 125.604 174.773 125.316 175.045 125.108C175.317 124.9 175.601 124.796 175.897 124.796C176.185 124.796 176.417 124.896 176.593 125.096C176.769 125.296 176.857 125.584 176.857 125.96C176.857 126.408 176.725 126.812 176.461 127.172C176.197 127.532 175.833 127.816 175.369 128.024C175.161 128.12 174.953 128.188 174.745 128.228C174.537 128.276 174.333 128.3 174.133 128.3H173.917Z" />
               </g>
             </g>
           )}
 
-          <g className="okryshto-animated-logo__orb" clipPath={`url(#${clipId})`}>
-            <circle cx="120" cy="120" r="66" fill="var(--okryshto-animated-logo-core)" />
+          <g className="okkly-animated-logo__orb" clipPath={`url(#${clipId})`}>
+            <circle cx="120" cy="120" r="66" fill="var(--okkly-animated-logo-core)" />
 
-            <g className="okryshto-animated-logo__half okryshto-animated-logo__half--yin">
+            <g className="okkly-animated-logo__half okkly-animated-logo__half--yin">
               <rect width="66" height="132" transform="translate(54 54)" fill={`url(#${yinId})`} />
             </g>
 
             {showWireframe && (
-              <g className="okryshto-animated-logo__shimmer okryshto-animated-logo__shimmer--wire">
-                <g className="okryshto-animated-logo__wire">
+              <g className="okkly-animated-logo__shimmer okkly-animated-logo__shimmer--wire">
+                <g className="okkly-animated-logo__wire">
                   <circle cx="97" cy="97" r="30.5" stroke="black" />
                   <circle cx="89" cy="125" r="46.5" stroke="black" />
                 </g>
               </g>
             )}
 
-            <g className="okryshto-animated-logo__half okryshto-animated-logo__half--yang">
+            <g className="okkly-animated-logo__half okkly-animated-logo__half--yang">
               <rect
                 width="66"
                 height="132"
@@ -477,8 +477,8 @@ export const AnimatedLogo = forwardRef<HTMLDivElement, AnimatedLogoProps>(functi
             </g>
 
             {showGrid && (
-              <g className="okryshto-animated-logo__shimmer okryshto-animated-logo__shimmer--grid">
-                <g className="okryshto-animated-logo__grid">
+              <g className="okkly-animated-logo__shimmer okkly-animated-logo__shimmer--grid">
+                <g className="okkly-animated-logo__grid">
                   <line x1="84.25" y1="71.567" x2="198.565" y2="137.567" stroke="white" />
                   <line x1="84.25" y1="107.567" x2="198.565" y2="173.567" stroke="white" />
                   <line x1="84.25" y1="143.567" x2="198.565" y2="209.567" stroke="white" />
@@ -486,29 +486,29 @@ export const AnimatedLogo = forwardRef<HTMLDivElement, AnimatedLogoProps>(functi
               </g>
             )}
 
-            <g className="okryshto-animated-logo__lobe okryshto-animated-logo__lobe--top">
+            <g className="okkly-animated-logo__lobe okkly-animated-logo__lobe--top">
               <rect x="87" y="54" width="66" height="66" rx="33" fill={`url(#${topLobeId})`} />
             </g>
-            <g className="okryshto-animated-logo__beat okryshto-animated-logo__beat--top">
+            <g className="okkly-animated-logo__beat okkly-animated-logo__beat--top">
               <circle
-                className="okryshto-animated-logo__lobe-dot okryshto-animated-logo__lobe-dot--top"
+                className="okkly-animated-logo__lobe-dot okkly-animated-logo__lobe-dot--top"
                 cx="119.5"
                 cy="86.5"
                 r="6.5"
-                fill="var(--okryshto-animated-logo-ink)"
+                fill="var(--okkly-animated-logo-ink)"
               />
             </g>
 
-            <g className="okryshto-animated-logo__lobe okryshto-animated-logo__lobe--bottom">
+            <g className="okkly-animated-logo__lobe okkly-animated-logo__lobe--bottom">
               <rect x="87" y="120" width="66" height="66" rx="33" fill={`url(#${bottomLobeId})`} />
             </g>
-            <g className="okryshto-animated-logo__beat okryshto-animated-logo__beat--bottom">
+            <g className="okkly-animated-logo__beat okkly-animated-logo__beat--bottom">
               <circle
-                className="okryshto-animated-logo__lobe-dot okryshto-animated-logo__lobe-dot--bottom"
+                className="okkly-animated-logo__lobe-dot okkly-animated-logo__lobe-dot--bottom"
                 cx="119.5"
                 cy="152.5"
                 r="6.5"
-                fill="var(--okryshto-animated-logo-mint)"
+                fill="var(--okkly-animated-logo-mint)"
               />
             </g>
           </g>

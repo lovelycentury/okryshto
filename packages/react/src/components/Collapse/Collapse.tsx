@@ -2,9 +2,9 @@
 
 import { forwardRef, useRef, type CSSProperties, type ReactNode } from "react";
 import { Transition } from "react-transition-group";
-import "@okryshto/design-system/components/Collapse/Collapse.scss";
+import "@okkly/design-system/components/Collapse/Collapse.scss";
 import type { SharedTransitionProps, TransitionTimeoutWithAuto } from "../../types";
-import { useForkRef } from "@okryshto/react-hooks";
+import { useForkRef } from "@okkly/react-hooks";
 import {
   DURATION_STANDARD,
   getAutoHeightDuration,
@@ -219,16 +219,16 @@ export const Collapse = forwardRef<HTMLDivElement, CollapseProps>(function Colla
           <div
             ref={handleRef}
             className={mergeClassNames(
-              "okryshto-collapse",
-              `okryshto-collapse--${orientation}`,
-              entered && "okryshto-collapse--entered",
-              hidden && "okryshto-collapse--hidden",
+              "okkly-collapse",
+              `okkly-collapse--${orientation}`,
+              entered && "okkly-collapse--entered",
+              hidden && "okkly-collapse--hidden",
               className,
             )}
             style={rootStyle}
           >
-            <div ref={wrapperRef} className="okryshto-collapse__wrapper">
-              <div className="okryshto-collapse__wrapper-inner">{children}</div>
+            <div ref={wrapperRef} className="okkly-collapse__wrapper">
+              <div className="okkly-collapse__wrapper-inner">{children}</div>
             </div>
           </div>
         );

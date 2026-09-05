@@ -1,6 +1,6 @@
 import { kcSanitize } from "keycloakify/lib/kcSanitize";
 import type { PageProps } from "keycloakify/login/pages/PageProps";
-import { Button, TextField } from "@okryshto/react";
+import { Button, TextField } from "@okkly/react";
 import type { KcContext } from "../KcContext";
 import type { I18n } from "../i18n";
 

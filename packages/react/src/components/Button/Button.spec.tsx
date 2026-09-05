@@ -12,41 +12,41 @@ describe("Button", () => {
   it("applies the default classes (primary variant, pill shape, medium size)", () => {
     render(<Button>Click me</Button>);
     const button = screen.getByRole("button");
-    expect(button).toHaveClass("okryshto-component", "okryshto-button", "okryshto-button--primary");
-    expect(button.className).not.toMatch(/okryshto-button--color-/);
-    expect(button.className).not.toMatch(/okryshto-button--(small|large)/);
-    expect(button.className).not.toContain("okryshto-button--rounded");
+    expect(button).toHaveClass("okkly-component", "okkly-button", "okkly-button--primary");
+    expect(button.className).not.toMatch(/okkly-button--color-/);
+    expect(button.className).not.toMatch(/okkly-button--(small|large)/);
+    expect(button.className).not.toContain("okkly-button--rounded");
   });
 
   it("applies the variant modifier", () => {
     render(<Button variant="ghost">Click me</Button>);
-    expect(screen.getByRole("button")).toHaveClass("okryshto-button--ghost");
+    expect(screen.getByRole("button")).toHaveClass("okkly-button--ghost");
   });
 
   it("applies a color modifier only for non-default colors", () => {
     const { rerender } = render(<Button color="dante">Click me</Button>);
-    expect(screen.getByRole("button")).toHaveClass("okryshto-button--color-dante");
+    expect(screen.getByRole("button")).toHaveClass("okkly-button--color-dante");
 
     rerender(<Button color="primary">Click me</Button>);
-    expect(screen.getByRole("button").className).not.toMatch(/okryshto-button--color-/);
+    expect(screen.getByRole("button").className).not.toMatch(/okkly-button--color-/);
   });
 
   it("applies a size modifier only for non-medium sizes", () => {
     const { rerender } = render(<Button size="small">Click me</Button>);
-    expect(screen.getByRole("button")).toHaveClass("okryshto-button--small");
+    expect(screen.getByRole("button")).toHaveClass("okkly-button--small");
 
     rerender(<Button size="medium">Click me</Button>);
-    expect(screen.getByRole("button").className).not.toMatch(/okryshto-button--(small|large)/);
+    expect(screen.getByRole("button").className).not.toMatch(/okkly-button--(small|large)/);
   });
 
   it("applies the rounded shape modifier", () => {
     render(<Button shape="rounded">Click me</Button>);
-    expect(screen.getByRole("button")).toHaveClass("okryshto-button--rounded");
+    expect(screen.getByRole("button")).toHaveClass("okkly-button--rounded");
   });
 
   it("applies the full-width modifier", () => {
     render(<Button fullWidth>Click me</Button>);
-    expect(screen.getByRole("button")).toHaveClass("okryshto-button--full-width");
+    expect(screen.getByRole("button")).toHaveClass("okkly-button--full-width");
   });
 
   it("renders start and end icons", () => {
@@ -79,7 +79,7 @@ describe("Button", () => {
     it("disables the button and skips the ripple overlay", () => {
       const { container } = render(<Button disabled>Click me</Button>);
       expect(screen.getByRole("button")).toBeDisabled();
-      expect(container.querySelector(".okryshto-ripple")).not.toBeInTheDocument();
+      expect(container.querySelector(".okkly-ripple")).not.toBeInTheDocument();
     });
   });
 
@@ -87,12 +87,12 @@ describe("Button", () => {
     it("disables the button and shows the spinner", () => {
       render(<Button loading>Click me</Button>);
       expect(screen.getByRole("button")).toBeDisabled();
-      expect(document.querySelector(".okryshto-button__spinner")).toBeInTheDocument();
+      expect(document.querySelector(".okkly-button__spinner")).toBeInTheDocument();
     });
 
     it("visually hides the label at the default (center) loading position", () => {
       render(<Button loading>Click me</Button>);
-      expect(screen.getByText("Click me")).toHaveClass("okryshto-button__label--hidden");
+      expect(screen.getByText("Click me")).toHaveClass("okkly-button__label--hidden");
     });
 
     it("keeps the label visible for start/end loading positions", () => {
@@ -101,19 +101,19 @@ describe("Button", () => {
           Click me
         </Button>,
       );
-      expect(screen.getByText("Click me")).not.toHaveClass("okryshto-button__label--hidden");
+      expect(screen.getByText("Click me")).not.toHaveClass("okkly-button__label--hidden");
     });
   });
 
   describe("disableRipple", () => {
     it("skips the ripple overlay even when enabled", () => {
       const { container } = render(<Button disableRipple>Click me</Button>);
-      expect(container.querySelector(".okryshto-ripple")).not.toBeInTheDocument();
+      expect(container.querySelector(".okkly-ripple")).not.toBeInTheDocument();
     });
 
     it("renders the ripple overlay by default when enabled", () => {
       const { container } = render(<Button>Click me</Button>);
-      expect(container.querySelector(".okryshto-ripple")).toBeInTheDocument();
+      expect(container.querySelector(".okkly-ripple")).toBeInTheDocument();
     });
   });
 

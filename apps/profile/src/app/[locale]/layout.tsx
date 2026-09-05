@@ -4,7 +4,7 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations } from "next-intl/server";
-import { AnimatedBackground } from "@okryshto/react";
+import { AnimatedBackground } from "@okkly/react";
 import Analytics from "@/components/Analytics/Analytics";
 import ConsentProvider from "@/components/ConsentProvider/ConsentProvider";
 import LocaleFab from "@/components/LocaleFab/LocaleFab";
@@ -13,8 +13,8 @@ import SiteFooter from "@/components/SiteFooter/SiteFooter";
 import { routing } from "@/i18n/routing";
 import { CONSENT_BOOTSTRAP_SCRIPT, GA_MEASUREMENT_ID, isAnalyticsEnabled } from "@/lib/analytics";
 import { THEME_BOOTSTRAP_SCRIPT } from "@/lib/theme";
-import "@okryshto/design-system/styles/index.scss";
-import "@okryshto/react/style.css";
+import "@okkly/design-system/styles/index.scss";
+import "@okkly/react/style.css";
 import "@/styles/globals.scss";
 
 // The design system asks for Inter + JetBrains Mono by name; next/font self-hosts

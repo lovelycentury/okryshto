@@ -144,7 +144,7 @@ export const Interactive: Story = {
           valueLabelDisplay="auto"
           aria-label="Brightness"
         />
-        <span style={{ color: "var(--okryshto-text-secondary)", fontSize: "0.875rem" }}>
+        <span style={{ color: "var(--okkly-text-secondary)", fontSize: "0.875rem" }}>
           Value: {value}
         </span>
       </div>

@@ -1,97 +1,92 @@
 @use "../../styles/mixins/layers.scss";
 
-.okryshto-chip {
+.okkly-chip {
   @include layers.component() {
     // 1. full variable API, defaults = variant "glass", size "medium"
-    --okryshto-chip-tone: var(--okryshto-accent-primary);
-    --okryshto-chip-background-color: var(--okryshto-glass-fill);
-    --okryshto-chip-text-color: var(--okryshto-text-primary);
-    --okryshto-chip-border-color: var(--okryshto-glass-border);
-    --okryshto-chip-border-width: var(--okryshto-1px-in-rem);
-    --okryshto-chip-glow: 0 0 0.5rem
-      color-mix(in srgb, var(--okryshto-chip-tone) 25%, transparent);
-    --okryshto-chip-padding-inline: 0.875rem;
-    --okryshto-chip-padding-block: 0.4375rem;
-    --okryshto-chip-gap: 0.375rem;
-    --okryshto-chip-font-size: var(--okryshto-font-size-md);
-    --okryshto-chip-line-height: var(--okryshto-font-line-height-md);
-    --okryshto-chip-font-weight: var(--okryshto-font-weight-medium);
-    --okryshto-chip-dot-size: 0.4375rem;
-    --okryshto-chip-icon-size: 0.875rem;
+    --okkly-chip-tone: var(--okkly-accent-primary);
+    --okkly-chip-background-color: var(--okkly-glass-fill);
+    --okkly-chip-text-color: var(--okkly-text-primary);
+    --okkly-chip-border-color: var(--okkly-glass-border);
+    --okkly-chip-border-width: var(--okkly-1px-in-rem);
+    --okkly-chip-glow: 0 0 0.5rem color-mix(in srgb, var(--okkly-chip-tone) 25%, transparent);
+    --okkly-chip-padding-inline: 0.875rem;
+    --okkly-chip-padding-block: 0.4375rem;
+    --okkly-chip-gap: 0.375rem;
+    --okkly-chip-font-size: var(--okkly-font-size-md);
+    --okkly-chip-line-height: var(--okkly-font-line-height-md);
+    --okkly-chip-font-weight: var(--okkly-font-weight-medium);
+    --okkly-chip-dot-size: 0.4375rem;
+    --okkly-chip-icon-size: 0.875rem;
 
     position: relative;
     display: inline-flex;
     align-items: center;
-    gap: var(--okryshto-chip-gap);
+    gap: var(--okkly-chip-gap);
     width: fit-content;
-    padding: var(--okryshto-chip-padding-block) var(--okryshto-chip-padding-inline);
-    border: var(--okryshto-chip-border-width) solid var(--okryshto-chip-border-color);
+    padding: var(--okkly-chip-padding-block) var(--okkly-chip-padding-inline);
+    border: var(--okkly-chip-border-width) solid var(--okkly-chip-border-color);
     border-radius: 9999px;
-    background: var(--okryshto-chip-background-color);
-    color: var(--okryshto-chip-text-color);
-    font-family: var(--okryshto-font-family-sans);
-    font-weight: var(--okryshto-chip-font-weight);
-    font-size: var(--okryshto-chip-font-size);
-    line-height: var(--okryshto-chip-line-height);
+    background: var(--okkly-chip-background-color);
+    color: var(--okkly-chip-text-color);
+    font-family: var(--okkly-font-family-sans);
+    font-weight: var(--okkly-chip-font-weight);
+    font-size: var(--okkly-chip-font-size);
+    line-height: var(--okkly-chip-line-height);
     white-space: nowrap;
     transition:
-      background-color var(--okryshto-duration-sm) ease-out,
-      border-color var(--okryshto-duration-sm) ease-out,
-      box-shadow var(--okryshto-duration-sm) ease-out;
+      background-color var(--okkly-duration-sm) ease-out,
+      border-color var(--okkly-duration-sm) ease-out,
+      box-shadow var(--okkly-duration-sm) ease-out;
 
     // 2. variant modifiers — glass (default) needs no modifier
     &--solid {
-      --okryshto-chip-background-color: var(--okryshto-bg-surface-raised);
-      --okryshto-chip-border-color: transparent;
+      --okkly-chip-background-color: var(--okkly-bg-surface-raised);
+      --okkly-chip-border-color: transparent;
     }
 
     &--outline {
-      --okryshto-chip-background-color: transparent;
-      --okryshto-chip-border-color: var(--okryshto-border-default);
+      --okkly-chip-background-color: transparent;
+      --okkly-chip-border-color: var(--okkly-border-default);
     }
 
     &--accent,
     &--dante {
-      --okryshto-chip-background-color: color-mix(
-        in srgb,
-        var(--okryshto-chip-tone) 16%,
-        transparent
-      );
-      --okryshto-chip-border-color: transparent;
-      --okryshto-chip-text-color: var(--okryshto-chip-tone);
+      --okkly-chip-background-color: color-mix(in srgb, var(--okkly-chip-tone) 16%, transparent);
+      --okkly-chip-border-color: transparent;
+      --okkly-chip-text-color: var(--okkly-chip-tone);
     }
 
     &--dante {
-      --okryshto-chip-tone: var(--okryshto-accent-dante);
+      --okkly-chip-tone: var(--okkly-accent-dante);
     }
 
     // 3. selected — a filter/toggle state, wins over the variant's own colors.
     // Solid fill (not a tint + outline) to match the same weight as a selected
-    // Calendar day, which also fills solid with `--okryshto-accent-contrast` text.
+    // Calendar day, which also fills solid with `--okkly-accent-contrast` text.
     &--selected {
-      --okryshto-chip-background-color: var(--okryshto-chip-tone);
-      --okryshto-chip-border-color: transparent;
-      --okryshto-chip-text-color: var(--okryshto-accent-contrast);
+      --okkly-chip-background-color: var(--okkly-chip-tone);
+      --okkly-chip-border-color: transparent;
+      --okkly-chip-text-color: var(--okkly-accent-contrast);
     }
 
     // 4. size — medium (default) needs no modifier
     &--small {
-      --okryshto-chip-padding-inline: 0.625rem;
-      --okryshto-chip-padding-block: 0.25rem;
-      --okryshto-chip-font-size: var(--okryshto-font-size-sm);
-      --okryshto-chip-line-height: var(--okryshto-font-line-height-sm);
-      --okryshto-chip-dot-size: 0.375rem;
-      --okryshto-chip-icon-size: 0.75rem;
+      --okkly-chip-padding-inline: 0.625rem;
+      --okkly-chip-padding-block: 0.25rem;
+      --okkly-chip-font-size: var(--okkly-font-size-sm);
+      --okkly-chip-line-height: var(--okkly-font-line-height-sm);
+      --okkly-chip-dot-size: 0.375rem;
+      --okkly-chip-icon-size: 0.75rem;
     }
 
     &--large {
-      --okryshto-chip-padding-inline: 1.125rem;
-      --okryshto-chip-padding-block: 0.5625rem;
-      --okryshto-chip-font-size: var(--okryshto-font-size-lg);
-      --okryshto-chip-line-height: var(--okryshto-font-line-height-lg);
-      --okryshto-chip-font-weight: var(--okryshto-font-weight-regular);
-      --okryshto-chip-dot-size: 0.5rem;
-      --okryshto-chip-icon-size: 1rem;
+      --okkly-chip-padding-inline: 1.125rem;
+      --okkly-chip-padding-block: 0.5625rem;
+      --okkly-chip-font-size: var(--okkly-font-size-lg);
+      --okkly-chip-line-height: var(--okkly-font-line-height-lg);
+      --okkly-chip-font-weight: var(--okkly-font-weight-regular);
+      --okkly-chip-dot-size: 0.5rem;
+      --okkly-chip-icon-size: 1rem;
     }
 
     // 5. interactive — only chips with an onClick (filter/toggle usage) get affordance
@@ -103,15 +98,15 @@
 
       &:hover {
         box-shadow:
-          var(--okryshto-chip-glow),
+          var(--okkly-chip-glow),
           0 0 0 0 transparent;
       }
 
       &:focus-visible {
         outline: none;
         box-shadow:
-          var(--okryshto-chip-glow),
-          0 0 0 var(--okryshto-1px-in-rem) var(--okryshto-chip-tone);
+          var(--okkly-chip-glow),
+          0 0 0 var(--okkly-1px-in-rem) var(--okkly-chip-tone);
       }
     }
 
@@ -124,17 +119,17 @@
     // 6. elements
     &__dot {
       flex-shrink: 0;
-      width: var(--okryshto-chip-dot-size);
-      height: var(--okryshto-chip-dot-size);
+      width: var(--okkly-chip-dot-size);
+      height: var(--okkly-chip-dot-size);
       border-radius: 50%;
-      background: var(--okryshto-chip-tone);
+      background: var(--okkly-chip-tone);
     }
 
     &__icon {
       display: inline-flex;
       flex-shrink: 0;
-      width: var(--okryshto-chip-icon-size);
-      height: var(--okryshto-chip-icon-size);
+      width: var(--okkly-chip-icon-size);
+      height: var(--okkly-chip-icon-size);
 
       svg {
         width: 100%;
@@ -147,8 +142,8 @@
       flex-shrink: 0;
       align-items: center;
       justify-content: center;
-      width: var(--okryshto-chip-icon-size);
-      height: var(--okryshto-chip-icon-size);
+      width: var(--okkly-chip-icon-size);
+      height: var(--okkly-chip-icon-size);
       margin: 0;
       padding: 0;
       border: none;
@@ -158,7 +153,7 @@
       opacity: 0.7;
       cursor: pointer;
       pointer-events: auto;
-      transition: opacity var(--okryshto-duration-sm) ease;
+      transition: opacity var(--okkly-duration-sm) ease;
 
       svg {
         width: 100%;
@@ -170,7 +165,7 @@
       }
 
       &:focus-visible {
-        outline: var(--okryshto-1px-in-rem) solid var(--okryshto-chip-tone);
+        outline: var(--okkly-1px-in-rem) solid var(--okkly-chip-tone);
         outline-offset: 0.125rem;
       }
 

@@ -2,13 +2,13 @@
 
 import { cloneElement, forwardRef, useRef, type CSSProperties } from "react";
 import { Transition } from "react-transition-group";
-import "@okryshto/design-system/components/Grow/Grow.scss";
+import "@okkly/design-system/components/Grow/Grow.scss";
 import type {
   SharedTransitionProps,
   TransitionChildren,
   TransitionTimeoutWithAuto,
 } from "../../types";
-import { useForkRef } from "@okryshto/react-hooks";
+import { useForkRef } from "@okkly/react-hooks";
 import {
   createCssTransition,
   getAutoHeightDuration,
@@ -190,7 +190,7 @@ export const Grow = forwardRef<HTMLElement, GrowProps>(function Grow(
     >
       {(state) =>
         cloneElement(children, {
-          className: mergeClassNames("okryshto-grow", className, children.props.className),
+          className: mergeClassNames("okkly-grow", className, children.props.className),
           style: {
             opacity: 0,
             transform: getScale(0.75),

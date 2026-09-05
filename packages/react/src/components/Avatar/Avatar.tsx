@@ -1,7 +1,7 @@
 "use client";
 
 import { forwardRef, useState, type HTMLAttributes } from "react";
-import "@okryshto/design-system/components/Avatar/Avatar.scss";
+import "@okkly/design-system/components/Avatar/Avatar.scss";
 
 export type AvatarSize = "sm" | "md" | "lg";
 export type AvatarShape = "circle" | "rounded";
@@ -77,11 +77,11 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(function Avatar(
   const showImage = !!src && !imageFailed;
 
   const classes = [
-    "okryshto-component",
-    "okryshto-avatar",
-    shape === "rounded" && "okryshto-avatar--rounded",
-    size !== "md" && `okryshto-avatar--${size}`,
-    !showImage && color !== "mint" && `okryshto-avatar--color-${color}`,
+    "okkly-component",
+    "okkly-avatar",
+    shape === "rounded" && "okkly-avatar--rounded",
+    size !== "md" && `okkly-avatar--${size}`,
+    !showImage && color !== "mint" && `okkly-avatar--color-${color}`,
     className,
   ]
     .filter(Boolean)
@@ -91,21 +91,21 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(function Avatar(
     <div ref={ref} className={classes} role={alt ? "img" : undefined} aria-label={alt} {...rest}>
       {showImage ? (
         <img
-          className="okryshto-avatar__image"
+          className="okkly-avatar__image"
           src={src}
           alt=""
           onError={() => setImageFailed(true)}
         />
       ) : (
-        <span className="okryshto-avatar__initials" aria-hidden="true">
+        <span className="okkly-avatar__initials" aria-hidden="true">
           {(initials ?? "").slice(0, 2)}
         </span>
       )}
       {status && (
         <span
           className={[
-            "okryshto-avatar__status",
-            status === "offline" && "okryshto-avatar__status--offline",
+            "okkly-avatar__status",
+            status === "offline" && "okkly-avatar__status--offline",
           ]
             .filter(Boolean)
             .join(" ")}

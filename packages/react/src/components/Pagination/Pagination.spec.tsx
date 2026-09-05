@@ -19,32 +19,32 @@ describe("Pagination", () => {
     expect(screen.getByRole("button", { name: "Go to previous page" })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "Go to next page" })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "Go to page 2" })).toHaveClass(
-      "okryshto-pagination__button--active",
+      "okkly-pagination__button--active",
     );
   });
 
   it("renders with zero modifier classes by default", () => {
     const { container } = render(<Pagination count={5} page={1} />);
     const root = container.firstChild as HTMLElement;
-    expect(root).toHaveClass("okryshto-component", "okryshto-pagination");
-    expect(root.className).not.toMatch(/okryshto-pagination--color-/);
-    expect(root.className).not.toMatch(/okryshto-pagination--size-/);
-    expect(root.className).not.toMatch(/okryshto-pagination--shape-circular/);
-    expect(root.className).not.toMatch(/okryshto-pagination--disabled/);
+    expect(root).toHaveClass("okkly-component", "okkly-pagination");
+    expect(root.className).not.toMatch(/okkly-pagination--color-/);
+    expect(root.className).not.toMatch(/okkly-pagination--size-/);
+    expect(root.className).not.toMatch(/okkly-pagination--shape-circular/);
+    expect(root.className).not.toMatch(/okkly-pagination--disabled/);
   });
 
   it("applies size, shape, color, and disabled modifiers", () => {
     const { rerender, container } = render(<Pagination count={5} page={1} size="large" />);
-    expect(container.firstChild).toHaveClass("okryshto-pagination--size-large");
+    expect(container.firstChild).toHaveClass("okkly-pagination--size-large");
 
     rerender(<Pagination count={5} page={1} shape="circular" />);
-    expect(container.firstChild).toHaveClass("okryshto-pagination--shape-circular");
+    expect(container.firstChild).toHaveClass("okkly-pagination--shape-circular");
 
     rerender(<Pagination count={5} page={1} color="dante" />);
-    expect(container.firstChild).toHaveClass("okryshto-pagination--color-dante");
+    expect(container.firstChild).toHaveClass("okkly-pagination--color-dante");
 
     rerender(<Pagination count={5} page={1} disabled />);
-    expect(container.firstChild).toHaveClass("okryshto-pagination--disabled");
+    expect(container.firstChild).toHaveClass("okkly-pagination--disabled");
   });
 
   it("fires onChange when a page is selected", () => {
@@ -73,6 +73,6 @@ describe("Pagination", () => {
     const { container } = render(
       <Pagination count={20} page={10} siblingCount={1} boundaryCount={1} />,
     );
-    expect(container.querySelectorAll(".okryshto-pagination__ellipsis")).toHaveLength(2);
+    expect(container.querySelectorAll(".okkly-pagination__ellipsis")).toHaveLength(2);
   });
 });

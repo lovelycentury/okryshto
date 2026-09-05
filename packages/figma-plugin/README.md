@@ -85,7 +85,7 @@ src/
 │   ├─ variables.ts    Variable collections (Color: Dark+Light, Scale)
 │   ├─ styles.ts       Text / Effect / Paint styles
 │   ├─ nodes.ts        fills/strokes bound to variables, text, icons
-│   ├─ icons.ts        Figma adapter for @okryshto/icons (the glyph source of truth)
+│   ├─ icons.ts        Figma adapter for @okkly/icons (the glyph source of truth)
 │   ├─ layout.ts       auto-layout helpers (hug/fill/fixed, padding, gap)
 │   ├─ theme.ts        ThemeContext — the bag passed to every generator
 │   └─ registry.ts     idempotent teardown + page creation

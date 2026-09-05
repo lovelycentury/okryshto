@@ -43,14 +43,14 @@ const surface: CSSProperties = {
   flexWrap: "wrap",
   alignItems: "center",
   gap: "16px",
-  fontFamily: "var(--okryshto-font-family-sans)",
-  color: "var(--okryshto-text-primary)",
+  fontFamily: "var(--okkly-font-family-sans)",
+  color: "var(--okkly-text-primary)",
 };
 
 const caption: CSSProperties = {
   margin: 0,
-  fontSize: "var(--okryshto-font-size-sm)",
-  color: "var(--okryshto-text-muted)",
+  fontSize: "var(--okkly-font-size-sm)",
+  color: "var(--okkly-text-muted)",
 };
 
 /**
@@ -113,9 +113,9 @@ export const BrokenImage: Story = {
 };
 
 /**
- * `status` adds a presence dot. Its ring is painted in `--okryshto-bg-canvas` so the
+ * `status` adds a presence dot. Its ring is painted in `--okkly-bg-canvas` so the
  * dot reads as punched out of the page — on a lighter surface, override
- * `--okryshto-avatar-status-border-color` to match whatever is actually behind it.
+ * `--okkly-avatar-status-border-color` to match whatever is actually behind it.
  */
 export const Presence: Story = {
   render: () => (
@@ -135,7 +135,7 @@ export const Presence: Story = {
           justifyItems: "center",
           padding: "12px",
           borderRadius: "12px",
-          background: "var(--okryshto-bg-surface-raised)",
+          background: "var(--okkly-bg-surface-raised)",
         }}
       >
         <Avatar
@@ -143,8 +143,7 @@ export const Presence: Story = {
           color="indigo"
           status="online"
           style={{
-            ["--okryshto-avatar-status-border-color" as string]:
-              "var(--okryshto-bg-surface-raised)",
+            ["--okkly-avatar-status-border-color" as string]: "var(--okkly-bg-surface-raised)",
           }}
         />
         <p style={caption}>ring retinted</p>
@@ -192,7 +191,7 @@ export const InAMemberList: Story = {
             status={member.status as "online" | "offline"}
           />
           <div style={{ display: "grid", gap: "2px" }}>
-            <span style={{ fontSize: "var(--okryshto-font-size-md)" }}>{member.name}</span>
+            <span style={{ fontSize: "var(--okkly-font-size-md)" }}>{member.name}</span>
             <span style={caption}>{member.role}</span>
           </div>
         </div>

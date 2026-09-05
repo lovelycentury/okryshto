@@ -15,9 +15,9 @@ describe("Calendar", () => {
 
   it("applies the default classes", () => {
     const { container } = render(<Calendar month={january2024} />);
-    expect(container.querySelector(".okryshto-calendar")).toHaveClass(
-      "okryshto-component",
-      "okryshto-calendar",
+    expect(container.querySelector(".okkly-calendar")).toHaveClass(
+      "okkly-component",
+      "okkly-calendar",
     );
   });
 
@@ -25,10 +25,8 @@ describe("Calendar", () => {
     const { container } = render(
       <Calendar month={january2024} style={calendarToneStyle("dante")} />,
     );
-    const root = container.querySelector<HTMLElement>(".okryshto-calendar");
-    expect(root?.style.getPropertyValue("--okryshto-calendar-tone")).toBe(
-      "var(--okryshto-accent-dante)",
-    );
+    const root = container.querySelector<HTMLElement>(".okkly-calendar");
+    expect(root?.style.getPropertyValue("--okkly-calendar-tone")).toBe("var(--okkly-accent-dante)");
     expect(calendarToneStyle("primary")).toBeUndefined();
   });
 
@@ -46,19 +44,19 @@ describe("Calendar", () => {
 
   it("renders a full 5-week grid with no leading days and trailing outside days", () => {
     const { container } = render(<Calendar month={january2024} />);
-    const days = container.querySelectorAll(".okryshto-calendar__day");
+    const days = container.querySelectorAll(".okkly-calendar__day");
     expect(days).toHaveLength(35);
     expect(days[0]).toHaveTextContent("1");
-    expect(days[0]).not.toHaveClass("okryshto-calendar__day--outside");
+    expect(days[0]).not.toHaveClass("okkly-calendar__day--outside");
     expect(days[34]).toHaveTextContent("4");
-    expect(days[34]).toHaveClass("okryshto-calendar__day--outside");
+    expect(days[34]).toHaveClass("okkly-calendar__day--outside");
   });
 
   it("marks the selected date and fires onSelect with the clicked date", () => {
     const onSelect = vi.fn();
     render(<Calendar month={january2024} value={new Date(2024, 0, 10)} onSelect={onSelect} />);
     const selected = screen.getByRole("button", { name: "10" });
-    expect(selected).toHaveClass("okryshto-calendar__day--selected");
+    expect(selected).toHaveClass("okkly-calendar__day--selected");
     expect(selected).toHaveAttribute("aria-pressed", "true");
 
     fireEvent.click(screen.getByRole("button", { name: "15" }));
@@ -78,7 +76,7 @@ describe("Calendar", () => {
     );
     const tooEarly = screen.getAllByRole("button", { name: "3" })[0]; // Jan 3 (Feb 3 also renders as a trailing outside day)
     expect(tooEarly).toBeDisabled();
-    expect(tooEarly).toHaveClass("okryshto-calendar__day--disabled");
+    expect(tooEarly).toHaveClass("okkly-calendar__day--disabled");
     fireEvent.click(tooEarly);
     expect(onSelect).not.toHaveBeenCalled();
 
@@ -89,8 +87,8 @@ describe("Calendar", () => {
     // Removed outright: it was a 12% wash indistinguishable from a selected
     // range, so the two states could not be told apart.
     const { container } = render(<Calendar month={january2024} value={new Date(2024, 0, 10)} />);
-    expect(container.querySelector(".okryshto-calendar__legend")).not.toBeInTheDocument();
-    expect(container.querySelector(".okryshto-calendar__day--highlight")).not.toBeInTheDocument();
+    expect(container.querySelector(".okkly-calendar__legend")).not.toBeInTheDocument();
+    expect(container.querySelector(".okkly-calendar__day--highlight")).not.toBeInTheDocument();
   });
 
   describe("today", () => {
@@ -107,9 +105,9 @@ describe("Calendar", () => {
       const { container } = render(<Calendar month={january2024} />);
       const today = screen.getByRole("button", { name: "17" });
       expect(today).toHaveAttribute("aria-current", "date");
-      expect(today).toHaveClass("okryshto-calendar__day--today");
-      expect(today.querySelector(".okryshto-calendar__day-dot")).toBeInTheDocument();
-      expect(container.querySelectorAll(".okryshto-calendar__day-dot")).toHaveLength(1);
+      expect(today).toHaveClass("okkly-calendar__day--today");
+      expect(today.querySelector(".okkly-calendar__day-dot")).toBeInTheDocument();
+      expect(container.querySelectorAll(".okkly-calendar__day-dot")).toHaveLength(1);
     });
 
     it("keeps the today modifier on a day that is also selected", () => {
@@ -117,10 +115,7 @@ describe("Calendar", () => {
       // so both classes have to survive for that ordering to mean anything.
       render(<Calendar month={january2024} value={new Date(2024, 0, 17)} />);
       const today = screen.getByRole("button", { name: "17" });
-      expect(today).toHaveClass(
-        "okryshto-calendar__day--today",
-        "okryshto-calendar__day--selected",
-      );
+      expect(today).toHaveClass("okkly-calendar__day--today", "okkly-calendar__day--selected");
     });
   });
 
@@ -237,18 +232,18 @@ describe("Calendar", () => {
           value={[new Date(2024, 0, 10), new Date(2024, 0, 14)]}
         />,
       );
-      expect(container.querySelector(".okryshto-calendar__grid")).toBeInTheDocument();
+      expect(container.querySelector(".okkly-calendar__grid")).toBeInTheDocument();
 
       fireEvent.click(screen.getByRole("button", { name: /Choose year/ }));
-      expect(container.querySelector(".okryshto-calendar__grid")).not.toBeInTheDocument();
-      expect(container.querySelector(".okryshto-calendar__day--in-range")).not.toBeInTheDocument();
+      expect(container.querySelector(".okkly-calendar__grid")).not.toBeInTheDocument();
+      expect(container.querySelector(".okkly-calendar__day--in-range")).not.toBeInTheDocument();
     });
   });
 
   it("renders no shortcut chips column", () => {
     const { container } = render(<Calendar month={january2024} value={new Date(2024, 0, 10)} />);
-    expect(container.querySelector(".okryshto-calendar__chips")).not.toBeInTheDocument();
-    expect(container.querySelector(".okryshto-chip")).not.toBeInTheDocument();
+    expect(container.querySelector(".okkly-calendar__chips")).not.toBeInTheDocument();
+    expect(container.querySelector(".okkly-chip")).not.toBeInTheDocument();
   });
 
   describe("range mode", () => {
@@ -262,20 +257,20 @@ describe("Calendar", () => {
       );
 
       expect(screen.getByRole("button", { name: "10" })).toHaveClass(
-        "okryshto-calendar__day--range-start",
+        "okkly-calendar__day--range-start",
       );
       expect(screen.getByRole("button", { name: "14" })).toHaveClass(
-        "okryshto-calendar__day--range-end",
+        "okkly-calendar__day--range-end",
       );
       expect(screen.getByRole("button", { name: "12" })).toHaveClass(
-        "okryshto-calendar__day--in-range",
+        "okkly-calendar__day--in-range",
       );
       // The ends carry their own modifier and must not also be tinted as interior.
       expect(screen.getByRole("button", { name: "10" })).not.toHaveClass(
-        "okryshto-calendar__day--in-range",
+        "okkly-calendar__day--in-range",
       );
       expect(screen.getByRole("button", { name: "9" })).not.toHaveClass(
-        "okryshto-calendar__day--in-range",
+        "okkly-calendar__day--in-range",
       );
     });
 
@@ -291,15 +286,15 @@ describe("Calendar", () => {
         />,
       );
 
-      const trailing = [...container.querySelectorAll(".okryshto-calendar__day--outside")];
+      const trailing = [...container.querySelectorAll(".okkly-calendar__day--outside")];
       expect(trailing).toHaveLength(4);
       for (const cell of trailing) {
-        expect(cell).toHaveClass("okryshto-calendar__day--in-range");
-        expect(cell).not.toHaveClass("okryshto-calendar__day--range-end");
+        expect(cell).toHaveClass("okkly-calendar__day--in-range");
+        expect(cell).not.toHaveClass("okkly-calendar__day--range-end");
       }
       // Exactly one start and no end at all: Feb 8 is not in this month's grid.
-      expect(container.querySelectorAll(".okryshto-calendar__day--range-start")).toHaveLength(1);
-      expect(container.querySelectorAll(".okryshto-calendar__day--range-end")).toHaveLength(0);
+      expect(container.querySelectorAll(".okkly-calendar__day--range-start")).toHaveLength(1);
+      expect(container.querySelectorAll(".okkly-calendar__day--range-end")).toHaveLength(0);
     });
 
     it("commits on the second click and orders the pair", () => {
@@ -310,7 +305,7 @@ describe("Calendar", () => {
       expect(onSelect).not.toHaveBeenCalled();
       // The armed start shows immediately, so the click is not silently swallowed.
       expect(screen.getByRole("button", { name: "20" })).toHaveClass(
-        "okryshto-calendar__day--range-start",
+        "okkly-calendar__day--range-start",
       );
 
       fireEvent.click(screen.getByRole("button", { name: "12" }));
@@ -333,7 +328,7 @@ describe("Calendar", () => {
       expect(onSelect).not.toHaveBeenCalled();
       // The old pair stops rendering the moment a new start is armed.
       expect(screen.getByRole("button", { name: "12" })).not.toHaveClass(
-        "okryshto-calendar__day--in-range",
+        "okkly-calendar__day--in-range",
       );
 
       fireEvent.click(screen.getByRole("button", { name: "25" }));
@@ -348,7 +343,7 @@ describe("Calendar", () => {
         />,
       );
       expect(screen.getByRole("button", { name: "22" })).toHaveClass(
-        "okryshto-calendar__day--in-range",
+        "okkly-calendar__day--in-range",
       );
     });
 
@@ -356,7 +351,7 @@ describe("Calendar", () => {
       const { container, rerender } = render(
         <Calendar month={january2024} value={new Date(2024, 0, 10)} />,
       );
-      expect(container.querySelectorAll(".okryshto-calendar__day--selected")).toHaveLength(1);
+      expect(container.querySelectorAll(".okkly-calendar__day--selected")).toHaveLength(1);
 
       rerender(
         <Calendar
@@ -365,7 +360,7 @@ describe("Calendar", () => {
           value={[new Date(2024, 0, 10), new Date(2024, 0, 14)]}
         />,
       );
-      expect(container.querySelectorAll(".okryshto-calendar__day--selected")).toHaveLength(0);
+      expect(container.querySelectorAll(".okkly-calendar__day--selected")).toHaveLength(0);
     });
   });
 });

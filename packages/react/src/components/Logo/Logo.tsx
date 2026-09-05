@@ -1,7 +1,7 @@
 "use client";
 
 import { forwardRef, useId, type HTMLAttributes, type CSSProperties } from "react";
-import "@okryshto/design-system/components/Logo/Logo.scss";
+import "@okkly/design-system/components/Logo/Logo.scss";
 
 export type LogoLayout = "compact" | "horizontal" | "stacked";
 export type LogoTone =
@@ -65,14 +65,14 @@ export const Logo = forwardRef<HTMLDivElement, LogoProps>(function Logo(
   ref,
 ) {
   const rawId = useId().replace(/:/g, "");
-  const clipId = `okryshto-logo-clip-${rawId}`;
+  const clipId = `okkly-logo-clip-${rawId}`;
   const isMulti = tone === "multi";
 
   const classes = [
-    "okryshto-component",
-    "okryshto-logo",
-    layout !== "horizontal" && `okryshto-logo--${layout}`,
-    !isMulti && `okryshto-logo--tone-${tone}`,
+    "okkly-component",
+    "okkly-logo",
+    layout !== "horizontal" && `okkly-logo--${layout}`,
+    !isMulti && `okkly-logo--tone-${tone}`,
     className,
   ]
     .filter(Boolean)
@@ -80,7 +80,7 @@ export const Logo = forwardRef<HTMLDivElement, LogoProps>(function Logo(
 
   const mergedStyle: CSSProperties | undefined = size
     ? ({
-        "--okryshto-logo-emblem-size": typeof size === "number" ? `${size}px` : size,
+        "--okkly-logo-emblem-size": typeof size === "number" ? `${size}px` : size,
         ...style,
       } as CSSProperties)
     : style;
@@ -88,14 +88,14 @@ export const Logo = forwardRef<HTMLDivElement, LogoProps>(function Logo(
   // Multi-color emblem — the Figma "Celestial Yin-Yang" orb, static variant.
   // Same geometry the AnimatedLogo builds on, cropped to the orb alone.
   const renderMultiLogo = () => {
-    const yinId = `okryshto-logo-yin-${rawId}`;
-    const yangId = `okryshto-logo-yang-${rawId}`;
-    const topLobeId = `okryshto-logo-lobe-top-${rawId}`;
-    const bottomLobeId = `okryshto-logo-lobe-bottom-${rawId}`;
+    const yinId = `okkly-logo-yin-${rawId}`;
+    const yangId = `okkly-logo-yang-${rawId}`;
+    const topLobeId = `okkly-logo-lobe-top-${rawId}`;
+    const bottomLobeId = `okkly-logo-lobe-bottom-${rawId}`;
 
     return (
       <svg
-        className="okryshto-logo__emblem"
+        className="okkly-logo__emblem"
         viewBox="54 54 132 132"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -167,12 +167,12 @@ export const Logo = forwardRef<HTMLDivElement, LogoProps>(function Logo(
 
   // Single-tone yin-yang logo
   const renderSingleToneLogo = () => {
-    const lightGradientId = `okryshto-logo-light-${rawId}`;
-    const darkGradientId = `okryshto-logo-dark-${rawId}`;
+    const lightGradientId = `okkly-logo-light-${rawId}`;
+    const darkGradientId = `okkly-logo-dark-${rawId}`;
 
     return (
       <svg
-        className="okryshto-logo__emblem"
+        className="okkly-logo__emblem"
         viewBox="0 0 52 52"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -190,8 +190,8 @@ export const Logo = forwardRef<HTMLDivElement, LogoProps>(function Logo(
             y2="12"
             gradientUnits="userSpaceOnUse"
           >
-            <stop style={{ stopColor: "var(--okryshto-logo-light-start)" }} />
-            <stop offset="1" style={{ stopColor: "var(--okryshto-logo-light-end)" }} />
+            <stop style={{ stopColor: "var(--okkly-logo-light-start)" }} />
+            <stop offset="1" style={{ stopColor: "var(--okkly-logo-light-end)" }} />
           </linearGradient>
           <linearGradient
             id={darkGradientId}
@@ -201,17 +201,17 @@ export const Logo = forwardRef<HTMLDivElement, LogoProps>(function Logo(
             y2="0"
             gradientUnits="userSpaceOnUse"
           >
-            <stop style={{ stopColor: "var(--okryshto-logo-dark-start)" }} />
-            <stop offset="1" style={{ stopColor: "var(--okryshto-logo-dark-end)" }} />
+            <stop style={{ stopColor: "var(--okkly-logo-dark-start)" }} />
+            <stop offset="1" style={{ stopColor: "var(--okkly-logo-dark-end)" }} />
           </linearGradient>
         </defs>
         <g clipPath={`url(#${clipId})`}>
           <rect width="26" height="52" fill={`url(#${lightGradientId})`} />
           <rect x="26" width="26" height="52" fill={`url(#${darkGradientId})`} />
           <rect x="13" width="26" height="26" rx="13" fill={`url(#${lightGradientId})`} />
-          <circle cx="26" cy="13" r="3.12" fill="var(--okryshto-logo-dot-on-light)" />
+          <circle cx="26" cy="13" r="3.12" fill="var(--okkly-logo-dot-on-light)" />
           <rect x="13" y="26" width="26" height="26" rx="13" fill={`url(#${darkGradientId})`} />
-          <circle cx="26" cy="39" r="3.12" fill="var(--okryshto-logo-dot-on-dark)" />
+          <circle cx="26" cy="39" r="3.12" fill="var(--okkly-logo-dot-on-dark)" />
         </g>
         <rect
           x="0.5"
@@ -219,7 +219,7 @@ export const Logo = forwardRef<HTMLDivElement, LogoProps>(function Logo(
           width="51"
           height="51"
           rx="25.5"
-          stroke="var(--okryshto-logo-ring-color)"
+          stroke="var(--okkly-logo-ring-color)"
         />
       </svg>
     );
@@ -228,7 +228,7 @@ export const Logo = forwardRef<HTMLDivElement, LogoProps>(function Logo(
   return (
     <div ref={ref} className={classes} style={mergedStyle} {...rest}>
       {isMulti ? renderMultiLogo() : renderSingleToneLogo()}
-      {showLabel && <span className="okryshto-logo__label">{label}</span>}
+      {showLabel && <span className="okkly-logo__label">{label}</span>}
     </div>
   );
 });

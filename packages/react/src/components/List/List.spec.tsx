@@ -12,9 +12,9 @@ describe("List", () => {
         </ListItem>
       </List>,
     );
-    const list = container.querySelector(".okryshto-list") as HTMLElement;
-    expect(list).toHaveClass("okryshto-component", "okryshto-list");
-    expect(list.className).not.toMatch(/okryshto-list--(dense|disable-padding)/);
+    const list = container.querySelector(".okkly-list") as HTMLElement;
+    expect(list).toHaveClass("okkly-component", "okkly-list");
+    expect(list.className).not.toMatch(/okkly-list--(dense|disable-padding)/);
   });
 
   it("applies dense and disablePadding modifiers", () => {
@@ -23,11 +23,11 @@ describe("List", () => {
         <ListItem>Child</ListItem>
       </List>,
     );
-    expect(container.querySelector(".okryshto-list")).toHaveClass(
-      "okryshto-list--dense",
-      "okryshto-list--disable-padding",
+    expect(container.querySelector(".okkly-list")).toHaveClass(
+      "okkly-list--dense",
+      "okkly-list--disable-padding",
     );
-    expect(screen.getByText("Section")).toHaveClass("okryshto-list__subheader");
+    expect(screen.getByText("Section")).toHaveClass("okkly-list__subheader");
   });
 
   it("forwards ref on List", () => {
@@ -50,11 +50,11 @@ describe("ListItem", () => {
         </ListItem>
       </List>,
     );
-    const item = container.querySelector(".okryshto-list-item") as HTMLElement;
-    expect(item).toHaveClass("okryshto-list-item--selected");
-    expect(item.className).not.toMatch(/okryshto-list-item--button/);
+    const item = container.querySelector(".okkly-list-item") as HTMLElement;
+    expect(item).toHaveClass("okkly-list-item--selected");
+    expect(item.className).not.toMatch(/okkly-list-item--button/);
     expect(screen.getByTestId("icon")).toBeInTheDocument();
-    expect(screen.getByText("Title")).toHaveClass("okryshto-list-item__primary");
+    expect(screen.getByText("Title")).toHaveClass("okkly-list-item__primary");
   });
 
   // Keyboard activation is not asserted here because it is not this component's

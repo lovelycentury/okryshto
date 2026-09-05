@@ -3,7 +3,7 @@ import { useEffect, type RefObject } from "react";
 /**
  * Closes a dropdown when a pointer press lands outside every element in `refs`.
  *
- * `useClickOutside` from `@okryshto/react-hooks` takes a single ref, which is not
+ * `useClickOutside` from `@okkly/react-hooks` takes a single ref, which is not
  * enough here: the field and its popup are in different DOM trees (the popup is
  * portaled), so "outside" means outside *both*. Select and Autocomplete share
  * this instead of each growing its own copy.

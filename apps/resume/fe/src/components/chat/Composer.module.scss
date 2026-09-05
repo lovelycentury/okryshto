@@ -12,8 +12,8 @@
   min-height: 100px;
   padding: 16px 16px 12px 18px;
   border-radius: 18px;
-  border: 1px solid var(--okryshto-border-subtle);
-  background: color-mix(in srgb, var(--okryshto-bg-canvas) 78%, transparent);
+  border: 1px solid var(--okkly-border-subtle);
+  background: color-mix(in srgb, var(--okkly-bg-canvas) 78%, transparent);
   backdrop-filter: blur(12px);
   transition:
     border-color 0.15s ease,
@@ -22,13 +22,13 @@
 
 // Focus lights the card's edge in mint and pushes a soft bloom under it.
 .box:focus-within {
-  border-color: var(--okryshto-accent-primary);
-  box-shadow: 0 0 24px -8px color-mix(in srgb, var(--okryshto-accent-primary) 55%, transparent);
+  border-color: var(--okkly-accent-primary);
+  box-shadow: 0 0 24px -8px color-mix(in srgb, var(--okkly-accent-primary) 55%, transparent);
 }
 
 .boxError,
 .box.boxError:focus-within {
-  border-color: var(--okryshto-feedback-danger);
+  border-color: var(--okkly-feedback-danger);
   box-shadow: none;
 }
 
@@ -38,7 +38,7 @@
   outline: none;
   resize: none;
   background: transparent;
-  color: var(--okryshto-text-primary);
+  color: var(--okkly-text-primary);
   font: inherit;
   font-size: 1rem;
   line-height: 1.5;
@@ -46,7 +46,7 @@
 }
 
 .textarea::placeholder {
-  color: var(--okryshto-text-muted);
+  color: var(--okkly-text-muted);
 }
 
 // Sits at the bottom of the card whatever the textarea's height.
@@ -62,12 +62,12 @@
 .counter {
   margin-right: auto;
   font-size: 0.75rem;
-  color: var(--okryshto-text-muted);
+  color: var(--okkly-text-muted);
   font-variant-numeric: tabular-nums;
 }
 
 .counterError {
-  color: var(--okryshto-feedback-danger);
+  color: var(--okkly-feedback-danger);
 }
 
 .action {
@@ -91,29 +91,29 @@
 }
 
 .actionSend {
-  background: var(--okryshto-accent-primary);
-  color: var(--okryshto-accent-contrast);
+  background: var(--okkly-accent-primary);
+  color: var(--okkly-accent-contrast);
 }
 
 .actionSend:hover:not(:disabled) {
-  background: color-mix(in srgb, var(--okryshto-accent-primary) 88%, white);
+  background: color-mix(in srgb, var(--okkly-accent-primary) 88%, white);
 }
 
 .actionSend:disabled {
-  background: var(--okryshto-bg-surface-raised);
-  color: var(--okryshto-text-muted);
+  background: var(--okkly-bg-surface-raised);
+  color: var(--okkly-text-muted);
   cursor: default;
 }
 
 // Streaming: the same disc turns neutral and holds a stop square.
 .actionStop {
-  background: var(--okryshto-bg-surface-raised);
-  border: 1px solid var(--okryshto-border-default);
-  color: var(--okryshto-text-primary);
+  background: var(--okkly-bg-surface-raised);
+  border: 1px solid var(--okkly-border-default);
+  color: var(--okkly-text-primary);
 }
 
 .actionStop:hover {
-  border-color: var(--okryshto-border-strong);
+  border-color: var(--okkly-border-strong);
 }
 
 .stopGlyph {
@@ -127,7 +127,7 @@
   margin: 0;
   padding: 0 2px;
   font-size: 0.8125rem;
-  color: var(--okryshto-text-muted);
+  color: var(--okkly-text-muted);
 }
 
 @media (max-width: 900px) {

@@ -1,17 +1,17 @@
 @use "../../styles/mixins/layers.scss";
 
-.okryshto-rich-editor {
+.okkly-rich-editor {
   @include layers.component() {
     // 1. full variable API — defaults = color "primary", fullWidth
-    --okryshto-rich-editor-tone: var(--okryshto-accent-primary);
-    --okryshto-rich-editor-border-color: var(--okryshto-border-default);
-    --okryshto-rich-editor-focus-border-color: var(--okryshto-rich-editor-tone);
-    --okryshto-rich-editor-glow: 0 0 2.5rem
-      color-mix(in srgb, var(--okryshto-rich-editor-tone) 24%, transparent);
-    --okryshto-rich-editor-background: var(--okryshto-bg-surface);
-    --okryshto-rich-editor-border-radius: 0.625rem;
-    --okryshto-rich-editor-min-height: 12rem;
-    --okryshto-rich-editor-footer-height: 2.25rem;
+    --okkly-rich-editor-tone: var(--okkly-accent-primary);
+    --okkly-rich-editor-border-color: var(--okkly-border-default);
+    --okkly-rich-editor-focus-border-color: var(--okkly-rich-editor-tone);
+    --okkly-rich-editor-glow: 0 0 2.5rem
+      color-mix(in srgb, var(--okkly-rich-editor-tone) 24%, transparent);
+    --okkly-rich-editor-background: var(--okkly-bg-surface);
+    --okkly-rich-editor-border-radius: 0.625rem;
+    --okkly-rich-editor-min-height: 12rem;
+    --okkly-rich-editor-footer-height: 2.25rem;
 
     display: flex;
     flex-direction: column;
@@ -29,24 +29,24 @@
     }
 
     &--readonly {
-      --okryshto-rich-editor-background: var(--okryshto-bg-inset);
+      --okkly-rich-editor-background: var(--okkly-bg-inset);
     }
 
     &--error {
-      --okryshto-rich-editor-border-color: var(--okryshto-feedback-danger);
+      --okkly-rich-editor-border-color: var(--okkly-feedback-danger);
     }
 
     &--color-dante {
-      --okryshto-rich-editor-tone: var(--okryshto-accent-dante);
+      --okkly-rich-editor-tone: var(--okkly-accent-dante);
     }
 
     // 2. elements
     &__label {
-      font-family: var(--okryshto-font-family-sans);
-      font-weight: var(--okryshto-font-weight-medium);
-      font-size: var(--okryshto-font-size-sm);
+      font-family: var(--okkly-font-family-sans);
+      font-weight: var(--okkly-font-weight-medium);
+      font-size: var(--okkly-font-size-sm);
       line-height: 1rem;
-      color: var(--okryshto-text-secondary);
+      color: var(--okkly-text-secondary);
     }
 
     &__shell {
@@ -55,35 +55,35 @@
       flex-direction: column;
       box-sizing: border-box;
       width: 100%;
-      min-height: var(--okryshto-rich-editor-min-height);
-      border: var(--okryshto-1px-in-rem) solid var(--okryshto-rich-editor-border-color);
-      border-radius: var(--okryshto-rich-editor-border-radius);
-      background: var(--okryshto-rich-editor-background);
+      min-height: var(--okkly-rich-editor-min-height);
+      border: var(--okkly-1px-in-rem) solid var(--okkly-rich-editor-border-color);
+      border-radius: var(--okkly-rich-editor-border-radius);
+      background: var(--okkly-rich-editor-background);
       box-shadow:
         0 0 0 0 transparent,
         0 0 2.5rem transparent;
       transition:
-        border-color var(--okryshto-duration-sm) ease-out,
-        box-shadow var(--okryshto-duration-sm) ease-out;
+        border-color var(--okkly-duration-sm) ease-out,
+        box-shadow var(--okkly-duration-sm) ease-out;
 
       &:focus-within {
-        border-color: var(--okryshto-rich-editor-focus-border-color);
+        border-color: var(--okkly-rich-editor-focus-border-color);
         box-shadow:
-          0 0 0 0.03125rem var(--okryshto-rich-editor-focus-border-color),
-          var(--okryshto-rich-editor-glow);
+          0 0 0 0.03125rem var(--okkly-rich-editor-focus-border-color),
+          var(--okkly-rich-editor-glow);
       }
     }
 
     &--error &__shell {
       box-shadow:
-        0 0 0 0.03125rem var(--okryshto-feedback-danger),
+        0 0 0 0.03125rem var(--okkly-feedback-danger),
         0 0 2.5rem transparent;
     }
 
     &--error &__shell:focus-within {
-      border-color: var(--okryshto-feedback-danger);
+      border-color: var(--okkly-feedback-danger);
       box-shadow:
-        0 0 0 0.03125rem var(--okryshto-feedback-danger),
+        0 0 0 0.03125rem var(--okkly-feedback-danger),
         0 0 2.5rem transparent;
     }
 
@@ -94,13 +94,13 @@
       gap: 0.5rem;
       flex-wrap: wrap;
       padding: 0.5rem 0.625rem;
-      background: var(--okryshto-bg-surface-raised);
-      border-bottom: var(--okryshto-1px-in-rem) solid var(--okryshto-border-subtle);
+      background: var(--okkly-bg-surface-raised);
+      border-bottom: var(--okkly-1px-in-rem) solid var(--okkly-border-subtle);
       border-start-start-radius: calc(
-        var(--okryshto-rich-editor-border-radius) - var(--okryshto-1px-in-rem)
+        var(--okkly-rich-editor-border-radius) - var(--okkly-1px-in-rem)
       );
       border-start-end-radius: calc(
-        var(--okryshto-rich-editor-border-radius) - var(--okryshto-1px-in-rem)
+        var(--okkly-rich-editor-border-radius) - var(--okkly-1px-in-rem)
       );
     }
 
@@ -119,9 +119,9 @@
     }
 
     &__sep {
-      width: var(--okryshto-1px-in-rem);
+      width: var(--okkly-1px-in-rem);
       height: 1.125rem;
-      background: var(--okryshto-border-subtle);
+      background: var(--okkly-border-subtle);
       flex-shrink: 0;
     }
 
@@ -133,28 +133,28 @@
       min-width: 1.75rem;
       height: 1.75rem;
       padding: 0.375rem;
-      border: var(--okryshto-1px-in-rem) solid transparent;
+      border: var(--okkly-1px-in-rem) solid transparent;
       border-radius: 0.375rem;
       background: transparent;
-      color: var(--okryshto-text-secondary);
+      color: var(--okkly-text-secondary);
       cursor: pointer;
-      font-family: var(--okryshto-font-family-sans);
-      font-weight: var(--okryshto-font-weight-medium);
-      font-size: var(--okryshto-font-size-sm);
+      font-family: var(--okkly-font-family-sans);
+      font-weight: var(--okkly-font-weight-medium);
+      font-size: var(--okkly-font-size-sm);
       line-height: 1;
       transition:
-        background-color var(--okryshto-duration-sm) ease,
-        border-color var(--okryshto-duration-sm) ease,
-        color var(--okryshto-duration-sm) ease;
+        background-color var(--okkly-duration-sm) ease,
+        border-color var(--okkly-duration-sm) ease,
+        color var(--okkly-duration-sm) ease;
 
       &:hover {
-        color: var(--okryshto-text-primary);
-        background: color-mix(in srgb, var(--okryshto-rich-editor-tone) 10%, transparent);
+        color: var(--okkly-text-primary);
+        background: color-mix(in srgb, var(--okkly-rich-editor-tone) 10%, transparent);
       }
 
       &:focus-visible {
-        outline: var(--okryshto-outline-width) solid
-          color-mix(in srgb, var(--okryshto-rich-editor-tone) 40%, transparent);
+        outline: var(--okkly-outline-width) solid
+          color-mix(in srgb, var(--okkly-rich-editor-tone) 40%, transparent);
         outline-offset: 0.0625rem;
       }
 
@@ -171,27 +171,27 @@
     }
 
     &__tool--active {
-      color: var(--okryshto-rich-editor-tone);
-      background: color-mix(in srgb, var(--okryshto-rich-editor-tone) 16%, transparent);
-      border-color: var(--okryshto-rich-editor-tone);
+      color: var(--okkly-rich-editor-tone);
+      background: color-mix(in srgb, var(--okkly-rich-editor-tone) 16%, transparent);
+      border-color: var(--okkly-rich-editor-tone);
     }
 
     &__content {
       position: relative;
       flex: 1;
       min-height: 0;
-      padding: 1rem 1rem calc(1rem + var(--okryshto-rich-editor-footer-height));
+      padding: 1rem 1rem calc(1rem + var(--okkly-rich-editor-footer-height));
       overflow: auto;
     }
 
     &__prose {
       outline: none;
       min-height: 4rem;
-      font-family: var(--okryshto-font-family-sans);
-      font-weight: var(--okryshto-font-weight-regular);
-      font-size: var(--okryshto-font-size-md);
-      line-height: var(--okryshto-font-line-height-lg);
-      color: var(--okryshto-text-primary);
+      font-family: var(--okkly-font-family-sans);
+      font-weight: var(--okkly-font-weight-regular);
+      font-size: var(--okkly-font-size-md);
+      line-height: var(--okkly-font-line-height-lg);
+      color: var(--okkly-text-primary);
 
       > * + * {
         margin-top: 0.75rem;
@@ -200,8 +200,8 @@
       h2 {
         font-size: 1.25rem;
         line-height: 1.75rem;
-        font-weight: var(--okryshto-font-weight-medium);
-        color: var(--okryshto-text-primary);
+        font-weight: var(--okkly-font-weight-medium);
+        color: var(--okkly-text-primary);
       }
 
       p {
@@ -221,20 +221,20 @@
       blockquote {
         margin: 0;
         padding-left: 0.875rem;
-        border-left: 0.1875rem solid var(--okryshto-rich-editor-tone);
-        color: var(--okryshto-text-secondary);
+        border-left: 0.1875rem solid var(--okkly-rich-editor-tone);
+        color: var(--okkly-text-secondary);
       }
 
       pre {
         margin: 0;
         padding: 0.75rem 0.875rem;
         border-radius: 0.5rem;
-        background: var(--okryshto-bg-inset);
+        background: var(--okkly-bg-inset);
         overflow-x: auto;
       }
 
       code {
-        font-family: var(--okryshto-font-family-mono);
+        font-family: var(--okkly-font-family-mono);
         font-size: 0.8125rem;
       }
 
@@ -242,18 +242,18 @@
       li code {
         padding: 0.0625rem 0.25rem;
         border-radius: 0.25rem;
-        background: var(--okryshto-bg-inset);
+        background: var(--okkly-bg-inset);
       }
 
       a {
-        color: var(--okryshto-rich-editor-tone);
+        color: var(--okkly-rich-editor-tone);
         text-decoration: underline;
         text-underline-offset: 0.125rem;
       }
 
       hr {
         border: none;
-        border-top: var(--okryshto-1px-in-rem) solid var(--okryshto-border-default);
+        border-top: var(--okkly-1px-in-rem) solid var(--okkly-border-default);
         margin: 1rem 0;
       }
 
@@ -263,7 +263,7 @@
         float: left;
         height: 0;
         pointer-events: none;
-        color: var(--okryshto-text-muted);
+        color: var(--okkly-text-muted);
       }
     }
 
@@ -274,10 +274,10 @@
       left: 1rem;
       width: 16rem;
       padding: 0.5rem;
-      border: var(--okryshto-1px-in-rem) solid var(--okryshto-border-default);
-      border-radius: var(--okryshto-rich-editor-border-radius);
-      background: var(--okryshto-bg-surface-raised);
-      box-shadow: var(--okryshto-shadow-soft-bottom);
+      border: var(--okkly-1px-in-rem) solid var(--okkly-border-default);
+      border-radius: var(--okkly-rich-editor-border-radius);
+      background: var(--okkly-bg-surface-raised);
+      box-shadow: var(--okkly-shadow-soft-bottom);
       display: flex;
       flex-direction: column;
       gap: 0.125rem;
@@ -288,14 +288,14 @@
       align-items: center;
       gap: 0.5rem;
       padding: 0.375rem 0.5rem;
-      font-family: var(--okryshto-font-family-sans);
-      font-size: var(--okryshto-font-size-sm);
-      color: var(--okryshto-text-primary);
+      font-family: var(--okkly-font-family-sans);
+      font-size: var(--okkly-font-size-sm);
+      color: var(--okkly-text-primary);
     }
 
     &__slash-prefix {
-      font-family: var(--okryshto-font-family-mono);
-      color: var(--okryshto-rich-editor-tone);
+      font-family: var(--okkly-font-family-mono);
+      color: var(--okkly-rich-editor-tone);
     }
 
     &__slash-item {
@@ -308,16 +308,16 @@
       border: none;
       border-radius: 0.375rem;
       background: transparent;
-      color: var(--okryshto-text-secondary);
+      color: var(--okkly-text-secondary);
       cursor: pointer;
-      font-family: var(--okryshto-font-family-sans);
-      font-size: var(--okryshto-font-size-sm);
+      font-family: var(--okkly-font-family-sans);
+      font-size: var(--okkly-font-size-sm);
       text-align: left;
 
       &:hover,
       &:focus-visible {
-        background: color-mix(in srgb, var(--okryshto-rich-editor-tone) 14%, transparent);
-        color: var(--okryshto-text-primary);
+        background: color-mix(in srgb, var(--okkly-rich-editor-tone) 14%, transparent);
+        color: var(--okkly-text-primary);
         outline: none;
       }
     }
@@ -330,14 +330,14 @@
       svg {
         width: 1rem;
         height: 1rem;
-        color: var(--okryshto-text-muted);
+        color: var(--okkly-text-muted);
       }
     }
 
     &__slash-kbd {
-      font-family: var(--okryshto-font-family-mono);
+      font-family: var(--okkly-font-family-mono);
       font-size: 0.75rem;
-      color: var(--okryshto-text-muted);
+      color: var(--okkly-text-muted);
     }
 
     &__footer {
@@ -349,20 +349,18 @@
       align-items: center;
       justify-content: space-between;
       gap: 0.625rem;
-      min-height: var(--okryshto-rich-editor-footer-height);
+      min-height: var(--okkly-rich-editor-footer-height);
       padding: 0.5rem 0.75rem;
-      background: var(--okryshto-bg-inset);
-      border-top: var(--okryshto-1px-in-rem) solid var(--okryshto-border-subtle);
+      background: var(--okkly-bg-inset);
+      border-top: var(--okkly-1px-in-rem) solid var(--okkly-border-subtle);
       border-end-start-radius: calc(
-        var(--okryshto-rich-editor-border-radius) - var(--okryshto-1px-in-rem)
+        var(--okkly-rich-editor-border-radius) - var(--okkly-1px-in-rem)
       );
-      border-end-end-radius: calc(
-        var(--okryshto-rich-editor-border-radius) - var(--okryshto-1px-in-rem)
-      );
-      font-family: var(--okryshto-font-family-sans);
+      border-end-end-radius: calc(var(--okkly-rich-editor-border-radius) - var(--okkly-1px-in-rem));
+      font-family: var(--okkly-font-family-sans);
       font-size: 0.75rem;
       line-height: 1rem;
-      color: var(--okryshto-text-muted);
+      color: var(--okkly-text-muted);
     }
 
     &__footer-meta {
@@ -382,24 +380,24 @@
       width: 0.375rem;
       height: 0.375rem;
       border-radius: 9999px;
-      background: var(--okryshto-feedback-success);
+      background: var(--okkly-feedback-success);
       flex-shrink: 0;
     }
 
     &__status-dot--danger {
-      background: var(--okryshto-feedback-danger);
+      background: var(--okkly-feedback-danger);
     }
 
     &__helper {
-      font-family: var(--okryshto-font-family-sans);
-      font-size: var(--okryshto-font-size-sm);
+      font-family: var(--okkly-font-family-sans);
+      font-size: var(--okkly-font-size-sm);
       line-height: 1.125rem;
       letter-spacing: 0.013px;
-      color: var(--okryshto-text-muted);
+      color: var(--okkly-text-muted);
     }
 
     &--error &__helper {
-      color: var(--okryshto-feedback-danger);
+      color: var(--okkly-feedback-danger);
     }
   }
 }

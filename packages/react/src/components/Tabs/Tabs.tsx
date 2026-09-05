@@ -9,7 +9,7 @@ import {
   type ReactNode,
   type SyntheticEvent,
 } from "react";
-import "@okryshto/design-system/components/Tabs/Tabs.scss";
+import "@okkly/design-system/components/Tabs/Tabs.scss";
 
 export type TabsColor = "primary" | "dante" | "indigo" | "violet" | "ember" | "ice";
 export type TabsVariant = "standard" | "scrollable";
@@ -29,7 +29,7 @@ export interface TabItem {
  * Props follow MUI's Tabs API (https://mui.com/material-ui/api/tabs/) closely:
  * `value`/`onChange`/`variant`/`orientation` match name-for-name. Deliberate
  * gaps: tabs come from an `items` array (not `Tab` children composition),
- * `color` uses okryshto tone names, and tab panels are left to the consumer in v1.
+ * `color` uses okkly tone names, and tab panels are left to the consumer in v1.
  */
 export interface TabsProps extends Omit<HTMLAttributes<HTMLDivElement>, "children" | "onChange"> {
   /**
@@ -102,11 +102,11 @@ export function Tabs({
   const currentValue = isControlled ? value : internalValue;
 
   const classes = [
-    "okryshto-component",
-    "okryshto-tabs",
-    color !== "primary" && `okryshto-tabs--color-${color}`,
-    variant === "scrollable" && "okryshto-tabs--scrollable",
-    orientation === "vertical" && "okryshto-tabs--vertical",
+    "okkly-component",
+    "okkly-tabs",
+    color !== "primary" && `okkly-tabs--color-${color}`,
+    variant === "scrollable" && "okkly-tabs--scrollable",
+    orientation === "vertical" && "okkly-tabs--vertical",
     className,
   ]
     .filter(Boolean)
@@ -148,7 +148,7 @@ export function Tabs({
   };
 
   const tabList = (
-    <ul className="okryshto-tabs__list" role="tablist" aria-orientation={orientation}>
+    <ul className="okkly-tabs__list" role="tablist" aria-orientation={orientation}>
       {items.map((item) => {
         const active = currentValue === item.value;
         return (
@@ -159,19 +159,19 @@ export function Tabs({
               ref={(node) => {
                 tabRefs.current[item.value] = node;
               }}
-              id={`okryshto-tab-${item.value}`}
+              id={`okkly-tab-${item.value}`}
               aria-selected={active}
-              aria-controls={active ? `okryshto-tabpanel-${item.value}` : undefined}
+              aria-controls={active ? `okkly-tabpanel-${item.value}` : undefined}
               tabIndex={active ? 0 : -1}
               disabled={item.disabled}
-              className={["okryshto-tabs__tab", active && "okryshto-tabs__tab--active"]
+              className={["okkly-tabs__tab", active && "okkly-tabs__tab--active"]
                 .filter(Boolean)
                 .join(" ")}
               onClick={(event) => handleTabClick(event, item.value)}
               onKeyDown={handleKeyDown}
             >
               {item.icon && (
-                <span className="okryshto-tabs__icon" aria-hidden="true">
+                <span className="okkly-tabs__icon" aria-hidden="true">
                   {item.icon}
                 </span>
               )}
@@ -185,11 +185,7 @@ export function Tabs({
 
   return (
     <div className={classes} {...rest}>
-      {variant === "scrollable" ? (
-        <div className="okryshto-tabs__scroller">{tabList}</div>
-      ) : (
-        tabList
-      )}
+      {variant === "scrollable" ? <div className="okkly-tabs__scroller">{tabList}</div> : tabList}
     </div>
   );
 }

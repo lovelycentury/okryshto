@@ -2,17 +2,17 @@
 @use "../../styles/mixins/visibility.scss";
 @use "../../styles/mixins/field.scss";
 
-.okryshto-text-area {
+.okkly-text-area {
   @include layers.component() {
     // 1. full variable API, defaults = color "primary" (mint focus ring), size "medium"
-    --okryshto-text-area-border-color: var(--okryshto-border-default);
-    --okryshto-text-area-focus-border-color: var(--okryshto-accent-primary);
-    --okryshto-text-area-glow: 0 0 2.5rem rgba(94, 230, 193, 0.24);
-    --okryshto-text-area-glow-dante: 0 0 0.4375rem rgba(255, 61, 139, 0.35);
-    --okryshto-text-area-padding-inline: 0.875rem;
-    --okryshto-text-area-padding-block: 0.75rem;
-    --okryshto-text-area-font-size: 1rem;
-    --okryshto-text-area-line-height: 1.625rem;
+    --okkly-text-area-border-color: var(--okkly-border-default);
+    --okkly-text-area-focus-border-color: var(--okkly-accent-primary);
+    --okkly-text-area-glow: 0 0 2.5rem rgba(94, 230, 193, 0.24);
+    --okkly-text-area-glow-dante: 0 0 0.4375rem rgba(255, 61, 139, 0.35);
+    --okkly-text-area-padding-inline: 0.875rem;
+    --okkly-text-area-padding-block: 0.75rem;
+    --okkly-text-area-font-size: 1rem;
+    --okkly-text-area-line-height: 1.625rem;
 
     display: flex;
     flex-direction: column;
@@ -23,17 +23,17 @@
       width: 100%;
     }
 
-    &:has(.okryshto-text-area__textarea:disabled) {
+    &:has(.okkly-text-area__textarea:disabled) {
       opacity: 0.4;
     }
 
     // 2. elements
     &__label {
-      font-family: var(--okryshto-font-family-sans);
-      font-weight: var(--okryshto-font-weight-medium);
-      font-size: var(--okryshto-font-size-sm);
+      font-family: var(--okkly-font-family-sans);
+      font-weight: var(--okkly-font-weight-medium);
+      font-size: var(--okkly-font-size-sm);
       line-height: 1rem;
-      color: var(--okryshto-text-secondary);
+      color: var(--okkly-text-secondary);
 
       &--hidden {
         @include visibility.visually-hidden;
@@ -46,35 +46,35 @@
       display: flex;
       box-sizing: border-box;
       width: 100%;
-      padding: var(--okryshto-text-area-padding-block) var(--okryshto-text-area-padding-inline);
-      border: var(--okryshto-1px-in-rem) solid var(--okryshto-text-area-border-color);
+      padding: var(--okkly-text-area-padding-block) var(--okkly-text-area-padding-inline);
+      border: var(--okkly-1px-in-rem) solid var(--okkly-text-area-border-color);
       border-radius: 0.625rem;
-      background: var(--okryshto-bg-surface);
+      background: var(--okkly-bg-surface);
       box-shadow:
         0 0 0 0 transparent,
         0 0 2.5rem transparent;
       transition:
-        border-color var(--okryshto-duration-sm) ease-out,
-        box-shadow var(--okryshto-duration-sm) ease-out;
+        border-color var(--okkly-duration-sm) ease-out,
+        box-shadow var(--okkly-duration-sm) ease-out;
 
       &:focus-within {
-        border-color: var(--okryshto-text-area-focus-border-color);
+        border-color: var(--okkly-text-area-focus-border-color);
         box-shadow:
-          0 0 0 0.03125rem var(--okryshto-text-area-focus-border-color),
-          var(--okryshto-text-area-glow);
+          0 0 0 0.03125rem var(--okkly-text-area-focus-border-color),
+          var(--okkly-text-area-glow);
       }
     }
 
     &--error &__control {
-      border-color: var(--okryshto-feedback-danger);
+      border-color: var(--okkly-feedback-danger);
       box-shadow:
-        0 0 0 0.03125rem var(--okryshto-feedback-danger),
+        0 0 0 0.03125rem var(--okkly-feedback-danger),
         0 0 2.5rem transparent;
     }
 
     &--error &__control:focus-within {
       box-shadow:
-        0 0 0 0.03125rem var(--okryshto-feedback-danger),
+        0 0 0 0.03125rem var(--okkly-feedback-danger),
         0 0 2.5rem transparent;
     }
 
@@ -87,14 +87,14 @@
       outline: none;
       background: transparent;
       resize: vertical;
-      font-family: var(--okryshto-font-family-sans);
-      font-weight: var(--okryshto-font-weight-regular);
-      font-size: var(--okryshto-text-area-font-size);
-      line-height: var(--okryshto-text-area-line-height);
-      color: var(--okryshto-text-primary);
+      font-family: var(--okkly-font-family-sans);
+      font-weight: var(--okkly-font-weight-regular);
+      font-size: var(--okkly-text-area-font-size);
+      line-height: var(--okkly-text-area-line-height);
+      color: var(--okkly-text-primary);
 
       &::placeholder {
-        color: var(--okryshto-text-muted);
+        color: var(--okkly-text-muted);
       }
     }
 
@@ -120,48 +120,48 @@
     &__helper {
       flex: 1;
       min-width: 0;
-      font-family: var(--okryshto-font-family-sans);
-      font-size: var(--okryshto-font-size-sm);
+      font-family: var(--okkly-font-family-sans);
+      font-size: var(--okkly-font-size-sm);
       line-height: 1.125rem;
       letter-spacing: 0.013px;
-      color: var(--okryshto-text-muted);
+      color: var(--okkly-text-muted);
     }
 
     &--error &__helper {
-      color: var(--okryshto-feedback-danger);
+      color: var(--okkly-feedback-danger);
     }
 
     &__counter {
       flex-shrink: 0;
       margin-left: auto;
-      font-family: var(--okryshto-font-family-sans);
-      font-size: var(--okryshto-font-size-sm);
+      font-family: var(--okkly-font-family-sans);
+      font-size: var(--okkly-font-size-sm);
       line-height: 1.125rem;
       letter-spacing: 0.013px;
-      color: var(--okryshto-text-muted);
+      color: var(--okkly-text-muted);
     }
 
     // 3. color modifier — rare, tints the focus ring/glow (e.g. Dante theme moments)
     &--color-dante &__control:focus-within {
-      border-color: var(--okryshto-accent-dante);
+      border-color: var(--okkly-accent-dante);
       box-shadow:
-        0 0 0 0.03125rem var(--okryshto-accent-dante),
-        var(--okryshto-text-area-glow-dante);
+        0 0 0 0.03125rem var(--okkly-accent-dante),
+        var(--okkly-text-area-glow-dante);
     }
 
     // 4. size
     &--small {
-      --okryshto-text-area-padding-inline: 0.75rem;
-      --okryshto-text-area-padding-block: 0.5625rem;
-      --okryshto-text-area-font-size: 0.875rem;
-      --okryshto-text-area-line-height: 1.375rem;
+      --okkly-text-area-padding-inline: 0.75rem;
+      --okkly-text-area-padding-block: 0.5625rem;
+      --okkly-text-area-font-size: 0.875rem;
+      --okkly-text-area-line-height: 1.375rem;
     }
 
     &--large {
-      --okryshto-text-area-padding-inline: 1rem;
-      --okryshto-text-area-padding-block: 0.9375rem;
-      --okryshto-text-area-font-size: 1.125rem;
-      --okryshto-text-area-line-height: 1.875rem;
+      --okkly-text-area-padding-inline: 1rem;
+      --okkly-text-area-padding-block: 0.9375rem;
+      --okkly-text-area-font-size: 1.125rem;
+      --okkly-text-area-line-height: 1.875rem;
     }
   }
 }

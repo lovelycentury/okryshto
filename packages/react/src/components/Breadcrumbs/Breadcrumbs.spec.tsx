@@ -40,7 +40,7 @@ describe("Breadcrumbs", () => {
 
   it("renders a chevron separator by default", () => {
     const { container } = render(<Breadcrumbs items={items} />);
-    expect(container.querySelectorAll(".okryshto-breadcrumbs__separator")).toHaveLength(
+    expect(container.querySelectorAll(".okkly-breadcrumbs__separator")).toHaveLength(
       items.length - 1,
     );
   });
@@ -71,9 +71,9 @@ describe("Breadcrumbs", () => {
     const longPath = [
       { label: "Home", href: "/" },
       { label: "Projects", href: "/projects" },
-      { label: "Okryshto", href: "/projects/okryshto" },
-      { label: "Packages", href: "/projects/okryshto/packages" },
-      { label: "react", href: "/projects/okryshto/packages/react" },
+      { label: "Okryshto", href: "/projects/okkly" },
+      { label: "Packages", href: "/projects/okkly/packages" },
+      { label: "react", href: "/projects/okkly/packages/react" },
       { label: "Button" },
     ];
 

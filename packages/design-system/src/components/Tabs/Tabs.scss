@@ -1,50 +1,50 @@
-// https://www.figma.com/design/3YsJJl5QukJZPkjoOOZahx/-okryshto-okryshto?node-id=637-50585
+// https://www.figma.com/design/3YsJJl5QukJZPkjoOOZahx/-okkly-okkly?node-id=637-50585
 // API: https://mui.com/material-ui/api/tabs/
 @use "../../styles/mixins/layers.scss";
 
-.okryshto-tabs {
+.okkly-tabs {
   @include layers.component() {
-    --okryshto-tabs-tone: var(--okryshto-accent-primary);
-    --okryshto-tabs-indicator-color: var(--okryshto-tabs-tone);
-    --okryshto-tabs-active-text-color: var(--okryshto-text-primary);
-    --okryshto-tabs-inactive-text-color: var(--okryshto-text-muted);
-    --okryshto-tabs-border-color: var(--okryshto-border-subtle);
-    --okryshto-tabs-gap: 1.75rem;
+    --okkly-tabs-tone: var(--okkly-accent-primary);
+    --okkly-tabs-indicator-color: var(--okkly-tabs-tone);
+    --okkly-tabs-active-text-color: var(--okkly-text-primary);
+    --okkly-tabs-inactive-text-color: var(--okkly-text-muted);
+    --okkly-tabs-border-color: var(--okkly-border-subtle);
+    --okkly-tabs-gap: 1.75rem;
 
     display: flex;
-    font-family: var(--okryshto-font-family-sans);
+    font-family: var(--okkly-font-family-sans);
 
     &--color-dante {
-      --okryshto-tabs-tone: var(--okryshto-accent-dante);
+      --okkly-tabs-tone: var(--okkly-accent-dante);
     }
     &--color-indigo {
-      --okryshto-tabs-tone: var(--okryshto-accent-secondary);
+      --okkly-tabs-tone: var(--okkly-accent-secondary);
     }
     &--color-violet {
-      --okryshto-tabs-tone: var(--okryshto-accent-violet);
+      --okkly-tabs-tone: var(--okkly-accent-violet);
     }
     &--color-ember {
-      --okryshto-tabs-tone: var(--okryshto-accent-ember);
+      --okkly-tabs-tone: var(--okkly-accent-ember);
     }
     &--color-ice {
-      --okryshto-tabs-tone: var(--okryshto-accent-ice);
+      --okkly-tabs-tone: var(--okkly-accent-ice);
     }
 
     &--vertical {
       flex-direction: column;
       align-items: stretch;
 
-      .okryshto-tabs__list {
+      .okkly-tabs__list {
         flex-direction: column;
         align-items: stretch;
         // The horizontal gap separates tabs on one line; stacked, the tabs'
         // own block padding already does that.
         gap: 0.125rem;
         border-block-end: none;
-        border-inline-end: var(--okryshto-1px-in-rem) solid var(--okryshto-tabs-border-color);
+        border-inline-end: var(--okkly-1px-in-rem) solid var(--okkly-tabs-border-color);
       }
 
-      .okryshto-tabs__tab {
+      .okkly-tabs__tab {
         // Without this the button is only as wide as its label, so the
         // indicator floats mid-row instead of sitting on the list edge.
         width: 100%;
@@ -56,7 +56,7 @@
 
         &--active {
           border-block-end-color: transparent;
-          border-inline-end-color: var(--okryshto-tabs-indicator-color);
+          border-inline-end-color: var(--okkly-tabs-indicator-color);
         }
       }
     }
@@ -77,11 +77,11 @@
     &__list {
       display: flex;
       align-items: stretch;
-      gap: var(--okryshto-tabs-gap);
+      gap: var(--okkly-tabs-gap);
       margin: 0;
       padding: 0;
       list-style: none;
-      border-block-end: var(--okryshto-1px-in-rem) solid var(--okryshto-tabs-border-color);
+      border-block-end: var(--okkly-1px-in-rem) solid var(--okkly-tabs-border-color);
 
       // The list items are the flex children — without this they shrink and the
       // labels wrap instead of the strip scrolling.
@@ -102,23 +102,23 @@
       border: none;
       border-block-end: 0.125rem solid transparent;
       background: none;
-      color: var(--okryshto-tabs-inactive-text-color);
+      color: var(--okkly-tabs-inactive-text-color);
       font-family: inherit;
-      font-weight: var(--okryshto-font-weight-medium);
-      font-size: var(--okryshto-font-size-md);
-      line-height: var(--okryshto-font-line-height-md);
+      font-weight: var(--okkly-font-weight-medium);
+      font-size: var(--okkly-font-size-md);
+      line-height: var(--okkly-font-line-height-md);
       white-space: nowrap;
       cursor: pointer;
       transition:
-        color var(--okryshto-duration-sm) ease,
-        border-color var(--okryshto-duration-sm) ease;
+        color var(--okkly-duration-sm) ease,
+        border-color var(--okkly-duration-sm) ease;
 
       &:hover:not(:disabled) {
-        color: var(--okryshto-tabs-active-text-color);
+        color: var(--okkly-tabs-active-text-color);
       }
 
       &:focus-visible {
-        outline: var(--okryshto-1px-in-rem) solid var(--okryshto-tabs-tone);
+        outline: var(--okkly-1px-in-rem) solid var(--okkly-tabs-tone);
         outline-offset: 0.1875rem;
         border-radius: 0.25rem;
       }
@@ -129,8 +129,8 @@
       }
 
       &--active {
-        color: var(--okryshto-tabs-active-text-color);
-        border-block-end-color: var(--okryshto-tabs-indicator-color);
+        color: var(--okkly-tabs-active-text-color);
+        border-block-end-color: var(--okkly-tabs-indicator-color);
       }
     }
 

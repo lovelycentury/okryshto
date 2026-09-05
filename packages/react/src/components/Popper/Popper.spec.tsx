@@ -15,7 +15,7 @@ describe("Popper", () => {
     );
 
     expect(screen.getByText("Popper content")).toBeInTheDocument();
-    expect(document.querySelector(".okryshto-popper")).toBeTruthy();
+    expect(document.querySelector(".okkly-popper")).toBeTruthy();
     document.body.removeChild(anchor);
   });
 
@@ -43,7 +43,7 @@ describe("Popper", () => {
       </Popper>,
     );
 
-    const root = document.querySelector(".okryshto-popper") as HTMLElement;
+    const root = document.querySelector(".okkly-popper") as HTMLElement;
     expect(screen.getByText("Kept")).toBeInTheDocument();
     expect(root.style.display).toBe("none");
     document.body.removeChild(anchor);
@@ -61,7 +61,7 @@ describe("Popper", () => {
     );
 
     expect(ref.current).toBeInstanceOf(HTMLDivElement);
-    expect(ref.current).toHaveClass("okryshto-popper");
+    expect(ref.current).toHaveClass("okkly-popper");
     document.body.removeChild(anchor);
   });
 

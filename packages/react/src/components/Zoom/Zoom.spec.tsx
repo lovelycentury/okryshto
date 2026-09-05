@@ -22,13 +22,13 @@ describe("Zoom", () => {
     expect(container.firstChild).toBeNull();
   });
 
-  it("applies okryshto-zoom class on the child", () => {
+  it("applies okkly-zoom class on the child", () => {
     render(
       <Zoom in>
         <div>Zoom content</div>
       </Zoom>,
     );
-    expect(screen.getByText("Zoom content")).toHaveClass("okryshto-zoom");
+    expect(screen.getByText("Zoom content")).toHaveClass("okkly-zoom");
   });
 
   it("fires enter callbacks when opening", async () => {

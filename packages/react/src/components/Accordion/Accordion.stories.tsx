@@ -1,6 +1,6 @@
 import { useState, type CSSProperties } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { iconPlus } from "@okryshto/icons";
+import { iconPlus } from "@okkly/icons";
 import { Accordion, AccordionDetails, AccordionSummary } from "./Accordion";
 
 /**
@@ -46,8 +46,8 @@ const surface: CSSProperties = {
   display: "grid",
   gap: "8px",
   width: "520px",
-  fontFamily: "var(--okryshto-font-family-sans)",
-  color: "var(--okryshto-text-primary)",
+  fontFamily: "var(--okkly-font-family-sans)",
+  color: "var(--okkly-text-primary)",
 };
 
 /**
@@ -65,8 +65,8 @@ export const FaqList: Story = {
       <Accordion defaultExpanded>
         <AccordionSummary>How do I install the packages?</AccordionSummary>
         <AccordionDetails>
-          Add <code>@okryshto/react</code> and <code>@okryshto/design-system</code>, then import the
-          root stylesheet once in your entry file.
+          Add <code>@okkly/react</code> and <code>@okkly/design-system</code>, then import the root
+          stylesheet once in your entry file.
         </AccordionDetails>
       </Accordion>
       <Accordion>

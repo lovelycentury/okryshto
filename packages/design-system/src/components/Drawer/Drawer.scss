@@ -5,28 +5,28 @@
 // one element with equal specificity would be decided by stylesheet order, which
 // is not a thing to depend on. The drawer only styles what Modal leaves alone —
 // the backdrop's timing and the paper.
-.okryshto-drawer {
+.okkly-drawer {
   @include layers.component() {
-    --okryshto-drawer-background-color: var(--okryshto-bg-surface);
-    --okryshto-drawer-border-color: var(--okryshto-border-subtle);
-    --okryshto-drawer-border-width: var(--okryshto-1px-in-rem);
-    --okryshto-drawer-width: 20rem;
-    --okryshto-drawer-height: 50vh;
-    // Not `--okryshto-shadow-medium-left`: the shared shadow tokens are 10% black,
+    --okkly-drawer-background-color: var(--okkly-bg-surface);
+    --okkly-drawer-border-color: var(--okkly-border-subtle);
+    --okkly-drawer-border-width: var(--okkly-1px-in-rem);
+    --okkly-drawer-width: 20rem;
+    --okkly-drawer-height: 50vh;
+    // Not `--okkly-shadow-medium-left`: the shared shadow tokens are 10% black,
     // calibrated for a light surface and invisible against this canvas. A panel
     // lifted off a near-black page needs a shadow darker than the page.
-    --okryshto-drawer-shadow: -0.75rem 0 2rem rgba(0, 0, 0, 0.55);
-    --okryshto-drawer-duration: var(--okryshto-duration-sm);
+    --okkly-drawer-shadow: -0.75rem 0 2rem rgba(0, 0, 0, 0.55);
+    --okkly-drawer-duration: var(--okkly-duration-sm);
 
     // Modal paints the backdrop; the drawer only decides when it is opaque, so the
     // scrim arrives with the paper rather than a frame before it.
-    > .okryshto-modal__backdrop {
+    > .okkly-modal__backdrop {
       visibility: visible;
       opacity: 0;
-      transition: opacity var(--okryshto-drawer-duration) ease;
+      transition: opacity var(--okkly-drawer-duration) ease;
     }
 
-    &--open > .okryshto-modal__backdrop {
+    &--open > .okkly-modal__backdrop {
       opacity: 1;
     }
 
@@ -38,9 +38,9 @@
       display: flex;
       flex-direction: column;
       overflow: auto;
-      background: var(--okryshto-drawer-background-color);
-      box-shadow: var(--okryshto-drawer-shadow);
-      transition: transform var(--okryshto-drawer-duration) ease;
+      background: var(--okkly-drawer-background-color);
+      box-shadow: var(--okkly-drawer-shadow);
+      transition: transform var(--okkly-drawer-duration) ease;
 
       @media (prefers-reduced-motion: reduce) {
         transition-duration: 0.01ms !important;
@@ -51,8 +51,8 @@
       top: 0;
       bottom: 0;
       left: 0;
-      width: var(--okryshto-drawer-width);
-      border-right: var(--okryshto-drawer-border-width) solid var(--okryshto-drawer-border-color);
+      width: var(--okkly-drawer-width);
+      border-right: var(--okkly-drawer-border-width) solid var(--okkly-drawer-border-color);
       box-shadow: 0.75rem 0 2rem rgba(0, 0, 0, 0.55);
       transform: translateX(-100%);
     }
@@ -61,8 +61,8 @@
       top: 0;
       bottom: 0;
       right: 0;
-      width: var(--okryshto-drawer-width);
-      border-left: var(--okryshto-drawer-border-width) solid var(--okryshto-drawer-border-color);
+      width: var(--okkly-drawer-width);
+      border-left: var(--okkly-drawer-border-width) solid var(--okkly-drawer-border-color);
       transform: translateX(100%);
     }
 
@@ -70,8 +70,8 @@
       top: 0;
       left: 0;
       right: 0;
-      height: var(--okryshto-drawer-height);
-      border-bottom: var(--okryshto-drawer-border-width) solid var(--okryshto-drawer-border-color);
+      height: var(--okkly-drawer-height);
+      border-bottom: var(--okkly-drawer-border-width) solid var(--okkly-drawer-border-color);
       box-shadow: 0 0.75rem 2rem rgba(0, 0, 0, 0.55);
       transform: translateY(-100%);
     }
@@ -80,18 +80,18 @@
       bottom: 0;
       left: 0;
       right: 0;
-      height: var(--okryshto-drawer-height);
-      border-top: var(--okryshto-drawer-border-width) solid var(--okryshto-drawer-border-color);
+      height: var(--okkly-drawer-height);
+      border-top: var(--okkly-drawer-border-width) solid var(--okkly-drawer-border-color);
       border-top-left-radius: 1.75rem;
       border-top-right-radius: 1.75rem;
       box-shadow: 0 -0.75rem 2rem rgba(0, 0, 0, 0.55);
       transform: translateY(100%);
     }
 
-    &--open.okryshto-drawer--anchor-left &__paper,
-    &--open.okryshto-drawer--anchor-right &__paper,
-    &--open.okryshto-drawer--anchor-top &__paper,
-    &--open.okryshto-drawer--anchor-bottom &__paper {
+    &--open.okkly-drawer--anchor-left &__paper,
+    &--open.okkly-drawer--anchor-right &__paper,
+    &--open.okkly-drawer--anchor-top &__paper,
+    &--open.okkly-drawer--anchor-bottom &__paper {
       transform: translate(0, 0);
     }
   }
