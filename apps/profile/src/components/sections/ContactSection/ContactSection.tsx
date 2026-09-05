@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
-import { Icon } from "@okryshto/react";
+import { Icon } from "@okkly/react";
 import { trackContactIntent, type ContactMethod } from "@/lib/analyticsEvents";
 import { CONTACT, CONTACT_LINKS, SECTION_ID } from "@/lib/profile";
 import styles from "./ContactSection.module.scss";

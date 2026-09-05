@@ -9,7 +9,7 @@
 /// disagreed on focus-ring thickness and helper-text colour.
 ///
 /// `$var` is the CSS-variable infix — pass `"text-field"` to get
-/// `--okryshto-text-field-border-color`, and so on. Every consumer keeps its own
+/// `--okkly-text-field-border-color`, and so on. Every consumer keeps its own
 /// BEM block, because `&` resolves at the include site.
 ///
 /// Dante asterisk that `Field` (and NumberInput / TextArea) append after the
@@ -17,32 +17,32 @@
 @mixin required-mark {
   &__required {
     margin-left: 0.125rem;
-    color: var(--okryshto-accent-dante);
+    color: var(--okkly-accent-dante);
   }
 }
 
-/// Call it inside `.okryshto-<block> { @include layers.component() { … } }`.
+/// Call it inside `.okkly-<block> { @include layers.component() { … } }`.
 @mixin shell($var) {
   // 1. full variable API, defaults = color "primary" (mint focus ring), size "medium"
-  --okryshto-#{$var}-border-color: var(--okryshto-border-default);
-  --okryshto-#{$var}-focus-border-color: var(--okryshto-accent-primary);
-  --okryshto-#{$var}-glow: 0 0 2.5rem rgba(94, 230, 193, 0.24);
-  --okryshto-#{$var}-glow-dante: 0 0 0.4375rem rgba(255, 61, 139, 0.35);
-  --okryshto-#{$var}-padding-inline: 0.875rem;
-  --okryshto-#{$var}-padding-block: 0.75rem;
-  --okryshto-#{$var}-font-size: 1rem;
-  --okryshto-#{$var}-line-height: 1.625rem;
-  --okryshto-#{$var}-gap: 0.5rem;
+  --okkly-#{$var}-border-color: var(--okkly-border-default);
+  --okkly-#{$var}-focus-border-color: var(--okkly-accent-primary);
+  --okkly-#{$var}-glow: 0 0 2.5rem rgba(94, 230, 193, 0.24);
+  --okkly-#{$var}-glow-dante: 0 0 0.4375rem rgba(255, 61, 139, 0.35);
+  --okkly-#{$var}-padding-inline: 0.875rem;
+  --okkly-#{$var}-padding-block: 0.75rem;
+  --okkly-#{$var}-font-size: 1rem;
+  --okkly-#{$var}-line-height: 1.625rem;
+  --okkly-#{$var}-gap: 0.5rem;
   // A field sized purely by `fit-content` collapses to its placeholder, which
   // reads as a broken control next to its neighbours. 200px is the floor; wider
   // is up to the content, `fullWidth`, or an override of this variable.
-  --okryshto-#{$var}-min-width: 12.5rem;
+  --okkly-#{$var}-min-width: 12.5rem;
 
   display: flex;
   flex-direction: column;
   gap: 0.4375rem;
   width: fit-content;
-  min-width: var(--okryshto-#{$var}-min-width);
+  min-width: var(--okkly-#{$var}-min-width);
 
   &--full-width {
     width: 100%;
@@ -54,11 +54,11 @@
 
   // 2. elements
   &__label {
-    font-family: var(--okryshto-font-family-sans);
-    font-weight: var(--okryshto-font-weight-medium);
-    font-size: var(--okryshto-font-size-sm);
+    font-family: var(--okkly-font-family-sans);
+    font-weight: var(--okkly-font-weight-medium);
+    font-size: var(--okkly-font-size-sm);
     line-height: 1rem;
-    color: var(--okryshto-text-secondary);
+    color: var(--okkly-text-secondary);
 
     &--hidden {
       @include visibility.visually-hidden;
@@ -70,44 +70,44 @@
   &__control {
     display: flex;
     align-items: center;
-    gap: var(--okryshto-#{$var}-gap);
+    gap: var(--okkly-#{$var}-gap);
     box-sizing: border-box;
     width: 100%;
-    padding: var(--okryshto-#{$var}-padding-block) var(--okryshto-#{$var}-padding-inline);
+    padding: var(--okkly-#{$var}-padding-block) var(--okkly-#{$var}-padding-inline);
     // border-width never changes (only border-color + box-shadow do) — a width
     // change reflows the content box even under border-box, which reads as a jump.
     // The extra 0.5px of focus/error "thickness" is a box-shadow ring instead: it
     // never affects layout and clips cleanly to border-radius.
-    border: var(--okryshto-1px-in-rem) solid var(--okryshto-#{$var}-border-color);
+    border: var(--okkly-1px-in-rem) solid var(--okkly-#{$var}-border-color);
     border-radius: 0.625rem;
-    background: var(--okryshto-bg-surface);
+    background: var(--okkly-bg-surface);
     // Glow is `box-shadow` (border-box), not `filter: drop-shadow` (alpha). Two
     // layers at rest so focus interpolates instead of snapping at 400ms.
     box-shadow:
       0 0 0 0 transparent,
       0 0 2.5rem transparent;
     transition:
-      border-color var(--okryshto-duration-sm) ease-out,
-      box-shadow var(--okryshto-duration-sm) ease-out;
+      border-color var(--okkly-duration-sm) ease-out,
+      box-shadow var(--okkly-duration-sm) ease-out;
 
     &:focus-within {
-      border-color: var(--okryshto-#{$var}-focus-border-color);
+      border-color: var(--okkly-#{$var}-focus-border-color);
       box-shadow:
-        0 0 0 0.03125rem var(--okryshto-#{$var}-focus-border-color),
-        var(--okryshto-#{$var}-glow);
+        0 0 0 0.03125rem var(--okkly-#{$var}-focus-border-color),
+        var(--okkly-#{$var}-glow);
     }
   }
 
   &--error &__control {
-    border-color: var(--okryshto-feedback-danger);
+    border-color: var(--okkly-feedback-danger);
     box-shadow:
-      0 0 0 0.03125rem var(--okryshto-feedback-danger),
+      0 0 0 0.03125rem var(--okkly-feedback-danger),
       0 0 2.5rem transparent;
   }
 
   &--error &__control:focus-within {
     box-shadow:
-      0 0 0 0.03125rem var(--okryshto-feedback-danger),
+      0 0 0 0.03125rem var(--okkly-feedback-danger),
       0 0 2.5rem transparent;
   }
 
@@ -119,7 +119,7 @@
     flex-shrink: 0;
     align-items: center;
     gap: 0.25rem;
-    color: var(--okryshto-text-muted);
+    color: var(--okkly-text-muted);
     max-height: 1rem;
     max-width: 2rem;
 
@@ -141,50 +141,50 @@
     border: none;
     outline: none;
     background: transparent;
-    font-family: var(--okryshto-font-family-sans);
-    font-weight: var(--okryshto-font-weight-regular);
-    font-size: var(--okryshto-#{$var}-font-size);
-    line-height: var(--okryshto-#{$var}-line-height);
-    color: var(--okryshto-text-primary);
+    font-family: var(--okkly-font-family-sans);
+    font-weight: var(--okkly-font-weight-regular);
+    font-size: var(--okkly-#{$var}-font-size);
+    line-height: var(--okkly-#{$var}-line-height);
+    color: var(--okkly-text-primary);
 
     &::placeholder {
-      color: var(--okryshto-text-muted);
+      color: var(--okkly-text-muted);
     }
   }
 
   &__helper {
-    font-family: var(--okryshto-font-family-sans);
-    font-size: var(--okryshto-font-size-sm);
+    font-family: var(--okkly-font-family-sans);
+    font-size: var(--okkly-font-size-sm);
     line-height: 1.125rem;
     letter-spacing: 0.013px;
-    color: var(--okryshto-text-muted);
+    color: var(--okkly-text-muted);
   }
 
   &--error &__helper {
-    color: var(--okryshto-feedback-danger);
+    color: var(--okkly-feedback-danger);
   }
 
   // 3. color modifier — rare, tints the focus ring/glow (e.g. Dante theme moments)
   &--color-dante &__control:focus-within {
-    border-color: var(--okryshto-accent-dante);
+    border-color: var(--okkly-accent-dante);
     box-shadow:
-      0 0 0 0.03125rem var(--okryshto-accent-dante),
-      var(--okryshto-#{$var}-glow-dante);
+      0 0 0 0.03125rem var(--okkly-accent-dante),
+      var(--okkly-#{$var}-glow-dante);
   }
 
   // 4. size
   &--small {
-    --okryshto-#{$var}-padding-inline: 0.75rem;
-    --okryshto-#{$var}-padding-block: 0.5625rem;
-    --okryshto-#{$var}-font-size: 0.875rem;
-    --okryshto-#{$var}-line-height: 1.375rem;
+    --okkly-#{$var}-padding-inline: 0.75rem;
+    --okkly-#{$var}-padding-block: 0.5625rem;
+    --okkly-#{$var}-font-size: 0.875rem;
+    --okkly-#{$var}-line-height: 1.375rem;
   }
 
   &--large {
-    --okryshto-#{$var}-padding-inline: 1rem;
-    --okryshto-#{$var}-padding-block: 0.9375rem;
-    --okryshto-#{$var}-font-size: 1.125rem;
-    --okryshto-#{$var}-line-height: 1.875rem;
+    --okkly-#{$var}-padding-inline: 1rem;
+    --okkly-#{$var}-padding-block: 0.9375rem;
+    --okkly-#{$var}-font-size: 1.125rem;
+    --okkly-#{$var}-line-height: 1.875rem;
   }
 }
 
@@ -192,54 +192,54 @@
 /// option rows, group headers and the loading/empty states. Both popups are
 /// positioned by `Popper`, so this styles only what is inside the panel.
 ///
-/// The panel lives at `.okryshto-<block>-popover`, outside the field's own BEM
+/// The panel lives at `.okkly-<block>-popover`, outside the field's own BEM
 /// block, while the rows inside it keep the block's namespace — so `$block` is
 /// passed explicitly rather than being derived from `&`.
 @mixin listbox($block, $var) {
-  --okryshto-#{$var}-popover-max-height: 17.5rem;
+  --okkly-#{$var}-popover-max-height: 17.5rem;
   // The panel is portaled to `<body>`, so it inherits nothing from the field —
   // its size comes from a `--small`/`--large` modifier the component copies
-  // onto it, not from the `--okryshto-#{$var}-font-size` the trigger uses.
+  // onto it, not from the `--okkly-#{$var}-font-size` the trigger uses.
   //
   // The font sizes deliberately mirror that trigger scale (14/16/18): an option
   // and the value it becomes once picked should read at the same size. The
   // roomier padding is what makes the list scannable, not larger type.
-  --okryshto-#{$var}-option-font-size: 1rem;
-  --okryshto-#{$var}-option-line-height: 1.5rem;
-  --okryshto-#{$var}-option-padding-block: 0.625rem;
-  --okryshto-#{$var}-option-padding-inline: 0.8125rem;
+  --okkly-#{$var}-option-font-size: 1rem;
+  --okkly-#{$var}-option-line-height: 1.5rem;
+  --okkly-#{$var}-option-padding-block: 0.625rem;
+  --okkly-#{$var}-option-padding-inline: 0.8125rem;
   // The row the keyboard and the pointer are on. A plain surface step was too
   // faint against the raised panel to say "this is where Enter lands", so the
   // tint is the accent instead — the panel is portaled and inherits no colour
   // modifier, which is why this is the primary accent rather than the field's.
-  --okryshto-#{$var}-option-highlight-background: color-mix(
+  --okkly-#{$var}-option-highlight-background: color-mix(
     in srgb,
-    var(--okryshto-accent-primary) 14%,
+    var(--okkly-accent-primary) 14%,
     transparent
   );
 
   &--small {
-    --okryshto-#{$var}-option-font-size: 0.875rem;
-    --okryshto-#{$var}-option-line-height: 1.375rem;
-    --okryshto-#{$var}-option-padding-block: 0.5rem;
-    --okryshto-#{$var}-option-padding-inline: 0.6875rem;
+    --okkly-#{$var}-option-font-size: 0.875rem;
+    --okkly-#{$var}-option-line-height: 1.375rem;
+    --okkly-#{$var}-option-padding-block: 0.5rem;
+    --okkly-#{$var}-option-padding-inline: 0.6875rem;
   }
 
   &--large {
-    --okryshto-#{$var}-option-font-size: 1.125rem;
-    --okryshto-#{$var}-option-line-height: 1.625rem;
-    --okryshto-#{$var}-option-padding-block: 0.75rem;
-    --okryshto-#{$var}-option-padding-inline: 0.9375rem;
+    --okkly-#{$var}-option-font-size: 1.125rem;
+    --okkly-#{$var}-option-line-height: 1.625rem;
+    --okkly-#{$var}-option-padding-block: 0.75rem;
+    --okkly-#{$var}-option-padding-inline: 0.9375rem;
   }
 
   box-sizing: border-box;
-  max-height: var(--okryshto-#{$var}-popover-max-height);
+  max-height: var(--okkly-#{$var}-popover-max-height);
   overflow-y: auto;
   padding: 0.3125rem;
-  border: var(--okryshto-1px-in-rem) solid var(--okryshto-border-subtle);
+  border: var(--okkly-1px-in-rem) solid var(--okkly-border-subtle);
   border-radius: 0.75rem;
-  background: var(--okryshto-bg-surface-raised);
-  box-shadow: var(--okryshto-shadow-medium-bottom);
+  background: var(--okkly-bg-surface-raised);
+  box-shadow: var(--okkly-shadow-medium-bottom);
 
   .#{$block}__listbox {
     margin: 0;
@@ -251,24 +251,23 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    padding: var(--okryshto-#{$var}-option-padding-block)
-      var(--okryshto-#{$var}-option-padding-inline);
+    padding: var(--okkly-#{$var}-option-padding-block) var(--okkly-#{$var}-option-padding-inline);
     border-radius: 0.5rem;
-    color: var(--okryshto-text-primary);
-    font-family: var(--okryshto-font-family-sans);
-    font-size: var(--okryshto-#{$var}-option-font-size);
-    line-height: var(--okryshto-#{$var}-option-line-height);
+    color: var(--okkly-text-primary);
+    font-family: var(--okkly-font-family-sans);
+    font-size: var(--okkly-#{$var}-option-font-size);
+    line-height: var(--okkly-#{$var}-option-line-height);
     cursor: pointer;
     // Hover is deliberately not styled: the highlighted modifier is driven by
     // pointer *and* keyboard, so styling both would show two active rows at once.
-    transition: background-color var(--okryshto-duration-sm) ease;
+    transition: background-color var(--okkly-duration-sm) ease;
 
     &--highlighted {
-      background: var(--okryshto-#{$var}-option-highlight-background);
+      background: var(--okkly-#{$var}-option-highlight-background);
     }
 
     &--selected {
-      color: var(--okryshto-accent-primary);
+      color: var(--okkly-accent-primary);
     }
 
     &--disabled {
@@ -287,14 +286,14 @@
 
   .#{$block}__option-meta {
     flex-shrink: 0;
-    color: var(--okryshto-text-muted);
-    font-size: var(--okryshto-font-size-sm);
+    color: var(--okkly-text-muted);
+    font-size: var(--okkly-font-size-sm);
   }
 
   .#{$block}__option-check {
     display: flex;
     flex-shrink: 0;
-    color: var(--okryshto-accent-primary);
+    color: var(--okkly-accent-primary);
 
     svg {
       width: 0.875rem;
@@ -328,7 +327,7 @@
   .#{$block}__option-mark {
     background: none;
     color: inherit;
-    font-weight: var(--okryshto-font-weight-semibold);
+    font-weight: var(--okkly-font-weight-semibold);
   }
 
   // Sticky so the group a long list is currently scrolled into stays named.
@@ -340,11 +339,11 @@
     top: 0;
     z-index: 1;
     padding: 0.4375rem 0.625rem 0.25rem;
-    background: var(--okryshto-bg-surface-raised);
-    color: var(--okryshto-text-muted);
-    font-family: var(--okryshto-font-family-sans);
-    font-weight: var(--okryshto-font-weight-medium);
-    font-size: var(--okryshto-font-size-sm);
+    background: var(--okkly-bg-surface-raised);
+    color: var(--okkly-text-muted);
+    font-family: var(--okkly-font-family-sans);
+    font-weight: var(--okkly-font-weight-medium);
+    font-size: var(--okkly-font-size-sm);
     line-height: 1rem;
     text-transform: uppercase;
     letter-spacing: 0.04em;
@@ -363,11 +362,10 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    padding: var(--okryshto-#{$var}-option-padding-block)
-      var(--okryshto-#{$var}-option-padding-inline);
-    color: var(--okryshto-text-muted);
-    font-family: var(--okryshto-font-family-sans);
-    font-size: var(--okryshto-#{$var}-option-font-size);
-    line-height: var(--okryshto-#{$var}-option-line-height);
+    padding: var(--okkly-#{$var}-option-padding-block) var(--okkly-#{$var}-option-padding-inline);
+    color: var(--okkly-text-muted);
+    font-family: var(--okkly-font-family-sans);
+    font-size: var(--okkly-#{$var}-option-font-size);
+    line-height: var(--okkly-#{$var}-option-line-height);
   }
 }

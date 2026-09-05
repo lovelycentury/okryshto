@@ -1,7 +1,7 @@
 "use client";
 
 import { useId, useState, type ReactNode } from "react";
-import "@okryshto/design-system/components/CheckboxGroup/CheckboxGroup.scss";
+import "@okkly/design-system/components/CheckboxGroup/CheckboxGroup.scss";
 import type { CheckboxColor, CheckboxSize } from "../Checkbox/Checkbox";
 import { CheckboxGroupContext } from "./CheckboxGroupContext";
 
@@ -111,9 +111,7 @@ export function CheckboxGroup({
     onChange?.(next);
   };
 
-  const classes = ["okryshto-component", "okryshto-checkbox-group", className]
-    .filter(Boolean)
-    .join(" ");
+  const classes = ["okkly-component", "okkly-checkbox-group", className].filter(Boolean).join(" ");
 
   return (
     <CheckboxGroupContext.Provider
@@ -131,7 +129,7 @@ export function CheckboxGroup({
         aria-label={typeof label === "string" ? label : undefined}
         className={classes}
       >
-        {label && <span className="okryshto-checkbox-group__label">{label}</span>}
+        {label && <span className="okkly-checkbox-group__label">{label}</span>}
         {children}
       </div>
     </CheckboxGroupContext.Provider>

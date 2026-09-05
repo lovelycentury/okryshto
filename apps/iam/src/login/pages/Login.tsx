@@ -2,7 +2,7 @@ import { useState } from "react";
 import { kcSanitize } from "keycloakify/lib/kcSanitize";
 import type { PageProps } from "keycloakify/login/pages/PageProps";
 import { useScript } from "keycloakify/login/pages/Login.useScript";
-import { Button, Checkbox, TextField, Typography } from "@okryshto/react";
+import { Button, Checkbox, TextField, Typography } from "@okkly/react";
 import type { KcContext } from "../KcContext";
 import type { I18n } from "../i18n";
 import { KcAlert } from "../components/KcAlert";

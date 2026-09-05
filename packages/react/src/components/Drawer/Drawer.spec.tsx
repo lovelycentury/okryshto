@@ -12,9 +12,9 @@ describe("Drawer", () => {
       </Drawer>,
     );
     expect(screen.getByRole("dialog")).toHaveTextContent("Drawer content");
-    expect(document.querySelector(".okryshto-drawer")).toHaveClass(
-      "okryshto-drawer--open",
-      "okryshto-drawer--anchor-right",
+    expect(document.querySelector(".okkly-drawer")).toHaveClass(
+      "okkly-drawer--open",
+      "okkly-drawer--anchor-right",
     );
   });
 
@@ -38,7 +38,7 @@ describe("Drawer", () => {
     // labelled button this used to reach for. That is the point of the change: a
     // scrim is not a control, and one that was focusable put "Close drawer" first
     // in the tab order of every drawer in the app.
-    const backdrop = document.querySelector(".okryshto-modal__backdrop")!;
+    const backdrop = document.querySelector(".okkly-modal__backdrop")!;
     expect(backdrop.tagName).toBe("DIV");
     fireEvent.click(backdrop);
     expect(onClose).toHaveBeenCalledOnce();
@@ -73,7 +73,7 @@ describe("Drawer", () => {
     fireEvent.keyDown(document, { key: "Escape" });
     // Closing keeps the drawer mounted until its slide-out transition ends.
     expect(screen.getByText("Drawer")).toBeInTheDocument();
-    fireEvent.transitionEnd(document.querySelector(".okryshto-drawer__paper")!);
+    fireEvent.transitionEnd(document.querySelector(".okkly-drawer__paper")!);
     expect(screen.queryByText("Drawer")).not.toBeInTheDocument();
   });
 });

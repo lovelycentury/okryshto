@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { kcSanitize } from "keycloakify/lib/kcSanitize";
-import { Alert, type AlertSeverity } from "@okryshto/react";
+import { Alert, type AlertSeverity } from "@okkly/react";
 
 type KcAlertProps = {
   severity: AlertSeverity;

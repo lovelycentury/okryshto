@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { useAtom } from "jotai";
 import { useTranslations } from "use-intl";
-import { Icon, Popover } from "@okryshto/react";
+import { Icon, Popover } from "@okkly/react";
 
 import { LANGUAGES } from "../../config/content.js";
 import { trackLocaleSwitch } from "../../lib/analyticsEvents.js";

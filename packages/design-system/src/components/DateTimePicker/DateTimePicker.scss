@@ -1,34 +1,34 @@
 @use "../../styles/mixins/layers.scss";
 
-.okryshto-date-time-picker {
+.okkly-date-time-picker {
   @include layers.component() {
     // 1. full variable API — no color/tone of its own, that's fully delegated
     // to the nested Calendar / TimePicker / Button, each via their own `color` prop
-    --okryshto-date-time-picker-background-color: var(--okryshto-bg-surface);
-    --okryshto-date-time-picker-border-color: var(--okryshto-border-subtle);
-    --okryshto-date-time-picker-text-color: var(--okryshto-text-primary);
-    --okryshto-date-time-picker-muted-text-color: var(--okryshto-text-muted);
-    --okryshto-date-time-picker-padding: 1.5rem; // 24px
-    --okryshto-date-time-picker-border-radius: 1.75rem; // 28px
-    --okryshto-date-time-picker-gap: 1.125rem; // 18px
-    --okryshto-date-time-picker-panels-gap: 1.25rem; // 20px
+    --okkly-date-time-picker-background-color: var(--okkly-bg-surface);
+    --okkly-date-time-picker-border-color: var(--okkly-border-subtle);
+    --okkly-date-time-picker-text-color: var(--okkly-text-primary);
+    --okkly-date-time-picker-muted-text-color: var(--okkly-text-muted);
+    --okkly-date-time-picker-padding: 1.5rem; // 24px
+    --okkly-date-time-picker-border-radius: 1.75rem; // 28px
+    --okkly-date-time-picker-gap: 1.125rem; // 18px
+    --okkly-date-time-picker-panels-gap: 1.25rem; // 20px
 
     display: inline-flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: var(--okryshto-date-time-picker-gap);
-    padding: var(--okryshto-date-time-picker-padding);
-    border: var(--okryshto-1px-in-rem) solid var(--okryshto-date-time-picker-border-color);
-    border-radius: var(--okryshto-date-time-picker-border-radius);
-    background: var(--okryshto-date-time-picker-background-color);
-    color: var(--okryshto-date-time-picker-text-color);
-    font-family: var(--okryshto-font-family-sans);
+    gap: var(--okkly-date-time-picker-gap);
+    padding: var(--okkly-date-time-picker-padding);
+    border: var(--okkly-1px-in-rem) solid var(--okkly-date-time-picker-border-color);
+    border-radius: var(--okkly-date-time-picker-border-radius);
+    background: var(--okkly-date-time-picker-background-color);
+    color: var(--okkly-date-time-picker-text-color);
+    font-family: var(--okkly-font-family-sans);
 
     // 2. panels row — Calendar + TimePicker cards side by side
     &__panels {
       display: flex;
       align-items: flex-start;
-      gap: var(--okryshto-date-time-picker-panels-gap);
+      gap: var(--okkly-date-time-picker-panels-gap);
     }
 
     // 3. footer — selected-summary text (+ optional chip) on the left, Confirm button on the right
@@ -36,7 +36,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: var(--okryshto-date-time-picker-panels-gap);
+      gap: var(--okkly-date-time-picker-panels-gap);
       width: 100%;
     }
 
@@ -48,9 +48,9 @@
 
     &__summary-label {
       margin: 0;
-      font-size: var(--okryshto-font-size-sm);
+      font-size: var(--okkly-font-size-sm);
       line-height: 1.125rem; // 18px
-      color: var(--okryshto-date-time-picker-muted-text-color);
+      color: var(--okkly-date-time-picker-muted-text-color);
     }
 
     &__summary-value {
@@ -60,13 +60,13 @@
     }
 
     &__summary-text {
-      font-weight: var(--okryshto-font-weight-medium);
-      font-size: var(--okryshto-font-size-md);
-      line-height: var(--okryshto-font-line-height-md);
-      color: var(--okryshto-date-time-picker-text-color);
+      font-weight: var(--okkly-font-weight-medium);
+      font-size: var(--okkly-font-size-md);
+      line-height: var(--okkly-font-line-height-md);
+      color: var(--okkly-date-time-picker-text-color);
 
       &--empty {
-        color: var(--okryshto-date-time-picker-muted-text-color);
+        color: var(--okkly-date-time-picker-muted-text-color);
       }
     }
   }

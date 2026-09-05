@@ -18,46 +18,42 @@ describe("TextField", () => {
 
   it("visually hides the label when hideLabel is set, but keeps it accessible", () => {
     render(<TextField label="Email" hideLabel />);
-    expect(screen.getByText("Email")).toHaveClass("okryshto-text-field__label--hidden");
+    expect(screen.getByText("Email")).toHaveClass("okkly-text-field__label--hidden");
     expect(screen.getByLabelText("Email")).toBeInTheDocument();
   });
 
   it("applies a size modifier only for non-medium sizes", () => {
     const { container, rerender } = render(<TextField label="Email" size="small" />);
-    expect(container.querySelector(".okryshto-text-field")).toHaveClass(
-      "okryshto-text-field--small",
-    );
+    expect(container.querySelector(".okkly-text-field")).toHaveClass("okkly-text-field--small");
 
     rerender(<TextField label="Email" size="medium" />);
-    expect(container.querySelector(".okryshto-text-field")?.className).not.toMatch(
-      /okryshto-text-field--(small|large)/,
+    expect(container.querySelector(".okkly-text-field")?.className).not.toMatch(
+      /okkly-text-field--(small|large)/,
     );
   });
 
   it("applies a color modifier only for non-primary colors", () => {
     const { container, rerender } = render(<TextField label="Email" color="dante" />);
-    expect(container.querySelector(".okryshto-text-field")).toHaveClass(
-      "okryshto-text-field--color-dante",
+    expect(container.querySelector(".okkly-text-field")).toHaveClass(
+      "okkly-text-field--color-dante",
     );
 
     rerender(<TextField label="Email" color="primary" />);
-    expect(container.querySelector(".okryshto-text-field")?.className).not.toMatch(
-      /okryshto-text-field--color-/,
+    expect(container.querySelector(".okkly-text-field")?.className).not.toMatch(
+      /okkly-text-field--color-/,
     );
   });
 
   it("applies the error modifier and marks aria-invalid", () => {
     const { container } = render(<TextField label="Email" error />);
-    expect(container.querySelector(".okryshto-text-field")).toHaveClass(
-      "okryshto-text-field--error",
-    );
+    expect(container.querySelector(".okkly-text-field")).toHaveClass("okkly-text-field--error");
     expect(screen.getByLabelText("Email")).toHaveAttribute("aria-invalid", "true");
   });
 
   it("applies the full-width modifier", () => {
     const { container } = render(<TextField label="Email" fullWidth />);
-    expect(container.querySelector(".okryshto-text-field")).toHaveClass(
-      "okryshto-text-field--full-width",
+    expect(container.querySelector(".okkly-text-field")).toHaveClass(
+      "okkly-text-field--full-width",
     );
   });
 
@@ -75,7 +71,7 @@ describe("TextField", () => {
 
   it("shows a required asterisk after the label", () => {
     const { container } = render(<TextField label="Email" required />);
-    expect(container.querySelector(".okryshto-text-field__required")).toHaveTextContent("*");
+    expect(container.querySelector(".okkly-text-field__required")).toHaveTextContent("*");
     expect(screen.getByRole("textbox")).toBeRequired();
   });
 

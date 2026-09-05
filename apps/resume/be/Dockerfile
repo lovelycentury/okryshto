@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1.7
 #
-# @okryshto/resume-be — Mastra RAG agent (HTTP API for the resume site).
+# @okkly/resume-be — Mastra RAG agent (HTTP API for the resume site).
 #
 # Build context is the MONOREPO ROOT, not this directory — the build runs a
 # pnpm-workspace install and needs the root lockfile + workspace manifest.
@@ -44,7 +44,7 @@ FROM deps AS build
 COPY . .
 RUN --mount=type=cache,id=pnpm-store,target=/pnpm/store \
     pnpm install --frozen-lockfile --prefer-offline
-RUN pnpm --filter "@okryshto/resume-be" run build
+RUN pnpm --filter "@okkly/resume-be" run build
 # Install the bundle's own runtime deps against its deploy lockfile. Runs in this
 # linux stage so `libsql`'s prebuilt binary is linux/glibc, not the build host's.
 WORKDIR /repo/apps/resume/be/.mastra/output

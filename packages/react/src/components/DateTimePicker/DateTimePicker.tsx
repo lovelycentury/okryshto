@@ -1,8 +1,8 @@
 "use client";
 
 import { useLayoutEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
-import { iconArrowRight, iconGlobe } from "@okryshto/icons";
-import "@okryshto/design-system/components/DateTimePicker/DateTimePicker.scss";
+import { iconArrowRight, iconGlobe } from "@okkly/icons";
+import "@okkly/design-system/components/DateTimePicker/DateTimePicker.scss";
 import {
   Calendar,
   calendarToneStyle,
@@ -225,7 +225,7 @@ export function DateTimePicker({
   useLayoutEffect(() => {
     const root = calendarRef.current;
     if (!root || typeof ResizeObserver === "undefined") return;
-    const panel = root.querySelector<HTMLElement>(".okryshto-calendar__panel") ?? root;
+    const panel = root.querySelector<HTMLElement>(".okkly-calendar__panel") ?? root;
     // `offsetHeight`, not `getBoundingClientRect()`: inside a field's popover
     // this mounts during a Grow transition, and a rect measured mid-`scale()`
     // reports a fraction of the real height — which then stuck, because
@@ -240,7 +240,7 @@ export function DateTimePicker({
   const timePickerStyle: CSSProperties | undefined =
     calendarHeight != null
       ? ({
-          "--okryshto-time-picker-viewport-height": `calc(${calendarHeight}px - 1.125rem)`,
+          "--okkly-time-picker-viewport-height": `calc(${calendarHeight}px - 1.125rem)`,
         } as CSSProperties)
       : undefined;
 
@@ -260,13 +260,13 @@ export function DateTimePicker({
     if (currentValue) onConfirm?.(currentValue);
   };
 
-  const classes = ["okryshto-component", "okryshto-date-time-picker", className]
+  const classes = ["okkly-component", "okkly-date-time-picker", className]
     .filter(Boolean)
     .join(" ");
 
   return (
     <div className={classes}>
-      <div className="okryshto-date-time-picker__panels">
+      <div className="okkly-date-time-picker__panels">
         <Calendar
           ref={calendarRef}
           style={calendarToneStyle(color)}
@@ -290,14 +290,14 @@ export function DateTimePicker({
           style={timePickerStyle}
         />
       </div>
-      <div className="okryshto-date-time-picker__footer">
-        <div className="okryshto-date-time-picker__summary">
-          <p className="okryshto-date-time-picker__summary-label">{summaryLabel}</p>
-          <div className="okryshto-date-time-picker__summary-value">
+      <div className="okkly-date-time-picker__footer">
+        <div className="okkly-date-time-picker__summary">
+          <p className="okkly-date-time-picker__summary-label">{summaryLabel}</p>
+          <div className="okkly-date-time-picker__summary-value">
             <span
               className={[
-                "okryshto-date-time-picker__summary-text",
-                !currentValue && "okryshto-date-time-picker__summary-text--empty",
+                "okkly-date-time-picker__summary-text",
+                !currentValue && "okkly-date-time-picker__summary-text--empty",
               ]
                 .filter(Boolean)
                 .join(" ")}

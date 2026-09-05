@@ -100,7 +100,7 @@ export const Required: Story = {
 
 /**
  * This example shows the four list types. `maxHeight` scrolls after
- * `--okryshto-file-upload-max-files` rows, `button` toggles the list and `hidden` leaves
+ * `--okkly-file-upload-max-files` rows, `button` toggles the list and `hidden` leaves
  * the rendering to you.
  */
 export const ListTypes: Story = {
@@ -177,11 +177,11 @@ export const CustomFileRow: Story = {
               justifyContent: "space-between",
               gap: "0.75rem",
               padding: "0.5rem 0.75rem",
-              border: "0.0625rem dashed var(--okryshto-border-default)",
+              border: "0.0625rem dashed var(--okkly-border-default)",
               borderRadius: "0.625rem",
-              fontFamily: "var(--okryshto-font-family-mono)",
-              fontSize: "var(--okryshto-font-size-sm)",
-              color: "var(--okryshto-text-secondary)",
+              fontFamily: "var(--okkly-font-family-mono)",
+              fontSize: "var(--okkly-font-size-sm)",
+              color: "var(--okkly-text-secondary)",
             }}
           >
             <span>{file.name}</span>
@@ -210,9 +210,7 @@ export const Controlled: Story = {
     return (
       <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem", width: "26rem" }}>
         <FileUpload label="Upload" multiple value={files} onChange={setFiles} maxSize="5MiB" />
-        <span
-          style={{ color: "var(--okryshto-text-muted)", fontSize: "var(--okryshto-font-size-sm)" }}
-        >
+        <span style={{ color: "var(--okkly-text-muted)", fontSize: "var(--okkly-font-size-sm)" }}>
           {files.length} file{files.length === 1 ? "" : "s"} selected
         </span>
       </div>

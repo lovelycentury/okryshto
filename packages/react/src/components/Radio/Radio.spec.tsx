@@ -16,22 +16,20 @@ describe("Radio (standalone)", () => {
 
   it("applies a size modifier only for non-medium sizes", () => {
     const { container, rerender } = render(<Radio label="A" size="small" />);
-    expect(container.querySelector(".okryshto-radio")).toHaveClass("okryshto-radio--small");
+    expect(container.querySelector(".okkly-radio")).toHaveClass("okkly-radio--small");
 
     rerender(<Radio label="A" size="medium" />);
-    expect(container.querySelector(".okryshto-radio")?.className).not.toMatch(
-      /okryshto-radio--(small|large)/,
+    expect(container.querySelector(".okkly-radio")?.className).not.toMatch(
+      /okkly-radio--(small|large)/,
     );
   });
 
   it("applies a color modifier only for non-primary colors", () => {
     const { container, rerender } = render(<Radio label="A" color="dante" />);
-    expect(container.querySelector(".okryshto-radio")).toHaveClass("okryshto-radio--color-dante");
+    expect(container.querySelector(".okkly-radio")).toHaveClass("okkly-radio--color-dante");
 
     rerender(<Radio label="A" color="primary" />);
-    expect(container.querySelector(".okryshto-radio")?.className).not.toMatch(
-      /okryshto-radio--color-/,
-    );
+    expect(container.querySelector(".okkly-radio")?.className).not.toMatch(/okkly-radio--color-/);
   });
 
   it("disables the input", () => {

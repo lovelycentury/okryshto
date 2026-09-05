@@ -7,8 +7,8 @@ import {
   type ButtonHTMLAttributes,
   type ReactNode,
 } from "react";
-import "@okryshto/design-system/components/FAB/FAB.scss";
-import { useRipple } from "@okryshto/react-hooks";
+import "@okkly/design-system/components/FAB/FAB.scss";
+import { useRipple } from "@okkly/react-hooks";
 import { Ripple } from "../Ripple/Ripple";
 
 export type FabVariant = "standard" | "soft";
@@ -106,12 +106,12 @@ export const Fab = forwardRef<HTMLButtonElement | HTMLAnchorElement, FabProps>(f
   const { ripples, events, hideRipple } = useRipple(localRef);
 
   const classes = [
-    "okryshto-component",
-    "okryshto-fab",
-    variant !== "standard" && `okryshto-fab--${variant}`,
-    color !== "primary" && `okryshto-fab--color-${color}`,
-    label != null && "okryshto-fab--extended",
-    size !== "medium" && `okryshto-fab--${size}`,
+    "okkly-component",
+    "okkly-fab",
+    variant !== "standard" && `okkly-fab--${variant}`,
+    color !== "primary" && `okkly-fab--color-${color}`,
+    label != null && "okkly-fab--extended",
+    size !== "medium" && `okkly-fab--${size}`,
     className,
   ]
     .filter(Boolean)
@@ -120,12 +120,10 @@ export const Fab = forwardRef<HTMLButtonElement | HTMLAnchorElement, FabProps>(f
   const content = (
     <>
       {showRipple && <Ripple ripples={ripples} onRippleEnd={hideRipple} />}
-      <span className="okryshto-fab__icon" aria-hidden="true">
+      <span className="okkly-fab__icon" aria-hidden="true">
         {icon}
       </span>
-      {label != null && (
-        <span className="okryshto-fab__label okryshto-truncation-ellipsis">{label}</span>
-      )}
+      {label != null && <span className="okkly-fab__label okkly-truncation-ellipsis">{label}</span>}
     </>
   );
 

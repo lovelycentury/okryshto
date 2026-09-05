@@ -1,39 +1,39 @@
 // Segmented control — peer option picker (Day/Week/Month, view toggles).
 @use "../../styles/mixins/layers.scss";
 
-.okryshto-segmented-toggle {
+.okkly-segmented-toggle {
   @include layers.component() {
-    --okryshto-segmented-toggle-tone: var(--okryshto-accent-primary);
-    --okryshto-segmented-toggle-active-background-color: color-mix(
+    --okkly-segmented-toggle-tone: var(--okkly-accent-primary);
+    --okkly-segmented-toggle-active-background-color: color-mix(
       in srgb,
-      var(--okryshto-segmented-toggle-tone) 16%,
+      var(--okkly-segmented-toggle-tone) 16%,
       transparent
     );
-    --okryshto-segmented-toggle-active-text-color: var(--okryshto-segmented-toggle-tone);
-    --okryshto-segmented-toggle-divider-color: var(--okryshto-border-subtle);
+    --okkly-segmented-toggle-active-text-color: var(--okkly-segmented-toggle-tone);
+    --okkly-segmented-toggle-divider-color: var(--okkly-border-subtle);
 
     display: inline-flex;
     align-items: stretch;
-    border: var(--okryshto-1px-in-rem) solid var(--okryshto-border-subtle);
+    border: var(--okkly-1px-in-rem) solid var(--okkly-border-subtle);
     border-radius: 0.875rem;
     overflow: hidden;
-    background: var(--okryshto-bg-surface-raised);
-    font-family: var(--okryshto-font-family-sans);
+    background: var(--okkly-bg-surface-raised);
+    font-family: var(--okkly-font-family-sans);
 
     &--color-dante {
-      --okryshto-segmented-toggle-tone: var(--okryshto-accent-dante);
+      --okkly-segmented-toggle-tone: var(--okkly-accent-dante);
     }
     &--color-indigo {
-      --okryshto-segmented-toggle-tone: var(--okryshto-accent-secondary);
+      --okkly-segmented-toggle-tone: var(--okkly-accent-secondary);
     }
     &--color-violet {
-      --okryshto-segmented-toggle-tone: var(--okryshto-accent-violet);
+      --okkly-segmented-toggle-tone: var(--okkly-accent-violet);
     }
     &--color-ember {
-      --okryshto-segmented-toggle-tone: var(--okryshto-accent-ember);
+      --okkly-segmented-toggle-tone: var(--okkly-accent-ember);
     }
     &--color-ice {
-      --okryshto-segmented-toggle-tone: var(--okryshto-accent-ice);
+      --okkly-segmented-toggle-tone: var(--okkly-accent-ice);
     }
 
     &--disabled {
@@ -49,28 +49,28 @@
       padding: 0.5625rem 1rem;
       border: none;
       background: transparent;
-      color: var(--okryshto-text-primary);
+      color: var(--okkly-text-primary);
       font-family: inherit;
-      font-weight: var(--okryshto-font-weight-medium);
-      font-size: var(--okryshto-font-size-md);
-      line-height: var(--okryshto-font-line-height-md);
+      font-weight: var(--okkly-font-weight-medium);
+      font-size: var(--okkly-font-size-md);
+      line-height: var(--okkly-font-line-height-md);
       cursor: pointer;
       transition:
-        background-color var(--okryshto-duration-sm) ease,
-        color var(--okryshto-duration-sm) ease;
+        background-color var(--okkly-duration-sm) ease,
+        color var(--okkly-duration-sm) ease;
 
       &:not(:first-child) {
-        border-inline-start: var(--okryshto-1px-in-rem) solid
-          var(--okryshto-segmented-toggle-divider-color);
+        border-inline-start: var(--okkly-1px-in-rem) solid
+          var(--okkly-segmented-toggle-divider-color);
       }
 
       &:hover:not(:disabled) {
-        background: var(--okryshto-bg-surface);
+        background: var(--okkly-bg-surface);
       }
 
       &:focus-visible {
         outline: none;
-        box-shadow: inset 0 0 0 var(--okryshto-1px-in-rem) var(--okryshto-segmented-toggle-tone);
+        box-shadow: inset 0 0 0 var(--okkly-1px-in-rem) var(--okkly-segmented-toggle-tone);
       }
 
       &:disabled {
@@ -80,8 +80,8 @@
     }
 
     &__segment--active {
-      background: var(--okryshto-segmented-toggle-active-background-color);
-      color: var(--okryshto-segmented-toggle-active-text-color);
+      background: var(--okkly-segmented-toggle-active-background-color);
+      color: var(--okkly-segmented-toggle-active-text-color);
     }
 
     &__icon {

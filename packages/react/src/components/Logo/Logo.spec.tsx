@@ -16,33 +16,31 @@ describe("Logo", () => {
 
   it("applies the default classes (horizontal layout, mint tone)", () => {
     const { container } = render(<Logo />);
-    const logo = container.querySelector(".okryshto-logo");
-    expect(logo).toHaveClass("okryshto-component", "okryshto-logo");
-    expect(logo?.className).not.toMatch(/okryshto-logo--(compact|stacked)/);
-    expect(logo?.className).not.toMatch(/okryshto-logo--tone-/);
+    const logo = container.querySelector(".okkly-logo");
+    expect(logo).toHaveClass("okkly-component", "okkly-logo");
+    expect(logo?.className).not.toMatch(/okkly-logo--(compact|stacked)/);
+    expect(logo?.className).not.toMatch(/okkly-logo--tone-/);
   });
 
   it("applies a layout modifier only for non-horizontal layouts", () => {
     const { rerender, container } = render(<Logo layout="compact" />);
-    expect(container.querySelector(".okryshto-logo")).toHaveClass("okryshto-logo--compact");
+    expect(container.querySelector(".okkly-logo")).toHaveClass("okkly-logo--compact");
 
     rerender(<Logo layout="horizontal" />);
-    expect(container.querySelector(".okryshto-logo")?.className).not.toMatch(
-      /okryshto-logo--(compact|stacked)/,
+    expect(container.querySelector(".okkly-logo")?.className).not.toMatch(
+      /okkly-logo--(compact|stacked)/,
     );
   });
 
   it("applies a tone modifier only for non-multi tones", () => {
     const { rerender, container } = render(<Logo tone="dante" />);
-    expect(container.querySelector(".okryshto-logo")).toHaveClass("okryshto-logo--tone-dante");
+    expect(container.querySelector(".okkly-logo")).toHaveClass("okkly-logo--tone-dante");
 
     rerender(<Logo tone="mint" />);
-    expect(container.querySelector(".okryshto-logo")).toHaveClass("okryshto-logo--tone-mint");
+    expect(container.querySelector(".okkly-logo")).toHaveClass("okkly-logo--tone-mint");
 
     rerender(<Logo tone="multi" />);
-    expect(container.querySelector(".okryshto-logo")?.className).not.toMatch(
-      /okryshto-logo--tone-/,
-    );
+    expect(container.querySelector(".okkly-logo")?.className).not.toMatch(/okkly-logo--tone-/);
   });
 
   it("hides the wordmark when showLabel is false", () => {
@@ -52,19 +50,19 @@ describe("Logo", () => {
 
   it("renders the emblem svg", () => {
     const { container } = render(<Logo />);
-    expect(container.querySelector(".okryshto-logo__emblem")).toBeInTheDocument();
+    expect(container.querySelector(".okkly-logo__emblem")).toBeInTheDocument();
   });
 
   it("overrides the emblem size via the size prop", () => {
     const { container } = render(<Logo size={80} />);
-    const logo = container.querySelector(".okryshto-logo") as HTMLElement;
-    expect(logo.style.getPropertyValue("--okryshto-logo-emblem-size")).toBe("80px");
+    const logo = container.querySelector(".okkly-logo") as HTMLElement;
+    expect(logo.style.getPropertyValue("--okkly-logo-emblem-size")).toBe("80px");
   });
 
   it("accepts a string size", () => {
     const { container } = render(<Logo size="4rem" />);
-    const logo = container.querySelector(".okryshto-logo") as HTMLElement;
-    expect(logo.style.getPropertyValue("--okryshto-logo-emblem-size")).toBe("4rem");
+    const logo = container.querySelector(".okkly-logo") as HTMLElement;
+    expect(logo.style.getPropertyValue("--okkly-logo-emblem-size")).toBe("4rem");
   });
 
   it("uses unique gradient ids across multiple instances", () => {

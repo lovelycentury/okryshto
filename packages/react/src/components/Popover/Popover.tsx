@@ -3,8 +3,8 @@
 import { forwardRef, useMemo, useRef, type HTMLAttributes, type ReactNode } from "react";
 import { createPortal } from "react-dom";
 import type { VirtualElement } from "@popperjs/core";
-import { useClickOutside, useEscapeKey } from "@okryshto/react-hooks";
-import "@okryshto/design-system/components/Popover/Popover.scss";
+import { useClickOutside, useEscapeKey } from "@okkly/react-hooks";
+import "@okkly/design-system/components/Popover/Popover.scss";
 import { mergeClassNames } from "../../helpers";
 import type { OverlayCloseHandler, TransitionTimeoutWithAuto } from "../../types";
 import { Grow } from "../Grow/Grow";
@@ -183,7 +183,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(function Popover
     !hideBackdrop && open && typeof document !== "undefined"
       ? createPortal(
           <div
-            className="okryshto-popover__backdrop"
+            className="okkly-popover__backdrop"
             role="presentation"
             onClick={(event) => onClose?.(event, "backdropClick")}
           />,
@@ -204,7 +204,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(function Popover
         matchAnchorWidth={matchAnchorWidth}
         minWidth={minWidth}
         modifiers={[OFFSET_MODIFIER]}
-        className={mergeClassNames("okryshto-popover", open && "okryshto-popover--open", className)}
+        className={mergeClassNames("okkly-popover", open && "okkly-popover--open", className)}
         role="presentation"
         {...rest}
       >
@@ -214,10 +214,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(function Popover
             timeout={transitionDuration}
             style={{ transformOrigin: "center top" }}
           >
-            <div
-              ref={paperRef}
-              className={mergeClassNames("okryshto-popover__paper", paperClassName)}
-            >
+            <div ref={paperRef} className={mergeClassNames("okkly-popover__paper", paperClassName)}>
               {children}
             </div>
           </Grow>

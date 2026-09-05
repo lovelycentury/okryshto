@@ -42,13 +42,13 @@ export default meta;
 type Story = StoryObj<typeof Stepper>;
 
 const surface: CSSProperties = {
-  background: "var(--okryshto-bg-surface-raised)",
-  border: "1px solid var(--okryshto-border-subtle)",
+  background: "var(--okkly-bg-surface-raised)",
+  border: "1px solid var(--okkly-border-subtle)",
   borderRadius: "12px",
   padding: "24px",
   width: "560px",
-  fontFamily: "var(--okryshto-font-family-sans)",
-  color: "var(--okryshto-text-primary)",
+  fontFamily: "var(--okkly-font-family-sans)",
+  color: "var(--okkly-text-primary)",
 };
 
 const checkoutSteps = [
@@ -76,8 +76,8 @@ export const CheckoutWizard: Story = {
         <Stepper steps={checkoutSteps} activeStep={step} />
         <div
           style={{
-            fontSize: "var(--okryshto-font-size-sm)",
-            color: "var(--okryshto-text-secondary)",
+            fontSize: "var(--okkly-font-size-sm)",
+            color: "var(--okkly-text-secondary)",
             textAlign: "center",
           }}
         >
@@ -154,8 +154,8 @@ export const States: Story = {
       ))}
       <span
         style={{
-          fontSize: "var(--okryshto-font-size-sm)",
-          color: "var(--okryshto-text-secondary)",
+          fontSize: "var(--okkly-font-size-sm)",
+          color: "var(--okkly-text-secondary)",
           textAlign: "center",
         }}
       >

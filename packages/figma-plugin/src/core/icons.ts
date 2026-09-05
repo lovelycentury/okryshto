@@ -1,5 +1,5 @@
 /**
- * Icon system — crisp vector icons sourced from `@okryshto/icons`.
+ * Icon system — crisp vector icons sourced from `@okkly/icons`.
  *
  * The glyph markup lives in exactly one place: `packages/icons/src/assets`.
  * This module is the Figma adapter for it — Figma's `createNodeFromSvg` has no
@@ -10,8 +10,8 @@
  * Reuse everywhere via `icon(t, name, size, token)`.
  */
 
-import * as okryshtoIcons from "@okryshto/icons";
-import { ICON_METADATA, getIconImportName } from "@okryshto/icons/utils";
+import * as okklyIcons from "@okkly/icons";
+import { ICON_METADATA, getIconImportName } from "@okkly/icons/utils";
 import { ThemeContext, colorVar } from "./theme";
 import { linearGradient } from "./color";
 
@@ -20,7 +20,7 @@ function bound(v: Variable): SolidPaint {
   return figma.variables.setBoundVariableForPaint(p, "color", v) as SolidPaint;
 }
 
-const RAW_SVG = okryshtoIcons as unknown as Record<string, string>;
+const RAW_SVG = okklyIcons as unknown as Record<string, string>;
 
 /**
  * Drops the package's `<svg>` wrapper. The two builders below each supply their
@@ -87,7 +87,7 @@ export function iconFilled(
 }
 
 /**
- * The okryshto brand mark — a circle with the `brand` glyph. Doubles as the
+ * The okkly brand mark — a circle with the `brand` glyph. Doubles as the
  * avatar. Background is the signature mint→dante gradient ("blood of Dante")
  * by default; pass gradient:false for a flat mint disc.
  */

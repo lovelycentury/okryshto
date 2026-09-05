@@ -7,8 +7,8 @@ import {
   type ButtonHTMLAttributes,
   type ReactNode,
 } from "react";
-import "@okryshto/design-system/components/Button/Button.scss";
-import { useRipple } from "@okryshto/react-hooks";
+import "@okkly/design-system/components/Button/Button.scss";
+import { useRipple } from "@okkly/react-hooks";
 import { Ripple } from "../Ripple/Ripple";
 
 export type ButtonVariant = "primary" | "gradient" | "secondary" | "soft" | "ghost" | "glass";
@@ -114,7 +114,7 @@ export type ButtonProps = SharedProps &
   >;
 
 const Spinner = () => (
-  <span className="okryshto-button__spinner" aria-hidden="true">
+  <span className="okkly-button__spinner" aria-hidden="true">
     <svg viewBox="0 0 24 24" fill="none">
       <circle
         cx="12"
@@ -162,13 +162,13 @@ export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonPr
     const { ripples, events, hideRipple } = useRipple(localRef);
 
     const classes = [
-      "okryshto-component",
-      "okryshto-button",
-      `okryshto-button--${variant}`,
-      color !== "primary" && `okryshto-button--color-${color}`,
-      shape === "rounded" && "okryshto-button--rounded",
-      size !== "medium" && `okryshto-button--${size}`,
-      fullWidth && "okryshto-button--full-width",
+      "okkly-component",
+      "okkly-button",
+      `okkly-button--${variant}`,
+      color !== "primary" && `okkly-button--color-${color}`,
+      shape === "rounded" && "okkly-button--rounded",
+      size !== "medium" && `okkly-button--${size}`,
+      fullWidth && "okkly-button--full-width",
       className,
     ]
       .filter(Boolean)
@@ -181,15 +181,15 @@ export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonPr
         {showRipple && <Ripple ripples={ripples} onRippleEnd={hideRipple} />}
         {loadingPosition === "start" && spinner}
         {loadingPosition !== "start" && startIcon && (
-          <span className="okryshto-button__icon">{startIcon}</span>
+          <span className="okkly-button__icon">{startIcon}</span>
         )}
         <span
-          className={`okryshto-button__label okryshto-truncation-ellipsis${loading && loadingPosition === "center" ? " okryshto-button__label--hidden" : ""}`}
+          className={`okkly-button__label okkly-truncation-ellipsis${loading && loadingPosition === "center" ? " okkly-button__label--hidden" : ""}`}
         >
           {children}
         </span>
         {loadingPosition !== "end" && endIcon && (
-          <span className="okryshto-button__icon">{endIcon}</span>
+          <span className="okkly-button__icon">{endIcon}</span>
         )}
         {loadingPosition === "end" && spinner}
         {loading && loadingPosition === "center" && (

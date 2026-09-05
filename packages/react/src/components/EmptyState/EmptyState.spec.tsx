@@ -12,21 +12,19 @@ describe("EmptyState", () => {
   it("applies default classes without modifiers", () => {
     const { container } = render(<EmptyState title="Empty" />);
     const root = container.firstChild as HTMLElement;
-    expect(root).toHaveClass("okryshto-component", "okryshto-empty-state");
-    expect(root.className).not.toMatch(/okryshto-empty-state--(small|large|dante|indigo|danger)/);
+    expect(root).toHaveClass("okkly-component", "okkly-empty-state");
+    expect(root.className).not.toMatch(/okkly-empty-state--(small|large|dante|indigo|danger)/);
   });
 
   it("applies size modifiers for non-medium sizes", () => {
     const { container, rerender } = render(<EmptyState title="Empty" size="small" />);
-    expect(container.firstChild).toHaveClass("okryshto-empty-state--small");
+    expect(container.firstChild).toHaveClass("okkly-empty-state--small");
 
     rerender(<EmptyState title="Empty" size="large" />);
-    expect(container.firstChild).toHaveClass("okryshto-empty-state--large");
+    expect(container.firstChild).toHaveClass("okkly-empty-state--large");
 
     rerender(<EmptyState title="Empty" size="medium" />);
-    expect((container.firstChild as HTMLElement).className).not.toMatch(
-      /okryshto-empty-state--small/,
-    );
+    expect((container.firstChild as HTMLElement).className).not.toMatch(/okkly-empty-state--small/);
   });
 
   it("applies color modifiers and renders action slot", () => {
@@ -34,8 +32,8 @@ describe("EmptyState", () => {
       <EmptyState title="Empty" color="dante" action={<button type="button">Create</button>} />,
     );
     expect(screen.getByRole("button", { name: "Create" })).toBeInTheDocument();
-    expect(screen.getByText("Empty").closest(".okryshto-empty-state")).toHaveClass(
-      "okryshto-empty-state--dante",
+    expect(screen.getByText("Empty").closest(".okkly-empty-state")).toHaveClass(
+      "okkly-empty-state--dante",
     );
   });
 

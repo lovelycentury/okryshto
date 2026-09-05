@@ -12,15 +12,15 @@ import {
   iconMusic,
   iconTrash,
   iconUpload,
-} from "@okryshto/icons";
+} from "@okkly/icons";
 import {
   formatFileSize,
   useFileUpload,
   type BinaryPrefixedSize,
   type FileType,
   type FileUploadIssue,
-} from "@okryshto/react-hooks";
-import "@okryshto/design-system/components/FileUpload/FileUpload.scss";
+} from "@okkly/react-hooks";
+import "@okkly/design-system/components/FileUpload/FileUpload.scss";
 import { IconButton } from "../IconButton/IconButton";
 import { Tooltip } from "../Tooltip/Tooltip";
 
@@ -181,7 +181,7 @@ export interface FileUploadProps<TMultiple extends boolean = false> {
   size?: FileUploadSize;
   /**
    * How the selected files are listed. `maxHeight` scrolls after
-   * `--okryshto-file-upload-max-files` rows, `button` adds a show/hide toggle and
+   * `--okkly-file-upload-max-files` rows, `button` adds a show/hide toggle and
    * `hidden` renders no list at all (for a custom one).
    *
    * @default "list"
@@ -321,7 +321,7 @@ function getFileIcon(file: File): string {
 }
 
 function Icon({ svg, className }: { svg: string; className?: string }) {
-  // @okryshto/icons ships trusted, build-time bundled SVG strings — not user input.
+  // @okkly/icons ships trusted, build-time bundled SVG strings — not user input.
   return (
     <span className={className} aria-hidden="true" dangerouslySetInnerHTML={{ __html: svg }} />
   );
@@ -444,12 +444,12 @@ export function FileUpload<TMultiple extends boolean = false>({
     listType !== "hidden" && upload.files.length > 0 && !(listType === "button" && filesHidden);
 
   const classes = [
-    "okryshto-component",
-    "okryshto-file-upload",
-    size !== "large" && `okryshto-file-upload--${size}`,
-    upload.isDragging && "okryshto-file-upload--dragging",
-    hasError && "okryshto-file-upload--error",
-    fullWidth && "okryshto-file-upload--full-width",
+    "okkly-component",
+    "okkly-file-upload",
+    size !== "large" && `okkly-file-upload--${size}`,
+    upload.isDragging && "okkly-file-upload--dragging",
+    hasError && "okkly-file-upload--error",
+    fullWidth && "okkly-file-upload--full-width",
     className,
   ]
     .filter(Boolean)
@@ -471,7 +471,7 @@ export function FileUpload<TMultiple extends boolean = false>({
       {...rootProps}
       type="button"
       id={fieldId}
-      className="okryshto-file-upload__dropzone"
+      className="okkly-file-upload__dropzone"
       disabled={disabled}
       aria-labelledby={label ? `${fieldId}-label` : undefined}
       aria-describedby={errorMessage && size !== "small" ? `${fieldId}-error` : undefined}
@@ -483,45 +483,45 @@ export function FileUpload<TMultiple extends boolean = false>({
       }}
     >
       {size === "large" ? (
-        <Icon svg={iconUpload} className="okryshto-file-upload__illustration" />
+        <Icon svg={iconUpload} className="okkly-file-upload__illustration" />
       ) : (
-        <span className="okryshto-file-upload__trigger">
+        <span className="okkly-file-upload__trigger">
           <Icon svg={iconUpload} />
           {text.trigger}
         </span>
       )}
 
       {showDetails && (
-        <span className="okryshto-file-upload__content">
+        <span className="okkly-file-upload__content">
           {size === "large" && (
-            <span className="okryshto-file-upload__title">
+            <span className="okkly-file-upload__title">
               <u>{text.clickToUpload}</u> {text.orDragAndDrop}
             </span>
           )}
 
           {maxSize != null && (
-            <span className="okryshto-file-upload__hint">
+            <span className="okkly-file-upload__hint">
               {isMultiple && maxTotalSize != null
                 ? text.maxTotalSizeHint(format(maxSize), format(maxTotalSize))
                 : text.maxSizeHint(format(maxSize))}
             </span>
           )}
           {maxSize == null && isMultiple && maxTotalSize != null && (
-            <span className="okryshto-file-upload__hint">
+            <span className="okkly-file-upload__hint">
               {text.totalSizeHint(format(maxTotalSize))}
             </span>
           )}
           {isMultiple && maxCount != null && (
-            <span className="okryshto-file-upload__hint">{text.maxCountHint(maxCount)}</span>
+            <span className="okkly-file-upload__hint">{text.maxCountHint(maxCount)}</span>
           )}
           {accept?.length ? (
-            <span className="okryshto-file-upload__hint">
+            <span className="okkly-file-upload__hint">
               {text.allowedTypesHint(accept.join(", "))}
             </span>
           ) : null}
 
           {errorMessage && (
-            <span className="okryshto-file-upload__error" id={`${fieldId}-error`}>
+            <span className="okkly-file-upload__error" id={`${fieldId}-error`}>
               {errorMessage}
               <Icon svg={iconInfo} />
             </span>
@@ -534,7 +534,7 @@ export function FileUpload<TMultiple extends boolean = false>({
   return (
     <div className={classes}>
       {label && (
-        <span id={`${fieldId}-label`} className="okryshto-file-upload__label">
+        <span id={`${fieldId}-label`} className="okkly-file-upload__label">
           {label}
         </span>
       )}
@@ -547,7 +547,7 @@ export function FileUpload<TMultiple extends boolean = false>({
 
       <input
         {...inputProps}
-        className="okryshto-file-upload__input"
+        className="okkly-file-upload__input"
         name={name}
         tabIndex={-1}
         aria-hidden="true"
@@ -556,7 +556,7 @@ export function FileUpload<TMultiple extends boolean = false>({
       {listType === "button" && upload.files.length > 0 && (
         <button
           type="button"
-          className="okryshto-file-upload__list-toggle"
+          className="okkly-file-upload__list-toggle"
           onClick={() => setFilesHidden((hidden) => !hidden)}
         >
           {filesHidden ? text.showFiles : text.hideFiles}
@@ -566,8 +566,8 @@ export function FileUpload<TMultiple extends boolean = false>({
       {showList && (
         <ul
           className={[
-            "okryshto-file-upload__list",
-            listType === "maxHeight" && "okryshto-file-upload__list--max-height",
+            "okkly-file-upload__list",
+            listType === "maxHeight" && "okkly-file-upload__list--max-height",
           ]
             .filter(Boolean)
             .join(" ")}
@@ -591,23 +591,23 @@ export function FileUpload<TMultiple extends boolean = false>({
               <li
                 key={key}
                 className={[
-                  "okryshto-file-upload__file",
-                  status?.color === "danger" && "okryshto-file-upload__file--error",
+                  "okkly-file-upload__file",
+                  status?.color === "danger" && "okkly-file-upload__file--error",
                 ]
                   .filter(Boolean)
                   .join(" ")}
               >
-                <span className="okryshto-file-upload__file-icon">
+                <span className="okkly-file-upload__file-icon">
                   <Icon svg={status?.color === "danger" ? iconAlertTriangle : getFileIcon(file)} />
                 </span>
 
-                <span className="okryshto-file-upload__file-body">
-                  <span className="okryshto-file-upload__file-name">{file.name}</span>
-                  <span className="okryshto-file-upload__file-details">
+                <span className="okkly-file-upload__file-body">
+                  <span className="okkly-file-upload__file-name">{file.name}</span>
+                  <span className="okkly-file-upload__file-details">
                     <span>{format(file.size)}</span>
                     {status?.text != null && (
                       <span
-                        className={`okryshto-file-upload__file-status okryshto-file-upload__file-status--${status.color ?? "neutral"}`}
+                        className={`okkly-file-upload__file-status okkly-file-upload__file-status--${status.color ?? "neutral"}`}
                       >
                         {status.text}
                       </span>
@@ -615,7 +615,7 @@ export function FileUpload<TMultiple extends boolean = false>({
                   </span>
                 </span>
 
-                <span className="okryshto-file-upload__file-actions">
+                <span className="okkly-file-upload__file-actions">
                   <IconButton
                     variant="ghost"
                     size="small"
@@ -627,9 +627,9 @@ export function FileUpload<TMultiple extends boolean = false>({
                 </span>
 
                 {status?.progress != null && (
-                  <span className="okryshto-file-upload__progress">
+                  <span className="okkly-file-upload__progress">
                     <span
-                      className={`okryshto-file-upload__progress-bar okryshto-file-upload__progress-bar--${status.color ?? "primary"}`}
+                      className={`okkly-file-upload__progress-bar okkly-file-upload__progress-bar--${status.color ?? "primary"}`}
                       style={{ width: `${Math.min(Math.max(status.progress, 0), 100)}%` }}
                     />
                   </span>

@@ -1,5 +1,5 @@
 import { useTranslations } from "use-intl";
-import { Avatar, Chip, Typography } from "@okryshto/react";
+import { Avatar, Chip, Typography } from "@okkly/react";
 
 import { AgentMark } from "../AgentMark.js";
 import { CookieTrigger } from "../CookieConsent/index.js";
@@ -77,12 +77,7 @@ export function Sidebar({ className }: { className?: string }) {
           {PROFILE.email}
         </a>
 
-        <a
-          className={styles.email}
-          href={PROFILE.website}
-          target="_blank"
-          rel="noreferrer"
-        >
+        <a className={styles.email} href={PROFILE.website} target="_blank" rel="noreferrer">
           {PROFILE.website.replace(/^https?:\/\//, "")}
         </a>
 

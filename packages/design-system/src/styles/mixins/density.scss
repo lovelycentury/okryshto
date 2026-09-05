@@ -1,30 +1,30 @@
-// Density mixins emit the `okryshto.density` layer (see layers.scss), which wins
-// over `okryshto.component`. Always used OUTSIDE `layers.component()` in a
-// component style block — nesting them inside is a bug (see okryshto-styling skill).
+// Density mixins emit the `okkly.density` layer (see layers.scss), which wins
+// over `okkly.component`. Always used OUTSIDE `layers.component()` in a
+// component style block — nesting them inside is a bug (see okkly-styling skill).
 
 @mixin compact {
-  @layer okryshto.density {
-    .okryshto-density-compact &,
-    :is(&).okryshto-density-compact {
+  @layer okkly.density {
+    .okkly-density-compact &,
+    :is(&).okkly-density-compact {
       @content;
     }
   }
 }
 
 @mixin default {
-  @layer okryshto.density {
+  @layer okkly.density {
     &,
-    .okryshto-density-default &,
-    :is(&).okryshto-density-default {
+    .okkly-density-default &,
+    :is(&).okkly-density-default {
       @content;
     }
   }
 }
 
 @mixin cozy {
-  @layer okryshto.density {
-    .okryshto-density-cozy &,
-    :is(&).okryshto-density-cozy {
+  @layer okkly.density {
+    .okkly-density-cozy &,
+    :is(&).okkly-density-cozy {
       @content;
     }
   }

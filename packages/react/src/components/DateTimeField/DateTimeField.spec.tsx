@@ -6,17 +6,17 @@ import { DateTimeField } from "./DateTimeField";
 describe("DateTimeField", () => {
   it("renders with the default className and no modifiers", () => {
     const { container } = render(<DateTimeField label="Date & time" />);
-    const root = container.querySelector(".okryshto-date-time-field");
-    expect(root).toHaveClass("okryshto-component", "okryshto-date-time-field");
+    const root = container.querySelector(".okkly-date-time-field");
+    expect(root).toHaveClass("okkly-component", "okkly-date-time-field");
     expect(root?.className).not.toMatch(
-      /okryshto-date-time-field--(small|large|error|full-width|color-)/,
+      /okkly-date-time-field--(small|large|error|full-width|color-)/,
     );
   });
 
   it("applies the error modifier", () => {
     const { container } = render(<DateTimeField label="Date & time" error helperText="Required" />);
-    expect(container.querySelector(".okryshto-date-time-field")).toHaveClass(
-      "okryshto-date-time-field--error",
+    expect(container.querySelector(".okkly-date-time-field")).toHaveClass(
+      "okkly-date-time-field--error",
     );
   });
 
@@ -65,12 +65,12 @@ describe("DateTimeField", () => {
   it("opens the date-time picker popover when the picker button is clicked", () => {
     render(<DateTimeField label="Date & time" />);
     fireEvent.click(screen.getByRole("button", { name: "Open date time picker" }));
-    expect(document.querySelector(".okryshto-date-time-picker")).toBeInTheDocument();
+    expect(document.querySelector(".okkly-date-time-picker")).toBeInTheDocument();
   });
 
   it("shows a required asterisk after the label", () => {
     const { container } = render(<DateTimeField label="Date & time" required />);
-    expect(container.querySelector(".okryshto-date-time-field__required")).toHaveTextContent("*");
+    expect(container.querySelector(".okkly-date-time-field__required")).toHaveTextContent("*");
     expect(screen.getByRole("textbox")).toBeRequired();
   });
 });

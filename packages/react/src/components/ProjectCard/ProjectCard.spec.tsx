@@ -17,26 +17,26 @@ describe("ProjectCard", () => {
 
   it("omits the tags container when tags is empty", () => {
     const { container } = render(<ProjectCard title="Finance App" tags={[]} />);
-    expect(container.querySelector(".okryshto-project-card__tags")).not.toBeInTheDocument();
+    expect(container.querySelector(".okkly-project-card__tags")).not.toBeInTheDocument();
   });
 
   it("renders the device mockup only when device is true", () => {
     const { container, rerender } = render(<ProjectCard title="Finance App" device />);
-    expect(container.querySelector(".okryshto-project-card__device")).toBeInTheDocument();
+    expect(container.querySelector(".okkly-project-card__device")).toBeInTheDocument();
 
     rerender(<ProjectCard title="Finance App" device={false} />);
-    expect(container.querySelector(".okryshto-project-card__device")).not.toBeInTheDocument();
+    expect(container.querySelector(".okkly-project-card__device")).not.toBeInTheDocument();
   });
 
   it("renders the background image only when image is provided", () => {
     const { container, rerender } = render(<ProjectCard title="Finance App" image="/photo.jpg" />);
-    expect(container.querySelector(".okryshto-project-card__background")).toHaveAttribute(
+    expect(container.querySelector(".okkly-project-card__background")).toHaveAttribute(
       "src",
       "/photo.jpg",
     );
 
     rerender(<ProjectCard title="Finance App" />);
-    expect(container.querySelector(".okryshto-project-card__background")).not.toBeInTheDocument();
+    expect(container.querySelector(".okkly-project-card__background")).not.toBeInTheDocument();
   });
 
   it("renders as an <a> when href is provided", () => {

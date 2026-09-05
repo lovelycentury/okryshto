@@ -13,27 +13,27 @@
     <circle cx="14" cy="14" r="13.5" stroke="rgba(255,255,255,0.14)" stroke-width="1" stroke-dasharray="0.8 2.2" fill="none"/>
     <circle cx="14" cy="14" r="11.5" stroke="rgba(255,255,255,0.08)" stroke-width="1" fill="none"/>
     <!-- yin-yang orb (Figma gradients: mint↔dante / indigo↔violet) -->
-    <g clip-path="url(#okryshto-sb-clip)">
+    <g clip-path="url(#okkly-sb-clip)">
       <circle cx="14" cy="14" r="10" fill="#080809"/>
-      <rect x="4" y="4" width="10" height="20" fill="url(#okryshto-sb-light)"/>
-      <rect x="14" y="4" width="10" height="20" fill="url(#okryshto-sb-dark)"/>
-      <rect x="9" y="4" width="10" height="10" rx="5" fill="url(#okryshto-sb-light)"/>
+      <rect x="4" y="4" width="10" height="20" fill="url(#okkly-sb-light)"/>
+      <rect x="14" y="4" width="10" height="20" fill="url(#okkly-sb-dark)"/>
+      <rect x="9" y="4" width="10" height="10" rx="5" fill="url(#okkly-sb-light)"/>
       <circle cx="14" cy="9" r="1.1" fill="#04140F"/>
-      <rect x="9" y="14" width="10" height="10" rx="5" fill="url(#okryshto-sb-dark)"/>
+      <rect x="9" y="14" width="10" height="10" rx="5" fill="url(#okkly-sb-dark)"/>
       <circle cx="14" cy="19" r="1.1" fill="#FFFFFF"/>
     </g>
   </g>
   <text x="34" y="21" fill="#F5F5F7" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="600" letter-spacing="-0.02em">okryshto.dev</text>
   <defs>
-    <linearGradient id="okryshto-sb-light" x1="5" y1="4" x2="18" y2="8" gradientUnits="userSpaceOnUse">
+    <linearGradient id="okkly-sb-light" x1="5" y1="4" x2="18" y2="8" gradientUnits="userSpaceOnUse">
       <stop stop-color="#5EE6C1"/>
       <stop offset="1" stop-color="#FF3D8B"/>
     </linearGradient>
-    <linearGradient id="okryshto-sb-dark" x1="14" y1="4" x2="24" y2="4" gradientUnits="userSpaceOnUse">
+    <linearGradient id="okkly-sb-dark" x1="14" y1="4" x2="24" y2="4" gradientUnits="userSpaceOnUse">
       <stop stop-color="#4F46E5"/>
       <stop offset="1" stop-color="#9063FF"/>
     </linearGradient>
-    <clipPath id="okryshto-sb-clip">
+    <clipPath id="okkly-sb-clip">
       <circle cx="14" cy="14" r="10"/>
     </clipPath>
   </defs>

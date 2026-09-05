@@ -8,7 +8,7 @@ import {
   type ReactNode,
   type TransitionEvent,
 } from "react";
-import "@okryshto/design-system/components/Drawer/Drawer.scss";
+import "@okkly/design-system/components/Drawer/Drawer.scss";
 import { Modal, type ModalProps } from "../Modal/Modal";
 
 export type DrawerAnchor = "left" | "right" | "top" | "bottom";
@@ -99,10 +99,10 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(function Drawer(
   };
 
   const classes = [
-    "okryshto-drawer",
-    visible && "okryshto-drawer--open",
-    `okryshto-drawer--anchor-${anchor}`,
-    `okryshto-drawer--variant-${variant}`,
+    "okkly-drawer",
+    visible && "okkly-drawer--open",
+    `okkly-drawer--anchor-${anchor}`,
+    `okkly-drawer--variant-${variant}`,
     className,
   ]
     .filter(Boolean)
@@ -125,7 +125,7 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(function Drawer(
     >
       <div
         ref={paperRef}
-        className="okryshto-drawer__paper"
+        className="okkly-drawer__paper"
         role="dialog"
         aria-modal="true"
         onTransitionEnd={handlePaperTransitionEnd}

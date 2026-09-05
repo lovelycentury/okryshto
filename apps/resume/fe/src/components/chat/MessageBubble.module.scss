@@ -8,8 +8,8 @@
   max-width: 82%;
   padding: 10px 15px;
   border-radius: 18px 18px 4px 18px;
-  background: var(--okryshto-accent-primary);
-  color: var(--okryshto-accent-contrast);
+  background: var(--okkly-accent-primary);
+  color: var(--okkly-accent-contrast);
   font-size: 0.9375rem;
   line-height: 1.5;
   white-space: pre-wrap;
@@ -42,7 +42,7 @@
 
 .answer {
   font-size: 0.9375rem;
-  color: var(--okryshto-text-primary);
+  color: var(--okkly-text-primary);
 }
 
 .caret {
@@ -51,7 +51,7 @@
   height: 1.05em;
   margin-left: 2px;
   vertical-align: text-bottom;
-  background: var(--okryshto-accent-primary);
+  background: var(--okkly-accent-primary);
   animation: caret-blink 1s steps(1) infinite;
 }
 

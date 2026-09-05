@@ -17,8 +17,8 @@ import {
   iconRotateCcw,
   iconType,
   iconUnderline,
-} from "@okryshto/icons";
-import "@okryshto/design-system/components/RichEditor/RichEditor.scss";
+} from "@okkly/icons";
+import "@okkly/design-system/components/RichEditor/RichEditor.scss";
 
 export type RichEditorColor = "primary" | "dante";
 export type RichEditorFormat = "html" | "json";
@@ -287,7 +287,7 @@ export function RichEditor({
     editorProps: {
       attributes: {
         id: editorId,
-        class: "okryshto-rich-editor__prose",
+        class: "okkly-rich-editor__prose",
         ...(label ? { "aria-labelledby": labelId } : {}),
         ...(disabled ? { "aria-disabled": "true" } : {}),
       },
@@ -388,7 +388,7 @@ export function RichEditor({
       editorProps: {
         attributes: {
           id: editorId,
-          class: "okryshto-rich-editor__prose",
+          class: "okkly-rich-editor__prose",
           ...(label ? { "aria-labelledby": labelId } : {}),
           ...(describedBy ? { "aria-describedby": describedBy } : {}),
           ...(disabled ? { "aria-disabled": "true" } : {}),
@@ -521,13 +521,13 @@ export function RichEditor({
   };
 
   const classes = [
-    "okryshto-component",
-    "okryshto-rich-editor",
-    color !== "primary" && `okryshto-rich-editor--color-${color}`,
-    !fullWidth && "okryshto-rich-editor--not-full-width",
-    showError && "okryshto-rich-editor--error",
-    disabled && "okryshto-rich-editor--disabled",
-    readonly && "okryshto-rich-editor--readonly",
+    "okkly-component",
+    "okkly-rich-editor",
+    color !== "primary" && `okkly-rich-editor--color-${color}`,
+    !fullWidth && "okkly-rich-editor--not-full-width",
+    showError && "okkly-rich-editor--error",
+    disabled && "okkly-rich-editor--disabled",
+    readonly && "okkly-rich-editor--readonly",
     className,
   ]
     .filter(Boolean)
@@ -544,7 +544,7 @@ export function RichEditor({
     <button
       key={opts.label}
       type="button"
-      className={`okryshto-rich-editor__tool${opts.active ? " okryshto-rich-editor__tool--active" : ""}`}
+      className={`okkly-rich-editor__tool${opts.active ? " okkly-rich-editor__tool--active" : ""}`}
       title={opts.label}
       aria-label={opts.label}
       aria-pressed={opts.active}
@@ -559,15 +559,15 @@ export function RichEditor({
   return (
     <div className={classes}>
       {label && (
-        <label id={labelId} htmlFor={editorId} className="okryshto-rich-editor__label">
+        <label id={labelId} htmlFor={editorId} className="okkly-rich-editor__label">
           {label}
         </label>
       )}
 
-      <div className="okryshto-rich-editor__shell">
+      <div className="okkly-rich-editor__shell">
         {showToolbar && editor && (
-          <div className="okryshto-rich-editor__toolbar" role="toolbar" aria-label="Formatting">
-            <div className="okryshto-rich-editor__toolbar-left">
+          <div className="okkly-rich-editor__toolbar" role="toolbar" aria-label="Formatting">
+            <div className="okkly-rich-editor__toolbar-left">
               {!compact && (
                 <>
                   {tool({
@@ -577,11 +577,11 @@ export function RichEditor({
                     active: editorState.isHeading,
                     onClick: () => editor.chain().focus().toggleHeading({ level: 2 }).run(),
                   })}
-                  <span className="okryshto-rich-editor__sep" aria-hidden />
+                  <span className="okkly-rich-editor__sep" aria-hidden />
                 </>
               )}
 
-              <div className="okryshto-rich-editor__group">
+              <div className="okkly-rich-editor__group">
                 {tool({
                   label: "Bold",
                   icon: iconBold,
@@ -608,9 +608,9 @@ export function RichEditor({
                 })}
               </div>
 
-              <span className="okryshto-rich-editor__sep" aria-hidden />
+              <span className="okkly-rich-editor__sep" aria-hidden />
 
-              <div className="okryshto-rich-editor__group">
+              <div className="okkly-rich-editor__group">
                 {!compact &&
                   tool({
                     label: "Link",
@@ -641,8 +641,8 @@ export function RichEditor({
 
               {!compact && (
                 <>
-                  <span className="okryshto-rich-editor__sep" aria-hidden />
-                  <div className="okryshto-rich-editor__group">
+                  <span className="okkly-rich-editor__sep" aria-hidden />
+                  <div className="okkly-rich-editor__group">
                     {tool({
                       label: "Horizontal rule",
                       icon: iconMinus,
@@ -653,7 +653,7 @@ export function RichEditor({
               )}
             </div>
 
-            <div className="okryshto-rich-editor__toolbar-right">
+            <div className="okkly-rich-editor__toolbar-right">
               {tool({
                 label: "Undo",
                 icon: iconRotateCcw,
@@ -670,12 +670,12 @@ export function RichEditor({
           </div>
         )}
 
-        <div className="okryshto-rich-editor__content">
+        <div className="okkly-rich-editor__content">
           <EditorContent editor={editor} />
           {slashQuery != null && filteredSlashItems.length > 0 && (
-            <div className="okryshto-rich-editor__slash" role="listbox" aria-label="Insert block">
-              <div className="okryshto-rich-editor__slash-query">
-                <span className="okryshto-rich-editor__slash-prefix">/</span>
+            <div className="okkly-rich-editor__slash" role="listbox" aria-label="Insert block">
+              <div className="okkly-rich-editor__slash-query">
+                <span className="okkly-rich-editor__slash-prefix">/</span>
                 <span>{slashQuery || "…"}</span>
               </div>
               {filteredSlashItems.map((item) => (
@@ -683,34 +683,34 @@ export function RichEditor({
                   key={item.id}
                   type="button"
                   role="option"
-                  className="okryshto-rich-editor__slash-item"
+                  className="okkly-rich-editor__slash-item"
                   onMouseDown={(event) => {
                     event.preventDefault();
                     item.run();
                   }}
                 >
-                  <span className="okryshto-rich-editor__slash-item-main">
+                  <span className="okkly-rich-editor__slash-item-main">
                     <Icon svg={item.icon} label={item.label} />
                     {item.label}
                   </span>
-                  <span className="okryshto-rich-editor__slash-kbd">{item.kbd}</span>
+                  <span className="okkly-rich-editor__slash-kbd">{item.kbd}</span>
                 </button>
               ))}
             </div>
           )}
         </div>
 
-        <div className="okryshto-rich-editor__footer">
+        <div className="okkly-rich-editor__footer">
           <span>{readonly ? "Read-only" : "Markdown & ⌘B ⌘I ⌘K"}</span>
-          <div className="okryshto-rich-editor__footer-meta">
+          <div className="okkly-rich-editor__footer-meta">
             <span>
               {editorState.wordCount} {editorState.wordCount === 1 ? "word" : "words"}
             </span>
             {autosave !== false && !readonly && (
-              <span className="okryshto-rich-editor__status">
+              <span className="okkly-rich-editor__status">
                 <span
-                  className={`okryshto-rich-editor__status-dot${
-                    saveStatus === "dirty" ? " okryshto-rich-editor__status-dot--danger" : ""
+                  className={`okkly-rich-editor__status-dot${
+                    saveStatus === "dirty" ? " okkly-rich-editor__status-dot--danger" : ""
                   }`}
                   aria-hidden
                 />
@@ -722,7 +722,7 @@ export function RichEditor({
       </div>
 
       {resolvedHelper != null && resolvedHelper !== "" && (
-        <span id={helperId} className="okryshto-rich-editor__helper">
+        <span id={helperId} className="okkly-rich-editor__helper">
           {resolvedHelper}
         </span>
       )}

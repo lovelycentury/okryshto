@@ -1,5 +1,5 @@
 {
-  "name": "@okryshto/oxlint-config",
+  "name": "@okkly/oxlint-config",
   "version": "0.0.0",
   "description": "Shared oxlint rules for the Okryshto design system monorepo",
   "license": "MIT",

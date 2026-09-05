@@ -1,34 +1,30 @@
 @use "../../styles/mixins/layers.scss";
 
-.okryshto-dialog {
+.okkly-dialog {
   @include layers.component() {
-    --okryshto-dialog-z-index: 1300;
-    --okryshto-dialog-backdrop-color: color-mix(
-      in srgb,
-      var(--okryshto-bg-canvas) 55%,
-      transparent
-    );
-    --okryshto-dialog-border-radius: 1.75rem;
-    --okryshto-dialog-background-color: var(--okryshto-bg-surface);
-    --okryshto-dialog-border-color: var(--okryshto-border-subtle);
-    --okryshto-dialog-border-width: var(--okryshto-1px-in-rem);
-    --okryshto-dialog-padding: 1.5rem;
-    --okryshto-dialog-gap: 0.875rem;
-    --okryshto-dialog-max-width-xs: 27.75rem;
-    --okryshto-dialog-max-width-sm: 37.5rem;
-    --okryshto-dialog-max-width-md: 56.25rem;
-    --okryshto-dialog-max-width-lg: 75rem;
-    --okryshto-dialog-max-width-xl: 90rem;
-    --okryshto-dialog-shadow: var(--okryshto-shadow-medium-bottom);
+    --okkly-dialog-z-index: 1300;
+    --okkly-dialog-backdrop-color: color-mix(in srgb, var(--okkly-bg-canvas) 55%, transparent);
+    --okkly-dialog-border-radius: 1.75rem;
+    --okkly-dialog-background-color: var(--okkly-bg-surface);
+    --okkly-dialog-border-color: var(--okkly-border-subtle);
+    --okkly-dialog-border-width: var(--okkly-1px-in-rem);
+    --okkly-dialog-padding: 1.5rem;
+    --okkly-dialog-gap: 0.875rem;
+    --okkly-dialog-max-width-xs: 27.75rem;
+    --okkly-dialog-max-width-sm: 37.5rem;
+    --okkly-dialog-max-width-md: 56.25rem;
+    --okkly-dialog-max-width-lg: 75rem;
+    --okkly-dialog-max-width-xl: 90rem;
+    --okkly-dialog-shadow: var(--okkly-shadow-medium-bottom);
 
-    // Positioning, stacking and the backdrop all come from `.okryshto-modal`,
+    // Positioning, stacking and the backdrop all come from `.okkly-modal`,
     // which this class is applied alongside. Dialog owns only the centred
     // container and the paper.
-    --okryshto-modal-z-index: var(--okryshto-dialog-z-index);
-    --okryshto-modal-backdrop-color: var(--okryshto-dialog-backdrop-color);
+    --okkly-modal-z-index: var(--okkly-dialog-z-index);
+    --okkly-modal-backdrop-color: var(--okkly-dialog-backdrop-color);
 
     opacity: 0;
-    transition: opacity var(--okryshto-duration-sm) ease;
+    transition: opacity var(--okkly-duration-sm) ease;
 
     &--open {
       opacity: 1;
@@ -48,35 +44,35 @@
       position: relative;
       display: flex;
       flex-direction: column;
-      gap: var(--okryshto-dialog-gap);
+      gap: var(--okkly-dialog-gap);
       width: 100%;
       max-height: calc(100vh - 3rem);
-      padding: var(--okryshto-dialog-padding);
-      border: var(--okryshto-dialog-border-width) solid var(--okryshto-dialog-border-color);
-      border-radius: var(--okryshto-dialog-border-radius);
-      background: var(--okryshto-dialog-background-color);
-      box-shadow: var(--okryshto-dialog-shadow);
+      padding: var(--okkly-dialog-padding);
+      border: var(--okkly-dialog-border-width) solid var(--okkly-dialog-border-color);
+      border-radius: var(--okkly-dialog-border-radius);
+      background: var(--okkly-dialog-background-color);
+      box-shadow: var(--okkly-dialog-shadow);
       overflow: auto;
     }
 
     &--max-width-xs &__paper {
-      max-width: var(--okryshto-dialog-max-width-xs);
+      max-width: var(--okkly-dialog-max-width-xs);
     }
 
     &--max-width-sm &__paper {
-      max-width: var(--okryshto-dialog-max-width-sm);
+      max-width: var(--okkly-dialog-max-width-sm);
     }
 
     &--max-width-md &__paper {
-      max-width: var(--okryshto-dialog-max-width-md);
+      max-width: var(--okkly-dialog-max-width-md);
     }
 
     &--max-width-lg &__paper {
-      max-width: var(--okryshto-dialog-max-width-lg);
+      max-width: var(--okkly-dialog-max-width-lg);
     }
 
     &--max-width-xl &__paper {
-      max-width: var(--okryshto-dialog-max-width-xl);
+      max-width: var(--okkly-dialog-max-width-xl);
     }
 
     // `maxWidth={false}` emits no modifier at all, so the paper keeps only its
@@ -103,18 +99,18 @@
     &__title {
       margin: 0;
       padding-right: 2rem;
-      color: var(--okryshto-text-primary);
-      font-family: var(--okryshto-font-family-sans);
-      font-weight: var(--okryshto-font-weight-medium);
-      font-size: var(--okryshto-font-size-lg);
-      line-height: var(--okryshto-font-line-height-lg);
+      color: var(--okkly-text-primary);
+      font-family: var(--okkly-font-family-sans);
+      font-weight: var(--okkly-font-weight-medium);
+      font-size: var(--okkly-font-size-lg);
+      line-height: var(--okkly-font-line-height-lg);
     }
 
     &__content {
-      color: var(--okryshto-text-secondary);
-      font-family: var(--okryshto-font-family-sans);
-      font-size: var(--okryshto-font-size-md);
-      line-height: var(--okryshto-font-line-height-md);
+      color: var(--okkly-text-secondary);
+      font-family: var(--okkly-font-family-sans);
+      font-size: var(--okkly-font-size-md);
+      line-height: var(--okkly-font-line-height-md);
     }
 
     // Matches the native `confirm()` convention: every action shares one width
@@ -146,9 +142,9 @@
       border: none;
       border-radius: 50%;
       background: transparent;
-      color: var(--okryshto-text-muted);
+      color: var(--okkly-text-muted);
       cursor: pointer;
-      transition: color var(--okryshto-duration-sm) ease;
+      transition: color var(--okkly-duration-sm) ease;
 
       svg {
         width: 0.875rem;
@@ -156,11 +152,11 @@
       }
 
       &:hover {
-        color: var(--okryshto-text-primary);
+        color: var(--okkly-text-primary);
       }
 
       &:focus-visible {
-        outline: var(--okryshto-1px-in-rem) solid var(--okryshto-accent-primary);
+        outline: var(--okkly-1px-in-rem) solid var(--okkly-accent-primary);
         outline-offset: 0.125rem;
       }
     }

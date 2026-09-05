@@ -92,17 +92,17 @@ const surface: CSSProperties = {
   alignItems: "center",
   gap: "12px",
   padding: "32px",
-  fontFamily: "var(--okryshto-font-family-sans)",
-  color: "var(--okryshto-text-primary)",
+  fontFamily: "var(--okkly-font-family-sans)",
+  color: "var(--okkly-text-primary)",
 };
 
 // The paper brings its own background and border; this is only the padding and the
 // text rhythm, which belong to the content rather than to the component.
 const body: CSSProperties = {
   padding: "16px",
-  fontSize: "var(--okryshto-font-size-sm)",
-  lineHeight: "var(--okryshto-font-line-height-sm)",
-  color: "var(--okryshto-text-secondary)",
+  fontSize: "var(--okkly-font-size-sm)",
+  lineHeight: "var(--okkly-font-line-height-sm)",
+  color: "var(--okkly-text-secondary)",
 };
 
 const menuItem: CSSProperties = {
@@ -111,9 +111,9 @@ const menuItem: CSSProperties = {
   padding: "9px 14px",
   border: "none",
   background: "none",
-  color: "var(--okryshto-text-secondary)",
-  fontFamily: "var(--okryshto-font-family-sans)",
-  fontSize: "var(--okryshto-font-size-sm)",
+  color: "var(--okkly-text-secondary)",
+  fontFamily: "var(--okkly-font-family-sans)",
+  fontSize: "var(--okkly-font-size-sm)",
   textAlign: "left",
   cursor: "pointer",
 };
@@ -121,8 +121,8 @@ const menuItem: CSSProperties = {
 const caption: CSSProperties = {
   margin: 0,
   width: "100%",
-  fontSize: "var(--okryshto-font-size-sm)",
-  color: "var(--okryshto-text-muted)",
+  fontSize: "var(--okkly-font-size-sm)",
+  color: "var(--okkly-text-muted)",
 };
 
 /**
@@ -176,7 +176,7 @@ export const AMenu: Story = {
                 type="button"
                 style={{
                   ...menuItem,
-                  color: item === "Delete" ? "var(--okryshto-accent-ember)" : menuItem.color,
+                  color: item === "Delete" ? "var(--okkly-accent-ember)" : menuItem.color,
                 }}
                 onClick={() => {
                   setLast(item);
@@ -266,10 +266,10 @@ export const AtAPoint: Story = {
             placeItems: "center",
             width: "420px",
             height: "200px",
-            border: "var(--okryshto-1px-in-rem) dashed var(--okryshto-border-default)",
+            border: "var(--okkly-1px-in-rem) dashed var(--okkly-border-default)",
             borderRadius: "14px",
-            color: "var(--okryshto-text-muted)",
-            fontSize: "var(--okryshto-font-size-sm)",
+            color: "var(--okkly-text-muted)",
+            fontSize: "var(--okkly-font-size-sm)",
           }}
         >
           Right-click anywhere in here
@@ -360,7 +360,7 @@ export const AFilterPanel: Story = {
         </Button>
         <Popover open={Boolean(anchorEl)} anchorEl={anchorEl} onClose={handleClose} minWidth={260}>
           <div style={{ ...body, display: "grid", gap: "12px" }}>
-            <strong style={{ color: "var(--okryshto-text-primary)" }}>Show</strong>
+            <strong style={{ color: "var(--okkly-text-primary)" }}>Show</strong>
             {filters.map((filter) => (
               <label key={filter} style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                 <input

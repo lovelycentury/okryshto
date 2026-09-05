@@ -7,11 +7,11 @@ import {
   type LiHTMLAttributes,
   type ReactNode,
 } from "react";
-import { iconCheck } from "@okryshto/icons";
+import { iconCheck } from "@okkly/icons";
 
 /**
- * BEM block the option parts namespace themselves under — `"okryshto-select"` or
- * `"okryshto-autocomplete"`. Select and Autocomplete each provide their own, so a
+ * BEM block the option parts namespace themselves under — `"okkly-select"` or
+ * `"okkly-autocomplete"`. Select and Autocomplete each provide their own, so a
  * `renderOption` written for one keeps that component's listbox styling.
  *
  * Outside either popup there is no block, and the parts render as plain
@@ -23,7 +23,7 @@ const OptionBlockContext = createContext<string | null>(null);
 
 export interface OptionScopeProps {
   /**
-   * BEM block the option parts inside this scope use, e.g. `"okryshto-select"`.
+   * BEM block the option parts inside this scope use, e.g. `"okkly-select"`.
    *
    * @default undefined
    * @type {string}

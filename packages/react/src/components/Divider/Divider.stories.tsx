@@ -24,7 +24,7 @@ const meta: Meta<typeof Divider> = {
   },
   decorators: [
     (Story) => (
-      <div style={{ width: "360px", color: "var(--okryshto-text-primary)" }}>
+      <div style={{ width: "360px", color: "var(--okkly-text-primary)" }}>
         <Story />
       </div>
     ),
@@ -35,11 +35,11 @@ export default meta;
 type Story = StoryObj<typeof Divider>;
 
 const surface: CSSProperties = {
-  background: "var(--okryshto-bg-surface-raised)",
-  border: "1px solid var(--okryshto-border-subtle)",
+  background: "var(--okkly-bg-surface-raised)",
+  border: "1px solid var(--okkly-border-subtle)",
   borderRadius: "12px",
   padding: "16px",
-  fontFamily: "var(--okryshto-font-family-sans)",
+  fontFamily: "var(--okkly-font-family-sans)",
 };
 
 const row: CSSProperties = {
@@ -47,7 +47,7 @@ const row: CSSProperties = {
   alignItems: "center",
   justifyContent: "space-between",
   padding: "10px 0",
-  fontSize: "var(--okryshto-font-size-sm)",
+  fontSize: "var(--okkly-font-size-sm)",
 };
 
 /**
@@ -70,17 +70,17 @@ export const SeparatedRows: Story = {
     <div style={surface}>
       <div style={row}>
         <span>Email notifications</span>
-        <span style={{ color: "var(--okryshto-text-secondary)" }}>On</span>
+        <span style={{ color: "var(--okkly-text-secondary)" }}>On</span>
       </div>
       <Divider />
       <div style={row}>
         <span>Weekly digest</span>
-        <span style={{ color: "var(--okryshto-text-secondary)" }}>Monday</span>
+        <span style={{ color: "var(--okkly-text-secondary)" }}>Monday</span>
       </div>
       <Divider />
       <div style={row}>
         <span>Product updates</span>
-        <span style={{ color: "var(--okryshto-text-secondary)" }}>Off</span>
+        <span style={{ color: "var(--okkly-text-secondary)" }}>Off</span>
       </div>
     </div>
   ),
@@ -154,11 +154,11 @@ export const VerticalStats: Story = {
       ].map(([label, value], index, all) => (
         <Fragment key={label}>
           <div style={{ flex: 1 }}>
-            <div style={{ fontSize: "var(--okryshto-font-size-lg)" }}>{value}</div>
+            <div style={{ fontSize: "var(--okkly-font-size-lg)" }}>{value}</div>
             <div
               style={{
-                fontSize: "var(--okryshto-font-size-sm)",
-                color: "var(--okryshto-text-secondary)",
+                fontSize: "var(--okkly-font-size-sm)",
+                color: "var(--okkly-text-secondary)",
               }}
             >
               {label}
@@ -186,10 +186,7 @@ export const Variants: Story = {
       ].map(([initials, name, detail], index) => (
         <div key={name}>
           {index > 0 && (
-            <Divider
-              variant="inset"
-              style={{ "--okryshto-divider-inset": "54px" } as CSSProperties}
-            />
+            <Divider variant="inset" style={{ "--okkly-divider-inset": "54px" } as CSSProperties} />
           )}
           <div style={{ display: "flex", alignItems: "center", gap: "14px", padding: "12px 0" }}>
             <span
@@ -199,15 +196,15 @@ export const Variants: Story = {
                 borderRadius: "50%",
                 display: "grid",
                 placeItems: "center",
-                background: "var(--okryshto-glass-fill)",
-                fontSize: "var(--okryshto-font-size-sm)",
+                background: "var(--okkly-glass-fill)",
+                fontSize: "var(--okkly-font-size-sm)",
               }}
             >
               {initials}
             </span>
-            <div style={{ fontSize: "var(--okryshto-font-size-sm)" }}>
+            <div style={{ fontSize: "var(--okkly-font-size-sm)" }}>
               <div>{name}</div>
-              <div style={{ color: "var(--okryshto-text-secondary)" }}>{detail}</div>
+              <div style={{ color: "var(--okkly-text-secondary)" }}>{detail}</div>
             </div>
           </div>
         </div>
@@ -216,8 +213,8 @@ export const Variants: Story = {
       <div
         style={{
           padding: "12px 0",
-          fontSize: "var(--okryshto-font-size-sm)",
-          color: "var(--okryshto-text-secondary)",
+          fontSize: "var(--okkly-font-size-sm)",
+          color: "var(--okkly-text-secondary)",
         }}
       >
         The rule above closes the list with variant=&quot;middle&quot;.
@@ -235,8 +232,8 @@ export const TextAlign: Story = {
       <Divider textAlign="left">Account</Divider>
       <span
         style={{
-          fontSize: "var(--okryshto-font-size-sm)",
-          color: "var(--okryshto-text-secondary)",
+          fontSize: "var(--okkly-font-size-sm)",
+          color: "var(--okkly-text-secondary)",
         }}
       >
         Name, email, password
@@ -244,8 +241,8 @@ export const TextAlign: Story = {
       <Divider textAlign="center">Workspace</Divider>
       <span
         style={{
-          fontSize: "var(--okryshto-font-size-sm)",
-          color: "var(--okryshto-text-secondary)",
+          fontSize: "var(--okkly-font-size-sm)",
+          color: "var(--okkly-text-secondary)",
         }}
       >
         Members, roles, billing
@@ -253,8 +250,8 @@ export const TextAlign: Story = {
       <Divider textAlign="right">Danger zone</Divider>
       <span
         style={{
-          fontSize: "var(--okryshto-font-size-sm)",
-          color: "var(--okryshto-text-secondary)",
+          fontSize: "var(--okkly-font-size-sm)",
+          color: "var(--okkly-text-secondary)",
         }}
       >
         Transfer or delete this workspace
@@ -272,22 +269,22 @@ export const CustomStyling: Story = {
   render: () => (
     <div style={{ ...surface, display: "flex", flexDirection: "column", gap: "22px" }}>
       <Divider
-        style={{ "--okryshto-divider-color": "var(--okryshto-accent-primary)" } as CSSProperties}
+        style={{ "--okkly-divider-color": "var(--okkly-accent-primary)" } as CSSProperties}
       />
       <Divider
         style={
           {
-            "--okryshto-divider-color": "var(--okryshto-accent-ember)",
-            "--okryshto-divider-thickness": "2px",
+            "--okkly-divider-color": "var(--okkly-accent-ember)",
+            "--okkly-divider-thickness": "2px",
           } as CSSProperties
         }
       />
       <Divider
         style={
           {
-            "--okryshto-divider-color": "var(--okryshto-accent-ice)",
-            "--okryshto-divider-label-color": "var(--okryshto-accent-ice)",
-            "--okryshto-divider-label-gap": "2rem",
+            "--okkly-divider-color": "var(--okkly-accent-ice)",
+            "--okkly-divider-label-color": "var(--okkly-accent-ice)",
+            "--okkly-divider-label-gap": "2rem",
           } as CSSProperties
         }
       >
@@ -296,9 +293,9 @@ export const CustomStyling: Story = {
       <Divider
         style={
           {
-            "--okryshto-divider-color": "var(--okryshto-border-default)",
-            "--okryshto-divider-label-font-size": "var(--okryshto-font-size-lg)",
-            "--okryshto-divider-label-line-height": "var(--okryshto-font-line-height-lg)",
+            "--okkly-divider-color": "var(--okkly-border-default)",
+            "--okkly-divider-label-font-size": "var(--okkly-font-size-lg)",
+            "--okkly-divider-label-line-height": "var(--okkly-font-line-height-lg)",
           } as CSSProperties
         }
       >

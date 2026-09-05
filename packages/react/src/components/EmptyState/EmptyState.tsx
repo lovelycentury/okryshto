@@ -1,7 +1,7 @@
 "use client";
 
 import { type HTMLAttributes, type ReactNode } from "react";
-import "@okryshto/design-system/components/EmptyState/EmptyState.scss";
+import "@okkly/design-system/components/EmptyState/EmptyState.scss";
 import { SeverityIcon, type SeverityIconSeverity } from "../SeverityIcon/SeverityIcon";
 
 export type EmptyStateSize = "small" | "medium" | "large";
@@ -91,10 +91,10 @@ export function EmptyState({
   const iconSeverity = severity ?? COLOR_SEVERITY[color];
 
   const classes = [
-    "okryshto-component",
-    "okryshto-empty-state",
-    size !== "medium" && `okryshto-empty-state--${size}`,
-    color !== "primary" && `okryshto-empty-state--${color}`,
+    "okkly-component",
+    "okkly-empty-state",
+    size !== "medium" && `okkly-empty-state--${size}`,
+    color !== "primary" && `okkly-empty-state--${color}`,
     className,
   ]
     .filter(Boolean)
@@ -103,16 +103,16 @@ export function EmptyState({
   return (
     <div className={classes} {...rest}>
       {(icon || iconSeverity) && (
-        <div className="okryshto-empty-state__visual">
-          <span className="okryshto-empty-state__halo" aria-hidden="true" />
-          <span className="okryshto-empty-state__icon">
+        <div className="okkly-empty-state__visual">
+          <span className="okkly-empty-state__halo" aria-hidden="true" />
+          <span className="okkly-empty-state__icon">
             {icon ?? <SeverityIcon severity={iconSeverity} size={ICON_SIZE[size]} shape="circle" />}
           </span>
         </div>
       )}
-      <h4 className="okryshto-empty-state__title">{title}</h4>
-      {description && <p className="okryshto-empty-state__description">{description}</p>}
-      {action && <div className="okryshto-empty-state__action">{action}</div>}
+      <h4 className="okkly-empty-state__title">{title}</h4>
+      {description && <p className="okkly-empty-state__description">{description}</p>}
+      {action && <div className="okkly-empty-state__action">{action}</div>}
     </div>
   );
 }

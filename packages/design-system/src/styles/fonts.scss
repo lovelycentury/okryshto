@@ -2,35 +2,35 @@
 //
 // @font-face {
 //   font-family: "Okryshto Sans";
-//   src: url("../fonts/okryshto-sans-regular.woff2") format("woff2");
+//   src: url("../fonts/okkly-sans-regular.woff2") format("woff2");
 //   font-weight: 400;
 //   font-style: normal;
 //   font-display: swap;
 // }
 
-@layer okryshto.utility {
-  .okryshto-text {
-    font-weight: var(--okryshto-font-weight-regular);
-    font-size: var(--okryshto-font-size-md);
-    line-height: var(--okryshto-font-line-height-md);
+@layer okkly.utility {
+  .okkly-text {
+    font-weight: var(--okkly-font-weight-regular);
+    font-size: var(--okkly-font-size-md);
+    line-height: var(--okkly-font-line-height-md);
     text-wrap: balance;
 
     &--small {
-      font-size: var(--okryshto-font-size-sm);
-      line-height: var(--okryshto-font-line-height-sm);
+      font-size: var(--okkly-font-size-sm);
+      line-height: var(--okkly-font-line-height-sm);
     }
 
     &--large {
-      font-size: var(--okryshto-font-size-lg);
-      line-height: var(--okryshto-font-line-height-lg);
+      font-size: var(--okkly-font-size-lg);
+      line-height: var(--okkly-font-line-height-lg);
     }
 
     &--monospace {
-      font-family: var(--okryshto-font-family-mono);
+      font-family: var(--okkly-font-family-mono);
     }
   }
 
-  .okryshto-truncation {
+  .okkly-truncation {
     &-ellipsis {
       white-space: nowrap;
       overflow: hidden;

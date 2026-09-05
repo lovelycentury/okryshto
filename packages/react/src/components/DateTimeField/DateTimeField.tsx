@@ -10,7 +10,7 @@ import {
   type FormEvent,
   type ReactNode,
 } from "react";
-import { iconCalendar, iconClock } from "@okryshto/icons";
+import { iconCalendar, iconClock } from "@okkly/icons";
 import {
   maskitoDateTime,
   maskitoParseDateTime,
@@ -18,7 +18,7 @@ import {
   type MaskitoDateTimeParams,
 } from "@maskito/kit";
 import { useMaskito } from "@maskito/react";
-import "@okryshto/design-system/components/DateTimeField/DateTimeField.scss";
+import "@okkly/design-system/components/DateTimeField/DateTimeField.scss";
 import { DateTimePicker } from "../DateTimePicker/DateTimePicker";
 import { Field, getFieldIds, type FieldColor, type FieldSize } from "../Field/Field";
 import { Popover } from "../Popover/Popover";
@@ -43,7 +43,7 @@ function stringifyDateTime(value: Date | null | undefined): string {
  * `DateTimePicker` (https://mui.com/x/react-date-pickers/date-time-field/):
  * masked text input with a combined date+time popover. Deliberate gaps: no
  * `sx`/`slots`, fixed `dd.mm.yyyy, HH:mm` mask, and the picker closes on
- * Confirm via okryshto `DateTimePicker`.
+ * Confirm via okkly `DateTimePicker`.
  */
 export interface DateTimeFieldProps {
   /**
@@ -279,7 +279,7 @@ export const DateTimeField = forwardRef<HTMLInputElement, DateTimeFieldProps>(
     const trigger = (
       <button
         type="button"
-        className="okryshto-date-time-field__trigger"
+        className="okkly-date-time-field__trigger"
         disabled={disabled}
         aria-label="Open date time picker"
         aria-expanded={isOpen}
@@ -294,7 +294,7 @@ export const DateTimeField = forwardRef<HTMLInputElement, DateTimeFieldProps>(
     return (
       <>
         <Field
-          block="okryshto-date-time-field"
+          block="okkly-date-time-field"
           id={inputId}
           label={label}
           hideLabel={hideLabel}
@@ -314,7 +314,7 @@ export const DateTimeField = forwardRef<HTMLInputElement, DateTimeFieldProps>(
             id={inputId}
             type="text"
             inputMode="numeric"
-            className="okryshto-date-time-field__input"
+            className="okkly-date-time-field__input"
             value={text}
             disabled={disabled}
             required={required}
@@ -330,7 +330,7 @@ export const DateTimeField = forwardRef<HTMLInputElement, DateTimeFieldProps>(
           anchorEl={controlRef.current}
           onClose={() => setOpen(false)}
           placement="bottom-start"
-          className="okryshto-date-time-field-popover"
+          className="okkly-date-time-field-popover"
         >
           <DateTimePicker
             value={resolvedValue}

@@ -4,8 +4,8 @@
 // duplicating declarations into the bundle. The custom properties these mixins
 // read are declared once, globally, in `tokens.scss`.
 
-@forward "@okryshto/design-system/styles/breakpoints.scss";
-@use "@okryshto/design-system/styles/breakpoints.scss" as bp;
+@forward "@okkly/design-system/styles/breakpoints.scss";
+@use "@okkly/design-system/styles/breakpoints.scss" as bp;
 
 /// Body/label steps of the Figma "Vizitka" scale.
 @mixin type($step) {
@@ -24,7 +24,7 @@
 
 /// Uppercase accent label every section opens with.
 @mixin eyebrow {
-  color: var(--okryshto-accent-primary);
+  color: var(--okkly-accent-primary);
   font-size: var(--profile-eyebrow-size);
   font-weight: 500;
   letter-spacing: var(--profile-eyebrow-tracking);
@@ -34,16 +34,16 @@
 
 /// Translucent surface — header, hero badge, quote card, contact panel.
 @mixin glass($radius: var(--profile-radius-md)) {
-  border: 1px solid var(--okryshto-glass-border);
+  border: 1px solid var(--okkly-glass-border);
   border-radius: $radius;
-  background: var(--okryshto-glass-fill);
+  background: var(--okkly-glass-fill);
 }
 
 /// Opaque panel — skill groups, stat tiles, non-featured link cards.
 @mixin surface($radius: var(--profile-radius-md)) {
-  border: 1px solid var(--okryshto-border-subtle);
+  border: 1px solid var(--okkly-border-subtle);
   border-radius: $radius;
-  background: var(--okryshto-bg-surface);
+  background: var(--okkly-bg-surface);
 }
 
 /// The 1120px content column with the design's page gutters.
@@ -81,8 +81,8 @@
   height: 0.4375rem;
   flex-shrink: 0;
   border-radius: 50%;
-  background: var(--okryshto-accent-primary);
-  box-shadow: 0 0 0.5rem color-mix(in srgb, var(--okryshto-accent-primary) 80%, transparent);
+  background: var(--okkly-accent-primary);
+  box-shadow: 0 0 0.5rem color-mix(in srgb, var(--okkly-accent-primary) 80%, transparent);
 }
 
 /// Small square glass control — burger, close, carousel arrows.
@@ -93,7 +93,7 @@
   align-items: center;
   justify-content: center;
   padding: 0;
-  color: var(--okryshto-text-primary);
+  color: var(--okkly-text-primary);
   cursor: pointer;
   @include glass($radius);
 }

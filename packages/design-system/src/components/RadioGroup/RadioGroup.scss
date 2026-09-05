@@ -1,16 +1,16 @@
 @use "../../styles/mixins/layers.scss";
 
-.okryshto-radio-group {
+.okkly-radio-group {
   @include layers.component() {
     display: flex;
     flex-direction: column;
     gap: 0.875rem; // 14px
 
     &__label {
-      font-family: var(--okryshto-font-family-sans);
-      font-weight: var(--okryshto-font-weight-medium);
-      font-size: var(--okryshto-font-size-sm);
-      color: var(--okryshto-text-secondary);
+      font-family: var(--okkly-font-family-sans);
+      font-weight: var(--okkly-font-weight-medium);
+      font-size: var(--okkly-font-size-sm);
+      color: var(--okkly-text-secondary);
     }
   }
 }

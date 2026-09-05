@@ -17,7 +17,7 @@
 
 .hairline {
   height: 1px;
-  background: var(--okryshto-border-subtle);
+  background: var(--okkly-border-subtle);
 }
 
 .row {
@@ -29,7 +29,7 @@
 }
 
 .meta {
-  color: var(--okryshto-text-muted);
+  color: var(--okkly-text-muted);
   letter-spacing: var(--profile-caption-tracking);
   @include m.type(caption);
 }
@@ -41,12 +41,12 @@
 }
 
 .link {
-  color: var(--okryshto-text-secondary);
+  color: var(--okkly-text-secondary);
   font-weight: 500;
   text-decoration: none;
   @include m.type(label-md);
 
   &:hover {
-    color: var(--okryshto-text-primary);
+    color: var(--okkly-text-primary);
   }
 }

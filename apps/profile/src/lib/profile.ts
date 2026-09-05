@@ -1,4 +1,4 @@
-import type { IconName } from "@okryshto/react";
+import type { IconName } from "@okkly/react";
 
 /**
  * Section anchors used by in-page CTAs (hero buttons, etc.).

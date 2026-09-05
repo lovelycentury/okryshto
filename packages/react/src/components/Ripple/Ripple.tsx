@@ -1,5 +1,5 @@
-import "@okryshto/design-system/components/Ripple/Ripple.scss";
-import type { UseRippleReturn } from "@okryshto/react-hooks";
+import "@okkly/design-system/components/Ripple/Ripple.scss";
+import type { UseRippleReturn } from "@okkly/react-hooks";
 
 export interface RippleProps {
   /**
@@ -21,16 +21,16 @@ export interface RippleProps {
 /** Presentational overlay for `useRipple` — the trigger element owns `position: relative; overflow: hidden`. */
 export function Ripple({ ripples, onRippleEnd }: RippleProps) {
   return (
-    <span className="okryshto-component okryshto-ripple" aria-hidden="true">
+    <span className="okkly-component okkly-ripple" aria-hidden="true">
       {[...ripples].map(([id, ripple]) => (
         <span
           key={id}
-          className="okryshto-ripple__element"
+          className="okkly-ripple__element"
           data-rippleid={id}
           style={
             {
-              "--okryshto-ripple-left": ripple.left,
-              "--okryshto-ripple-top": ripple.top,
+              "--okkly-ripple-left": ripple.left,
+              "--okkly-ripple-top": ripple.top,
             } as React.CSSProperties
           }
           onAnimationEnd={(e) => onRippleEnd((e.currentTarget as HTMLElement).dataset.rippleid)}

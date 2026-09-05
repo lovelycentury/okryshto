@@ -35,7 +35,7 @@ describe("Dialog", () => {
     );
     // Clicking beside the paper lands on the container, which sits above the
     // backdrop — the same element MUI dismisses from.
-    fireEvent.click(document.querySelector(".okryshto-dialog__container")!);
+    fireEvent.click(document.querySelector(".okkly-dialog__container")!);
     expect(onClose).toHaveBeenCalledOnce();
     fireEvent.keyDown(document, { key: "Escape" });
     expect(onClose).toHaveBeenCalledTimes(2);
@@ -47,7 +47,7 @@ describe("Dialog", () => {
         <DialogTitle>Wide</DialogTitle>
       </Dialog>,
     );
-    expect(document.querySelector(".okryshto-dialog")).toHaveClass("okryshto-dialog--max-width-lg");
+    expect(document.querySelector(".okkly-dialog")).toHaveClass("okkly-dialog--max-width-lg");
   });
 
   it("does not close when the click starts inside the paper", () => {
@@ -68,7 +68,7 @@ describe("Dialog", () => {
       </Dialog>,
     );
     expect(screen.getByText("Kept")).toBeInTheDocument();
-    expect(document.querySelector(".okryshto-modal")).toHaveClass("okryshto-modal--hidden");
+    expect(document.querySelector(".okkly-modal")).toHaveClass("okkly-modal--hidden");
   });
 
   it("applies the fullScreen modifier", () => {
@@ -77,7 +77,7 @@ describe("Dialog", () => {
         <DialogTitle>Full</DialogTitle>
       </Dialog>,
     );
-    expect(document.querySelector(".okryshto-dialog")).toHaveClass("okryshto-dialog--full-screen");
+    expect(document.querySelector(".okkly-dialog")).toHaveClass("okkly-dialog--full-screen");
   });
 
   it("supports interactive open/close", () => {

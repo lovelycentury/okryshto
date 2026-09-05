@@ -5,178 +5,178 @@
 // heights are px there, rem here; `tracking` is a Figma PERCENT, so it lands as
 // `em` (tracking / 100). Only two steps have global tokens — the rest of the
 // scale is intentionally component-local rather than a half-tokenised set.
-.okryshto-typography {
+.okkly-typography {
   @include layers.component() {
-    --okryshto-typography-font-family: var(--okryshto-font-family-sans);
-    --okryshto-typography-font-size: 1rem; // 16px
-    --okryshto-typography-line-height: 1.625rem; // 26px
-    --okryshto-typography-font-weight: var(--okryshto-font-weight-regular);
-    --okryshto-typography-letter-spacing: 0;
-    --okryshto-typography-text-transform: none;
-    --okryshto-typography-color: inherit;
-    --okryshto-typography-text-align: inherit;
-    --okryshto-typography-margin-bottom: 0;
-    --okryshto-typography-gutter: 0.35em;
+    --okkly-typography-font-family: var(--okkly-font-family-sans);
+    --okkly-typography-font-size: 1rem; // 16px
+    --okkly-typography-line-height: 1.625rem; // 26px
+    --okkly-typography-font-weight: var(--okkly-font-weight-regular);
+    --okkly-typography-letter-spacing: 0;
+    --okkly-typography-text-transform: none;
+    --okkly-typography-color: inherit;
+    --okkly-typography-text-align: inherit;
+    --okkly-typography-margin-bottom: 0;
+    --okkly-typography-gutter: 0.35em;
 
     margin: 0;
-    margin-bottom: var(--okryshto-typography-margin-bottom);
-    color: var(--okryshto-typography-color);
-    font-family: var(--okryshto-typography-font-family);
-    font-size: var(--okryshto-typography-font-size);
-    font-weight: var(--okryshto-typography-font-weight);
-    line-height: var(--okryshto-typography-line-height);
-    letter-spacing: var(--okryshto-typography-letter-spacing);
-    text-align: var(--okryshto-typography-text-align);
-    text-transform: var(--okryshto-typography-text-transform);
+    margin-bottom: var(--okkly-typography-margin-bottom);
+    color: var(--okkly-typography-color);
+    font-family: var(--okkly-typography-font-family);
+    font-size: var(--okkly-typography-font-size);
+    font-weight: var(--okkly-typography-font-weight);
+    line-height: var(--okkly-typography-line-height);
+    letter-spacing: var(--okkly-typography-letter-spacing);
+    text-align: var(--okkly-typography-text-align);
+    text-transform: var(--okkly-typography-text-transform);
 
     // --- scale -------------------------------------------------------------
     // body-md is the default and carries no modifier.
 
     &--display-2xl {
-      --okryshto-typography-font-size: 4.5rem; // 72px
-      --okryshto-typography-line-height: 4.75rem; // 76px
-      --okryshto-typography-font-weight: var(--okryshto-font-weight-semibold);
-      --okryshto-typography-letter-spacing: -0.025em;
+      --okkly-typography-font-size: 4.5rem; // 72px
+      --okkly-typography-line-height: 4.75rem; // 76px
+      --okkly-typography-font-weight: var(--okkly-font-weight-semibold);
+      --okkly-typography-letter-spacing: -0.025em;
     }
 
     &--display-xl {
-      --okryshto-typography-font-size: 3.5rem; // 56px
-      --okryshto-typography-line-height: 3.75rem; // 60px
-      --okryshto-typography-font-weight: var(--okryshto-font-weight-semibold);
-      --okryshto-typography-letter-spacing: -0.02em;
+      --okkly-typography-font-size: 3.5rem; // 56px
+      --okkly-typography-line-height: 3.75rem; // 60px
+      --okkly-typography-font-weight: var(--okkly-font-weight-semibold);
+      --okkly-typography-letter-spacing: -0.02em;
     }
 
     &--display-lg {
-      --okryshto-typography-font-size: 2.75rem; // 44px
-      --okryshto-typography-line-height: 3.125rem; // 50px
-      --okryshto-typography-font-weight: var(--okryshto-font-weight-semibold);
-      --okryshto-typography-letter-spacing: -0.015em;
+      --okkly-typography-font-size: 2.75rem; // 44px
+      --okkly-typography-line-height: 3.125rem; // 50px
+      --okkly-typography-font-weight: var(--okkly-font-weight-semibold);
+      --okkly-typography-letter-spacing: -0.015em;
     }
 
     &--h1 {
-      --okryshto-typography-font-size: 2.125rem; // 34px
-      --okryshto-typography-line-height: 2.625rem; // 42px
-      --okryshto-typography-font-weight: var(--okryshto-font-weight-semibold);
-      --okryshto-typography-letter-spacing: -0.01em;
+      --okkly-typography-font-size: 2.125rem; // 34px
+      --okkly-typography-line-height: 2.625rem; // 42px
+      --okkly-typography-font-weight: var(--okkly-font-weight-semibold);
+      --okkly-typography-letter-spacing: -0.01em;
     }
 
     &--h2 {
-      --okryshto-typography-font-size: 1.625rem; // 26px
-      --okryshto-typography-line-height: 2.125rem; // 34px
-      --okryshto-typography-font-weight: var(--okryshto-font-weight-medium);
-      --okryshto-typography-letter-spacing: -0.005em;
+      --okkly-typography-font-size: 1.625rem; // 26px
+      --okkly-typography-line-height: 2.125rem; // 34px
+      --okkly-typography-font-weight: var(--okkly-font-weight-medium);
+      --okkly-typography-letter-spacing: -0.005em;
     }
 
     &--h3 {
-      --okryshto-typography-font-size: 1.25rem; // 20px
-      --okryshto-typography-line-height: 1.75rem; // 28px
-      --okryshto-typography-font-weight: var(--okryshto-font-weight-semibold);
-      --okryshto-typography-letter-spacing: -0.002em;
+      --okkly-typography-font-size: 1.25rem; // 20px
+      --okkly-typography-line-height: 1.75rem; // 28px
+      --okkly-typography-font-weight: var(--okkly-font-weight-semibold);
+      --okkly-typography-letter-spacing: -0.002em;
     }
 
     &--h4 {
-      --okryshto-typography-font-size: 1.0625rem; // 17px
-      --okryshto-typography-line-height: 1.5rem; // 24px
-      --okryshto-typography-font-weight: var(--okryshto-font-weight-semibold);
+      --okkly-typography-font-size: 1.0625rem; // 17px
+      --okkly-typography-line-height: 1.5rem; // 24px
+      --okkly-typography-font-weight: var(--okkly-font-weight-semibold);
     }
 
     &--body-lg {
-      --okryshto-typography-font-size: 1.125rem; // 18px
-      --okryshto-typography-line-height: 1.875rem; // 30px
+      --okkly-typography-font-size: 1.125rem; // 18px
+      --okkly-typography-line-height: 1.875rem; // 30px
     }
 
     &--body-sm {
-      --okryshto-typography-font-size: 0.875rem; // 14px
-      --okryshto-typography-line-height: 1.375rem; // 22px
+      --okkly-typography-font-size: 0.875rem; // 14px
+      --okkly-typography-line-height: 1.375rem; // 22px
     }
 
     &--label-md {
-      --okryshto-typography-font-size: var(--okryshto-font-size-md); // 15px
-      --okryshto-typography-line-height: var(--okryshto-font-line-height-md); // 20px
-      --okryshto-typography-font-weight: var(--okryshto-font-weight-medium);
+      --okkly-typography-font-size: var(--okkly-font-size-md); // 15px
+      --okkly-typography-line-height: var(--okkly-font-line-height-md); // 20px
+      --okkly-typography-font-weight: var(--okkly-font-weight-medium);
     }
 
     &--label-sm {
-      --okryshto-typography-font-size: var(--okryshto-font-size-sm); // 13px
-      --okryshto-typography-line-height: var(--okryshto-font-line-height-sm); // 16px
-      --okryshto-typography-font-weight: var(--okryshto-font-weight-medium);
+      --okkly-typography-font-size: var(--okkly-font-size-sm); // 13px
+      --okkly-typography-line-height: var(--okkly-font-line-height-sm); // 16px
+      --okkly-typography-font-weight: var(--okkly-font-weight-medium);
     }
 
     &--caption {
-      --okryshto-typography-font-size: var(--okryshto-font-size-sm); // 13px
-      --okryshto-typography-line-height: 1.125rem; // 18px
-      --okryshto-typography-letter-spacing: 0.001em;
-      --okryshto-typography-color: var(--okryshto-text-secondary);
+      --okkly-typography-font-size: var(--okkly-font-size-sm); // 13px
+      --okkly-typography-line-height: 1.125rem; // 18px
+      --okkly-typography-letter-spacing: 0.001em;
+      --okkly-typography-color: var(--okkly-text-secondary);
     }
 
     &--overline {
-      --okryshto-typography-font-size: 0.75rem; // 12px
-      --okryshto-typography-line-height: 1rem; // 16px
-      --okryshto-typography-font-weight: var(--okryshto-font-weight-medium);
-      --okryshto-typography-letter-spacing: 0.08em;
-      --okryshto-typography-text-transform: uppercase;
-      --okryshto-typography-color: var(--okryshto-text-muted);
+      --okkly-typography-font-size: 0.75rem; // 12px
+      --okkly-typography-line-height: 1rem; // 16px
+      --okkly-typography-font-weight: var(--okkly-font-weight-medium);
+      --okkly-typography-letter-spacing: 0.08em;
+      --okkly-typography-text-transform: uppercase;
+      --okkly-typography-color: var(--okkly-text-muted);
     }
 
     &--mono-sm {
-      --okryshto-typography-font-family: var(--okryshto-font-family-mono);
-      --okryshto-typography-font-size: var(--okryshto-font-size-sm); // 13px
-      --okryshto-typography-line-height: 1.25rem; // 20px
+      --okkly-typography-font-family: var(--okkly-font-family-mono);
+      --okkly-typography-font-size: var(--okkly-font-size-sm); // 13px
+      --okkly-typography-line-height: 1.25rem; // 20px
     }
 
     // --- colour ------------------------------------------------------------
     // Default is `inherit`, so text picks up whatever surface it lands on.
 
     &--color-primary {
-      --okryshto-typography-color: var(--okryshto-text-primary);
+      --okkly-typography-color: var(--okkly-text-primary);
     }
 
     &--color-secondary {
-      --okryshto-typography-color: var(--okryshto-text-secondary);
+      --okkly-typography-color: var(--okkly-text-secondary);
     }
 
     &--color-muted {
-      --okryshto-typography-color: var(--okryshto-text-muted);
+      --okkly-typography-color: var(--okkly-text-muted);
     }
 
     &--color-accent {
-      --okryshto-typography-color: var(--okryshto-accent-primary);
+      --okkly-typography-color: var(--okkly-accent-primary);
     }
 
     &--color-success {
-      --okryshto-typography-color: var(--okryshto-feedback-success);
+      --okkly-typography-color: var(--okkly-feedback-success);
     }
 
     &--color-warning {
-      --okryshto-typography-color: var(--okryshto-feedback-warning);
+      --okkly-typography-color: var(--okkly-feedback-warning);
     }
 
     &--color-danger {
-      --okryshto-typography-color: var(--okryshto-feedback-danger);
+      --okkly-typography-color: var(--okkly-feedback-danger);
     }
 
     // --- modifiers ----------------------------------------------------------
 
     &--align-left {
-      --okryshto-typography-text-align: left;
+      --okkly-typography-text-align: left;
     }
 
     &--align-center {
-      --okryshto-typography-text-align: center;
+      --okkly-typography-text-align: center;
     }
 
     &--align-right {
-      --okryshto-typography-text-align: right;
+      --okkly-typography-text-align: right;
     }
 
     &--align-justify {
-      --okryshto-typography-text-align: justify;
+      --okkly-typography-text-align: justify;
     }
 
     // Proportional to the step's own size, so a gutter under display-2xl is not
     // the same 8px as one under caption.
     &--gutter-bottom {
-      --okryshto-typography-margin-bottom: var(--okryshto-typography-gutter);
+      --okkly-typography-margin-bottom: var(--okkly-typography-gutter);
     }
 
     &--no-wrap {

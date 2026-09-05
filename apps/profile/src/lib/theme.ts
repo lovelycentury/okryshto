@@ -1,4 +1,4 @@
-export const THEME_STORAGE_KEY = "okryshto-profile-theme";
+export const THEME_STORAGE_KEY = "okkly-profile-theme";
 export const THEME_TRANSITION_MS = 220;
 
 export type ProfileTheme = "light" | "dark";
@@ -35,9 +35,9 @@ export function applyProfileTheme(theme: ProfileTheme, options?: { persist?: boo
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   if (!reduceMotion) {
-    root.classList.add("okryshto-transition-active");
+    root.classList.add("okkly-transition-active");
     window.setTimeout(() => {
-      root.classList.remove("okryshto-transition-active");
+      root.classList.remove("okkly-transition-active");
     }, THEME_TRANSITION_MS);
   }
 

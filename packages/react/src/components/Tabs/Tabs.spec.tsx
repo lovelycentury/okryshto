@@ -20,33 +20,33 @@ describe("Tabs", () => {
   it("renders with zero modifier classes by default", () => {
     const { container } = render(<Tabs items={items} />);
     const root = container.firstChild as HTMLElement;
-    expect(root).toHaveClass("okryshto-component", "okryshto-tabs");
-    expect(root.className).not.toMatch(/okryshto-tabs--color-/);
-    expect(root.className).not.toMatch(/okryshto-tabs--scrollable/);
-    expect(root.className).not.toMatch(/okryshto-tabs--vertical/);
+    expect(root).toHaveClass("okkly-component", "okkly-tabs");
+    expect(root.className).not.toMatch(/okkly-tabs--color-/);
+    expect(root.className).not.toMatch(/okkly-tabs--scrollable/);
+    expect(root.className).not.toMatch(/okkly-tabs--vertical/);
   });
 
   it("marks the active tab with aria-selected and modifier class", () => {
     render(<Tabs items={items} value="activity" />);
     const active = screen.getByRole("tab", { name: "Activity" });
-    expect(active).toHaveClass("okryshto-tabs__tab--active");
+    expect(active).toHaveClass("okkly-tabs__tab--active");
     expect(active).toHaveAttribute("aria-selected", "true");
     expect(screen.getByRole("tab", { name: "Overview" })).toHaveAttribute("aria-selected", "false");
   });
 
   it("applies variant, orientation, and color modifiers", () => {
     const { rerender, container } = render(<Tabs items={items} variant="scrollable" />);
-    expect(container.firstChild).toHaveClass("okryshto-tabs--scrollable");
-    expect(container.querySelector(".okryshto-tabs__scroller")).toBeInTheDocument();
+    expect(container.firstChild).toHaveClass("okkly-tabs--scrollable");
+    expect(container.querySelector(".okkly-tabs__scroller")).toBeInTheDocument();
 
     rerender(<Tabs items={items} orientation="vertical" />);
-    expect(container.firstChild).toHaveClass("okryshto-tabs--vertical");
+    expect(container.firstChild).toHaveClass("okkly-tabs--vertical");
 
     rerender(<Tabs items={items} color="dante" />);
-    expect(container.firstChild).toHaveClass("okryshto-tabs--color-dante");
+    expect(container.firstChild).toHaveClass("okkly-tabs--color-dante");
 
     rerender(<Tabs items={items} color="primary" />);
-    expect((container.firstChild as HTMLElement).className).not.toMatch(/okryshto-tabs--color-/);
+    expect((container.firstChild as HTMLElement).className).not.toMatch(/okkly-tabs--color-/);
   });
 
   it("fires onChange with the selected tab value", () => {

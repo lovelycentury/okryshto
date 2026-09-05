@@ -1,6 +1,6 @@
-# @okryshto/resume-fe
+# @okkly/resume-fe
 
-The chat UI for `@okryshto/resume-be` — a Vite SPA (no Next, no SSR). Ask questions about
+The chat UI for `@okkly/resume-be` — a Vite SPA (no Next, no SSR). Ask questions about
 Oleksii; answers stream in from the backend's RAG agent, grounded in his CV.
 
 ## Quick start
@@ -35,7 +35,7 @@ to the backend's public origin (which must be in the backend's `CORS_ORIGINS`).
 | Server state        | `@tanstack/react-query` — `/models`, `/status`, and the chat send (a `useMutation` that drives the stream)                                                         |
 | Chat transport      | the backend's custom SSE protocol, parsed by hand (`src/api/chat.ts`); the Vercel AI SDK (`ai`) supplies message-shape helpers only                                |
 | History             | the visitor's `sessionStorage` — the single source of truth. Survives reload, gone on tab close. The backend is stateless; every turn replays the whole transcript |
-| UI                  | `@okryshto/react` + `@okryshto/design-system` (dark tokens) + co-located `*.module.scss`                                                                           |
+| UI                  | `@okkly/react` + `@okkly/design-system` (dark tokens) + co-located `*.module.scss`                                                                                 |
 
 ## How a turn flows
 

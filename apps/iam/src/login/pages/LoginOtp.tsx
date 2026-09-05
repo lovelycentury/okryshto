@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { kcSanitize } from "keycloakify/lib/kcSanitize";
 import type { PageProps } from "keycloakify/login/pages/PageProps";
-import { Button, Radio, TextField } from "@okryshto/react";
+import { Button, Radio, TextField } from "@okkly/react";
 import type { KcContext } from "../KcContext";
 import type { I18n } from "../i18n";
 

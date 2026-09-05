@@ -10,7 +10,7 @@ import {
   type KeyboardEvent,
   type ReactNode,
 } from "react";
-import "@okryshto/design-system/components/TimePicker/TimePicker.scss";
+import "@okkly/design-system/components/TimePicker/TimePicker.scss";
 
 export interface TimePickerValue {
   h: number;
@@ -20,7 +20,7 @@ export interface TimePickerValue {
 export type TimePickerColor = "primary" | "dante" | "indigo" | "violet" | "ember" | "ice";
 export type TimePickerFormat = "24h" | "12h";
 
-// Matches `--okryshto-time-picker-row-height`'s default (2.5rem @ 16px root) —
+// Matches `--okkly-time-picker-row-height`'s default (2.5rem @ 16px root) —
 // only used when the real rendered height can't be measured (e.g. jsdom in
 // unit tests, which has no layout engine and always reports 0).
 const FALLBACK_ROW_HEIGHT = 40;
@@ -150,7 +150,7 @@ function WheelColumn({ values, value, onValueChange, formatValue, ariaLabel }: W
     const el = viewportRef.current;
     if (!el) return;
     const measure = () => {
-      const row = el.querySelector<HTMLElement>(".okryshto-time-picker__slide");
+      const row = el.querySelector<HTMLElement>(".okkly-time-picker__slide");
       if (row?.offsetHeight) rowHeightRef.current = row.offsetHeight;
     };
     measure();
@@ -236,7 +236,7 @@ function WheelColumn({ values, value, onValueChange, formatValue, ariaLabel }: W
 
   return (
     <div
-      className="okryshto-time-picker__column"
+      className="okkly-time-picker__column"
       role="spinbutton"
       tabIndex={0}
       aria-label={ariaLabel}
@@ -246,15 +246,15 @@ function WheelColumn({ values, value, onValueChange, formatValue, ariaLabel }: W
       aria-valuetext={String(formatValue(value))}
       onKeyDown={handleKeyDown}
     >
-      <div className="okryshto-time-picker__column-viewport" ref={viewportRef}>
-        <div className="okryshto-time-picker__column-container">
+      <div className="okkly-time-picker__column-viewport" ref={viewportRef}>
+        <div className="okkly-time-picker__column-container">
           {values.map((v, index) => (
             <div
               key={v}
               data-value={v}
               className={[
-                "okryshto-time-picker__slide",
-                v === value && "okryshto-time-picker__slide--selected",
+                "okkly-time-picker__slide",
+                v === value && "okkly-time-picker__slide--selected",
               ]
                 .filter(Boolean)
                 .join(" ")}
@@ -405,9 +405,9 @@ export const TimePicker = forwardRef<HTMLDivElement, TimePickerProps>(function T
   };
 
   const classes = [
-    "okryshto-component",
-    "okryshto-time-picker",
-    color !== "primary" && `okryshto-time-picker--color-${color}`,
+    "okkly-component",
+    "okkly-time-picker",
+    color !== "primary" && `okkly-time-picker--color-${color}`,
     className,
   ]
     .filter(Boolean)

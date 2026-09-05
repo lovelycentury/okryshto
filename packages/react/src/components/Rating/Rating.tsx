@@ -8,7 +8,7 @@ import {
   type ReactNode,
   type SyntheticEvent,
 } from "react";
-import "@okryshto/design-system/components/Rating/Rating.scss";
+import "@okkly/design-system/components/Rating/Rating.scss";
 
 export type RatingSize = "small" | "medium" | "large";
 export type RatingColor = "warning" | "primary" | "dante" | "indigo" | "violet" | "ember" | "ice";
@@ -78,7 +78,7 @@ function valueFromPointer(
  * closely: `value`/`defaultValue`/`max`/`precision`/`size`/`readOnly`/
  * `disabled`/`onChange`/`name`/`getLabelText` match name-for-name.
  * Deliberate gaps: no `sx`/`classes`/`IconContainerComponent` (no CSS-in-JS
- * system). `color` uses okryshto tone names with gold (`warning`) as the default
+ * system). `color` uses okkly tone names with gold (`warning`) as the default
  * instead of MUI's `primary`. `icon` accepts `"star"|"heart"` or a custom
  * `ReactNode` (filled state only — empty uses the same glyph muted). Built-in
  * `label` renders trailing summary text (not in MUI's Rating).
@@ -127,7 +127,7 @@ export interface RatingProps {
    */
   size?: RatingSize;
   /**
-   * Fill colour — default gold uses `--okryshto-feedback-warning`.
+   * Fill colour — default gold uses `--okkly-feedback-warning`.
    *
    * @default "warning"
    * @type {RatingColor}
@@ -247,7 +247,7 @@ export const Rating = forwardRef<HTMLSpanElement, RatingProps>(function Rating(
 
     if (kind === "full") {
       return (
-        <span className="okryshto-rating__icon okryshto-rating__icon--full" aria-hidden="true">
+        <span className="okkly-rating__icon okkly-rating__icon--full" aria-hidden="true">
           <Filled />
         </span>
       );
@@ -255,9 +255,9 @@ export const Rating = forwardRef<HTMLSpanElement, RatingProps>(function Rating(
 
     if (kind === "half") {
       return (
-        <span className="okryshto-rating__icon okryshto-rating__icon--half" aria-hidden="true">
+        <span className="okkly-rating__icon okkly-rating__icon--half" aria-hidden="true">
           <Outline />
-          <span className="okryshto-rating__icon-fill">
+          <span className="okkly-rating__icon-fill">
             <Filled />
           </span>
         </span>
@@ -265,7 +265,7 @@ export const Rating = forwardRef<HTMLSpanElement, RatingProps>(function Rating(
     }
 
     return (
-      <span className="okryshto-rating__icon" aria-hidden="true">
+      <span className="okkly-rating__icon" aria-hidden="true">
         <Outline />
       </span>
     );
@@ -274,7 +274,7 @@ export const Rating = forwardRef<HTMLSpanElement, RatingProps>(function Rating(
   const renderCustomIcon = (kind: "full" | "half" | "empty", customIcon: ReactNode) => {
     if (kind === "full") {
       return (
-        <span className="okryshto-rating__icon okryshto-rating__icon--full" aria-hidden="true">
+        <span className="okkly-rating__icon okkly-rating__icon--full" aria-hidden="true">
           {customIcon}
         </span>
       );
@@ -282,15 +282,15 @@ export const Rating = forwardRef<HTMLSpanElement, RatingProps>(function Rating(
 
     if (kind === "half") {
       return (
-        <span className="okryshto-rating__icon okryshto-rating__icon--half" aria-hidden="true">
+        <span className="okkly-rating__icon okkly-rating__icon--half" aria-hidden="true">
           {customIcon}
-          <span className="okryshto-rating__icon-fill">{customIcon}</span>
+          <span className="okkly-rating__icon-fill">{customIcon}</span>
         </span>
       );
     }
 
     return (
-      <span className="okryshto-rating__icon" aria-hidden="true">
+      <span className="okkly-rating__icon" aria-hidden="true">
         {customIcon}
       </span>
     );
@@ -305,12 +305,12 @@ export const Rating = forwardRef<HTMLSpanElement, RatingProps>(function Rating(
   };
 
   const classes = [
-    "okryshto-component",
-    "okryshto-rating",
-    color !== "warning" && `okryshto-rating--color-${color}`,
-    size !== "medium" && `okryshto-rating--${size}`,
-    readOnly && "okryshto-rating--read-only",
-    disabled && "okryshto-rating--disabled",
+    "okkly-component",
+    "okkly-rating",
+    color !== "warning" && `okkly-rating--color-${color}`,
+    size !== "medium" && `okkly-rating--${size}`,
+    readOnly && "okkly-rating--read-only",
+    disabled && "okkly-rating--disabled",
     className,
   ]
     .filter(Boolean)
@@ -326,14 +326,14 @@ export const Rating = forwardRef<HTMLSpanElement, RatingProps>(function Rating(
       aria-label={interactive ? undefined : `${displayValue} of ${max}`}
       onMouseLeave={() => setHoverValue(null)}
     >
-      <span className="okryshto-rating__stars">
+      <span className="okkly-rating__stars">
         {Array.from({ length: max }, (_, index) => {
           const kind = starKind(displayValue, index);
           const itemValue = index + 1;
 
           if (!interactive) {
             return (
-              <span key={index} className="okryshto-rating__item" aria-hidden="true">
+              <span key={index} className="okkly-rating__item" aria-hidden="true">
                 {renderIcon(kind)}
               </span>
             );
@@ -343,7 +343,7 @@ export const Rating = forwardRef<HTMLSpanElement, RatingProps>(function Rating(
             <button
               key={index}
               type="button"
-              className="okryshto-rating__item"
+              className="okkly-rating__item"
               name={name}
               aria-label={getLabelText(itemValue)}
               onClick={(event) => handleItemClick(event, index)}
@@ -355,7 +355,7 @@ export const Rating = forwardRef<HTMLSpanElement, RatingProps>(function Rating(
           );
         })}
       </span>
-      {label && <span className="okryshto-rating__label">{label}</span>}
+      {label && <span className="okkly-rating__label">{label}</span>}
     </span>
   );
 });

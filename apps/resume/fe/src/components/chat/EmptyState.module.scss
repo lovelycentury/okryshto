@@ -36,10 +36,10 @@
   align-items: center;
   gap: 8px;
   padding: 10px 14px;
-  border: 1px solid var(--okryshto-border-default);
+  border: 1px solid var(--okkly-border-default);
   border-radius: 999px;
-  background: var(--okryshto-glass-fill);
-  color: var(--okryshto-text-secondary);
+  background: var(--okkly-glass-fill);
+  color: var(--okkly-text-secondary);
   font: inherit;
   font-size: 0.9375rem;
   cursor: pointer;
@@ -51,9 +51,9 @@
 }
 
 .prompt:hover:not(:disabled) {
-  border-color: var(--okryshto-accent-primary);
-  color: var(--okryshto-text-primary);
-  background: var(--okryshto-glass-fill-strong);
+  border-color: var(--okkly-accent-primary);
+  color: var(--okkly-text-primary);
+  background: var(--okkly-glass-fill-strong);
   transform: translateY(-1px);
 }
 

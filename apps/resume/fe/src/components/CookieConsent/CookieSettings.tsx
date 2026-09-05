@@ -9,7 +9,7 @@ import {
   DialogTitle,
   Icon,
   Switch,
-} from "@okryshto/react";
+} from "@okkly/react";
 import { defaultCategories, useCookieConsent } from "./CookieConsentProvider";
 import type { ConsentCategories, ConsentCategory } from "./types";
 import { getAllAcceptedCategories, getDefaultCategories } from "./utils";

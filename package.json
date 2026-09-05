@@ -1,12 +1,12 @@
 {
-  "name": "okryshto-monorepo",
+  "name": "okkly-monorepo",
   "version": "0.0.0",
   "private": true,
   "license": "MIT",
   "type": "module",
   "scripts": {
     "build": "pnpm -r --if-present run build",
-    "build:libs": "pnpm --filter \"@okryshto/react...\" --if-present run build",
+    "build:libs": "pnpm --filter \"@okkly/react...\" --if-present run build",
     "test": "pnpm -r --if-present run test",
     "typecheck": "pnpm run build:libs && pnpm -r --if-present run typecheck",
     "lint": "oxlint",
@@ -17,14 +17,29 @@
     "check": "pnpm run lint && pnpm run format:check && pnpm run typecheck",
     "fix": "pnpm run lint:fix && pnpm run format",
     "storybook": "node tools/storybook.mjs",
-    "preinstall": "npx only-allow pnpm"
+    "commit": "gitmoji --commit",
+    "preinstall": "npx only-allow pnpm",
+    "prepare": "simple-git-hooks",
+    "changeset": "changeset",
+    "changeset:check": "node tools/check-changeset-semver.mjs",
+    "version-packages": "changeset version",
+    "release": "pnpm run build:libs && changeset publish",
+    "version-packages:beta": "changeset version --snapshot beta",
+    "release:beta": "pnpm run build:libs && changeset publish --no-git-tag --snapshot --tag beta"
   },
   "devDependencies": {
-    "@okryshto/oxlint-config": "workspace:*",
+    "@changesets/changelog-github": "^0.5.1",
+    "@changesets/cli": "^2.29.7",
+    "@okkly/oxlint-config": "workspace:*",
     "@types/node": "catalog:",
+    "gitmoji-cli": "^9.7.0",
     "oxlint": "1.77.0",
     "prettier": "^3.4.2",
+    "simple-git-hooks": "^2.14.0",
     "typescript": "catalog:"
+  },
+  "simple-git-hooks": {
+    "commit-msg": "node tools/check-commit-msg.mjs $1"
   },
   "engines": {
     "node": ">=20"

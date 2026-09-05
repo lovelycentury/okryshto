@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type HTMLAttributes, type ReactNode } from "react";
-import "@okryshto/design-system/components/Photo/Photo.scss";
+import "@okkly/design-system/components/Photo/Photo.scss";
 import { Skeleton } from "../Skeleton/Skeleton";
 
 export type PhotoVariant = "plain" | "framed" | "scrim" | "noir" | "cutout";
@@ -9,7 +9,7 @@ export type PhotoSize = "sm" | "md" | "lg";
 export type PhotoRadius = "none" | "sm" | "md" | "lg" | "xl";
 
 const PhotoSilhouette = () => (
-  <svg viewBox="0 0 210 280" className="okryshto-photo__silhouette" aria-hidden="true">
+  <svg viewBox="0 0 210 280" className="okkly-photo__silhouette" aria-hidden="true">
     <circle cx="105" cy="80.5" r="35.7" fill="currentColor" />
     <rect x="34.7" y="122.2" width="138.6" height="140" rx="69.3" fill="currentColor" />
   </svg>
@@ -122,14 +122,14 @@ export function Photo({
   const showPlaceholder = !image || failed;
 
   const classes = [
-    "okryshto-component",
-    "okryshto-photo",
-    `okryshto-photo--${variant}`,
-    `okryshto-photo--size-${size}`,
-    !isCutout && radius !== "xl" && `okryshto-photo--radius-${radius}`,
-    isCutout && "okryshto-photo--transparent",
-    showScrim && "okryshto-photo--scrim",
-    showNoir && "okryshto-photo--noir",
+    "okkly-component",
+    "okkly-photo",
+    `okkly-photo--${variant}`,
+    `okkly-photo--size-${size}`,
+    !isCutout && radius !== "xl" && `okkly-photo--radius-${radius}`,
+    isCutout && "okkly-photo--transparent",
+    showScrim && "okkly-photo--scrim",
+    showNoir && "okkly-photo--noir",
     className,
   ]
     .filter(Boolean)
@@ -137,13 +137,13 @@ export function Photo({
 
   return (
     <div className={classes} {...rest}>
-      <div className="okryshto-photo__frame">
+      <div className="okkly-photo__frame">
         {showSkeleton && (
-          <Skeleton variant="rectangular" animation="pulse" className="okryshto-photo__skeleton" />
+          <Skeleton variant="rectangular" animation="pulse" className="okkly-photo__skeleton" />
         )}
         {showImage && (
           <img
-            className="okryshto-photo__image"
+            className="okkly-photo__image"
             src={image}
             alt={alt}
             onLoad={() => setLoaded(true)}
@@ -152,19 +152,19 @@ export function Photo({
           />
         )}
         {showPlaceholder && (
-          <div className="okryshto-photo__placeholder" role="img" aria-label={alt}>
+          <div className="okkly-photo__placeholder" role="img" aria-label={alt}>
             {fallback ?? <PhotoSilhouette />}
           </div>
         )}
-        {showScrim && <div className="okryshto-photo__scrim-layer" />}
+        {showScrim && <div className="okkly-photo__scrim-layer" />}
         {showNoir && (
           <>
-            <div className="okryshto-photo__noir-top" />
-            <div className="okryshto-photo__noir-left" />
-            <div className="okryshto-photo__noir-right" />
+            <div className="okkly-photo__noir-top" />
+            <div className="okkly-photo__noir-left" />
+            <div className="okkly-photo__noir-right" />
           </>
         )}
-        {caption && showScrim && <p className="okryshto-photo__caption">{caption}</p>}
+        {caption && showScrim && <p className="okkly-photo__caption">{caption}</p>}
       </div>
     </div>
   );

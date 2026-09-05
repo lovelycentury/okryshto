@@ -72,9 +72,9 @@ describe("RadioGroup (nesting)", () => {
         <Radio value="sms" label="SMS" size="small" color="ice" />
       </RadioGroup>,
     );
-    const radios = container.querySelectorAll(".okryshto-radio");
-    expect(radios[0]).toHaveClass("okryshto-radio--large", "okryshto-radio--color-dante");
-    expect(radios[1]).toHaveClass("okryshto-radio--small", "okryshto-radio--color-ice");
+    const radios = container.querySelectorAll(".okkly-radio");
+    expect(radios[0]).toHaveClass("okkly-radio--large", "okkly-radio--color-dante");
+    expect(radios[1]).toHaveClass("okkly-radio--small", "okkly-radio--color-ice");
   });
 
   it("exposes the radiogroup role with the group label as aria-label", () => {

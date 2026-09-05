@@ -1,5 +1,5 @@
 {
-  "name": "@okryshto/profile",
+  "name": "@okkly/profile",
   "version": "0.0.0",
   "private": true,
   "description": "Personal profile site — Next.js App Router, server-side rendered, i18n via next-intl",
@@ -13,8 +13,8 @@
   "dependencies": {
     "@next/third-parties": "^16.3.3",
     "@number-flow/react": "^0.6.2",
-    "@okryshto/design-system": "workspace:*",
-    "@okryshto/react": "workspace:*",
+    "@okkly/design-system": "workspace:*",
+    "@okkly/react": "workspace:*",
     "next": "^16.3.0",
     "next-intl": "^4.13.0",
     "react": "^19.0.0",

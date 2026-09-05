@@ -11,22 +11,22 @@
 // AnimatedBackground.scss), so a still frame that included them would render
 // nothing anyway.
 
-.okryshto-static-background {
+.okkly-static-background {
   @include layers.component() {
     // Same palette contract as AnimatedBackground, so the two can share a
     // preset visually if a page swaps one for the other.
-    --okryshto-static-background-base: #0a0a0b;
-    --okryshto-static-background-glow: #141821;
-    --okryshto-static-background-n1: #5ee6c1;
-    --okryshto-static-background-n2: #818cf8;
-    --okryshto-static-background-n3: #ff3d8b;
-    --okryshto-static-background-n4: #b84bff;
-    --okryshto-static-background-n5: #5ee6c1;
-    --okryshto-static-background-star: #dfe6ff;
-    --okryshto-static-background-star-alpha: 1;
-    --okryshto-static-background-nebula-alpha: 0.55;
-    --okryshto-static-background-grain-alpha: 0.05;
-    --okryshto-static-background-bloom-alpha: 0.07;
+    --okkly-static-background-base: #0a0a0b;
+    --okkly-static-background-glow: #141821;
+    --okkly-static-background-n1: #5ee6c1;
+    --okkly-static-background-n2: #818cf8;
+    --okkly-static-background-n3: #ff3d8b;
+    --okkly-static-background-n4: #b84bff;
+    --okkly-static-background-n5: #5ee6c1;
+    --okkly-static-background-star: #dfe6ff;
+    --okkly-static-background-star-alpha: 1;
+    --okkly-static-background-nebula-alpha: 0.55;
+    --okkly-static-background-grain-alpha: 0.05;
+    --okkly-static-background-bloom-alpha: 0.07;
 
     position: absolute;
     inset: 0;
@@ -34,45 +34,45 @@
     isolation: isolate;
     background: linear-gradient(
       to bottom,
-      var(--okryshto-static-background-glow) 0%,
-      var(--okryshto-static-background-base) 55%,
-      var(--okryshto-static-background-base) 100%
+      var(--okkly-static-background-glow) 0%,
+      var(--okkly-static-background-base) 55%,
+      var(--okkly-static-background-base) 100%
     );
 
     &--midnight {
-      --okryshto-static-background-base: #0b1020;
-      --okryshto-static-background-glow: #141b33;
-      --okryshto-static-background-n1: #4457a0;
-      --okryshto-static-background-n2: #2e5e8c;
-      --okryshto-static-background-n3: #5ee6c1;
-      --okryshto-static-background-n4: #818cf8;
-      --okryshto-static-background-n5: #ff3d8b;
-      --okryshto-static-background-star-alpha: 0.85;
-      --okryshto-static-background-nebula-alpha: 0.38;
+      --okkly-static-background-base: #0b1020;
+      --okkly-static-background-glow: #141b33;
+      --okkly-static-background-n1: #4457a0;
+      --okkly-static-background-n2: #2e5e8c;
+      --okkly-static-background-n3: #5ee6c1;
+      --okkly-static-background-n4: #818cf8;
+      --okkly-static-background-n5: #ff3d8b;
+      --okkly-static-background-star-alpha: 0.85;
+      --okkly-static-background-nebula-alpha: 0.38;
     }
 
     &--neon {
-      --okryshto-static-background-base: #0a0a14;
-      --okryshto-static-background-glow: #161028;
-      --okryshto-static-background-n1: #b84bff;
-      --okryshto-static-background-n2: #ff3d8b;
-      --okryshto-static-background-n3: #5ee6c1;
-      --okryshto-static-background-n4: #b84bff;
-      --okryshto-static-background-n5: #ff8a5c;
-      --okryshto-static-background-star-alpha: 0.75;
-      --okryshto-static-background-nebula-alpha: 0.36;
+      --okkly-static-background-base: #0a0a14;
+      --okkly-static-background-glow: #161028;
+      --okkly-static-background-n1: #b84bff;
+      --okkly-static-background-n2: #ff3d8b;
+      --okkly-static-background-n3: #5ee6c1;
+      --okkly-static-background-n4: #b84bff;
+      --okkly-static-background-n5: #ff8a5c;
+      --okkly-static-background-star-alpha: 0.75;
+      --okkly-static-background-nebula-alpha: 0.36;
     }
 
     &--void {
-      --okryshto-static-background-base: #08080a;
-      --okryshto-static-background-glow: #101014;
-      --okryshto-static-background-n1: #2a2f3a;
-      --okryshto-static-background-n2: #232833;
-      --okryshto-static-background-n3: #2a2f3a;
-      --okryshto-static-background-n4: #ff3d8b;
-      --okryshto-static-background-n5: #232833;
-      --okryshto-static-background-star-alpha: 0.9;
-      --okryshto-static-background-nebula-alpha: 0.3;
+      --okkly-static-background-base: #08080a;
+      --okkly-static-background-glow: #101014;
+      --okkly-static-background-n1: #2a2f3a;
+      --okkly-static-background-n2: #232833;
+      --okkly-static-background-n3: #2a2f3a;
+      --okkly-static-background-n4: #ff3d8b;
+      --okkly-static-background-n5: #232833;
+      --okkly-static-background-star-alpha: 0.9;
+      --okkly-static-background-nebula-alpha: 0.3;
     }
 
     // ---------------------------------------------------------- stage ---
@@ -94,30 +94,30 @@
 
     &__cloud {
       position: absolute;
-      left: var(--okryshto-static-background-x);
-      top: var(--okryshto-static-background-y);
-      width: var(--okryshto-static-background-w);
-      aspect-ratio: var(--okryshto-static-background-ar);
+      left: var(--okkly-static-background-x);
+      top: var(--okkly-static-background-y);
+      width: var(--okkly-static-background-w);
+      aspect-ratio: var(--okkly-static-background-ar);
       translate: -50% -50%;
       border-radius: 50%;
       background: radial-gradient(
         closest-side,
-        color-mix(in srgb, var(--okryshto-static-background-hue) 62%, transparent) 0%,
-        color-mix(in srgb, var(--okryshto-static-background-hue) 26%, transparent) 32%,
-        color-mix(in srgb, var(--okryshto-static-background-hue) 6%, transparent) 62%,
-        color-mix(in srgb, var(--okryshto-static-background-hue) 0%, transparent) 100%
+        color-mix(in srgb, var(--okkly-static-background-hue) 62%, transparent) 0%,
+        color-mix(in srgb, var(--okkly-static-background-hue) 26%, transparent) 32%,
+        color-mix(in srgb, var(--okkly-static-background-hue) 6%, transparent) 62%,
+        color-mix(in srgb, var(--okkly-static-background-hue) 0%, transparent) 100%
       );
-      opacity: var(--okryshto-static-background-nebula-alpha);
+      opacity: var(--okkly-static-background-nebula-alpha);
       mix-blend-mode: screen;
     }
 
     // ----------------------------------------------------------- stars ---
     &__stars {
-      opacity: var(--okryshto-static-background-star-alpha);
+      opacity: var(--okkly-static-background-star-alpha);
     }
 
     &__star {
-      fill: var(--okryshto-static-background-star);
+      fill: var(--okkly-static-background-star);
       opacity: 0.5;
     }
 
@@ -127,7 +127,7 @@
 
     // ----------------------------------------------------------- grain ---
     &__grain {
-      opacity: var(--okryshto-static-background-grain-alpha);
+      opacity: var(--okkly-static-background-grain-alpha);
       mix-blend-mode: overlay;
       pointer-events: none;
     }
@@ -138,7 +138,7 @@
       inset: 0;
       pointer-events: none;
       mix-blend-mode: plus-lighter;
-      opacity: var(--okryshto-static-background-bloom-alpha);
+      opacity: var(--okkly-static-background-bloom-alpha);
       background:
         radial-gradient(80% 55% at 62% 18%, rgb(255 255 255 / 100%) 0%, rgb(255 255 255 / 0%) 70%),
         radial-gradient(60% 45% at 22% 88%, rgb(255 255 255 / 55%) 0%, rgb(255 255 255 / 0%) 72%);

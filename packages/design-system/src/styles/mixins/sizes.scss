@@ -19,28 +19,28 @@
 /// component's root block (`&--h1` etc).
 @mixin define-headline-sizes() {
   &--h1 {
-    font-size: var(--okryshto-font-size-xl);
-    line-height: var(--okryshto-font-line-height-xl);
-    font-family: var(--okryshto-font-family-h1);
+    font-size: var(--okkly-font-size-xl);
+    line-height: var(--okkly-font-line-height-xl);
+    font-family: var(--okkly-font-family-h1);
   }
 
   &--h2 {
-    font-size: var(--okryshto-font-size-lg);
-    line-height: var(--okryshto-font-line-height-lg);
-    font-family: var(--okryshto-font-family-h2);
+    font-size: var(--okkly-font-size-lg);
+    line-height: var(--okkly-font-line-height-lg);
+    font-family: var(--okkly-font-family-h2);
   }
 
   &--h3 {
-    font-size: var(--okryshto-font-size-md);
-    line-height: var(--okryshto-font-line-height-md);
-    font-family: var(--okryshto-font-family-h3);
+    font-size: var(--okkly-font-size-md);
+    line-height: var(--okkly-font-line-height-md);
+    font-family: var(--okkly-font-family-h3);
   }
 
   &--h4,
   &--h5,
   &--h6 {
-    font-size: var(--okryshto-font-size-sm);
-    line-height: var(--okryshto-font-line-height-sm);
-    font-family: var(--okryshto-font-family-h4);
+    font-size: var(--okkly-font-size-sm);
+    line-height: var(--okkly-font-line-height-sm);
+    font-family: var(--okkly-font-family-h4);
   }
 }

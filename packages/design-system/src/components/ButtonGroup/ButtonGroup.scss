@@ -1,11 +1,11 @@
-// https://www.figma.com/design/3YsJJl5QukJZPkjoOOZahx/-okryshto-okryshto?node-id=668-10732&t=BhVGvGGJ22hQjOMK-4
+// https://www.figma.com/design/3YsJJl5QukJZPkjoOOZahx/-okkly-okkly?node-id=668-10732&t=BhVGvGGJ22hQjOMK-4
 @use "../../styles/mixins/layers.scss";
 
-.okryshto-button-group {
+.okkly-button-group {
   @include layers.component() {
     // 1. full variable API, defaults = tone "primary" (mint), variant "primary"
-    --okryshto-button-group-tone: var(--okryshto-accent-primary);
-    --okryshto-button-group-divider-color: var(--okryshto-border-subtle);
+    --okkly-button-group-tone: var(--okkly-accent-primary);
+    --okkly-button-group-divider-color: var(--okkly-border-subtle);
 
     position: relative;
     display: inline-flex;
@@ -13,25 +13,25 @@
     border: none;
     border-radius: 9999px;
     overflow: hidden;
-    background: var(--okryshto-button-group-tone);
-    color: var(--okryshto-accent-contrast);
-    font-family: var(--okryshto-font-family-sans);
+    background: var(--okkly-button-group-tone);
+    color: var(--okkly-accent-contrast);
+    font-family: var(--okkly-font-family-sans);
 
     // 2. color modifiers — only remap the tone; the pill background picks it up
     &--color-dante {
-      --okryshto-button-group-tone: var(--okryshto-accent-dante);
+      --okkly-button-group-tone: var(--okkly-accent-dante);
     }
     &--color-indigo {
-      --okryshto-button-group-tone: var(--okryshto-accent-secondary);
+      --okkly-button-group-tone: var(--okkly-accent-secondary);
     }
     &--color-violet {
-      --okryshto-button-group-tone: var(--okryshto-accent-violet);
+      --okkly-button-group-tone: var(--okkly-accent-violet);
     }
     &--color-ember {
-      --okryshto-button-group-tone: var(--okryshto-accent-ember);
+      --okkly-button-group-tone: var(--okkly-accent-ember);
     }
     &--color-ice {
-      --okryshto-button-group-tone: var(--okryshto-accent-ice);
+      --okkly-button-group-tone: var(--okkly-accent-ice);
     }
 
     &--disabled {
@@ -41,16 +41,16 @@
 
     // 3. secondary variant — outlined instead of filled
     &--secondary {
-      background: var(--okryshto-bg-surface-raised);
-      border: var(--okryshto-1px-in-rem) solid var(--okryshto-border-subtle);
-      color: var(--okryshto-text-primary);
+      background: var(--okkly-bg-surface-raised);
+      border: var(--okkly-1px-in-rem) solid var(--okkly-border-subtle);
+      color: var(--okkly-text-primary);
 
-      .okryshto-button-group__segment:not(:first-child) {
-        border-inline-start-color: var(--okryshto-border-subtle);
+      .okkly-button-group__segment:not(:first-child) {
+        border-inline-start-color: var(--okkly-border-subtle);
       }
 
-      .okryshto-button-group__segment:hover:not(:disabled) {
-        background: var(--okryshto-bg-surface);
+      .okkly-button-group__segment:hover:not(:disabled) {
+        background: var(--okkly-bg-surface);
       }
     }
 
@@ -65,26 +65,26 @@
       background: transparent;
       color: inherit;
       font-family: inherit;
-      font-weight: var(--okryshto-font-weight-medium);
-      font-size: var(--okryshto-font-size-md);
-      line-height: var(--okryshto-font-line-height-md);
+      font-weight: var(--okkly-font-weight-medium);
+      font-size: var(--okkly-font-size-md);
+      line-height: var(--okkly-font-line-height-md);
       cursor: pointer;
       transition:
-        background-color var(--okryshto-duration-sm) ease,
-        color var(--okryshto-duration-sm) ease;
+        background-color var(--okkly-duration-sm) ease,
+        color var(--okkly-duration-sm) ease;
 
       &:not(:first-child) {
-        border-inline-start: var(--okryshto-1px-in-rem) solid rgba(4, 20, 15, 0.3);
+        border-inline-start: var(--okkly-1px-in-rem) solid rgba(4, 20, 15, 0.3);
       }
 
       // lighten the segment's own tone on hover instead of swapping to a neutral surface
       &:hover:not(:disabled) {
-        background: color-mix(in srgb, var(--okryshto-button-group-tone) 82%, white 18%);
+        background: color-mix(in srgb, var(--okkly-button-group-tone) 82%, white 18%);
       }
 
       &:focus-visible {
         outline: none;
-        box-shadow: inset 0 0 0 var(--okryshto-1px-in-rem) var(--okryshto-button-group-tone);
+        box-shadow: inset 0 0 0 var(--okkly-1px-in-rem) var(--okkly-button-group-tone);
       }
 
       &:disabled {
@@ -114,7 +114,7 @@
       flex-shrink: 0;
       width: 1rem; // 16px
       height: 1rem;
-      transition: transform var(--okryshto-duration-sm) ease;
+      transition: transform var(--okkly-duration-sm) ease;
 
       svg {
         width: 100%;
@@ -138,9 +138,9 @@
       gap: 0.125rem; // 2px
       width: 13.125rem; // 210px
       padding: 0.5rem; // 8px
-      border: var(--okryshto-1px-in-rem) solid var(--okryshto-border-default);
+      border: var(--okkly-1px-in-rem) solid var(--okkly-border-default);
       border-radius: 1.25rem; // 20px
-      background: var(--okryshto-bg-surface);
+      background: var(--okkly-bg-surface);
       filter: drop-shadow(0 1.75rem 2rem rgba(0, 0, 0, 0.45));
     }
 
@@ -151,18 +151,18 @@
       border: none;
       border-radius: 0.625rem; // 10px
       background: transparent;
-      color: var(--okryshto-text-primary);
+      color: var(--okkly-text-primary);
       font-family: inherit;
-      font-weight: var(--okryshto-font-weight-regular);
-      font-size: var(--okryshto-font-size-md);
-      line-height: var(--okryshto-font-line-height-md);
+      font-weight: var(--okkly-font-weight-regular);
+      font-size: var(--okkly-font-size-md);
+      line-height: var(--okkly-font-line-height-md);
       text-align: left;
       cursor: pointer;
 
       &:hover:not(:disabled),
       &:focus-visible {
         outline: none;
-        background: var(--okryshto-bg-surface-raised);
+        background: var(--okkly-bg-surface-raised);
       }
 
       &:disabled {

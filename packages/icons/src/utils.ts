@@ -35,7 +35,7 @@ export function groupIconsByCategory(iconMetadata: Record<string, IconMetadata>)
  * @example
  * ```ts
  * getIconImportName("arrow-up-right.svg"); // "iconArrowUpRight"
- * // → import { iconArrowUpRight } from "@okryshto/icons";
+ * // → import { iconArrowUpRight } from "@okkly/icons";
  * ```
  */
 export function getIconImportName(iconName: string): string {

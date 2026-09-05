@@ -10,8 +10,8 @@
   height: var(--agent-mark-size);
   // Proportional so the corner keeps its softness at every size it is used at.
   border-radius: calc(var(--agent-mark-size) * 0.3);
-  background: var(--okryshto-accent-secondary);
-  color: var(--okryshto-accent-contrast);
+  background: var(--okkly-accent-secondary);
+  color: var(--okkly-accent-contrast);
 }
 
 .glyph {

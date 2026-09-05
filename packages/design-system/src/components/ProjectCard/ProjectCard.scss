@@ -1,6 +1,6 @@
 @use "../../styles/mixins/layers.scss";
 
-.okryshto-project-card {
+.okkly-project-card {
   @include layers.component() {
     position: relative;
     display: flex;
@@ -23,7 +23,7 @@
     text-decoration: none;
 
     &:focus-visible {
-      outline: var(--okryshto-1px-in-rem) solid var(--okryshto-accent-primary);
+      outline: var(--okkly-1px-in-rem) solid var(--okkly-accent-primary);
       outline-offset: 0.125rem;
     }
 
@@ -61,7 +61,7 @@
       height: 46.22cqw; // 220px
       border-radius: 4.62cqw; // 22px
       background: #16161a;
-      border: var(--okryshto-1px-in-rem) solid rgba(255, 255, 255, 0.12);
+      border: var(--okkly-1px-in-rem) solid rgba(255, 255, 255, 0.12);
       pointer-events: none;
 
       &-screen {
@@ -134,7 +134,7 @@
       height: 2.75rem;
       border-radius: 0.8125rem; // 13px
       background: rgba(255, 255, 255, 0.12);
-      border: var(--okryshto-1px-in-rem) solid rgba(255, 255, 255, 0.18);
+      border: var(--okkly-1px-in-rem) solid rgba(255, 255, 255, 0.18);
       color: #f5f5f7;
 
       svg {
@@ -162,18 +162,18 @@
       padding: 0.25rem 0.625rem; // 4px 10px
       border-radius: 9999px;
       background: rgba(255, 255, 255, 0.12);
-      border: var(--okryshto-1px-in-rem) solid rgba(255, 255, 255, 0.18);
-      font-family: var(--okryshto-font-family-sans);
-      font-weight: var(--okryshto-font-weight-medium);
-      font-size: var(--okryshto-font-size-sm);
+      border: var(--okkly-1px-in-rem) solid rgba(255, 255, 255, 0.18);
+      font-family: var(--okkly-font-family-sans);
+      font-weight: var(--okkly-font-weight-medium);
+      font-size: var(--okkly-font-size-sm);
       line-height: 1rem;
       color: #f5f5f7;
     }
 
     &__title {
       margin: 0;
-      font-family: var(--okryshto-font-family-sans);
-      font-weight: var(--okryshto-font-weight-medium);
+      font-family: var(--okkly-font-family-sans);
+      font-weight: var(--okkly-font-weight-medium);
       font-size: 1.25rem; // 20px — mobile-first; scales up with the card
       line-height: 1.625rem;
       letter-spacing: -0.03125rem;
@@ -188,7 +188,7 @@
     &__description {
       margin: 0;
       max-width: 21.5rem; // 344px
-      font-family: var(--okryshto-font-family-sans);
+      font-family: var(--okkly-font-family-sans);
       font-size: 0.8125rem; // 13px
       line-height: 1.25rem;
       color: #c9c9d1;

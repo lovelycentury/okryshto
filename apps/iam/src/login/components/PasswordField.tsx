@@ -1,7 +1,7 @@
 import type { InputHTMLAttributes, ReactNode } from "react";
 import { useIsPasswordRevealed } from "keycloakify/tools/useIsPasswordRevealed";
-import { iconEye, iconEyeOff } from "@okryshto/icons";
-import { Icon, IconButton, TextField } from "@okryshto/react";
+import { iconEye, iconEyeOff } from "@okkly/icons";
+import { Icon, IconButton, TextField } from "@okkly/react";
 
 type PasswordFieldProps = Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "type" | "color"> & {
   id: string;

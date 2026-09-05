@@ -1,38 +1,38 @@
 @use "../../styles/mixins/layers.scss";
 
-.okryshto-calendar {
+.okkly-calendar {
   @include layers.component() {
     // 1. full variable API. There is no `color` prop — retuning the accent is a
-    // one-line override of `--okryshto-calendar-tone`, which every accented part
+    // one-line override of `--okkly-calendar-tone`, which every accented part
     // below derives from. Six named tone modifiers used to live here; the
     // variable did all their work already.
-    --okryshto-calendar-tone: var(--okryshto-accent-primary);
-    --okryshto-calendar-background-color: var(--okryshto-bg-surface);
-    --okryshto-calendar-border-color: var(--okryshto-border-subtle);
-    --okryshto-calendar-text-color: var(--okryshto-text-primary);
-    --okryshto-calendar-muted-text-color: var(--okryshto-text-muted);
-    --okryshto-calendar-selected-background-color: var(--okryshto-calendar-tone);
-    --okryshto-calendar-selected-text-color: var(--okryshto-accent-contrast);
-    --okryshto-calendar-range-background-color: color-mix(
+    --okkly-calendar-tone: var(--okkly-accent-primary);
+    --okkly-calendar-background-color: var(--okkly-bg-surface);
+    --okkly-calendar-border-color: var(--okkly-border-subtle);
+    --okkly-calendar-text-color: var(--okkly-text-primary);
+    --okkly-calendar-muted-text-color: var(--okkly-text-muted);
+    --okkly-calendar-selected-background-color: var(--okkly-calendar-tone);
+    --okkly-calendar-selected-text-color: var(--okkly-accent-contrast);
+    --okkly-calendar-range-background-color: color-mix(
       in srgb,
-      var(--okryshto-calendar-tone) 12%,
+      var(--okkly-calendar-tone) 12%,
       transparent
     );
     // Today is deliberately off the tone: it says "you are here", not "this is
     // picked", and reusing the accent made the two read as the same state.
-    --okryshto-calendar-today-color: var(--okryshto-accent-dante);
-    --okryshto-calendar-padding: 1.5rem; // 24px
-    --okryshto-calendar-border-radius: 1.25rem; // 20px
-    --okryshto-calendar-day-size: 2.5rem; // 40px
-    --okryshto-calendar-day-gap: 0.375rem; // 6px
-    --okryshto-calendar-day-border-radius: 0.625rem; // 10px
+    --okkly-calendar-today-color: var(--okkly-accent-dante);
+    --okkly-calendar-padding: 1.5rem; // 24px
+    --okkly-calendar-border-radius: 1.25rem; // 20px
+    --okkly-calendar-day-size: 2.5rem; // 40px
+    --okkly-calendar-day-gap: 0.375rem; // 6px
+    --okkly-calendar-day-border-radius: 0.625rem; // 10px
     // The width a seven-column grid actually needs, derived rather than typed so
     // it survives a change to the day size, the gap, or the padding. A calendar
     // has no use for more room than this: the grid does not reflow, so extra
     // width is dead space inside the card.
-    --okryshto-calendar-max-width: calc(
-      var(--okryshto-calendar-day-size) * 7 + var(--okryshto-calendar-day-gap) * 6 +
-        var(--okryshto-calendar-padding) * 2 + var(--okryshto-1px-in-rem) * 2
+    --okkly-calendar-max-width: calc(
+      var(--okkly-calendar-day-size) * 7 + var(--okkly-calendar-day-gap) * 6 +
+        var(--okkly-calendar-padding) * 2 + var(--okkly-1px-in-rem) * 2
     );
 
     position: relative;
@@ -43,9 +43,9 @@
     // root itself (a flex or grid cell with the default `stretch`); `max-width`
     // caps the root so it cannot claim that width in the first place.
     align-items: flex-start;
-    max-width: var(--okryshto-calendar-max-width);
-    color: var(--okryshto-calendar-text-color);
-    font-family: var(--okryshto-font-family-sans);
+    max-width: var(--okkly-calendar-max-width);
+    color: var(--okkly-calendar-text-color);
+    font-family: var(--okkly-font-family-sans);
 
     // 2. panel — the bordered month card (header + grid / period views)
     &__panel {
@@ -54,10 +54,10 @@
       box-sizing: border-box;
       max-width: 100%;
       gap: 1rem; // 16px
-      padding: var(--okryshto-calendar-padding);
-      border: var(--okryshto-1px-in-rem) solid var(--okryshto-calendar-border-color);
-      border-radius: var(--okryshto-calendar-border-radius);
-      background: var(--okryshto-calendar-background-color);
+      padding: var(--okkly-calendar-padding);
+      border: var(--okkly-1px-in-rem) solid var(--okkly-calendar-border-color);
+      border-radius: var(--okkly-calendar-border-radius);
+      background: var(--okkly-calendar-background-color);
     }
 
     // 3. header — month title + prev/next nav
@@ -77,11 +77,11 @@
       height: 2rem;
       padding: 0;
       border: none;
-      border-radius: var(--okryshto-calendar-day-border-radius);
+      border-radius: var(--okkly-calendar-day-border-radius);
       background: transparent;
-      color: var(--okryshto-text-secondary);
+      color: var(--okkly-text-secondary);
       cursor: pointer;
-      transition: background-color var(--okryshto-duration-sm) ease;
+      transition: background-color var(--okkly-duration-sm) ease;
 
       svg {
         width: 1.125rem; // 18px
@@ -89,11 +89,11 @@
       }
 
       &:hover:not(:disabled) {
-        background: var(--okryshto-glass-fill);
+        background: var(--okkly-glass-fill);
       }
 
       &:focus-visible {
-        outline: var(--okryshto-1px-in-rem) solid var(--okryshto-accent-primary);
+        outline: var(--okkly-1px-in-rem) solid var(--okkly-accent-primary);
         outline-offset: 0.125rem;
       }
 
@@ -112,26 +112,26 @@
       background: none;
       padding: 0;
       font-family: inherit;
-      font-weight: var(--okryshto-font-weight-medium);
-      font-size: var(--okryshto-font-size-md);
-      line-height: var(--okryshto-font-line-height-md);
-      color: var(--okryshto-text-primary);
+      font-weight: var(--okkly-font-weight-medium);
+      font-size: var(--okkly-font-size-md);
+      line-height: var(--okkly-font-line-height-md);
+      color: var(--okkly-text-primary);
     }
 
     // header label doubles as a button once there's a coarser view above it
     // to drill up to (day → year, month → year) — plain `<p>` at the top of
     // that hierarchy (year view), since there's nothing left to open.
     &__title--button {
-      border-radius: var(--okryshto-calendar-day-border-radius);
+      border-radius: var(--okkly-calendar-day-border-radius);
       cursor: pointer;
-      transition: color var(--okryshto-duration-sm) ease;
+      transition: color var(--okkly-duration-sm) ease;
 
       &:hover {
-        color: var(--okryshto-calendar-tone);
+        color: var(--okkly-calendar-tone);
       }
 
       &:focus-visible {
-        outline: var(--okryshto-1px-in-rem) solid var(--okryshto-accent-primary);
+        outline: var(--okkly-1px-in-rem) solid var(--okkly-accent-primary);
         outline-offset: 0.125rem;
       }
     }
@@ -141,7 +141,7 @@
       flex-shrink: 0;
       width: 0.875rem; // 14px
       height: 0.875rem;
-      transition: transform var(--okryshto-duration-sm) ease;
+      transition: transform var(--okkly-duration-sm) ease;
 
       svg {
         width: 100%;
@@ -157,12 +157,12 @@
     &__grid {
       display: flex;
       flex-direction: column;
-      gap: var(--okryshto-calendar-day-gap);
+      gap: var(--okkly-calendar-day-gap);
     }
 
     &__week {
       display: flex;
-      gap: var(--okryshto-calendar-day-gap);
+      gap: var(--okkly-calendar-day-gap);
     }
 
     &__weekday {
@@ -170,12 +170,12 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      width: var(--okryshto-calendar-day-size);
+      width: var(--okkly-calendar-day-size);
       height: 1.25rem; // 20px
-      font-family: var(--okryshto-font-family-mono);
-      font-size: var(--okryshto-font-size-sm);
+      font-family: var(--okkly-font-family-mono);
+      font-size: var(--okkly-font-size-sm);
       line-height: 1.25rem; // 20px
-      color: var(--okryshto-calendar-muted-text-color);
+      color: var(--okkly-calendar-muted-text-color);
     }
 
     // 5. day cell — default needs no modifier; state modifiers are order-sensitive
@@ -186,34 +186,34 @@
       align-items: center;
       justify-content: center;
       gap: 0.125rem; // 2px
-      width: var(--okryshto-calendar-day-size);
-      height: var(--okryshto-calendar-day-size);
+      width: var(--okkly-calendar-day-size);
+      height: var(--okkly-calendar-day-size);
       padding: 0;
       border: none;
-      border-radius: var(--okryshto-calendar-day-border-radius);
+      border-radius: var(--okkly-calendar-day-border-radius);
       background: transparent;
-      color: var(--okryshto-calendar-text-color);
-      font-family: var(--okryshto-font-family-sans);
-      font-weight: var(--okryshto-font-weight-medium);
-      font-size: var(--okryshto-font-size-md);
-      line-height: var(--okryshto-font-line-height-md);
+      color: var(--okkly-calendar-text-color);
+      font-family: var(--okkly-font-family-sans);
+      font-weight: var(--okkly-font-weight-medium);
+      font-size: var(--okkly-font-size-md);
+      line-height: var(--okkly-font-line-height-md);
       cursor: pointer;
       transition:
-        background-color var(--okryshto-duration-sm) ease,
-        border-color var(--okryshto-duration-sm) ease,
-        color var(--okryshto-duration-sm) ease;
+        background-color var(--okkly-duration-sm) ease,
+        border-color var(--okkly-duration-sm) ease,
+        color var(--okkly-duration-sm) ease;
 
       &:hover:not(:disabled) {
-        border: 0.09375rem solid var(--okryshto-border-strong); // 1.5px
+        border: 0.09375rem solid var(--okkly-border-strong); // 1.5px
       }
 
       &:focus-visible {
-        outline: var(--okryshto-1px-in-rem) solid var(--okryshto-accent-primary);
+        outline: var(--okkly-1px-in-rem) solid var(--okkly-accent-primary);
         outline-offset: 0.125rem;
       }
 
       &--outside {
-        color: var(--okryshto-calendar-muted-text-color);
+        color: var(--okkly-calendar-muted-text-color);
       }
 
       // Ordering is the whole mechanism here: `--today` is only a text colour,
@@ -221,18 +221,18 @@
       // end of a range that happens to be today must read as an end, not as
       // today. Same reason it comes after `--outside`.
       &--today {
-        color: var(--okryshto-calendar-today-color);
+        color: var(--okkly-calendar-today-color);
       }
 
       &--in-range {
-        background: var(--okryshto-calendar-range-background-color);
+        background: var(--okkly-calendar-range-background-color);
       }
 
       &--selected,
       &--range-start,
       &--range-end {
-        background: var(--okryshto-calendar-selected-background-color);
-        color: var(--okryshto-calendar-selected-text-color);
+        background: var(--okkly-calendar-selected-background-color);
+        color: var(--okkly-calendar-selected-text-color);
 
         &:hover:not(:disabled) {
           border: none;
@@ -241,7 +241,7 @@
 
       &--disabled {
         border: none;
-        color: var(--okryshto-calendar-muted-text-color);
+        color: var(--okkly-calendar-muted-text-color);
         text-decoration: line-through;
         cursor: not-allowed;
       }
@@ -251,7 +251,7 @@
       width: 0.25rem; // 4px
       height: 0.25rem;
       border-radius: 50%;
-      background: var(--okryshto-calendar-today-color);
+      background: var(--okkly-calendar-today-color);
     }
 
     // On a filled cell the dante dot disappears into the accent fill, so it
@@ -259,7 +259,7 @@
     &__day--selected &__day-dot,
     &__day--range-start &__day-dot,
     &__day--range-end &__day-dot {
-      background: var(--okryshto-calendar-selected-text-color);
+      background: var(--okkly-calendar-selected-text-color);
     }
 
     // 6. period grid — month/year selection views, swapped in for `&__grid`
@@ -268,11 +268,11 @@
     &__period-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: var(--okryshto-calendar-day-gap);
-      width: calc(var(--okryshto-calendar-day-size) * 7 + var(--okryshto-calendar-day-gap) * 6);
+      gap: var(--okkly-calendar-day-gap);
+      width: calc(var(--okkly-calendar-day-size) * 7 + var(--okkly-calendar-day-gap) * 6);
       min-height: calc(
-        1.25rem + var(--okryshto-calendar-day-gap) + var(--okryshto-calendar-day-size) * 6 +
-          var(--okryshto-calendar-day-gap) * 5
+        1.25rem + var(--okkly-calendar-day-gap) + var(--okkly-calendar-day-size) * 6 +
+          var(--okkly-calendar-day-gap) * 5
       );
       align-content: stretch;
     }
@@ -285,34 +285,34 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: var(--okryshto-calendar-day-size);
+      min-height: var(--okkly-calendar-day-size);
       padding: 0;
       border: none;
-      border-radius: var(--okryshto-calendar-day-border-radius);
+      border-radius: var(--okkly-calendar-day-border-radius);
       background: transparent;
-      color: var(--okryshto-calendar-text-color);
-      font-family: var(--okryshto-font-family-sans);
-      font-weight: var(--okryshto-font-weight-medium);
-      font-size: var(--okryshto-font-size-md);
-      line-height: var(--okryshto-font-line-height-md);
+      color: var(--okkly-calendar-text-color);
+      font-family: var(--okkly-font-family-sans);
+      font-weight: var(--okkly-font-weight-medium);
+      font-size: var(--okkly-font-size-md);
+      line-height: var(--okkly-font-line-height-md);
       cursor: pointer;
       transition:
-        background-color var(--okryshto-duration-sm) ease,
-        border-color var(--okryshto-duration-sm) ease,
-        color var(--okryshto-duration-sm) ease;
+        background-color var(--okkly-duration-sm) ease,
+        border-color var(--okkly-duration-sm) ease,
+        color var(--okkly-duration-sm) ease;
 
       &:hover:not(:disabled) {
-        border: 0.09375rem solid var(--okryshto-border-strong); // 1.5px
+        border: 0.09375rem solid var(--okkly-border-strong); // 1.5px
       }
 
       &:focus-visible {
-        outline: var(--okryshto-1px-in-rem) solid var(--okryshto-accent-primary);
+        outline: var(--okkly-1px-in-rem) solid var(--okkly-accent-primary);
         outline-offset: 0.125rem;
       }
 
       &--selected {
-        background: var(--okryshto-calendar-selected-background-color);
-        color: var(--okryshto-calendar-selected-text-color);
+        background: var(--okkly-calendar-selected-background-color);
+        color: var(--okkly-calendar-selected-text-color);
 
         &:hover:not(:disabled) {
           border: none;
@@ -321,7 +321,7 @@
 
       &--disabled {
         border: none;
-        color: var(--okryshto-calendar-muted-text-color);
+        color: var(--okkly-calendar-muted-text-color);
         text-decoration: line-through;
         cursor: not-allowed;
       }

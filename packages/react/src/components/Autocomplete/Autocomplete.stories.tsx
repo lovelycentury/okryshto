@@ -249,7 +249,7 @@ export const RecipeTwoLineOption: Story = {
               width: "28px",
               height: "28px",
               borderRadius: "50%",
-              background: "var(--okryshto-bg-surface)",
+              background: "var(--okkly-bg-surface)",
               fontSize: "0.75rem",
             }}
           >
@@ -323,8 +323,8 @@ export const RecipeGroupsAndEmpty: Story = {
               display: "flex",
               justifyContent: "space-between",
               padding: "6px 10px 2px",
-              color: "var(--okryshto-text-muted)",
-              fontSize: "var(--okryshto-font-size-sm)",
+              color: "var(--okkly-text-muted)",
+              fontSize: "var(--okkly-font-size-sm)",
             }}
           >
             {label}
@@ -336,7 +336,7 @@ export const RecipeGroupsAndEmpty: Story = {
         </li>
       )}
       renderNoOptions={({ inputValue }) => (
-        <li style={{ padding: "10px 13px", color: "var(--okryshto-text-muted)" }}>
+        <li style={{ padding: "10px 13px", color: "var(--okkly-text-muted)" }}>
           No city matches “{inputValue}”
         </li>
       )}

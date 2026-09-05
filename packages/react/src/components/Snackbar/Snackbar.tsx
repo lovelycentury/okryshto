@@ -2,9 +2,9 @@
 
 import { useCallback, useEffect, type ReactNode } from "react";
 import { createPortal } from "react-dom";
-import "@okryshto/design-system/components/Snackbar/Snackbar.scss";
+import "@okkly/design-system/components/Snackbar/Snackbar.scss";
 import { Alert, type AlertSeverity } from "../Alert/Alert";
-import { useEscapeKey } from "@okryshto/react-hooks";
+import { useEscapeKey } from "@okkly/react-hooks";
 
 export type SnackbarAnchorVertical = "top" | "bottom";
 export type SnackbarAnchorHorizontal = "left" | "center" | "right";
@@ -116,10 +116,10 @@ export function Snackbar({
   const handleClose = useCallback(() => onClose?.(), [onClose]);
 
   const classes = [
-    "okryshto-component",
-    "okryshto-snackbar",
-    open && "okryshto-snackbar--open",
-    `okryshto-snackbar--anchor-${anchorOrigin.vertical}-${anchorOrigin.horizontal}`,
+    "okkly-component",
+    "okkly-snackbar",
+    open && "okkly-snackbar--open",
+    `okkly-snackbar--anchor-${anchorOrigin.vertical}-${anchorOrigin.horizontal}`,
     className,
   ]
     .filter(Boolean)
@@ -131,7 +131,7 @@ export function Snackbar({
 
   return createPortal(
     <div className={classes} role="presentation">
-      <div className="okryshto-snackbar__surface">
+      <div className="okkly-snackbar__surface">
         {content ? (
           typeof content === "string" || typeof content === "number" ? (
             <Alert severity={severity} action={action} onClose={onClose ? handleClose : undefined}>
@@ -141,7 +141,7 @@ export function Snackbar({
             content
           )
         ) : (
-          action && <span className="okryshto-snackbar__message">{action}</span>
+          action && <span className="okkly-snackbar__message">{action}</span>
         )}
       </div>
     </div>,

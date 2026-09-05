@@ -1,45 +1,45 @@
-// https://www.figma.com/design/3YsJJl5QukJZPkjoOOZahx/-okryshto-okryshto?node-id=668-12858
+// https://www.figma.com/design/3YsJJl5QukJZPkjoOOZahx/-okkly-okkly?node-id=668-12858
 // API: https://mui.com/material-ui/api/stepper/
 @use "../../styles/mixins/layers.scss";
 
-.okryshto-stepper {
+.okkly-stepper {
   @include layers.component() {
-    --okryshto-stepper-tone: var(--okryshto-accent-primary);
-    --okryshto-stepper-dot-size: 1.75rem;
-    --okryshto-stepper-connector-color: var(--okryshto-border-subtle);
-    --okryshto-stepper-connector-active-color: var(--okryshto-stepper-tone);
-    --okryshto-stepper-done-background-color: var(--okryshto-stepper-tone);
-    --okryshto-stepper-done-text-color: var(--okryshto-accent-contrast);
-    --okryshto-stepper-current-background-color: color-mix(
+    --okkly-stepper-tone: var(--okkly-accent-primary);
+    --okkly-stepper-dot-size: 1.75rem;
+    --okkly-stepper-connector-color: var(--okkly-border-subtle);
+    --okkly-stepper-connector-active-color: var(--okkly-stepper-tone);
+    --okkly-stepper-done-background-color: var(--okkly-stepper-tone);
+    --okkly-stepper-done-text-color: var(--okkly-accent-contrast);
+    --okkly-stepper-current-background-color: color-mix(
       in srgb,
-      var(--okryshto-stepper-tone) 15%,
+      var(--okkly-stepper-tone) 15%,
       transparent
     );
-    --okryshto-stepper-current-border-color: var(--okryshto-stepper-tone);
-    --okryshto-stepper-current-text-color: var(--okryshto-stepper-tone);
-    --okryshto-stepper-pending-border-color: var(--okryshto-border-default);
-    --okryshto-stepper-pending-text-color: var(--okryshto-text-muted);
-    --okryshto-stepper-label-active-color: var(--okryshto-text-primary);
-    --okryshto-stepper-label-done-color: var(--okryshto-text-secondary);
-    --okryshto-stepper-label-pending-color: var(--okryshto-text-muted);
+    --okkly-stepper-current-border-color: var(--okkly-stepper-tone);
+    --okkly-stepper-current-text-color: var(--okkly-stepper-tone);
+    --okkly-stepper-pending-border-color: var(--okkly-border-default);
+    --okkly-stepper-pending-text-color: var(--okkly-text-muted);
+    --okkly-stepper-label-active-color: var(--okkly-text-primary);
+    --okkly-stepper-label-done-color: var(--okkly-text-secondary);
+    --okkly-stepper-label-pending-color: var(--okkly-text-muted);
 
     display: flex;
-    font-family: var(--okryshto-font-family-sans);
+    font-family: var(--okkly-font-family-sans);
 
     &--color-dante {
-      --okryshto-stepper-tone: var(--okryshto-accent-dante);
+      --okkly-stepper-tone: var(--okkly-accent-dante);
     }
     &--color-indigo {
-      --okryshto-stepper-tone: var(--okryshto-accent-secondary);
+      --okkly-stepper-tone: var(--okkly-accent-secondary);
     }
     &--color-violet {
-      --okryshto-stepper-tone: var(--okryshto-accent-violet);
+      --okkly-stepper-tone: var(--okkly-accent-violet);
     }
     &--color-ember {
-      --okryshto-stepper-tone: var(--okryshto-accent-ember);
+      --okkly-stepper-tone: var(--okkly-accent-ember);
     }
     &--color-ice {
-      --okryshto-stepper-tone: var(--okryshto-accent-ice);
+      --okkly-stepper-tone: var(--okkly-accent-ice);
     }
 
     &--horizontal {
@@ -56,7 +56,7 @@
       flex: 1 1 0;
       min-width: 0;
 
-      .okryshto-stepper--vertical & {
+      .okkly-stepper--vertical & {
         flex: none;
       }
     }
@@ -66,12 +66,12 @@
       flex: 1;
       min-width: 0;
 
-      .okryshto-stepper--horizontal.okryshto-stepper--alternative-label & {
+      .okkly-stepper--horizontal.okkly-stepper--alternative-label & {
         flex-direction: column;
         align-items: center;
       }
 
-      .okryshto-stepper--vertical & {
+      .okkly-stepper--vertical & {
         flex-direction: row;
         align-items: flex-start;
         gap: 0.875rem;
@@ -90,13 +90,13 @@
       display: flex;
       align-items: center;
 
-      .okryshto-stepper--horizontal & {
+      .okkly-stepper--horizontal & {
         position: relative;
         width: 100%;
         justify-content: center;
       }
 
-      .okryshto-stepper--vertical & {
+      .okkly-stepper--vertical & {
         flex-direction: column;
         align-items: center;
         flex-shrink: 0;
@@ -108,31 +108,31 @@
       flex-shrink: 0;
       align-items: center;
       justify-content: center;
-      width: var(--okryshto-stepper-dot-size);
-      height: var(--okryshto-stepper-dot-size);
+      width: var(--okkly-stepper-dot-size);
+      height: var(--okkly-stepper-dot-size);
       border-radius: 9999px;
-      font-weight: var(--okryshto-font-weight-medium);
-      font-size: var(--okryshto-font-size-sm);
+      font-weight: var(--okkly-font-weight-medium);
+      font-size: var(--okkly-font-size-sm);
       line-height: 1;
 
       &--done {
-        background: var(--okryshto-stepper-done-background-color);
-        color: var(--okryshto-stepper-done-text-color);
+        background: var(--okkly-stepper-done-background-color);
+        color: var(--okkly-stepper-done-text-color);
       }
 
       &--active {
-        border: 0.125rem solid var(--okryshto-stepper-current-border-color);
-        background: var(--okryshto-stepper-current-background-color);
-        color: var(--okryshto-stepper-current-text-color);
+        border: 0.125rem solid var(--okkly-stepper-current-border-color);
+        background: var(--okkly-stepper-current-background-color);
+        color: var(--okkly-stepper-current-text-color);
         filter: drop-shadow(
-          0 0 0.5rem color-mix(in srgb, var(--okryshto-stepper-tone) 25%, transparent)
+          0 0 0.5rem color-mix(in srgb, var(--okkly-stepper-tone) 25%, transparent)
         );
       }
 
       &--pending {
-        border: 0.09375rem solid var(--okryshto-stepper-pending-border-color);
+        border: 0.09375rem solid var(--okkly-stepper-pending-border-color);
         background: transparent;
-        color: var(--okryshto-stepper-pending-text-color);
+        color: var(--okkly-stepper-pending-text-color);
       }
     }
 
@@ -149,9 +149,9 @@
 
     &__connector {
       flex: 1 1 auto;
-      background: var(--okryshto-stepper-connector-color);
+      background: var(--okkly-stepper-connector-color);
 
-      .okryshto-stepper--horizontal & {
+      .okkly-stepper--horizontal & {
         height: 0.125rem;
         min-width: 2rem;
         margin-inline: 0.5rem;
@@ -160,24 +160,24 @@
       // With the label under the dot, the dot has to stay centered in its
       // equal-width column — so the connector is lifted out of the flow and
       // stretched from this dot to the next one, half a column away on each side.
-      .okryshto-stepper--horizontal.okryshto-stepper--alternative-label & {
+      .okkly-stepper--horizontal.okkly-stepper--alternative-label & {
         position: absolute;
         top: 50%;
-        inset-inline-start: calc(50% + var(--okryshto-stepper-dot-size) / 2 + 0.5rem);
-        inset-inline-end: calc(-50% + var(--okryshto-stepper-dot-size) / 2 + 0.5rem);
+        inset-inline-start: calc(50% + var(--okkly-stepper-dot-size) / 2 + 0.5rem);
+        inset-inline-end: calc(-50% + var(--okkly-stepper-dot-size) / 2 + 0.5rem);
         min-width: 0;
         margin-inline: 0;
         transform: translateY(-50%);
       }
 
-      .okryshto-stepper--vertical & {
+      .okkly-stepper--vertical & {
         width: 0.125rem;
         min-height: 2.875rem;
         margin-block: 0.375rem;
       }
 
       &--active {
-        background: var(--okryshto-stepper-connector-active-color);
+        background: var(--okkly-stepper-connector-active-color);
       }
     }
 
@@ -185,13 +185,13 @@
       min-width: 0;
       text-align: center;
 
-      .okryshto-stepper--vertical & {
+      .okkly-stepper--vertical & {
         flex: 1;
         padding-block: 0.25rem 1.125rem;
         text-align: start;
       }
 
-      .okryshto-stepper--horizontal.okryshto-stepper--alternative-label & {
+      .okkly-stepper--horizontal.okkly-stepper--alternative-label & {
         margin-block-start: 0.75rem;
       }
 
@@ -201,31 +201,31 @@
     }
 
     &__label {
-      color: var(--okryshto-stepper-label-pending-color);
-      font-weight: var(--okryshto-font-weight-medium);
-      font-size: var(--okryshto-font-size-sm);
-      line-height: var(--okryshto-font-line-height-sm);
+      color: var(--okkly-stepper-label-pending-color);
+      font-weight: var(--okkly-font-weight-medium);
+      font-size: var(--okkly-font-size-sm);
+      line-height: var(--okkly-font-line-height-sm);
 
-      .okryshto-stepper__step--done & {
-        color: var(--okryshto-stepper-label-done-color);
+      .okkly-stepper__step--done & {
+        color: var(--okkly-stepper-label-done-color);
       }
 
-      .okryshto-stepper__step--active & {
-        color: var(--okryshto-stepper-label-active-color);
+      .okkly-stepper__step--active & {
+        color: var(--okkly-stepper-label-active-color);
       }
     }
 
     &__description {
       margin-block-start: 0.125rem;
-      color: var(--okryshto-text-muted);
-      font-size: var(--okryshto-font-size-sm);
-      line-height: var(--okryshto-font-line-height-sm);
+      color: var(--okkly-text-muted);
+      font-size: var(--okkly-font-size-sm);
+      line-height: var(--okkly-font-line-height-sm);
     }
 
     &__optional {
       margin-inline-start: 0.25rem;
-      color: var(--okryshto-text-muted);
-      font-weight: var(--okryshto-font-weight-regular);
+      color: var(--okkly-text-muted);
+      font-weight: var(--okkly-font-weight-regular);
     }
   }
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, type KeyboardEvent, type ReactNode } from "react";
-import "@okryshto/design-system/components/ButtonGroup/ButtonGroup.scss";
+import "@okkly/design-system/components/ButtonGroup/ButtonGroup.scss";
 
 export type ButtonGroupColor = "primary" | "dante" | "indigo" | "violet" | "ember" | "ice";
 export type ButtonGroupVariant = "primary" | "secondary";
@@ -128,11 +128,11 @@ export function ButtonGroup({
   };
 
   const classes = [
-    "okryshto-component",
-    "okryshto-button-group",
-    variant === "secondary" && "okryshto-button-group--secondary",
-    color !== "primary" && `okryshto-button-group--color-${color}`,
-    disabled && "okryshto-button-group--disabled",
+    "okkly-component",
+    "okkly-button-group",
+    variant === "secondary" && "okkly-button-group--secondary",
+    color !== "primary" && `okkly-button-group--color-${color}`,
+    disabled && "okkly-button-group--disabled",
     className,
   ]
     .filter(Boolean)
@@ -142,12 +142,12 @@ export function ButtonGroup({
     <div ref={rootRef} className={classes}>
       <button
         type="button"
-        className="okryshto-button-group__segment"
+        className="okkly-button-group__segment"
         disabled={disabled || action.disabled}
         onClick={action.onClick}
       >
         {action.icon && (
-          <span className="okryshto-button-group__icon" aria-hidden="true">
+          <span className="okkly-button-group__icon" aria-hidden="true">
             {action.icon}
           </span>
         )}
@@ -157,7 +157,7 @@ export function ButtonGroup({
         <button
           ref={chevronRef}
           type="button"
-          className="okryshto-button-group__segment okryshto-button-group__chevron"
+          className="okkly-button-group__segment okkly-button-group__chevron"
           disabled={disabled}
           aria-haspopup="menu"
           aria-expanded={open}
@@ -165,19 +165,19 @@ export function ButtonGroup({
           onClick={() => setOpen((value) => !value)}
           onKeyDown={handleChevronKeyDown}
         >
-          <span className="okryshto-button-group__chevron-icon" aria-hidden="true">
+          <span className="okkly-button-group__chevron-icon" aria-hidden="true">
             <ChevronDownIcon />
           </span>
         </button>
       )}
       {open && (
-        <div className="okryshto-button-group__menu" role="menu">
+        <div className="okkly-button-group__menu" role="menu">
           {menu.map((item, index) => (
             <button
               key={index}
               type="button"
               role="menuitem"
-              className="okryshto-button-group__menu-item"
+              className="okkly-button-group__menu-item"
               disabled={item.disabled}
               onClick={() => {
                 item.onClick?.();

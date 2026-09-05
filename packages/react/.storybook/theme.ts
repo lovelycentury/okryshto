@@ -1,5 +1,5 @@
 /**
- * Okryshto Storybook chrome theme — mirrors `@okryshto/design-system` tokens.
+ * Okryshto Storybook chrome theme — mirrors `@okkly/design-system` tokens.
  *
  * Brand mark: Header lockup from Figma Static Logo Lockups
  * https://www.figma.com/design/3YsJJl5QukJZPkjoOOZahx/?node-id=422-168
@@ -7,7 +7,7 @@
  */
 import { create } from "storybook/internal/theming";
 
-export const okryshtoTheme = create({
+export const okklyTheme = create({
   base: "dark",
 
   // Brand — Figma header lockup (422:179) as default
@@ -17,31 +17,31 @@ export const okryshtoTheme = create({
   brandTarget: "_self",
 
   // Accents — indigo for chrome + selected tree item
-  colorPrimary: "#818cf8", // --okryshto-accent-secondary (indigo)
+  colorPrimary: "#818cf8", // --okkly-accent-secondary (indigo)
   colorSecondary: "#818cf8", // selected tree surface (text stays black via manager-head)
 
   // Surfaces
-  appBg: "#0a0a0b", // --okryshto-bg-canvas
-  appContentBg: "#0f0f12", // --okryshto-bg-surface
+  appBg: "#0a0a0b", // --okkly-bg-canvas
+  appContentBg: "#0f0f12", // --okkly-bg-surface
   appPreviewBg: "#0a0a0b",
-  appBorderColor: "rgba(255, 255, 255, 0.12)", // --okryshto-border-default
+  appBorderColor: "rgba(255, 255, 255, 0.12)", // --okkly-border-default
   appBorderRadius: 10,
 
   // Typography
   fontBase: '"Inter", system-ui, sans-serif',
   fontCode: '"JetBrains Mono", ui-monospace, monospace',
-  textColor: "#f5f5f7", // --okryshto-text-primary
+  textColor: "#f5f5f7", // --okkly-text-primary
   textInverseColor: "#000000", // selected tree item label on indigo
-  textMutedColor: "#6e6e78", // --okryshto-text-muted
+  textMutedColor: "#6e6e78", // --okkly-text-muted
 
   // Toolbar
-  barTextColor: "#a9a9b2", // --okryshto-text-secondary
+  barTextColor: "#a9a9b2", // --okkly-text-secondary
   barSelectedColor: "#818cf8",
   barHoverColor: "#818cf8",
   barBg: "#0f0f12",
 
   // Inputs / controls
-  inputBg: "#16161a", // --okryshto-bg-surface-raised
+  inputBg: "#16161a", // --okkly-bg-surface-raised
   inputBorder: "rgba(255, 255, 255, 0.12)",
   inputTextColor: "#f5f5f7",
   inputBorderRadius: 10,

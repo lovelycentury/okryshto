@@ -39,17 +39,17 @@ const surface: CSSProperties = {
   display: "grid",
   gap: "12px",
   width: "420px",
-  fontFamily: "var(--okryshto-font-family-sans)",
-  color: "var(--okryshto-text-primary)",
+  fontFamily: "var(--okkly-font-family-sans)",
+  color: "var(--okkly-text-primary)",
 };
 
 const card: CSSProperties = {
   width: "420px",
   padding: "18px",
   borderRadius: "14px",
-  border: "1px solid var(--okryshto-border-subtle)",
-  background: "var(--okryshto-bg-surface)",
-  fontFamily: "var(--okryshto-font-family-sans)",
+  border: "1px solid var(--okkly-border-subtle)",
+  background: "var(--okkly-bg-surface)",
+  fontFamily: "var(--okkly-font-family-sans)",
 };
 
 /**
@@ -116,16 +116,16 @@ export const MatchingTheLoadedView: Story = {
             height: "120px",
             borderRadius: "14px",
             background:
-              "linear-gradient(135deg, var(--okryshto-accent-primary), var(--okryshto-accent-secondary))",
+              "linear-gradient(135deg, var(--okkly-accent-primary), var(--okkly-accent-secondary))",
           }}
         />
         <div style={{ display: "grid", gap: "6px", marginTop: "14px" }}>
-          <strong style={{ fontSize: "var(--okryshto-font-size-md)" }}>Night drive vol. 2</strong>
+          <strong style={{ fontSize: "var(--okkly-font-size-md)" }}>Night drive vol. 2</strong>
           <p
             style={{
               margin: 0,
-              fontSize: "var(--okryshto-font-size-sm)",
-              color: "var(--okryshto-text-secondary)",
+              fontSize: "var(--okkly-font-size-sm)",
+              color: "var(--okkly-text-secondary)",
             }}
           >
             Twelve tracks recorded between Kyiv and Berlin, mixed over one very long winter.
@@ -154,8 +154,8 @@ export const Animations: Story = {
         <div key={label} style={{ display: "grid", gap: "8px" }}>
           <span
             style={{
-              fontSize: "var(--okryshto-font-size-sm)",
-              color: "var(--okryshto-text-secondary)",
+              fontSize: "var(--okkly-font-size-sm)",
+              color: "var(--okkly-text-secondary)",
             }}
           >
             {label}

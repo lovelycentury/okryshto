@@ -2,7 +2,7 @@
 // Everything else lives in a `*.module.scss` next to the component it styles.
 @use "./tokens";
 
-// Design-system normalize only scopes to `.okryshto-component`. Profile
+// Design-system normalize only scopes to `.okkly-component`. Profile
 // sections need their own border-box reset so `width: 100%` + gutters don't
 // expand past the viewport (classic content-box overflow).
 *,
@@ -15,7 +15,7 @@
 // and every design-system Dialog portal into `body` and would otherwise fall
 // back to the UA serif.
 body {
-  font-family: var(--profile-font-sans), var(--okryshto-font-family-sans);
+  font-family: var(--profile-font-sans), var(--okkly-font-family-sans);
 }
 
 .app-shell {
@@ -24,9 +24,9 @@ body {
   min-height: 100vh;
   flex-direction: column;
   overflow-x: clip;
-  background: var(--okryshto-bg-canvas);
-  color: var(--okryshto-text-primary);
-  font-family: var(--profile-font-sans), var(--okryshto-font-family-sans);
+  background: var(--okkly-bg-canvas);
+  color: var(--okkly-text-primary);
+  font-family: var(--profile-font-sans), var(--okkly-font-family-sans);
 
   &__skip-link {
     position: absolute;
@@ -36,8 +36,8 @@ body {
     translate: -50% -200%;
     padding: 0.75rem 1.25rem;
     border-radius: var(--profile-radius-sm);
-    background: var(--okryshto-accent-primary);
-    color: var(--okryshto-accent-contrast);
+    background: var(--okkly-accent-primary);
+    color: var(--okkly-accent-contrast);
     text-decoration: none;
 
     &:focus-visible {
@@ -107,32 +107,32 @@ html[data-theme="light"] {
 // black scrim, white stars). Light theme retunes the same scene from the
 // profile app: multiply washes, a pale base, and the night-only layers muted.
 @mixin light-scene {
-  --okryshto-animated-background-base: #fbfbfc;
-  --okryshto-animated-background-glow: #eef2f8;
-  --okryshto-animated-background-n1: #0f9e82;
-  --okryshto-animated-background-n2: #5b63e6;
-  --okryshto-animated-background-n3: #e01e6e;
-  --okryshto-animated-background-n4: #7c3aed;
-  --okryshto-animated-background-n5: #0f9e82;
-  --okryshto-animated-background-star: #5b63e6;
-  --okryshto-animated-background-star-alpha: 0;
-  --okryshto-animated-background-nebula-alpha: 0.48;
-  --okryshto-animated-background-grain-alpha: 0.035;
-  --okryshto-animated-background-bloom-alpha: 0;
+  --okkly-animated-background-base: #fbfbfc;
+  --okkly-animated-background-glow: #eef2f8;
+  --okkly-animated-background-n1: #0f9e82;
+  --okkly-animated-background-n2: #5b63e6;
+  --okkly-animated-background-n3: #e01e6e;
+  --okkly-animated-background-n4: #7c3aed;
+  --okkly-animated-background-n5: #0f9e82;
+  --okkly-animated-background-star: #5b63e6;
+  --okkly-animated-background-star-alpha: 0;
+  --okkly-animated-background-nebula-alpha: 0.48;
+  --okkly-animated-background-grain-alpha: 0.035;
+  --okkly-animated-background-bloom-alpha: 0;
 
-  .okryshto-animated-background__cloud {
+  .okkly-animated-background__cloud {
     mix-blend-mode: multiply;
   }
 
-  .okryshto-animated-background__beacon,
-  .okryshto-animated-background__sparkle,
-  .okryshto-animated-background__spark,
-  .okryshto-animated-background__spoke-body {
+  .okkly-animated-background__beacon,
+  .okkly-animated-background__sparkle,
+  .okkly-animated-background__spark,
+  .okkly-animated-background__spoke-body {
     animation: none;
     opacity: 0;
   }
 
-  .okryshto-animated-background__scrim {
+  .okkly-animated-background__scrim {
     background:
       radial-gradient(120% 80% at 50% 0%, rgb(251 251 252 / 0%) 40%, rgb(251 251 252 / 42%) 100%),
       linear-gradient(

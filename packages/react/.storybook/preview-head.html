@@ -8,7 +8,7 @@
   /* Fallback under the scene until React mounts. */
   html,
   body {
-    background: var(--okryshto-bg-canvas, #0a0a0b) !important;
+    background: var(--okkly-bg-canvas, #0a0a0b) !important;
   }
 
   #storybook-root {
@@ -21,24 +21,24 @@
    * Lock the iframe document height and scroll inside the canvas decorator only —
    * other stories keep normal document flow.
    */
-  html:has(.okryshto-storybook-canvas--brand-docs),
-  html:has(.okryshto-storybook-canvas--brand-docs) body,
-  html:has(.okryshto-storybook-canvas--brand-docs) #storybook-root {
+  html:has(.okkly-storybook-canvas--brand-docs),
+  html:has(.okkly-storybook-canvas--brand-docs) body,
+  html:has(.okkly-storybook-canvas--brand-docs) #storybook-root {
     height: 100%;
     max-height: 100%;
     overflow: hidden;
   }
 
-  html:has(.okryshto-storybook-stage--brand-docs),
-  html:has(.okryshto-storybook-stage--brand-docs) body,
-  html:has(.okryshto-storybook-stage--brand-docs) #storybook-root {
+  html:has(.okkly-storybook-stage--brand-docs),
+  html:has(.okkly-storybook-stage--brand-docs) body,
+  html:has(.okkly-storybook-stage--brand-docs) #storybook-root {
     height: 100%;
     max-height: 100%;
     overflow: hidden;
   }
 
-  .okryshto-storybook-canvas--brand-docs,
-  .okryshto-storybook-stage--brand-docs {
+  .okkly-storybook-canvas--brand-docs,
+  .okkly-storybook-stage--brand-docs {
     height: 100%;
     overflow-x: hidden;
     overflow-y: auto;
@@ -46,9 +46,9 @@
   }
 
   /* Docs inline stories: root fills the capped preview frame. */
-  html:has(.okryshto-storybook-stage--docs),
-  html:has(.okryshto-storybook-stage--docs) body,
-  html:has(.okryshto-storybook-stage--docs) #storybook-root {
+  html:has(.okkly-storybook-stage--docs),
+  html:has(.okkly-storybook-stage--docs) body,
+  html:has(.okkly-storybook-stage--docs) #storybook-root {
     height: 100%;
     margin: 0;
     padding: 0;

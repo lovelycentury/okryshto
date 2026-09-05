@@ -57,8 +57,8 @@ const surface: CSSProperties = {
   flexDirection: "column",
   gap: "16px",
   width: "420px",
-  fontFamily: "var(--okryshto-font-family-sans)",
-  color: "var(--okryshto-text-primary)",
+  fontFamily: "var(--okkly-font-family-sans)",
+  color: "var(--okkly-text-primary)",
 };
 
 // A real surface, not a flat accent block: a transition is only legible against
@@ -66,18 +66,18 @@ const surface: CSSProperties = {
 // used to be — is unreadable at any opacity.
 const panel: CSSProperties = {
   padding: "20px",
-  border: "var(--okryshto-1px-in-rem) solid var(--okryshto-border-subtle)",
+  border: "var(--okkly-1px-in-rem) solid var(--okkly-border-subtle)",
   borderRadius: "14px",
-  background: "var(--okryshto-bg-surface)",
-  color: "var(--okryshto-text-secondary)",
-  fontSize: "var(--okryshto-font-size-sm)",
-  lineHeight: "var(--okryshto-font-line-height-sm)",
+  background: "var(--okkly-bg-surface)",
+  color: "var(--okkly-text-secondary)",
+  fontSize: "var(--okkly-font-size-sm)",
+  lineHeight: "var(--okkly-font-line-height-sm)",
 };
 
 const caption: CSSProperties = {
   margin: 0,
-  fontSize: "var(--okryshto-font-size-sm)",
-  color: "var(--okryshto-text-muted)",
+  fontSize: "var(--okkly-font-size-sm)",
+  color: "var(--okkly-text-muted)",
 };
 
 /**
@@ -134,7 +134,7 @@ export const CrossFade: Story = {
             <div style={stacked}>48,120 listeners this month, up 12.5% on the last.</div>
           </Fade>
           <Fade in={showing === "raw"} timeout={250}>
-            <div style={{ ...stacked, fontFamily: "var(--okryshto-font-family-mono)" }}>
+            <div style={{ ...stacked, fontFamily: "var(--okkly-font-family-mono)" }}>
               {`{ "listeners": 48120, "delta": 0.125 }`}
             </div>
           </Fade>

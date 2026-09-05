@@ -7,8 +7,8 @@ import {
   type MouseEvent as ReactMouseEvent,
   type ReactNode,
 } from "react";
-import { iconX } from "@okryshto/icons";
-import "@okryshto/design-system/components/Dialog/Dialog.scss";
+import { iconX } from "@okkly/icons";
+import "@okkly/design-system/components/Dialog/Dialog.scss";
 import { Modal, type ModalProps } from "../Modal/Modal";
 
 /** `false` removes the cap entirely, as in MUI. */
@@ -73,11 +73,11 @@ export const Dialog = forwardRef<HTMLDivElement, DialogProps>(function Dialog(
   forwardedRef,
 ) {
   const classes = [
-    "okryshto-dialog",
-    open && "okryshto-dialog--open",
-    fullWidth && "okryshto-dialog--full-width",
-    fullScreen && "okryshto-dialog--full-screen",
-    maxWidth !== false && `okryshto-dialog--max-width-${maxWidth}`,
+    "okkly-dialog",
+    open && "okkly-dialog--open",
+    fullWidth && "okkly-dialog--full-width",
+    fullScreen && "okkly-dialog--full-screen",
+    maxWidth !== false && `okkly-dialog--max-width-${maxWidth}`,
     className,
   ]
     .filter(Boolean)
@@ -93,8 +93,8 @@ export const Dialog = forwardRef<HTMLDivElement, DialogProps>(function Dialog(
 
   return (
     <Modal ref={forwardedRef} open={open} onClose={onClose} className={classes} {...rest}>
-      <div className="okryshto-dialog__container" onClick={handleContainerClick}>
-        <div className="okryshto-dialog__paper" role="dialog" aria-modal="true">
+      <div className="okkly-dialog__container" onClick={handleContainerClick}>
+        <div className="okkly-dialog__paper" role="dialog" aria-modal="true">
           {children}
         </div>
       </div>
@@ -116,7 +116,7 @@ export const DialogTitle = forwardRef<HTMLHeadingElement, DialogTitleProps>(func
   { children, className, ...rest },
   forwardedRef,
 ) {
-  const classes = ["okryshto-dialog__title", className].filter(Boolean).join(" ");
+  const classes = ["okkly-dialog__title", className].filter(Boolean).join(" ");
   return (
     <h2 ref={forwardedRef} className={classes} {...rest}>
       {children}
@@ -138,7 +138,7 @@ export const DialogContent = forwardRef<HTMLDivElement, DialogContentProps>(func
   { children, className, ...rest },
   forwardedRef,
 ) {
-  const classes = ["okryshto-dialog__content", className].filter(Boolean).join(" ");
+  const classes = ["okkly-dialog__content", className].filter(Boolean).join(" ");
   return (
     <div ref={forwardedRef} className={classes} {...rest}>
       {children}
@@ -160,7 +160,7 @@ export const DialogActions = forwardRef<HTMLDivElement, DialogActionsProps>(func
   { children, className, ...rest },
   forwardedRef,
 ) {
-  const classes = ["okryshto-dialog__actions", className].filter(Boolean).join(" ");
+  const classes = ["okkly-dialog__actions", className].filter(Boolean).join(" ");
   return (
     <div ref={forwardedRef} className={classes} {...rest}>
       {children}
@@ -174,7 +174,7 @@ export const DialogClose = forwardRef<HTMLButtonElement, DialogCloseProps>(funct
   { className, onClick, "aria-label": ariaLabel = "Close", ...rest },
   forwardedRef,
 ) {
-  const classes = ["okryshto-dialog__close", className].filter(Boolean).join(" ");
+  const classes = ["okkly-dialog__close", className].filter(Boolean).join(" ");
 
   return (
     <button

@@ -13,8 +13,8 @@ import {
   type ReactNode,
   type Ref,
 } from "react";
-import "@okryshto/design-system/components/Tooltip/Tooltip.scss";
-import { useForkRef } from "@okryshto/react-hooks";
+import "@okkly/design-system/components/Tooltip/Tooltip.scss";
+import { useForkRef } from "@okkly/react-hooks";
 import { mergeClassNames } from "../../helpers";
 import { Grow } from "../Grow/Grow";
 import { Popper, type PopperPlacement } from "../Popper/Popper";
@@ -296,7 +296,7 @@ export function Tooltip({
 
   const trigger = cloneElement(children, {
     ref: handleTriggerRef,
-    className: mergeClassNames("okryshto-tooltip__trigger", children.props.className),
+    className: mergeClassNames("okkly-tooltip__trigger", children.props.className),
     ...namingProps,
     onMouseEnter: (event: MouseEvent) => {
       if (!disableHoverListener) scheduleOpen();
@@ -326,8 +326,8 @@ export function Tooltip({
         transition
         role="presentation"
         className={mergeClassNames(
-          "okryshto-tooltip",
-          interactive && "okryshto-tooltip--interactive",
+          "okkly-tooltip",
+          interactive && "okkly-tooltip--interactive",
           className,
         )}
         modifiers={[
@@ -346,21 +346,21 @@ export function Tooltip({
           <Grow {...TransitionProps} timeout={transitionDuration}>
             <div
               className={mergeClassNames(
-                "okryshto-tooltip__popup",
-                `okryshto-tooltip__popup--${resolvedPlacement.split("-")[0]}`,
-                !arrow && "okryshto-tooltip__popup--no-arrow",
+                "okkly-tooltip__popup",
+                `okkly-tooltip__popup--${resolvedPlacement.split("-")[0]}`,
+                !arrow && "okkly-tooltip__popup--no-arrow",
               )}
               // `data-popper-placement` is what the arrow's CSS keys off, so it
               // follows the side the tooltip actually landed on after a flip,
               // not the side originally requested.
               data-popper-placement={resolvedPlacement}
             >
-              <span className="okryshto-tooltip__bubble" role="tooltip" id={tooltipId}>
+              <span className="okkly-tooltip__bubble" role="tooltip" id={tooltipId}>
                 {title}
               </span>
               {arrow && (
                 <span
-                  className="okryshto-tooltip__arrow"
+                  className="okkly-tooltip__arrow"
                   ref={setArrowEl}
                   data-popper-arrow=""
                   aria-hidden="true"

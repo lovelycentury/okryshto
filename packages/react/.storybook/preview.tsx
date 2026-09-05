@@ -1,15 +1,15 @@
 import type { Preview } from "@storybook/react";
-import "@okryshto/design-system/styles/index.scss";
+import "@okkly/design-system/styles/index.scss";
 // Storybook-only sizing for text controls — see the file for why it is not in
 // the design system.
 import "./preview.css";
 import "./docs-template.scss";
-import { okryshtoTheme } from "./theme";
+import { okklyTheme } from "./theme";
 import docsTemplate from "./docs-template.mdx";
 import { StaticBackground } from "../src/components/StaticBackground/StaticBackground";
 
 /**
- * Components consume design tokens as CSS custom properties (`--okryshto-*`),
+ * Components consume design tokens as CSS custom properties (`--okkly-*`),
  * not SCSS `$variables` — they're runtime values. Load the token root once
  * globally here; real apps do the same at their entry point.
  *
@@ -34,7 +34,7 @@ const preview: Preview = {
     // No Storybook chrome padding — the stage must be edge-to-edge.
     layout: "fullscreen",
     docs: {
-      theme: okryshtoTheme,
+      theme: okklyTheme,
       page: docsTemplate,
       toc: {
         title: "Table of Contents",
@@ -75,34 +75,33 @@ const preview: Preview = {
       const isBrandDocs = Boolean(context.parameters.brandDocs);
       const isDocs = context.viewMode === "docs";
       const skipScene =
-        context.title === "Media/AnimatedBackground" ||
-        context.title === "Media/StaticBackground";
+        context.title === "Media/AnimatedBackground" || context.title === "Media/StaticBackground";
 
       return (
         <div
           className={[
-            "okryshto-storybook-stage",
-            isDocs && "okryshto-storybook-stage--docs",
-            isBrandDocs && "okryshto-storybook-stage--brand-docs",
+            "okkly-storybook-stage",
+            isDocs && "okkly-storybook-stage--docs",
+            isBrandDocs && "okkly-storybook-stage--brand-docs",
           ]
             .filter(Boolean)
             .join(" ")}
         >
           {!skipScene && (
-            <div className="okryshto-storybook-bg" aria-hidden="true">
+            <div className="okkly-storybook-bg" aria-hidden="true">
               <StaticBackground preset="aurora" quality="medium" scrim />
             </div>
           )}
           <div
             className={[
-              "okryshto-storybook-canvas",
-              isBrandDocs && "okryshto-storybook-canvas--brand-docs",
+              "okkly-storybook-canvas",
+              isBrandDocs && "okkly-storybook-canvas--brand-docs",
             ]
               .filter(Boolean)
               .join(" ")}
             style={{
-              color: "var(--okryshto-text-primary)",
-              fontFamily: "var(--okryshto-font-family-sans)",
+              color: "var(--okkly-text-primary)",
+              fontFamily: "var(--okkly-font-family-sans)",
               boxSizing: "border-box",
             }}
           >

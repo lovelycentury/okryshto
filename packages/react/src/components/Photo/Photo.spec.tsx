@@ -7,63 +7,63 @@ describe("Photo", () => {
     const { container } = render(<Photo image="/test.jpg" alt="Test" />);
     const root = container.firstChild as HTMLElement;
     expect(root).toHaveClass(
-      "okryshto-component",
-      "okryshto-photo",
-      "okryshto-photo--plain",
-      "okryshto-photo--size-md",
+      "okkly-component",
+      "okkly-photo",
+      "okkly-photo--plain",
+      "okkly-photo--size-md",
     );
-    expect(root.className).not.toMatch(/okryshto-photo--radius-/);
+    expect(root.className).not.toMatch(/okkly-photo--radius-/);
   });
 
   it("applies radius modifier", () => {
     const { container } = render(<Photo alt="Test" radius="lg" />);
-    expect(container.firstChild).toHaveClass("okryshto-photo--radius-lg");
+    expect(container.firstChild).toHaveClass("okkly-photo--radius-lg");
   });
 
   it("applies size modifier", () => {
     const { container } = render(<Photo alt="Test" size="sm" />);
-    expect(container.firstChild).toHaveClass("okryshto-photo--size-sm");
+    expect(container.firstChild).toHaveClass("okkly-photo--size-sm");
   });
 
   it("shows a silhouette placeholder when image is missing", () => {
     render(<Photo alt="Placeholder" />);
     expect(screen.getByRole("img", { name: "Placeholder" })).toHaveClass(
-      "okryshto-photo__placeholder",
+      "okkly-photo__placeholder",
     );
   });
 
   it("shows placeholder after image load error", () => {
     render(<Photo image="/broken.jpg" alt="Broken" />);
     fireEvent.error(screen.getByAltText("Broken"));
-    expect(screen.getByRole("img", { name: "Broken" })).toHaveClass("okryshto-photo__placeholder");
+    expect(screen.getByRole("img", { name: "Broken" })).toHaveClass("okkly-photo__placeholder");
   });
 
   it("renders caption for scrim variant", () => {
     render(<Photo alt="Test" variant="scrim" caption="Oleksii K." />);
-    expect(screen.getByText("Oleksii K.")).toHaveClass("okryshto-photo__caption");
+    expect(screen.getByText("Oleksii K.")).toHaveClass("okkly-photo__caption");
   });
 
   // A caption is light text laid straight onto the photo, so it brings the scrim
   // with it rather than being silently dropped on the variants that lack one.
   it("brings its own scrim when a caption is set on the plain variant", () => {
     const { container } = render(<Photo alt="Test" variant="plain" caption="Oleksii K." />);
-    expect(screen.getByText("Oleksii K.")).toHaveClass("okryshto-photo__caption");
-    expect(container.firstChild).toHaveClass("okryshto-photo--scrim");
+    expect(screen.getByText("Oleksii K.")).toHaveClass("okkly-photo__caption");
+    expect(container.firstChild).toHaveClass("okkly-photo--scrim");
   });
 
   it("applies noir and scrim modifiers for noir variant", () => {
     const { container } = render(<Photo alt="Test" variant="noir" caption="Oleksii K." />);
-    expect(container.firstChild).toHaveClass("okryshto-photo--noir", "okryshto-photo--scrim");
+    expect(container.firstChild).toHaveClass("okkly-photo--noir", "okkly-photo--scrim");
   });
 
   it("applies transparent modifier for cutout variant", () => {
     const { container } = render(<Photo alt="Test" variant="cutout" />);
-    expect(container.firstChild).toHaveClass("okryshto-photo--transparent");
+    expect(container.firstChild).toHaveClass("okkly-photo--transparent");
   });
 
   it("ignores scrim/noir overlays when transparent", () => {
     const { container } = render(<Photo alt="Test" variant="noir" transparent />);
-    expect(container.firstChild).not.toHaveClass("okryshto-photo--scrim", "okryshto-photo--noir");
+    expect(container.firstChild).not.toHaveClass("okkly-photo--scrim", "okkly-photo--noir");
   });
 
   // The skeleton is opt-in, and the image used to be held invisible waiting for
@@ -76,8 +76,8 @@ describe("Photo", () => {
   it("keeps the silhouette rather than a skeleton when loading with no image", () => {
     const { container } = render(<Photo alt="Placeholder" loading />);
     expect(screen.getByRole("img", { name: "Placeholder" })).toHaveClass(
-      "okryshto-photo__placeholder",
+      "okkly-photo__placeholder",
     );
-    expect(container.querySelector(".okryshto-photo__skeleton")).toBeNull();
+    expect(container.querySelector(".okkly-photo__skeleton")).toBeNull();
   });
 });

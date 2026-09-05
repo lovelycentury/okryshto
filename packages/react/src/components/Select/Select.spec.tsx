@@ -35,8 +35,8 @@ describe("Select", () => {
 
   it("renders default size without a size modifier", () => {
     const { container } = render(<Select label="Team" options={options} />);
-    expect(container.querySelector(".okryshto-select")?.className).not.toMatch(
-      /okryshto-select--(small|large)/,
+    expect(container.querySelector(".okkly-select")?.className).not.toMatch(
+      /okkly-select--(small|large)/,
     );
   });
 
@@ -44,8 +44,8 @@ describe("Select", () => {
     const { container } = render(
       <Select label="Team" options={options} size="small" error helperText="Required" />,
     );
-    expect(container.querySelector(".okryshto-select")).toHaveClass("okryshto-select--small");
-    expect(container.querySelector(".okryshto-select")).toHaveClass("okryshto-select--error");
+    expect(container.querySelector(".okkly-select")).toHaveClass("okkly-select--small");
+    expect(container.querySelector(".okkly-select")).toHaveClass("okkly-select--error");
   });
 
   it("opens the listbox and selects an option", () => {
@@ -93,10 +93,10 @@ describe("Select", () => {
     // so they only work because the whole control box is the click target.
     const { container } = render(<Select label="Team" options={options} />);
 
-    fireEvent.click(container.querySelector(".okryshto-select__chevron")!);
+    fireEvent.click(container.querySelector(".okkly-select__chevron")!);
     expect(screen.getByRole("listbox")).toBeInTheDocument();
 
-    fireEvent.click(container.querySelector(".okryshto-select__control")!);
+    fireEvent.click(container.querySelector(".okkly-select__control")!);
     expect(screen.queryByRole("listbox")).not.toBeInTheDocument();
   });
 
@@ -117,7 +117,7 @@ describe("Select", () => {
     // controlled-open popup used to see a null anchor and never get positioned.
     render(<Select label="Team" options={options} open />);
 
-    const popper = document.querySelector<HTMLElement>(".okryshto-select-popper");
+    const popper = document.querySelector<HTMLElement>(".okkly-select-popper");
     expect(popper).not.toBeNull();
     expect(popper).toHaveAttribute("data-popper-placement");
   });
@@ -128,8 +128,8 @@ describe("Select", () => {
     render(<Select label="Team" options={options} size="small" />);
     fireEvent.click(screen.getByRole("combobox"));
 
-    expect(document.querySelector(".okryshto-select-popover")).toHaveClass(
-      "okryshto-select-popover--small",
+    expect(document.querySelector(".okkly-select-popover")).toHaveClass(
+      "okkly-select-popover--small",
     );
   });
 
@@ -202,7 +202,7 @@ describe("Select", () => {
     fireEvent.keyDown(trigger, { key: "ArrowDown" });
 
     expect(screen.getByRole("option", { name: "Kyiv" })).toHaveClass(
-      "okryshto-select__option--highlighted",
+      "okkly-select__option--highlighted",
     );
   });
 
@@ -225,7 +225,7 @@ describe("Select", () => {
   it("marks the field required", () => {
     const { container } = render(<Select label="Team" options={options} required />);
     expect(screen.getByRole("combobox")).toHaveAttribute("aria-required", "true");
-    expect(container.querySelector(".okryshto-select__required")).toHaveTextContent("*");
+    expect(container.querySelector(".okkly-select__required")).toHaveTextContent("*");
   });
 
   it("supports renderValue", () => {
@@ -314,9 +314,9 @@ describe("Select", () => {
       );
 
       const row = screen.getByRole("option", { name: "Paris Europe" });
-      expect(row.querySelector(".okryshto-select__option-body")).toBeInTheDocument();
-      expect(row.querySelector(".okryshto-select__option-label")).toBeInTheDocument();
-      expect(row.querySelector(".okryshto-select__option-meta")).toBeInTheDocument();
+      expect(row.querySelector(".okkly-select__option-body")).toBeInTheDocument();
+      expect(row.querySelector(".okkly-select__option-label")).toBeInTheDocument();
+      expect(row.querySelector(".okkly-select__option-meta")).toBeInTheDocument();
     });
 
     it("keeps the combobox working when renderInput takes the trigger over", () => {

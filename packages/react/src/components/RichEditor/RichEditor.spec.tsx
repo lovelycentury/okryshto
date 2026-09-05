@@ -10,26 +10,24 @@ describe("RichEditor", () => {
 
   it("renders with default classes and no modifier classes", () => {
     const { container } = render(<RichEditor label="Description" />);
-    const root = container.querySelector(".okryshto-rich-editor");
-    expect(root).toHaveClass("okryshto-component", "okryshto-rich-editor");
+    const root = container.querySelector(".okkly-rich-editor");
+    expect(root).toHaveClass("okkly-component", "okkly-rich-editor");
     expect(root?.className).not.toMatch(
-      /okryshto-rich-editor--(error|disabled|readonly|color-|not-full-width)/,
+      /okkly-rich-editor--(error|disabled|readonly|color-|not-full-width)/,
     );
   });
 
   it("applies the error modifier", () => {
     const { container } = render(<RichEditor label="Description" error />);
-    expect(container.querySelector(".okryshto-rich-editor")).toHaveClass(
-      "okryshto-rich-editor--error",
-    );
+    expect(container.querySelector(".okkly-rich-editor")).toHaveClass("okkly-rich-editor--error");
   });
 
   it("disables editing and marks aria-disabled", async () => {
     const { container } = render(
       <RichEditor label="Description" disabled defaultValue="<p>Hi</p>" />,
     );
-    expect(container.querySelector(".okryshto-rich-editor")).toHaveClass(
-      "okryshto-rich-editor--disabled",
+    expect(container.querySelector(".okkly-rich-editor")).toHaveClass(
+      "okkly-rich-editor--disabled",
     );
 
     await waitFor(() => {

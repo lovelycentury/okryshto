@@ -2,7 +2,7 @@
 
 import { useEffect, useId, useRef, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { Fab, Icon, type FabColor } from "@okryshto/react";
+import { Fab, Icon, type FabColor } from "@okkly/react";
 import { trackLocaleSwitch } from "@/lib/analyticsEvents";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { routing, type Locale } from "@/i18n/routing";

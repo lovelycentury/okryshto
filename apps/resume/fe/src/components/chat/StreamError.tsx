@@ -1,6 +1,6 @@
 import { useSetAtom } from "jotai";
 import { useTranslations } from "use-intl";
-import { Button, Icon, Typography } from "@okryshto/react";
+import { Button, Icon, Typography } from "@okkly/react";
 
 import { modelMenuOpenAtom } from "../../state/atoms.js";
 import { useChatController } from "../../hooks/chat-context.js";

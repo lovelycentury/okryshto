@@ -1,5 +1,5 @@
 import { getTranslations } from "next-intl/server";
-import { LinkCard } from "@okryshto/react";
+import { LinkCard } from "@okkly/react";
 import SectionHeading from "@/components/SectionHeading/SectionHeading";
 import { SELECTED_LINKS } from "@/lib/profile";
 import styles from "./LinksSection.module.scss";

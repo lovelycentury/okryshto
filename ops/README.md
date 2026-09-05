@@ -3,8 +3,8 @@
 Sites on one server:
 
 - https://profile.okryshto.dev — Next.js SSR
-- https://storybook.okryshto.dev — static `@okryshto/react`
-- https://iam.okryshto.dev — Keycloak (login theme from `@okryshto/iam`)
+- https://storybook.okryshto.dev — static `@okkly/react`
+- https://iam.okryshto.dev — Keycloak (login theme from `@okkly/iam`)
 - https://resume.okryshto.dev — Vite SPA, served static (`apps/resume/fe`)
 - https://resume-api.okryshto.dev — RAG backend (`apps/resume/be`). Split origin:
   the SPA is built with `VITE_API_BASE_URL=https://resume-api.okryshto.dev` and
@@ -35,15 +35,15 @@ Sites on one server:
                                                └───────────────┘
 ```
 
-| File                    | Role                                                          |
-| ----------------------- | ------------------------------------------------------------ |
-| `Caddyfile`             | inner proxy: Host → profile / storybook / iam / resume / resume-api (HTTP) |
-| `docker-compose.yml`    | stack: caddy + profile + storybook + iam + resume-{fe,be,libsql} |
-| `Dockerfile.profile`    | Next.js `output: "standalone"`                               |
-| `Dockerfile.storybook`  | Vite Storybook → static files inside `caddy:alpine`          |
-| `Dockerfile.iam`        | Keycloakify theme JAR inside `quay.io/keycloak/keycloak`     |
-| `Dockerfile.resume-fe`  | Vite SPA → static files inside `caddy:alpine`                |
-| `spa.Caddyfile`         | Caddy inside the storybook / resume-fe images: SPA fallback, cache |
+| File                   | Role                                                                       |
+| ---------------------- | -------------------------------------------------------------------------- |
+| `Caddyfile`            | inner proxy: Host → profile / storybook / iam / resume / resume-api (HTTP) |
+| `docker-compose.yml`   | stack: caddy + profile + storybook + iam + resume-{fe,be,libsql}           |
+| `Dockerfile.profile`   | Next.js `output: "standalone"`                                             |
+| `Dockerfile.storybook` | Vite Storybook → static files inside `caddy:alpine`                        |
+| `Dockerfile.iam`       | Keycloakify theme JAR inside `quay.io/keycloak/keycloak`                   |
+| `Dockerfile.resume-fe` | Vite SPA → static files inside `caddy:alpine`                              |
+| `spa.Caddyfile`        | Caddy inside the storybook / resume-fe images: SPA fallback, cache         |
 
 `resume-be` and `resume-ingest` build from `apps/resume/be/Dockerfile`
 (stages `runtime` and `build`).
@@ -179,6 +179,6 @@ Same for `ops/Dockerfile.storybook`.
 Keycloak theme (set bootstrap admin before `compose up`):
 
 ```bash
-docker build -f ops/Dockerfile.iam -t ghcr.io/lovelycentury/okryshto/iam:latest .
+docker build -f ops/Dockerfile.iam -t ghcr.io/lovelycentury/okkly/iam:latest .
 # KC_BOOTSTRAP_ADMIN_USERNAME / KC_BOOTSTRAP_ADMIN_PASSWORD in the compose env
 ```

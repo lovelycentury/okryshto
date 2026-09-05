@@ -1,6 +1,6 @@
 import { useState, type CSSProperties } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { iconCheck, iconHeart, iconPlus, iconShare } from "@okryshto/icons";
+import { iconCheck, iconHeart, iconPlus, iconShare } from "@okkly/icons";
 import { Button } from "../Button/Button";
 import { Zoom } from "./Zoom";
 
@@ -61,8 +61,8 @@ const surface: CSSProperties = {
   alignItems: "flex-start",
   gap: "16px",
   width: "420px",
-  fontFamily: "var(--okryshto-font-family-sans)",
-  color: "var(--okryshto-text-primary)",
+  fontFamily: "var(--okkly-font-family-sans)",
+  color: "var(--okkly-text-primary)",
 };
 
 // A round accent button rather than a flat block of colour: zoom is read from the
@@ -75,25 +75,25 @@ const fab: CSSProperties = {
   width: "56px",
   height: "56px",
   borderRadius: "50%",
-  background: "var(--okryshto-accent-primary)",
-  color: "var(--okryshto-bg-base)",
+  background: "var(--okkly-accent-primary)",
+  color: "var(--okkly-bg-base)",
   boxShadow: "0 0.5rem 1.5rem rgba(0, 0, 0, 0.5)",
 };
 
 const panel: CSSProperties = {
   padding: "20px",
-  border: "var(--okryshto-1px-in-rem) solid var(--okryshto-border-subtle)",
+  border: "var(--okkly-1px-in-rem) solid var(--okkly-border-subtle)",
   borderRadius: "14px",
-  background: "var(--okryshto-bg-surface)",
-  color: "var(--okryshto-text-secondary)",
-  fontSize: "var(--okryshto-font-size-sm)",
-  lineHeight: "var(--okryshto-font-line-height-sm)",
+  background: "var(--okkly-bg-surface)",
+  color: "var(--okkly-text-secondary)",
+  fontSize: "var(--okkly-font-size-sm)",
+  lineHeight: "var(--okkly-font-line-height-sm)",
 };
 
 const caption: CSSProperties = {
   margin: 0,
-  fontSize: "var(--okryshto-font-size-sm)",
-  color: "var(--okryshto-text-muted)",
+  fontSize: "var(--okkly-font-size-sm)",
+  color: "var(--okkly-text-muted)",
 };
 
 const Glyph = ({ svg }: { svg: string }) => (
@@ -173,9 +173,7 @@ export const SwappingIcons: Story = {
             </div>
           </Zoom>
           <Zoom in={saved} timeout={{ enter: 300, exit: 150 }}>
-            <div
-              style={{ ...fab, gridArea: "stack", background: "var(--okryshto-accent-secondary)" }}
-            >
+            <div style={{ ...fab, gridArea: "stack", background: "var(--okkly-accent-secondary)" }}>
               <Glyph svg={iconCheck} />
             </div>
           </Zoom>

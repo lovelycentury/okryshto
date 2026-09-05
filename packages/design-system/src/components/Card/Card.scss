@@ -1,80 +1,76 @@
 @use "../../styles/mixins/layers.scss";
 
-.okryshto-card {
+.okkly-card {
   @include layers.component() {
-    --okryshto-card-tone: var(--okryshto-accent-primary);
-    --okryshto-card-background-color: var(--okryshto-bg-surface);
+    --okkly-card-tone: var(--okkly-accent-primary);
+    --okkly-card-background-color: var(--okkly-bg-surface);
     // Mixed into the base rather than named as a fixed surface token: `glass` and
     // `outline` have no solid colour to step up from, and a literal token would
     // step *down* on `raised`, which is already the lighter surface.
-    --okryshto-card-background-color-hover: color-mix(
+    --okkly-card-background-color-hover: color-mix(
       in srgb,
-      var(--okryshto-text-primary) 5%,
-      var(--okryshto-card-background-color)
+      var(--okkly-text-primary) 5%,
+      var(--okkly-card-background-color)
     );
-    --okryshto-card-border-color: var(--okryshto-border-subtle);
-    --okryshto-card-border-color-hover: var(--okryshto-border-strong);
-    --okryshto-card-border-radius: 1.25rem;
-    --okryshto-card-padding: 1rem;
-    --okryshto-card-glow: none;
-    --okryshto-card-shadow: none;
-    // Not `--okryshto-shadow-soft-bottom`: the shared shadow tokens are 10% black,
+    --okkly-card-border-color: var(--okkly-border-subtle);
+    --okkly-card-border-color-hover: var(--okkly-border-strong);
+    --okkly-card-border-radius: 1.25rem;
+    --okkly-card-padding: 1rem;
+    --okkly-card-glow: none;
+    --okkly-card-shadow: none;
+    // Not `--okkly-shadow-soft-bottom`: the shared shadow tokens are 10% black,
     // which is calibrated for a light surface and disappears entirely on this
     // canvas. A lifted card on a dark theme needs a shadow dark enough to read
     // against near-black.
-    --okryshto-card-shadow-raised: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.5);
+    --okkly-card-shadow-raised: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.5);
 
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    border: var(--okryshto-1px-in-rem) solid var(--okryshto-card-border-color);
-    border-radius: var(--okryshto-card-border-radius);
-    background: var(--okryshto-card-background-color);
-    box-shadow: var(--okryshto-card-shadow);
-    filter: var(--okryshto-card-glow);
+    border: var(--okkly-1px-in-rem) solid var(--okkly-card-border-color);
+    border-radius: var(--okkly-card-border-radius);
+    background: var(--okkly-card-background-color);
+    box-shadow: var(--okkly-card-shadow);
+    filter: var(--okkly-card-glow);
     transition:
-      border-color var(--okryshto-duration-sm) ease,
-      background-color var(--okryshto-duration-sm) ease,
-      filter var(--okryshto-duration-sm) ease,
-      transform var(--okryshto-duration-sm) ease,
-      box-shadow var(--okryshto-duration-sm) ease;
+      border-color var(--okkly-duration-sm) ease,
+      background-color var(--okkly-duration-sm) ease,
+      filter var(--okkly-duration-sm) ease,
+      transform var(--okkly-duration-sm) ease,
+      box-shadow var(--okkly-duration-sm) ease;
 
     @media (prefers-reduced-motion: reduce) {
       transition-duration: 0.01ms !important;
     }
 
     &--raised {
-      --okryshto-card-background-color: var(--okryshto-bg-surface-raised);
-      --okryshto-card-shadow: var(--okryshto-card-shadow-raised);
+      --okkly-card-background-color: var(--okkly-bg-surface-raised);
+      --okkly-card-shadow: var(--okkly-card-shadow-raised);
     }
 
     &--glass {
-      --okryshto-card-background-color: var(--okryshto-glass-fill);
-      --okryshto-card-border-color: var(--okryshto-glass-border);
+      --okkly-card-background-color: var(--okkly-glass-fill);
+      --okkly-card-border-color: var(--okkly-glass-border);
     }
 
     &--outline {
-      --okryshto-card-background-color: transparent;
-      --okryshto-card-border-color: var(--okryshto-border-default);
+      --okkly-card-background-color: transparent;
+      --okkly-card-border-color: var(--okkly-border-default);
     }
 
     &--aura {
-      --okryshto-card-glow: drop-shadow(
-        0 0 0.75rem color-mix(in srgb, var(--okryshto-card-tone) 30%, transparent)
+      --okkly-card-glow: drop-shadow(
+        0 0 0.75rem color-mix(in srgb, var(--okkly-card-tone) 30%, transparent)
       );
-      border-color: color-mix(
-        in srgb,
-        var(--okryshto-card-tone) 40%,
-        var(--okryshto-border-subtle)
-      );
+      border-color: color-mix(in srgb, var(--okkly-card-tone) 40%, var(--okkly-border-subtle));
     }
 
     &--color-dante {
-      --okryshto-card-tone: var(--okryshto-accent-dante);
+      --okkly-card-tone: var(--okkly-accent-dante);
     }
 
     &--color-indigo {
-      --okryshto-card-tone: var(--okryshto-accent-secondary);
+      --okkly-card-tone: var(--okkly-accent-secondary);
     }
 
     // The lift is what tells the user the whole card is the target — the border
@@ -83,31 +79,31 @@
       cursor: pointer;
 
       &:hover {
-        --okryshto-card-shadow: var(--okryshto-card-shadow-raised);
+        --okkly-card-shadow: var(--okkly-card-shadow-raised);
 
         transform: translateY(-0.125rem);
-        background: var(--okryshto-card-background-color-hover);
-        border-color: var(--okryshto-card-border-color-hover);
+        background: var(--okkly-card-background-color-hover);
+        border-color: var(--okkly-card-border-color-hover);
       }
     }
 
     &--padding-none {
-      --okryshto-card-padding: 0;
+      --okkly-card-padding: 0;
     }
 
     &--padding-sm {
-      --okryshto-card-padding: 0.75rem;
+      --okkly-card-padding: 0.75rem;
     }
 
     &--padding-lg {
-      --okryshto-card-padding: 1.5rem;
+      --okkly-card-padding: 1.5rem;
     }
 
     &__header {
       display: flex;
       align-items: flex-start;
       gap: 0.625rem;
-      padding: var(--okryshto-card-padding);
+      padding: var(--okkly-card-padding);
       padding-block-end: 0;
     }
 
@@ -125,19 +121,19 @@
 
     &__title {
       margin: 0;
-      font-family: var(--okryshto-font-family-sans);
-      font-weight: var(--okryshto-font-weight-medium);
-      font-size: var(--okryshto-font-size-md);
-      line-height: var(--okryshto-font-line-height-md);
-      color: var(--okryshto-text-primary);
+      font-family: var(--okkly-font-family-sans);
+      font-weight: var(--okkly-font-weight-medium);
+      font-size: var(--okkly-font-size-md);
+      line-height: var(--okkly-font-line-height-md);
+      color: var(--okkly-text-primary);
     }
 
     &__subheader {
       margin: 0;
-      font-family: var(--okryshto-font-family-sans);
-      font-size: var(--okryshto-font-size-sm);
-      line-height: var(--okryshto-font-line-height-sm);
-      color: var(--okryshto-text-muted);
+      font-family: var(--okkly-font-family-sans);
+      font-size: var(--okkly-font-size-sm);
+      line-height: var(--okkly-font-line-height-sm);
+      color: var(--okkly-text-muted);
     }
 
     &__action {
@@ -149,15 +145,15 @@
       display: block;
       width: 100%;
       object-fit: cover;
-      background: var(--okryshto-bg-inset);
+      background: var(--okkly-bg-inset);
     }
 
     &__content {
-      padding: var(--okryshto-card-padding);
-      font-family: var(--okryshto-font-family-sans);
-      font-size: var(--okryshto-font-size-sm);
-      line-height: var(--okryshto-font-line-height-sm);
-      color: var(--okryshto-text-secondary);
+      padding: var(--okkly-card-padding);
+      font-family: var(--okkly-font-family-sans);
+      font-size: var(--okkly-font-size-sm);
+      line-height: var(--okkly-font-line-height-sm);
+      color: var(--okkly-text-secondary);
     }
 
     &__actions {
@@ -165,8 +161,8 @@
       align-items: center;
       flex-wrap: wrap;
       gap: 0.625rem;
-      padding: 0.75rem var(--okryshto-card-padding) var(--okryshto-card-padding);
-      border-top: var(--okryshto-1px-in-rem) solid var(--okryshto-border-subtle);
+      padding: 0.75rem var(--okkly-card-padding) var(--okkly-card-padding);
+      border-top: var(--okkly-1px-in-rem) solid var(--okkly-border-subtle);
     }
   }
 }

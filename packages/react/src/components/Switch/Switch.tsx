@@ -8,7 +8,7 @@ import {
   type InputHTMLAttributes,
   type ReactNode,
 } from "react";
-import "@okryshto/design-system/components/Switch/Switch.scss";
+import "@okkly/design-system/components/Switch/Switch.scss";
 
 export type SwitchSize = "small" | "medium" | "large";
 export type SwitchColor = "primary" | "dante" | "indigo" | "violet" | "ember" | "ice";
@@ -102,10 +102,10 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(function Switch(
   };
 
   const classes = [
-    "okryshto-component",
-    "okryshto-switch",
-    color !== "primary" && `okryshto-switch--color-${color}`,
-    size !== "medium" && `okryshto-switch--${size}`,
+    "okkly-component",
+    "okkly-switch",
+    color !== "primary" && `okkly-switch--color-${color}`,
+    size !== "medium" && `okkly-switch--${size}`,
     className,
   ]
     .filter(Boolean)
@@ -113,24 +113,24 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(function Switch(
 
   return (
     <label htmlFor={inputId} className={classes}>
-      <span className="okryshto-switch__control">
+      <span className="okkly-switch__control">
         <input
           ref={setRef}
           id={inputId}
           type="checkbox"
           role="switch"
-          className="okryshto-switch__input"
+          className="okkly-switch__input"
           checked={checked}
           defaultChecked={defaultChecked}
           disabled={disabled}
           onChange={(event) => onChange?.(event, event.target.checked)}
           {...rest}
         />
-        <span className="okryshto-switch__track" aria-hidden="true">
-          <span className="okryshto-switch__thumb" />
+        <span className="okkly-switch__track" aria-hidden="true">
+          <span className="okkly-switch__thumb" />
         </span>
       </span>
-      {label && <span className="okryshto-switch__label">{label}</span>}
+      {label && <span className="okkly-switch__label">{label}</span>}
     </label>
   );
 });

@@ -1,68 +1,68 @@
 @use "../../styles/mixins/layers.scss";
 
-.okryshto-avatar {
+.okkly-avatar {
   @include layers.component() {
     // 1. full variable API, defaults = size "md", shape "circle", color "mint"
-    --okryshto-avatar-size: 3rem; // 48px
-    --okryshto-avatar-border-radius: 9999px;
-    --okryshto-avatar-rounded-radius: 0.8125rem; // 13px
-    --okryshto-avatar-border-color: var(--okryshto-glass-border);
-    --okryshto-avatar-gradient-start: var(--okryshto-accent-primary);
-    --okryshto-avatar-gradient-end: var(--okryshto-accent-secondary);
-    --okryshto-avatar-text-color: var(--okryshto-accent-contrast);
-    --okryshto-avatar-font-size: 1.0625rem; // 17px
-    --okryshto-avatar-line-height: 1.5rem; // 24px
-    --okryshto-avatar-status-size: 0.75rem; // 12px
-    --okryshto-avatar-status-border-color: var(--okryshto-bg-canvas);
+    --okkly-avatar-size: 3rem; // 48px
+    --okkly-avatar-border-radius: 9999px;
+    --okkly-avatar-rounded-radius: 0.8125rem; // 13px
+    --okkly-avatar-border-color: var(--okkly-glass-border);
+    --okkly-avatar-gradient-start: var(--okkly-accent-primary);
+    --okkly-avatar-gradient-end: var(--okkly-accent-secondary);
+    --okkly-avatar-text-color: var(--okkly-accent-contrast);
+    --okkly-avatar-font-size: 1.0625rem; // 17px
+    --okkly-avatar-line-height: 1.5rem; // 24px
+    --okkly-avatar-status-size: 0.75rem; // 12px
+    --okkly-avatar-status-border-color: var(--okkly-bg-canvas);
 
     position: relative;
     display: inline-flex;
     flex-shrink: 0;
     align-items: center;
     justify-content: center;
-    width: var(--okryshto-avatar-size);
-    height: var(--okryshto-avatar-size);
+    width: var(--okkly-avatar-size);
+    height: var(--okkly-avatar-size);
     overflow: hidden;
-    border: var(--okryshto-1px-in-rem) solid var(--okryshto-avatar-border-color);
-    border-radius: var(--okryshto-avatar-border-radius);
+    border: var(--okkly-1px-in-rem) solid var(--okkly-avatar-border-color);
+    border-radius: var(--okkly-avatar-border-radius);
     background: linear-gradient(
       135deg,
-      var(--okryshto-avatar-gradient-start) 14.286%,
-      var(--okryshto-avatar-gradient-end) 85.714%
+      var(--okkly-avatar-gradient-start) 14.286%,
+      var(--okkly-avatar-gradient-end) 85.714%
     );
-    color: var(--okryshto-avatar-text-color);
-    font-family: var(--okryshto-font-family-sans);
+    color: var(--okkly-avatar-text-color);
+    font-family: var(--okkly-font-family-sans);
     user-select: none;
 
     // 2. shape — circle (default) needs no modifier
     &--rounded {
-      --okryshto-avatar-border-radius: var(--okryshto-avatar-rounded-radius);
+      --okkly-avatar-border-radius: var(--okkly-avatar-rounded-radius);
     }
 
     // 3. size — md (default) needs no modifier
     &--sm {
-      --okryshto-avatar-size: 2.25rem; // 36px
-      --okryshto-avatar-rounded-radius: 0.625rem; // 10px
-      --okryshto-avatar-font-size: var(--okryshto-font-size-sm);
-      --okryshto-avatar-line-height: var(--okryshto-font-line-height-sm);
-      --okryshto-avatar-status-size: 0.5625rem; // 9px
+      --okkly-avatar-size: 2.25rem; // 36px
+      --okkly-avatar-rounded-radius: 0.625rem; // 10px
+      --okkly-avatar-font-size: var(--okkly-font-size-sm);
+      --okkly-avatar-line-height: var(--okkly-font-line-height-sm);
+      --okkly-avatar-status-size: 0.5625rem; // 9px
     }
 
     &--lg {
-      --okryshto-avatar-size: 4rem; // 64px
-      --okryshto-avatar-rounded-radius: 1.0625rem; // 17px
-      --okryshto-avatar-status-size: 1rem; // 16px
+      --okkly-avatar-size: 4rem; // 64px
+      --okkly-avatar-rounded-radius: 1.0625rem; // 17px
+      --okkly-avatar-status-size: 1rem; // 16px
     }
 
     // 4. color (tone) — mint (default) needs no modifier
     &--color-dante {
-      --okryshto-avatar-gradient-start: var(--okryshto-accent-dante);
-      --okryshto-avatar-gradient-end: var(--okryshto-accent-violet);
+      --okkly-avatar-gradient-start: var(--okkly-accent-dante);
+      --okkly-avatar-gradient-end: var(--okkly-accent-violet);
     }
 
     &--color-indigo {
-      --okryshto-avatar-gradient-start: var(--okryshto-accent-secondary);
-      --okryshto-avatar-gradient-end: var(--okryshto-accent-violet);
+      --okkly-avatar-gradient-start: var(--okkly-accent-secondary);
+      --okkly-avatar-gradient-end: var(--okkly-accent-violet);
     }
 
     // 5. elements
@@ -74,9 +74,9 @@
     }
 
     &__initials {
-      font-weight: var(--okryshto-font-weight-medium);
-      font-size: var(--okryshto-avatar-font-size);
-      line-height: var(--okryshto-avatar-line-height);
+      font-weight: var(--okkly-font-weight-medium);
+      font-size: var(--okkly-avatar-font-size);
+      line-height: var(--okkly-avatar-line-height);
       text-transform: uppercase;
     }
 
@@ -85,14 +85,14 @@
       right: 0;
       bottom: 0;
       box-sizing: border-box;
-      width: var(--okryshto-avatar-status-size);
-      height: var(--okryshto-avatar-status-size);
-      border: 0.125rem solid var(--okryshto-avatar-status-border-color); // 2px
+      width: var(--okkly-avatar-status-size);
+      height: var(--okkly-avatar-status-size);
+      border: 0.125rem solid var(--okkly-avatar-status-border-color); // 2px
       border-radius: 9999px;
-      background: var(--okryshto-feedback-success);
+      background: var(--okkly-feedback-success);
 
       &--offline {
-        background: var(--okryshto-text-muted);
+        background: var(--okkly-text-muted);
       }
     }
   }

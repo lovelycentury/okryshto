@@ -1,5 +1,5 @@
 // App-level layout. Component styling lives in co-located
-// *.module.scss files; design tokens come from @okryshto/design-system.
+// *.module.scss files; design tokens come from @okkly/design-system.
 
 @use "./theme";
 
@@ -37,8 +37,8 @@ body,
 
 body {
   margin: 0;
-  background: var(--okryshto-bg-canvas);
-  color: var(--okryshto-text-primary);
+  background: var(--okkly-bg-canvas);
+  color: var(--okkly-text-primary);
   font-family:
     "Inter",
     ui-sans-serif,
@@ -72,7 +72,7 @@ body {
 // Thin, unobtrusive scrollbars for the transcript.
 * {
   scrollbar-width: thin;
-  scrollbar-color: var(--okryshto-border-strong) transparent;
+  scrollbar-color: var(--okkly-border-strong) transparent;
 }
 
 // ------------------------------------------------------------------ theme ---

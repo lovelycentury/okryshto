@@ -1,6 +1,6 @@
-// `.okryshto-required-marker` / `.okryshto-optional-marker` populate a "*" / "(optional)"
-// suffix via ::after. Toggle per-scope with `.okryshto-use-optional` / `.okryshto-use-required`.
-@layer okryshto.utility {
+// `.okkly-required-marker` / `.okkly-optional-marker` populate a "*" / "(optional)"
+// suffix via ::after. Toggle per-scope with `.okkly-use-optional` / `.okkly-use-required`.
+@layer okkly.utility {
   :root {
     // https://lea.verou.me/blog/2020/10/the-var-space-hack-to-toggle-multiple-values-with-one-custom-property/
     --ON: initial;
@@ -8,32 +8,32 @@
   }
 
   :root,
-  .okryshto-use-required {
-    --okryshto-use-required: var(--ON);
-    --okryshto-use-optional: var(--OFF);
+  .okkly-use-required {
+    --okkly-use-required: var(--ON);
+    --okkly-use-optional: var(--OFF);
   }
 
-  .okryshto-use-optional {
-    --okryshto-use-required: var(--OFF);
-    --okryshto-use-optional: var(--ON);
+  .okkly-use-optional {
+    --okkly-use-required: var(--OFF);
+    --okkly-use-optional: var(--ON);
   }
 
-  .okryshto-required-marker::after {
-    font-family: var(--okryshto-use-required, var(--okryshto-font-family-paragraph));
-    content: var(--okryshto-use-required, "*");
-    color: var(--okryshto-use-required, var(--okryshto-color-text-icons-danger-intense));
-    padding-left: var(--okryshto-use-required, var(--okryshto-spacing-5xs));
+  .okkly-required-marker::after {
+    font-family: var(--okkly-use-required, var(--okkly-font-family-paragraph));
+    content: var(--okkly-use-required, "*");
+    color: var(--okkly-use-required, var(--okkly-color-text-icons-danger-intense));
+    padding-left: var(--okkly-use-required, var(--okkly-spacing-5xs));
   }
 
-  .okryshto-optional-marker::after {
+  .okkly-optional-marker::after {
     font: {
-      family: var(--okryshto-use-optional, var(--okryshto-font-family-paragraph));
-      weight: var(--okryshto-use-optional, 400);
-      style: var(--okryshto-use-optional, normal);
+      family: var(--okkly-use-optional, var(--okkly-font-family-paragraph));
+      weight: var(--okkly-use-optional, 400);
+      style: var(--okkly-use-optional, normal);
     }
-    content: var(--okryshto-use-optional, var(--okryshto-global-optional-text, "(optional)"));
-    color: var(--okryshto-use-optional, var(--okryshto-color-text-icons-neutral-soft));
-    padding-left: var(--okryshto-use-optional, var(--okryshto-density-xs));
-    hyphens: var(--okryshto-use-optional, none);
+    content: var(--okkly-use-optional, var(--okkly-global-optional-text, "(optional)"));
+    color: var(--okkly-use-optional, var(--okkly-color-text-icons-neutral-soft));
+    padding-left: var(--okkly-use-optional, var(--okkly-density-xs));
+    hyphens: var(--okkly-use-optional, none);
   }
 }

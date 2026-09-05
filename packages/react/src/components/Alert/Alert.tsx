@@ -1,8 +1,8 @@
 "use client";
 
 import { forwardRef, type HTMLAttributes, type ReactNode } from "react";
-import { iconX } from "@okryshto/icons";
-import "@okryshto/design-system/components/Alert/Alert.scss";
+import { iconX } from "@okkly/icons";
+import "@okkly/design-system/components/Alert/Alert.scss";
 import { SeverityIcon, type SeverityIconSeverity } from "../SeverityIcon/SeverityIcon";
 
 export type AlertSeverity = "success" | "info" | "warning" | "danger" | "dante";
@@ -93,11 +93,11 @@ export const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(
   const iconSeverity = SEVERITY_ICON_MAP[severity];
 
   const classes = [
-    "okryshto-component",
-    "okryshto-alert",
-    severity !== "info" && `okryshto-alert--${severity}`,
-    variant === "outlined" && "okryshto-alert--outlined",
-    variant === "filled" && "okryshto-alert--filled",
+    "okkly-component",
+    "okkly-alert",
+    severity !== "info" && `okkly-alert--${severity}`,
+    variant === "outlined" && "okkly-alert--outlined",
+    variant === "filled" && "okkly-alert--filled",
     className,
   ]
     .filter(Boolean)
@@ -106,22 +106,17 @@ export const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(
   return (
     <div ref={forwardedRef} role="alert" className={classes} {...rest}>
       {showIcon && (
-        <span className="okryshto-alert__icon">
+        <span className="okkly-alert__icon">
           {icon ?? <SeverityIcon severity={iconSeverity} size="small" shape="rounded" />}
         </span>
       )}
-      <div className="okryshto-alert__content">
-        {title && <p className="okryshto-alert__title">{title}</p>}
-        {children && <p className="okryshto-alert__message">{children}</p>}
+      <div className="okkly-alert__content">
+        {title && <p className="okkly-alert__title">{title}</p>}
+        {children && <p className="okkly-alert__message">{children}</p>}
       </div>
-      {action && <span className="okryshto-alert__action">{action}</span>}
+      {action && <span className="okkly-alert__action">{action}</span>}
       {onClose && (
-        <button
-          type="button"
-          className="okryshto-alert__close"
-          aria-label="Close"
-          onClick={onClose}
-        >
+        <button type="button" className="okkly-alert__close" aria-label="Close" onClick={onClose}>
           <span dangerouslySetInnerHTML={{ __html: iconX }} />
         </button>
       )}

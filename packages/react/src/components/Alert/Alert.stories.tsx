@@ -45,8 +45,8 @@ const surface: CSSProperties = {
   display: "grid",
   gap: "12px",
   width: "460px",
-  fontFamily: "var(--okryshto-font-family-sans)",
-  color: "var(--okryshto-text-primary)",
+  fontFamily: "var(--okkly-font-family-sans)",
+  color: "var(--okkly-text-primary)",
 };
 
 /**
@@ -208,17 +208,17 @@ export const InPage: Story = {
         gap: "16px",
         padding: "20px",
         borderRadius: "12px",
-        background: "var(--okryshto-bg-surface)",
-        border: "1px solid var(--okryshto-border-subtle)",
+        background: "var(--okkly-bg-surface)",
+        border: "1px solid var(--okkly-border-subtle)",
       }}
     >
       <div>
-        <h3 style={{ margin: 0, fontSize: "var(--okryshto-font-size-lg)" }}>Billing</h3>
+        <h3 style={{ margin: 0, fontSize: "var(--okkly-font-size-lg)" }}>Billing</h3>
         <p
           style={{
             margin: "4px 0 0",
-            color: "var(--okryshto-text-secondary)",
-            fontSize: "var(--okryshto-font-size-sm)",
+            color: "var(--okkly-text-secondary)",
+            fontSize: "var(--okkly-font-size-sm)",
           }}
         >
           Manage your plan and payment method.

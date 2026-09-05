@@ -67,24 +67,24 @@ const surface: CSSProperties = {
   flexDirection: "column",
   gap: "12px",
   width: "460px",
-  fontFamily: "var(--okryshto-font-family-sans)",
-  color: "var(--okryshto-text-primary)",
+  fontFamily: "var(--okkly-font-family-sans)",
+  color: "var(--okkly-text-primary)",
 };
 
 const panel: CSSProperties = {
   padding: "18px",
-  border: "var(--okryshto-1px-in-rem) solid var(--okryshto-border-subtle)",
+  border: "var(--okkly-1px-in-rem) solid var(--okkly-border-subtle)",
   borderRadius: "12px",
-  background: "var(--okryshto-bg-surface)",
-  color: "var(--okryshto-text-secondary)",
-  fontSize: "var(--okryshto-font-size-sm)",
-  lineHeight: "var(--okryshto-font-line-height-sm)",
+  background: "var(--okkly-bg-surface)",
+  color: "var(--okkly-text-secondary)",
+  fontSize: "var(--okkly-font-size-sm)",
+  lineHeight: "var(--okkly-font-line-height-sm)",
 };
 
 const caption: CSSProperties = {
   margin: 0,
-  fontSize: "var(--okryshto-font-size-sm)",
-  color: "var(--okryshto-text-muted)",
+  fontSize: "var(--okkly-font-size-sm)",
+  color: "var(--okkly-text-muted)",
 };
 
 const row: CSSProperties = {
@@ -92,10 +92,10 @@ const row: CSSProperties = {
   alignItems: "center",
   justifyContent: "space-between",
   padding: "14px 18px",
-  border: "var(--okryshto-1px-in-rem) solid var(--okryshto-border-subtle)",
+  border: "var(--okkly-1px-in-rem) solid var(--okkly-border-subtle)",
   borderRadius: "12px",
-  background: "var(--okryshto-bg-surface)",
-  fontSize: "var(--okryshto-font-size-sm)",
+  background: "var(--okkly-bg-surface)",
+  fontSize: "var(--okkly-font-size-sm)",
 };
 
 /**
@@ -144,12 +144,12 @@ export const AnAccordion: Story = {
                 ...row,
                 width: "100%",
                 cursor: "pointer",
-                color: "var(--okryshto-text-primary)",
+                color: "var(--okkly-text-primary)",
                 fontFamily: "inherit",
               }}
             >
               {item.q}
-              <span aria-hidden="true" style={{ color: "var(--okryshto-text-muted)" }}>
+              <span aria-hidden="true" style={{ color: "var(--okkly-text-muted)" }}>
                 {open === item.id ? "−" : "+"}
               </span>
             </button>
@@ -196,7 +196,7 @@ export const CollapsedSize: Story = {
                 bottom: 0,
                 height: "40px",
                 borderRadius: "0 0 12px 12px",
-                background: "linear-gradient(transparent, var(--okryshto-bg-base))",
+                background: "linear-gradient(transparent, var(--okkly-bg-base))",
               }}
             />
           )}
@@ -310,7 +310,7 @@ export const Unmounting: Story = {
         <Collapse in={open} timeout={300}>
           <div style={panel}>
             Kept mounted —{" "}
-            <a href="#kept" style={{ color: "var(--okryshto-accent-primary)" }}>
+            <a href="#kept" style={{ color: "var(--okkly-accent-primary)" }}>
               this link
             </a>{" "}
             is tabbable even when the panel is closed.
@@ -319,7 +319,7 @@ export const Unmounting: Story = {
         <Collapse in={open} timeout={300} mountOnEnter unmountOnExit>
           <div style={panel}>
             Unmounted on exit —{" "}
-            <a href="#removed" style={{ color: "var(--okryshto-accent-primary)" }}>
+            <a href="#removed" style={{ color: "var(--okkly-accent-primary)" }}>
               this link
             </a>{" "}
             does not exist while closed.

@@ -2,14 +2,14 @@
 
 import { cloneElement, forwardRef, useCallback, useEffect, useRef } from "react";
 import { Transition } from "react-transition-group";
-import "@okryshto/design-system/components/Slide/Slide.scss";
+import "@okkly/design-system/components/Slide/Slide.scss";
 import type {
   SharedTransitionProps,
   TransitionChildren,
   TransitionEasing,
   TransitionTimeout,
 } from "../../types";
-import { useForkRef } from "@okryshto/react-hooks";
+import { useForkRef } from "@okkly/react-hooks";
 import {
   createCssTransition,
   DEFAULT_TIMEOUT,
@@ -273,8 +273,8 @@ export const Slide = forwardRef<HTMLElement, SlideProps>(function Slide(
         cloneElement(children, {
           ref: handleRef,
           className: mergeClassNames(
-            "okryshto-slide",
-            `okryshto-slide--${direction}`,
+            "okkly-slide",
+            `okkly-slide--${direction}`,
             className,
             children.props.className,
           ),

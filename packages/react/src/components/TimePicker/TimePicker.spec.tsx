@@ -16,13 +16,13 @@ describe("TimePicker", () => {
 
   it("applies the color modifier only for non-primary colors", () => {
     const { container, rerender } = render(<TimePicker color="dante" />);
-    expect(container.querySelector(".okryshto-time-picker")).toHaveClass(
-      "okryshto-time-picker--color-dante",
+    expect(container.querySelector(".okkly-time-picker")).toHaveClass(
+      "okkly-time-picker--color-dante",
     );
 
     rerender(<TimePicker color="primary" />);
-    expect(container.querySelector(".okryshto-time-picker")?.className).not.toMatch(
-      /okryshto-time-picker--color-/,
+    expect(container.querySelector(".okkly-time-picker")?.className).not.toMatch(
+      /okkly-time-picker--color-/,
     );
   });
 
@@ -128,6 +128,6 @@ describe("TimePicker", () => {
     const ref = createRef<HTMLDivElement>();
     render(<TimePicker ref={ref} />);
     expect(ref.current).toBeInstanceOf(HTMLDivElement);
-    expect(ref.current).toHaveClass("okryshto-time-picker");
+    expect(ref.current).toHaveClass("okkly-time-picker");
   });
 });

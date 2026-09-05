@@ -9,8 +9,8 @@ describe("Typography", () => {
     const node = container.firstChild as HTMLElement;
 
     expect(node.tagName).toBe("P");
-    expect(node).toHaveClass("okryshto-component", "okryshto-typography");
-    expect(node.className).not.toMatch(/okryshto-typography--/);
+    expect(node).toHaveClass("okkly-component", "okkly-typography");
+    expect(node.className).not.toMatch(/okkly-typography--/);
   });
 
   it("maps every variant to its default element", () => {
@@ -25,14 +25,14 @@ describe("Typography", () => {
 
   it("applies the variant modifier for every step except the default", () => {
     const { container, rerender } = render(<Typography variant="display-2xl">Hero</Typography>);
-    expect(container.firstChild).toHaveClass("okryshto-typography--display-2xl");
+    expect(container.firstChild).toHaveClass("okkly-typography--display-2xl");
 
     rerender(<Typography variant="overline">Eyebrow</Typography>);
-    expect(container.firstChild).toHaveClass("okryshto-typography--overline");
+    expect(container.firstChild).toHaveClass("okkly-typography--overline");
     expect((container.firstChild as HTMLElement).className).not.toMatch(/--display-2xl/);
 
     rerender(<Typography variant="body-md">Copy</Typography>);
-    expect((container.firstChild as HTMLElement).className).not.toMatch(/okryshto-typography--/);
+    expect((container.firstChild as HTMLElement).className).not.toMatch(/okkly-typography--/);
   });
 
   it("renders the element given to `as` instead of the variant default", () => {
@@ -44,7 +44,7 @@ describe("Typography", () => {
     const node = container.firstChild as HTMLElement;
 
     expect(node.tagName).toBe("DIV");
-    expect(node).toHaveClass("okryshto-typography--h1");
+    expect(node).toHaveClass("okkly-typography--h1");
   });
 
   it("accepts the props of the element it renders as", () => {
@@ -66,14 +66,14 @@ describe("Typography", () => {
       </Typography>,
     );
     expect(container.firstChild).toHaveClass(
-      "okryshto-typography--color-danger",
-      "okryshto-typography--align-center",
-      "okryshto-typography--gutter-bottom",
-      "okryshto-typography--no-wrap",
+      "okkly-typography--color-danger",
+      "okkly-typography--align-center",
+      "okkly-typography--gutter-bottom",
+      "okkly-typography--no-wrap",
     );
 
     rerender(<Typography>Copy</Typography>);
-    expect((container.firstChild as HTMLElement).className).not.toMatch(/okryshto-typography--/);
+    expect((container.firstChild as HTMLElement).className).not.toMatch(/okkly-typography--/);
   });
 
   it("forwards the ref to the rendered element", () => {

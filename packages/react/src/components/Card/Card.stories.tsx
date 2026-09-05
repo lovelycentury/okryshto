@@ -1,6 +1,6 @@
 import type { CSSProperties } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { iconMoreHorizontal } from "@okryshto/icons";
+import { iconMoreHorizontal } from "@okkly/icons";
 import { Avatar } from "../Avatar/Avatar";
 import { Button } from "../Button/Button";
 import { Card, CardActions, CardContent, CardHeader, CardMedia } from "./Card";
@@ -65,8 +65,8 @@ export default meta;
 type Story = StoryObj<typeof Card>;
 
 const surface: CSSProperties = {
-  fontFamily: "var(--okryshto-font-family-sans)",
-  color: "var(--okryshto-text-primary)",
+  fontFamily: "var(--okkly-font-family-sans)",
+  color: "var(--okkly-text-primary)",
 };
 
 const row: CSSProperties = {
@@ -79,8 +79,8 @@ const row: CSSProperties = {
 
 const caption: CSSProperties = {
   margin: 0,
-  fontSize: "var(--okryshto-font-size-sm)",
-  color: "var(--okryshto-text-muted)",
+  fontSize: "var(--okkly-font-size-sm)",
+  color: "var(--okkly-text-muted)",
 };
 
 const Glyph = ({ svg }: { svg: string }) => <span dangerouslySetInnerHTML={{ __html: svg }} />;

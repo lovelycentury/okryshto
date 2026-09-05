@@ -1,6 +1,6 @@
 import { useState, type CSSProperties } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { iconActivity, iconSettings, iconUsers } from "@okryshto/icons";
+import { iconActivity, iconSettings, iconUsers } from "@okkly/icons";
 import { Tabs, type TabsColor } from "./Tabs";
 
 const icon = (svg: string) => <span dangerouslySetInnerHTML={{ __html: svg }} />;
@@ -41,20 +41,20 @@ export default meta;
 type Story = StoryObj<typeof Tabs>;
 
 const surface: CSSProperties = {
-  background: "var(--okryshto-bg-surface-raised)",
-  border: "1px solid var(--okryshto-border-subtle)",
+  background: "var(--okkly-bg-surface-raised)",
+  border: "1px solid var(--okkly-border-subtle)",
   borderRadius: "12px",
   padding: "8px 16px 16px",
   width: "520px",
-  fontFamily: "var(--okryshto-font-family-sans)",
-  color: "var(--okryshto-text-primary)",
+  fontFamily: "var(--okkly-font-family-sans)",
+  color: "var(--okkly-text-primary)",
 };
 
 const panel: CSSProperties = {
   paddingTop: "16px",
-  fontSize: "var(--okryshto-font-size-sm)",
-  color: "var(--okryshto-text-secondary)",
-  lineHeight: "var(--okryshto-font-line-height-md)",
+  fontSize: "var(--okkly-font-size-sm)",
+  color: "var(--okkly-text-secondary)",
+  lineHeight: "var(--okkly-font-line-height-md)",
 };
 
 /**
@@ -94,8 +94,8 @@ export const WithPanel: Story = {
         <div
           style={panel}
           role="tabpanel"
-          id={`okryshto-tabpanel-${tab}`}
-          aria-labelledby={`okryshto-tab-${tab}`}
+          id={`okkly-tabpanel-${tab}`}
+          aria-labelledby={`okkly-tab-${tab}`}
         >
           {panels[tab]}
         </div>

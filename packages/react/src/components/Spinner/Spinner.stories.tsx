@@ -52,13 +52,13 @@ const surface: CSSProperties = {
   display: "flex",
   alignItems: "center",
   gap: "24px",
-  fontFamily: "var(--okryshto-font-family-sans)",
-  color: "var(--okryshto-text-primary)",
+  fontFamily: "var(--okkly-font-family-sans)",
+  color: "var(--okkly-text-primary)",
 };
 
 const caption: CSSProperties = {
-  fontSize: "var(--okryshto-font-size-sm)",
-  color: "var(--okryshto-text-secondary)",
+  fontSize: "var(--okkly-font-size-sm)",
+  color: "var(--okkly-text-secondary)",
 };
 
 /**
@@ -98,9 +98,9 @@ export const LoadingPanel: Story = {
         width: "420px",
         height: "220px",
         borderRadius: "14px",
-        border: "1px solid var(--okryshto-border-subtle)",
-        background: "var(--okryshto-bg-surface)",
-        fontFamily: "var(--okryshto-font-family-sans)",
+        border: "1px solid var(--okkly-border-subtle)",
+        background: "var(--okkly-bg-surface)",
+        fontFamily: "var(--okkly-font-family-sans)",
       }}
     >
       <Spinner size="large" aria-label="Loading your projects" />

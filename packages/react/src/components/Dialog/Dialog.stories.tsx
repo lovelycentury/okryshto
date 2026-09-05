@@ -75,15 +75,15 @@ const surface: CSSProperties = {
   flexWrap: "wrap",
   alignItems: "center",
   gap: "10px",
-  fontFamily: "var(--okryshto-font-family-sans)",
-  color: "var(--okryshto-text-primary)",
+  fontFamily: "var(--okkly-font-family-sans)",
+  color: "var(--okkly-text-primary)",
 };
 
 const caption: CSSProperties = {
   margin: 0,
   width: "100%",
-  fontSize: "var(--okryshto-font-size-sm)",
-  color: "var(--okryshto-text-muted)",
+  fontSize: "var(--okkly-font-size-sm)",
+  color: "var(--okkly-text-muted)",
 };
 
 /**

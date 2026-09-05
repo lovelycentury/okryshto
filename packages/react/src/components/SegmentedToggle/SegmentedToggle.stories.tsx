@@ -7,7 +7,7 @@ import {
   iconItalic,
   iconList,
   iconUnderline,
-} from "@okryshto/icons";
+} from "@okkly/icons";
 import {
   SegmentedToggle,
   type SegmentedToggleColor,
@@ -171,7 +171,7 @@ export const Interactive: Story = {
             margin: 0,
             color: "#a9a9b2",
             fontSize: "13px",
-            fontFamily: "var(--okryshto-font-family-mono, monospace)",
+            fontFamily: "var(--okkly-font-family-mono, monospace)",
           }}
         >
           Selected: {value}
@@ -207,7 +207,7 @@ export const InteractiveMulti: Story = {
             margin: 0,
             color: "#a9a9b2",
             fontSize: "13px",
-            fontFamily: "var(--okryshto-font-family-mono, monospace)",
+            fontFamily: "var(--okkly-font-family-mono, monospace)",
           }}
         >
           Active: {value.join(", ") || "none"}

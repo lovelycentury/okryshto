@@ -1,9 +1,9 @@
 {
-  "name": "@okryshto/iam",
+  "name": "@okkly/iam",
   "version": "0.0.0",
   "private": true,
   "type": "module",
-  "description": "Keycloak login theme — Keycloakify + React + @okryshto/react",
+  "description": "Keycloak login theme — Keycloakify + React + @okkly/react",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -15,9 +15,9 @@
     "lint": "oxlint --config ../../packages/oxlint-config/index.json ."
   },
   "dependencies": {
-    "@okryshto/design-system": "workspace:*",
-    "@okryshto/icons": "workspace:*",
-    "@okryshto/react": "workspace:*",
+    "@okkly/design-system": "workspace:*",
+    "@okkly/icons": "workspace:*",
+    "@okkly/react": "workspace:*",
     "keycloakify": "^11.15.13",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"

@@ -2,9 +2,9 @@
 
 import { cloneElement, forwardRef, useRef, type CSSProperties } from "react";
 import { Transition } from "react-transition-group";
-import "@okryshto/design-system/components/Fade/Fade.scss";
+import "@okkly/design-system/components/Fade/Fade.scss";
 import type { SharedTransitionProps, TransitionChildren, TransitionTimeout } from "../../types";
-import { useForkRef } from "@okryshto/react-hooks";
+import { useForkRef } from "@okkly/react-hooks";
 import {
   createCssTransition,
   DEFAULT_TIMEOUT,
@@ -117,7 +117,7 @@ export const Fade = forwardRef<HTMLElement, FadeProps>(function Fade(
     >
       {(state) =>
         cloneElement(children, {
-          className: mergeClassNames("okryshto-fade", className, children.props.className),
+          className: mergeClassNames("okkly-fade", className, children.props.className),
           style: {
             opacity: 0,
             visibility: state === "exited" && !inProp ? "hidden" : undefined,

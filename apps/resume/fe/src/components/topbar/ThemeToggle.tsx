@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useTranslations } from "use-intl";
-import { Icon } from "@okryshto/react";
+import { Icon } from "@okkly/react";
 
 import { trackThemeSwitch } from "../../lib/analyticsEvents.js";
 import {

@@ -8,7 +8,7 @@ import {
   type ReactElement,
   type ReactNode,
 } from "react";
-import "@okryshto/design-system/components/AvatarGroup/AvatarGroup.scss";
+import "@okkly/design-system/components/AvatarGroup/AvatarGroup.scss";
 import { type AvatarColor, type AvatarProps, type AvatarSize } from "../Avatar/Avatar";
 
 export type AvatarGroupSize = AvatarSize;
@@ -99,11 +99,11 @@ export function AvatarGroup({
   const overflowCount = effectiveTotal - renderedCount;
 
   const classes = [
-    "okryshto-component",
-    "okryshto-avatar-group",
-    size !== "sm" && `okryshto-avatar-group--${size}`,
-    spacing !== "default" && `okryshto-avatar-group--${spacing}`,
-    !ring && "okryshto-avatar-group--no-ring",
+    "okkly-component",
+    "okkly-avatar-group",
+    size !== "sm" && `okkly-avatar-group--${size}`,
+    spacing !== "default" && `okkly-avatar-group--${spacing}`,
+    !ring && "okkly-avatar-group--no-ring",
     className,
   ]
     .filter(Boolean)
@@ -112,13 +112,13 @@ export function AvatarGroup({
   return (
     <div className={classes} {...rest}>
       {items.slice(0, renderedCount).map((child, index) => (
-        <span className="okryshto-avatar-group__item" key={child.key ?? index}>
+        <span className="okkly-avatar-group__item" key={child.key ?? index}>
           {cloneElement(child, { size, color: hues[index % hues.length] })}
         </span>
       ))}
       {overflowCount > 0 && (
-        <span className="okryshto-avatar-group__item">
-          <span className="okryshto-avatar-group__overflow">+{overflowCount}</span>
+        <span className="okkly-avatar-group__item">
+          <span className="okkly-avatar-group__overflow">+{overflowCount}</span>
         </span>
       )}
     </div>

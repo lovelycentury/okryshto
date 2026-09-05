@@ -1,6 +1,6 @@
 import type { CSSProperties } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { iconTrash, iconUpload } from "@okryshto/icons";
+import { iconTrash, iconUpload } from "@okkly/icons";
 import { SeverityIcon, type SeverityIconSeverity } from "./SeverityIcon";
 
 /**
@@ -43,13 +43,13 @@ const surface: CSSProperties = {
   display: "flex",
   alignItems: "center",
   gap: "20px",
-  fontFamily: "var(--okryshto-font-family-sans)",
-  color: "var(--okryshto-text-primary)",
+  fontFamily: "var(--okkly-font-family-sans)",
+  color: "var(--okkly-text-primary)",
 };
 
 const caption: CSSProperties = {
-  fontSize: "var(--okryshto-font-size-sm)",
-  color: "var(--okryshto-text-secondary)",
+  fontSize: "var(--okkly-font-size-sm)",
+  color: "var(--okkly-text-secondary)",
 };
 
 const Glyph = ({ svg }: { svg: string }) => <span dangerouslySetInnerHTML={{ __html: svg }} />;
@@ -99,9 +99,9 @@ export const InAList: Story = {
         width: "460px",
         padding: "8px",
         borderRadius: "14px",
-        border: "1px solid var(--okryshto-border-subtle)",
-        background: "var(--okryshto-bg-surface)",
-        fontFamily: "var(--okryshto-font-family-sans)",
+        border: "1px solid var(--okkly-border-subtle)",
+        background: "var(--okkly-bg-surface)",
+        fontFamily: "var(--okkly-font-family-sans)",
       }}
     >
       {[
@@ -136,11 +136,11 @@ export const InAList: Story = {
         >
           <SeverityIcon severity={row.severity} size="small" label={row.label} />
           <div style={{ display: "grid", gap: "2px" }}>
-            <span style={{ fontSize: "var(--okryshto-font-size-sm)" }}>{row.title}</span>
+            <span style={{ fontSize: "var(--okkly-font-size-sm)" }}>{row.title}</span>
             <span
               style={{
-                fontSize: "var(--okryshto-font-size-sm)",
-                color: "var(--okryshto-text-muted)",
+                fontSize: "var(--okkly-font-size-sm)",
+                color: "var(--okkly-text-muted)",
               }}
             >
               {row.meta}
@@ -167,14 +167,14 @@ export const InADialog: Story = {
         width: "360px",
         padding: "26px 24px",
         borderRadius: "16px",
-        border: "1px solid var(--okryshto-border-subtle)",
-        background: "var(--okryshto-bg-surface)",
+        border: "1px solid var(--okkly-border-subtle)",
+        background: "var(--okkly-bg-surface)",
         textAlign: "center",
-        fontFamily: "var(--okryshto-font-family-sans)",
+        fontFamily: "var(--okkly-font-family-sans)",
       }}
     >
       <SeverityIcon severity="danger" size="large" icon={<Glyph svg={iconTrash} />} />
-      <strong style={{ fontSize: "var(--okryshto-font-size-lg)" }}>Delete this project?</strong>
+      <strong style={{ fontSize: "var(--okkly-font-size-lg)" }}>Delete this project?</strong>
       <p style={{ margin: 0, ...caption }}>
         Night drive vol. 2 and its 12 tracks will be removed. This can't be undone.
       </p>

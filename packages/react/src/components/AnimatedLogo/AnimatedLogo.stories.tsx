@@ -178,10 +178,10 @@ export const Recoloured: Story = {
         size={160}
         style={
           {
-            "--okryshto-animated-logo-mint": "#ffd76e",
-            "--okryshto-animated-logo-rose": "#ff6b35",
-            "--okryshto-animated-logo-indigo": "#0ea5e9",
-            "--okryshto-animated-logo-violet": "#22d3ee",
+            "--okkly-animated-logo-mint": "#ffd76e",
+            "--okkly-animated-logo-rose": "#ff6b35",
+            "--okkly-animated-logo-indigo": "#0ea5e9",
+            "--okkly-animated-logo-violet": "#22d3ee",
           } as React.CSSProperties
         }
       />
@@ -205,14 +205,12 @@ export const AsPageLoader: Story = {
         width: "560px",
         height: "420px",
         borderRadius: "16px",
-        background: "var(--okryshto-bg-canvas)",
-        border: "1px solid var(--okryshto-border-subtle)",
+        background: "var(--okkly-bg-canvas)",
+        border: "1px solid var(--okkly-border-subtle)",
       }}
     >
       <AnimatedLogo size={180} mode="cycle" holdDuration={1200} title="Loading okryshto.dev" />
-      <span
-        style={{ fontSize: "13px", letterSpacing: "0.08em", color: "var(--okryshto-text-muted)" }}
-      >
+      <span style={{ fontSize: "13px", letterSpacing: "0.08em", color: "var(--okkly-text-muted)" }}>
         LOADING
       </span>
     </div>

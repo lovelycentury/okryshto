@@ -33,13 +33,13 @@ describe("Fade", () => {
     expect(container.firstChild).toBeNull();
   });
 
-  it("applies okryshto-fade class on the child", () => {
+  it("applies okkly-fade class on the child", () => {
     render(
       <Fade in>
         <div>Fade content</div>
       </Fade>,
     );
-    expect(screen.getByText("Fade content")).toHaveClass("okryshto-fade");
+    expect(screen.getByText("Fade content")).toHaveClass("okkly-fade");
   });
 
   it("fires enter callbacks when opening", async () => {
@@ -83,6 +83,6 @@ describe("Fade", () => {
         <div>Fade content</div>
       </Fade>,
     );
-    expect(screen.getByText("Fade content")).toHaveClass("okryshto-fade", "custom-class");
+    expect(screen.getByText("Fade content")).toHaveClass("okkly-fade", "custom-class");
   });
 });

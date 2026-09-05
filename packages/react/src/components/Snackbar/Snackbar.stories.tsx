@@ -57,8 +57,8 @@ const surface: CSSProperties = {
   flexWrap: "wrap",
   alignItems: "center",
   gap: "10px",
-  fontFamily: "var(--okryshto-font-family-sans)",
-  color: "var(--okryshto-text-primary)",
+  fontFamily: "var(--okkly-font-family-sans)",
+  color: "var(--okkly-text-primary)",
 };
 
 /**
@@ -91,8 +91,8 @@ export const UndoAnAction: Story = {
         </Button>
         <span
           style={{
-            fontSize: "var(--okryshto-font-size-sm)",
-            color: "var(--okryshto-text-secondary)",
+            fontSize: "var(--okkly-font-size-sm)",
+            color: "var(--okkly-text-secondary)",
           }}
         >
           {archived ? "Project archived." : "Project is active."}

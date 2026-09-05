@@ -8,7 +8,7 @@
   border: none;
   border-radius: 8px;
   background: transparent;
-  color: var(--okryshto-text-secondary);
+  color: var(--okkly-text-secondary);
   font: inherit;
   font-size: 0.875rem;
   cursor: pointer;
@@ -16,7 +16,7 @@
 }
 
 .trigger:hover:not(:disabled) {
-  color: var(--okryshto-text-primary);
+  color: var(--okkly-text-primary);
 }
 
 .trigger:disabled {
@@ -31,11 +31,11 @@
   white-space: nowrap;
 }
 
-// The paper caps itself at `--okryshto-popover-max-width` (20rem). Model
+// The paper caps itself at `--okkly-popover-max-width` (20rem). Model
 // descriptions are two lines at that width, so raise the cap here rather than
 // sizing `.menu` past it — a child wider than the paper just spills out of it.
 .paper {
-  --okryshto-popover-max-width: min(21.25rem, calc(100vw - 2rem));
+  --okkly-popover-max-width: min(21.25rem, calc(100vw - 2rem));
 }
 
 .menu {
@@ -54,7 +54,7 @@
   align-items: center;
   gap: 8px;
   padding: 10px;
-  color: var(--okryshto-text-muted);
+  color: var(--okkly-text-muted);
   font-size: 0.8125rem;
 }
 
@@ -67,7 +67,7 @@
   border: none;
   border-radius: 10px;
   background: transparent;
-  color: var(--okryshto-text-primary);
+  color: var(--okkly-text-primary);
   font: inherit;
   text-align: left;
   cursor: pointer;
@@ -75,7 +75,7 @@
 }
 
 .option:hover:not(:disabled) {
-  background: var(--okryshto-glass-fill);
+  background: var(--okkly-glass-fill);
 }
 
 .option:disabled {
@@ -108,6 +108,6 @@
   border-radius: 6px;
   font-size: 0.6875rem;
   font-weight: 400;
-  color: var(--okryshto-feedback-warning);
-  background: color-mix(in srgb, var(--okryshto-feedback-warning) 16%, transparent);
+  color: var(--okkly-feedback-warning);
+  background: color-mix(in srgb, var(--okkly-feedback-warning) 16%, transparent);
 }

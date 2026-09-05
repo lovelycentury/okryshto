@@ -1,5 +1,5 @@
 import { getTranslations } from "next-intl/server";
-import { Icon } from "@okryshto/react";
+import { Icon } from "@okkly/react";
 import SectionHeading from "@/components/SectionHeading/SectionHeading";
 import { BEYOND_CODE } from "@/lib/profile";
 import styles from "./BeyondCodeSection.module.scss";

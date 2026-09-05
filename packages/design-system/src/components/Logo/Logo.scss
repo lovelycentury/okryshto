@@ -1,96 +1,96 @@
 @use "../../styles/mixins/layers.scss";
 
-.okryshto-logo {
+.okkly-logo {
   @include layers.component() {
     // 1. full variable API, defaults = layout "horizontal", tone "multi"
-    --okryshto-logo-tone: var(--okryshto-accent-primary);
-    --okryshto-logo-emblem-size: 3rem; // 48px (from Figma design)
-    --okryshto-logo-gap: 1rem; // 16px
-    --okryshto-logo-label-color: var(--okryshto-text-primary);
-    --okryshto-logo-label-font-size: 1rem; // 16px
+    --okkly-logo-tone: var(--okkly-accent-primary);
+    --okkly-logo-emblem-size: 3rem; // 48px (from Figma design)
+    --okkly-logo-gap: 1rem; // 16px
+    --okkly-logo-label-color: var(--okkly-text-primary);
+    --okkly-logo-label-font-size: 1rem; // 16px
 
     // the emblem's two "yin"/"yang" halves are each a light→dark gradient of
     // the same tone; a light dot sits on the dark half, a dark dot on the
     // light half — identical geometry across every tone, only these derived
     // colors change
-    --okryshto-logo-light-start: var(--okryshto-logo-tone);
-    --okryshto-logo-light-end: color-mix(in srgb, var(--okryshto-logo-tone) 60%, black);
-    --okryshto-logo-dark-start: color-mix(in srgb, var(--okryshto-logo-tone) 20%, black);
-    --okryshto-logo-dark-end: color-mix(in srgb, var(--okryshto-logo-tone) 9%, black);
-    --okryshto-logo-dot-on-light: var(--okryshto-logo-dark-end);
-    --okryshto-logo-dot-on-dark: var(--okryshto-logo-tone);
-    --okryshto-logo-ring-color: color-mix(in srgb, var(--okryshto-logo-tone) 18%, transparent);
+    --okkly-logo-light-start: var(--okkly-logo-tone);
+    --okkly-logo-light-end: color-mix(in srgb, var(--okkly-logo-tone) 60%, black);
+    --okkly-logo-dark-start: color-mix(in srgb, var(--okkly-logo-tone) 20%, black);
+    --okkly-logo-dark-end: color-mix(in srgb, var(--okkly-logo-tone) 9%, black);
+    --okkly-logo-dot-on-light: var(--okkly-logo-dark-end);
+    --okkly-logo-dot-on-dark: var(--okkly-logo-tone);
+    --okkly-logo-ring-color: color-mix(in srgb, var(--okkly-logo-tone) 18%, transparent);
 
     display: inline-flex;
     align-items: center;
-    gap: var(--okryshto-logo-gap);
-    font-family: var(--okryshto-font-family-sans);
+    gap: var(--okkly-logo-gap);
+    font-family: var(--okkly-font-family-sans);
 
     // 2. layout — horizontal (default) needs no modifier
     &--compact {
-      --okryshto-logo-emblem-size: 1.5rem; // 24px
-      --okryshto-logo-gap: 0.625rem; // 10px
-      --okryshto-logo-label-font-size: 0.875rem; // 14px
+      --okkly-logo-emblem-size: 1.5rem; // 24px
+      --okkly-logo-gap: 0.625rem; // 10px
+      --okkly-logo-label-font-size: 0.875rem; // 14px
     }
 
     &--stacked {
-      --okryshto-logo-gap: 0.75rem; // 12px
-      --okryshto-logo-label-font-size: 0.9375rem; // 15px
+      --okkly-logo-gap: 0.75rem; // 12px
+      --okkly-logo-label-font-size: 0.9375rem; // 15px
       flex-direction: column;
       text-align: center;
     }
 
     // 3. tone — multi (default, combines all brand colors) needs no modifier
     &--tone-indigo {
-      --okryshto-logo-tone: var(--okryshto-accent-secondary);
+      --okkly-logo-tone: var(--okkly-accent-secondary);
     }
 
     &--tone-dante {
-      --okryshto-logo-tone: var(--okryshto-accent-dante);
+      --okkly-logo-tone: var(--okkly-accent-dante);
     }
 
     &--tone-violet {
-      --okryshto-logo-tone: var(--okryshto-accent-violet);
+      --okkly-logo-tone: var(--okkly-accent-violet);
     }
 
     &--tone-ember {
-      --okryshto-logo-tone: var(--okryshto-accent-ember);
+      --okkly-logo-tone: var(--okkly-accent-ember);
     }
 
     // monochrome pair — one half is a flat near-extreme, the other a flat
-    // near-opposite; no gradient, no shared --okryshto-logo-tone
+    // near-opposite; no gradient, no shared --okkly-logo-tone
     &--tone-mono-dark {
-      --okryshto-logo-light-start: var(--okryshto-text-primary);
-      --okryshto-logo-light-end: var(--okryshto-text-primary);
-      --okryshto-logo-dark-start: var(--okryshto-bg-surface-raised);
-      --okryshto-logo-dark-end: var(--okryshto-bg-surface-raised);
-      --okryshto-logo-dot-on-light: var(--okryshto-bg-canvas);
-      --okryshto-logo-dot-on-dark: var(--okryshto-text-primary);
-      --okryshto-logo-ring-color: color-mix(in srgb, var(--okryshto-text-primary) 12%, transparent);
+      --okkly-logo-light-start: var(--okkly-text-primary);
+      --okkly-logo-light-end: var(--okkly-text-primary);
+      --okkly-logo-dark-start: var(--okkly-bg-surface-raised);
+      --okkly-logo-dark-end: var(--okkly-bg-surface-raised);
+      --okkly-logo-dot-on-light: var(--okkly-bg-canvas);
+      --okkly-logo-dot-on-dark: var(--okkly-text-primary);
+      --okkly-logo-ring-color: color-mix(in srgb, var(--okkly-text-primary) 12%, transparent);
     }
 
     &--tone-mono-light {
-      --okryshto-logo-light-start: var(--okryshto-bg-canvas);
-      --okryshto-logo-light-end: var(--okryshto-bg-canvas);
-      --okryshto-logo-dark-start: var(--okryshto-text-primary);
-      --okryshto-logo-dark-end: var(--okryshto-text-primary);
-      --okryshto-logo-dot-on-light: var(--okryshto-text-primary);
-      --okryshto-logo-dot-on-dark: var(--okryshto-bg-canvas);
-      --okryshto-logo-ring-color: color-mix(in srgb, var(--okryshto-bg-canvas) 20%, transparent);
-      --okryshto-logo-label-color: var(--okryshto-bg-canvas);
+      --okkly-logo-light-start: var(--okkly-bg-canvas);
+      --okkly-logo-light-end: var(--okkly-bg-canvas);
+      --okkly-logo-dark-start: var(--okkly-text-primary);
+      --okkly-logo-dark-end: var(--okkly-text-primary);
+      --okkly-logo-dot-on-light: var(--okkly-text-primary);
+      --okkly-logo-dot-on-dark: var(--okkly-bg-canvas);
+      --okkly-logo-ring-color: color-mix(in srgb, var(--okkly-bg-canvas) 20%, transparent);
+      --okkly-logo-label-color: var(--okkly-bg-canvas);
     }
 
     // 4. elements
     &__emblem {
       flex-shrink: 0;
-      width: var(--okryshto-logo-emblem-size);
-      height: var(--okryshto-logo-emblem-size);
+      width: var(--okkly-logo-emblem-size);
+      height: var(--okkly-logo-emblem-size);
     }
 
     &__label {
-      font-weight: var(--okryshto-font-weight-medium);
-      font-size: var(--okryshto-logo-label-font-size);
-      color: var(--okryshto-logo-label-color);
+      font-weight: var(--okkly-font-weight-medium);
+      font-size: var(--okkly-logo-label-font-size);
+      color: var(--okkly-logo-label-color);
       white-space: nowrap;
     }
   }

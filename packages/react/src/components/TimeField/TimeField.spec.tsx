@@ -6,18 +6,14 @@ import { TimeField } from "./TimeField";
 describe("TimeField", () => {
   it("renders with the default className and no modifiers", () => {
     const { container } = render(<TimeField label="Time" />);
-    const root = container.querySelector(".okryshto-time-field");
-    expect(root).toHaveClass("okryshto-component", "okryshto-time-field");
-    expect(root?.className).not.toMatch(
-      /okryshto-time-field--(small|large|error|full-width|color-)/,
-    );
+    const root = container.querySelector(".okkly-time-field");
+    expect(root).toHaveClass("okkly-component", "okkly-time-field");
+    expect(root?.className).not.toMatch(/okkly-time-field--(small|large|error|full-width|color-)/);
   });
 
   it("applies the error modifier", () => {
     const { container } = render(<TimeField label="Time" error helperText="Required" />);
-    expect(container.querySelector(".okryshto-time-field")).toHaveClass(
-      "okryshto-time-field--error",
-    );
+    expect(container.querySelector(".okkly-time-field")).toHaveClass("okkly-time-field--error");
   });
 
   it("forwards a ref to the input", () => {
@@ -56,12 +52,12 @@ describe("TimeField", () => {
   it("opens the time picker popover when the clock button is clicked", () => {
     render(<TimeField label="Time" />);
     fireEvent.click(screen.getByRole("button", { name: "Open time picker" }));
-    expect(document.querySelector(".okryshto-time-picker")).toBeInTheDocument();
+    expect(document.querySelector(".okkly-time-picker")).toBeInTheDocument();
   });
 
   it("shows a required asterisk after the label", () => {
     const { container } = render(<TimeField label="Time" required />);
-    expect(container.querySelector(".okryshto-time-field__required")).toHaveTextContent("*");
+    expect(container.querySelector(".okkly-time-field__required")).toHaveTextContent("*");
     expect(screen.getByRole("textbox")).toBeRequired();
   });
 });

@@ -8,14 +8,12 @@ import {
 } from "keycloakify/login/lib/useUserProfileForm";
 import type { UserProfileFormFieldsProps } from "keycloakify/login/UserProfileFormFieldsProps";
 import type { Attribute } from "keycloakify/login/KcContext";
-import { TextArea, TextField, Typography } from "@okryshto/react";
+import { TextArea, TextField, Typography } from "@okkly/react";
 import type { KcContext } from "../KcContext";
 import type { I18n } from "../i18n";
 import { PasswordField } from "./PasswordField";
 
-export default function UserProfileFormFields(
-  props: UserProfileFormFieldsProps<KcContext, I18n>,
-) {
+export default function UserProfileFormFields(props: UserProfileFormFieldsProps<KcContext, I18n>) {
   const {
     kcContext,
     i18n,
@@ -52,11 +50,7 @@ export default function UserProfileFormFields(
           return (
             <Fragment key={attribute.name}>
               {attribute.annotations.inputType === "hidden" ? (
-                <input
-                  type="hidden"
-                  name={attribute.name}
-                  value={singleValue(valueOrValues)}
-                />
+                <input type="hidden" name={attribute.name} value={singleValue(valueOrValues)} />
               ) : null}
             </Fragment>
           );

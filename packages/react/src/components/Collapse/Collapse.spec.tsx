@@ -19,9 +19,7 @@ describe("Collapse", () => {
         <div>Collapse content</div>
       </Collapse>,
     );
-    expect(container.querySelector(".okryshto-collapse")).toHaveClass(
-      "okryshto-collapse--vertical",
-    );
+    expect(container.querySelector(".okkly-collapse")).toHaveClass("okkly-collapse--vertical");
   });
 
   it("renders with horizontal orientation when specified", () => {
@@ -30,9 +28,7 @@ describe("Collapse", () => {
         <div>Collapse content</div>
       </Collapse>,
     );
-    expect(container.querySelector(".okryshto-collapse")).toHaveClass(
-      "okryshto-collapse--horizontal",
-    );
+    expect(container.querySelector(".okkly-collapse")).toHaveClass("okkly-collapse--horizontal");
   });
 
   it("uses collapsedSize for min dimension", () => {
@@ -41,7 +37,7 @@ describe("Collapse", () => {
         <div>Collapse content</div>
       </Collapse>,
     );
-    const root = container.querySelector(".okryshto-collapse");
+    const root = container.querySelector(".okkly-collapse");
     expect(root).toHaveStyle({ minHeight: "40px" });
   });
 
@@ -51,8 +47,8 @@ describe("Collapse", () => {
         <div>Collapse content</div>
       </Collapse>,
     );
-    expect(container.querySelector(".okryshto-collapse__wrapper")).toBeTruthy();
-    expect(container.querySelector(".okryshto-collapse__wrapper-inner")).toBeTruthy();
+    expect(container.querySelector(".okkly-collapse__wrapper")).toBeTruthy();
+    expect(container.querySelector(".okkly-collapse__wrapper-inner")).toBeTruthy();
   });
 
   it("unmounts when in=false and unmountOnExit", () => {
@@ -96,7 +92,7 @@ describe("Collapse", () => {
       </Collapse>,
     );
     expect(ref.current).toBeInstanceOf(HTMLDivElement);
-    expect(ref.current).toHaveClass("okryshto-collapse");
+    expect(ref.current).toHaveClass("okkly-collapse");
   });
 
   it("applies custom className", () => {
@@ -105,6 +101,6 @@ describe("Collapse", () => {
         <div>Collapse content</div>
       </Collapse>,
     );
-    expect(container.querySelector(".okryshto-collapse")).toHaveClass("custom-class");
+    expect(container.querySelector(".okkly-collapse")).toHaveClass("custom-class");
   });
 });

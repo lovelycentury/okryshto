@@ -49,14 +49,14 @@ const surface: CSSProperties = {
   flexWrap: "wrap",
   alignItems: "flex-end",
   gap: "24px",
-  fontFamily: "var(--okryshto-font-family-sans)",
-  color: "var(--okryshto-text-primary)",
+  fontFamily: "var(--okkly-font-family-sans)",
+  color: "var(--okkly-text-primary)",
 };
 
 const caption: CSSProperties = {
   margin: 0,
-  fontSize: "var(--okryshto-font-size-sm)",
-  color: "var(--okryshto-text-muted)",
+  fontSize: "var(--okkly-font-size-sm)",
+  color: "var(--okkly-text-muted)",
 };
 
 const Labelled = ({ label, children }: { label: string; children: React.ReactNode }) => (
@@ -174,7 +174,7 @@ export const Placeholders: Story = {
           size="sm"
           fallback={
             <span
-              style={{ fontSize: "40px", fontWeight: 600, color: "var(--okryshto-accent-primary)" }}
+              style={{ fontSize: "40px", fontWeight: 600, color: "var(--okkly-accent-primary)" }}
             >
               AB
             </span>

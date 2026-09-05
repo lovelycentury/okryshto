@@ -1,64 +1,64 @@
 @use "../../styles/mixins/layers.scss";
 
-.okryshto-stat-card {
+.okkly-stat-card {
   @include layers.component() {
-    --okryshto-stat-card-tone: var(--okryshto-accent-primary);
-    --okryshto-stat-card-background-color: var(--okryshto-bg-surface);
-    --okryshto-stat-card-border-color: var(--okryshto-border-subtle);
-    --okryshto-stat-card-border-radius: 1.25rem;
-    --okryshto-stat-card-padding: 1.75rem;
-    --okryshto-stat-card-gap: 0.625rem;
-    --okryshto-stat-card-value-size: 2.5rem;
-    --okryshto-stat-card-value-line-height: 3rem;
-    --okryshto-stat-card-glow: none;
+    --okkly-stat-card-tone: var(--okkly-accent-primary);
+    --okkly-stat-card-background-color: var(--okkly-bg-surface);
+    --okkly-stat-card-border-color: var(--okkly-border-subtle);
+    --okkly-stat-card-border-radius: 1.25rem;
+    --okkly-stat-card-padding: 1.75rem;
+    --okkly-stat-card-gap: 0.625rem;
+    --okkly-stat-card-value-size: 2.5rem;
+    --okkly-stat-card-value-line-height: 3rem;
+    --okkly-stat-card-glow: none;
 
     display: flex;
     flex-direction: column;
-    gap: var(--okryshto-stat-card-gap);
-    padding: var(--okryshto-stat-card-padding);
-    border: var(--okryshto-1px-in-rem) solid var(--okryshto-stat-card-border-color);
-    border-radius: var(--okryshto-stat-card-border-radius);
-    background: var(--okryshto-stat-card-background-color);
-    filter: var(--okryshto-stat-card-glow);
+    gap: var(--okkly-stat-card-gap);
+    padding: var(--okkly-stat-card-padding);
+    border: var(--okkly-1px-in-rem) solid var(--okkly-stat-card-border-color);
+    border-radius: var(--okkly-stat-card-border-radius);
+    background: var(--okkly-stat-card-background-color);
+    filter: var(--okkly-stat-card-glow);
 
     &--sm {
-      --okryshto-stat-card-padding: 1.5rem;
-      --okryshto-stat-card-gap: 0.5rem;
-      --okryshto-stat-card-value-size: 2rem;
-      --okryshto-stat-card-value-line-height: 2.5rem;
+      --okkly-stat-card-padding: 1.5rem;
+      --okkly-stat-card-gap: 0.5rem;
+      --okkly-stat-card-value-size: 2rem;
+      --okkly-stat-card-value-line-height: 2.5rem;
     }
 
     &--lg {
-      --okryshto-stat-card-padding: 2rem;
-      --okryshto-stat-card-gap: 0.75rem;
-      --okryshto-stat-card-value-size: 3rem;
-      --okryshto-stat-card-value-line-height: 3.5rem;
+      --okkly-stat-card-padding: 2rem;
+      --okkly-stat-card-gap: 0.75rem;
+      --okkly-stat-card-value-size: 3rem;
+      --okkly-stat-card-value-line-height: 3.5rem;
     }
 
     &--accent {
-      --okryshto-stat-card-glow: drop-shadow(
-        0 0 0.75rem color-mix(in srgb, var(--okryshto-stat-card-tone) 30%, transparent)
+      --okkly-stat-card-glow: drop-shadow(
+        0 0 0.75rem color-mix(in srgb, var(--okkly-stat-card-tone) 30%, transparent)
       );
     }
 
     &--color-dante {
-      --okryshto-stat-card-tone: var(--okryshto-accent-dante);
+      --okkly-stat-card-tone: var(--okkly-accent-dante);
     }
 
     &--color-indigo {
-      --okryshto-stat-card-tone: var(--okryshto-accent-secondary);
+      --okkly-stat-card-tone: var(--okkly-accent-secondary);
     }
 
     &--color-violet {
-      --okryshto-stat-card-tone: var(--okryshto-accent-violet);
+      --okkly-stat-card-tone: var(--okkly-accent-violet);
     }
 
     &--color-ember {
-      --okryshto-stat-card-tone: var(--okryshto-accent-ember);
+      --okkly-stat-card-tone: var(--okkly-accent-ember);
     }
 
     &--color-ice {
-      --okryshto-stat-card-tone: var(--okryshto-accent-ice);
+      --okkly-stat-card-tone: var(--okkly-accent-ice);
     }
 
     &__header {
@@ -75,8 +75,8 @@
       width: 2.25rem;
       height: 2.25rem;
       border-radius: 0.625rem;
-      background: color-mix(in srgb, var(--okryshto-stat-card-tone) 12%, transparent);
-      color: var(--okryshto-stat-card-tone);
+      background: color-mix(in srgb, var(--okkly-stat-card-tone) 12%, transparent);
+      color: var(--okkly-stat-card-tone);
 
       svg {
         width: 1.125rem;
@@ -93,16 +93,16 @@
 
     &__value {
       margin: 0;
-      font-family: var(--okryshto-font-family-sans);
-      font-weight: var(--okryshto-font-weight-medium);
-      font-size: var(--okryshto-stat-card-value-size);
-      line-height: var(--okryshto-stat-card-value-line-height);
+      font-family: var(--okkly-font-family-sans);
+      font-weight: var(--okkly-font-weight-medium);
+      font-size: var(--okkly-stat-card-value-size);
+      line-height: var(--okkly-stat-card-value-line-height);
       letter-spacing: -0.03125rem;
-      color: var(--okryshto-text-primary);
+      color: var(--okkly-text-primary);
     }
 
     &--accent &__value {
-      color: var(--okryshto-stat-card-tone);
+      color: var(--okkly-stat-card-tone);
     }
 
     &__trend {
@@ -111,11 +111,11 @@
       gap: 0.25rem;
       padding: 0.25rem 0.5rem;
       border-radius: 9999px;
-      background: var(--okryshto-bg-surface-raised);
-      font-family: var(--okryshto-font-family-sans);
-      font-weight: var(--okryshto-font-weight-medium);
-      font-size: var(--okryshto-font-size-sm);
-      line-height: var(--okryshto-font-line-height-sm);
+      background: var(--okkly-bg-surface-raised);
+      font-family: var(--okkly-font-family-sans);
+      font-weight: var(--okkly-font-weight-medium);
+      font-size: var(--okkly-font-size-sm);
+      line-height: var(--okkly-font-line-height-sm);
 
       svg {
         width: 0.8125rem;
@@ -123,28 +123,28 @@
       }
 
       &--up {
-        color: var(--okryshto-feedback-success);
+        color: var(--okkly-feedback-success);
       }
 
       &--down {
-        color: var(--okryshto-feedback-danger);
+        color: var(--okkly-feedback-danger);
       }
     }
 
     &__label {
       margin: 0;
-      font-family: var(--okryshto-font-family-sans);
-      font-size: var(--okryshto-font-size-md);
-      line-height: var(--okryshto-font-line-height-md);
-      color: var(--okryshto-text-muted);
+      font-family: var(--okkly-font-family-sans);
+      font-size: var(--okkly-font-size-md);
+      line-height: var(--okkly-font-line-height-md);
+      color: var(--okkly-text-muted);
     }
 
     &__description {
       margin: 0;
-      font-family: var(--okryshto-font-family-sans);
-      font-size: var(--okryshto-font-size-sm);
-      line-height: var(--okryshto-font-line-height-sm);
-      color: var(--okryshto-text-secondary);
+      font-family: var(--okkly-font-family-sans);
+      font-size: var(--okkly-font-size-sm);
+      line-height: var(--okkly-font-line-height-sm);
+      color: var(--okkly-text-secondary);
     }
   }
 }

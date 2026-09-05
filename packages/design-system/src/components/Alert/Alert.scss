@@ -1,65 +1,65 @@
 @use "../../styles/mixins/layers.scss";
 
-.okryshto-alert {
+.okkly-alert {
   @include layers.component() {
-    --okryshto-alert-tone: var(--okryshto-accent-secondary);
-    --okryshto-alert-background-color: var(--okryshto-bg-surface);
-    --okryshto-alert-text-color: var(--okryshto-text-primary);
-    --okryshto-alert-title-color: var(--okryshto-alert-tone);
-    --okryshto-alert-border-color: var(--okryshto-border-subtle);
-    --okryshto-alert-border-width: var(--okryshto-1px-in-rem);
-    --okryshto-alert-border-radius: 0.875rem;
-    --okryshto-alert-padding-block: 0.875rem;
-    --okryshto-alert-padding-inline: 1rem;
-    --okryshto-alert-gap: 0.75rem;
-    --okryshto-alert-message-color: var(--okryshto-text-secondary);
-    --okryshto-alert-title-font-size: var(--okryshto-font-size-md);
-    --okryshto-alert-title-line-height: var(--okryshto-font-line-height-md);
-    --okryshto-alert-message-font-size: var(--okryshto-font-size-sm);
-    --okryshto-alert-message-line-height: var(--okryshto-font-line-height-sm);
+    --okkly-alert-tone: var(--okkly-accent-secondary);
+    --okkly-alert-background-color: var(--okkly-bg-surface);
+    --okkly-alert-text-color: var(--okkly-text-primary);
+    --okkly-alert-title-color: var(--okkly-alert-tone);
+    --okkly-alert-border-color: var(--okkly-border-subtle);
+    --okkly-alert-border-width: var(--okkly-1px-in-rem);
+    --okkly-alert-border-radius: 0.875rem;
+    --okkly-alert-padding-block: 0.875rem;
+    --okkly-alert-padding-inline: 1rem;
+    --okkly-alert-gap: 0.75rem;
+    --okkly-alert-message-color: var(--okkly-text-secondary);
+    --okkly-alert-title-font-size: var(--okkly-font-size-md);
+    --okkly-alert-title-line-height: var(--okkly-font-line-height-md);
+    --okkly-alert-message-font-size: var(--okkly-font-size-sm);
+    --okkly-alert-message-line-height: var(--okkly-font-line-height-sm);
 
     display: flex;
     align-items: flex-start;
-    gap: var(--okryshto-alert-gap);
-    padding: var(--okryshto-alert-padding-block) var(--okryshto-alert-padding-inline);
-    border: var(--okryshto-alert-border-width) solid var(--okryshto-alert-border-color);
-    border-radius: var(--okryshto-alert-border-radius);
-    background: var(--okryshto-alert-background-color);
-    color: var(--okryshto-alert-text-color);
-    font-family: var(--okryshto-font-family-sans);
+    gap: var(--okkly-alert-gap);
+    padding: var(--okkly-alert-padding-block) var(--okkly-alert-padding-inline);
+    border: var(--okkly-alert-border-width) solid var(--okkly-alert-border-color);
+    border-radius: var(--okkly-alert-border-radius);
+    background: var(--okkly-alert-background-color);
+    color: var(--okkly-alert-text-color);
+    font-family: var(--okkly-font-family-sans);
 
     &--success {
-      --okryshto-alert-tone: var(--okryshto-feedback-success);
+      --okkly-alert-tone: var(--okkly-feedback-success);
     }
 
     &--warning {
-      --okryshto-alert-tone: var(--okryshto-feedback-warning);
+      --okkly-alert-tone: var(--okkly-feedback-warning);
     }
 
     &--danger {
-      --okryshto-alert-tone: var(--okryshto-feedback-danger);
+      --okkly-alert-tone: var(--okkly-feedback-danger);
     }
 
     &--dante {
-      --okryshto-alert-tone: var(--okryshto-accent-dante);
+      --okkly-alert-tone: var(--okkly-accent-dante);
     }
 
     &--outlined {
-      --okryshto-alert-background-color: transparent;
-      --okryshto-alert-border-color: var(--okryshto-alert-tone);
+      --okkly-alert-background-color: transparent;
+      --okkly-alert-border-color: var(--okkly-alert-tone);
     }
 
     // The tone itself carries the message here, so everything on top of it
     // switches to the dark contrast ink — a tint would be indistinguishable
     // from `standard`, which is the whole point of this variant.
     &--filled {
-      --okryshto-alert-background-color: var(--okryshto-alert-tone);
-      --okryshto-alert-border-color: transparent;
-      --okryshto-alert-text-color: var(--okryshto-accent-contrast);
-      --okryshto-alert-title-color: var(--okryshto-accent-contrast);
-      --okryshto-alert-message-color: color-mix(
+      --okkly-alert-background-color: var(--okkly-alert-tone);
+      --okkly-alert-border-color: transparent;
+      --okkly-alert-text-color: var(--okkly-accent-contrast);
+      --okkly-alert-title-color: var(--okkly-accent-contrast);
+      --okkly-alert-message-color: color-mix(
         in srgb,
-        var(--okryshto-accent-contrast) 78%,
+        var(--okkly-accent-contrast) 78%,
         transparent
       );
     }
@@ -67,23 +67,23 @@
     &__icon {
       flex-shrink: 0;
 
-      .okryshto-severity-icon {
-        --okryshto-severity-icon-tone: var(--okryshto-alert-tone);
-        --okryshto-severity-icon-background-color: color-mix(
+      .okkly-severity-icon {
+        --okkly-severity-icon-tone: var(--okkly-alert-tone);
+        --okkly-severity-icon-background-color: color-mix(
           in srgb,
-          var(--okryshto-alert-tone) 15%,
+          var(--okkly-alert-tone) 15%,
           transparent
         );
-        --okryshto-severity-icon-icon-color: var(--okryshto-alert-tone);
+        --okkly-severity-icon-icon-color: var(--okkly-alert-tone);
       }
 
-      .okryshto-alert--filled & .okryshto-severity-icon {
-        --okryshto-severity-icon-background-color: color-mix(
+      .okkly-alert--filled & .okkly-severity-icon {
+        --okkly-severity-icon-background-color: color-mix(
           in srgb,
-          var(--okryshto-accent-contrast) 16%,
+          var(--okkly-accent-contrast) 16%,
           transparent
         );
-        --okryshto-severity-icon-icon-color: var(--okryshto-accent-contrast);
+        --okkly-severity-icon-icon-color: var(--okkly-accent-contrast);
       }
     }
 
@@ -94,19 +94,19 @@
 
     &__title {
       margin: 0;
-      color: var(--okryshto-alert-title-color);
-      font-weight: var(--okryshto-font-weight-medium);
-      font-size: var(--okryshto-alert-title-font-size);
-      line-height: var(--okryshto-alert-title-line-height);
+      color: var(--okkly-alert-title-color);
+      font-weight: var(--okkly-font-weight-medium);
+      font-size: var(--okkly-alert-title-font-size);
+      line-height: var(--okkly-alert-title-line-height);
     }
 
     &__message {
       margin: 0;
-      color: var(--okryshto-alert-message-color);
-      font-size: var(--okryshto-alert-message-font-size);
-      line-height: var(--okryshto-alert-message-line-height);
+      color: var(--okkly-alert-message-color);
+      font-size: var(--okkly-alert-message-font-size);
+      line-height: var(--okkly-alert-message-line-height);
 
-      .okryshto-alert__title + & {
+      .okkly-alert__title + & {
         margin-top: 0.1875rem;
       }
     }
@@ -118,11 +118,11 @@
 
       // Buttons in this slot default to the page's text colours, which vanish on
       // a solid tone. Hand them the contrast ink the rest of a filled alert uses.
-      .okryshto-alert--filled & .okryshto-button {
-        --okryshto-button-text-color: var(--okryshto-accent-contrast);
-        --okryshto-button-background-color-hover: color-mix(
+      .okkly-alert--filled & .okkly-button {
+        --okkly-button-text-color: var(--okkly-accent-contrast);
+        --okkly-button-background-color-hover: color-mix(
           in srgb,
-          var(--okryshto-accent-contrast) 12%,
+          var(--okkly-accent-contrast) 12%,
           transparent
         );
       }
@@ -140,9 +140,9 @@
       border: none;
       border-radius: 50%;
       background: transparent;
-      color: var(--okryshto-text-muted);
+      color: var(--okkly-text-muted);
       cursor: pointer;
-      transition: color var(--okryshto-duration-sm) ease;
+      transition: color var(--okkly-duration-sm) ease;
 
       svg {
         width: 0.875rem;
@@ -150,23 +150,23 @@
       }
 
       &:hover {
-        color: var(--okryshto-text-primary);
+        color: var(--okkly-text-primary);
       }
 
       &:focus-visible {
-        outline: var(--okryshto-1px-in-rem) solid var(--okryshto-alert-tone);
+        outline: var(--okkly-1px-in-rem) solid var(--okkly-alert-tone);
         outline-offset: 0.125rem;
       }
 
-      .okryshto-alert--filled & {
-        color: color-mix(in srgb, var(--okryshto-accent-contrast) 70%, transparent);
+      .okkly-alert--filled & {
+        color: color-mix(in srgb, var(--okkly-accent-contrast) 70%, transparent);
 
         &:hover {
-          color: var(--okryshto-accent-contrast);
+          color: var(--okkly-accent-contrast);
         }
 
         &:focus-visible {
-          outline-color: var(--okryshto-accent-contrast);
+          outline-color: var(--okkly-accent-contrast);
         }
       }
     }

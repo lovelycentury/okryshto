@@ -10,7 +10,7 @@ import {
   type FormEvent,
   type ReactNode,
 } from "react";
-import { iconCalendar } from "@okryshto/icons";
+import { iconCalendar } from "@okkly/icons";
 import {
   maskitoDate,
   maskitoParseDate,
@@ -18,7 +18,7 @@ import {
   type MaskitoDateParams,
 } from "@maskito/kit";
 import { useMaskito } from "@maskito/react";
-import "@okryshto/design-system/components/DateField/DateField.scss";
+import "@okkly/design-system/components/DateField/DateField.scss";
 import { Calendar, calendarToneStyle } from "../Calendar/Calendar";
 import { Field, getFieldIds, type FieldColor, type FieldSize } from "../Field/Field";
 import { Popover } from "../Popover/Popover";
@@ -37,7 +37,7 @@ function stringifyDate(value: Date | null | undefined): string {
  * Closest MUI counterpart is MUI X's `DateField` /
  * `DatePicker` (https://mui.com/x/react-date-pickers/date-field/): masked
  * text input with a calendar popover. Deliberate gaps: no `sx`/`slots`,
- * fixed `dd.mm.yyyy` mask (no locale adapters), and the picker uses okryshto
+ * fixed `dd.mm.yyyy` mask (no locale adapters), and the picker uses okkly
  * `Calendar` rather than MUI's `DateCalendar`.
  */
 export interface DateFieldProps {
@@ -266,7 +266,7 @@ export const DateField = forwardRef<HTMLInputElement, DateFieldProps>(function D
   const trigger = (
     <button
       type="button"
-      className="okryshto-date-field__trigger"
+      className="okkly-date-field__trigger"
       disabled={disabled}
       aria-label="Open calendar"
       aria-expanded={isOpen}
@@ -279,7 +279,7 @@ export const DateField = forwardRef<HTMLInputElement, DateFieldProps>(function D
   return (
     <>
       <Field
-        block="okryshto-date-field"
+        block="okkly-date-field"
         id={inputId}
         label={label}
         hideLabel={hideLabel}
@@ -299,7 +299,7 @@ export const DateField = forwardRef<HTMLInputElement, DateFieldProps>(function D
           id={inputId}
           type="text"
           inputMode="numeric"
-          className="okryshto-date-field__input"
+          className="okkly-date-field__input"
           value={text}
           disabled={disabled}
           required={required}
@@ -315,7 +315,7 @@ export const DateField = forwardRef<HTMLInputElement, DateFieldProps>(function D
         anchorEl={controlRef.current}
         onClose={() => setOpen(false)}
         placement="bottom-start"
-        className="okryshto-date-field-popover"
+        className="okkly-date-field-popover"
       >
         {/* The popover is portaled, so the field's own colour modifier cannot
             reach the calendar by inheritance — the tone is handed over as an

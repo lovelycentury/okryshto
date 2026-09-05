@@ -1,45 +1,45 @@
 // Star/heart score display and input.
 @use "../../styles/mixins/layers.scss";
 
-.okryshto-rating {
+.okkly-rating {
   @include layers.component() {
-    --okryshto-rating-tone: var(--okryshto-feedback-warning);
-    --okryshto-rating-icon-size: 1.25rem;
-    --okryshto-rating-gap: 0.375rem;
-    --okryshto-rating-empty-color: var(--okryshto-text-muted);
+    --okkly-rating-tone: var(--okkly-feedback-warning);
+    --okkly-rating-icon-size: 1.25rem;
+    --okkly-rating-gap: 0.375rem;
+    --okkly-rating-empty-color: var(--okkly-text-muted);
 
     display: inline-flex;
     align-items: center;
     gap: 0.625rem;
-    font-family: var(--okryshto-font-family-sans);
+    font-family: var(--okkly-font-family-sans);
 
     &--color-primary {
-      --okryshto-rating-tone: var(--okryshto-accent-primary);
+      --okkly-rating-tone: var(--okkly-accent-primary);
     }
     &--color-dante {
-      --okryshto-rating-tone: var(--okryshto-accent-dante);
+      --okkly-rating-tone: var(--okkly-accent-dante);
     }
     &--color-indigo {
-      --okryshto-rating-tone: var(--okryshto-accent-secondary);
+      --okkly-rating-tone: var(--okkly-accent-secondary);
     }
     &--color-violet {
-      --okryshto-rating-tone: var(--okryshto-accent-violet);
+      --okkly-rating-tone: var(--okkly-accent-violet);
     }
     &--color-ember {
-      --okryshto-rating-tone: var(--okryshto-accent-ember);
+      --okkly-rating-tone: var(--okkly-accent-ember);
     }
     &--color-ice {
-      --okryshto-rating-tone: var(--okryshto-accent-ice);
+      --okkly-rating-tone: var(--okkly-accent-ice);
     }
 
     &--small {
-      --okryshto-rating-icon-size: 1rem;
-      --okryshto-rating-gap: 0.25rem;
+      --okkly-rating-icon-size: 1rem;
+      --okkly-rating-gap: 0.25rem;
     }
 
     &--large {
-      --okryshto-rating-icon-size: 1.75rem;
-      --okryshto-rating-gap: 0.5rem;
+      --okkly-rating-icon-size: 1.75rem;
+      --okkly-rating-gap: 0.5rem;
     }
 
     &--disabled {
@@ -54,7 +54,7 @@
     &__stars {
       display: inline-flex;
       align-items: center;
-      gap: var(--okryshto-rating-gap);
+      gap: var(--okkly-rating-gap);
     }
 
     &__item {
@@ -66,10 +66,10 @@
       background: transparent;
       cursor: pointer;
       line-height: 0;
-      color: var(--okryshto-rating-empty-color);
+      color: var(--okkly-rating-empty-color);
 
       &:focus-visible {
-        outline: var(--okryshto-outline-width) solid var(--okryshto-rating-tone);
+        outline: var(--okkly-outline-width) solid var(--okkly-rating-tone);
         border-radius: 0.125rem;
       }
     }
@@ -77,8 +77,8 @@
     &__icon {
       position: relative;
       display: inline-flex;
-      width: var(--okryshto-rating-icon-size);
-      height: var(--okryshto-rating-icon-size);
+      width: var(--okkly-rating-icon-size);
+      height: var(--okkly-rating-icon-size);
 
       svg {
         width: 100%;
@@ -87,35 +87,35 @@
     }
 
     &__icon--full {
-      color: var(--okryshto-rating-tone);
+      color: var(--okkly-rating-tone);
     }
 
     &__icon--half {
-      color: var(--okryshto-rating-empty-color);
+      color: var(--okkly-rating-empty-color);
 
       // clips the filled glyph in half — the glyph itself keeps its full size, so it
       // must not inherit the 100% width of this (half-wide) clipping box
-      .okryshto-rating__icon-fill {
+      .okkly-rating__icon-fill {
         position: absolute;
         inset: 0 auto 0 0;
         display: block;
         overflow: hidden;
         width: 50%;
         height: 100%;
-        color: var(--okryshto-rating-tone);
+        color: var(--okkly-rating-tone);
 
         svg {
-          width: var(--okryshto-rating-icon-size);
-          height: var(--okryshto-rating-icon-size);
+          width: var(--okkly-rating-icon-size);
+          height: var(--okkly-rating-icon-size);
           max-width: none;
         }
       }
     }
 
     &__label {
-      color: var(--okryshto-text-secondary);
-      font-size: var(--okryshto-font-size-sm);
-      line-height: var(--okryshto-font-line-height-sm);
+      color: var(--okkly-text-secondary);
+      font-size: var(--okkly-font-size-sm);
+      line-height: var(--okkly-font-line-height-sm);
       white-space: nowrap;
     }
   }

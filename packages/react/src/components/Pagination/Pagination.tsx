@@ -1,7 +1,7 @@
 "use client";
 
 import { type HTMLAttributes, type MouseEvent, type ReactNode } from "react";
-import "@okryshto/design-system/components/Pagination/Pagination.scss";
+import "@okkly/design-system/components/Pagination/Pagination.scss";
 
 export type PaginationColor = "primary" | "dante" | "indigo" | "violet" | "ember" | "ice";
 export type PaginationSize = "small" | "medium" | "large";
@@ -211,7 +211,7 @@ function NavButton({
   return (
     <button
       type="button"
-      className={["okryshto-pagination__button", active && "okryshto-pagination__button--active"]
+      className={["okkly-pagination__button", active && "okkly-pagination__button--active"]
         .filter(Boolean)
         .join(" ")}
       aria-label={label}
@@ -244,12 +244,12 @@ export function Pagination({
   const items = getPaginationItems(safePage, safeCount, siblingCount, boundaryCount);
 
   const classes = [
-    "okryshto-component",
-    "okryshto-pagination",
-    color !== "primary" && `okryshto-pagination--color-${color}`,
-    size !== "medium" && `okryshto-pagination--size-${size}`,
-    shape === "circular" && "okryshto-pagination--shape-circular",
-    disabled && "okryshto-pagination--disabled",
+    "okkly-component",
+    "okkly-pagination",
+    color !== "primary" && `okkly-pagination--color-${color}`,
+    size !== "medium" && `okkly-pagination--size-${size}`,
+    shape === "circular" && "okkly-pagination--shape-circular",
+    disabled && "okkly-pagination--disabled",
     className,
   ]
     .filter(Boolean)
@@ -265,35 +265,35 @@ export function Pagination({
 
   return (
     <nav aria-label="pagination" className={classes} {...rest}>
-      <ul className="okryshto-pagination__list">
+      <ul className="okkly-pagination__list">
         {showFirstButton && (
-          <li className="okryshto-pagination__item">
+          <li className="okkly-pagination__item">
             <NavButton
               label="Go to first page"
               disabled={prevDisabled}
               onClick={(event) => goToPage(event, 1)}
             >
-              <span className="okryshto-pagination__icon" aria-hidden="true">
+              <span className="okkly-pagination__icon" aria-hidden="true">
                 <FirstPageIcon />
               </span>
             </NavButton>
           </li>
         )}
-        <li className="okryshto-pagination__item">
+        <li className="okkly-pagination__item">
           <NavButton
             label="Go to previous page"
             disabled={prevDisabled}
             onClick={(event) => goToPage(event, safePage - 1)}
           >
-            <span className="okryshto-pagination__icon" aria-hidden="true">
+            <span className="okkly-pagination__icon" aria-hidden="true">
               <ChevronLeftIcon />
             </span>
           </NavButton>
         </li>
         {items.map((item, index) => (
-          <li className="okryshto-pagination__item" key={`${item}-${index}`}>
+          <li className="okkly-pagination__item" key={`${item}-${index}`}>
             {item === "ellipsis" ? (
-              <span className="okryshto-pagination__ellipsis" aria-hidden="true">
+              <span className="okkly-pagination__ellipsis" aria-hidden="true">
                 …
               </span>
             ) : (
@@ -308,25 +308,25 @@ export function Pagination({
             )}
           </li>
         ))}
-        <li className="okryshto-pagination__item">
+        <li className="okkly-pagination__item">
           <NavButton
             label="Go to next page"
             disabled={nextDisabled}
             onClick={(event) => goToPage(event, safePage + 1)}
           >
-            <span className="okryshto-pagination__icon" aria-hidden="true">
+            <span className="okkly-pagination__icon" aria-hidden="true">
               <ChevronRightIcon />
             </span>
           </NavButton>
         </li>
         {showLastButton && (
-          <li className="okryshto-pagination__item">
+          <li className="okkly-pagination__item">
             <NavButton
               label="Go to last page"
               disabled={nextDisabled}
               onClick={(event) => goToPage(event, safeCount)}
             >
-              <span className="okryshto-pagination__icon" aria-hidden="true">
+              <span className="okkly-pagination__icon" aria-hidden="true">
                 <LastPageIcon />
               </span>
             </NavButton>

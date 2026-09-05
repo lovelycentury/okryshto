@@ -1,186 +1,185 @@
 @use "../../styles/mixins/layers.scss";
 
-.okryshto-button {
+.okkly-button {
   @include layers.component() {
     // 1. full variable API, defaults = variant "primary", color "primary" (mint), shape "pill", size "medium"
-    --okryshto-button-tone: var(--okryshto-accent-primary);
-    --okryshto-button-background-color: var(--okryshto-button-tone);
-    --okryshto-button-background-color-hover: var(--okryshto-button-background-color);
-    --okryshto-button-text-color: var(--okryshto-accent-contrast);
-    --okryshto-button-border-color: transparent;
-    --okryshto-button-border-color-focus: transparent;
-    --okryshto-button-border-width: var(--okryshto-1px-in-rem);
-    --okryshto-button-border-width-focus: var(--okryshto-button-border-width);
-    --okryshto-button-border-radius: 9999px;
-    --okryshto-button-glow-radius: 0.8125rem;
-    --okryshto-button-glow: 0 0 var(--okryshto-button-glow-radius)
-      color-mix(in srgb, var(--okryshto-button-tone) 60%, transparent);
-    --okryshto-button-glow-focus: var(--okryshto-button-glow);
-    --okryshto-button-padding-inline: 1.25rem;
-    --okryshto-button-padding-block: 0.75rem;
-    --okryshto-button-gap: 0.5rem;
-    --okryshto-button-font-size: var(--okryshto-font-size-md);
-    --okryshto-button-line-height: var(--okryshto-font-line-height-md);
-    --okryshto-button-icon-size: 1rem;
+    --okkly-button-tone: var(--okkly-accent-primary);
+    --okkly-button-background-color: var(--okkly-button-tone);
+    --okkly-button-background-color-hover: var(--okkly-button-background-color);
+    --okkly-button-text-color: var(--okkly-accent-contrast);
+    --okkly-button-border-color: transparent;
+    --okkly-button-border-color-focus: transparent;
+    --okkly-button-border-width: var(--okkly-1px-in-rem);
+    --okkly-button-border-width-focus: var(--okkly-button-border-width);
+    --okkly-button-border-radius: 9999px;
+    --okkly-button-glow-radius: 0.8125rem;
+    --okkly-button-glow: 0 0 var(--okkly-button-glow-radius)
+      color-mix(in srgb, var(--okkly-button-tone) 60%, transparent);
+    --okkly-button-glow-focus: var(--okkly-button-glow);
+    --okkly-button-padding-inline: 1.25rem;
+    --okkly-button-padding-block: 0.75rem;
+    --okkly-button-gap: 0.5rem;
+    --okkly-button-font-size: var(--okkly-font-size-md);
+    --okkly-button-line-height: var(--okkly-font-line-height-md);
+    --okkly-button-icon-size: 1rem;
 
     position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: var(--okryshto-button-gap);
-    padding: var(--okryshto-button-padding-block) var(--okryshto-button-padding-inline);
-    border: var(--okryshto-button-border-width) solid var(--okryshto-button-border-color);
-    border-radius: var(--okryshto-button-border-radius);
-    background: var(--okryshto-button-background-color);
-    color: var(--okryshto-button-text-color);
+    gap: var(--okkly-button-gap);
+    padding: var(--okkly-button-padding-block) var(--okkly-button-padding-inline);
+    border: var(--okkly-button-border-width) solid var(--okkly-button-border-color);
+    border-radius: var(--okkly-button-border-radius);
+    background: var(--okkly-button-background-color);
+    color: var(--okkly-button-text-color);
     text-decoration: none;
-    font-family: var(--okryshto-font-family-sans);
-    font-weight: var(--okryshto-font-weight-medium);
-    font-size: var(--okryshto-button-font-size);
-    line-height: var(--okryshto-button-line-height);
+    font-family: var(--okkly-font-family-sans);
+    font-weight: var(--okkly-font-weight-medium);
+    font-size: var(--okkly-button-font-size);
+    line-height: var(--okkly-button-line-height);
     cursor: pointer;
     // Glow is `box-shadow` (border-box), not `filter: drop-shadow` (alpha). Two
     // layers at rest so hover/focus interpolate instead of snapping at 400ms.
     box-shadow:
-      0 0 var(--okryshto-button-glow-radius) transparent,
+      0 0 var(--okkly-button-glow-radius) transparent,
       inset 0 0 0 0 transparent;
     transition:
-      background-color var(--okryshto-duration-sm) ease-out,
-      border-color var(--okryshto-duration-sm) ease-out,
-      box-shadow var(--okryshto-duration-sm) ease-out;
+      background-color var(--okkly-duration-sm) ease-out,
+      border-color var(--okkly-duration-sm) ease-out,
+      box-shadow var(--okkly-duration-sm) ease-out;
 
     &:hover:not(:disabled) {
-      background: var(--okryshto-button-background-color-hover);
+      background: var(--okkly-button-background-color-hover);
       box-shadow:
-        var(--okryshto-button-glow),
+        var(--okkly-button-glow),
         inset 0 0 0 0 transparent;
     }
 
     &:focus-visible {
       outline: none;
-      border-color: var(--okryshto-button-border-color-focus);
+      border-color: var(--okkly-button-border-color-focus);
       // The focus ring's extra thickness is painted *inside* the box rather
       // than added to the border, so focus never changes the button's size.
       // Growing `border-width` here instead made every bordered variant jump
       // 2px taller on focus, nudging whatever sat beside it. Resolves to 0 for
       // variants whose focus width equals their base width (they use glow).
       box-shadow:
-        var(--okryshto-button-glow-focus),
-        inset 0 0 0
-          calc(var(--okryshto-button-border-width-focus) - var(--okryshto-button-border-width))
-          var(--okryshto-button-border-color-focus);
+        var(--okkly-button-glow-focus),
+        inset 0 0 0 calc(var(--okkly-button-border-width-focus) - var(--okkly-button-border-width))
+          var(--okkly-button-border-color-focus);
     }
 
     &:disabled {
       opacity: 0.4;
       cursor: not-allowed;
       box-shadow:
-        0 0 var(--okryshto-button-glow-radius) transparent,
+        0 0 var(--okkly-button-glow-radius) transparent,
         inset 0 0 0 0 transparent;
     }
 
     // 2. color modifiers — only remap the accent; every variant/state consumes it
     &--color-dante {
-      --okryshto-button-tone: var(--okryshto-accent-dante);
+      --okkly-button-tone: var(--okkly-accent-dante);
     }
     &--color-indigo {
-      --okryshto-button-tone: var(--okryshto-accent-secondary);
+      --okkly-button-tone: var(--okkly-accent-secondary);
     }
     &--color-violet {
-      --okryshto-button-tone: var(--okryshto-accent-violet);
+      --okkly-button-tone: var(--okkly-accent-violet);
     }
     &--color-ember {
-      --okryshto-button-tone: var(--okryshto-accent-ember);
+      --okkly-button-tone: var(--okkly-accent-ember);
     }
     &--color-ice {
-      --okryshto-button-tone: var(--okryshto-accent-ice);
+      --okkly-button-tone: var(--okkly-accent-ice);
     }
 
     // 3. variant modifiers
     &--gradient {
-      --okryshto-button-background-color: linear-gradient(
+      --okkly-button-background-color: linear-gradient(
         158deg,
-        var(--okryshto-accent-primary) 14%,
-        var(--okryshto-accent-secondary) 86%
+        var(--okkly-accent-primary) 14%,
+        var(--okkly-accent-secondary) 86%
       );
-      --okryshto-button-background-color-hover: var(--okryshto-button-background-color);
-      --okryshto-button-glow-radius: 1.625rem;
-      --okryshto-button-glow: 0 0 var(--okryshto-button-glow-radius)
-        color-mix(in srgb, var(--okryshto-button-tone) 80%, transparent);
+      --okkly-button-background-color-hover: var(--okkly-button-background-color);
+      --okkly-button-glow-radius: 1.625rem;
+      --okkly-button-glow: 0 0 var(--okkly-button-glow-radius)
+        color-mix(in srgb, var(--okkly-button-tone) 80%, transparent);
     }
 
     &--secondary {
-      --okryshto-button-background-color: var(--okryshto-bg-surface-raised);
-      --okryshto-button-background-color-hover: var(--okryshto-bg-surface);
-      --okryshto-button-text-color: var(--okryshto-text-primary);
-      --okryshto-button-border-color: var(--okryshto-border-subtle);
-      --okryshto-button-glow-radius: 0.5rem;
-      --okryshto-button-glow: 0 0 var(--okryshto-button-glow-radius)
-        color-mix(in srgb, var(--okryshto-button-tone) 25%, transparent);
-      --okryshto-button-glow-focus: 0 0 var(--okryshto-button-glow-radius) transparent;
-      --okryshto-button-border-color-focus: var(--okryshto-button-tone);
-      --okryshto-button-border-width-focus: calc(var(--okryshto-button-border-width) * 2);
+      --okkly-button-background-color: var(--okkly-bg-surface-raised);
+      --okkly-button-background-color-hover: var(--okkly-bg-surface);
+      --okkly-button-text-color: var(--okkly-text-primary);
+      --okkly-button-border-color: var(--okkly-border-subtle);
+      --okkly-button-glow-radius: 0.5rem;
+      --okkly-button-glow: 0 0 var(--okkly-button-glow-radius)
+        color-mix(in srgb, var(--okkly-button-tone) 25%, transparent);
+      --okkly-button-glow-focus: 0 0 var(--okkly-button-glow-radius) transparent;
+      --okkly-button-border-color-focus: var(--okkly-button-tone);
+      --okkly-button-border-width-focus: calc(var(--okkly-button-border-width) * 2);
     }
 
     &--soft {
-      --okryshto-button-background-color: var(--okryshto-bg-surface-raised);
-      --okryshto-button-background-color-hover: var(--okryshto-bg-surface);
-      --okryshto-button-text-color: var(--okryshto-text-primary);
-      --okryshto-button-glow-radius: 0.5rem;
-      --okryshto-button-glow: 0 0 var(--okryshto-button-glow-radius)
-        color-mix(in srgb, var(--okryshto-button-tone) 25%, transparent);
-      --okryshto-button-glow-focus: 0 0 var(--okryshto-button-glow-radius) transparent;
-      --okryshto-button-border-color-focus: var(--okryshto-button-tone);
-      --okryshto-button-border-width-focus: calc(var(--okryshto-button-border-width) * 2);
+      --okkly-button-background-color: var(--okkly-bg-surface-raised);
+      --okkly-button-background-color-hover: var(--okkly-bg-surface);
+      --okkly-button-text-color: var(--okkly-text-primary);
+      --okkly-button-glow-radius: 0.5rem;
+      --okkly-button-glow: 0 0 var(--okkly-button-glow-radius)
+        color-mix(in srgb, var(--okkly-button-tone) 25%, transparent);
+      --okkly-button-glow-focus: 0 0 var(--okkly-button-glow-radius) transparent;
+      --okkly-button-border-color-focus: var(--okkly-button-tone);
+      --okkly-button-border-width-focus: calc(var(--okkly-button-border-width) * 2);
     }
 
     &--ghost {
-      --okryshto-button-background-color: transparent;
-      --okryshto-button-background-color-hover: var(--okryshto-bg-surface-raised);
-      --okryshto-button-text-color: var(--okryshto-text-secondary);
-      --okryshto-button-glow-radius: 0.5rem;
-      --okryshto-button-glow: 0 0 var(--okryshto-button-glow-radius)
-        color-mix(in srgb, var(--okryshto-button-tone) 25%, transparent);
-      --okryshto-button-glow-focus: 0 0 var(--okryshto-button-glow-radius) transparent;
-      --okryshto-button-border-color-focus: var(--okryshto-button-tone);
-      --okryshto-button-border-width-focus: calc(var(--okryshto-button-border-width) * 2);
+      --okkly-button-background-color: transparent;
+      --okkly-button-background-color-hover: var(--okkly-bg-surface-raised);
+      --okkly-button-text-color: var(--okkly-text-secondary);
+      --okkly-button-glow-radius: 0.5rem;
+      --okkly-button-glow: 0 0 var(--okkly-button-glow-radius)
+        color-mix(in srgb, var(--okkly-button-tone) 25%, transparent);
+      --okkly-button-glow-focus: 0 0 var(--okkly-button-glow-radius) transparent;
+      --okkly-button-border-color-focus: var(--okkly-button-tone);
+      --okkly-button-border-width-focus: calc(var(--okkly-button-border-width) * 2);
     }
 
     &--glass {
-      --okryshto-button-background-color: var(--okryshto-glass-fill);
-      --okryshto-button-background-color-hover: var(--okryshto-button-background-color);
-      --okryshto-button-text-color: var(--okryshto-text-primary);
-      --okryshto-button-border-color: var(--okryshto-glass-border);
-      --okryshto-button-glow-radius: 0.5rem;
-      --okryshto-button-glow: 0 0 var(--okryshto-button-glow-radius)
-        color-mix(in srgb, var(--okryshto-button-tone) 25%, transparent);
-      --okryshto-button-glow-focus: 0 0 var(--okryshto-button-glow-radius) transparent;
-      --okryshto-button-border-color-focus: var(--okryshto-button-tone);
-      --okryshto-button-border-width-focus: calc(var(--okryshto-button-border-width) * 2);
+      --okkly-button-background-color: var(--okkly-glass-fill);
+      --okkly-button-background-color-hover: var(--okkly-button-background-color);
+      --okkly-button-text-color: var(--okkly-text-primary);
+      --okkly-button-border-color: var(--okkly-glass-border);
+      --okkly-button-glow-radius: 0.5rem;
+      --okkly-button-glow: 0 0 var(--okkly-button-glow-radius)
+        color-mix(in srgb, var(--okkly-button-tone) 25%, transparent);
+      --okkly-button-glow-focus: 0 0 var(--okkly-button-glow-radius) transparent;
+      --okkly-button-border-color-focus: var(--okkly-button-tone);
+      --okkly-button-border-width-focus: calc(var(--okkly-button-border-width) * 2);
     }
 
     // 4. shape — pill (default) needs no modifier
     &--rounded {
-      --okryshto-button-border-radius: 0.875rem; // 14px
+      --okkly-button-border-radius: 0.875rem; // 14px
     }
 
     // 5. size — medium (default) needs no modifier
     &--small {
-      --okryshto-button-padding-inline: 1rem;
-      --okryshto-button-padding-block: 0.5625rem;
-      --okryshto-button-gap: 0.4375rem;
-      --okryshto-button-font-size: var(--okryshto-font-size-sm);
-      --okryshto-button-line-height: var(--okryshto-font-line-height-sm);
-      --okryshto-button-icon-size: 0.875rem;
+      --okkly-button-padding-inline: 1rem;
+      --okkly-button-padding-block: 0.5625rem;
+      --okkly-button-gap: 0.4375rem;
+      --okkly-button-font-size: var(--okkly-font-size-sm);
+      --okkly-button-line-height: var(--okkly-font-line-height-sm);
+      --okkly-button-icon-size: 0.875rem;
     }
 
     &--large {
-      --okryshto-button-padding-inline: 1.75rem;
-      --okryshto-button-padding-block: 1rem;
-      --okryshto-button-gap: 0.625rem;
-      --okryshto-button-font-size: var(--okryshto-font-size-lg);
-      --okryshto-button-line-height: var(--okryshto-font-line-height-lg);
-      --okryshto-button-icon-size: 1.125rem;
+      --okkly-button-padding-inline: 1.75rem;
+      --okkly-button-padding-block: 1rem;
+      --okkly-button-gap: 0.625rem;
+      --okkly-button-font-size: var(--okkly-font-size-lg);
+      --okkly-button-line-height: var(--okkly-font-line-height-lg);
+      --okkly-button-icon-size: 1.125rem;
     }
 
     // 6. layout modifiers
@@ -194,8 +193,8 @@
     &__spinner {
       display: inline-flex;
       flex-shrink: 0;
-      width: var(--okryshto-button-icon-size);
-      height: var(--okryshto-button-icon-size);
+      width: var(--okkly-button-icon-size);
+      height: var(--okkly-button-icon-size);
 
       svg {
         width: 100%;
@@ -204,14 +203,14 @@
     }
 
     &__spinner svg {
-      animation: okryshto-button-spin 0.75s linear infinite;
+      animation: okkly-button-spin 0.75s linear infinite;
     }
 
     &__label--hidden {
       opacity: 0;
     }
 
-    @keyframes okryshto-button-spin {
+    @keyframes okkly-button-spin {
       to {
         transform: rotate(360deg);
       }

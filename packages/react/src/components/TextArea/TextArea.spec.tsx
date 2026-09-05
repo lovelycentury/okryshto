@@ -6,41 +6,39 @@ import { TextArea } from "./TextArea";
 describe("TextArea", () => {
   it("renders with default classes and no modifier classes", () => {
     const { container } = render(<TextArea label="Message" />);
-    const root = container.querySelector(".okryshto-text-area");
-    expect(root).toHaveClass("okryshto-component", "okryshto-text-area");
+    const root = container.querySelector(".okkly-text-area");
+    expect(root).toHaveClass("okkly-component", "okkly-text-area");
     expect(root?.className).not.toMatch(
-      /okryshto-text-area--(small|large|color-|error|full-width|resize-|autosize)/,
+      /okkly-text-area--(small|large|color-|error|full-width|resize-|autosize)/,
     );
   });
 
   it("applies size modifiers only for non-medium sizes", () => {
     const { container, rerender } = render(<TextArea label="Message" size="small" />);
-    expect(container.querySelector(".okryshto-text-area")).toHaveClass("okryshto-text-area--small");
+    expect(container.querySelector(".okkly-text-area")).toHaveClass("okkly-text-area--small");
 
     rerender(<TextArea label="Message" size="large" />);
-    expect(container.querySelector(".okryshto-text-area")).toHaveClass("okryshto-text-area--large");
+    expect(container.querySelector(".okkly-text-area")).toHaveClass("okkly-text-area--large");
 
     rerender(<TextArea label="Message" size="medium" />);
-    expect(container.querySelector(".okryshto-text-area")?.className).not.toMatch(
-      /okryshto-text-area--(small|large)/,
+    expect(container.querySelector(".okkly-text-area")?.className).not.toMatch(
+      /okkly-text-area--(small|large)/,
     );
   });
 
   it("applies a color modifier only for non-primary colors", () => {
     const { container, rerender } = render(<TextArea label="Message" color="dante" />);
-    expect(container.querySelector(".okryshto-text-area")).toHaveClass(
-      "okryshto-text-area--color-dante",
-    );
+    expect(container.querySelector(".okkly-text-area")).toHaveClass("okkly-text-area--color-dante");
 
     rerender(<TextArea label="Message" color="primary" />);
-    expect(container.querySelector(".okryshto-text-area")?.className).not.toMatch(
-      /okryshto-text-area--color-/,
+    expect(container.querySelector(".okkly-text-area")?.className).not.toMatch(
+      /okkly-text-area--color-/,
     );
   });
 
   it("applies the error modifier and marks aria-invalid", () => {
     const { container } = render(<TextArea label="Message" error />);
-    expect(container.querySelector(".okryshto-text-area")).toHaveClass("okryshto-text-area--error");
+    expect(container.querySelector(".okkly-text-area")).toHaveClass("okkly-text-area--error");
     expect(screen.getByLabelText("Message")).toHaveAttribute("aria-invalid", "true");
   });
 
@@ -78,7 +76,7 @@ describe("TextArea", () => {
 
   it("shows a required asterisk after the label", () => {
     const { container } = render(<TextArea label="Message" required />);
-    expect(container.querySelector(".okryshto-text-area__required")).toHaveTextContent("*");
+    expect(container.querySelector(".okkly-text-area__required")).toHaveTextContent("*");
     expect(screen.getByRole("textbox")).toBeRequired();
   });
 });

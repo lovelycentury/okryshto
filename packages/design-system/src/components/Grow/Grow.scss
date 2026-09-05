@@ -1,6 +1,6 @@
 @use "../../styles/mixins/layers.scss";
 
-.okryshto-grow {
+.okkly-grow {
   @include layers.component() {
     transform-origin: center center;
   }

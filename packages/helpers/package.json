@@ -1,9 +1,20 @@
 {
-  "name": "@okryshto/helpers",
+  "name": "@okkly/helpers",
   "version": "0.0.0",
   "description": "Okryshto design system — framework-agnostic utility helpers",
   "license": "MIT",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lovelycentury/okkly.git",
+    "directory": "packages/helpers"
+  },
+  "homepage": "https://github.com/lovelycentury/okkly/tree/main/packages/helpers#readme",
+  "bugs": "https://github.com/lovelycentury/okkly/issues",
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
   "files": [
     "dist"
   ],

@@ -46,7 +46,7 @@
   justify-content: center;
   padding: 0.5rem;
   border-radius: var(--profile-radius-sm);
-  background: var(--okryshto-bg-surface);
+  background: var(--okkly-bg-surface);
 }
 
 .title {
@@ -59,6 +59,6 @@
 
 .body {
   margin: 0;
-  color: var(--okryshto-text-secondary);
+  color: var(--okkly-text-secondary);
   @include m.type(body-sm);
 }

@@ -1,5 +1,5 @@
 import { getTranslations } from "next-intl/server";
-import { Photo } from "@okryshto/react";
+import { Photo } from "@okkly/react";
 import HeroActions from "./HeroActions";
 import styles from "./HeroSection.module.scss";
 

@@ -22,13 +22,13 @@ describe("Grow", () => {
     expect(container.firstChild).toBeNull();
   });
 
-  it("applies okryshto-grow class on the child", () => {
+  it("applies okkly-grow class on the child", () => {
     render(
       <Grow in>
         <div>Grow content</div>
       </Grow>,
     );
-    expect(screen.getByText("Grow content")).toHaveClass("okryshto-grow");
+    expect(screen.getByText("Grow content")).toHaveClass("okkly-grow");
   });
 
   it("supports numeric timeout", async () => {

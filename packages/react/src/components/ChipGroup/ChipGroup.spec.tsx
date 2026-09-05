@@ -19,23 +19,23 @@ describe("ChipGroup", () => {
 
   it("applies the default classes (primary color, not disabled)", () => {
     const { container } = render(<ChipGroup items={[{ label: "Design" }]} />);
-    const group = container.querySelector(".okryshto-chip-group");
-    expect(group).toHaveClass("okryshto-component", "okryshto-chip-group");
-    expect(group?.className).not.toMatch(/okryshto-chip-group--color-/);
-    expect(group).not.toHaveClass("okryshto-chip-group--disabled");
+    const group = container.querySelector(".okkly-chip-group");
+    expect(group).toHaveClass("okkly-component", "okkly-chip-group");
+    expect(group?.className).not.toMatch(/okkly-chip-group--color-/);
+    expect(group).not.toHaveClass("okkly-chip-group--disabled");
   });
 
   it("applies a color modifier only for non-primary tones", () => {
     const { container, rerender } = render(
       <ChipGroup color="dante" items={[{ label: "Design" }]} />,
     );
-    expect(container.querySelector(".okryshto-chip-group")).toHaveClass(
-      "okryshto-chip-group--color-dante",
+    expect(container.querySelector(".okkly-chip-group")).toHaveClass(
+      "okkly-chip-group--color-dante",
     );
 
     rerender(<ChipGroup color="primary" items={[{ label: "Design" }]} />);
-    expect(container.querySelector(".okryshto-chip-group")?.className).not.toMatch(
-      /okryshto-chip-group--color-/,
+    expect(container.querySelector(".okkly-chip-group")?.className).not.toMatch(
+      /okkly-chip-group--color-/,
     );
   });
 
@@ -60,11 +60,9 @@ describe("ChipGroup", () => {
           ]}
         />,
       );
-      expect(screen.getByText("Design").closest(".okryshto-chip")).toHaveClass(
-        "okryshto-chip--selected",
-      );
-      expect(screen.getByText("Engineering").closest(".okryshto-chip")).not.toHaveClass(
-        "okryshto-chip--selected",
+      expect(screen.getByText("Design").closest(".okkly-chip")).toHaveClass("okkly-chip--selected");
+      expect(screen.getByText("Engineering").closest(".okkly-chip")).not.toHaveClass(
+        "okkly-chip--selected",
       );
     });
 
@@ -110,9 +108,7 @@ describe("ChipGroup", () => {
           ]}
         />,
       );
-      expect(screen.getByText("Design").closest(".okryshto-chip")).toHaveClass(
-        "okryshto-chip--selected",
-      );
+      expect(screen.getByText("Design").closest(".okkly-chip")).toHaveClass("okkly-chip--selected");
     });
   });
 
@@ -127,8 +123,8 @@ describe("ChipGroup", () => {
           items={[{ label: "Design", value: "design" }]}
         />,
       );
-      expect(container.querySelector(".okryshto-chip-group")).toHaveClass(
-        "okryshto-chip-group--disabled",
+      expect(container.querySelector(".okkly-chip-group")).toHaveClass(
+        "okkly-chip-group--disabled",
       );
       fireEvent.click(screen.getByText("Design"));
       expect(onChange).not.toHaveBeenCalled();

@@ -40,8 +40,8 @@ export default meta;
 type Story = StoryObj<typeof ProjectCard>;
 
 const surface: CSSProperties = {
-  fontFamily: "var(--okryshto-font-family-sans)",
-  color: "var(--okryshto-text-primary)",
+  fontFamily: "var(--okkly-font-family-sans)",
+  color: "var(--okkly-text-primary)",
 };
 
 const grid: CSSProperties = {
@@ -54,8 +54,8 @@ const grid: CSSProperties = {
 
 const caption: CSSProperties = {
   margin: 0,
-  fontSize: "var(--okryshto-font-size-sm)",
-  color: "var(--okryshto-text-muted)",
+  fontSize: "var(--okkly-font-size-sm)",
+  color: "var(--okkly-text-muted)",
 };
 
 /**
@@ -72,7 +72,7 @@ export const APortfolioGrid: Story = {
   render: () => (
     <div style={grid}>
       <ProjectCard
-        href="#okryshto"
+        href="#okkly"
         image={oleksiiInParis}
         logo={<Avatar initials="OK" size="sm" />}
         title="Okryshto"

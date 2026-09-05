@@ -10,7 +10,7 @@ import {
   type FormEvent,
   type ReactNode,
 } from "react";
-import { iconClock } from "@okryshto/icons";
+import { iconClock } from "@okkly/icons";
 import {
   maskitoParseTime,
   maskitoStringifyTime,
@@ -18,7 +18,7 @@ import {
   type MaskitoTimeParams,
 } from "@maskito/kit";
 import { useMaskito } from "@maskito/react";
-import "@okryshto/design-system/components/TimeField/TimeField.scss";
+import "@okkly/design-system/components/TimeField/TimeField.scss";
 import { Field, getFieldIds, type FieldColor, type FieldSize } from "../Field/Field";
 import { Popover } from "../Popover/Popover";
 import { TimePicker, type TimePickerValue } from "../TimePicker/TimePicker";
@@ -294,7 +294,7 @@ export const TimeField = forwardRef<HTMLInputElement, TimeFieldProps>(function T
   const trigger = (
     <button
       type="button"
-      className="okryshto-time-field__trigger"
+      className="okkly-time-field__trigger"
       disabled={disabled}
       aria-label="Open time picker"
       aria-expanded={isOpen}
@@ -307,7 +307,7 @@ export const TimeField = forwardRef<HTMLInputElement, TimeFieldProps>(function T
   return (
     <>
       <Field
-        block="okryshto-time-field"
+        block="okkly-time-field"
         id={inputId}
         label={label}
         hideLabel={hideLabel}
@@ -327,7 +327,7 @@ export const TimeField = forwardRef<HTMLInputElement, TimeFieldProps>(function T
           id={inputId}
           type="text"
           inputMode="numeric"
-          className="okryshto-time-field__input"
+          className="okkly-time-field__input"
           value={text}
           disabled={disabled}
           required={required}
@@ -345,7 +345,7 @@ export const TimeField = forwardRef<HTMLInputElement, TimeFieldProps>(function T
         // Aligned to the field's right edge: the picker is much narrower than
         // the field, and the trigger it belongs to sits on that side.
         placement="bottom-end"
-        className="okryshto-time-field-popover"
+        className="okkly-time-field-popover"
       >
         <TimePicker
           value={resolvedValue ? dateToTimeValue(resolvedValue) : undefined}

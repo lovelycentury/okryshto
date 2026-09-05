@@ -13,8 +13,8 @@ import {
   valueToPercent,
   type SliderMark,
   type SliderOrientation,
-} from "@okryshto/react-hooks";
-import "@okryshto/design-system/components/Slider/Slider.scss";
+} from "@okkly/react-hooks";
+import "@okkly/design-system/components/Slider/Slider.scss";
 
 export type { SliderMark, SliderOrientation };
 export type SliderSize = "small" | "medium" | "large";
@@ -46,7 +46,7 @@ function formatValueLabel(value: number): string {
  * `orientation`/`disabled`/`size`/`valueLabelDisplay`/`shiftStep`/`getAriaLabel`/
  * `getAriaValueText`/`track`/`onChange`/`onChangeCommitted` match name-for-name.
  * Deliberate gaps: no `sx`/`classes`/`components`/`component`/`slots`/`slotProps`
- * (no CSS-in-JS system). `color` uses okryshto tone names. `discrete` snaps to marks
+ * (no CSS-in-JS system). `color` uses okkly tone names. `discrete` snaps to marks
  * (MUI uses `step={null}` for the same behavior) and auto-generates step marks
  * when `marks` is omitted.
  */
@@ -297,14 +297,14 @@ export const Slider = forwardRef<HTMLDivElement, SliderProps>(function Slider(
   };
 
   const classes = [
-    "okryshto-component",
-    "okryshto-slider",
-    size !== "medium" && `okryshto-slider--${size}`,
-    color !== "primary" && `okryshto-slider--color-${color}`,
-    orientation === "vertical" && "okryshto-slider--vertical",
-    disabled && "okryshto-slider--disabled",
-    track === "inverted" && "okryshto-slider--track-inverted",
-    track === "none" && "okryshto-slider--track-none",
+    "okkly-component",
+    "okkly-slider",
+    size !== "medium" && `okkly-slider--${size}`,
+    color !== "primary" && `okkly-slider--color-${color}`,
+    orientation === "vertical" && "okkly-slider--vertical",
+    disabled && "okkly-slider--disabled",
+    track === "inverted" && "okkly-slider--track-inverted",
+    track === "none" && "okkly-slider--track-none",
     className,
   ]
     .filter(Boolean)
@@ -327,14 +327,14 @@ export const Slider = forwardRef<HTMLDivElement, SliderProps>(function Slider(
       className={classes}
       aria-disabled={disabled || undefined}
     >
-      <div className="okryshto-slider__rail" {...getRailProps()} />
+      <div className="okkly-slider__rail" {...getRailProps()} />
 
-      {track === "normal" && <div className="okryshto-slider__track" {...trackProps} />}
+      {track === "normal" && <div className="okkly-slider__track" {...trackProps} />}
 
       {invertedTracks?.map((segment, index) => (
         <div
           key={`inverted-${index}`}
-          className="okryshto-slider__track-inverted"
+          className="okkly-slider__track-inverted"
           role="presentation"
           aria-hidden
           style={{
@@ -345,20 +345,20 @@ export const Slider = forwardRef<HTMLDivElement, SliderProps>(function Slider(
       ))}
 
       {marksList.length > 0 && (
-        <div className="okryshto-slider__marks">
+        <div className="okkly-slider__marks">
           {marksList.map((mark) => (
             <div key={mark.value}>
               <div
                 className={[
-                  "okryshto-slider__mark",
-                  isMarkActive(mark.value) && "okryshto-slider__mark--active",
+                  "okkly-slider__mark",
+                  isMarkActive(mark.value) && "okkly-slider__mark--active",
                 ]
                   .filter(Boolean)
                   .join(" ")}
                 {...getMarkProps(mark)}
               />
               {mark.label && (
-                <span className="okryshto-slider__mark-label" {...getMarkLabelProps(mark)}>
+                <span className="okkly-slider__mark-label" {...getMarkLabelProps(mark)}>
                   {mark.label}
                 </span>
               )}
@@ -375,21 +375,21 @@ export const Slider = forwardRef<HTMLDivElement, SliderProps>(function Slider(
           <div
             key={index}
             className={[
-              "okryshto-slider__thumb",
+              "okkly-slider__thumb",
               (activeThumbIndex === index || focusedThumbIndex === index) &&
-                "okryshto-slider__thumb--active",
+                "okkly-slider__thumb--active",
             ]
               .filter(Boolean)
               .join(" ")}
             {...thumbContainerProps}
           >
             {showValueLabel(index) && (
-              <span className="okryshto-slider__value-label">
+              <span className="okkly-slider__value-label">
                 {valueLabelFormat(thumbValue, index)}
               </span>
             )}
-            <span className="okryshto-slider__handle" aria-hidden="true" />
-            <input className="okryshto-slider__input" {...inputProps} />
+            <span className="okkly-slider__handle" aria-hidden="true" />
+            <input className="okkly-slider__input" {...inputProps} />
           </div>
         );
       })}

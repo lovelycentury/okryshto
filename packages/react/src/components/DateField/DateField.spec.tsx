@@ -6,18 +6,14 @@ import { DateField } from "./DateField";
 describe("DateField", () => {
   it("renders with the default className and no modifiers", () => {
     const { container } = render(<DateField label="Date" />);
-    const root = container.querySelector(".okryshto-date-field");
-    expect(root).toHaveClass("okryshto-component", "okryshto-date-field");
-    expect(root?.className).not.toMatch(
-      /okryshto-date-field--(small|large|error|full-width|color-)/,
-    );
+    const root = container.querySelector(".okkly-date-field");
+    expect(root).toHaveClass("okkly-component", "okkly-date-field");
+    expect(root?.className).not.toMatch(/okkly-date-field--(small|large|error|full-width|color-)/);
   });
 
   it("applies the error modifier", () => {
     const { container } = render(<DateField label="Date" error helperText="Required" />);
-    expect(container.querySelector(".okryshto-date-field")).toHaveClass(
-      "okryshto-date-field--error",
-    );
+    expect(container.querySelector(".okkly-date-field")).toHaveClass("okkly-date-field--error");
   });
 
   it("forwards a ref to the input", () => {
@@ -55,12 +51,12 @@ describe("DateField", () => {
   it("opens the calendar popover when the calendar button is clicked", () => {
     render(<DateField label="Date" />);
     fireEvent.click(screen.getByRole("button", { name: "Open calendar" }));
-    expect(document.querySelector(".okryshto-calendar")).toBeInTheDocument();
+    expect(document.querySelector(".okkly-calendar")).toBeInTheDocument();
   });
 
   it("shows a required asterisk after the label", () => {
     const { container } = render(<DateField label="Date" required />);
-    expect(container.querySelector(".okryshto-date-field__required")).toHaveTextContent("*");
+    expect(container.querySelector(".okkly-date-field__required")).toHaveTextContent("*");
     expect(screen.getByRole("textbox")).toBeRequired();
   });
 });

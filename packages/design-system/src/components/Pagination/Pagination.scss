@@ -1,50 +1,50 @@
-// https://www.figma.com/design/3YsJJl5QukJZPkjoOOZahx/-okryshto-okryshto?node-id=668-13588
+// https://www.figma.com/design/3YsJJl5QukJZPkjoOOZahx/-okkly-okkly?node-id=668-13588
 // API: https://mui.com/material-ui/api/pagination/
 @use "../../styles/mixins/layers.scss";
 
-.okryshto-pagination {
+.okkly-pagination {
   @include layers.component() {
-    --okryshto-pagination-tone: var(--okryshto-accent-primary);
-    --okryshto-pagination-active-background-color: var(--okryshto-pagination-tone);
-    --okryshto-pagination-active-text-color: var(--okryshto-accent-contrast);
-    --okryshto-pagination-button-size: 2.25rem;
-    --okryshto-pagination-button-border-radius: 0.625rem;
-    --okryshto-pagination-icon-size: 1rem;
-    --okryshto-pagination-gap: 0.375rem;
+    --okkly-pagination-tone: var(--okkly-accent-primary);
+    --okkly-pagination-active-background-color: var(--okkly-pagination-tone);
+    --okkly-pagination-active-text-color: var(--okkly-accent-contrast);
+    --okkly-pagination-button-size: 2.25rem;
+    --okkly-pagination-button-border-radius: 0.625rem;
+    --okkly-pagination-icon-size: 1rem;
+    --okkly-pagination-gap: 0.375rem;
 
     display: inline-flex;
     align-items: center;
-    gap: var(--okryshto-pagination-gap);
-    font-family: var(--okryshto-font-family-sans);
+    gap: var(--okkly-pagination-gap);
+    font-family: var(--okkly-font-family-sans);
 
     &--color-dante {
-      --okryshto-pagination-tone: var(--okryshto-accent-dante);
+      --okkly-pagination-tone: var(--okkly-accent-dante);
     }
     &--color-indigo {
-      --okryshto-pagination-tone: var(--okryshto-accent-secondary);
+      --okkly-pagination-tone: var(--okkly-accent-secondary);
     }
     &--color-violet {
-      --okryshto-pagination-tone: var(--okryshto-accent-violet);
+      --okkly-pagination-tone: var(--okkly-accent-violet);
     }
     &--color-ember {
-      --okryshto-pagination-tone: var(--okryshto-accent-ember);
+      --okkly-pagination-tone: var(--okkly-accent-ember);
     }
     &--color-ice {
-      --okryshto-pagination-tone: var(--okryshto-accent-ice);
+      --okkly-pagination-tone: var(--okkly-accent-ice);
     }
 
     &--size-small {
-      --okryshto-pagination-button-size: 1.875rem;
-      --okryshto-pagination-icon-size: 0.875rem;
+      --okkly-pagination-button-size: 1.875rem;
+      --okkly-pagination-icon-size: 0.875rem;
     }
 
     &--size-large {
-      --okryshto-pagination-button-size: 2.75rem;
-      --okryshto-pagination-icon-size: 1.125rem;
+      --okkly-pagination-button-size: 2.75rem;
+      --okkly-pagination-icon-size: 1.125rem;
     }
 
     &--shape-circular {
-      --okryshto-pagination-button-border-radius: 9999px;
+      --okkly-pagination-button-border-radius: 9999px;
     }
 
     &--disabled {
@@ -55,7 +55,7 @@
     &__list {
       display: inline-flex;
       align-items: center;
-      gap: var(--okryshto-pagination-gap);
+      gap: var(--okkly-pagination-gap);
       margin: 0;
       padding: 0;
       list-style: none;
@@ -69,29 +69,29 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: var(--okryshto-pagination-button-size);
-      height: var(--okryshto-pagination-button-size);
-      border: var(--okryshto-1px-in-rem) solid var(--okryshto-border-subtle);
-      border-radius: var(--okryshto-pagination-button-border-radius);
-      background: var(--okryshto-bg-surface);
-      color: var(--okryshto-text-secondary);
+      width: var(--okkly-pagination-button-size);
+      height: var(--okkly-pagination-button-size);
+      border: var(--okkly-1px-in-rem) solid var(--okkly-border-subtle);
+      border-radius: var(--okkly-pagination-button-border-radius);
+      background: var(--okkly-bg-surface);
+      color: var(--okkly-text-secondary);
       font-family: inherit;
-      font-weight: var(--okryshto-font-weight-medium);
-      font-size: var(--okryshto-font-size-md);
+      font-weight: var(--okkly-font-weight-medium);
+      font-size: var(--okkly-font-size-md);
       line-height: 1;
       cursor: pointer;
       transition:
-        background-color var(--okryshto-duration-sm) ease,
-        border-color var(--okryshto-duration-sm) ease,
-        color var(--okryshto-duration-sm) ease;
+        background-color var(--okkly-duration-sm) ease,
+        border-color var(--okkly-duration-sm) ease,
+        color var(--okkly-duration-sm) ease;
 
       &:hover:not(:disabled) {
-        color: var(--okryshto-text-primary);
-        border-color: var(--okryshto-border-default);
+        color: var(--okkly-text-primary);
+        border-color: var(--okkly-border-default);
       }
 
       &:focus-visible {
-        outline: var(--okryshto-1px-in-rem) solid var(--okryshto-pagination-tone);
+        outline: var(--okkly-1px-in-rem) solid var(--okkly-pagination-tone);
         outline-offset: 0.1875rem;
       }
 
@@ -101,21 +101,21 @@
       }
 
       &--active {
-        border-color: var(--okryshto-pagination-active-background-color);
-        background: var(--okryshto-pagination-active-background-color);
-        color: var(--okryshto-pagination-active-text-color);
+        border-color: var(--okkly-pagination-active-background-color);
+        background: var(--okkly-pagination-active-background-color);
+        color: var(--okkly-pagination-active-text-color);
 
         &:hover:not(:disabled) {
-          color: var(--okryshto-pagination-active-text-color);
-          border-color: var(--okryshto-pagination-active-background-color);
+          color: var(--okkly-pagination-active-text-color);
+          border-color: var(--okkly-pagination-active-background-color);
         }
       }
     }
 
     &__icon {
       display: inline-flex;
-      width: var(--okryshto-pagination-icon-size);
-      height: var(--okryshto-pagination-icon-size);
+      width: var(--okkly-pagination-icon-size);
+      height: var(--okkly-pagination-icon-size);
 
       svg {
         width: 100%;
@@ -128,10 +128,10 @@
       align-items: center;
       justify-content: center;
       min-width: 1.75rem;
-      height: var(--okryshto-pagination-button-size);
-      color: var(--okryshto-text-muted);
-      font-weight: var(--okryshto-font-weight-medium);
-      font-size: var(--okryshto-font-size-md);
+      height: var(--okkly-pagination-button-size);
+      color: var(--okkly-text-muted);
+      font-weight: var(--okkly-font-weight-medium);
+      font-size: var(--okkly-font-size-md);
       user-select: none;
     }
   }

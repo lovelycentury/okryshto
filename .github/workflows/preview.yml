@@ -1,0 +1,36 @@
+name: Preview release
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  pull-requests: write # pkg-pr-new posts an install link as a PR comment
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - run: pnpm run build:libs
+
+      - name: Publish preview packages
+        run: >
+          pnpm dlx pkg-pr-new publish --pnpm --compact
+          './packages/react'
+          './packages/react-hooks'
+          './packages/helpers'
+          './packages/icons'
+          './packages/design-system'

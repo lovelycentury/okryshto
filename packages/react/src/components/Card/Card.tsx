@@ -1,7 +1,7 @@
 "use client";
 
 import type { HTMLAttributes, ImgHTMLAttributes, ReactNode } from "react";
-import "@okryshto/design-system/components/Card/Card.scss";
+import "@okkly/design-system/components/Card/Card.scss";
 
 export type CardVariant = "solid" | "raised" | "glass" | "outline" | "aura";
 export type CardColor = "primary" | "dante" | "indigo";
@@ -72,12 +72,12 @@ export function Card({
   const effectiveVariant = raised && variant === "solid" ? "raised" : variant;
 
   const classes = [
-    "okryshto-component",
-    "okryshto-card",
-    effectiveVariant !== "solid" && `okryshto-card--${effectiveVariant}`,
-    padding !== "md" && `okryshto-card--padding-${padding}`,
-    color !== "primary" && effectiveVariant === "aura" && `okryshto-card--color-${color}`,
-    interactive && "okryshto-card--interactive",
+    "okkly-component",
+    "okkly-card",
+    effectiveVariant !== "solid" && `okkly-card--${effectiveVariant}`,
+    padding !== "md" && `okkly-card--padding-${padding}`,
+    color !== "primary" && effectiveVariant === "aura" && `okkly-card--color-${color}`,
+    interactive && "okkly-card--interactive",
     className,
   ]
     .filter(Boolean)
@@ -130,17 +130,17 @@ export function CardHeader({
   children,
   ...rest
 }: CardHeaderProps) {
-  const classes = ["okryshto-card__header", className].filter(Boolean).join(" ");
+  const classes = ["okkly-card__header", className].filter(Boolean).join(" ");
 
   return (
     <div className={classes} {...rest}>
-      {avatar && <div className="okryshto-card__avatar">{avatar}</div>}
-      <div className="okryshto-card__heading">
-        {title !== undefined && <h3 className="okryshto-card__title">{title}</h3>}
-        {subheader !== undefined && <p className="okryshto-card__subheader">{subheader}</p>}
+      {avatar && <div className="okkly-card__avatar">{avatar}</div>}
+      <div className="okkly-card__heading">
+        {title !== undefined && <h3 className="okkly-card__title">{title}</h3>}
+        {subheader !== undefined && <p className="okkly-card__subheader">{subheader}</p>}
         {children}
       </div>
-      {action && <div className="okryshto-card__action">{action}</div>}
+      {action && <div className="okkly-card__action">{action}</div>}
     </div>
   );
 }
@@ -156,7 +156,7 @@ export interface CardContentProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export function CardContent({ children, className, ...rest }: CardContentProps) {
-  const classes = ["okryshto-card__content", className].filter(Boolean).join(" ");
+  const classes = ["okkly-card__content", className].filter(Boolean).join(" ");
 
   return (
     <div className={classes} {...rest}>
@@ -176,7 +176,7 @@ export interface CardActionsProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export function CardActions({ children, className, ...rest }: CardActionsProps) {
-  const classes = ["okryshto-card__actions", className].filter(Boolean).join(" ");
+  const classes = ["okkly-card__actions", className].filter(Boolean).join(" ");
 
   return (
     <div className={classes} {...rest}>
@@ -198,7 +198,7 @@ export interface CardMediaProps extends ImgHTMLAttributes<HTMLImageElement> {
 export function CardMedia({ height = 150, className, style, alt = "", ...rest }: CardMediaProps) {
   const cssHeight = typeof height === "number" ? `${height / 16}rem` : height;
 
-  const classes = ["okryshto-card__media", className].filter(Boolean).join(" ");
+  const classes = ["okkly-card__media", className].filter(Boolean).join(" ");
 
   return <img className={classes} alt={alt} style={{ height: cssHeight, ...style }} {...rest} />;
 }

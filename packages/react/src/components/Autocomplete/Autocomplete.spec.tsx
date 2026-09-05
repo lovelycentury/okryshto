@@ -32,7 +32,7 @@ describe("Autocomplete", () => {
 
   it("shows a required asterisk after the label", () => {
     const { container } = render(<Autocomplete label="People" options={options} required />);
-    expect(container.querySelector(".okryshto-autocomplete__required")).toHaveTextContent("*");
+    expect(container.querySelector(".okkly-autocomplete__required")).toHaveTextContent("*");
     expect(screen.getByRole("combobox")).toBeRequired();
   });
 
@@ -40,19 +40,15 @@ describe("Autocomplete", () => {
     const { container, rerender } = render(
       <Autocomplete label="People" options={options} size="large" color="dante" error />,
     );
-    expect(container.querySelector(".okryshto-autocomplete")).toHaveClass(
-      "okryshto-autocomplete--large",
+    expect(container.querySelector(".okkly-autocomplete")).toHaveClass("okkly-autocomplete--large");
+    expect(container.querySelector(".okkly-autocomplete")).toHaveClass(
+      "okkly-autocomplete--color-dante",
     );
-    expect(container.querySelector(".okryshto-autocomplete")).toHaveClass(
-      "okryshto-autocomplete--color-dante",
-    );
-    expect(container.querySelector(".okryshto-autocomplete")).toHaveClass(
-      "okryshto-autocomplete--error",
-    );
+    expect(container.querySelector(".okkly-autocomplete")).toHaveClass("okkly-autocomplete--error");
 
     rerender(<Autocomplete label="People" options={options} />);
-    expect(container.querySelector(".okryshto-autocomplete")?.className).not.toMatch(
-      /okryshto-autocomplete--(small|large|color-|error)/,
+    expect(container.querySelector(".okkly-autocomplete")?.className).not.toMatch(
+      /okkly-autocomplete--(small|large|color-|error)/,
     );
   });
 
@@ -149,7 +145,7 @@ describe("Autocomplete", () => {
     // only because the whole control is the click target.
     const { container } = render(<Autocomplete label="People" options={options} />);
 
-    fireEvent.click(container.querySelector(".okryshto-autocomplete__control")!);
+    fireEvent.click(container.querySelector(".okkly-autocomplete__control")!);
 
     expect(screen.getByRole("combobox")).toHaveFocus();
     expect(screen.getByRole("listbox")).toBeInTheDocument();
@@ -174,7 +170,7 @@ describe("Autocomplete", () => {
     // controlled-open popup used to see a null anchor and never get positioned.
     render(<Autocomplete label="People" options={options} open />);
 
-    const popper = document.querySelector<HTMLElement>(".okryshto-autocomplete-popper");
+    const popper = document.querySelector<HTMLElement>(".okkly-autocomplete-popper");
     expect(popper).not.toBeNull();
     expect(popper).toHaveAttribute("data-popper-placement");
   });
@@ -185,8 +181,8 @@ describe("Autocomplete", () => {
     render(<Autocomplete label="People" options={options} size="large" openOnFocus />);
     fireEvent.focus(screen.getByRole("combobox"));
 
-    expect(document.querySelector(".okryshto-autocomplete-popover")).toHaveClass(
-      "okryshto-autocomplete-popover--large",
+    expect(document.querySelector(".okkly-autocomplete-popover")).toHaveClass(
+      "okkly-autocomplete-popover--large",
     );
   });
 
@@ -316,13 +312,13 @@ describe("Autocomplete", () => {
       );
 
       const row = screen.getAllByRole("option")[0];
-      expect(row.querySelector(".okryshto-autocomplete__option-label")).toBeInTheDocument();
-      expect(row.querySelector(".okryshto-autocomplete__option-meta")).toBeInTheDocument();
+      expect(row.querySelector(".okkly-autocomplete__option-label")).toBeInTheDocument();
+      expect(row.querySelector(".okkly-autocomplete__option-meta")).toBeInTheDocument();
       // Only the matching run is wrapped, and the wrapper adds no text of its
       // own — the row still reads as the option label plus its description.
       expect(row).toHaveTextContent("Mika ChenDesign");
       expect(row.querySelector("mark")).toHaveTextContent("Mik");
-      expect(row.querySelector("mark")).toHaveClass("okryshto-autocomplete__option-mark");
+      expect(row.querySelector("mark")).toHaveClass("okkly-autocomplete__option-mark");
     });
 
     it("keeps typing, filtering and the label when renderInput takes the control over", () => {

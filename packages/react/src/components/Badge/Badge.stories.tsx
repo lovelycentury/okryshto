@@ -1,6 +1,6 @@
 import { useState, type CSSProperties } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { iconBell, iconMail, iconShoppingCart } from "@okryshto/icons";
+import { iconBell, iconMail, iconShoppingCart } from "@okkly/icons";
 import { Avatar } from "../Avatar/Avatar";
 import { Button } from "../Button/Button";
 import { IconButton } from "../IconButton/IconButton";
@@ -67,9 +67,9 @@ const surface: CSSProperties = {
   gap: "28px",
   padding: "20px 24px",
   borderRadius: "14px",
-  background: "var(--okryshto-bg-inset)",
-  fontFamily: "var(--okryshto-font-family-sans)",
-  color: "var(--okryshto-text-primary)",
+  background: "var(--okkly-bg-inset)",
+  fontFamily: "var(--okkly-font-family-sans)",
+  color: "var(--okkly-text-primary)",
 };
 
 // The icon package ships raw SVG strings, so anything using them needs a host node.
@@ -155,8 +155,8 @@ export const Overflow: Story = {
           </Badge>
           <span
             style={{
-              fontSize: "var(--okryshto-font-size-sm)",
-              color: "var(--okryshto-text-muted)",
+              fontSize: "var(--okkly-font-size-sm)",
+              color: "var(--okkly-text-muted)",
             }}
           >
             {count}
@@ -199,7 +199,7 @@ export const Standalone: Story = {
             gap: "12px",
             padding: "10px 12px",
             borderRadius: "8px",
-            fontSize: "var(--okryshto-font-size-sm)",
+            fontSize: "var(--okkly-font-size-sm)",
           }}
         >
           <span>{row.label}</span>
@@ -235,8 +235,8 @@ export const Placement: Story = {
             </Badge>
             <span
               style={{
-                fontSize: "var(--okryshto-font-size-sm)",
-                color: "var(--okryshto-text-muted)",
+                fontSize: "var(--okkly-font-size-sm)",
+                color: "var(--okkly-text-muted)",
               }}
             >
               {anchorOrigin.vertical}/{anchorOrigin.horizontal}
@@ -249,8 +249,8 @@ export const Placement: Story = {
           </Badge>
           <span
             style={{
-              fontSize: "var(--okryshto-font-size-sm)",
-              color: "var(--okryshto-text-muted)",
+              fontSize: "var(--okkly-font-size-sm)",
+              color: "var(--okkly-text-muted)",
             }}
           >
             rectangular
@@ -289,8 +289,8 @@ export const Colors: Story = {
             <Badge badgeContent={8} color={color} />
             <span
               style={{
-                fontSize: "var(--okryshto-font-size-sm)",
-                color: "var(--okryshto-text-muted)",
+                fontSize: "var(--okkly-font-size-sm)",
+                color: "var(--okkly-text-muted)",
               }}
             >
               {color ?? "neutral"}
@@ -349,8 +349,8 @@ export const AccessibleCounts: Story = {
         style={{
           margin: 0,
           maxWidth: "420px",
-          fontSize: "var(--okryshto-font-size-sm)",
-          color: "var(--okryshto-text-secondary)",
+          fontSize: "var(--okkly-font-size-sm)",
+          color: "var(--okkly-text-secondary)",
         }}
       >
         The button above announces “Notifications, 4 unread”. Keep that label in sync with{" "}

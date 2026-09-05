@@ -5,14 +5,14 @@
   // Wider than the box so there is gradient left to travel through.
   background: linear-gradient(
     100deg,
-    var(--okryshto-text-muted) 0%,
-    var(--okryshto-text-muted) 35%,
-    var(--okryshto-text-primary) 50%,
-    var(--okryshto-text-muted) 65%,
-    var(--okryshto-text-muted) 100%
+    var(--okkly-text-muted) 0%,
+    var(--okkly-text-muted) 35%,
+    var(--okkly-text-primary) 50%,
+    var(--okkly-text-muted) 65%,
+    var(--okkly-text-muted) 100%
   );
   background-size: 250% 100%;
-  color: var(--okryshto-text-muted);
+  color: var(--okkly-text-muted);
 }
 
 // `color: transparent` is only safe once the gradient is actually painted into the
@@ -42,6 +42,6 @@
   .root {
     animation: none;
     background: none;
-    color: var(--okryshto-text-secondary);
+    color: var(--okkly-text-secondary);
   }
 }

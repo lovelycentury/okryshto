@@ -1,11 +1,11 @@
 @use "../../styles/mixins/layers.scss";
 @use "../../styles/mixins/field.scss";
 
-.okryshto-autocomplete {
+.okkly-autocomplete {
   @include layers.component() {
     // Label, control box, adornments, helper text and the error/size/color
     // modifiers are shared with TextField and Select — see
-    // `styles/mixins/field.scss` for the `--okryshto-autocomplete-*` variable API.
+    // `styles/mixins/field.scss` for the `--okkly-autocomplete-*` variable API.
     @include field.shell("autocomplete");
 
     // Clicking anywhere in the box focuses the input, so the whole box should
@@ -20,7 +20,7 @@
 
     // Tags sit inside the control, before the input, and wrap onto new lines as
     // they accumulate — so the control has to stop being a single centred row.
-    &__control:has(.okryshto-autocomplete__tags) {
+    &__control:has(.okkly-autocomplete__tags) {
       flex-wrap: wrap;
       align-items: flex-start;
     }
@@ -36,9 +36,9 @@
     &__overflow {
       flex-shrink: 0;
       align-self: center;
-      color: var(--okryshto-text-muted);
-      font-family: var(--okryshto-font-family-sans);
-      font-size: var(--okryshto-font-size-sm);
+      color: var(--okkly-text-muted);
+      font-family: var(--okkly-font-family-sans);
+      font-size: var(--okkly-font-size-sm);
     }
 
     // The input keeps a floor width so it stays clickable once tags have taken
@@ -55,12 +55,12 @@
       padding: 0;
       border: none;
       background: transparent;
-      color: var(--okryshto-text-muted);
+      color: var(--okkly-text-muted);
       cursor: pointer;
-      transition: color var(--okryshto-duration-sm) ease;
+      transition: color var(--okkly-duration-sm) ease;
 
       &:hover:not(:disabled) {
-        color: var(--okryshto-text-primary);
+        color: var(--okkly-text-primary);
       }
 
       &:disabled {
@@ -81,8 +81,8 @@
   }
 }
 
-.okryshto-autocomplete-popover {
+.okkly-autocomplete-popover {
   @include layers.component() {
-    @include field.listbox("okryshto-autocomplete", "autocomplete");
+    @include field.listbox("okkly-autocomplete", "autocomplete");
   }
 }

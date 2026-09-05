@@ -1,7 +1,7 @@
 "use client";
 
 import type { HTMLAttributes, KeyboardEvent, MouseEvent, ReactNode } from "react";
-import "@okryshto/design-system/components/LinkCard/LinkCard.scss";
+import "@okkly/design-system/components/LinkCard/LinkCard.scss";
 
 export type LinkCardColor = "primary" | "dante" | "indigo" | "violet" | "ember" | "ice";
 export type LinkCardSize = "small" | "medium" | "large";
@@ -110,12 +110,12 @@ export function LinkCard({
   const isDivInteractive = !href && !!onClick;
 
   const classes = [
-    "okryshto-component",
-    "okryshto-link-card",
-    color !== "primary" && `okryshto-link-card--color-${color}`,
-    size !== "medium" && `okryshto-link-card--${size}`,
-    featured && "okryshto-link-card--featured",
-    isDivInteractive && "okryshto-link-card--interactive",
+    "okkly-component",
+    "okkly-link-card",
+    color !== "primary" && `okkly-link-card--color-${color}`,
+    size !== "medium" && `okkly-link-card--${size}`,
+    featured && "okkly-link-card--featured",
+    isDivInteractive && "okkly-link-card--interactive",
     className,
   ]
     .filter(Boolean)
@@ -123,16 +123,16 @@ export function LinkCard({
 
   const content = (
     <>
-      <div className="okryshto-link-card__main">
-        <div className="okryshto-link-card__title-row">
-          {featured && <span className="okryshto-link-card__dot" aria-hidden="true" />}
-          <h4 className="okryshto-link-card__title okryshto-truncation-ellipsis">{title}</h4>
+      <div className="okkly-link-card__main">
+        <div className="okkly-link-card__title-row">
+          {featured && <span className="okkly-link-card__dot" aria-hidden="true" />}
+          <h4 className="okkly-link-card__title okkly-truncation-ellipsis">{title}</h4>
         </div>
-        {subtitle && <p className="okryshto-link-card__subtitle">{subtitle}</p>}
+        {subtitle && <p className="okkly-link-card__subtitle">{subtitle}</p>}
       </div>
-      <div className="okryshto-link-card__aside">
-        {meta && <span className="okryshto-link-card__meta">{meta}</span>}
-        <span className="okryshto-link-card__arrow" aria-hidden="true">
+      <div className="okkly-link-card__aside">
+        {meta && <span className="okkly-link-card__meta">{meta}</span>}
+        <span className="okkly-link-card__arrow" aria-hidden="true">
           <ArrowUpRightIcon />
         </span>
       </div>

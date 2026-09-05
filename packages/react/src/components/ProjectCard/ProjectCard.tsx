@@ -1,7 +1,7 @@
 "use client";
 
 import type { HTMLAttributes, ReactNode } from "react";
-import "@okryshto/design-system/components/ProjectCard/ProjectCard.scss";
+import "@okkly/design-system/components/ProjectCard/ProjectCard.scss";
 
 export interface ProjectCardProps extends Omit<HTMLAttributes<HTMLElement>, "title"> {
   /**
@@ -74,27 +74,25 @@ export function ProjectCard({
   className,
   ...rest
 }: ProjectCardProps) {
-  const classes = ["okryshto-component", "okryshto-project-card", className]
-    .filter(Boolean)
-    .join(" ");
+  const classes = ["okkly-component", "okkly-project-card", className].filter(Boolean).join(" ");
 
   const content = (
     <>
-      {image && <img className="okryshto-project-card__background" src={image} alt="" />}
-      <div className="okryshto-project-card__scrim" aria-hidden="true" />
+      {image && <img className="okkly-project-card__background" src={image} alt="" />}
+      <div className="okkly-project-card__scrim" aria-hidden="true" />
       {device && (
-        <div className="okryshto-project-card__device" aria-hidden="true">
-          <div className="okryshto-project-card__device-screen" />
-          <div className="okryshto-project-card__device-notch" />
-          <div className="okryshto-project-card__device-line okryshto-project-card__device-line--1" />
-          <div className="okryshto-project-card__device-line okryshto-project-card__device-line--2" />
-          <div className="okryshto-project-card__device-line okryshto-project-card__device-line--3" />
-          <div className="okryshto-project-card__device-line okryshto-project-card__device-line--4" />
+        <div className="okkly-project-card__device" aria-hidden="true">
+          <div className="okkly-project-card__device-screen" />
+          <div className="okkly-project-card__device-notch" />
+          <div className="okkly-project-card__device-line okkly-project-card__device-line--1" />
+          <div className="okkly-project-card__device-line okkly-project-card__device-line--2" />
+          <div className="okkly-project-card__device-line okkly-project-card__device-line--3" />
+          <div className="okkly-project-card__device-line okkly-project-card__device-line--4" />
         </div>
       )}
-      <div className="okryshto-project-card__header">
-        {logo && <div className="okryshto-project-card__logo">{logo}</div>}
-        <div className="okryshto-project-card__action" aria-hidden="true">
+      <div className="okkly-project-card__header">
+        {logo && <div className="okkly-project-card__logo">{logo}</div>}
+        <div className="okkly-project-card__action" aria-hidden="true">
           <svg
             viewBox="0 0 24 24"
             fill="none"
@@ -108,18 +106,18 @@ export function ProjectCard({
           </svg>
         </div>
       </div>
-      <div className="okryshto-project-card__body">
+      <div className="okkly-project-card__body">
         {tags.length > 0 && (
-          <div className="okryshto-project-card__tags">
+          <div className="okkly-project-card__tags">
             {tags.map((tag) => (
-              <span key={tag} className="okryshto-project-card__tag">
+              <span key={tag} className="okkly-project-card__tag">
                 {tag}
               </span>
             ))}
           </div>
         )}
-        <h3 className="okryshto-project-card__title">{title}</h3>
-        {description && <p className="okryshto-project-card__description">{description}</p>}
+        <h3 className="okkly-project-card__title">{title}</h3>
+        {description && <p className="okkly-project-card__description">{description}</p>}
       </div>
     </>
   );

@@ -1,29 +1,29 @@
 @use "../../styles/mixins/layers.scss";
 
-.okryshto-inline-action {
+.okkly-inline-action {
   @include layers.component() {
     // 1. full variable API — tone defaults to the ambient section tone
-    // (--okryshto-section-tone, set by some wrapping container), falling back
+    // (--okkly-section-tone, set by some wrapping container), falling back
     // to primary/mint. No React context: pure CSS custom-property inheritance.
-    --okryshto-inline-action-tone: var(--okryshto-section-tone, var(--okryshto-accent-primary));
-    --okryshto-inline-action-gradient-to: var(--okryshto-accent-secondary);
-    --okryshto-inline-action-padding-start: 1.125rem; // 18px
-    --okryshto-inline-action-padding-end: 0.375rem; // 6px
-    --okryshto-inline-action-padding-block: 0.375rem; // 6px
-    --okryshto-inline-action-font-size: 1rem; // 16px
-    --okryshto-inline-action-line-height: 1.625rem; // 26px
-    --okryshto-inline-action-btn-padding-inline: 0.875rem; // 14px
-    --okryshto-inline-action-btn-padding-block: 0.5rem; // 8px
-    --okryshto-inline-action-btn-font-size: 0.9375rem; // 15px
-    --okryshto-inline-action-btn-line-height: 1.25rem; // 20px
-    --okryshto-inline-action-icon-size: 0.875rem; // 14px
+    --okkly-inline-action-tone: var(--okkly-section-tone, var(--okkly-accent-primary));
+    --okkly-inline-action-gradient-to: var(--okkly-accent-secondary);
+    --okkly-inline-action-padding-start: 1.125rem; // 18px
+    --okkly-inline-action-padding-end: 0.375rem; // 6px
+    --okkly-inline-action-padding-block: 0.375rem; // 6px
+    --okkly-inline-action-font-size: 1rem; // 16px
+    --okkly-inline-action-line-height: 1.625rem; // 26px
+    --okkly-inline-action-btn-padding-inline: 0.875rem; // 14px
+    --okkly-inline-action-btn-padding-block: 0.5rem; // 8px
+    --okkly-inline-action-btn-font-size: 0.9375rem; // 15px
+    --okkly-inline-action-btn-line-height: 1.25rem; // 20px
+    --okkly-inline-action-icon-size: 0.875rem; // 14px
 
     display: inline-flex;
     flex-direction: column;
     gap: 0.4375rem; // 7px
     width: fit-content;
 
-    &:has(.okryshto-inline-action__input:disabled) {
+    &:has(.okkly-inline-action__input:disabled) {
       opacity: 0.4;
     }
 
@@ -34,68 +34,68 @@
       gap: 0.625rem; // 10px
       width: 100%;
       box-sizing: border-box;
-      padding: var(--okryshto-inline-action-padding-block) var(--okryshto-inline-action-padding-end)
-        var(--okryshto-inline-action-padding-block) var(--okryshto-inline-action-padding-start);
+      padding: var(--okkly-inline-action-padding-block) var(--okkly-inline-action-padding-end)
+        var(--okkly-inline-action-padding-block) var(--okkly-inline-action-padding-start);
       border-radius: 9999px;
-      background: var(--okryshto-bg-inset);
+      background: var(--okkly-bg-inset);
       // border-width never changes (only color + box-shadow do) — see TextField for why.
-      border: var(--okryshto-1px-in-rem) solid var(--okryshto-border-default);
+      border: var(--okkly-1px-in-rem) solid var(--okkly-border-default);
       box-shadow:
         0 0 0 0 transparent,
         0 0 2.5rem transparent;
       transition:
-        border-color var(--okryshto-duration-sm) ease-out,
-        box-shadow var(--okryshto-duration-sm) ease-out,
-        background-color var(--okryshto-duration-sm) ease-out;
+        border-color var(--okkly-duration-sm) ease-out,
+        box-shadow var(--okkly-duration-sm) ease-out,
+        background-color var(--okkly-duration-sm) ease-out;
 
       &:hover {
-        border-color: var(--okryshto-border-strong);
+        border-color: var(--okkly-border-strong);
         box-shadow:
           0 0 0 0 transparent,
-          0 0 0.5rem color-mix(in srgb, var(--okryshto-inline-action-tone) 25%, transparent);
+          0 0 0.5rem color-mix(in srgb, var(--okkly-inline-action-tone) 25%, transparent);
       }
 
       &:focus-within {
-        border-color: var(--okryshto-inline-action-tone);
+        border-color: var(--okkly-inline-action-tone);
         box-shadow:
-          0 0 0 0.03125rem var(--okryshto-inline-action-tone),
-          0 0 2.5rem color-mix(in srgb, var(--okryshto-inline-action-tone) 24%, transparent);
+          0 0 0 0.03125rem var(--okkly-inline-action-tone),
+          0 0 2.5rem color-mix(in srgb, var(--okkly-inline-action-tone) 24%, transparent);
       }
     }
 
     // explicit hover/focus overrides — mirror the pseudo-classes above so
     // Storybook's `state` control can force them without real mouse/keyboard input
     &--state-hover &__control {
-      border-color: var(--okryshto-border-strong);
+      border-color: var(--okkly-border-strong);
       box-shadow:
         0 0 0 0 transparent,
-        0 0 0.5rem color-mix(in srgb, var(--okryshto-inline-action-tone) 25%, transparent);
+        0 0 0.5rem color-mix(in srgb, var(--okkly-inline-action-tone) 25%, transparent);
     }
 
     &--state-focus &__control {
-      border-color: var(--okryshto-inline-action-tone);
+      border-color: var(--okkly-inline-action-tone);
       box-shadow:
-        0 0 0 0.03125rem var(--okryshto-inline-action-tone),
-        0 0 2.5rem color-mix(in srgb, var(--okryshto-inline-action-tone) 24%, transparent);
+        0 0 0 0.03125rem var(--okkly-inline-action-tone),
+        0 0 2.5rem color-mix(in srgb, var(--okkly-inline-action-tone) 24%, transparent);
     }
 
     &--state-success &__control {
-      border-color: var(--okryshto-feedback-success);
+      border-color: var(--okkly-feedback-success);
       box-shadow:
-        0 0 0 0.03125rem var(--okryshto-feedback-success),
+        0 0 0 0.03125rem var(--okkly-feedback-success),
         0 0 2.5rem transparent;
     }
 
     &--state-error &__control {
-      border-color: var(--okryshto-feedback-danger);
+      border-color: var(--okkly-feedback-danger);
       box-shadow:
-        0 0 0 0.03125rem var(--okryshto-feedback-danger),
+        0 0 0 0.03125rem var(--okkly-feedback-danger),
         0 0 2.5rem transparent;
     }
 
     &--state-readonly &__control {
-      background: var(--okryshto-bg-surface);
-      border-color: var(--okryshto-border-subtle);
+      background: var(--okkly-bg-surface);
+      border-color: var(--okkly-border-subtle);
     }
 
     &__input {
@@ -104,14 +104,14 @@
       border: none;
       outline: none;
       background: transparent;
-      font-family: var(--okryshto-font-family-sans);
-      font-weight: var(--okryshto-font-weight-regular);
-      font-size: var(--okryshto-inline-action-font-size);
-      line-height: var(--okryshto-inline-action-line-height);
-      color: var(--okryshto-text-primary);
+      font-family: var(--okkly-font-family-sans);
+      font-weight: var(--okkly-font-weight-regular);
+      font-size: var(--okkly-inline-action-font-size);
+      line-height: var(--okkly-inline-action-line-height);
+      color: var(--okkly-text-primary);
 
       &::placeholder {
-        color: var(--okryshto-text-muted);
+        color: var(--okkly-text-muted);
       }
     }
 
@@ -121,20 +121,20 @@
       justify-content: center;
       flex-shrink: 0;
       gap: 0.375rem; // 6px
-      padding: var(--okryshto-inline-action-btn-padding-block)
-        var(--okryshto-inline-action-btn-padding-inline);
+      padding: var(--okkly-inline-action-btn-padding-block)
+        var(--okkly-inline-action-btn-padding-inline);
       border-radius: 9999px;
       border: none;
-      background: var(--okryshto-inline-action-tone);
-      color: var(--okryshto-accent-contrast);
-      font-family: var(--okryshto-font-family-sans);
-      font-weight: var(--okryshto-font-weight-medium);
-      font-size: var(--okryshto-inline-action-btn-font-size);
-      line-height: var(--okryshto-inline-action-btn-line-height);
+      background: var(--okkly-inline-action-tone);
+      color: var(--okkly-accent-contrast);
+      font-family: var(--okkly-font-family-sans);
+      font-weight: var(--okkly-font-weight-medium);
+      font-size: var(--okkly-inline-action-btn-font-size);
+      line-height: var(--okkly-inline-action-btn-line-height);
       cursor: pointer;
       transition:
-        background-color var(--okryshto-duration-sm) ease-out,
-        filter var(--okryshto-duration-sm) ease-out;
+        background-color var(--okkly-duration-sm) ease-out,
+        filter var(--okkly-duration-sm) ease-out;
 
       &:disabled {
         cursor: not-allowed;
@@ -143,53 +143,52 @@
 
     // 3. fill modifiers — how the tone is carried on the action button
     &--fill-soft &__action {
-      background: color-mix(in srgb, var(--okryshto-inline-action-tone) 16%, transparent);
-      border: var(--okryshto-1px-in-rem) solid
-        color-mix(in srgb, var(--okryshto-inline-action-tone) 30%, transparent);
-      color: var(--okryshto-inline-action-tone);
+      background: color-mix(in srgb, var(--okkly-inline-action-tone) 16%, transparent);
+      border: var(--okkly-1px-in-rem) solid
+        color-mix(in srgb, var(--okkly-inline-action-tone) 30%, transparent);
+      color: var(--okkly-inline-action-tone);
     }
 
     &--fill-outline &__action {
       background: transparent;
-      border: 0.09375rem solid
-        color-mix(in srgb, var(--okryshto-inline-action-tone) 75%, transparent);
-      color: var(--okryshto-inline-action-tone);
+      border: 0.09375rem solid color-mix(in srgb, var(--okkly-inline-action-tone) 75%, transparent);
+      color: var(--okkly-inline-action-tone);
     }
 
     &--fill-gradient &__action {
       background: linear-gradient(
         90deg,
-        var(--okryshto-inline-action-tone),
-        var(--okryshto-inline-action-gradient-to)
+        var(--okkly-inline-action-tone),
+        var(--okkly-inline-action-gradient-to)
       );
       border: none;
-      color: var(--okryshto-accent-contrast);
+      color: var(--okkly-accent-contrast);
     }
 
     &--fill-glass &__action {
-      background: var(--okryshto-glass-fill-strong);
-      border: var(--okryshto-1px-in-rem) solid var(--okryshto-glass-border);
-      color: var(--okryshto-inline-action-tone);
+      background: var(--okkly-glass-fill-strong);
+      border: var(--okkly-1px-in-rem) solid var(--okkly-glass-border);
+      color: var(--okkly-inline-action-tone);
     }
 
     // success/error are a strong system signal — always solid feedback color,
     // regardless of `fill` (none of the design's fill boards show them combined).
     &--state-success &__action {
-      background: var(--okryshto-feedback-success);
+      background: var(--okkly-feedback-success);
       border: none;
-      color: var(--okryshto-accent-contrast);
+      color: var(--okkly-accent-contrast);
     }
 
     &--state-error &__action {
-      background: var(--okryshto-feedback-danger);
+      background: var(--okkly-feedback-danger);
       border: none;
-      color: var(--okryshto-accent-contrast);
+      color: var(--okkly-accent-contrast);
     }
 
     &--state-readonly &__action {
       background: transparent;
-      border: var(--okryshto-1px-in-rem) solid var(--okryshto-border-strong);
-      color: var(--okryshto-text-secondary);
+      border: var(--okkly-1px-in-rem) solid var(--okkly-border-strong);
+      color: var(--okkly-text-secondary);
       cursor: default;
     }
 
@@ -197,8 +196,8 @@
     &__spinner {
       display: inline-flex;
       flex-shrink: 0;
-      width: var(--okryshto-inline-action-icon-size);
-      height: var(--okryshto-inline-action-icon-size);
+      width: var(--okkly-inline-action-icon-size);
+      height: var(--okkly-inline-action-icon-size);
 
       svg {
         width: 100%;
@@ -207,26 +206,26 @@
     }
 
     &__spinner svg {
-      animation: okryshto-inline-action-spin 0.75s linear infinite;
+      animation: okkly-inline-action-spin 0.75s linear infinite;
     }
 
     &__message {
       display: flex;
       align-items: center;
       gap: 0.375rem; // 6px
-      padding-inline-start: var(--okryshto-inline-action-padding-start);
-      font-family: var(--okryshto-font-family-sans);
-      font-size: var(--okryshto-font-size-sm);
+      padding-inline-start: var(--okkly-inline-action-padding-start);
+      font-family: var(--okkly-font-family-sans);
+      font-size: var(--okkly-font-size-sm);
       line-height: 1.125rem; // 18px
       letter-spacing: 0.013px;
-      color: var(--okryshto-text-muted);
+      color: var(--okkly-text-muted);
 
       &--success {
-        color: var(--okryshto-feedback-success);
+        color: var(--okkly-feedback-success);
       }
 
       &--error {
-        color: var(--okryshto-feedback-danger);
+        color: var(--okkly-feedback-danger);
       }
     }
 
@@ -243,65 +242,65 @@
     }
 
     // 4. color modifiers — remap the tone (and, for the documented pairs, the
-    // gradient partner); every fill/state consumes --okryshto-inline-action-tone
+    // gradient partner); every fill/state consumes --okkly-inline-action-tone
     &--color-dante {
-      --okryshto-inline-action-tone: var(--okryshto-accent-dante);
-      --okryshto-inline-action-gradient-to: var(--okryshto-accent-violet);
+      --okkly-inline-action-tone: var(--okkly-accent-dante);
+      --okkly-inline-action-gradient-to: var(--okkly-accent-violet);
     }
     &--color-indigo {
-      --okryshto-inline-action-tone: var(--okryshto-accent-secondary);
-      --okryshto-inline-action-gradient-to: var(--okryshto-accent-dante);
+      --okkly-inline-action-tone: var(--okkly-accent-secondary);
+      --okkly-inline-action-gradient-to: var(--okkly-accent-dante);
     }
     &--color-violet {
-      --okryshto-inline-action-tone: var(--okryshto-accent-violet);
-      --okryshto-inline-action-gradient-to: var(--okryshto-accent-dante);
+      --okkly-inline-action-tone: var(--okkly-accent-violet);
+      --okkly-inline-action-gradient-to: var(--okkly-accent-dante);
     }
     &--color-ember {
-      --okryshto-inline-action-tone: var(--okryshto-accent-ember);
-      --okryshto-inline-action-gradient-to: var(--okryshto-accent-dante);
+      --okkly-inline-action-tone: var(--okkly-accent-ember);
+      --okkly-inline-action-gradient-to: var(--okkly-accent-dante);
     }
     &--color-ice {
-      --okryshto-inline-action-tone: var(--okryshto-accent-ice);
-      --okryshto-inline-action-gradient-to: var(--okryshto-accent-primary);
+      --okkly-inline-action-tone: var(--okkly-accent-ice);
+      --okkly-inline-action-gradient-to: var(--okkly-accent-primary);
     }
     &--color-success {
-      --okryshto-inline-action-tone: var(--okryshto-feedback-success);
+      --okkly-inline-action-tone: var(--okkly-feedback-success);
     }
     &--color-warning {
-      --okryshto-inline-action-tone: var(--okryshto-feedback-warning);
+      --okkly-inline-action-tone: var(--okkly-feedback-warning);
     }
     &--color-danger {
-      --okryshto-inline-action-tone: var(--okryshto-feedback-danger);
+      --okkly-inline-action-tone: var(--okkly-feedback-danger);
     }
 
     // 5. size — medium (default) needs no modifier
     &--small {
-      --okryshto-inline-action-padding-start: 1rem; // 16px
-      --okryshto-inline-action-padding-end: 0.3125rem; // 5px
-      --okryshto-inline-action-padding-block: 0.3125rem; // 5px
-      --okryshto-inline-action-font-size: 0.875rem; // 14px
-      --okryshto-inline-action-line-height: 1.375rem; // 22px
-      --okryshto-inline-action-btn-padding-inline: 0.75rem; // 12px
-      --okryshto-inline-action-btn-padding-block: 0.375rem; // 6px
-      --okryshto-inline-action-btn-font-size: 0.8125rem; // 13px
-      --okryshto-inline-action-btn-line-height: 1rem; // 16px
-      --okryshto-inline-action-icon-size: 0.8125rem; // 13px
+      --okkly-inline-action-padding-start: 1rem; // 16px
+      --okkly-inline-action-padding-end: 0.3125rem; // 5px
+      --okkly-inline-action-padding-block: 0.3125rem; // 5px
+      --okkly-inline-action-font-size: 0.875rem; // 14px
+      --okkly-inline-action-line-height: 1.375rem; // 22px
+      --okkly-inline-action-btn-padding-inline: 0.75rem; // 12px
+      --okkly-inline-action-btn-padding-block: 0.375rem; // 6px
+      --okkly-inline-action-btn-font-size: 0.8125rem; // 13px
+      --okkly-inline-action-btn-line-height: 1rem; // 16px
+      --okkly-inline-action-icon-size: 0.8125rem; // 13px
     }
 
     &--large {
-      --okryshto-inline-action-padding-start: 1.375rem; // 22px
-      --okryshto-inline-action-padding-end: 0.4375rem; // 7px
-      --okryshto-inline-action-padding-block: 0.4375rem; // 7px
-      --okryshto-inline-action-font-size: 1.125rem; // 18px
-      --okryshto-inline-action-line-height: 1.875rem; // 30px
-      --okryshto-inline-action-btn-padding-inline: 1.125rem; // 18px
-      --okryshto-inline-action-btn-padding-block: 0.625rem; // 10px
-      --okryshto-inline-action-btn-font-size: 1rem; // 16px
-      --okryshto-inline-action-btn-line-height: 1.625rem; // 26px
-      --okryshto-inline-action-icon-size: 1rem; // 16px
+      --okkly-inline-action-padding-start: 1.375rem; // 22px
+      --okkly-inline-action-padding-end: 0.4375rem; // 7px
+      --okkly-inline-action-padding-block: 0.4375rem; // 7px
+      --okkly-inline-action-font-size: 1.125rem; // 18px
+      --okkly-inline-action-line-height: 1.875rem; // 30px
+      --okkly-inline-action-btn-padding-inline: 1.125rem; // 18px
+      --okkly-inline-action-btn-padding-block: 0.625rem; // 10px
+      --okkly-inline-action-btn-font-size: 1rem; // 16px
+      --okkly-inline-action-btn-line-height: 1.625rem; // 26px
+      --okkly-inline-action-icon-size: 1rem; // 16px
     }
 
-    @keyframes okryshto-inline-action-spin {
+    @keyframes okkly-inline-action-spin {
       to {
         transform: rotate(360deg);
       }

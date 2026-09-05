@@ -11,14 +11,14 @@ import {
   type ReactElement,
   type ReactNode,
 } from "react";
-import { iconCheck, iconChevronDown, iconX } from "@okryshto/icons";
+import { iconCheck, iconChevronDown, iconX } from "@okkly/icons";
 import {
   useSelect,
   type OptionGroup,
   type SelectOption,
   type SelectionChangeHandler,
-} from "@okryshto/react-hooks";
-import "@okryshto/design-system/components/Select/Select.scss";
+} from "@okkly/react-hooks";
+import "@okkly/design-system/components/Select/Select.scss";
 import { Popper } from "../Popper/Popper";
 import { Checkbox } from "../Checkbox/Checkbox";
 import { Chip } from "../Chip/Chip";
@@ -559,7 +559,7 @@ function SelectInner<T = string>(
 
   const triggerProps = select.getTriggerProps({
     id: fieldId,
-    className: "okryshto-select__trigger okryshto-select__input",
+    className: "okkly-select__trigger okkly-select__input",
     "aria-invalid": error || undefined,
     "aria-required": required || undefined,
     "aria-labelledby": labelId,
@@ -572,7 +572,7 @@ function SelectInner<T = string>(
   });
 
   const clearProps = select.getClearProps({
-    className: "okryshto-select__clear",
+    className: "okkly-select__clear",
     "aria-label": clearText,
   });
 
@@ -581,21 +581,19 @@ function SelectInner<T = string>(
 
     if (!hasValue) {
       return (
-        <span className="okryshto-select__value okryshto-select__value--placeholder">
-          {placeholder}
-        </span>
+        <span className="okkly-select__value okkly-select__value--placeholder">{placeholder}</span>
       );
     }
 
     if (!multiple) {
-      return <span className="okryshto-select__value">{selectedOptions[0]?.label}</span>;
+      return <span className="okkly-select__value">{selectedOptions[0]?.label}</span>;
     }
 
     const shown = limitTags < 0 ? selectedOptions : selectedOptions.slice(0, limitTags);
     const overflow = selectedOptions.length - shown.length;
 
     return (
-      <span className="okryshto-select__chips">
+      <span className="okkly-select__chips">
         {shown.map((option) => (
           <Chip
             key={String(option.value)}
@@ -612,7 +610,7 @@ function SelectInner<T = string>(
             }}
           />
         ))}
-        {overflow > 0 && <span className="okryshto-select__overflow">+{overflow}</span>}
+        {overflow > 0 && <span className="okkly-select__overflow">+{overflow}</span>}
       </span>
     );
   }
@@ -622,10 +620,10 @@ function SelectInner<T = string>(
     const highlighted = select.highlightedIndex === index;
     const optionProps = select.getOptionProps(index, {
       className: [
-        "okryshto-select__option",
-        highlighted && "okryshto-select__option--highlighted",
-        selected && "okryshto-select__option--selected",
-        option.disabled && "okryshto-select__option--disabled",
+        "okkly-select__option",
+        highlighted && "okkly-select__option--highlighted",
+        selected && "okkly-select__option--selected",
+        option.disabled && "okkly-select__option--disabled",
       ]
         .filter(Boolean)
         .join(" "),
@@ -661,10 +659,10 @@ function SelectInner<T = string>(
             tabIndex={-1}
           />
         )}
-        <span className="okryshto-select__option-label">{option.label}</span>
+        <span className="okkly-select__option-label">{option.label}</span>
         {!multiple && selected && (
           <span
-            className="okryshto-select__option-check"
+            className="okkly-select__option-check"
             dangerouslySetInnerHTML={{ __html: iconCheck }}
             aria-hidden="true"
           />
@@ -677,7 +675,7 @@ function SelectInner<T = string>(
     if (loading) {
       if (renderLoading) return renderLoading();
       return (
-        <li className="okryshto-select__loading">
+        <li className="okkly-select__loading">
           <Spinner size="small" />
           {loadingText}
         </li>
@@ -685,7 +683,7 @@ function SelectInner<T = string>(
     }
     if (select.flatOptions.length === 0) {
       if (renderNoOptions) return renderNoOptions();
-      return <li className="okryshto-select__empty">{noOptionsText}</li>;
+      return <li className="okkly-select__empty">{noOptionsText}</li>;
     }
     if (select.groupedOptions) {
       return select.groupedOptions.map((group) => {
@@ -694,10 +692,10 @@ function SelectInner<T = string>(
           return renderGroup({ key: group.key, label: group.label, group, children });
         return (
           <li key={group.key} role="presentation">
-            <span className="okryshto-select__group-label" role="presentation">
+            <span className="okkly-select__group-label" role="presentation">
               {group.label}
             </span>
-            <ul className="okryshto-select__group-options" role="group" aria-label={group.label}>
+            <ul className="okkly-select__group-options" role="group" aria-label={group.label}>
               {children}
             </ul>
           </li>
@@ -715,7 +713,7 @@ function SelectInner<T = string>(
         </button>
       )}
       <span
-        className="okryshto-select__chevron"
+        className="okkly-select__chevron"
         dangerouslySetInnerHTML={{ __html: iconChevronDown }}
         aria-hidden="true"
       />
@@ -724,7 +722,7 @@ function SelectInner<T = string>(
 
   return (
     <Field
-      block="okryshto-select"
+      block="okkly-select"
       id={fieldId}
       label={label}
       hideLabel={hideLabel}
@@ -775,7 +773,7 @@ function SelectInner<T = string>(
         // gap and confusing `flip` about how much room is left below.
         anchorEl={controlNode}
         placement="bottom-start"
-        className="okryshto-select-popper"
+        className="okkly-select-popper"
         modifiers={[{ name: "offset", options: { offset: [0, 4] } }]}
         matchAnchorWidth="min"
         style={popupWidth === undefined ? undefined : { width: popupWidth }}
@@ -787,14 +785,14 @@ function SelectInner<T = string>(
           ref={panelRef}
           className={
             size === "medium"
-              ? "okryshto-select-popover"
-              : `okryshto-select-popover okryshto-select-popover--${size}`
+              ? "okkly-select-popover"
+              : `okkly-select-popover okkly-select-popover--${size}`
           }
         >
           {/* Names the BEM block for the option primitives, so a `renderOption`
               built from them picks up this listbox's styling. */}
-          <OptionScope block="okryshto-select">
-            <ul {...select.getListboxProps({ className: "okryshto-select__listbox" })}>
+          <OptionScope block="okkly-select">
+            <ul {...select.getListboxProps({ className: "okkly-select__listbox" })}>
               {renderListContent()}
             </ul>
           </OptionScope>

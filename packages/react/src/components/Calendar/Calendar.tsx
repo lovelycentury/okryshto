@@ -1,8 +1,8 @@
 "use client";
 
 import { forwardRef, useMemo, useState, type CSSProperties } from "react";
-import { iconChevronDown, iconChevronLeft, iconChevronRight } from "@okryshto/icons";
-import "@okryshto/design-system/components/Calendar/Calendar.scss";
+import { iconChevronDown, iconChevronLeft, iconChevronRight } from "@okkly/icons";
+import "@okkly/design-system/components/Calendar/Calendar.scss";
 
 export type CalendarWeekStart = "mon" | "sun";
 /** `"single"` commits on every click; `"range"` takes two clicks to commit a pair. */
@@ -12,7 +12,7 @@ export type CalendarValue = Date | [Date, Date];
 
 /**
  * Accent names the surrounding date components already speak. `Calendar` itself
- * has no `color` prop — its accent is the CSS variable `--okryshto-calendar-tone`,
+ * has no `color` prop — its accent is the CSS variable `--okkly-calendar-tone`,
  * and this is the one place that maps a name onto it.
  */
 export type CalendarTone = "primary" | "dante" | "indigo" | "violet" | "ember" | "ice";
@@ -22,7 +22,7 @@ export function calendarToneStyle(tone: CalendarTone): CSSProperties | undefined
   if (tone === "primary") return undefined;
   // The palette calls indigo "secondary"; every other tone is its own token.
   const token = tone === "indigo" ? "secondary" : tone;
-  return { "--okryshto-calendar-tone": `var(--okryshto-accent-${token})` } as CSSProperties;
+  return { "--okkly-calendar-tone": `var(--okkly-accent-${token})` } as CSSProperties;
 }
 
 /** Which grid is currently showing — drills up on the header label click (`day` → `year`),
@@ -196,7 +196,7 @@ export interface CalendarBaseProps {
    */
   className?: string;
   /**
-   * Inline styles. The accent tone is a CSS variable rather than a prop, so this is how a caller retints the calendar: `style={{ "--okryshto-calendar-tone": "var(--okryshto-accent-dante)" }}`.
+   * Inline styles. The accent tone is a CSS variable rather than a prop, so this is how a caller retints the calendar: `style={{ "--okkly-calendar-tone": "var(--okkly-accent-dante)" }}`.
    *
    * @default undefined
    * @type {CSSProperties}
@@ -378,34 +378,34 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(function Calen
         ? `Choose year, currently ${viewYear}`
         : undefined;
 
-  const classes = ["okryshto-component", "okryshto-calendar", className].filter(Boolean).join(" ");
+  const classes = ["okkly-component", "okkly-calendar", className].filter(Boolean).join(" ");
 
   return (
     <div ref={ref} className={classes} style={style}>
-      <div className="okryshto-calendar__panel">
-        <div className="okryshto-calendar__header">
+      <div className="okkly-calendar__panel">
+        <div className="okkly-calendar__header">
           <button
             type="button"
-            className="okryshto-calendar__nav-button"
+            className="okkly-calendar__nav-button"
             onClick={handlePrev}
             aria-label={prevLabel}
           >
             <span aria-hidden="true" dangerouslySetInnerHTML={{ __html: iconChevronLeft }} />
           </button>
           {view === "year" ? (
-            <p className="okryshto-calendar__title">{headerLabel}</p>
+            <p className="okkly-calendar__title">{headerLabel}</p>
           ) : (
             <button
               type="button"
-              className="okryshto-calendar__title okryshto-calendar__title--button"
+              className="okkly-calendar__title okkly-calendar__title--button"
               aria-label={headerAriaLabel}
               onClick={openYearView}
             >
               {headerLabel}
               <span
                 className={[
-                  "okryshto-calendar__title-chevron",
-                  view === "month" && "okryshto-calendar__title-chevron--open",
+                  "okkly-calendar__title-chevron",
+                  view === "month" && "okkly-calendar__title-chevron--open",
                 ]
                   .filter(Boolean)
                   .join(" ")}
@@ -416,7 +416,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(function Calen
           )}
           <button
             type="button"
-            className="okryshto-calendar__nav-button"
+            className="okkly-calendar__nav-button"
             onClick={handleNext}
             aria-label={nextLabel}
           >
@@ -424,16 +424,16 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(function Calen
           </button>
         </div>
         {view === "day" && (
-          <div className="okryshto-calendar__grid">
-            <div className="okryshto-calendar__week">
+          <div className="okkly-calendar__grid">
+            <div className="okkly-calendar__week">
               {weekdayLabels.map((label, index) => (
-                <span key={index} className="okryshto-calendar__weekday">
+                <span key={index} className="okkly-calendar__weekday">
                   {label}
                 </span>
               ))}
             </div>
             {weeks.map((week, weekIndex) => (
-              <div className="okryshto-calendar__week" key={weekIndex}>
+              <div className="okkly-calendar__week" key={weekIndex}>
                 {week.map(({ date, outside }) => {
                   const disabled = Boolean(
                     (min && date < startOfDay(min)) || (max && date > startOfDay(max)),
@@ -458,14 +458,14 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(function Calen
                       : isRangeStart || isRangeEnd;
 
                   const dayClasses = [
-                    "okryshto-calendar__day",
-                    outside && "okryshto-calendar__day--outside",
-                    isToday && "okryshto-calendar__day--today",
-                    inRange && "okryshto-calendar__day--in-range",
-                    isRangeStart && "okryshto-calendar__day--range-start",
-                    isRangeEnd && "okryshto-calendar__day--range-end",
-                    mode === "single" && selected && "okryshto-calendar__day--selected",
-                    disabled && "okryshto-calendar__day--disabled",
+                    "okkly-calendar__day",
+                    outside && "okkly-calendar__day--outside",
+                    isToday && "okkly-calendar__day--today",
+                    inRange && "okkly-calendar__day--in-range",
+                    isRangeStart && "okkly-calendar__day--range-start",
+                    isRangeEnd && "okkly-calendar__day--range-end",
+                    mode === "single" && selected && "okkly-calendar__day--selected",
+                    disabled && "okkly-calendar__day--disabled",
                   ]
                     .filter(Boolean)
                     .join(" ");
@@ -481,9 +481,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(function Calen
                       onClick={() => handleDayClick(date)}
                     >
                       {date.getDate()}
-                      {isToday && (
-                        <span className="okryshto-calendar__day-dot" aria-hidden="true" />
-                      )}
+                      {isToday && <span className="okkly-calendar__day-dot" aria-hidden="true" />}
                     </button>
                   );
                 })}
@@ -492,15 +490,15 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(function Calen
           </div>
         )}
         {view === "month" && (
-          <div className="okryshto-calendar__period-grid">
+          <div className="okkly-calendar__period-grid">
             {monthLabels.map((label, index) => {
               const disabled = isMonthDisabled(viewYear, index, min, max);
               const selected =
                 viewYear === visibleMonth.getFullYear() && index === visibleMonth.getMonth();
               const periodClasses = [
-                "okryshto-calendar__period-cell",
-                selected && "okryshto-calendar__period-cell--selected",
-                disabled && "okryshto-calendar__period-cell--disabled",
+                "okkly-calendar__period-cell",
+                selected && "okkly-calendar__period-cell--selected",
+                disabled && "okkly-calendar__period-cell--disabled",
               ]
                 .filter(Boolean)
                 .join(" ");
@@ -520,14 +518,14 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(function Calen
           </div>
         )}
         {view === "year" && (
-          <div className="okryshto-calendar__period-grid">
+          <div className="okkly-calendar__period-grid">
             {Array.from({ length: YEAR_PAGE_SIZE }, (_, i) => yearPageStart + i).map((year) => {
               const disabled = isYearDisabled(year, min, max);
               const selected = year === visibleMonth.getFullYear();
               const periodClasses = [
-                "okryshto-calendar__period-cell",
-                selected && "okryshto-calendar__period-cell--selected",
-                disabled && "okryshto-calendar__period-cell--disabled",
+                "okkly-calendar__period-cell",
+                selected && "okkly-calendar__period-cell--selected",
+                disabled && "okkly-calendar__period-cell--disabled",
               ]
                 .filter(Boolean)
                 .join(" ");

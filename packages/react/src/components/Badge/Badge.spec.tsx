@@ -8,22 +8,20 @@ describe("Badge", () => {
     render(<Badge badgeContent={5} />);
     const badge = screen.getByTestId("badge-content");
     expect(badge).toHaveTextContent("5");
-    expect(badge.closest(".okryshto-badge")).toHaveClass(
-      "okryshto-component",
-      "okryshto-badge",
-      "okryshto-badge--standalone",
+    expect(badge.closest(".okkly-badge")).toHaveClass(
+      "okkly-component",
+      "okkly-badge",
+      "okkly-badge--standalone",
     );
-    expect(badge.closest(".okryshto-badge")?.className).not.toMatch(/okryshto-badge--color-/);
+    expect(badge.closest(".okkly-badge")?.className).not.toMatch(/okkly-badge--color-/);
   });
 
   it("applies a color modifier only when color is set", () => {
     const { container, rerender } = render(<Badge badgeContent={3} color="danger" />);
-    expect(container.querySelector(".okryshto-badge")).toHaveClass("okryshto-badge--color-danger");
+    expect(container.querySelector(".okkly-badge")).toHaveClass("okkly-badge--color-danger");
 
     rerender(<Badge badgeContent={3} />);
-    expect(container.querySelector(".okryshto-badge")?.className).not.toMatch(
-      /okryshto-badge--color-/,
-    );
+    expect(container.querySelector(".okkly-badge")?.className).not.toMatch(/okkly-badge--color-/);
   });
 
   it("caps numeric overflow at max+", () => {
@@ -33,13 +31,13 @@ describe("Badge", () => {
 
   it("hides zero counts", () => {
     render(<Badge badgeContent={0} />);
-    expect(screen.getByTestId("badge-content")).toHaveClass("okryshto-badge__content--invisible");
+    expect(screen.getByTestId("badge-content")).toHaveClass("okkly-badge__content--invisible");
   });
 
   it("renders a dot variant without text", () => {
     render(<Badge variant="dot" color="success" />);
     const badge = screen.getByTestId("badge-content");
-    expect(badge).toHaveClass("okryshto-badge__content--dot");
+    expect(badge).toHaveClass("okkly-badge__content--dot");
     expect(badge).toBeEmptyDOMElement();
   });
 
@@ -51,8 +49,8 @@ describe("Badge", () => {
     );
     expect(screen.getByText("OK")).toBeInTheDocument();
     expect(screen.getByTestId("badge-content")).toHaveTextContent("2");
-    expect(screen.getByTestId("badge-content").closest(".okryshto-badge")).not.toHaveClass(
-      "okryshto-badge--standalone",
+    expect(screen.getByTestId("badge-content").closest(".okkly-badge")).not.toHaveClass(
+      "okkly-badge--standalone",
     );
   });
 
@@ -66,16 +64,16 @@ describe("Badge", () => {
         <span>Anchor</span>
       </Badge>,
     );
-    const root = screen.getByTestId("badge-content").closest(".okryshto-badge");
-    expect(root).toHaveClass("okryshto-badge--overlap-rectangular");
+    const root = screen.getByTestId("badge-content").closest(".okkly-badge");
+    expect(root).toHaveClass("okkly-badge--overlap-rectangular");
     expect(screen.getByTestId("badge-content")).toHaveClass(
-      "okryshto-badge__content--bottom",
-      "okryshto-badge__content--left",
+      "okkly-badge__content--bottom",
+      "okkly-badge__content--left",
     );
   });
 
   it("hides the badge when invisible", () => {
     render(<Badge badgeContent={4} invisible />);
-    expect(screen.getByTestId("badge-content")).toHaveClass("okryshto-badge__content--invisible");
+    expect(screen.getByTestId("badge-content")).toHaveClass("okkly-badge__content--invisible");
   });
 });

@@ -1,6 +1,6 @@
 import type { Preview } from "@storybook/react";
-import "@okryshto/design-system/styles/index.scss";
-import "@okryshto/react/style.css";
+import "@okkly/design-system/styles/index.scss";
+import "@okkly/react/style.css";
 import "../src/login/iam.scss";
 
 const preview: Preview = {

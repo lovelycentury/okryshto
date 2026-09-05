@@ -25,9 +25,9 @@ describe("Accordion", () => {
       </Accordion>,
     );
     const root = container.firstChild as HTMLElement;
-    expect(root).toHaveClass("okryshto-component", "okryshto-accordion");
-    expect(root.className).not.toMatch(/okryshto-accordion--expanded/);
-    expect(root.className).not.toMatch(/okryshto-accordion--disabled/);
+    expect(root).toHaveClass("okkly-component", "okkly-accordion");
+    expect(root.className).not.toMatch(/okkly-accordion--expanded/);
+    expect(root.className).not.toMatch(/okkly-accordion--disabled/);
   });
 
   it("shows details when defaultExpanded is true", () => {
@@ -79,8 +79,8 @@ describe("Accordion", () => {
         <AccordionDetails>Body</AccordionDetails>
       </Accordion>,
     );
-    expect(container.firstChild).toHaveClass("okryshto-accordion--expanded");
-    expect(container.querySelector(".okryshto-accordion__chevron--expanded")).toBeInTheDocument();
+    expect(container.firstChild).toHaveClass("okkly-accordion--expanded");
+    expect(container.querySelector(".okkly-accordion__chevron--expanded")).toBeInTheDocument();
 
     rerender(
       <Accordion disabled>
@@ -88,7 +88,7 @@ describe("Accordion", () => {
         <AccordionDetails>Body</AccordionDetails>
       </Accordion>,
     );
-    expect(container.firstChild).toHaveClass("okryshto-accordion--disabled");
+    expect(container.firstChild).toHaveClass("okkly-accordion--disabled");
     expect(screen.getByRole("button", { name: "Title" })).toBeDisabled();
   });
 

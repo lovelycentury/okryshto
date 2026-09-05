@@ -36,12 +36,12 @@
 
 .panel {
   padding: 1.25rem;
-  border: 1px solid var(--okryshto-glass-border);
+  border: 1px solid var(--okkly-glass-border);
   border-radius: var(--profile-radius-lg);
   // Not the 8% glass fill the rest of the page uses: the aurora drifts behind
   // this panel, and a consent notice has to stay legible wherever it happens
   // to be bright. Blur and shadow keep it in the same visual family.
-  background: color-mix(in srgb, var(--okryshto-bg-surface) 92%, transparent);
+  background: color-mix(in srgb, var(--okkly-bg-surface) 92%, transparent);
   box-shadow: var(--profile-shadow-header);
   backdrop-filter: blur(18px);
   animation: enter 260ms ease-out both;
@@ -106,8 +106,8 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: color-mix(in srgb, var(--okryshto-accent-primary) 14%, transparent);
-  color: var(--okryshto-accent-primary);
+  background: color-mix(in srgb, var(--okkly-accent-primary) 14%, transparent);
+  color: var(--okkly-accent-primary);
 }
 
 .text {
@@ -118,7 +118,7 @@
 
 .title {
   margin: 0;
-  color: var(--okryshto-text-primary);
+  color: var(--okkly-text-primary);
   font-weight: 600;
   @include m.type(label-md);
 }
@@ -126,12 +126,12 @@
 .body {
   max-width: 46ch;
   margin: 0;
-  color: var(--okryshto-text-secondary);
+  color: var(--okkly-text-secondary);
   @include m.type(body-sm);
 }
 
 .link {
-  color: var(--okryshto-accent-primary);
+  color: var(--okkly-accent-primary);
   text-decoration: underline;
   text-underline-offset: 0.25em;
 }

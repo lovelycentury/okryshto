@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1.7
 #
-# @okryshto/profile — Next.js App Router, server-side rendering, i18n (next-intl).
+# @okkly/profile — Next.js App Router, server-side rendering, i18n (next-intl).
 #
 # This is NOT a static site: it needs a live Node process that renders pages
 # on request. The runtime image is therefore node, not caddy.
@@ -33,7 +33,7 @@ RUN --mount=type=cache,id=pnpm-store,target=/pnpm/store \
 # NODE_ENV=production at build time: Next strips dev helpers and minifies.
 ENV NODE_ENV=production
 RUN --mount=type=cache,id=next-profile,target=/repo/apps/profile/.next/cache \
-    pnpm --filter "@okryshto/profile..." --if-present run build
+    pnpm --filter "@okkly/profile..." --if-present run build
 
 # ─────────────────────────────────────────────────────────────────────────────
 # Runtime: plain node, no pnpm, no sources, no devDependencies.

@@ -72,8 +72,8 @@ type Story = StoryObj<typeof Table>;
 
 const surface: CSSProperties = {
   width: "720px",
-  fontFamily: "var(--okryshto-font-family-sans)",
-  color: "var(--okryshto-text-primary)",
+  fontFamily: "var(--okkly-font-family-sans)",
+  color: "var(--okkly-text-primary)",
 };
 
 type Status = "paid" | "pending" | "overdue";
@@ -308,8 +308,8 @@ export const SelectableRows: Story = {
         <p
           style={{
             margin: 0,
-            fontSize: "var(--okryshto-font-size-sm)",
-            color: "var(--okryshto-text-muted)",
+            fontSize: "var(--okkly-font-size-sm)",
+            color: "var(--okkly-text-muted)",
           }}
         >
           {selected.length} of {INVOICES.length} selected
@@ -322,7 +322,7 @@ export const SelectableRows: Story = {
 /**
  * `stickyHeader` pins the header and caps the container's height, so the table
  * scrolls inside its own box instead of taking the page with it. Override
- * `--okryshto-table-container-max-height` for a taller pane.
+ * `--okkly-table-container-max-height` for a taller pane.
  */
 export const StickyHeader: Story = {
   name: "Sticky header",

@@ -1,11 +1,11 @@
 # syntax=docker/dockerfile:1.7
 #
-# @okryshto/resume-fe — Vite SPA (chat UI for the resume RAG backend).
+# @okkly/resume-fe — Vite SPA (chat UI for the resume RAG backend).
 #
 # BUILD CONTEXT IS THE MONOREPO ROOT:
 #   docker build -f ops/Dockerfile.resume-fe -t resume-fe .
 #
-# The app lives in apps/resume/fe; workspace deps (@okryshto/react,
+# The app lives in apps/resume/fe; workspace deps (@okkly/react,
 # /design-system, /icons) are built first via the "..." filter. Runtime is the
 # same static caddy:alpine + spa.Caddyfile as the storybook image.
 #
@@ -34,8 +34,8 @@ RUN --mount=type=cache,id=pnpm-store,target=/pnpm/store \
     pnpm install --frozen-lockfile --prefer-offline
 # Workspace package dist first (the app resolves them from packages/*/dist),
 # then the Vite build → apps/resume/fe/dist.
-RUN pnpm --filter "@okryshto/resume-fe..." --if-present run build
-RUN pnpm --filter "@okryshto/resume-fe" run build
+RUN pnpm --filter "@okkly/resume-fe..." --if-present run build
+RUN pnpm --filter "@okkly/resume-fe" run build
 
 FROM caddy:2-alpine AS runtime
 COPY ops/spa.Caddyfile /etc/caddy/Caddyfile

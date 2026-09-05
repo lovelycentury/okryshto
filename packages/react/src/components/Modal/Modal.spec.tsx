@@ -2,7 +2,7 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 import { Modal } from "./Modal";
 
-const backdrop = () => document.querySelector(".okryshto-modal__backdrop")!;
+const backdrop = () => document.querySelector(".okkly-modal__backdrop")!;
 
 describe("Modal", () => {
   it("portals its children to document.body when open", () => {
@@ -14,7 +14,7 @@ describe("Modal", () => {
     expect(screen.getByText("Body")).toBeInTheDocument();
     // Portalled, so it lives outside the mount point React was handed.
     expect(container).toBeEmptyDOMElement();
-    expect(document.body.querySelector(".okryshto-modal")).toBeInTheDocument();
+    expect(document.body.querySelector(".okkly-modal")).toBeInTheDocument();
   });
 
   it("renders nothing when closed", () => {
@@ -33,7 +33,7 @@ describe("Modal", () => {
       </Modal>,
     );
     expect(screen.getByText("Kept")).toBeInTheDocument();
-    expect(document.querySelector(".okryshto-modal")).toHaveClass("okryshto-modal--hidden");
+    expect(document.querySelector(".okkly-modal")).toHaveClass("okkly-modal--hidden");
   });
 
   it("calls onClose on backdrop click and Escape", () => {
@@ -57,7 +57,7 @@ describe("Modal", () => {
         <div>Panel</div>
       </Modal>,
     );
-    expect(document.querySelector(".okryshto-modal__backdrop")).not.toBeInTheDocument();
+    expect(document.querySelector(".okkly-modal__backdrop")).not.toBeInTheDocument();
     fireEvent.keyDown(document, { key: "Escape" });
     expect(onClose).not.toHaveBeenCalled();
   });
@@ -68,7 +68,7 @@ describe("Modal", () => {
         <div>Inline</div>
       </Modal>,
     );
-    expect(container.querySelector(".okryshto-modal")).toBeInTheDocument();
+    expect(container.querySelector(".okkly-modal")).toBeInTheDocument();
   });
 
   it("mounts into a custom container", () => {
@@ -79,7 +79,7 @@ describe("Modal", () => {
         <div>Hosted</div>
       </Modal>,
     );
-    expect(host.querySelector(".okryshto-modal")).toBeInTheDocument();
+    expect(host.querySelector(".okkly-modal")).toBeInTheDocument();
     host.remove();
   });
 

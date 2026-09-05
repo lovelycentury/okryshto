@@ -21,8 +21,8 @@ import {
   type Placement,
   type VirtualElement,
 } from "@popperjs/core";
-import { useForkRef } from "@okryshto/react-hooks";
-import "@okryshto/design-system/components/Popper/Popper.scss";
+import { useForkRef } from "@okkly/react-hooks";
+import "@okkly/design-system/components/Popper/Popper.scss";
 import { mergeClassNames } from "../../helpers";
 
 export type PopperPlacement = Placement;
@@ -361,7 +361,7 @@ export const Popper = forwardRef<HTMLDivElement, PopperProps>(function Popper(
     <div
       ref={ownRef}
       role={role}
-      className={mergeClassNames("okryshto-component", "okryshto-popper", className)}
+      className={mergeClassNames("okkly-component", "okkly-popper", className)}
       style={{
         position: "fixed",
         top: 0,

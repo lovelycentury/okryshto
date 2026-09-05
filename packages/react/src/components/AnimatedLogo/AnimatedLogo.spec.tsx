@@ -10,24 +10,24 @@ afterEach(() => {
 describe("AnimatedLogo", () => {
   it("renders the emblem svg", () => {
     const { container } = render(<AnimatedLogo />);
-    expect(container.querySelector(".okryshto-animated-logo__svg")).toBeInTheDocument();
+    expect(container.querySelector(".okkly-animated-logo__svg")).toBeInTheDocument();
   });
 
   it("renders the orb, rings and orbit markers", () => {
     const { container } = render(<AnimatedLogo />);
-    expect(container.querySelectorAll(".okryshto-animated-logo__ring")).toHaveLength(3);
-    expect(container.querySelectorAll(".okryshto-animated-logo__marker")).toHaveLength(2);
-    expect(container.querySelector(".okryshto-animated-logo__orb")).toBeInTheDocument();
+    expect(container.querySelectorAll(".okkly-animated-logo__ring")).toHaveLength(3);
+    expect(container.querySelectorAll(".okkly-animated-logo__marker")).toHaveLength(2);
+    expect(container.querySelector(".okkly-animated-logo__orb")).toBeInTheDocument();
   });
 
   it("drives its diameter from the size prop", () => {
     const { container } = render(<AnimatedLogo size={96} />);
-    expect(container.firstChild).toHaveStyle("--okryshto-animated-logo-size: 96px");
+    expect(container.firstChild).toHaveStyle("--okkly-animated-logo-size: 96px");
   });
 
   it("accepts a css length for size", () => {
     const { container } = render(<AnimatedLogo size="12rem" />);
-    expect(container.firstChild).toHaveStyle("--okryshto-animated-logo-size: 12rem");
+    expect(container.firstChild).toHaveStyle("--okkly-animated-logo-size: 12rem");
   });
 
   it("publishes every timing as a custom property", () => {
@@ -44,32 +44,32 @@ describe("AnimatedLogo", () => {
       />,
     );
     const root = container.firstChild as HTMLElement;
-    expect(root).toHaveStyle("--okryshto-animated-logo-intro: 1000ms");
-    expect(root).toHaveStyle("--okryshto-animated-logo-outro: 500ms");
-    expect(root).toHaveStyle("--okryshto-animated-logo-spin: 9000ms");
-    expect(root).toHaveStyle("--okryshto-animated-logo-orbit: 8000ms");
-    expect(root).toHaveStyle("--okryshto-animated-logo-breathe: 7000ms");
-    expect(root).toHaveStyle("--okryshto-animated-logo-pulse: 600ms");
-    expect(root).toHaveStyle("--okryshto-animated-logo-shimmer: 1500ms");
-    expect(root).toHaveStyle("--okryshto-animated-logo-heartbeat: 2000ms");
+    expect(root).toHaveStyle("--okkly-animated-logo-intro: 1000ms");
+    expect(root).toHaveStyle("--okkly-animated-logo-outro: 500ms");
+    expect(root).toHaveStyle("--okkly-animated-logo-spin: 9000ms");
+    expect(root).toHaveStyle("--okkly-animated-logo-orbit: 8000ms");
+    expect(root).toHaveStyle("--okkly-animated-logo-breathe: 7000ms");
+    expect(root).toHaveStyle("--okkly-animated-logo-pulse: 600ms");
+    expect(root).toHaveStyle("--okkly-animated-logo-shimmer: 1500ms");
+    expect(root).toHaveStyle("--okkly-animated-logo-heartbeat: 2000ms");
   });
 
   it("mirrors the reveal for the dissolve unless retimed", () => {
     const { container, rerender } = render(<AnimatedLogo introDuration={1800} />);
-    expect(container.firstChild).toHaveStyle("--okryshto-animated-logo-outro: 1800ms");
+    expect(container.firstChild).toHaveStyle("--okkly-animated-logo-outro: 1800ms");
 
     rerender(<AnimatedLogo introDuration={1800} outroDuration={600} />);
-    expect(container.firstChild).toHaveStyle("--okryshto-animated-logo-outro: 600ms");
+    expect(container.firstChild).toHaveStyle("--okkly-animated-logo-outro: 600ms");
   });
 
   it("settles instead of looping in once mode", () => {
     const { container } = render(<AnimatedLogo mode="once" />);
-    expect(container.firstChild).toHaveClass("okryshto-animated-logo--once");
+    expect(container.firstChild).toHaveClass("okkly-animated-logo--once");
   });
 
   it("loops by default", () => {
     const { container } = render(<AnimatedLogo />);
-    expect(container.firstChild).not.toHaveClass("okryshto-animated-logo--once");
+    expect(container.firstChild).not.toHaveClass("okkly-animated-logo--once");
   });
 
   it("walks reveal → dissolve → gap → reveal in cycle mode", () => {
@@ -88,18 +88,18 @@ describe("AnimatedLogo", () => {
     const root = container.firstChild as HTMLElement;
 
     // revealing and holding
-    expect(root).not.toHaveClass("okryshto-animated-logo--out");
+    expect(root).not.toHaveClass("okkly-animated-logo--out");
     act(() => void vi.advanceTimersByTime(1500));
-    expect(root).toHaveClass("okryshto-animated-logo--out");
+    expect(root).toHaveClass("okkly-animated-logo--out");
 
     // dissolved, waiting out the dark beat
     act(() => void vi.advanceTimersByTime(400));
-    expect(root).toHaveClass("okryshto-animated-logo--gap");
+    expect(root).toHaveClass("okkly-animated-logo--gap");
 
     // back to the reveal, one cycle counted
     act(() => void vi.advanceTimersByTime(200));
-    expect(root).not.toHaveClass("okryshto-animated-logo--gap");
-    expect(root).not.toHaveClass("okryshto-animated-logo--out");
+    expect(root).not.toHaveClass("okkly-animated-logo--gap");
+    expect(root).not.toHaveClass("okkly-animated-logo--out");
     expect(onCycleComplete).toHaveBeenCalledWith(1);
   });
 
@@ -107,7 +107,7 @@ describe("AnimatedLogo", () => {
     vi.useFakeTimers();
     const { container } = render(<AnimatedLogo introDuration={100} />);
     act(() => void vi.advanceTimersByTime(60000));
-    expect(container.firstChild).not.toHaveClass("okryshto-animated-logo--out");
+    expect(container.firstChild).not.toHaveClass("okkly-animated-logo--out");
   });
 
   it("holds the cycle while paused", () => {
@@ -116,8 +116,8 @@ describe("AnimatedLogo", () => {
       <AnimatedLogo mode="cycle" paused introDuration={100} holdDuration={100} />,
     );
     act(() => void vi.advanceTimersByTime(10000));
-    expect(container.firstChild).toHaveClass("okryshto-animated-logo--paused");
-    expect(container.firstChild).not.toHaveClass("okryshto-animated-logo--out");
+    expect(container.firstChild).toHaveClass("okkly-animated-logo--paused");
+    expect(container.firstChild).not.toHaveClass("okkly-animated-logo--out");
   });
 
   it("waits out startDelay before showing anything", () => {
@@ -130,7 +130,7 @@ describe("AnimatedLogo", () => {
 
   it("quiets micro-motion below 64px", () => {
     const { container } = render(<AnimatedLogo size={40} />);
-    expect(container.firstChild).toHaveClass("okryshto-animated-logo--quiet");
+    expect(container.firstChild).toHaveClass("okkly-animated-logo--quiet");
   });
 
   it("drops parts that are switched off", () => {
@@ -144,14 +144,14 @@ describe("AnimatedLogo", () => {
         showBackdrop={false}
       />,
     );
-    expect(container.querySelector(".okryshto-animated-logo__ring")).toBeNull();
-    expect(container.querySelector(".okryshto-animated-logo__marker")).toBeNull();
-    expect(container.querySelector(".okryshto-animated-logo__glyphs")).toBeNull();
-    expect(container.querySelector(".okryshto-animated-logo__wire")).toBeNull();
-    expect(container.querySelector(".okryshto-animated-logo__grid")).toBeNull();
-    expect(container.querySelector(".okryshto-animated-logo__backdrop")).toBeNull();
+    expect(container.querySelector(".okkly-animated-logo__ring")).toBeNull();
+    expect(container.querySelector(".okkly-animated-logo__marker")).toBeNull();
+    expect(container.querySelector(".okkly-animated-logo__glyphs")).toBeNull();
+    expect(container.querySelector(".okkly-animated-logo__wire")).toBeNull();
+    expect(container.querySelector(".okkly-animated-logo__grid")).toBeNull();
+    expect(container.querySelector(".okkly-animated-logo__backdrop")).toBeNull();
     // the orb itself always stays
-    expect(container.querySelector(".okryshto-animated-logo__orb")).toBeInTheDocument();
+    expect(container.querySelector(".okkly-animated-logo__orb")).toBeInTheDocument();
   });
 
   it("is decorative without a title", () => {

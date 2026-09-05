@@ -26,41 +26,37 @@ describe("LinkCard", () => {
 
   it("renders a <div> without href", () => {
     const { container } = render(<LinkCard title="Writing" />);
-    expect(container.querySelector(".okryshto-link-card")?.tagName).toBe("DIV");
+    expect(container.querySelector(".okkly-link-card")?.tagName).toBe("DIV");
   });
 
   it("applies the featured modifier and renders a leading dot", () => {
     const { container } = render(<LinkCard title="Selected Work" featured />);
-    expect(container.querySelector(".okryshto-link-card")).toHaveClass(
-      "okryshto-link-card--featured",
-    );
-    expect(container.querySelector(".okryshto-link-card__dot")).toBeInTheDocument();
+    expect(container.querySelector(".okkly-link-card")).toHaveClass("okkly-link-card--featured");
+    expect(container.querySelector(".okkly-link-card__dot")).toBeInTheDocument();
   });
 
   it("does not render a dot when not featured", () => {
     const { container } = render(<LinkCard title="Writing" />);
-    expect(container.querySelector(".okryshto-link-card__dot")).not.toBeInTheDocument();
+    expect(container.querySelector(".okkly-link-card__dot")).not.toBeInTheDocument();
   });
 
   it("applies a color modifier only for non-primary colors", () => {
     const { container, rerender } = render(<LinkCard title="Writing" featured color="dante" />);
-    expect(container.querySelector(".okryshto-link-card")).toHaveClass(
-      "okryshto-link-card--color-dante",
-    );
+    expect(container.querySelector(".okkly-link-card")).toHaveClass("okkly-link-card--color-dante");
 
     rerender(<LinkCard title="Writing" featured color="primary" />);
-    expect(container.querySelector(".okryshto-link-card")?.className).not.toMatch(
-      /okryshto-link-card--color-/,
+    expect(container.querySelector(".okkly-link-card")?.className).not.toMatch(
+      /okkly-link-card--color-/,
     );
   });
 
   it("applies a size modifier only for non-medium sizes", () => {
     const { container, rerender } = render(<LinkCard title="Writing" size="small" />);
-    expect(container.querySelector(".okryshto-link-card")).toHaveClass("okryshto-link-card--small");
+    expect(container.querySelector(".okkly-link-card")).toHaveClass("okkly-link-card--small");
 
     rerender(<LinkCard title="Writing" size="medium" />);
-    expect(container.querySelector(".okryshto-link-card")?.className).not.toMatch(
-      /okryshto-link-card--(small|large)/,
+    expect(container.querySelector(".okkly-link-card")?.className).not.toMatch(
+      /okkly-link-card--(small|large)/,
     );
   });
 
@@ -78,7 +74,7 @@ describe("LinkCard", () => {
       const onClick = vi.fn();
       render(<LinkCard title="Writing" onClick={onClick} />);
       const card = screen.getByRole("button", { name: /Writing/ });
-      expect(card).toHaveClass("okryshto-link-card--interactive");
+      expect(card).toHaveClass("okkly-link-card--interactive");
       expect(card).toHaveAttribute("tabindex", "0");
       fireEvent.click(card);
       expect(onClick).toHaveBeenCalledOnce();
@@ -102,6 +98,6 @@ describe("LinkCard", () => {
 
   it("applies a custom className", () => {
     const { container } = render(<LinkCard title="Writing" className="custom" />);
-    expect(container.querySelector(".okryshto-link-card")).toHaveClass("custom");
+    expect(container.querySelector(".okkly-link-card")).toHaveClass("custom");
   });
 });

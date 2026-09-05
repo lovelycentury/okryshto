@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { useAtom, useAtomValue } from "jotai";
 import { useTranslations } from "use-intl";
-import { Icon, Popover, Typography } from "@okryshto/react";
+import { Icon, Popover, Typography } from "@okkly/react";
 
 import { ShimmerText } from "../ShimmerText.js";
 import { useModels, type ModelInfo } from "../../api/models.js";

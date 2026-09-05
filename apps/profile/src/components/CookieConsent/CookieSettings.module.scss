@@ -14,8 +14,8 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: color-mix(in srgb, var(--okryshto-accent-primary) 14%, transparent);
-  color: var(--okryshto-accent-primary);
+  background: color-mix(in srgb, var(--okkly-accent-primary) 14%, transparent);
+  color: var(--okkly-accent-primary);
 }
 
 .heading {
@@ -25,7 +25,7 @@
 }
 
 .subtitle {
-  color: var(--okryshto-text-muted);
+  color: var(--okkly-text-muted);
   font-weight: 400;
   @include m.type(body-sm);
 }
@@ -55,8 +55,8 @@
   @include m.surface(var(--profile-radius-md));
 
   &[data-enabled] {
-    border-color: color-mix(in srgb, var(--okryshto-accent-primary) 30%, transparent);
-    background: color-mix(in srgb, var(--okryshto-accent-primary) 6%, var(--okryshto-bg-surface));
+    border-color: color-mix(in srgb, var(--okkly-accent-primary) 30%, transparent);
+    background: color-mix(in srgb, var(--okkly-accent-primary) 6%, var(--okkly-bg-surface));
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -74,7 +74,7 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: var(--okryshto-text-primary);
+  color: var(--okkly-text-primary);
   font-weight: 600;
   @include m.type(label-md);
 }
@@ -82,8 +82,8 @@
 .badge {
   padding: 0.0625rem 0.4375rem;
   border-radius: var(--profile-radius-sm);
-  background: var(--okryshto-bg-inset);
-  color: var(--okryshto-text-muted);
+  background: var(--okkly-bg-inset);
+  color: var(--okkly-text-muted);
   font-weight: 500;
   @include m.type(label-sm);
 }
@@ -91,7 +91,7 @@
 .categoryDescription {
   max-width: 46ch;
   margin: 0;
-  color: var(--okryshto-text-secondary);
+  color: var(--okkly-text-secondary);
   @include m.type(body-sm);
 }
 
@@ -108,11 +108,11 @@
 }
 
 .link {
-  color: var(--okryshto-text-muted);
+  color: var(--okkly-text-muted);
   text-decoration: underline;
   text-underline-offset: 0.25em;
 
   &:hover {
-    color: var(--okryshto-text-primary);
+    color: var(--okkly-text-primary);
   }
 }

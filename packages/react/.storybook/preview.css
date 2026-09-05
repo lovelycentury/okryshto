@@ -1,5 +1,5 @@
 /*
- * Storybook-only presentation. Nothing here ships in `@okryshto/design-system` —
+ * Storybook-only presentation. Nothing here ships in `@okkly/design-system` —
  * it exists so stories are read at a realistic size, not so components change.
  *
  * Text-entry controls size themselves with `width: fit-content` and a 200px
@@ -11,7 +11,7 @@
  * keep taking their width from their anchor rather than inheriting this floor.
  *
  * This file is deliberately unlayered. The design system puts its rules in
- * `@layer okryshto.component`, and unlayered styles outrank every layer, so these
+ * `@layer okkly.component`, and unlayered styles outrank every layer, so these
  * win without a specificity contest.
  */
 
@@ -20,13 +20,13 @@
  * preview box (absolute), not the iframe viewport (fixed). That way Docs
  * Primary stays edge-to-edge with no letterbox padding.
  */
-.okryshto-storybook-stage {
+.okkly-storybook-stage {
   position: relative;
   isolation: isolate;
   box-sizing: border-box;
   min-height: 100vh;
   overflow: hidden;
-  background: var(--okryshto-bg-canvas, #0a0a0b);
+  background: var(--okkly-bg-canvas, #0a0a0b);
 }
 
 /*
@@ -36,7 +36,7 @@
  * example grid) scrolls inside the frame instead of being sliced off flush
  * with the bottom edge.
  */
-.okryshto-storybook-stage--docs {
+.okkly-storybook-stage--docs {
   min-height: 0;
   width: 100%;
   height: auto;
@@ -45,13 +45,13 @@
   overflow-y: auto;
 }
 
-.okryshto-storybook-stage--brand-docs {
+.okkly-storybook-stage--brand-docs {
   min-height: 0;
   height: 100%;
   max-height: none;
 }
 
-.okryshto-storybook-bg {
+.okkly-storybook-bg {
   position: absolute;
   /* Overscan the scene so clipped edges hide the flat black falloff. */
   inset: -12%;
@@ -60,7 +60,7 @@
   overflow: hidden;
 }
 
-.okryshto-storybook-canvas {
+.okkly-storybook-canvas {
   position: relative;
   z-index: 1;
   box-sizing: border-box;
@@ -75,7 +75,7 @@
 }
 
 /* Docs Primary: generous inset, content pinned to the top-left. */
-.okryshto-storybook-stage--docs .okryshto-storybook-canvas {
+.okkly-storybook-stage--docs .okkly-storybook-canvas {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -85,19 +85,19 @@
 
 /*
  * Set on the blocks rather than on the canvas: `field.shell` declares
- * `--okryshto-<block>-min-width` on the block itself, and a declaration on the
+ * `--okkly-<block>-min-width` on the block itself, and a declaration on the
  * element always beats one inherited from an ancestor.
  */
-.okryshto-storybook-canvas .okryshto-text-field {
-  --okryshto-text-field-min-width: 17.5rem;
+.okkly-storybook-canvas .okkly-text-field {
+  --okkly-text-field-min-width: 17.5rem;
 }
 
-.okryshto-storybook-canvas .okryshto-select {
-  --okryshto-select-min-width: 17.5rem;
+.okkly-storybook-canvas .okkly-select {
+  --okkly-select-min-width: 17.5rem;
 }
 
-.okryshto-storybook-canvas .okryshto-autocomplete {
-  --okryshto-autocomplete-min-width: 17.5rem;
+.okkly-storybook-canvas .okkly-autocomplete {
+  --okkly-autocomplete-min-width: 17.5rem;
 }
 
 /*
@@ -105,13 +105,13 @@
  * variable to set, so they get the floor directly. `:not(--full-width)` leaves
  * a field that was asked to fill its container alone.
  */
-.okryshto-storybook-canvas
+.okkly-storybook-canvas
   :is(
-    .okryshto-text-area,
-    .okryshto-number-input,
-    .okryshto-date-field,
-    .okryshto-date-time-field,
-    .okryshto-time-field
+    .okkly-text-area,
+    .okkly-number-input,
+    .okkly-date-field,
+    .okkly-date-time-field,
+    .okkly-time-field
   ):not([class*="--full-width"]) {
   min-width: 17.5rem;
 }

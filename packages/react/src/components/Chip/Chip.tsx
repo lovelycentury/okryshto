@@ -7,7 +7,7 @@ import {
   type MouseEvent,
   type ReactNode,
 } from "react";
-import "@okryshto/design-system/components/Chip/Chip.scss";
+import "@okkly/design-system/components/Chip/Chip.scss";
 
 export type ChipVariant = "glass" | "solid" | "outline" | "accent" | "dante";
 export type ChipSize = "small" | "medium" | "large";
@@ -137,13 +137,13 @@ export const Chip = forwardRef<HTMLDivElement, ChipProps>(function Chip(
   const isInteractive = !!onClick && !disabled;
 
   const classes = [
-    "okryshto-component",
-    "okryshto-chip",
-    variant !== "glass" && `okryshto-chip--${variant}`,
-    size !== "medium" && `okryshto-chip--${size}`,
-    selected && "okryshto-chip--selected",
-    isInteractive && "okryshto-chip--interactive",
-    disabled && "okryshto-chip--disabled",
+    "okkly-component",
+    "okkly-chip",
+    variant !== "glass" && `okkly-chip--${variant}`,
+    size !== "medium" && `okkly-chip--${size}`,
+    selected && "okkly-chip--selected",
+    isInteractive && "okkly-chip--interactive",
+    disabled && "okkly-chip--disabled",
     className,
   ]
     .filter(Boolean)
@@ -181,17 +181,17 @@ export const Chip = forwardRef<HTMLDivElement, ChipProps>(function Chip(
       aria-disabled={disabled || undefined}
       {...rest}
     >
-      {!icon && dot && <span className="okryshto-chip__dot" aria-hidden="true" />}
+      {!icon && dot && <span className="okkly-chip__dot" aria-hidden="true" />}
       {icon && (
-        <span className="okryshto-chip__icon" aria-hidden="true">
+        <span className="okkly-chip__icon" aria-hidden="true">
           {icon}
         </span>
       )}
-      <span className="okryshto-chip__label okryshto-truncation-ellipsis">{label}</span>
+      <span className="okkly-chip__label okkly-truncation-ellipsis">{label}</span>
       {removable && (
         <button
           type="button"
-          className="okryshto-chip__remove"
+          className="okkly-chip__remove"
           onClick={handleRemove}
           disabled={disabled}
           aria-label={removeLabel}
