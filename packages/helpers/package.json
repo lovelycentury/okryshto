@@ -1,6 +1,6 @@
 {
   "name": "@okkly/helpers",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Okryshto design system — framework-agnostic utility helpers",
   "license": "MIT",
   "type": "module",

@@ -1,6 +1,6 @@
 {
   "name": "@okkly/design-system",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Okryshto design system — CSS tokens, fonts, and base component styles (SCSS/BEM)",
   "license": "MIT",
   "type": "module",
